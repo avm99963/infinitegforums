@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Infinite Scroll in Tailwind",
+  "version": "0.0.1",
+  "description": "Get infinite Scroll in Tailwind and the Community Console",
+  "icons": {
+    "512": "icons/512.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://support.google.com/s/community*"],
+      "js": ["console_inject.js"]
+    },
+    {
+      "matches": ["https://support.google.com/*/threads*"],
+      "js": ["tailwind_inject.js"]
+    }
+  ],
+  "permissions": [
+    "https://support.google.com/s/community*",
+    "https://support.google.com/*/threads*"
+  ]
+}
