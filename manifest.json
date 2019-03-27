@@ -1,10 +1,11 @@
 {
   "manifest_version": 2,
   "name": "Infinite Scroll in Tailwind",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Get infinite Scroll in Tailwind and the Community Console",
   "icons": {
-    "512": "icons/512.png"
+    "512": "icons/512.png",
+    "128": "icons/128.png"
   },
   "content_scripts": [
     {
