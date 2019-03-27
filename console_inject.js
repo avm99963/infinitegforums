@@ -2,7 +2,7 @@ function mutationCallback(mutationList, observer) {
   mutationList.forEach((mutation) => {
     if (mutation.type == "childList") {
       mutation.addedNodes.forEach(function (node) {
-		    if ((typeof node.classList !== "undefined") && node.classList.contains("view-more-button-container")) {
+        if ((typeof node.classList !== "undefined") && node.classList.contains("view-more-button-container")) {
           intersectionObserver.observe(node.querySelector(".view-more-button"));
         }
       });
