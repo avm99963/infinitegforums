@@ -1,12 +1,14 @@
+var mutationObserver, intersectionObserver, options;
+
 function mutationCallback(mutationList, observer) {
   mutationList.forEach((mutation) => {
     if (mutation.type == "childList") {
       mutation.addedNodes.forEach(function (node) {
-        if ((typeof node.classList !== "undefined") && node.classList.contains("view-more-button-container")) {
+        if (options.list && (typeof node.classList !== "undefined") && node.classList.contains("view-more-button-container")) {
           intersectionObserver.observe(node.querySelector(".view-more-button"));
         }
 
-        if ((typeof node.classList !== "undefined") && node.classList.contains("load-more-bar")) {
+        if (options.thread && (typeof node.classList !== "undefined") && node.classList.contains("load-more-bar")) {
           intersectionObserver.observe(node.querySelector(".load-more-button"));
         }     
       });
@@ -28,13 +30,17 @@ var observerOptions = {
   subtree: true
 }
 
-var mutationObserver = new MutationObserver(mutationCallback);
-mutationObserver.observe(document.querySelector(".scrollable-content"), observerOptions);
-
 var intersectionOptions = {
   root: document.querySelector('.scrollable-content'),
   rootMargin: '0px',
   threshold: 1.0
 }
 
-var intersectionObserver = new IntersectionObserver(intersectionCallback, intersectionOptions);
+chrome.storage.sync.get(null, function(items) {
+  options = items;
+
+  mutationObserver = new MutationObserver(mutationCallback);
+  mutationObserver.observe(document.querySelector(".scrollable-content"), observerOptions);
+
+  intersectionObserver = new IntersectionObserver(intersectionCallback, intersectionOptions);
+});

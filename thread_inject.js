@@ -13,8 +13,8 @@ var intersectionOptions = {
 }
 
 chrome.storage.sync.get(null, function(items) {
-  var button = document.querySelector(".thread-list-threads__load-more-button");
-  if (items.list && button !== null) {
+  var button = document.querySelector(".thread-all-replies__load-more-button");
+  if (items.thread && button !== null) {
     intersectionObserver = new IntersectionObserver(intersectionCallback, intersectionOptions);
     intersectionObserver.observe(button);
   }

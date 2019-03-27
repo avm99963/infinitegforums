@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Infinite Scroll in TW",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Get infinite Scroll in the Google Forums and the Community Console",
   "icons": {
     "512": "icons/512.png",
@@ -15,10 +15,26 @@
     {
       "matches": ["https://support.google.com/*/threads*"],
       "js": ["forum_inject.js"]
+    },
+    {
+      "matches": ["https://support.google.com/*/thread/*"],
+      "js": ["thread_inject.js"]
     }
   ],
   "permissions": [
     "https://support.google.com/s/community*",
-    "https://support.google.com/*/threads*"
-  ]
+    "https://support.google.com/*/threads*",
+    "https://support.google.com/*/thread/*",
+    "storage"
+  ],
+  "options_page": "options.html",
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true,
+    "open_in_tab": false
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  }
 }
