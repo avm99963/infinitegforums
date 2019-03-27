@@ -11,4 +11,4 @@ var intersectionOptions = {
 }
 
 var intersectionObserver = new IntersectionObserver(intersectionCallback, intersectionOptions);
-intersectionObserver.observe(document.querySelector(".thread-list-threads__load-more-button"));c
+intersectionObserver.observe(document.querySelector(".thread-list-threads__load-more-button"));
