@@ -5,6 +5,10 @@ function mutationCallback(mutationList, observer) {
         if ((typeof node.classList !== "undefined") && node.classList.contains("view-more-button-container")) {
           intersectionObserver.observe(node.querySelector(".view-more-button"));
         }
+
+        if ((typeof node.classList !== "undefined") && node.classList.contains("load-more-bar")) {
+          intersectionObserver.observe(node.querySelector(".load-more-button"));
+        }     
       });
     }
   });
