@@ -1,5 +1,4 @@
 function intersectionCallback(entries, observer) {
-  console.log(entries);
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.click();
@@ -12,4 +11,4 @@ var intersectionOptions = {
 }
 
 var intersectionObserver = new IntersectionObserver(intersectionCallback, intersectionOptions);
-intersectionObserver.observe(document.querySelector(".thread-list-threads__load-more-button"));
+intersectionObserver.observe(document.querySelector(".thread-list-threads__load-more-button"));c
