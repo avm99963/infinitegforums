@@ -43,4 +43,12 @@ chrome.storage.sync.get(null, function(items) {
   mutationObserver.observe(document.querySelector(".scrollable-content"), observerOptions);
 
   intersectionObserver = new IntersectionObserver(intersectionCallback, intersectionOptions);
+
+  if (options.fixedtoolbar) {
+    var link = document.createElement('link');
+    link.setAttribute("rel", "stylesheet");
+    link.setAttribute("href", "data:text/css;charset=UTF-8,ec-bulk-actions{position: sticky; top: 0; background: white; z-index: 99;}");
+  }
+
+  document.head.appendChild(link);
 });

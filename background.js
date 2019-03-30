@@ -2,10 +2,32 @@ function isEmpty(obj) {
   return Object.keys(obj).length === 0;
 }
 
-chrome.runtime.onInstalled.addListener(function(details) {
-  chrome.storage.sync.get(null, function(items) {
-    if (isEmpty(items)) {
-      chrome.storage.sync.set({"list": true, "thread": true});
+var defaultOptions = {
+  "list": true,
+  "thread": true,
+  "fixedtoolbar": false,
+  "redirect": false,
+  "history": false
+};
+
+function cleanUpOptions() {
+  chrome.storage.sync.get(null, function(options) {
+    var ok = true;
+    for (const [opt, value] of Object.entries(defaultOptions)) {
+      if (!opt in options) {
+        ok = false;
+        options[opt] = value;
+      }
+    }
+
+    if (!ok) {
+      chrome.storage.sync.set(options);
     }
   });
+}
+
+chrome.runtime.onInstalled.addListener(function(details) {
+  if (details == "install" || details == "update") {
+    cleanUpOptions();
+  }
 });
