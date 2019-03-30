@@ -62,7 +62,6 @@ chrome.storage.sync.get(null, function(items) {
     var link = document.createElement('link');
     link.setAttribute("rel", "stylesheet");
     link.setAttribute("href", "data:text/css;charset=UTF-8,ec-bulk-actions{position: sticky; top: 0; background: white; z-index: 99;}");
+    document.head.appendChild(link);
   }
-
-  document.head.appendChild(link);
 });
