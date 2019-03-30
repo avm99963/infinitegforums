@@ -18,7 +18,8 @@
     },
     {
       "matches": ["https://support.google.com/*/thread/*"],
-      "js": ["thread_inject.js"]
+      "js": ["thread_inject.js"],
+      "run_at": "document_end"
     }
   ],
   "permissions": [
