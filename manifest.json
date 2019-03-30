@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Infinite Scroll in TW",
+  "name": "__MSG_appName__",
   "version": "0.2.0",
-  "description": "Get infinite Scroll in the Google Forums and the Community Console",
+  "description": "__MSG_appDescription__",
   "icons": {
     "512": "icons/512.png",
     "128": "icons/128.png"
@@ -41,5 +41,6 @@
   "background": {
     "scripts": ["background.js"],
     "persistent": false
-  }
+  },
+  "default_locale": "en"
 }

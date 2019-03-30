@@ -1,0 +1,50 @@
+{
+  "appName": {
+    "message": "Infinite Scroll in TW",
+    "description": "The extension's name"
+  },
+  "appDescription": {
+    "message": "Get infinite Scroll and other enhancements in the Google Forums and the Community Console",
+    "description": "The extension's description"
+  },
+  "options_list": {
+    "message": "Enable infinite scrolling in thread lists.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_thread": {
+    "message": "Enable infinite scrolling inside threads.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_enhancements": {
+    "message": "Additional enhancements",
+    "description": "Heading for several options that can be enabled in the options page"
+  },
+  "options_fixedtoolbar": {
+    "message": "Fix the toolbar in thread lists in the Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_redirect": {
+    "message": "Redirect all threads opened in TW to the Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_experimental_label": {
+    "message": "(experimental)",
+    "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
+  },
+  "options_history": {
+    "message": "Show a \"previous posts\" link in user profiles.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_save": {
+    "message": "Save",
+    "description": "Button in the options page to save the settings"
+  },
+  "inject_links": {
+    "message": "Links",
+    "description": "Heading which we use before the 'previous post' link in a user profile in TW"
+  },
+  "inject_previousposts": {
+    "message": "Previous posts",
+    "description": "Link shown in a user profile (in TW and the Community Console) which points to a search showing the user's posts and messages"
+  }
+}

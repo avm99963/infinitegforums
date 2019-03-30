@@ -38,7 +38,18 @@ function save() {
   });
 }
 
+function i18n() {
+  var messages = ["list", "thread", "enhancements", "fixedtoolbar", "redirect", "experimental_label", "history", "save"];
+
+  messages.forEach(function(msg) {
+    console.log(msg);
+    document.querySelector("[data-i18n=\""+msg+"\"]").innerHTML = chrome.i18n.getMessage("options_"+msg);
+  });
+}
+
 window.addEventListener("load", function() {
+  i18n();
+
   chrome.storage.sync.get(null, function(items) {
     items = cleanUpOptions(items);
 

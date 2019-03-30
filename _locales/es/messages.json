@@ -1,0 +1,50 @@
+{
+  "appName": {
+    "message": "Scroll infinito en TW",
+    "description": "The extension's name"
+  },
+  "appDescription": {
+    "message": "Haz scroll infinito y obtén otras mejoras en los Foros de Google y la Consola de la Comunidad",
+    "description": "The extension's description"
+  },
+  "options_list": {
+    "message": "Activa el scroll infinito en las listas de hilos.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_thread": {
+    "message": "Activa el scroll infinito dentro de los hilos.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_enhancements": {
+    "message": "Mejoras adicionales",
+    "description": "Heading for several options that can be enabled in the options page"
+  },
+  "options_fixedtoolbar": {
+    "message": "Mantén visible la barra de herramientas de la lista de hilos en la Consola de la Comunidad.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_redirect": {
+    "message": "Redirige todos los hilos abiertos en TW a la Consola de la Comunidad.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_experimental_label": {
+    "message": "(experimental)",
+    "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
+  },
+  "options_history": {
+    "message": "Muestra un enlace \"historial de publicaciones\" en los perfiles de usuario.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_save": {
+    "message": "Guardar",
+    "description": "Button in the options page to save the settings"
+  },
+  "inject_links": {
+    "message": "Enlaces",
+    "description": "Heading which we use before the 'previous post' link in a user profile in TW"
+  },
+  "inject_previousposts": {
+    "message": "Historial de publicaciones",
+    "description": "Link shown in a user profile (in TW and the Community Console) which points to a search showing the user's posts and messages"
+  }
+}

@@ -19,7 +19,7 @@ function mutationCallback(mutationList, observer) {
               var name = encodeURIComponent(nameElement.innerText);
               var link = document.createElement("a");
               link.setAttribute("href", "https://support.google.com/s/community/search/query%3D%2528creator%253A%2522"+name+"%2522%2B%257C%2Breplier%253A%2522"+name+"%2522%2529%2B-forum%253A0");
-              link.innerText = "Previous posts";
+              link.innerText = chrome.i18n.getMessage("inject_previousposts");
               node.querySelector(".main-card").appendChild(document.createElement("br"));
               node.querySelector(".main-card").appendChild(link);
             }

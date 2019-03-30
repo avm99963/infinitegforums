@@ -1,0 +1,50 @@
+{
+  "appName": {
+    "message": "Scroll infinit a TW",
+    "description": "The extension's name"
+  },
+  "appDescription": {
+    "message": "Fes scroll infinit i obtén altres millores als Fòrums de Google i la Consola de la Comunitat",
+    "description": "The extension's description"
+  },
+  "options_list": {
+    "message": "Activa el scroll infinit a les llistes de fils.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_thread": {
+    "message": "Activa el scroll infinit dins dels fils.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_enhancements": {
+    "message": "Millores addicionals",
+    "description": "Heading for several options that can be enabled in the options page"
+  },
+  "options_fixedtoolbar": {
+    "message": "Mantén visible la barra d'eines de la llista de fils a la Consola de la Comunitat.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_redirect": {
+    "message": "Redirigeix tots els fils oberts a TW a la Consola de la Comunitat.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_experimental_label": {
+    "message": "(experimental)",
+    "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
+  },
+  "options_history": {
+    "message": "Mostra un enllaç \"historial de publicacions\" als perfils d'usuari.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_save": {
+    "message": "Desa",
+    "description": "Button in the options page to save the settings"
+  },
+  "inject_links": {
+    "message": "Enllaços",
+    "description": "Heading which we use before the 'previous post' link in a user profile in TW"
+  },
+  "inject_previousposts": {
+    "message": "Historial de publicacions",
+    "description": "Link shown in a user profile (in TW and the Community Console) which points to a search showing the user's posts and messages"
+  }
+}
