@@ -12,13 +12,16 @@ var defaultOptions = {
 
 function cleanUpOptions() {
   chrome.storage.sync.get(null, function(options) {
+    console.log("[cleanUpOptions] Previous options", options);
     var ok = true;
     for (const [opt, value] of Object.entries(defaultOptions)) {
-      if (!opt in options) {
+      if (!(opt in options)) {
         ok = false;
         options[opt] = value;
       }
     }
+
+    console.log("[cleanUpOptions] New options", options);
 
     if (!ok) {
       chrome.storage.sync.set(options);
@@ -27,7 +30,7 @@ function cleanUpOptions() {
 }
 
 chrome.runtime.onInstalled.addListener(function(details) {
-  if (details == "install" || details == "update") {
+  if (details.reason == "install" || details.reason == "update") {
     cleanUpOptions();
   }
 });
