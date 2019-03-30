@@ -22,6 +22,8 @@ function cleanUpOptions(options) {
   if (!ok) {
     chrome.storage.sync.set(options);
   }
+
+  return options;
 }
 
 function save() {
@@ -38,7 +40,7 @@ function save() {
 
 window.addEventListener("load", function() {
   chrome.storage.sync.get(null, function(items) {
-    cleanUpOptions(items);
+    items = cleanUpOptions(items);
 
     Object.keys(defaultOptions).forEach(function(opt) {
       if (items[opt] === true) {
