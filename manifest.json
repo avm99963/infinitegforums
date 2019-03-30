@@ -20,6 +20,10 @@
       "matches": ["https://support.google.com/*/thread/*"],
       "js": ["thread_inject.js"],
       "run_at": "document_end"
+    },
+    {
+      "matches": ["https://support.google.com/*/profile/*"],
+      "js": ["profile_inject.js"]
     }
   ],
   "permissions": [

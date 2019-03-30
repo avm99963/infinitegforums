@@ -4,13 +4,27 @@ function mutationCallback(mutationList, observer) {
   mutationList.forEach((mutation) => {
     if (mutation.type == "childList") {
       mutation.addedNodes.forEach(function (node) {
-        if (options.list && (typeof node.classList !== "undefined") && node.classList.contains("view-more-button-container")) {
-          intersectionObserver.observe(node.querySelector(".view-more-button"));
-        }
+        if (typeof node.classList !== "undefined") {
+          if (options.list && node.classList.contains("view-more-button-container")) {
+            intersectionObserver.observe(node.querySelector(".view-more-button"));
+          }
 
-        if (options.thread && (typeof node.classList !== "undefined") && node.classList.contains("load-more-bar")) {
-          intersectionObserver.observe(node.querySelector(".load-more-button"));
-        }     
+          if (options.thread && node.classList.contains("load-more-bar")) {
+            intersectionObserver.observe(node.querySelector(".load-more-button"));
+          }
+
+          if (options.history && ("parentNode" in node) && node.parentNode !== null && ("tagName" in node.parentNode) && node.parentNode.tagName == "EC-USER") {
+            var nameElement = node.querySelector(".name span");
+            if (nameElement !== null) {
+              var name = encodeURIComponent(nameElement.innerText);
+              var link = document.createElement("a");
+              link.setAttribute("href", "https://support.google.com/s/community/search/query%3D%2528creator%253A%2522"+name+"%2522%2B%257C%2Breplier%253A%2522"+name+"%2522%2529%2B-forum%253A0");
+              link.innerText = "Previous posts";
+              node.querySelector(".main-card").appendChild(document.createElement("br"));
+              node.querySelector(".main-card").appendChild(link);
+            }
+          }
+        }
       });
     }
   });
