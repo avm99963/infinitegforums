@@ -22,5 +22,10 @@ chrome.storage.sync.get(null, function(items) {
       intersectionObserver = new IntersectionObserver(intersectionCallback, intersectionOptions);
       intersectionObserver.observe(button);
     }
+    var allbutton = document.querySelector(".thread-all-replies__load-all-button");
+    if (items.threadall && button !== null) {
+      intersectionObserver = new IntersectionObserver(intersectionCallback, intersectionOptions);
+      intersectionObserver.observe(allbutton);
+    }
   }
 });

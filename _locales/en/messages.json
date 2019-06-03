@@ -12,7 +12,11 @@
     "description": "Feature checkbox in the options page"
   },
   "options_thread": {
-    "message": "Enable infinite scrolling inside threads.",
+    "message": "Automatically load batches of messages inside threads when scrolling down.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_threadall": {
+    "message": "Automatically load all messages at once inside threads when scrolling down.",
     "description": "Feature checkbox in the options page"
   },
   "options_enhancements": {
@@ -25,6 +29,10 @@
   },
   "options_redirect": {
     "message": "Redirect all threads opened in TW to the Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_loaddrafts":{
+    "message": "Activate the <code class=\"help\" title=\"This flag allows the Community Console to load a previously autosaved reply when loading a thread and clicking the reply button.\">enableLoadingDraftMessages</code> Community Console flag.",
     "description": "Feature checkbox in the options page"
   },
   "options_experimental_label": {

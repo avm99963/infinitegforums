@@ -12,7 +12,11 @@
     "description": "Feature checkbox in the options page"
   },
   "options_thread": {
-    "message": "Activa el scroll infinito dentro de los hilos.",
+    "message": "Carga automáticamente mensajes en grupos pequeños cuando hagas scroll por un hilo.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_threadall": {
+    "message": "Carga automáticamente todos los mensajes a la vez cuando hagas scroll por un hilo.",
     "description": "Feature checkbox in the options page"
   },
   "options_enhancements": {
@@ -25,6 +29,10 @@
   },
   "options_redirect": {
     "message": "Redirige todos los hilos abiertos en TW a la Consola de la Comunidad.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_loaddrafts":{
+    "message": "Activa la <i>flag></i> <code class=\"help\" title=\"Esta flag permite a la Consola de la Comunidad cargar una respuesta previamente autoguardada cuando abres un hilo y haces clic en el botón de responder.\">enableLoadingDraftMessages</code> de la Consola de la Comunidad.",
     "description": "Feature checkbox in the options page"
   },
   "options_experimental_label": {

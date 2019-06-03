@@ -13,6 +13,11 @@
       "js": ["console_inject.js"]
     },
     {
+      "matches": ["https://support.google.com/s/community*"],
+      "js": ["console_inject_start.js"],
+      "run_at": "document_start"
+    },
+    {
       "matches": ["https://support.google.com/*/threads*"],
       "js": ["forum_inject.js"]
     },

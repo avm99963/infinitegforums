@@ -5,9 +5,11 @@ function isEmpty(obj) {
 var defaultOptions = {
   "list": true,
   "thread": true,
+  "threadall": false,
   "fixedtoolbar": false,
   "redirect": false,
-  "history": false
+  "history": false,
+  "loaddrafts": false
 };
 
 function cleanUpOptions(options) {
@@ -39,12 +41,17 @@ function save() {
 }
 
 function i18n() {
-  var messages = ["list", "thread", "enhancements", "fixedtoolbar", "redirect", "experimental_label", "history", "save"];
+  var messages = ["list", "thread", "threadall", "enhancements", "fixedtoolbar", "redirect", "loaddrafts", "experimental_label", "history", "save"];
 
   messages.forEach(function(msg) {
-    console.log(msg);
-    document.querySelector("[data-i18n=\""+msg+"\"]").innerHTML = chrome.i18n.getMessage("options_"+msg);
+    document.querySelectorAll("[data-i18n=\""+msg+"\"]").forEach(el => el.innerHTML = chrome.i18n.getMessage("options_"+msg));
   });
+}
+
+function thread() {
+  if (document.querySelector("#thread").checked && document.querySelector("#threadall").checked) {
+    document.querySelector("#"+(this.id == "thread" ? "threadall" : "thread")).checked = false;
+  }
 }
 
 window.addEventListener("load", function() {
@@ -59,6 +66,7 @@ window.addEventListener("load", function() {
       }
     });
 
+    ["thread", "threadall"].forEach(el => document.querySelector("#"+el).addEventListener("change", thread));
     document.querySelector("#save").addEventListener("click", save);
   });
 });

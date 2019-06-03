@@ -13,6 +13,10 @@ function mutationCallback(mutationList, observer) {
             intersectionObserver.observe(node.querySelector(".load-more-button"));
           }
 
+          if (options.threadall && node.classList.contains("load-more-bar")) {
+            intersectionObserver.observe(node.querySelector(".load-all-button"));
+          }
+
           if (options.history && ("parentNode" in node) && node.parentNode !== null && ("tagName" in node.parentNode) && node.parentNode.tagName == "EC-USER") {
             var nameElement = node.querySelector(".name span");
             if (nameElement !== null) {

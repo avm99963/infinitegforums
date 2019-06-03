@@ -12,7 +12,11 @@
     "description": "Feature checkbox in the options page"
   },
   "options_thread": {
-    "message": "Activa el scroll infinit dins dels fils.",
+    "message": "Carrega automàticament missatges en grups petits quan facis scroll per un fil.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_threadall": {
+    "message": "Carrega automàticament tots els missatges de cop quan facis scroll per un fil.",
     "description": "Feature checkbox in the options page"
   },
   "options_enhancements": {
@@ -25,6 +29,10 @@
   },
   "options_redirect": {
     "message": "Redirigeix tots els fils oberts a TW a la Consola de la Comunitat.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_loaddrafts": {
+    "message": "Activa la <i>flag><\/i> <code class=\"help\" title=\"Aquesta flag permet a la Consola de la Comunitat carregar una resposta automàticament desada anteriorment quan obres un fil i fas clic al botó de respondre.\">enableLoadingDraftMessages<\/code> de la Consola de la Comunitat.",
     "description": "Feature checkbox in the options page"
   },
   "options_experimental_label": {

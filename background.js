@@ -5,9 +5,11 @@ function isEmpty(obj) {
 var defaultOptions = {
   "list": true,
   "thread": true,
+  "threadall": false,
   "fixedtoolbar": false,
   "redirect": false,
-  "history": false
+  "history": false,
+  "loaddrafts": false
 };
 
 function cleanUpOptions() {
