@@ -67,13 +67,11 @@ function mutationCallback(mutationList, observer) {
                 if (duplicateinto === false) {
                   return;
                 }
-                console.log(duplicateinto);
                 modal.querySelector("footer").style.display = "none";
                 var checkboxes = document.querySelectorAll(".thread-group material-checkbox[aria-checked=\"true\"]");
                 modal.querySelector("main").innerHTML = '<p style="text-align: center;">'+chrome.i18n.getMessage("inject_duplicate_progress")+':<br><progress id="infinitegforums_progress" max="'+checkboxes.length+'" value="0"></progress></p>';
                 checkboxes.forEach(checkbox => {
                   var thread = parseUrl(checkbox.parentNode.parentNode.querySelector("a.header-content").href);
-                  console.log(thread);
                   var script = document.createElement('script');
                   script.textContent = 'fetch("https://support.google.com/s/community/api/MarkDuplicateThread", {"credentials":"include","headers":{"content-type":"text/plain; charset=utf-8"},"body":\'{\"1\":\"'+thread.forum+'\",\"2\":\"'+thread.thread+'\",\"3\":{\"2\":{\"1\":\"'+duplicateinto.forum+'\",\"2\":\"'+duplicateinto.thread+'\"}}}\',"method":"POST","mode":"cors"}).then(_ => { var progress = document.querySelector("#infinitegforums_progress"); progress.value = parseInt(progress.value) + 1; if (progress.value == progress.getAttribute("max")) { location.reload(); } });';
                   document.head.appendChild(script);
