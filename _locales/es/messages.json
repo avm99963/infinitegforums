@@ -43,6 +43,10 @@
     "message": "Muestra un enlace \"historial de publicaciones\" en los perfiles de usuario.",
     "description": "Feature checkbox in the options page"
   },
+  "options_batchduplicate": {
+    "message": "Añade la opción para duplicar varios hilos a la vez en la lista de hilos de la Consola de la Comunidad.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Guardar",
     "description": "Button in the options page to save the settings"
@@ -54,5 +58,29 @@
   "inject_previousposts": {
     "message": "Historial de publicaciones",
     "description": "Link shown in a user profile (in TW and the Community Console) which points to a search showing the user's posts and messages"
+  },
+  "inject_duplicatebtn": {
+    "message": "Duplicar hilos",
+    "description": "Tooltip of the 'duplicate treads' icon shown when selecting multiple threads in the Community Console."
+  },
+  "inject_duplicateinto": {
+    "message": "Duplicar a:",
+    "description": "Label for the text field in which the user has to enter the thread they want to duplicate into."
+  },
+  "inject_duplicateinto_placeholder": {
+    "message": "Introduce la URL de la Consola de la Comunidad",
+    "description": "Placeholder for the URL field."
+  },
+  "inject_duplicate_cancel": {
+    "message": "Cancelar",
+    "description": "Button to cancel the duplication process."
+  },
+  "inject_duplicate_confirm": {
+    "message": "Duplicar",
+    "description": "Button to duplicate all the threads."
+  },
+  "inject_duplicate_progress": {
+    "message": "Progreso",
+    "description": "Title for a progress bar which indicates how many threads were duplicated."
   }
 }

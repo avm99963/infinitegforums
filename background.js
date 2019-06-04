@@ -9,7 +9,8 @@ var defaultOptions = {
   "fixedtoolbar": false,
   "redirect": false,
   "history": false,
-  "loaddrafts": false
+  "loaddrafts": false,
+  "batchduplicate": false
 };
 
 function cleanUpOptions() {

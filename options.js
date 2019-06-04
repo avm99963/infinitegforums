@@ -9,7 +9,8 @@ var defaultOptions = {
   "fixedtoolbar": false,
   "redirect": false,
   "history": false,
-  "loaddrafts": false
+  "loaddrafts": false,
+  "batchduplicate": false
 };
 
 function cleanUpOptions(options) {
@@ -41,7 +42,7 @@ function save() {
 }
 
 function i18n() {
-  var messages = ["list", "thread", "threadall", "enhancements", "fixedtoolbar", "redirect", "loaddrafts", "experimental_label", "history", "save"];
+  var messages = ["list", "thread", "threadall", "enhancements", "fixedtoolbar", "redirect", "loaddrafts", "experimental_label", "history", "batchduplicate", "save"];
 
   messages.forEach(function(msg) {
     document.querySelectorAll("[data-i18n=\""+msg+"\"]").forEach(el => el.innerHTML = chrome.i18n.getMessage("options_"+msg));
