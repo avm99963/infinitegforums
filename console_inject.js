@@ -52,9 +52,11 @@ function mutationCallback(mutationList, observer) {
           if (options.history && ("parentNode" in node) && node.parentNode !== null && ("tagName" in node.parentNode) && node.parentNode.tagName == "EC-USER") {
             var nameElement = node.querySelector(".name span");
             if (nameElement !== null) {
-              var name = encodeURIComponent(nameElement.innerText);
+              var name = nameElement.innerText;
+              var query = encodeURIComponent("(creator:\""+name+"\" | replier:\""+name+"\") -forum:0");
+              var urlpart = encodeURIComponent("query="+query);
               var link = document.createElement("a");
-              link.setAttribute("href", "https://support.google.com/s/community/search/query%3D%2528creator%253A%2522"+name+"%2522%2B%257C%2Breplier%253A%2522"+name+"%2522%2529%2B-forum%253A0");
+              link.setAttribute("href", "https://support.google.com/s/community/search/"+urlpart);
               link.innerText = chrome.i18n.getMessage("inject_previousposts");
               node.querySelector(".main-card").appendChild(document.createElement("br"));
               node.querySelector(".main-card").appendChild(link);

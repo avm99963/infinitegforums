@@ -3,6 +3,10 @@
     "message": "Scroll infinit a TW",
     "description": "The extension's name"
   },
+  "appNameBeta": {
+    "message": "Scroll infinit a TW (beta)",
+    "description": "The extension's name for the beta version"
+  },
   "appDescription": {
     "message": "Fes scroll infinit i obtén altres millores als Fòrums de Google i la Consola de la Comunitat",
     "description": "The extension's description"

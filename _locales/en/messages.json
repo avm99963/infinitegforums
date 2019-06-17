@@ -3,6 +3,10 @@
     "message": "Infinite Scroll in TW",
     "description": "The extension's name"
   },
+  "appNameBeta": {
+    "message": "Infinite Scroll in TW (beta)",
+    "description": "The extension's name for the beta version"
+  },
   "appDescription": {
     "message": "Get infinite Scroll and other enhancements in the Google Forums and the Community Console",
     "description": "The extension's description"
