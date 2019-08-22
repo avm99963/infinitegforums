@@ -10,7 +10,8 @@ var defaultOptions = {
   "redirect": false,
   "history": false,
   "loaddrafts": false,
-  "batchduplicate": false
+  "batchduplicate": false,
+  "escalatethreads": false
 };
 
 function cleanUpOptions(options) {
@@ -42,11 +43,7 @@ function save() {
 }
 
 function i18n() {
-  var messages = ["list", "thread", "threadall", "enhancements", "fixedtoolbar", "redirect", "loaddrafts", "experimental_label", "history", "batchduplicate", "save"];
-
-  messages.forEach(function(msg) {
-    document.querySelectorAll("[data-i18n=\""+msg+"\"]").forEach(el => el.innerHTML = chrome.i18n.getMessage("options_"+msg));
-  });
+  document.querySelectorAll("[data-i18n]").forEach(el => el.innerHTML = chrome.i18n.getMessage("options_"+el.getAttribute("data-i18n")));
 }
 
 function thread() {

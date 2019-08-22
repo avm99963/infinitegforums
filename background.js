@@ -10,7 +10,8 @@ var defaultOptions = {
   "redirect": false,
   "history": false,
   "loaddrafts": false,
-  "batchduplicate": false
+  "batchduplicate": false,
+  "escalatethreads": false
 };
 
 function cleanUpOptions() {

@@ -51,6 +51,10 @@
     "message": "Afegeix l'opció per duplicar diversos fils alhora a la llista de fils de la Consola de la Comunitat.",
     "description": "Feature checkbox in the options page"
   },
+  "options_escalatethreads":{
+    "message": "Activa la <i>flag></i> <code class=\"help\" title=\"Aquesta flag activa la funcionalitat d'escalar fils del fòrum públic als privats a la Consola de la Comunitat.\">enableEscalateThread</code> de la Consola de la Comunitat.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Desa",
     "description": "Button in the options page to save the settings"

@@ -51,6 +51,10 @@
     "message": "Add the option to duplicate multiple threads at the same time from the Community Console thread list.",
     "description": "Feature checkbox in the options page"
   },
+  "options_escalatethreads":{
+    "message": "Enables the <code class=\"help\" title=\"This flag activates the functionality which allows a PE to escalate threads from the public forums to the private ones in the Community Console.\">enableEscalateThread</code> Community Console flag.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Save",
     "description": "Button in the options page to save the settings"

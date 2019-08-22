@@ -51,6 +51,10 @@
     "message": "Añade la opción para duplicar varios hilos a la vez en la lista de hilos de la Consola de la Comunidad.",
     "description": "Feature checkbox in the options page"
   },
+  "options_escalatethreads":{
+    "message": "Activa la <i>flag></i> <code class=\"help\" title=\"Esta flag activa la funcionalidad de escalar hilos del foro público a los privados en la Consola de la Comunidad.\">enableEscalateThread</code> de la Consola de la Comunidad.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Guardar",
     "description": "Button in the options page to save the settings"
