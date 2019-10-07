@@ -90,11 +90,6 @@ function mutationCallback(mutationList, observer) {
               modal.querySelector("#infinitegforums_duplicate").addEventListener("click", duplicateThreads);
             });
           }
-
-          if (options.escalatethreads && ("tagName" in node) && node.tagName == "A" && node.getAttribute("href") !== null && /^\/forum\/[0-9]+\/thread\/[0-9]+$/i.test(node.getAttribute("href"))) {
-            var escalation = parseUrl(node.getAttribute("href"));
-            node.setAttribute("href", "/s/community/forum/"+escalation.forum+"/thread/"+escalation.thread);
-          }
         }
       });
     }
