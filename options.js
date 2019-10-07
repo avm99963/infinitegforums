@@ -11,7 +11,8 @@ var defaultOptions = {
   "history": false,
   "loaddrafts": false,
   "batchduplicate": false,
-  "escalatethreads": false
+  "escalatethreads": false,
+  "movethreads": false
 };
 
 function cleanUpOptions(options) {

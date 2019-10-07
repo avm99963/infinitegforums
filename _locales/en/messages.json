@@ -55,6 +55,10 @@
     "message": "Enables the <code class=\"help\" title=\"This flag activates the functionality which allows a PE to escalate threads from the public forums to the private ones in the Community Console.\">enableEscalateThread</code> Community Console flag.",
     "description": "Feature checkbox in the options page"
   },
+  "options_movethreads":{
+    "message": "Enables the <code class=\"help\" title=\"This flag activates the functionality which allows a PE to move threads from a forum where they are currently a PE to another forum in the Community Console.\">enableMoveThread</code> Community Console flag.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Save",
     "description": "Button in the options page to save the settings"

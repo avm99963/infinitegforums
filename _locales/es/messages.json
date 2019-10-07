@@ -36,7 +36,7 @@
     "description": "Feature checkbox in the options page"
   },
   "options_loaddrafts":{
-    "message": "Activa la <i>flag></i> <code class=\"help\" title=\"Esta flag permite a la Consola de la Comunidad cargar una respuesta previamente autoguardada cuando abres un hilo y haces clic en el botón de responder.\">enableLoadingDraftMessages</code> de la Consola de la Comunidad.",
+    "message": "Activa la <i>flag</i> <code class=\"help\" title=\"Esta flag permite a la Consola de la Comunidad cargar una respuesta previamente autoguardada cuando abres un hilo y haces clic en el botón de responder.\">enableLoadingDraftMessages</code> de la Consola de la Comunidad.",
     "description": "Feature checkbox in the options page"
   },
   "options_experimental_label": {
@@ -52,7 +52,11 @@
     "description": "Feature checkbox in the options page"
   },
   "options_escalatethreads":{
-    "message": "Activa la <i>flag></i> <code class=\"help\" title=\"Esta flag activa la funcionalidad de escalar hilos del foro público a los privados en la Consola de la Comunidad.\">enableEscalateThread</code> de la Consola de la Comunidad.",
+    "message": "Activa la <i>flag</i> <code class=\"help\" title=\"Esta flag activa la funcionalidad de escalar hilos del foro público a los privados en la Consola de la Comunidad.\">enableEscalateThread</code> de la Consola de la Comunidad.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_movethreads":{
+    "message": "Activa la <i>flag</i> <code class=\"help\" title=\"Esta flag activa la funcionalidad de mover hilos de un foro donde seas un EP a otro foro en la Consola de la Comunidad.\">enableMoveThread</code> de la Consola de la Comunidad.",
     "description": "Feature checkbox in the options page"
   },
   "options_save": {

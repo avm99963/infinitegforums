@@ -36,7 +36,7 @@
     "description": "Feature checkbox in the options page"
   },
   "options_loaddrafts": {
-    "message": "Activa la <i>flag><\/i> <code class=\"help\" title=\"Aquesta flag permet a la Consola de la Comunitat carregar una resposta automàticament desada anteriorment quan obres un fil i fas clic al botó de respondre.\">enableLoadingDraftMessages<\/code> de la Consola de la Comunitat.",
+    "message": "Activa la <i>flag<\/i> <code class=\"help\" title=\"Aquesta flag permet a la Consola de la Comunitat carregar una resposta automàticament desada anteriorment quan obres un fil i fas clic al botó de respondre.\">enableLoadingDraftMessages<\/code> de la Consola de la Comunitat.",
     "description": "Feature checkbox in the options page"
   },
   "options_experimental_label": {
@@ -52,7 +52,11 @@
     "description": "Feature checkbox in the options page"
   },
   "options_escalatethreads":{
-    "message": "Activa la <i>flag></i> <code class=\"help\" title=\"Aquesta flag activa la funcionalitat d'escalar fils del fòrum públic als privats a la Consola de la Comunitat.\">enableEscalateThread</code> de la Consola de la Comunitat.",
+    "message": "Activa la <i>flag</i> <code class=\"help\" title=\"Aquesta flag activa la funcionalitat d'escalar fils del fòrum públic als privats a la Consola de la Comunitat.\">enableEscalateThread</code> de la Consola de la Comunitat.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_movethreads":{
+    "message": "Activa la <i>flag</i> <code class=\"help\" title=\"Aquesta flag activa la funcionalitat de moure fils d'un fòrum on ets un EP a un altre fòrum a la Consola de la Comunitat.\">enableMoveThread</code> de la Consola de la Comunitat.",
     "description": "Feature checkbox in the options page"
   },
   "options_save": {
