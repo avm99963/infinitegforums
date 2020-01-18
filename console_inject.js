@@ -14,6 +14,15 @@ function parseUrl(url) {
   };
 }
 
+function recursiveParentElement(el, tag) {
+  while (el !== document.documentElement) {
+    el = el.parentNode;
+    if (el.tagName == tag) return el;
+  }
+
+  return undefined;
+}
+
 function duplicateThreads() {
   var modal = document.querySelector(".pane[pane-id=\"default-1\"]");
   var duplicateinto = parseUrl(modal.querySelector("#infinitegforums_duplicateinto").value);
@@ -24,7 +33,7 @@ function duplicateThreads() {
   var checkboxes = document.querySelectorAll(".thread-group material-checkbox[aria-checked=\"true\"]");
   modal.querySelector("main").innerHTML = '<p style="text-align: center;">'+chrome.i18n.getMessage("inject_duplicate_progress")+':<br><progress id="infinitegforums_progress" max="'+checkboxes.length+'" value="0"></progress></p>';
   checkboxes.forEach(checkbox => {
-    var thread = parseUrl(checkbox.parentNode.parentNode.querySelector("a.header-content").href);
+    var thread = parseUrl(recursiveParentElement(checkbox, "A").href);
     var script = document.createElement('script');
     script.textContent = 'fetch("https://support.google.com/s/community/api/MarkDuplicateThread", {"credentials":"include","headers":{"content-type":"text/plain; charset=utf-8"},"body":\'{\"1\":\"'+thread.forum+'\",\"2\":\"'+thread.thread+'\",\"3\":{\"2\":{\"1\":\"'+duplicateinto.forum+'\",\"2\":\"'+duplicateinto.thread+'\"}}}\',"method":"POST","mode":"cors"}).then(_ => { var progress = document.querySelector("#infinitegforums_progress"); progress.value = parseInt(progress.value) + 1; if (progress.value == progress.getAttribute("max")) { location.reload(); } });';
     document.head.appendChild(script);
@@ -58,8 +67,8 @@ function mutationCallback(mutationList, observer) {
               var link = document.createElement("a");
               link.setAttribute("href", "https://support.google.com/s/community/search/"+urlpart);
               link.innerText = chrome.i18n.getMessage("inject_previousposts");
-              node.querySelector(".main-card").appendChild(document.createElement("br"));
-              node.querySelector(".main-card").appendChild(link);
+              node.querySelector(".main-card-content").appendChild(document.createElement("br"));
+              node.querySelector(".main-card-content").appendChild(link);
             }
           }
 
