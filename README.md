@@ -5,4 +5,3 @@
 To create a zip file with the contents of the extension, which can be uploaded to the Chrome Web Store, run `bash release.bash`. You can also use `bash release.bash --channel=beta` to include a beta label in the extension name and version of the resulting zip file.
 
 The zip file will be located in the `out` folder.
-
