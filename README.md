@@ -6,3 +6,6 @@ To create a zip file with the contents of the extension, which can be uploaded t
 
 The zip file will be located in the `out` folder.
 
+## Testing notes
+
+To test translations, you might want to set your browser's locale. This section tells you how to set the locale in [Windows](https://developer.chrome.com/extensions/i18n#testing-win), [Mac OS X](https://developer.chrome.com/extensions/i18n#testing-mac), [Linux](https://developer.chrome.com/extensions/i18n#testing-linux), and [Chrome OS](https://developer.chrome.com/extensions/i18n#testing-chromeos).
