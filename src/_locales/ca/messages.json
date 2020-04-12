@@ -59,6 +59,10 @@
     "message": "Activa la <i>flag</i> <code class=\"help\" title=\"Aquesta flag activa la funcionalitat de moure fils d'un fòrum on ets un EP a un altre fòrum a la Consola de la Comunitat.\">enableMoveThread</code> de la Consola de la Comunitat.",
     "description": "Feature checkbox in the options page"
   },
+  "options_increasecontrast":{
+    "message": "Incrementa el contrast entre els fils llegits i no llegits a la Consola de la Comunitat.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Desa",
     "description": "Button in the options page to save the settings"

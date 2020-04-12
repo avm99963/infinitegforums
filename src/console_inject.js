@@ -109,6 +109,13 @@ function intersectionCallback(entries, observer) {
   });
 };
 
+function injectStyles(css) {
+  var link = document.createElement('link');
+  link.setAttribute("rel", "stylesheet");
+  link.setAttribute("href", "data:text/css;charset=UTF-8,"+encodeURIComponent(css));
+  document.head.appendChild(link);
+}
+
 var observerOptions = {
   childList: true,
   attributes: true,
@@ -130,9 +137,10 @@ chrome.storage.sync.get(null, function(items) {
   intersectionObserver = new IntersectionObserver(intersectionCallback, intersectionOptions);
 
   if (options.fixedtoolbar) {
-    var link = document.createElement('link');
-    link.setAttribute("rel", "stylesheet");
-    link.setAttribute("href", "data:text/css;charset=UTF-8,ec-bulk-actions{position: sticky; top: 0; background: white; z-index: 96;}");
-    document.head.appendChild(link);
+    injectStyles("ec-bulk-actions{position: sticky; top: 0; background: white; z-index: 96;}");
+  }
+
+  if (options.increasecontrast) {
+    injectStyles(".thread-summary.read{background: #ecedee!important;}");
   }
 });

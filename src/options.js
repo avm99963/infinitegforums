@@ -12,7 +12,8 @@ const defaultOptions = {
   "loaddrafts": false,
   "batchduplicate": false,
   "escalatethreads": false,
-  "movethreads": false
+  "movethreads": false,
+  "increasecontrast": false
 };
 
 const deprecatedOptions = [

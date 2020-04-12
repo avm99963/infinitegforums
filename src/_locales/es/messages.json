@@ -59,6 +59,10 @@
     "message": "Activa la <i>flag</i> <code class=\"help\" title=\"Esta flag activa la funcionalidad de mover hilos de un foro donde seas un EP a otro foro en la Consola de la Comunidad.\">enableMoveThread</code> de la Consola de la Comunidad.",
     "description": "Feature checkbox in the options page"
   },
+  "options_increasecontrast":{
+    "message": "Incrementa el contraste entre los hilos leídos y no leídos en la Consola de la Comunidad.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Guardar",
     "description": "Button in the options page to save the settings"
