@@ -13,7 +13,7 @@ var intersectionOptions = {
 }
 
 chrome.storage.sync.get(null, function(items) {
-  var redirectLink = document.querySelector(".thread-question__open-in-community-console-button");
+  var redirectLink = document.querySelector(".community-console");
   if (items.redirect && redirectLink !== null) {
     window.location = redirectLink.href;
   } else {

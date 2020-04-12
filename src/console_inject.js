@@ -46,10 +46,6 @@ function mutationCallback(mutationList, observer) {
     if (mutation.type == "childList") {
       mutation.addedNodes.forEach(function (node) {
         if (typeof node.classList !== "undefined") {
-          if (options.list && node.classList.contains("view-more-button-container")) {
-            intersectionObserver.observe(node.querySelector(".view-more-button"));
-          }
-
           if (options.thread && node.classList.contains("load-more-bar")) {
             intersectionObserver.observe(node.querySelector(".load-more-button"));
           }
@@ -105,7 +101,7 @@ function mutationCallback(mutationList, observer) {
   });
 }
 
-function intersectionCallback(entries, observer) { 
+function intersectionCallback(entries, observer) {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.click();

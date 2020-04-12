@@ -2,7 +2,7 @@ function isEmpty(obj) {
   return Object.keys(obj).length === 0;
 }
 
-var defaultOptions = {
+const defaultOptions = {
   "list": true,
   "thread": true,
   "threadall": false,
@@ -14,6 +14,12 @@ var defaultOptions = {
   "escalatethreads": false,
   "movethreads": false
 };
+
+const deprecatedOptions = [
+  "list",
+  "escalatethreads",
+  "movethreads"
+];
 
 function cleanUpOptions(options) {
   var ok = true;
@@ -35,7 +41,8 @@ function save() {
   var options = defaultOptions;
 
   Object.keys(options).forEach(function (opt) {
-    options[opt] = document.querySelector("#"+opt).checked;
+    if (deprecatedOptions.includes(opt)) return;
+    options[opt] = document.querySelector("#"+opt).checked || false;
   });
 
   chrome.storage.sync.set(options, function() {
@@ -60,7 +67,7 @@ window.addEventListener("load", function() {
     items = cleanUpOptions(items);
 
     Object.keys(defaultOptions).forEach(function(opt) {
-      if (items[opt] === true) {
+      if (items[opt] === true && !deprecatedOptions.includes(opt)) {
         document.querySelector("#"+opt).checked = true;
       }
     });
