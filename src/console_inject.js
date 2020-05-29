@@ -57,7 +57,7 @@ function mutationCallback(mutationList, observer) {
           if (options.history && ("parentNode" in node) && node.parentNode !== null && ("tagName" in node.parentNode) && node.parentNode.tagName == "EC-USER") {
             var nameElement = node.querySelector(".name span");
             if (nameElement !== null) {
-              var name = nameElement.innerText;
+              var name = nameElement.innerHTML;
               var query = encodeURIComponent("(creator:\""+name+"\" | replier:\""+name+"\") -forum:0");
               var urlpart = encodeURIComponent("query="+query);
               var link = document.createElement("a");
