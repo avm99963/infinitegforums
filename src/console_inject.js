@@ -88,4 +88,8 @@ chrome.storage.sync.get(null, function(items) {
   if (options.increasecontrast) {
     injectStyles(".thread-summary.read{background: #ecedee!important;}");
   }
+
+  if (options.stickysidebarheaders) {
+    injectStyles("material-drawer .main-header{background: #fff; position: sticky; top: 0; z-index: 1;}");
+  }
 });

@@ -63,6 +63,10 @@
     "message": "Incrementa el contrast entre els fils llegits i no llegits a la Consola de la Comunitat.",
     "description": "Feature checkbox in the options page"
   },
+  "options_stickysidebarheaders": {
+    "message": "Fes que les capçaleres de la barra lateral de la Consola de la Comunitat es quedin enganxades a dalt (+info a <code>pekb/thread/60784834</code>).",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Desa",
     "description": "Button in the options page to save the settings"

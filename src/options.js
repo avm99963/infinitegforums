@@ -13,7 +13,8 @@ const defaultOptions = {
   "batchduplicate": false,
   "escalatethreads": false,
   "movethreads": false,
-  "increasecontrast": false
+  "increasecontrast": false,
+  "stickysidebarheaders": false
 };
 
 const deprecatedOptions = [

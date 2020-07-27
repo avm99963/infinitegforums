@@ -63,6 +63,10 @@
     "message": "Incrementa el contraste entre los hilos leídos y no leídos en la Consola de la Comunidad.",
     "description": "Feature checkbox in the options page"
   },
+  "options_stickysidebarheaders": {
+    "message": "Hacer que los encabezados de la barra lateral de la Consola de la Comunidad se queden pegados arriba (+info en <code>pekb/thread/60784834</code>).",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Guardar",
     "description": "Button in the options page to save the settings"
