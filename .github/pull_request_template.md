@@ -8,9 +8,8 @@
   * https://gerrit.avm99963.com/
 
   You can learn how to do that in the following document:
-  * https://gerrit.avm99963.com/Documentation/user-upload.html
+  * https://gerrit.avm99963.com/Documentation/intro-gerrit-walkthrough.html
 
   If you're not comfortable using Gerrit, you can submit your pull
   request here at GitHub and we'll manually transfer it to Gerrit :)
 -->
-
