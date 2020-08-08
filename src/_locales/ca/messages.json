@@ -1,10 +1,10 @@
 {
   "appName": {
-    "message": "Scroll infinit a TW",
+    "message": "Eines avançades per TW (antigament Scroll infinit)",
     "description": "The extension's name"
   },
   "appNameBeta": {
-    "message": "Scroll infinit a TW (beta)",
+    "message": "Eines avançades per TW (beta)",
     "description": "The extension's name for the beta version"
   },
   "appDescription": {

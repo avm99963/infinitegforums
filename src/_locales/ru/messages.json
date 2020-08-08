@@ -1,12 +1,4 @@
 {
-  "appName": {
-    "message": "Infinite Scroll для TW",
-    "description": "Имя расширения."
-  },
-  "appNameBeta": {
-    "message": "Infinite Scroll для TW (beta)",
-    "description": "Имя расширения для бета-версии."
-  },
   "appDescription": {
     "message": "Получите бесконечную прокрутку и другие улучшения на Форумах Google и в Community Console",
     "description": "Описание расширения."

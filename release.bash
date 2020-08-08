@@ -63,8 +63,8 @@ fi
 
 # Create ZIP file for upload to the Chrome Web Store
 mkdir -p out
-rm -rf out/infinitegforums-$version-$channel.zip
-zip -rq out/infinitegforums-$version-$channel.zip src -x *.git*
+rm -rf out/twpowertools-$version-$channel.zip
+zip -rq out/twpowertools-$version-$channel.zip src -x *.git*
 
 # Revert manifest.json changes
 set_manifest_field "version" "0"

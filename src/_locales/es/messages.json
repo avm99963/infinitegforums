@@ -1,10 +1,10 @@
 {
   "appName": {
-    "message": "Scroll infinito en TW",
+    "message": "Herramientas avanzadas para TW (anteriormente Scroll infinito)",
     "description": "The extension's name"
   },
   "appNameBeta": {
-    "message": "Scroll infinito en TW (beta)",
+    "message": "Herramientas avanzadas para TW (beta)",
     "description": "The extension's name for the beta version"
   },
   "appDescription": {

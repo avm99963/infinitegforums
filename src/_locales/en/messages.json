@@ -1,14 +1,14 @@
 {
   "appName": {
-    "message": "Infinite Scroll in TW",
+    "message": "TW Power Tools (formerly Infinite Scroll)",
     "description": "The extension's name"
   },
   "appNameBeta": {
-    "message": "Infinite Scroll in TW (beta)",
+    "message": "TW Power Tools (beta)",
     "description": "The extension's name for the beta version"
   },
   "appDescription": {
-    "message": "Get infinite Scroll and other enhancements in the Google Forums and the Community Console",
+    "message": "Get infinite scroll and other enhancements in the Google Forums and the Community Console",
     "description": "The extension's description"
   },
   "options_list": {
