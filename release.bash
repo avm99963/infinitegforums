@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Prints help text
-function usage() {
+function usage {
   cat << END
-  
+
   Usage: $progname [--channel CHANNEL]
 
   optional arguments:
@@ -11,6 +11,11 @@ function usage() {
     -c, --channel  indicates the channel of the release. Can be "beta" or "stable".
 
 END
+}
+
+# Updates manifest.json field
+function set_manifest_field {
+  sed -i -E "s/\"$1\": \"[^\"]*\"/\"$1\": \"$2\"/" src/manifest.json
 }
 
 # Get options
@@ -35,10 +40,25 @@ fi
 
 echo "Started building release..."
 
+# This is the version name which git gives us
+version=$(git describe --always --tags --dirty)
+
+# If the version name contains a hyphen then it isn't a release
+# version. This is also the case if it doesn't start with a "v".
+if [[ $version == *"-"* || $version != "v"* ]]; then
+  # As it isn't a release version, setting version number to 0 so it
+  # cannot be uploaded to the Chrome Web Store
+  set_manifest_field "version" "0"
+  set_manifest_field "version_name" "$version-$channel"
+else
+  # It is a release version, set the version fields accordingly.
+  set_manifest_field "version" "${version:1}"
+  set_manifest_field "version_name" "${version:1}-$channel"
+fi
+
 if [[ $channel == "beta" ]]; then
   # Change manifest.json to label the release as beta
-  sed -i 's/"name": "[^"]*"/"name": "__MSG_appNameBeta__"/' src/manifest.json
-  sed -i -r 's/"version": "([^"]*)",/"version": "\1",\n  "version_name": "\1-beta",/' src/manifest.json
+  set_manifest_field "name" "__MSG_appNameBeta__"
 fi
 
 # Create ZIP file for upload to the Chrome Web Store
@@ -46,10 +66,11 @@ mkdir -p out
 rm -rf out/infinitegforums-$channel.zip
 zip -rq out/infinitegforums-$channel.zip src -x *.git*
 
+# Revert manifest.json changes
+set_manifest_field "version" "0"
+set_manifest_field "version_name" "dirty"
 if [[ $channel == "beta" ]]; then
-  # Revert manifest.json changes
-  sed -i 's/"name": "[^"]*"/"name": "__MSG_appName__"/' src/manifest.json
-  sed -i '/"version_name"/d' src/manifest.json
+  set_manifest_field "name" "__MSG_appName__"
 fi
 
 echo "Done!"
