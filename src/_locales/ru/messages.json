@@ -1,4 +1,12 @@
 {
+  "appName": {
+    "message": "TW Power Tools (formerly Infinite Scroll)",
+    "description": "Имя расширения."
+  },
+  "appNameBeta": {
+    "message": "TW Power Tools (beta)",
+    "description": "Имя расширения для бета-версии."
+  },
   "appDescription": {
     "message": "Получите бесконечную прокрутку и другие улучшения на Форумах Google и в Community Console",
     "description": "Описание расширения."
