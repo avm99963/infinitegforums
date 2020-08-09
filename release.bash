@@ -81,6 +81,10 @@ if [[ $channel == "beta" ]]; then
     # Change the extension ID
     set_manifest_field "id" "twpowertools+beta@avm99963.com"
   fi
+else
+  if [[ $browser == "gecko" ]]; then
+    set_manifest_field "name" "__MSG_appNameGecko__"
+  fi
 fi
 
 # Create ZIP file for upload to the Chrome Web Store

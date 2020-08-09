@@ -7,6 +7,10 @@
     "message": "TW Power Tools (beta)",
     "description": "The extension's name for the beta version"
   },
+  "appNameGecko": {
+    "message": "TW Power Tools",
+    "description": "The extension's name (with a 50 character limit for Gecko)"
+  },
   "appDescription": {
     "message": "Get infinite scroll and other enhancements in the Google Forums and the Community Console",
     "description": "The extension's description"
