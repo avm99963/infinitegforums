@@ -86,7 +86,7 @@ fi
 # Create ZIP file for upload to the Chrome Web Store
 mkdir -p out
 rm -rf out/twpowertools-$version-$browser-$channel.zip
-zip -rq out/twpowertools-$version-$browser-$channel.zip src -x *.git*
+(cd src && zip -rq ../out/twpowertools-$version-$browser-$channel.zip * -x *.git*)
 
 # Clean generated manifest.json file
 rm -f src/manifest.json
