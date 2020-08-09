@@ -2,7 +2,9 @@
   "manifest_version": 2,
   "name": "__MSG_appName__",
   "version": "0",
+#if defined(CHROMIUM)
   "version_name": "dirty",
+#endif
   "description": "__MSG_appDescription__",
   "icons": {
     "512": "icons/512.png",
@@ -38,15 +40,32 @@
     "https://support.google.com/*/thread/*",
     "storage"
   ],
+#if defined(CHROMIUM)
   "options_page": "options.html",
+#endif
   "options_ui": {
     "page": "options.html",
+#if defined(CHROMIUM)
     "chrome_style": true,
+#endif
+#if defined(GECKO)
+    "browser_style": true,
+#endif
     "open_in_tab": false
   },
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+#if defined(CHROMIUM)
+    "persistent": false,
+#endif
+    "scripts": ["background.js"]
   },
+#if defined(GECKO)
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "twpowertools@avm99963.com",
+      "strict_min_version": "55.0"
+    }
+  },
+#endif
   "default_locale": "en"
 }
