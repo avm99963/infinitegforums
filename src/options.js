@@ -20,7 +20,8 @@ const defaultOptions = {
 const deprecatedOptions = [
   "list",
   "escalatethreads",
-  "movethreads"
+  "movethreads",
+  "batchduplicate"
 ];
 
 function cleanUpOptions(options) {

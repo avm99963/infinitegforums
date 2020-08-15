@@ -51,10 +51,6 @@
     "message": "Mostra un enllaç \"historial de publicacions\" als perfils d'usuari.",
     "description": "Feature checkbox in the options page"
   },
-  "options_batchduplicate": {
-    "message": "Afegeix l'opció per duplicar diversos fils alhora a la llista de fils de la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
   "options_escalatethreads":{
     "message": "Activa la <i>flag</i> <code class=\"help\" title=\"Aquesta flag activa la funcionalitat d'escalar fils del fòrum públic als privats a la Consola de la Comunitat.\">enableEscalateThread</code> de la Consola de la Comunitat.",
     "description": "Feature checkbox in the options page"
@@ -82,29 +78,5 @@
   "inject_previousposts": {
     "message": "Historial de publicacions",
     "description": "Link shown in a user profile (in TW and the Community Console) which points to a search showing the user's posts and messages"
-  },
-  "inject_duplicatebtn": {
-    "message": "Duplicar fils",
-    "description": "Tooltip of the 'duplicate treads' icon shown when selecting multiple threads in the Community Console."
-  },
-  "inject_duplicateinto": {
-    "message": "Duplicar a:",
-    "description": "Label for the text field in which the user has to enter the thread they want to duplicate into."
-  },
-  "inject_duplicateinto_placeholder": {
-    "message": "Introdueix la URL de la Consola de la Comunitat",
-    "description": "Placeholder for the URL field."
-  },
-  "inject_duplicate_cancel": {
-    "message": "Cancel·lar",
-    "description": "Button to cancel the duplication process."
-  },
-  "inject_duplicate_confirm": {
-    "message": "Duplicar",
-    "description": "Button to duplicate all the threads."
-  },
-  "inject_duplicate_progress": {
-    "message": "Progrés",
-    "description": "Title for a progress bar which indicates how many threads were duplicated."
   }
 }
