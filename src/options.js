@@ -24,6 +24,8 @@ const deprecatedOptions = [
   'batchduplicate',
 ];
 
+var savedSuccessfullyTimeout = null;
+
 function cleanUpOptions(options) {
   var ok = true;
   for (const [opt, value] of Object.entries(defaultOptions)) {
@@ -50,6 +52,16 @@ function save() {
 
   chrome.storage.sync.set(options, function() {
     window.close();
+
+    // In browsers like Firefox window.close is not supported:
+    if (savedSuccessfullyTimeout !== null)
+      window.clearTimeout(savedSuccessfullyTimeout);
+
+    document.getElementById('save-indicator').innerText =
+        '✓ ' + chrome.i18n.getMessage('options_saved');
+    savedSuccessfullyTimeout = window.setTimeout(_ => {
+      document.getElementById('save-indicator').innerText = '';
+    }, 3699);
   });
 }
 

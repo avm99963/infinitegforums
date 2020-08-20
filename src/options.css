@@ -2,3 +2,17 @@
   cursor: help;
   border-bottom: dashed 1px gray;
 }
+
+.experimental-label {
+  color: gray;
+}
+
+.actions {
+  text-align: center;
+}
+
+#save-indicator {
+  text-align: center;
+  margin-bottom: 16px;
+  color: green;
+}

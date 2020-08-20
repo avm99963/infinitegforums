@@ -71,6 +71,10 @@
     "message": "Desa",
     "description": "Button in the options page to save the settings"
   },
+  "options_saved": {
+    "message": "Desat",
+    "description": "Message which appears in the options page when the settings are saved"
+  },
   "inject_links": {
     "message": "Enllaços",
     "description": "Heading which we use before the 'previous post' link in a user profile in TW"
