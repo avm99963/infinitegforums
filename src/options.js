@@ -18,7 +18,6 @@ const defaultOptions = {
 };
 
 const deprecatedOptions = [
-  'list',
   'escalatethreads',
   'movethreads',
   'batchduplicate',
