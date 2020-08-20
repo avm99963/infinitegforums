@@ -41,3 +41,7 @@ chrome.runtime.onInstalled.addListener(function(details) {
     cleanUpOptions();
   }
 });
+
+chrome.browserAction.onClicked.addListener(function() {
+  chrome.runtime.openOptionsPage();
+});

@@ -40,6 +40,7 @@
     "https://support.google.com/*/thread/*",
     "storage"
   ],
+  "browser_action": {},
 #if defined(CHROMIUM)
   "options_page": "options.html",
 #endif
