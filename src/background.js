@@ -3,23 +3,23 @@ function isEmpty(obj) {
 }
 
 const defaultOptions = {
-  "list": true,
-  "thread": true,
-  "threadall": false,
-  "fixedtoolbar": false,
-  "redirect": false,
-  "history": false,
-  "loaddrafts": false,
-  "batchduplicate": false,
-  "escalatethreads": false,
-  "movethreads": false,
-  "increasecontrast": false,
-  "stickysidebarheaders": false
+  'list': true,
+  'thread': true,
+  'threadall': false,
+  'fixedtoolbar': false,
+  'redirect': false,
+  'history': false,
+  'loaddrafts': false,
+  'batchduplicate': false,
+  'escalatethreads': false,
+  'movethreads': false,
+  'increasecontrast': false,
+  'stickysidebarheaders': false,
 };
 
 function cleanUpOptions() {
   chrome.storage.sync.get(null, function(options) {
-    console.log("[cleanUpOptions] Previous options", options);
+    console.log('[cleanUpOptions] Previous options', options);
     var ok = true;
     for (const [opt, value] of Object.entries(defaultOptions)) {
       if (!(opt in options)) {
@@ -28,7 +28,7 @@ function cleanUpOptions() {
       }
     }
 
-    console.log("[cleanUpOptions] New options", options);
+    console.log('[cleanUpOptions] New options', options);
 
     if (!ok) {
       chrome.storage.sync.set(options);
@@ -37,7 +37,7 @@ function cleanUpOptions() {
 }
 
 chrome.runtime.onInstalled.addListener(function(details) {
-  if (details.reason == "install" || details.reason == "update") {
+  if (details.reason == 'install' || details.reason == 'update') {
     cleanUpOptions();
   }
 });

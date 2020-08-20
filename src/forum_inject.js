@@ -9,13 +9,14 @@ function intersectionCallback(entries, observer) {
 };
 
 var intersectionOptions = {
-  threshold: 1.0
-}
+  threshold: 1.0,
+};
 
 chrome.storage.sync.get(null, function(items) {
-  var button = document.querySelector(".thread-list-threads__load-more-button");
+  var button = document.querySelector('.thread-list-threads__load-more-button');
   if (items.list && button !== null) {
-    intersectionObserver = new IntersectionObserver(intersectionCallback, intersectionOptions);
+    intersectionObserver =
+        new IntersectionObserver(intersectionCallback, intersectionOptions);
     intersectionObserver.observe(button);
   }
 });

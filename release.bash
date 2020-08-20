@@ -1,8 +1,10 @@
 #!/bin/bash
+#
+# Generate release files (ZIP archives of the extension source code).
 
 # Prints help text
-function usage {
-  cat << END
+function usage() {
+  cat <<END
 
   Usage: $progname [--channel CHANNEL]
 
@@ -17,7 +19,7 @@ END
 }
 
 # Updates manifest.json field
-function set_manifest_field {
+function set_manifest_field() {
   sed -i -E "s/\"$1\": \"[^\"]*\"/\"$1\": \"$2\"/" src/manifest.json
 }
 
@@ -30,21 +32,30 @@ browser=chromium
 
 while true; do
   case "$1" in
-    -h | --help ) usage; exit; ;;
-    -c | --channel ) channel="$2"; shift 2 ;;
-    -b | --browser ) browser="$2"; shift 2 ;;
-    * ) break ;;
+    -h | --help)
+      usage
+      exit
+      ;;
+    -c | --channel)
+      channel="$2"
+      shift 2
+      ;;
+    -b | --browser)
+      browser="$2"
+      shift 2
+      ;;
+    *) break ;;
   esac
 done
 
 if [[ $channel != "stable" && $channel != "beta" ]]; then
-  echo "channel parameter value is incorrect."
+  echo "channel parameter value is incorrect." >&2
   usage
   exit
 fi
 
 if [[ $browser != "chromium" && $browser != "gecko" ]]; then
-  echo "browser parameter value is incorrect."
+  echo "browser parameter value is incorrect." >&2
   usage
   exit
 fi
@@ -53,7 +64,7 @@ echo "Started building release..."
 
 # First of all, generate the appropriate manifest.json file for the
 # target browser
-dependencies=( ${browser^^} )
+dependencies=(${browser^^})
 
 bash generateManifest.bash "${dependencies[@]}"
 
@@ -90,7 +101,8 @@ fi
 # Create ZIP file for upload to the Chrome Web Store
 mkdir -p out
 rm -rf out/twpowertools-$version-$browser-$channel.zip
-(cd src && zip -rq ../out/twpowertools-$version-$browser-$channel.zip * -x *.git*)
+(cd src &&
+  zip -rq ../out/twpowertools-$version-$browser-$channel.zip * -x *.git*)
 
 # Clean generated manifest.json file
 rm -f src/manifest.json
