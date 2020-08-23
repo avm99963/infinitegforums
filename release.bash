@@ -6,7 +6,7 @@
 function usage() {
   cat <<END
 
-  Usage: $progname [--channel CHANNEL]
+  Usage: $progname [--channel CHANNEL --browser BROWSER]
 
   optional arguments:
     -h, --help     show this help message and exit

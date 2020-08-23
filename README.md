@@ -10,9 +10,8 @@ be made. This is the procedure:
 
 1. Tag the last commit with a version number (in the format `vx`, where x is the
 extension's [version number](https://developer.chrome.com/extensions/manifest/version)
-for that release) by running `git tag -a vx -m "vx"`. Note that the tag should
-be an annotated tag and not a lightweight tag, and it must be pushed to Gerrit
-after being created.
+for that release) by running `bash tagRelease.bash --version vx`. Note that the
+tag must be pushed to Gerrit after being created.
 2. Build the extension for both the stable and beta channels (this is explained
 in the next section). This will output a ZIP file for each release channel and
 each supported browser.
