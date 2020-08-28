@@ -15,6 +15,7 @@ const defaultOptions = {
   'movethreads': false,
   'increasecontrast': false,
   'stickysidebarheaders': false,
+  'profileindicator': false,
 };
 
 function cleanUpOptions() {

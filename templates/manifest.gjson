@@ -40,6 +40,10 @@
     "https://support.google.com/*/thread/*",
     "storage"
   ],
+  "web_accessible_resources": [
+    "console_profileindicator_inject.js",
+    "console_profileindicator_inject.css"
+  ],
   "browser_action": {},
 #if defined(CHROMIUM)
   "options_page": "options.html",

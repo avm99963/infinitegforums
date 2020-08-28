@@ -62,12 +62,21 @@ function intersectionCallback(entries, observer) {
   });
 };
 
-function injectStyles(css) {
+function injectStylesheet(stylesheetName) {
   var link = document.createElement('link');
   link.setAttribute('rel', 'stylesheet');
-  link.setAttribute(
-      'href', 'data:text/css;charset=UTF-8,' + encodeURIComponent(css));
+  link.setAttribute('href', stylesheetName);
   document.head.appendChild(link);
+}
+
+function injectStyles(css) {
+  injectStylesheet('data:text/css;charset=UTF-8,' + encodeURIComponent(css));
+}
+
+function injectScript(scriptName) {
+  var script = document.createElement('script');
+  script.src = scriptName;
+  document.head.appendChild(script);
 }
 
 var observerOptions = {
@@ -76,34 +85,50 @@ var observerOptions = {
   subtree: true,
 }
 
-var intersectionOptions =
-    {
-      root: document.querySelector('.scrollable-content'),
-      rootMargin: '0px',
-      threshold: 1.0,
-    }
+var intersectionOptions = {
+  root: document.querySelector('.scrollable-content'),
+  rootMargin: '0px',
+  threshold: 1.0,
+};
 
-    chrome.storage.sync.get(null, function(items) {
-      options = items;
+chrome.storage.sync.get(null, function(items) {
+  options = items;
 
-      mutationObserver = new MutationObserver(mutationCallback);
-      mutationObserver.observe(
-          document.querySelector('.scrollable-content'), observerOptions);
+  mutationObserver = new MutationObserver(mutationCallback);
+  mutationObserver.observe(
+      document.querySelector('.scrollable-content'), observerOptions);
 
-      intersectionObserver =
-          new IntersectionObserver(intersectionCallback, intersectionOptions);
+  intersectionObserver =
+      new IntersectionObserver(intersectionCallback, intersectionOptions);
 
-      if (options.fixedtoolbar) {
-        injectStyles(
-            'ec-bulk-actions{position: sticky; top: 0; background: white; z-index: 96;}');
-      }
+  if (options.fixedtoolbar) {
+    injectStyles(
+        'ec-bulk-actions{position: sticky; top: 0; background: white; z-index: 96;}');
+  }
 
-      if (options.increasecontrast) {
-        injectStyles('.thread-summary.read{background: #ecedee!important;}');
-      }
+  if (options.increasecontrast) {
+    injectStyles('.thread-summary.read{background: #ecedee!important;}');
+  }
 
-      if (options.stickysidebarheaders) {
-        injectStyles(
-            'material-drawer .main-header{background: #fff; position: sticky; top: 0; z-index: 1;}');
-      }
+  if (options.stickysidebarheaders) {
+    injectStyles(
+        'material-drawer .main-header{background: #fff; position: sticky; top: 0; z-index: 1;}');
+  }
+
+  if (options.profileindicator) {
+    injectScript(chrome.runtime.getURL('console_profileindicator_inject.js'));
+    injectStylesheet(
+        chrome.runtime.getURL('console_profileindicator_inject.css'));
+
+    // In order to pass i18n strings to the injected script, which doesn't have
+    // access to the chrome.i18n API.
+    window.addEventListener('geti18nString', evt => {
+      var request = evt.detail;
+      var response = {
+        string: chrome.i18n.getMessage(request.msg),
+        requestId: request.id
+      };
+      window.dispatchEvent(new CustomEvent('sendi18nString', {detail: response}));
     });
+  }
+});

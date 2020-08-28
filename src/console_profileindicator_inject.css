@@ -1,0 +1,47 @@
+ec-user-link.name > * {
+  vertical-align: middle;
+}
+
+.profile-indicator {
+  margin-left: 4px;
+}
+
+.profile-indicator a {
+  text-decoration: none!important;
+}
+
+@keyframes loading-profile-indicator {
+  from {
+    opacity: 0.25;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.profile-indicator.profile-indicator--loading a {
+  color: #6f6f6f;
+
+  animation-duration: 0.75s;
+  animation-name: loading-profile-indicator;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.profile-indicator.profile-indicator--first-post a {
+  color: #1976D2;
+}
+
+.profile-indicator.profile-indicator--other-posts-read a {
+  color: #FF8F00;
+}
+
+.profile-indicator.profile-indicator--other-posts-unread a {
+  color: #C62828;
+}
+
+.profile-indicator a {
+  opacity: 1;
+  transition: opacity 1s, color 1s;
+}

@@ -67,6 +67,10 @@
     "message": "Increase contrast between read and unread threads in the Community Console.",
     "description": "Feature checkbox in the options page"
   },
+  "options_profileindicator": {
+    "message": "Show in the Community Console <span class=\"help\" title=\"If the OP has participated in other threads, a red dot will be shown next to their username. If the OP's most recent posts have been read, an orange dot will be shown instead. You can hover the dot with your mouse in order to show the meaning of its color.\">whether the OP has participated in other threads</span>.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Save",
     "description": "Button in the options page to save the settings"
@@ -82,5 +86,21 @@
   "inject_previousposts": {
     "message": "Previous posts",
     "description": "Link shown in a user profile (in TW and the Community Console) which points to a search showing the user's posts and messages"
+  },
+  "inject_profileindicator_loading": {
+    "message": "Loading...",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_profileindicator_first_post": {
+    "message": "This is the first thread created by the OP in this forum.",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_profileindicator_other_posts_read": {
+    "message": "The OP participated in other threads in this forum, but you've read the 5 most recent ones.",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_profileindicator_other_posts_unread": {
+    "message": "The OP participated in other threads in this forum, some of which you haven't read.",
+    "description": "Tooltip for the profile indicator dot."
   }
 }

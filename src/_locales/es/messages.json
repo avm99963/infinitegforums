@@ -63,6 +63,10 @@
     "message": "Incrementa el contraste entre los hilos leídos y no leídos en la Consola de la Comunidad.",
     "description": "Feature checkbox in the options page"
   },
+  "options_profileindicator": {
+    "message": "Muestra en la Consola de la Comunidad <span class=\"help\" title=\"Si el autor ha participado en otros hilos, se mostrará un punto rojo al lado de su nombre de usuario. Si las publicaciones más recientes se han leído, se mostrará un punto naranja. Puedes poner tu ratón encima del punto para mostrar qué quiere decir su color.\">si el autor del hilo ha participado en otros hilos</span>.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_stickysidebarheaders": {
     "message": "Hacer que los encabezados de la barra lateral de la Consola de la Comunidad se queden pegados arriba (+info en <code>pekb/thread/60784834</code>).",
     "description": "Feature checkbox in the options page"
@@ -82,5 +86,21 @@
   "inject_previousposts": {
     "message": "Historial de publicaciones",
     "description": "Link shown in a user profile (in TW and the Community Console) which points to a search showing the user's posts and messages"
+  },
+  "inject_profileindicator_loading": {
+    "message": "Cargando...",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_profileindicator_first_post": {
+    "message": "Este es el primer hilo de este foro creado por este usuario.",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_profileindicator_other_posts_read": {
+    "message": "Este usuario ha participado en otros hilos de este foro, pero ya has leído los 5 últimos donde ha participado.",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_profileindicator_other_posts_unread": {
+    "message": "Este usuario ha participado en otros hilos de este foro, algunos de los cuales no has leído.",
+    "description": "Tooltip for the profile indicator dot."
   }
 }
