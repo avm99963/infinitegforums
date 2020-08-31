@@ -31,7 +31,7 @@ ec-user-link.name > *, .thread-message-header__name > span:nth-child(3) > * {
 }
 
 .profile-indicator.profile-indicator--first-post a {
-  color: #1976D2;
+  color: #4285f4;
 }
 
 .profile-indicator.profile-indicator--other-posts-read a {
