@@ -110,7 +110,7 @@ function mutationCallback(mutationList, observer) {
           var forumId = forumUrlSplit[1].split('/')[0];
           var query = '(replier:"' + escapedUsername + '" | creator:"' +
               escapedUsername + '") ' + FILTER_ALL_LANGUAGES;
-          var encodedQuery = encodeURIComponent(query);
+          var encodedQuery = encodeURIComponent(query + ' forum:' + forumId);
           var urlpart = encodeURIComponent('query=' + encodedQuery);
           var dotLink = document.createElement('a');
           dotLink.href =
