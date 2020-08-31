@@ -3,6 +3,7 @@ ec-user-link.name > *, .thread-message-header__name > span:nth-child(3) > * {
 }
 
 .profile-indicator {
+  font-size: 14px;
   margin-left: 4px;
 }
 
