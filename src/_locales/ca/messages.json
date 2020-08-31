@@ -85,7 +85,15 @@
   },
   "inject_previousposts": {
     "message": "Historial de publicacions",
-    "description": "Link shown in a user profile (in TW and the Community Console) which points to a search showing the user's posts and messages"
+    "description": "Link shown in a user profile (in TW) which points to a search showing the user's posts and messages"
+  },
+  "inject_previousposts_forum": {
+    "message": "Historial de publicacions (en aquest fòrum)",
+    "description": "Link shown in a user profile (in the Community Console) which points to a search showing the user's posts and messages in the current forum"
+  },
+  "inject_previousposts_all": {
+    "message": "Historial de publicacions (en tots els fòrums)",
+    "description": "Link shown in a user profile (in the Community Console) which points to a search showing the user's posts and messages in all forums"
   },
   "inject_profileindicator_loading": {
     "message": "Carregant...",

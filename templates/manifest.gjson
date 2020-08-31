@@ -13,7 +13,7 @@
   "content_scripts": [
     {
       "matches": ["https://support.google.com/s/community*"],
-      "js": ["common/content_scripts_injections.js", "content_scripts/console_inject.js"]
+      "js": ["common/content_scripts.js", "content_scripts/console_inject.js"]
     },
     {
       "matches": ["https://support.google.com/s/community*"],
@@ -26,7 +26,7 @@
     },
     {
       "matches": ["https://support.google.com/*/thread/*"],
-      "js": ["common/content_scripts_injections.js", "content_scripts/thread_inject.js"],
+      "js": ["common/content_scripts.js", "content_scripts/thread_inject.js"],
       "run_at": "document_end"
     },
     {

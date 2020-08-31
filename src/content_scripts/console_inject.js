@@ -14,6 +14,20 @@ function parseUrl(url) {
   };
 }
 
+function addProfileHistoryLink(node, type, query) {
+  var urlpart = encodeURIComponent('query=' + query);
+  var container = document.createElement('div');
+  container.style.margin = '3px 0';
+
+  var link = document.createElement('a');
+  link.setAttribute(
+      'href', 'https://support.google.com/s/community/search/' + urlpart);
+  link.innerText = chrome.i18n.getMessage('inject_previousposts_' + type);
+
+  container.appendChild(link);
+  node.querySelector('.main-card-content').appendChild(container);
+}
+
 function mutationCallback(mutationList, observer) {
   mutationList.forEach((mutation) => {
     if (mutation.type == 'childList') {
@@ -34,18 +48,16 @@ function mutationCallback(mutationList, observer) {
               node.parentNode.tagName == 'EC-USER') {
             var nameElement = node.querySelector('.name span');
             if (nameElement !== null) {
-              var name = nameElement.innerHTML;
-              var query = encodeURIComponent(
-                  '(creator:"' + name + '" | replier:"' + name + '") -forum:0');
-              var urlpart = encodeURIComponent('query=' + query);
-              var link = document.createElement('a');
-              link.setAttribute(
-                  'href',
-                  'https://support.google.com/s/community/search/' + urlpart);
-              link.innerText = chrome.i18n.getMessage('inject_previousposts');
-              node.querySelector('.main-card-content')
-                  .appendChild(document.createElement('br'));
-              node.querySelector('.main-card-content').appendChild(link);
+              var forumId =
+                  location.href.split('/forum/')[1].split('/')[0] || '0';
+
+              var name = escapeUsername(nameElement.innerHTML);
+              var query1 = encodeURIComponent(
+                  '(creator:"' + name + '" | replier:"' + name + '") forum:'+forumId);
+              var query2 = encodeURIComponent(
+                  '(creator:"' + name + '" | replier:"' + name + '") forum:any');
+              addProfileHistoryLink(node, 'forum', query1);
+              addProfileHistoryLink(node, 'all', query2);
             }
           }
         }

@@ -14,3 +14,9 @@ function injectScript(scriptName) {
   script.src = scriptName;
   document.head.appendChild(script);
 }
+
+function escapeUsername(username) {
+  var quoteRegex = /"/g;
+  var commentRegex = /<!---->/g;
+  return username.replace(quoteRegex, '\\"').replace(commentRegex, '');
+}
