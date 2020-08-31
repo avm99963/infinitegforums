@@ -40,25 +40,6 @@ if (!CCRegex.test(location.href)) {
             new IntersectionObserver(intersectionCallback, intersectionOptions);
         intersectionObserver.observe(allbutton);
       }
-
-      if (items.profileindicator) {
-        injectScript(
-            chrome.runtime.getURL('injections/profileindicator_inject.js'));
-        injectStylesheet(
-            chrome.runtime.getURL('injections/profileindicator_inject.css'));
-
-        // In order to pass i18n strings to the injected script, which doesn't
-        // have access to the chrome.i18n API.
-        window.addEventListener('geti18nString', evt => {
-          var request = evt.detail;
-          var response = {
-            string: chrome.i18n.getMessage(request.msg),
-            requestId: request.id
-          };
-          window.dispatchEvent(
-              new CustomEvent('sendi18nString', {detail: response}));
-        });
-      }
     }
   });
 }

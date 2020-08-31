@@ -63,8 +63,20 @@
     "message": "Incrementa el contraste entre los hilos leídos y no leídos en la Consola de la Comunidad.",
     "description": "Feature checkbox in the options page"
   },
+  "options_profileindicator_header": {
+    "message": "Punto indicador",
+    "description": "Heading for the profile indicator feature options"
+  },
+  "options_profileindicator_moreinfo": {
+    "message": "+info sobre las 2 opciones anteriores",
+    "description": "Link to learn more about the profile indicator feature"
+  },
   "options_profileindicator": {
     "message": "Muestra <span class=\"help\" title=\"Si el autor ha participado en otros hilos, se mostrará un punto rojo al lado de su nombre de usuario. Si las publicaciones más recientes se han leído, se mostrará un punto naranja. Puedes poner tu ratón encima del punto para mostrar qué quiere decir su color.\">si el autor del hilo ha participado en otros hilos</span>.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_profileindicatoralt": {
+    "message": "Muestra el número de preguntas y respuestas escritas por el autor del hilo durante los últimos <span id='profileindicatoralt_months--container'></span> meses al lado de su nombre de usuario.",
     "description": "Feature checkbox in the options page"
   },
   "options_stickysidebarheaders": {
@@ -109,6 +121,10 @@
   },
   "inject_profileindicator_other_posts_unread": {
     "message": "Este usuario ha participado en otros hilos de este foro, algunos de los cuales no has leído.",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_profileindicatoralt_numposts": {
+    "message": "Número de preguntas y respuestas en los últimos $1 meses.",
     "description": "Tooltip for the profile indicator dot."
   }
 }

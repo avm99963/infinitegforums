@@ -67,8 +67,20 @@
     "message": "Increase contrast between read and unread threads in the Community Console.",
     "description": "Feature checkbox in the options page"
   },
+  "options_profileindicator_header": {
+    "message": "Indicator dot",
+    "description": "Heading for the profile indicator feature options"
+  },
+  "options_profileindicator_moreinfo": {
+    "message": "+info about the 2 previous options",
+    "description": "Link to learn more about the profile indicator feature"
+  },
   "options_profileindicator": {
     "message": "Show <span class=\"help\" title=\"If the OP has participated in other threads, a red dot will be shown next to their username. If the OP's most recent posts have been read, an orange dot will be shown instead. You can hover the dot with your mouse in order to show the meaning of its color.\">whether the OP has participated in other threads</span>.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_profileindicatoralt": {
+    "message": "Show the number of questions and replies written by the OP within the last <span id='profileindicatoralt_months--container'></span> months next to their username.",
     "description": "Feature checkbox in the options page"
   },
   "options_save": {
@@ -109,6 +121,10 @@
   },
   "inject_profileindicator_other_posts_unread": {
     "message": "The OP participated in other threads in this forum, some of which you haven't read.",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_profileindicatoralt_numposts": {
+    "message": "Number of questions and replies in the last $1 months.",
     "description": "Tooltip for the profile indicator dot."
   }
 }

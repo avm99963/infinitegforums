@@ -7,9 +7,9 @@ const OP_OTHER_POSTS_READ = 1;
 const OP_OTHER_POSTS_UNREAD = 2;
 
 const OPClasses = {
-  0: 'profile-indicator--first-post',
-  1: 'profile-indicator--other-posts-read',
-  2: 'profile-indicator--other-posts-unread',
+  0: 'first-post',
+  1: 'other-posts-read',
+  2: 'other-posts-unread',
 };
 
 const OPi18n = {
@@ -18,9 +18,13 @@ const OPi18n = {
   2: 'other_posts_unread',
 };
 
+const indicatorTypes = ['numPosts', 'indicatorDot'];
+
 // Filter used as a workaround to speed up the ViewForum request.
 const FILTER_ALL_LANGUAGES =
     'lang:(ar | bg | ca | "zh-hk" | "zh-cn" | "zh-tw" | hr | cs | da | nl | en | "en-au" | "en-gb" | et | fil | fi | fr | de | el | iw | hi | hu | id | it | ja | ko | lv | lt | ms | no | pl | "pt-br" | "pt-pt" | ro | ru | sr | sk | sl | es | "es-419" | sv | th | tr | uk | vi)';
+
+const numPostsForumArraysToSum = [3, 4];
 
 function isElementInside(element, outerTag) {
   while (element !== null && ('tagName' in element)) {
@@ -60,40 +64,62 @@ function getPosts(query, forumId) {
       .then(res => res.json());
 }
 
+function getProfile(userId, forumId) {
+  return fetch('https://support.google.com/s/community/api/ViewUser', {
+           'credentials': 'include',
+           'headers': {'content-type': 'text/plain; charset=utf-8'},
+           'body': JSON.stringify({
+             '1': userId,
+             '2': 0,
+             '3': forumId,
+           }),
+           'method': 'POST',
+           'mode': 'cors',
+         })
+      .then(res => res.json());
+}
+
 // Source:
 // https://stackoverflow.com/questions/33063774/communication-from-an-injected-script-to-the-content-script-with-a-response
-var i18nRequest = (function() {
+var contentScriptRequest = (function() {
   var requestId = 0;
 
-  function getMessage(msg) {
+  function sendRequest(data) {
     var id = requestId++;
 
     return new Promise(function(resolve, reject) {
       var listener = function(evt) {
-        if (evt.detail.requestId == id) {
+        if (evt.source === window && evt.data && evt.data.prefix === 'TWPT' &&
+            evt.data.requestId == id) {
           // Deregister self
-          window.removeEventListener('sendChromeData', listener);
-          resolve(evt.detail.string);
+          window.removeEventListener('message', listener);
+          resolve(evt.data.data);
         }
       };
 
-      window.addEventListener('sendi18nString', listener);
+      window.addEventListener('message', listener);
 
-      var payload = {msg: msg, id: id};
+      var payload = {data, id};
 
-      window.dispatchEvent(new CustomEvent('geti18nString', {detail: payload}));
+      window.dispatchEvent(
+          new CustomEvent('TWPT_sendRequest', {detail: payload}));
     });
   }
 
-  return {getMessage: getMessage};
+  return {sendRequest: sendRequest};
 })();
 
-// Create profile indicator dot with a loading state
-function createIndicatorDot(sourceNode, searchURL) {
+// Create profile indicator dot with a loading state, or return the numPosts
+// badge if it is already created.
+function createIndicatorDot(sourceNode, searchURL, options) {
+  if (options.numPosts) return document.querySelector('.num-posts-indicator');
   var dotContainer = document.createElement('span');
-  dotContainer.classList.add('profile-indicator');
-  dotContainer.classList.add('profile-indicator--loading');
-  i18nRequest.getMessage('inject_profileindicator_loading')
+  dotContainer.classList.add('profile-indicator', 'profile-indicator--loading');
+  contentScriptRequest
+      .sendRequest({
+        'action': 'geti18nMessage',
+        'msg': 'inject_profileindicator_loading'
+      })
       .then(string => dotContainer.setAttribute('title', string));
 
   var dotLink = document.createElement('a');
@@ -106,8 +132,38 @@ function createIndicatorDot(sourceNode, searchURL) {
   return dotContainer;
 }
 
-// Handle the profile indicator
-function handleIndicatorDot(sourceNode, isCC) {
+// Create badge indicating the number of posts with a loading state
+function createNumPostsBadge(sourceNode, searchURL) {
+  var link = document.createElement('a');
+  link.href = searchURL;
+
+  var numPostsContainer = document.createElement('div');
+  numPostsContainer.classList.add(
+      'num-posts-indicator', 'num-posts-indicator--loading');
+  contentScriptRequest
+      .sendRequest({
+        'action': 'geti18nMessage',
+        'msg': 'inject_profileindicator_loading'
+      })
+      .then(string => numPostsContainer.setAttribute('title', string));
+
+  var numPostsSpan = document.createElement('span');
+  numPostsSpan.classList.add('num-posts-indicator--num');
+
+  numPostsContainer.appendChild(numPostsSpan);
+  link.appendChild(numPostsContainer);
+  sourceNode.parentNode.appendChild(link);
+  return numPostsContainer;
+}
+
+// Get options and then handle all the indicators
+function getOptionsAndHandleIndicators(sourceNode, isCC) {
+  contentScriptRequest.sendRequest({'action': 'getProfileIndicatorOptions'})
+      .then(options => handleIndicators(sourceNode, isCC, options));
+}
+
+// Handle the profile indicator dot
+function handleIndicators(sourceNode, isCC, options) {
   var escapedUsername = escapeUsername(
       (isCC ? sourceNode.innerHTML :
               sourceNode.querySelector('span').innerHTML));
@@ -118,7 +174,7 @@ function handleIndicatorDot(sourceNode, isCC) {
     var CCLink = document.getElementById('onebar-community-console');
     if (CCLink === null) {
       console.error(
-          '[dotindicator] The user is not a PE so the dot indicator cannot be shown in TW.');
+          '[opindicator] The user is not a PE so the dot indicator cannot be shown in TW.');
       return;
     }
     var threadLink = CCLink.href;
@@ -126,11 +182,12 @@ function handleIndicatorDot(sourceNode, isCC) {
 
   var forumUrlSplit = threadLink.split('/forum/');
   if (forumUrlSplit.length < 2) {
-    console.error('[dotindicator] Can\'t get forum id.');
+    console.error('[opindicator] Can\'t get forum id.');
     return;
   }
 
   var forumId = forumUrlSplit[1].split('/')[0];
+
   var query = '(replier:"' + escapedUsername + '" | creator:"' +
       escapedUsername + '") ' + FILTER_ALL_LANGUAGES;
   var encodedQuery =
@@ -139,46 +196,117 @@ function handleIndicatorDot(sourceNode, isCC) {
       (isCC ? 'https://support.google.com/s/community/search/' +
                encodeURIComponent('query=' + encodedQuery) :
               document.location.pathname.split('/thread')[0] +
-               '/threads?thread_filter=' + encodedQuery)
+               '/threads?thread_filter=' + encodedQuery);
 
-  var dotContainer = createIndicatorDot(sourceNode, searchURL);
+  if (options.numPosts) {
+    var profileURL = new URL(sourceNode.href);
+    var userId =
+        profileURL.pathname.split(isCC ? 'user/' : 'profile/')[1].split('/')[0];
 
-  // Query threads in order to see what state the indicator should be in
-  getPosts(query, forumId)
-      .then(res => {
-        if (!('1' in res) || !('2' in res['1'])) {
-          throw new Error('Unexpected response.');
-          return;
-        }
+    var numPostsContainer = createNumPostsBadge(sourceNode, searchURL);
 
-        // Current thread ID
-        var threadUrlSplit = threadLink.split('/thread/');
-        if (threadUrlSplit.length < 2) throw new Error('Can\'t get thread id.');
+    getProfile(userId, forumId)
+        .then(res => {
+          if (!('1' in res) || !('2' in res[1])) {
+            throw new Error('Unexpected profile response.');
+            return;
+          }
 
-        var currId = threadUrlSplit[1].split('/')[0];
+          contentScriptRequest.sendRequest({'action': 'getNumPostMonths'})
+              .then(months => {
+                if (!options.indicatorDot)
+                  contentScriptRequest
+                      .sendRequest({
+                        'action': 'geti18nMessage',
+                        'msg': 'inject_profileindicatoralt_numposts',
+                        'placeholders': [months]
+                      })
+                      .then(
+                          string =>
+                              numPostsContainer.setAttribute('title', string));
 
-        var OPStatus = OP_FIRST_POST;
+                var numPosts = 0;
 
-        for (const thread of res['1']['2']) {
-          var id = thread['2']['1']['1'] || undefined;
-          if (id === undefined || id == currId) continue;
+                for (const index of numPostsForumArraysToSum) {
+                  if (!(index in res[1][2])) {
+                    throw new Error('Unexpected profile response.');
+                    return;
+                  }
 
-          var isRead = thread['6'] || false;
-          if (isRead)
-            OPStatus = Math.max(OP_OTHER_POSTS_READ, OPStatus);
-          else
-            OPStatus = Math.max(OP_OTHER_POSTS_UNREAD, OPStatus);
-        }
+                  var i = 0;
+                  for (const month of res[1][2][index].reverse()) {
+                    if (i == months) break;
+                    numPosts += month[3] || 0;
+                    ++i;
+                  }
+                }
 
-        dotContainer.classList.remove('profile-indicator--loading');
-        dotContainer.classList.add(OPClasses[OPStatus]);
-        i18nRequest.getMessage('inject_profileindicator_' + OPi18n[OPStatus])
-            .then(string => dotContainer.setAttribute('title', string));
-      })
-      .catch(
-          err => console.error(
-              '[dotindicator] Unexpected error. Couldn\'t load recent posts.',
-              err));
+                numPostsContainer.classList.remove(
+                    'num-posts-indicator--loading');
+                numPostsContainer.querySelector('span').classList.remove(
+                    'num-posts-indicator--num--loading');
+                numPostsContainer.querySelector('span').textContent = numPosts;
+              })
+              .catch(
+                  err => console.error('[opindicator] Unexpected error.', err));
+        })
+        .catch(
+            err => console.error(
+                '[opindicator] Unexpected error. Couldn\'t load profile.',
+                err));
+    ;
+  }
+
+  if (options.indicatorDot) {
+    var dotContainer = createIndicatorDot(sourceNode, searchURL, options);
+
+    // Query threads in order to see what state the indicator should be in
+    getPosts(query, forumId)
+        .then(res => {
+          if (!('1' in res) || !('2' in res['1'])) {
+            throw new Error('Unexpected thread list response.');
+            return;
+          }
+
+          // Current thread ID
+          var threadUrlSplit = threadLink.split('/thread/');
+          if (threadUrlSplit.length < 2)
+            throw new Error('Can\'t get thread id.');
+
+          var currId = threadUrlSplit[1].split('/')[0];
+
+          var OPStatus = OP_FIRST_POST;
+
+          for (const thread of res['1']['2']) {
+            var id = thread['2']['1']['1'] || undefined;
+            if (id === undefined || id == currId) continue;
+
+            var isRead = thread['6'] || false;
+            if (isRead)
+              OPStatus = Math.max(OP_OTHER_POSTS_READ, OPStatus);
+            else
+              OPStatus = Math.max(OP_OTHER_POSTS_UNREAD, OPStatus);
+          }
+
+          var dotContainerPrefix =
+              (options.numPosts ? 'num-posts-indicator' : 'profile-indicator');
+
+          if (!options.numPosts)
+            dotContainer.classList.remove(dotContainerPrefix + '--loading');
+          dotContainer.classList.add(
+              dotContainerPrefix + '--' + OPClasses[OPStatus]);
+          contentScriptRequest
+              .sendRequest({
+                'action': 'geti18nMessage',
+                'msg': 'inject_profileindicator_' + OPi18n[OPStatus]
+              })
+              .then(string => dotContainer.setAttribute('title', string));
+        })
+        .catch(
+            err => console.error(
+                '[opindicator] Unexpected error. Couldn\'t load recent posts.',
+                err));
+  }
 }
 
 if (CCRegex.test(location.href)) {
@@ -191,7 +319,7 @@ if (CCRegex.test(location.href)) {
               CCProfileRegex.test(node.href) &&
               isElementInside(node, 'EC-QUESTION') && ('children' in node) &&
               node.children.length == 0) {
-            handleIndicatorDot(node, true);
+            getOptionsAndHandleIndicators(node, true);
           }
         });
       }
@@ -208,9 +336,10 @@ if (CCRegex.test(location.href)) {
       document.querySelector('.scrollable-content'), observerOptions);
 } else {
   // We are in TW
-  var node = document.querySelector('.thread-question .user-info-display-name');
+  var node =
+      document.querySelector('.thread-question a.user-info-display-name');
   if (node !== null)
-    handleIndicatorDot(node, false);
+    getOptionsAndHandleIndicators(node, false);
   else
-    console.error('[dotindicator] Couldn\'t find username.');
+    console.error('[opindicator] Couldn\'t find username.');
 }

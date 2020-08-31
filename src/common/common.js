@@ -12,7 +12,13 @@ const defaultOptions = {
   'increasecontrast': false,
   'stickysidebarheaders': false,
   'profileindicator': false,
+  'profileindicatoralt': false,
+  'profileindicatoralt_months': 12,
 };
+
+const specialOptions = [
+  'profileindicatoralt_months',
+];
 
 const deprecatedOptions = [
   'escalatethreads',
@@ -26,11 +32,16 @@ function isEmpty(obj) {
 
 function cleanUpOptions(options) {
   console.log('[cleanUpOptions] Previous options', options);
-  var ok = true;
-  for (const [opt, value] of Object.entries(defaultOptions)) {
-    if (!(opt in options)) {
-      ok = false;
-      options[opt] = value;
+
+  if (typeof options !== 'object' || options === null) {
+    options = defaultOptions;
+  } else {
+    var ok = true;
+    for (const [opt, value] of Object.entries(defaultOptions)) {
+      if (!(opt in options)) {
+        ok = false;
+        options[opt] = value;
+      }
     }
   }
 

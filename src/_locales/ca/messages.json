@@ -63,8 +63,20 @@
     "message": "Incrementa el contrast entre els fils llegits i no llegits a la Consola de la Comunitat.",
     "description": "Feature checkbox in the options page"
   },
+  "options_profileindicator_header": {
+    "message": "Punt indicador",
+    "description": "Heading for the profile indicator feature options"
+  },
+  "options_profileindicator_moreinfo": {
+    "message": "+info sobre les 2 darreres opcions",
+    "description": "Link to learn more about the profile indicator feature"
+  },
   "options_profileindicator": {
     "message": "Mostra <span class=\"help\" title=\"Si l'autor ha participat a altres fils, es mostrarà un punt vermell al costat del seu nom d'usuari. Si les publicacions més recents han estat llegides, es mostrarà un punt taronja. Pots posar el teu ratolí a sobre del punt per mostrar què vol dir el seu color.\">si l'autor del fil ha participat a altres fils</span>.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_profileindicatoralt": {
+    "message": "Mostra el nombre de preguntes i respostes escrites per l'autor del fil durant els últims <span id='profileindicatoralt_months--container'></span> mesos al costat del seu nom d'usuari.",
     "description": "Feature checkbox in the options page"
   },
   "options_stickysidebarheaders": {
@@ -109,6 +121,10 @@
   },
   "inject_profileindicator_other_posts_unread": {
     "message": "Aquest usuari ha participat en altres fils d'aquest fòrum, alguns dels quals no has llegit.",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_profileindicatoralt_numposts": {
+    "message": "Nombre de preguntes i respostes en els $1 darrers mesos.",
     "description": "Tooltip for the profile indicator dot."
   }
 }

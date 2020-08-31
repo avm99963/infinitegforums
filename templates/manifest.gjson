@@ -30,6 +30,10 @@
       "run_at": "document_end"
     },
     {
+      "matches": ["https://support.google.com/s/community*", "https://support.google.com/*/thread/*"],
+      "js": ["common/content_scripts.js", "content_scripts/profileindicator_inject.js"]
+    },
+    {
       "matches": ["https://support.google.com/*/profile/*"],
       "js": ["content_scripts/profile_inject.js"]
     }

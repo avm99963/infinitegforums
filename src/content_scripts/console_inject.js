@@ -53,9 +53,11 @@ function mutationCallback(mutationList, observer) {
 
               var name = escapeUsername(nameElement.innerHTML);
               var query1 = encodeURIComponent(
-                  '(creator:"' + name + '" | replier:"' + name + '") forum:'+forumId);
+                  '(creator:"' + name + '" | replier:"' + name +
+                  '") forum:' + forumId);
               var query2 = encodeURIComponent(
-                  '(creator:"' + name + '" | replier:"' + name + '") forum:any');
+                  '(creator:"' + name + '" | replier:"' + name +
+                  '") forum:any');
               addProfileHistoryLink(node, 'forum', query1);
               addProfileHistoryLink(node, 'all', query2);
             }
@@ -108,24 +110,5 @@ chrome.storage.sync.get(null, function(items) {
   if (options.stickysidebarheaders) {
     injectStyles(
         'material-drawer .main-header{background: #fff; position: sticky; top: 0; z-index: 1;}');
-  }
-
-  if (options.profileindicator) {
-    injectScript(
-        chrome.runtime.getURL('injections/profileindicator_inject.js'));
-    injectStylesheet(
-        chrome.runtime.getURL('injections/profileindicator_inject.css'));
-
-    // In order to pass i18n strings to the injected script, which doesn't have
-    // access to the chrome.i18n API.
-    window.addEventListener('geti18nString', evt => {
-      var request = evt.detail;
-      var response = {
-        string: chrome.i18n.getMessage(request.msg),
-        requestId: request.id
-      };
-      window.dispatchEvent(
-          new CustomEvent('sendi18nString', {detail: response}));
-    });
   }
 });

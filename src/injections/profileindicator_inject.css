@@ -1,4 +1,14 @@
-ec-user-link.name > *, .thread-message-header__name > span:nth-child(3) > * {
+@keyframes loading-indicator {
+  from {
+    opacity: 0.25;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+ec-user-link.name > *, .thread-message-header__name > *, .thread-message-header__name > span:nth-child(3) > * {
   vertical-align: middle;
 }
 
@@ -11,21 +21,11 @@ ec-user-link.name > *, .thread-message-header__name > span:nth-child(3) > * {
   text-decoration: none!important;
 }
 
-@keyframes loading-profile-indicator {
-  from {
-    opacity: 0.25;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 .profile-indicator.profile-indicator--loading a {
   color: #6f6f6f;
 
   animation-duration: 0.75s;
-  animation-name: loading-profile-indicator;
+  animation-name: loading-indicator;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
@@ -44,5 +44,54 @@ ec-user-link.name > *, .thread-message-header__name > span:nth-child(3) > * {
 
 .profile-indicator a {
   opacity: 1;
-  transition: opacity 1s, color 1s;
+  transition: opacity .5s, color .5s;
+}
+
+.num-posts-indicator {
+  display: inline-block;
+  padding: 3px 7px;
+  margin-left: 4px;
+  border-radius: 16px;
+  height: 14px;
+  min-width: 12px;
+
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+
+  background-color: #E0E0E0;
+  color: black;
+  transition: background-color .5s;
+}
+
+.num-posts-indicator.num-posts-indicator--loading {
+  background-color: #6f6f6f;
+
+  animation-duration: 0.75s;
+  animation-name: loading-indicator;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.num-posts-indicator.num-posts-indicator--first-post {
+  background-color: #BBDEFB;
+}
+
+.num-posts-indicator.num-posts-indicator--other-posts-read {
+  background-color: #FFE0B2;
+}
+
+.num-posts-indicator.num-posts-indicator--other-posts-unread {
+  color: white;
+  background-color: #F44336;
+}
+
+.num-posts-indicator .num-posts-indicator--num {
+  display: inline-block;
+  opacity: 1;
+  transition: opacity .5s;
+}
+
+.num-posts-indicator .num-posts-indicator--num.num-posts-indicator--num--loading {
+  opacity: 0;
 }

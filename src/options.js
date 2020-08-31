@@ -1,11 +1,37 @@
 var savedSuccessfullyTimeout = null;
 
-function save() {
+const exclusiveOptions = [['thread', 'threadall']];
+
+function save(e) {
   var options = defaultOptions;
 
+  // Validation checks before saving
+  var months = document.getElementById('profileindicatoralt_months');
+  if (!months.checkValidity()) {
+    console.warn(months.validationMessage);
+    return;
+  }
+
+  e.preventDefault();
+
+  // Save
   Object.keys(options).forEach(function(opt) {
     if (deprecatedOptions.includes(opt)) return;
-    options[opt] = document.querySelector('#' + opt).checked || false;
+
+    if (specialOptions.includes(opt)) {
+      switch (opt) {
+        case 'profileindicatoralt_months':
+          options[opt] = document.getElementById(opt).value || 12;
+          break;
+
+        default:
+          console.warn('Unrecognized option: ' + opt);
+          break;
+      }
+      return;
+    }
+
+    options[opt] = document.getElementById(opt).checked || false;
   });
 
   chrome.storage.sync.set(options, function() {
@@ -30,14 +56,6 @@ function i18n() {
               'options_' + el.getAttribute('data-i18n')));
 }
 
-function thread() {
-  if (document.querySelector('#thread').checked &&
-      document.querySelector('#threadall').checked) {
-    document.querySelector('#' + (this.id == 'thread' ? 'threadall' : 'thread'))
-        .checked = false;
-  }
-}
-
 window.addEventListener('load', function() {
   i18n();
 
@@ -45,14 +63,44 @@ window.addEventListener('load', function() {
     items = cleanUpOptions(items);
 
     Object.keys(defaultOptions).forEach(function(opt) {
-      if (items[opt] === true && !deprecatedOptions.includes(opt)) {
-        document.querySelector('#' + opt).checked = true;
+      if (deprecatedOptions.includes(opt)) return;
+
+      if (specialOptions.includes(opt)) {
+        switch (opt) {
+          case 'profileindicatoralt_months':
+            var input = document.createElement('input');
+            input.type = 'number';
+            input.id = 'profileindicatoralt_months';
+            input.max = '12';
+            input.min = '1';
+            input.value = items[opt];
+            input.required = true;
+            document.getElementById('profileindicatoralt_months--container')
+                .appendChild(input);
+            break;
+
+          default:
+            console.warn('Unrecognized option: ' + opt);
+            break;
+        }
+        return;
       }
+
+      if (items[opt] === true) document.getElementById(opt).checked = true;
     });
 
-    ['thread', 'threadall'].forEach(
-        el => document.querySelector('#' + el).addEventListener(
-            'change', thread));
+    exclusiveOptions.forEach(exclusive => {
+      exclusive.forEach(
+          el => document.getElementById(el).addEventListener('change', e => {
+            if (document.getElementById(exclusive[0]).checked &&
+                document.getElementById(exclusive[1]).checked) {
+              document
+                  .getElementById(
+                      exclusive[(e.currentTarget.id == exclusive[0] ? 1 : 0)])
+                  .checked = false;
+            }
+          }));
+    });
     document.querySelector('#save').addEventListener('click', save);
   });
 });

@@ -11,6 +11,10 @@
   text-align: center;
 }
 
+#profileindicatoralt_months {
+  width: 3em;
+}
+
 #save-indicator {
   text-align: center;
   margin-bottom: 16px;
