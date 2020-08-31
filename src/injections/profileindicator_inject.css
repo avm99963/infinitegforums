@@ -1,4 +1,4 @@
-ec-user-link.name > * {
+ec-user-link.name > *, .thread-message-header__name > span:nth-child(3) > * {
   vertical-align: middle;
 }
 

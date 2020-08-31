@@ -68,7 +68,7 @@
     "description": "Feature checkbox in the options page"
   },
   "options_profileindicator": {
-    "message": "Show in the Community Console <span class=\"help\" title=\"If the OP has participated in other threads, a red dot will be shown next to their username. If the OP's most recent posts have been read, an orange dot will be shown instead. You can hover the dot with your mouse in order to show the meaning of its color.\">whether the OP has participated in other threads</span>.",
+    "message": "Show <span class=\"help\" title=\"If the OP has participated in other threads, a red dot will be shown next to their username. If the OP's most recent posts have been read, an orange dot will be shown instead. You can hover the dot with your mouse in order to show the meaning of its color.\">whether the OP has participated in other threads</span>.",
     "description": "Feature checkbox in the options page"
   },
   "options_save": {

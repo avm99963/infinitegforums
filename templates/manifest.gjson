@@ -41,8 +41,8 @@
     "storage"
   ],
   "web_accessible_resources": [
-    "injections/console_profileindicator_inject.js",
-    "injections/console_profileindicator_inject.css"
+    "injections/profileindicator_inject.js",
+    "injections/profileindicator_inject.css"
   ],
   "browser_action": {},
 #if defined(CHROMIUM)

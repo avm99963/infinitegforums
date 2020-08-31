@@ -1,5 +1,22 @@
 var intersectionObserver;
 
+function injectStylesheet(stylesheetName) {
+  var link = document.createElement('link');
+  link.setAttribute('rel', 'stylesheet');
+  link.setAttribute('href', stylesheetName);
+  document.head.appendChild(link);
+}
+
+function injectStyles(css) {
+  injectStylesheet('data:text/css;charset=UTF-8,' + encodeURIComponent(css));
+}
+
+function injectScript(scriptName) {
+  var script = document.createElement('script');
+  script.src = scriptName;
+  document.head.appendChild(script);
+}
+
 function intersectionCallback(entries, observer) {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -37,6 +54,25 @@ chrome.storage.sync.get(null, function(items) {
       intersectionObserver =
           new IntersectionObserver(intersectionCallback, intersectionOptions);
       intersectionObserver.observe(allbutton);
+    }
+
+    if (items.profileindicator) {
+      injectScript(
+          chrome.runtime.getURL('injections/profileindicator_inject.js'));
+      injectStylesheet(
+          chrome.runtime.getURL('injections/profileindicator_inject.css'));
+
+      // In order to pass i18n strings to the injected script, which doesn't
+      // have access to the chrome.i18n API.
+      window.addEventListener('geti18nString', evt => {
+        var request = evt.detail;
+        var response = {
+          string: chrome.i18n.getMessage(request.msg),
+          requestId: request.id
+        };
+        window.dispatchEvent(
+            new CustomEvent('sendi18nString', {detail: response}));
+      });
     }
   }
 });

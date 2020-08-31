@@ -117,9 +117,9 @@ chrome.storage.sync.get(null, function(items) {
 
   if (options.profileindicator) {
     injectScript(
-        chrome.runtime.getURL('injections/console_profileindicator_inject.js'));
-    injectStylesheet(chrome.runtime.getURL(
-        'injections/console_profileindicator_inject.css'));
+        chrome.runtime.getURL('injections/profileindicator_inject.js'));
+    injectStylesheet(
+        chrome.runtime.getURL('injections/profileindicator_inject.css'));
 
     // In order to pass i18n strings to the injected script, which doesn't have
     // access to the chrome.i18n API.

@@ -64,7 +64,7 @@
     "description": "Feature checkbox in the options page"
   },
   "options_profileindicator": {
-    "message": "Mostra a la Consola de la Comunitat <span class=\"help\" title=\"Si l'autor ha participat a altres fils, es mostrarà un punt vermell al costat del seu nom d'usuari. Si les publicacions més recents han estat llegides, es mostrarà un punt taronja. Pots posar el teu ratolí a sobre del punt per mostrar què vol dir el seu color.\">si l'autor del fil ha participat a altres fils</span>.",
+    "message": "Mostra <span class=\"help\" title=\"Si l'autor ha participat a altres fils, es mostrarà un punt vermell al costat del seu nom d'usuari. Si les publicacions més recents han estat llegides, es mostrarà un punt taronja. Pots posar el teu ratolí a sobre del punt per mostrar què vol dir el seu color.\">si l'autor del fil ha participat a altres fils</span>.",
     "description": "Feature checkbox in the options page"
   },
   "options_stickysidebarheaders": {
