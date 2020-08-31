@@ -116,9 +116,10 @@ chrome.storage.sync.get(null, function(items) {
   }
 
   if (options.profileindicator) {
-    injectScript(chrome.runtime.getURL('console_profileindicator_inject.js'));
-    injectStylesheet(
-        chrome.runtime.getURL('console_profileindicator_inject.css'));
+    injectScript(
+        chrome.runtime.getURL('injections/console_profileindicator_inject.js'));
+    injectStylesheet(chrome.runtime.getURL(
+        'injections/console_profileindicator_inject.css'));
 
     // In order to pass i18n strings to the injected script, which doesn't have
     // access to the chrome.i18n API.
@@ -128,7 +129,8 @@ chrome.storage.sync.get(null, function(items) {
         string: chrome.i18n.getMessage(request.msg),
         requestId: request.id
       };
-      window.dispatchEvent(new CustomEvent('sendi18nString', {detail: response}));
+      window.dispatchEvent(
+          new CustomEvent('sendi18nString', {detail: response}));
     });
   }
 });

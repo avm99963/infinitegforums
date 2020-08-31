@@ -13,25 +13,25 @@
   "content_scripts": [
     {
       "matches": ["https://support.google.com/s/community*"],
-      "js": ["console_inject.js"]
+      "js": ["content_scripts/console_inject.js"]
     },
     {
       "matches": ["https://support.google.com/s/community*"],
-      "js": ["console_inject_start.js"],
+      "js": ["content_scripts/console_inject_start.js"],
       "run_at": "document_start"
     },
     {
       "matches": ["https://support.google.com/*/threads*"],
-      "js": ["forum_inject.js"]
+      "js": ["content_scripts/forum_inject.js"]
     },
     {
       "matches": ["https://support.google.com/*/thread/*"],
-      "js": ["thread_inject.js"],
+      "js": ["content_scripts/thread_inject.js"],
       "run_at": "document_end"
     },
     {
       "matches": ["https://support.google.com/*/profile/*"],
-      "js": ["profile_inject.js"]
+      "js": ["content_scripts/profile_inject.js"]
     }
   ],
   "permissions": [
@@ -41,8 +41,8 @@
     "storage"
   ],
   "web_accessible_resources": [
-    "console_profileindicator_inject.js",
-    "console_profileindicator_inject.css"
+    "injections/console_profileindicator_inject.js",
+    "injections/console_profileindicator_inject.css"
   ],
   "browser_action": {},
 #if defined(CHROMIUM)
