@@ -66,7 +66,7 @@ ec-user-link.name > *, .thread-message-header__name > *, .thread-message-header_
 }
 
 .num-posts-indicator.num-posts-indicator--loading {
-  background-color: #6f6f6f;
+  background-color: #AFAFAF;
 
   animation-duration: 0.75s;
   animation-name: loading-indicator;
