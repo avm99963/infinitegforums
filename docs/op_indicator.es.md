@@ -12,11 +12,11 @@ determinar si el autor del hilo ha participado en otros hilos:
 autor del hilo ha participado. Después, dependiendo de la lista de hilos
 devuelta, se muestra un punto al lado de su nombre de usuario que muestra uno
 de los estados siguientes:
-  * Punto azul: si la búsqueda solo devolvió el hilo actual.
-  * Punto naranja: si la búsqueda devolvió más hilos, pero los otros hilos se
-  han marcado como leídos.
-  * Punto rojo: si la búsqueda devolvió más hilos, pero al menos uno de ellos no
-  está marcado como leído.
+    * Punto azul: si la búsqueda solo devolvió el hilo actual.
+    * Punto naranja: si la búsqueda devolvió más hilos, pero los otros hilos se
+    han marcado como leídos.
+    * Punto rojo: si la búsqueda devolvió más hilos, pero al menos uno de ellos
+    no está marcado como leído.
 2. La segunda opción hace una petición para cargar el perfil del usuario en vez
 de buscar en el foro los hilos en sí. Esto devuelve el número de publicaciones
 (incluyendo los nuevos hilos, respuestas normales y respuestas recomendadas)

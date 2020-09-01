@@ -12,11 +12,11 @@ determine whether the OP participated in other threads:
 1. The first option searches in the current Forum for the 5 most recent posts
 in which the OP participated. Then, depending on the thread list returned, a dot
 is displayed next to their username with one of the following states:
-  * Blue dot: if the search only returned the current thread.
-  * Orange dot: if the search returned more threads, but the other threads are
-  marked as read.
-  * Red dot: if the search returned more threads, but at least one of the other
-  threads is not marked as read.
+    * Blue dot: if the search only returned the current thread.
+    * Orange dot: if the search returned more threads, but the other threads are
+    marked as read.
+    * Red dot: if the search returned more threads, but at least one of the other
+    threads is not marked as read.
 2. The second option makes a request to load the user profile instead of
 searching in the forum the actual threads. This returns the number of posts
 (including new threads, normal replies and recommended replies) made by the user
