@@ -113,7 +113,7 @@ var contentScriptRequest = (function() {
 // badge if it is already created.
 function createIndicatorDot(sourceNode, searchURL, options) {
   if (options.numPosts) return document.querySelector('.num-posts-indicator');
-  var dotContainer = document.createElement('span');
+  var dotContainer = document.createElement('div');
   dotContainer.classList.add('profile-indicator', 'profile-indicator--loading');
   contentScriptRequest
       .sendRequest({

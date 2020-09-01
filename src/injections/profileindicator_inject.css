@@ -13,7 +13,8 @@ ec-user-link.name > *, .thread-message-header__name > *, .thread-message-header_
 }
 
 .profile-indicator {
-  font-size: 14px;
+  display: inline-block;
+  font-size: 16px;
   margin-left: 4px;
 }
 
