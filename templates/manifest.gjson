@@ -26,11 +26,13 @@
     },
     {
       "matches": ["https://support.google.com/*/thread/*"],
+      "exclude_matches": ["https://support.google.com/s/community*", "https://support.google.com/*/thread/new*"],
       "js": ["common/content_scripts.js", "content_scripts/thread_inject.js"],
       "run_at": "document_end"
     },
     {
       "matches": ["https://support.google.com/s/community*", "https://support.google.com/*/thread/*"],
+      "exclude_matches": ["https://support.google.com/*/thread/new*"],
       "js": ["common/content_scripts.js", "content_scripts/profileindicator_inject.js"]
     },
     {
