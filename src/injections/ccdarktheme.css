@@ -323,7 +323,7 @@ ec-user .main-card-content {
   border-bottom-right-radius: 8px!important;
 }
 
-ec-user ec-display-name-editor {
+ec-user ec-display-name-editor, ec-user .header .name {
   color: var(--TWPT-primary-text)!important;
 }
 
