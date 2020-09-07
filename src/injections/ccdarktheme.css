@@ -1,0 +1,563 @@
+:root {
+  --TWPT-primary-text: #e8eaed;
+  --TWPT-primary-text-alt: var(--TWPT-primary-text);
+  --TWPT-secondary-text: #9aa0a6;
+  --TWPT-primary-background: #202124;
+  --TWPT-secondary-background: #28292c;
+  --TWPT-active-background: #3c4043;
+  --TWPT-card-border: #5f6368;
+  --TWPT-subtle-border: #383735;
+  --TWPT-link: #8ab4f8;
+  --TWPT-thread-read-background: rgba(255, 255, 255, 0.08);
+  --TWPT-drawer-background: #2d2e30;
+}
+
+body {
+  color: var(--TWPT-primary-text);
+  background-color: var(--TWPT-primary-background)!important;
+}
+
+p {
+  color: var(--TWPT-primary-text);
+}
+
+body.ec a {
+  color: var(--TWPT-link);
+}
+
+/* Header */
+.material-content > header {
+  background-color: var(--TWPT-primary-background)!important;
+}
+
+.material-content > header material-button {
+  color: rgba(255, 255, 255, .87)!important;
+}
+
+.search-box {
+  background-color: #313235!important;
+}
+
+.search-box .clear-icon {
+  opacity: 0.8;
+  color: rgba(255, 255, 255, .87)!important;
+}
+
+.material-content > header .bell.mixin {
+  fill: rgba(255, 255, 255, .87)!important;
+}
+
+/* Drawer */
+material-drawer, material-drawer .panel, material-list-item {
+  background-color: var(--TWPT-drawer-background)!important;
+}
+
+material-list-item:hover, material-list-item:focus {
+  background-color: var(--TWPT-active-background)!important;
+}
+
+material-drawer .panel {
+  border-bottom-color: #25231f!important;
+}
+
+material-drawer .drawer-section-title, material-drawer .header > material-icon {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+material-drawer material-list-item, material-drawer material-list-item .title {
+  color: #d2cecb!important;
+}
+
+material-drawer ec-forum-drawer-item material-checkbox material-icon {
+  filter: brightness(1.5);
+}
+
+/* Selector */
+.popup-wrapper, material-list {
+  background-color: var(--TWPT-drawer-background)!important;
+}
+
+material-list [group]:not(.empty) + *:not(script):not(template):not(.empty) {
+  box-shadow: inset 0 8px 0 0 var(--TWPT-drawer-background)!important;
+  border-top-color: #1f1f1f!important;
+}
+
+material-list material-select-item:hover,
+    material-list material-select-item:focus,
+    material-list material-select-dropdown-item:hover,
+    material-list material-select-dropdown-item:focus,
+    material-list material-select-dropdown-item.active,
+    material-list material-select-dropdown-item:not(.multiselect).selected {
+  background-color: rgba(255, 255, 255, .04)!important;
+}
+
+material-list .menu-item-label, material-list .label, material-list .text-segment {
+  color: rgba(255, 255, 255, .87)!important;
+}
+
+material-list [group] > [label] {
+  color: #8a8a8a!important;
+}
+
+/* Main */
+.main {
+  color: var(--TWPT-primary-text)!important;
+}
+
+main .title-bar {
+  border-bottom-color: var(--TWPT-subtle-border)!important;
+}
+
+main .title-bar .title, main .page-header h1, main .header h1 {
+  color: var(--TWPT-primary-text)!important;
+}
+
+.card {
+  background-color: var(--TWPT-secondary-background)!important;
+  color: var(--TWPT-primary-text)!important;
+  border-color: var(--TWPT-card-border)!important;
+}
+
+.card .card-title, .card, .card-section-title {
+  color: var(--TWPT-primary-text)!important;
+}
+
+.card .card-section-hint {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+/* Action bar */
+.material-content .action-bar material-button,
+    ec-bulk-actions material-button,
+    ec-back-button material-button {
+  color: rgba(255, 255, 255, .54)!important;
+}
+
+.material-content .action-bar material-button.starred {
+  color: #fbbc04!important;
+}
+
+/* Thread list */
+ec-thread-list ul.thread-group {
+  background-color: var(--TWPT-primary-background)!important;
+}
+
+ec-thread-list ec-bulk-actions, ec-thread-list ec-thread-summary material-expansionpanel {
+  border-bottom-color: var(--TWPT-subtle-border)!important;
+}
+
+ec-thread-summary material-expansionpanel.read {
+  background-color: var(--TWPT-thread-read-background)!important;
+}
+
+ec-thread-summary material-expansionpanel.checked {
+  background-color: #17191c!important;
+}
+
+ec-thread-summary material-expansionpanel .title {
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-thread-summary material-expansionpanel ec-second-summary-line,
+    material-expansionpanel .header-content,
+    material-expansionpanel ec-thread-counts > span:not(.recommended-answers) {
+  color: #928e89!important;
+}
+
+ec-thread-summary material-expansionpanel ec-safe-html.body {
+  color: var(--TWPT-primary-text)!important;
+}
+
+/* Thread view */
+ec-question, .heading + .group, ec-message {
+  background-color: var(--TWPT-secondary-background)!important;
+}
+
+ec-question ec-review-bar {
+  background-color: var(--TWPT-active-background)!important;
+}
+
+ec-message-header .header, ec-question .state, ec-question ec-thread-counts > span, ec-message ec-thread-counts > span {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+ec-question .alert {
+  background-color: var(--TWPT-active-background)!important;
+}
+
+ec-question .alert material-icon {
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-question .alert ec-icon {
+  color: var(--TWPT-primary-text)!important;
+  fill: var(--TWPT-primary-text)!important;
+}
+
+ec-question .title {
+  color: var(--TWPT-primary-text-alt)!important;
+}
+
+ec-message-header ec-avatar svg, ec-message-header .role {
+  filter: brightness(1.5);
+}
+
+ec-question .body, ec-message .body {
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-question .thread-insert {
+  background: none!important;
+}
+
+ec-question .details-heading {
+  color: var(--TWPT-primary-text-alt) !important;
+}
+
+ec-question .footer {
+  color: var(--TWPT-primary-text)!important;
+  background-color: var(--TWPT-active-background)!important;
+  border-top-color: var(--TWPT-card-border)!important;
+}
+
+.heading {
+  color: var(--TWPT-primary-text)!important;
+}
+
+.heading + .group,
+    .load-more-bar,
+    ec-message:not(:first-child),
+    .load-more-bar .load-more-button,
+    .load-more-bar .load-all-button {
+  border-color: var(--TWPT-card-border)!important;
+}
+
+ec-message .footer ec-relative-time,
+    ec-message .footer ec-safe-html {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+ec-message .helpful-prompt {
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-question .me-too-button,
+    ec-question .subscribe-button,
+    ec-message .upvote-button,
+    ec-message .downvote-button {
+  color: var(--TWPT-secondary-text)!important;
+  background-color: #3c3e42!important;
+}
+
+ec-question .me-too-button.selected,
+    ec-question .subscribe-button.selected,
+    ec-message .upvote-button.selected,
+    ec-message .downvote-button.selected {
+  color: #4285f4!important;
+}
+
+.load-more-bar .load-more-button, .load-more-bar .load-all-button {
+  background-color: var(--TWPT-secondary-background)!important;
+}
+
+.locked-alert {
+  background-color: var(--TWPT-active-background)!important;
+  border: var(--TWPT-card-border)!important;
+}
+
+.locked-alert material-icon {
+  color: rgba(255, 255, 255, .38)!important;
+}
+
+ec-thread .finished-question {
+  background-color: var(--TWPT-active-background)!important;
+  border: var(--TWPT-card-border)!important;
+}
+
+.material-content .action-bar material-button.has-activity {
+  color: #1a73e8!important;
+}
+
+.material-content .action-bar material-button.showing-sidebar {
+  background-color: var(--TWPT-active-background)!important;
+}
+
+ec-activity-panel .title-bar h3 {
+  color: #e8eaf2!important;
+}
+
+ec-activity-panel ec-activity {
+  color: var(--TWPT-secondary-text)!important;
+  border-color: var(--TWPT-card-border)!important;
+}
+
+ec-activity-panel ec-activity .message {
+  color: var(--TWPT-primary-text-alt)!important;
+}
+
+ec-activity-panel ec-activity .thread-title {
+  color: #c3bfbc!important;
+}
+
+/* Recommended answers - show in green where we've overwritten the colors */
+.recommended-answers {
+  color: #34a853!important;
+}
+
+/* New thread view */
+material-stepper .stepper-step-name,
+    material-stepper .purpose-title {
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-ask-flow .display-name-label,
+    material-stepper .additional-details-label {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+/* Profile view */
+ec-user .main-card-content {
+  background-color: var(--TWPT-secondary-background)!important;
+  border: 1px solid var(--TWPT-card-border)!important;
+  border-top-right-radius: 8px!important;
+  border-bottom-right-radius: 8px!important;
+}
+
+ec-user ec-display-name-editor {
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-user bar-chart .axis text {
+  fill: rgba(255, 255, 255, .54)!important;
+}
+
+ec-user bar-chart .axis path,
+    ec-user bar-chart .axis .gridline,
+    ec-user bar-chart .axis line {
+  stroke: rgba(255, 255, 255, .12)!important;
+}
+
+ec-user bar-chart .axis line.axis-zero-tick,
+    ec-user bar-chart .axis.x .tick-mark {
+  stroke: rgba(255, 255, 255, .38)!important;
+}
+
+ec-user bar-chart .aplos-legend-entry {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+.aplos-hovercard {
+  background: var(--TWPT-secondary-background)!important;
+}
+
+.aplos-hovercard .title {
+  color: var(--TWPT-primary-text)!important;
+}
+
+.aplos-hovercard .subtitle,
+    .aplos-donut-center .subtitle,
+    .aplos-hovercard .series,
+    .aplos-donut-center .series,
+    .aplos-hovercard .value,
+    .aplos-donut-center .value {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+/* Duplicate thread feature */
+.search-results ec-thread-option material-expansionpanel .panel {
+  background-color: var(--TWPT-primary-background)!important;
+}
+
+.search-results ec-thread-option material-expansionpanel.selected .panel,
+    .search-results ec-thread-option material-expansionpanel .panel > .main-header > .header.closed:hover,
+    .search-results ec-thread-option material-expansionpanel .panel > .main-header > .header.closed:focus {
+  background-color: #17191c!important;
+}
+
+/* Disabled buttons */
+material-button[disabled] {
+  color: rgba(255, 255, 255, .26)!important;
+}
+
+/* Material icons */
+ec-filter-drawer-item material-icon,
+    ec-filter-drawer-item ec-icon,
+    material-drawer .drawer-section material-icon,
+    material-drawer .drawer-section ec-icon,
+    material-list material-icon,
+    ec-query-builder material-icon,
+    material-radio .icon-container:not(.checked) material-icon,
+    ec-thread-summary material-expansionpanel .title material-icon,
+    .search-results ec-thread-option material-icon,
+    .search-results ec-thread-option ec-icon,
+    ec-rich-text-editor material-icon,
+    ec-editor-command material-icon,
+    ec-canned-responses ec-canned-response-row material-icon {
+  color: rgba(255, 255, 255, .87)!important;
+}
+
+material-drawer ec-icon,
+  .search-results ec-thread-option ec-icon {
+  fill: rgba(255, 255, 255, .87)!important;
+}
+
+/* Dialogs */
+material-dialog, material-dialog .dialog-header {
+  background-color: var(--TWPT-primary-background)!important;
+}
+
+ec-movable-dialog[showminimize] material-dialog .dialog-header {
+  background-color: #d2e3fc!important;
+}
+
+material-dialog .title {
+  color: var(--TWPT-primary-text-alt)!important;
+}
+
+ec-movable-dialog[showminimize] material-dialog .dialog-header .title, ec-movable-dialog[showminimize] material-dialog header material-icon {
+  color: var(--TWPT-primary-background)!important;
+}
+
+ec-movable-dialog[showminimize] material-dialog .header-notice, material-dialog .legal-prompt {
+  background-color: #170f01!important;
+}
+
+material-dialog .section-title,
+    material-dialog .select-label,
+    material-dialog .input-label,
+    material-dialog .btn-no,
+    ec-display-name-editor,
+    .forum-selection-label {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+ec-movable-dialog[showminimize] material-dialog footer > [footer] > .footer > [footer] > simple-html {
+  color: var(--TWPT-secondary-text)!important;
+  background-color: var(--TWPT-active-background)!important;
+  border-top-color: #25231f!important;
+}
+
+/* Keyboard shortcuts dialog */
+material-dialog .main.with-scroll-strokes table td {
+  color: var(--TWPT-primary-text)!important;
+}
+
+/* Rich text editor */
+ec-editor-command material-button,
+    ec-formatting-popup material-button {
+  box-shadow: none!important;
+}
+
+ec-editor-command material-button.is-active {
+  background: var(--TWPT-active-background)!important;
+}
+
+ec-rich-text-editor .placeholder {
+  color: rgba(255, 255, 255, .38)!important;
+}
+
+ec-rich-text-editor .input {
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-rich-text-editor .hint {
+  color: rgba(255, 255, 255, .54)!important;
+}
+
+material-select-searchbox + material-list material-list-item {
+  color: rgba(255, 255, 255, .87)!important;
+}
+
+ec-attachment .filename {
+  color: var(--TWPT-primary-text)!important;
+}
+
+/* Thread insert */
+ec-thread-insert .title {
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-thread-insert ec-thread-counts,
+    ec-thread-insert .details,
+    ec-thread-insert ec-relative-time {
+  color: rgba(255, 255, 255, .54)!important;
+}
+
+/* Text input */
+material-input input {
+  color: var(--TWPT-primary-text)!important;
+}
+
+material-input .label-text,
+    material-input .hint-text,
+    material-input .counter {
+  color: rgba(255, 255, 255, .54)!important;
+}
+
+material-input .underline .unfocused-underline {
+  background-color: rgba(255, 255, 255, .12)!important;
+}
+
+label .label {
+  color: var(--TWPT-primary-text)!important;
+}
+
+/* Input underline */
+material-input .underline .unfocused-underline,
+    material-dropdown-select dropdown-button [buttondecorator] {
+  border-bottom-color: rgba(255, 255, 255, .12)!important;
+}
+
+/* Checkbox input */
+material-checkbox, material-checkbox .content {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+/* Material menu button and dropdown select */
+material-menu material-button, material-dropdown-select dropdown-button {
+  color: rgba(255, 255, 255, .54)!important;
+}
+
+material-dropdown-select dropdown-button .is-disabled .button-text {
+  color: rgba(255, 255, 255, .38)!important;
+}
+
+/* Announcements content */
+ec-announcements-content .header .title, ec-announcements-content .announcement-title {
+  color: var(--TWPT-primary-text-alt)!important;
+}
+
+ec-announcements-content .no-announcements-message {
+  color: #c3bfbc!important;
+}
+
+/* Account selector */
+.popup-wrapper .profile .email {
+  color: rgba(255, 255, 255, .54)!important;
+}
+
+material-gaia-picker-footer {
+  color: rgba(255, 255, 255, .54)!important;
+  background-color: var(--TWPT-active-background)!important;
+}
+
+/* Canned responses */
+ec-canned-responses .filter-label,
+    ec-canned-responses ec-canned-response-row .name,
+    ec-canned-responses ec-canned-response-row .snippet {
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-canned-responses ec-canned-response-row .header.closed:hover,
+    ec-canned-responses ec-canned-response-row .header.closed:focus,
+    ec-canned-responses ec-canned-response-row .header.closed:hover .toolbar,
+    ec-canned-responses ec-canned-response-row .header.closed:focus .toolbar {
+  background-color: var(--TWPT-active-background)!important;
+}
+
+/* Reply button */
+material-fab.reply-button {
+  background-color: var(--TWPT-link)!important;
+  color: var(--TWPT-primary-background)!important;
+}
+

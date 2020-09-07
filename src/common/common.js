@@ -14,10 +14,15 @@ const defaultOptions = {
   'profileindicator': false,
   'profileindicatoralt': false,
   'profileindicatoralt_months': 12,
+  'ccdarktheme': false,
+  'ccdarktheme_mode': 'switch',
+  'ccdarktheme_switch_enabled': true,
 };
 
 const specialOptions = [
   'profileindicatoralt_months',
+  'ccdarktheme_mode',
+  'ccdarktheme_switch_enabled',
 ];
 
 const deprecatedOptions = [

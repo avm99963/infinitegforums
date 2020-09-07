@@ -63,6 +63,18 @@
     "message": "Incrementa el contraste entre los hilos leídos y no leídos en la Consola de la Comunidad.",
     "description": "Feature checkbox in the options page"
   },
+  "options_ccdarktheme": {
+    "message": "Activa el tema oscuro en la Consola de la Comunidad, controlado por <span id='ccdarktheme_mode--container'></span>.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_ccdarktheme_mode_switch": {
+    "message": "un botón en la consola",
+    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
+  },
+  "options_ccdarktheme_mode_system": {
+    "message": "la configuración del modo oscuro del SO",
+    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
+  },
   "options_profileindicator_header": {
     "message": "Punto indicador",
     "description": "Heading for the profile indicator feature options"
@@ -126,5 +138,9 @@
   "inject_profileindicatoralt_numposts": {
     "message": "Número de preguntas y respuestas en los últimos $1 meses.",
     "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_ccdarktheme_helper": {
+    "message": "Cambiar tema",
+    "description": "Tooltip for the dark mode switch."
   }
 }

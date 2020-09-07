@@ -1,0 +1,8 @@
+.TWPT-dark-theme {
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.TWPT-dark-theme .content {
+  padding: 8px;
+}

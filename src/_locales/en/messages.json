@@ -67,6 +67,18 @@
     "message": "Increase contrast between read and unread threads in the Community Console.",
     "description": "Feature checkbox in the options page"
   },
+  "options_ccdarktheme": {
+    "message": "Enable the dark theme in the Community Console, controlled <span id='ccdarktheme_mode--container'></span>.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_ccdarktheme_mode_switch": {
+    "message": "with a switch in the CC",
+    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
+  },
+  "options_ccdarktheme_mode_system": {
+    "message": "by the OS dark mode setting",
+    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
+  },
   "options_profileindicator_header": {
     "message": "Indicator dot",
     "description": "Heading for the profile indicator feature options"
@@ -126,5 +138,9 @@
   "inject_profileindicatoralt_numposts": {
     "message": "Number of questions and replies in the last $1 months.",
     "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_ccdarktheme_helper": {
+    "message": "Switch theme",
+    "description": "Tooltip for the dark mode switch."
   }
 }

@@ -100,15 +100,55 @@ chrome.storage.sync.get(null, function(items) {
 
   if (options.fixedtoolbar) {
     injectStyles(
-        'ec-bulk-actions{position: sticky; top: 0; background: white; z-index: 96;}');
+        'ec-bulk-actions{position: sticky; top: 0; background: var(--TWPT-primary-background, #fff); z-index: 96;}');
   }
 
   if (options.increasecontrast) {
-    injectStyles('.thread-summary.read{background: #ecedee!important;}');
+    injectStyles(
+        '.thread-summary.read{background: var(--TWPT-thread-read-background, #ecedee)!important;}');
   }
 
   if (options.stickysidebarheaders) {
     injectStyles(
-        'material-drawer .main-header{background: #fff; position: sticky; top: 0; z-index: 1;}');
+        'material-drawer .main-header{background: var(--TWPT-drawer-background, #fff)!important; position: sticky; top: 0; z-index: 1;}');
+  }
+
+  if (options.ccdarktheme && options.ccdarktheme_mode == 'switch') {
+    injectStylesheet(
+        chrome.runtime.getURL('injections/ccdarktheme_switch.css'));
+
+    var darkThemeSwitch = document.createElement('material-button');
+    darkThemeSwitch.classList.add('TWPT-dark-theme');
+    darkThemeSwitch.setAttribute('button', '');
+    darkThemeSwitch.setAttribute(
+        'title', chrome.i18n.getMessage('inject_ccdarktheme_helper'));
+
+    darkThemeSwitch.addEventListener('click', e => {
+      chrome.storage.sync.get(null, currentOptions => {
+        currentOptions.ccdarktheme_switch_status =
+            !options.ccdarktheme_switch_status;
+        chrome.storage.sync.set(currentOptions, _ => {
+          location.reload();
+        });
+      });
+    });
+
+    var switchContent = document.createElement('div');
+    switchContent.classList.add('content');
+
+    var icon = document.createElement('material-icon');
+
+    var i = document.createElement('i');
+    i.classList.add('material-icon-i', 'material-icons-extended');
+    i.textContent = 'brightness_4';
+
+    icon.appendChild(i);
+    switchContent.appendChild(icon);
+    darkThemeSwitch.appendChild(switchContent);
+
+    var rightControl = document.querySelector('header .right-control');
+    rightControl.style.width =
+        (parseInt(window.getComputedStyle(rightControl).width) + 58) + 'px';
+    rightControl.insertAdjacentElement('afterbegin', darkThemeSwitch);
   }
 });

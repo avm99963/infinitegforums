@@ -24,6 +24,14 @@ function save(e) {
           options[opt] = document.getElementById(opt).value || 12;
           break;
 
+        case 'ccdarktheme_mode':
+          options[opt] = document.getElementById(opt).value || 'switch';
+          break;
+
+        // This option is controlled directly in the Community Console.
+        case 'ccdarktheme_switch_enabled':
+          break;
+
         default:
           console.warn('Unrecognized option: ' + opt);
           break;
@@ -77,6 +85,28 @@ window.addEventListener('load', function() {
             input.required = true;
             document.getElementById('profileindicatoralt_months--container')
                 .appendChild(input);
+            break;
+
+          case 'ccdarktheme_mode':
+            var select = document.createElement('select');
+            select.id = 'ccdarktheme_mode';
+
+            const modes = ['switch', 'system'];
+            for (const mode of modes) {
+              var modeOption = document.createElement('option');
+              modeOption.value = mode;
+              modeOption.textContent =
+                  chrome.i18n.getMessage('options_ccdarktheme_mode_' + mode);
+              if (items.ccdarktheme_mode == mode) modeOption.selected = true;
+              select.appendChild(modeOption);
+            }
+
+            document.getElementById('ccdarktheme_mode--container')
+                .appendChild(select);
+            break;
+
+          // This option is controlled directly in the Community Console.
+          case 'ccdarktheme_switch_enabled':
             break;
 
           default:

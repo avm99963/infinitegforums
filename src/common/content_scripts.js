@@ -1,7 +1,8 @@
-function injectStylesheet(stylesheetName) {
+function injectStylesheet(stylesheetName, attributes = {}) {
   var link = document.createElement('link');
   link.setAttribute('rel', 'stylesheet');
   link.setAttribute('href', stylesheetName);
+  if ('media' in attributes) link.setAttribute('media', attributes['media']);
   document.head.appendChild(link);
 }
 

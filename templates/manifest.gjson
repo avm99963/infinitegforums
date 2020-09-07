@@ -17,7 +17,7 @@
     },
     {
       "matches": ["https://support.google.com/s/community*"],
-      "js": ["content_scripts/console_inject_start.js"],
+      "js": ["common/content_scripts.js", "content_scripts/console_inject_start.js"],
       "run_at": "document_start"
     },
     {
@@ -48,7 +48,9 @@
   ],
   "web_accessible_resources": [
     "injections/profileindicator_inject.js",
-    "injections/profileindicator_inject.css"
+    "injections/profileindicator_inject.css",
+    "injections/ccdarktheme.css",
+    "injections/ccdarktheme_switch.css"
   ],
   "browser_action": {},
 #if defined(CHROMIUM)

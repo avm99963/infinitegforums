@@ -63,6 +63,18 @@
     "message": "Incrementa el contrast entre els fils llegits i no llegits a la Consola de la Comunitat.",
     "description": "Feature checkbox in the options page"
   },
+  "options_ccdarktheme": {
+    "message": "Activa el tema fosc a la Consola de la Comunitat, controlat per <span id='ccdarktheme_mode--container'></span>.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_ccdarktheme_mode_switch": {
+    "message": "un botó a la consola",
+    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
+  },
+  "options_ccdarktheme_mode_system": {
+    "message": "la configuració del mode fosc del SO",
+    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
+  },
   "options_profileindicator_header": {
     "message": "Punt indicador",
     "description": "Heading for the profile indicator feature options"
@@ -126,5 +138,9 @@
   "inject_profileindicatoralt_numposts": {
     "message": "Nombre de preguntes i respostes en els $1 darrers mesos.",
     "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_ccdarkmode_helper": {
+    "message": "Canviar tema",
+    "description": "Tooltip for the dark mode switch."
   }
 }
