@@ -8,7 +8,7 @@
   --TWPT-card-border: #5f6368;
   --TWPT-subtle-border: #383735;
   --TWPT-link: #8ab4f8;
-  --TWPT-thread-read-background: rgba(255, 255, 255, 0.08);
+  --TWPT-thread-read-background: rgba(255, 255, 255, .08);
   --TWPT-drawer-background: #2d2e30;
 }
 

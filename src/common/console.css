@@ -1,0 +1,33 @@
+.TWPT-badge {
+  width: calc(18/13*var(--icon-size, 16px));
+  height: calc(18/13*var(--icon-size, 16px));
+  border-radius: 50%;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  background-color: #009688;
+  color: #fff;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.22), 0 2px 2px 0 rgba(0, 0, 0, 0.12);
+
+  user-select: none;
+}
+
+.TWPT-badge .material-icon-i {
+  font-size: var(--icon-size, 16px);
+}
+
+.TWPT-previous-posts {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.TWPT-previous-posts .TWPT-badge {
+  --icon-size: 18px;
+  margin-right: 8px;
+}

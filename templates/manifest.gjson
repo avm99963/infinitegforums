@@ -18,6 +18,7 @@
     {
       "matches": ["https://support.google.com/s/community*"],
       "js": ["common/content_scripts.js", "content_scripts/console_inject_start.js"],
+      "css": ["common/console.css"],
       "run_at": "document_start"
     },
     {
@@ -37,7 +38,8 @@
     },
     {
       "matches": ["https://support.google.com/*/profile/*"],
-      "js": ["common/content_scripts.js", "content_scripts/profile_inject.js"]
+      "js": ["common/content_scripts.js", "content_scripts/profile_inject.js"],
+      "css": ["common/forum.css"]
     }
   ],
   "permissions": [

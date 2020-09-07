@@ -142,5 +142,9 @@
   "inject_ccdarkmode_helper": {
     "message": "Canviar tema",
     "description": "Tooltip for the dark mode switch."
+  },
+  "inject_extension_badge_helper": {
+    "message": "Afegit per $1",
+    "description": "Tooltip for the extension badge, which appears next to components injected by the extension."
   }
 }

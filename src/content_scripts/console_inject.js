@@ -25,7 +25,7 @@ function addProfileHistoryLink(node, type, query) {
   link.innerText = chrome.i18n.getMessage('inject_previousposts_' + type);
 
   container.appendChild(link);
-  node.querySelector('.main-card-content').appendChild(container);
+  node.appendChild(container);
 }
 
 function mutationCallback(mutationList, observer) {
@@ -58,8 +58,35 @@ function mutationCallback(mutationList, observer) {
               var query2 = encodeURIComponent(
                   '(creator:"' + name + '" | replier:"' + name +
                   '") forum:any');
-              addProfileHistoryLink(node, 'forum', query1);
-              addProfileHistoryLink(node, 'all', query2);
+
+              var container = document.createElement('div');
+              container.classList.add('TWPT-previous-posts');
+
+              var badge = document.createElement('div');
+              badge.classList.add('TWPT-badge');
+              badge.setAttribute(
+                  'title',
+                  chrome.i18n.getMessage(
+                      'inject_extension_badge_helper',
+                      [chrome.i18n.getMessage('appName')]));
+
+              var badgeI = document.createElement('i');
+              badgeI.classList.add(
+                  'material-icon-i', 'material-icons-extended');
+              badgeI.textContent = 'repeat';
+
+              badge.appendChild(badgeI);
+              container.appendChild(badge);
+
+              var linkContainer = document.createElement('div');
+              linkContainer.classList.add('TWPT-previous-posts--links');
+
+              addProfileHistoryLink(linkContainer, 'forum', query1);
+              addProfileHistoryLink(linkContainer, 'all', query2);
+
+              container.appendChild(linkContainer);
+
+              node.querySelector('.main-card-content').appendChild(container);
             }
           }
         }
@@ -145,6 +172,20 @@ chrome.storage.sync.get(null, function(items) {
     icon.appendChild(i);
     switchContent.appendChild(icon);
     darkThemeSwitch.appendChild(switchContent);
+
+    var badgeContent = document.createElement('div');
+    badgeContent.classList.add('TWPT-badge');
+    badgeContent.setAttribute(
+        'title', chrome.i18n.getMessage('inject_extension_badge_helper', [
+          chrome.i18n.getMessage('appName')
+        ]));
+
+    var badgeI = document.createElement('i');
+    badgeI.classList.add('material-icon-i', 'material-icons-extended');
+    badgeI.textContent = 'repeat';
+
+    badgeContent.appendChild(badgeI);
+    darkThemeSwitch.appendChild(badgeContent);
 
     var rightControl = document.querySelector('header .right-control');
     rightControl.style.width =

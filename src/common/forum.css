@@ -1,0 +1,28 @@
+.TWPT-badge {
+  width: calc(18/13*var(--icon-size, 16px));
+  height: calc(18/13*var(--icon-size, 16px));
+  border-radius: 50%;
+  margin: 4px;
+
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  background-color: #009688;
+  color: #fff;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.22), 0 2px 2px 0 rgba(0, 0, 0, 0.12);
+
+  user-select: none;
+}
+
+.TWPT-badge img {
+  height: var(--icon-size, 16px);
+  filter: invert(1);
+}
+
+.user-profile__user-link.TWPT-user-link > * {
+  vertical-align: middle;
+}

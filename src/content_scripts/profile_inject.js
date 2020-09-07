@@ -23,12 +23,29 @@ chrome.storage.sync.get(null, function(items) {
       li.classList.add('user-profile__user-link');
 
       var a = document.createElement('a');
-      a.classList.add('user-profile__user-link');
+      a.classList.add('user-profile__user-link', 'TWPT-user-link');
       a.href = url;
       a.setAttribute(
           'data-stats-id', 'user-posts-link--tw-power-tools-by-avm99963');
-      a.textContent = chrome.i18n.getMessage('inject_previousposts');
 
+      var badge = document.createElement('span');
+      badge.classList.add('TWPT-badge');
+      badge.setAttribute(
+          'title', chrome.i18n.getMessage('inject_extension_badge_helper', [
+            chrome.i18n.getMessage('appName')
+          ]));
+
+      var badgeImg = document.createElement('img');
+      badgeImg.src =
+          'https://fonts.gstatic.com/s/i/materialicons/repeat/v6/24px.svg';
+
+      badge.appendChild(badgeImg);
+      a.appendChild(badge);
+
+      var span = document.createElement('span');
+      span.textContent = chrome.i18n.getMessage('inject_previousposts');
+
+      a.appendChild(span);
       li.appendChild(a);
       ul.appendChild(li);
       links.appendChild(ul);
