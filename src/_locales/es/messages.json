@@ -75,6 +75,10 @@
     "message": "la configuración del modo oscuro del SO",
     "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
   },
+  "options_ccforcehidedrawer": {
+    "message": "Esconde siempre la barra lateral izquierda en la Consola de la Comunidad.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_profileindicator_header": {
     "message": "Punto indicador",
     "description": "Heading for the profile indicator feature options"

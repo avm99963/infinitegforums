@@ -192,4 +192,11 @@ chrome.storage.sync.get(null, function(items) {
         (parseInt(window.getComputedStyle(rightControl).width) + 58) + 'px';
     rightControl.insertAdjacentElement('afterbegin', darkThemeSwitch);
   }
+
+  if (options.ccforcehidedrawer) {
+    var drawer = document.querySelector('material-drawer');
+    if (drawer !== null && drawer.classList.contains('mat-drawer-expanded')) {
+      document.querySelector('.material-drawer-button').click();
+    }
+  }
 });

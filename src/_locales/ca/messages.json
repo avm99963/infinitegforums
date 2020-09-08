@@ -75,6 +75,10 @@
     "message": "la configuració del mode fosc del SO",
     "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
   },
+  "options_ccforcehidedrawer": {
+    "message": "Amaga sempre la barra lateral de l'esquerra a la Consola de la Comunitat.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_profileindicator_header": {
     "message": "Punt indicador",
     "description": "Heading for the profile indicator feature options"

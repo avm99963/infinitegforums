@@ -17,6 +17,7 @@ const defaultOptions = {
   'ccdarktheme': false,
   'ccdarktheme_mode': 'switch',
   'ccdarktheme_switch_enabled': true,
+  'ccforcehidedrawer': false,
 };
 
 const specialOptions = [
