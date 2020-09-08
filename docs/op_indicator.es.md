@@ -20,7 +20,7 @@ de los estados siguientes:
 2. La segunda opción hace una petición para cargar el perfil del usuario en vez
 de buscar en el foro los hilos en sí. Esto devuelve el número de publicaciones
 (incluyendo los nuevos hilos, respuestas normales y respuestas recomendadas)
-hechas por el usuario durante el último año, agregadas por mes. La extensión
-suma los valores para los `n` meses más recientes (`n` es un valor
-configurable) y muestra el número resultante al lado del nombre de usuario del
-autor del hilo.
+hechas por el usuario en el foro actual durante el último año, agregadas por
+mes. La extensión suma los valores para los `n` meses más recientes (`n` es un
+valor configurable) y muestra el número resultante al lado del nombre de usuario
+del autor del hilo.

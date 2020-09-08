@@ -20,6 +20,6 @@ is displayed next to their username with one of the following states:
 2. The second option makes a request to load the user profile instead of
 searching in the forum the actual threads. This returns the number of posts
 (including new threads, normal replies and recommended replies) made by the user
-over the last year, aggregated by month. The extension sums the values for the
-`n` most recent months (`n` is a configurable value) and then shows this
-resulting number next to the OP's username.
+in the current forum over the last year, aggregated by month. The extension sums
+the values for the `n` most recent months (`n` is a configurable value) and then
+shows this resulting number next to the OP's username.
