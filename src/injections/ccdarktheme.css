@@ -150,6 +150,10 @@ ec-thread-summary material-expansionpanel.read {
   background-color: var(--TWPT-thread-read-background)!important;
 }
 
+ec-thread-summary material-expansionpanel.read .title {
+  opacity: 0.8;
+}
+
 ec-thread-summary material-expansionpanel.checked {
   background-color: #17191c!important;
 }
@@ -181,15 +185,15 @@ ec-message-header .header, ec-question .state, ec-question ec-thread-counts > sp
   color: var(--TWPT-secondary-text)!important;
 }
 
-ec-question .alert {
+ec-question .alert, ec-message .alert {
   background-color: var(--TWPT-active-background)!important;
 }
 
-ec-question .alert material-icon {
+ec-question .alert material-icon, ec-message .alert material-icon {
   color: var(--TWPT-primary-text)!important;
 }
 
-ec-question .alert ec-icon {
+ec-question .alert ec-icon, ec-message .alert ec-icon {
   color: var(--TWPT-primary-text)!important;
   fill: var(--TWPT-primary-text)!important;
 }
@@ -230,6 +234,10 @@ ec-question .footer {
     .load-more-bar .load-more-button,
     .load-more-bar .load-all-button {
   border-color: var(--TWPT-card-border)!important;
+}
+
+ec-message .type {
+  color: var(--TWPT-primary-text)!important;
 }
 
 ec-message .footer ec-relative-time,
@@ -325,6 +333,10 @@ ec-user .main-card-content {
 
 ec-user ec-display-name-editor, ec-user .header .name {
   color: var(--TWPT-primary-text)!important;
+}
+
+ec-user .role {
+  filter: brightness(1.5);
 }
 
 ec-user bar-chart .axis text {
