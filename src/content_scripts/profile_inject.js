@@ -3,7 +3,7 @@ chrome.storage.sync.get(null, function(items) {
       document.querySelector('.user-profile__user-links') === null) {
     var nameElement = document.querySelector('.user-profile__user-name');
     if (nameElement !== null) {
-      var name = escapeUsername(nameElement.innerHTML);
+      var name = escapeUsername(nameElement.textContent);
       var filter = 'creator:"' + name + '" | replier:"' + name + '"';
       var url = document.location.pathname.split('/profile')[0] +
           '/threads?thread_filter=' + encodeURIComponent(filter);

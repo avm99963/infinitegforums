@@ -51,7 +51,7 @@ function mutationCallback(mutationList, observer) {
               var forumId =
                   location.href.split('/forum/')[1].split('/')[0] || '0';
 
-              var name = escapeUsername(nameElement.innerHTML);
+              var name = escapeUsername(nameElement.textContent);
               var query1 = encodeURIComponent(
                   '(creator:"' + name + '" | replier:"' + name +
                   '") forum:' + forumId);
