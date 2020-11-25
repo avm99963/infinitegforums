@@ -132,7 +132,7 @@ chrome.storage.sync.get(null, function(items) {
 
   if (options.increasecontrast) {
     injectStyles(
-        '.thread-summary.read{background: var(--TWPT-thread-read-background, #ecedee)!important;}');
+        '.thread-summary.read:not(.checked){background: var(--TWPT-thread-read-background, #ecedee)!important;}');
   }
 
   if (options.stickysidebarheaders) {

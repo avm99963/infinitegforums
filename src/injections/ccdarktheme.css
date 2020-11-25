@@ -149,7 +149,7 @@ ec-thread-list ec-bulk-actions, ec-thread-list ec-thread-summary material-expans
   border-bottom-color: var(--TWPT-subtle-border)!important;
 }
 
-ec-thread-summary material-expansionpanel.read {
+ec-thread-summary material-expansionpanel.read:not(.checked) {
   background-color: var(--TWPT-thread-read-background)!important;
 }
 
@@ -162,7 +162,7 @@ ec-thread-summary material-expansionpanel.read .title .icon {
 }
 
 ec-thread-summary material-expansionpanel.checked {
-  background-color: #17191c!important;
+  background-color: #2c4b77!important;
 }
 
 ec-thread-summary material-expansionpanel .title {
