@@ -10,6 +10,7 @@
   --TWPT-link: #8ab4f8;
   --TWPT-thread-read-background: rgba(255, 255, 255, .08);
   --TWPT-drawer-background: #2d2e30;
+  --TWPT-button-background: #3c3e42;
 }
 
 body {
@@ -73,6 +74,10 @@ material-drawer ec-forum-drawer-item material-checkbox material-icon {
 }
 
 /* Selector */
+
+/*
+ * This applies not only to the selector but also to the ec-work-state-picker.
+ */
 .popup-wrapper, material-list {
   background-color: var(--TWPT-drawer-background)!important;
 }
@@ -138,6 +143,17 @@ main .title-bar .title, main .page-header h1, main .header h1 {
 
 .material-content .action-bar material-button.starred {
   color: #fbbc04!important;
+}
+
+/* ec-work-state-picker */
+ec-work-state-picker > button {
+  color: var(--TWPT-secondary-text)!important;
+  background-color: var(--TWPT-button-background)!important;
+  border-color: var(--TWPT-subtle-border)!important;
+}
+
+.material-popup-content .popup-content .title {
+  color: var(--TWPT-primary-text)!important;
 }
 
 /* Thread list */
@@ -261,7 +277,7 @@ ec-question .me-too-button,
     ec-message .upvote-button,
     ec-message .downvote-button {
   color: var(--TWPT-secondary-text)!important;
-  background-color: #3c3e42!important;
+  background-color: var(--TWPT-button-background)!important;
 }
 
 ec-question .me-too-button.selected,
