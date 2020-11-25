@@ -52,7 +52,7 @@ material-drawer, material-drawer .panel, material-list-item {
   background-color: var(--TWPT-drawer-background)!important;
 }
 
-material-list-item:hover, material-list-item:focus {
+material-list-item:hover, material-list-item:focus, material-list-item.item--active {
   background-color: var(--TWPT-active-background)!important;
 }
 
