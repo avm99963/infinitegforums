@@ -150,8 +150,12 @@ ec-thread-summary material-expansionpanel.read {
   background-color: var(--TWPT-thread-read-background)!important;
 }
 
-ec-thread-summary material-expansionpanel.read .title {
+ec-thread-summary material-expansionpanel.read .title span:not(.icon) {
   opacity: 0.8;
+}
+
+ec-thread-summary material-expansionpanel.read .title .icon {
+  opacity: 0.48!important;
 }
 
 ec-thread-summary material-expansionpanel.checked {
