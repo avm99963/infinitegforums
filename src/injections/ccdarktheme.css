@@ -104,7 +104,10 @@ material-list [group] > [label] {
   color: var(--TWPT-primary-text)!important;
 }
 
-main .title-bar {
+/* Border color for the page title bar (most pages use .title-bar although
+ * some use .page-header).
+ */
+main .title-bar, main .page-header {
   border-bottom-color: var(--TWPT-subtle-border)!important;
 }
 
@@ -559,9 +562,14 @@ material-gaia-picker-footer {
 
 /* Canned responses */
 ec-canned-responses .filter-label,
-    ec-canned-responses ec-canned-response-row .name,
-    ec-canned-responses ec-canned-response-row .snippet {
+    ec-canned-responses ec-canned-response-row .name {
   color: var(--TWPT-primary-text)!important;
+}
+
+ec-canned-responses .label-row,
+    ec-canned-responses ec-canned-response-row .snippet,
+    ec-canned-responses ec-canned-response-row .tag {
+  color: var(--TWPT-secondary-text)!important;
 }
 
 ec-canned-responses ec-canned-response-row .header.closed:hover,
@@ -569,6 +577,12 @@ ec-canned-responses ec-canned-response-row .header.closed:hover,
     ec-canned-responses ec-canned-response-row .header.closed:hover .toolbar,
     ec-canned-responses ec-canned-response-row .header.closed:focus .toolbar {
   background-color: var(--TWPT-active-background)!important;
+}
+
+ec-canned-responses .filter-row,
+    ec-canned-responses .label-row,
+    ec-canned-responses ec-canned-response-row material-expansionpanel {
+  border-bottom-color: var(--TWPT-subtle-border)!important;
 }
 
 /* Reply button */
