@@ -1,4 +1,4 @@
-var mutationObserver, intersectionObserver, options;
+var mutationObserver, intersectionObserver, options, authuser;
 
 function parseUrl(url) {
   var forum_a = url.match(/forum\/([0-9]+)/i);
@@ -16,12 +16,16 @@ function parseUrl(url) {
 
 function addProfileHistoryLink(node, type, query) {
   var urlpart = encodeURIComponent('query=' + query);
+  var authuserpart =
+      (authuser == '0' ? '' : '?authuser=' + encodeURIComponent(authuser));
   var container = document.createElement('div');
   container.style.margin = '3px 0';
 
   var link = document.createElement('a');
   link.setAttribute(
-      'href', 'https://support.google.com/s/community/search/' + urlpart);
+      'href',
+      'https://support.google.com/s/community/search/' + urlpart +
+          authuserpart);
   link.innerText = chrome.i18n.getMessage('inject_previousposts_' + type);
 
   container.appendChild(link);
@@ -117,6 +121,10 @@ var intersectionOptions = {
 
 chrome.storage.sync.get(null, function(items) {
   options = items;
+
+  var startup =
+      JSON.parse(document.querySelector('html').getAttribute('data-startup'));
+  authuser = startup[2][1] || '0';
 
   mutationObserver = new MutationObserver(mutationCallback);
   mutationObserver.observe(
