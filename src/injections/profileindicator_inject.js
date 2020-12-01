@@ -80,6 +80,9 @@ function getProfile(userId, forumId) {
     '1': userId,
     '2': 0,
     '3': forumId,
+    '4': {
+      '20': true,
+    },
   });
 }
 
