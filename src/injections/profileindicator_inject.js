@@ -163,6 +163,14 @@ function createNumPostsBadge(sourceNode, searchURL) {
   return numPostsContainer;
 }
 
+// Set the badge text
+function setNumPostsBadge(badge, text) {
+  badge.classList.remove('num-posts-indicator--loading');
+  badge.querySelector('span').classList.remove(
+      'num-posts-indicator--num--loading');
+  badge.querySelector('span').textContent = text;
+}
+
 // Get options and then handle all the indicators
 function getOptionsAndHandleIndicators(sourceNode, isCC) {
   contentScriptRequest.sendRequest({'action': 'getProfileIndicatorOptions'})
@@ -252,20 +260,16 @@ function handleIndicators(sourceNode, isCC, options) {
                   }
                 }
 
-                numPostsContainer.classList.remove(
-                    'num-posts-indicator--loading');
-                numPostsContainer.querySelector('span').classList.remove(
-                    'num-posts-indicator--num--loading');
-                numPostsContainer.querySelector('span').textContent = numPosts;
+                setNumPostsBadge(numPostsContainer, numPosts);
               })
               .catch(
                   err => console.error('[opindicator] Unexpected error.', err));
         })
-        .catch(
-            err => console.error(
-                '[opindicator] Unexpected error. Couldn\'t load profile.',
-                err));
-    ;
+        .catch(err => {
+          console.error(
+              '[opindicator] Unexpected error. Couldn\'t load profile.', err);
+          setNumPostsBadge(numPostsContainer, '?');
+        });
   }
 
   if (options.indicatorDot) {
