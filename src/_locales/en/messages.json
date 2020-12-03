@@ -83,6 +83,10 @@
     "message": "Always hide the drawer (left column) in the Community Console.",
     "description": "Feature checkbox in the options page"
   },
+  "options_ccdragndropfix": {
+    "message": "Allow to drag and drop bookmarks to the Community Console text editor.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_profileindicator_header": {
     "message": "Indicator dot",
     "description": "Heading for the profile indicator feature options"

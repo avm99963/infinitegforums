@@ -79,6 +79,10 @@
     "message": "Esconde siempre la barra lateral izquierda en la Consola de la Comunidad.",
     "description": "Feature checkbox in the options page"
   },
+  "options_ccdragndropfix": {
+    "message": "Permite arrastrar marcadores al editor de texto de la Consola de la Comunidad.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_profileindicator_header": {
     "message": "Punto indicador",
     "description": "Heading for the profile indicator feature options"

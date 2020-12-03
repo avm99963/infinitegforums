@@ -32,6 +32,10 @@ function save(e) {
         case 'ccdarktheme_switch_enabled':
           break;
 
+        case 'ccdragndropfix':
+          options[opt] = document.getElementById(opt).checked || false;
+          break;
+
         default:
           console.warn('Unrecognized option: ' + opt);
           break;
@@ -108,6 +112,18 @@ window.addEventListener('load', function() {
           // This option is controlled directly in the Community Console.
           case 'ccdarktheme_switch_enabled':
             break;
+
+          // Firefox doesn't support drag and dropping bookmarks into the text
+          // editor while preserving the bookmark title.
+          case 'ccdragndropfix':
+            var showOption = !isFirefox();
+            if (showOption) {
+              document.getElementById('dragndrop-wrapper')
+                  .removeAttribute('hidden');
+
+              if (items[opt] === true)
+                document.getElementById(opt).checked = true;
+            }
 
           default:
             console.warn('Unrecognized option: ' + opt);

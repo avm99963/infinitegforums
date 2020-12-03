@@ -32,6 +32,16 @@ function addProfileHistoryLink(node, type, query) {
   node.appendChild(container);
 }
 
+function applyDragAndDropFix(node) {
+  console.debug('Adding link drag&drop fix to ', node);
+  node.addEventListener('drop', e => {
+    if (e.dataTransfer.types.includes('text/uri-list')) {
+      e.stopImmediatePropagation();
+      console.debug('Stopping link drop event propagation.');
+    }
+  }, true);
+}
+
 function mutationCallback(mutationList, observer) {
   mutationList.forEach((mutation) => {
     if (mutation.type == 'childList') {
@@ -92,6 +102,17 @@ function mutationCallback(mutationList, observer) {
 
               node.querySelector('.main-card-content').appendChild(container);
             }
+          }
+
+          // We target both tags because in different contexts different
+          // elements containing the text editor get added to the DOM structure.
+          // Sometimes it's a EC-MOVABLE-DIALOG which already contains the
+          // EC-RICH-TEXT-EDITOR, and sometimes it's the EC-RICH-TEXT-EDITOR
+          // directly.
+          if (options.ccdragndropfix && ('tagName' in node) &&
+              (node.tagName == 'EC-MOVABLE-DIALOG' ||
+               node.tagName == 'EC-RICH-TEXT-EDITOR')) {
+            applyDragAndDropFix(node);
           }
         }
       });

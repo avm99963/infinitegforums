@@ -20,3 +20,7 @@
   margin-bottom: 16px;
   color: green;
 }
+
+[hidden] {
+  display: none;
+}

@@ -18,12 +18,14 @@ const defaultOptions = {
   'ccdarktheme_mode': 'switch',
   'ccdarktheme_switch_enabled': true,
   'ccforcehidedrawer': false,
+  'ccdragndropfix': false,
 };
 
 const specialOptions = [
   'profileindicatoralt_months',
   'ccdarktheme_mode',
   'ccdarktheme_switch_enabled',
+  'ccdragndropfix',
 ];
 
 const deprecatedOptions = [
@@ -58,4 +60,12 @@ function cleanUpOptions(options) {
   }
 
   return options;
+}
+
+// This method is based on the fact that when building the extension for Firefox
+// the browser_specific_settings.gecko entry is included.
+function isFirefox() {
+  var manifest = chrome.runtime.getManifest();
+  return manifest.browser_specific_settings !== undefined &&
+      manifest.browser_specific_settings.gecko !== undefined;
 }
