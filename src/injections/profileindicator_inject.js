@@ -352,8 +352,7 @@ if (CCRegex.test(location.href)) {
   }
 
   mutationObserver = new MutationObserver(mutationCallback);
-  mutationObserver.observe(
-      document.querySelector('.scrollable-content'), observerOptions);
+  mutationObserver.observe(document.body, observerOptions);
 } else {
   // We are in TW
   authuser = (new URL(location.href)).searchParams.get('authuser') || '0';

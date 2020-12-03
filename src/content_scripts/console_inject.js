@@ -109,7 +109,6 @@ function intersectionCallback(entries, observer) {
 
 var observerOptions = {
   childList: true,
-  attributes: true,
   subtree: true,
 }
 
@@ -127,8 +126,7 @@ chrome.storage.sync.get(null, function(items) {
   authuser = startup[2][1] || '0';
 
   mutationObserver = new MutationObserver(mutationCallback);
-  mutationObserver.observe(
-      document.querySelector('.scrollable-content'), observerOptions);
+  mutationObserver.observe(document.body, observerOptions);
 
   intersectionObserver =
       new IntersectionObserver(intersectionCallback, intersectionOptions);
