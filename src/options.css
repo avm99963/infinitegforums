@@ -1,3 +1,14 @@
+body {
+  padding-top: 16px;
+}
+
+.features-link {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+}
+
 .option {
   margin: 4px 0;
   line-height: 1.8em;
