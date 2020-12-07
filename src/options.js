@@ -124,6 +124,7 @@ window.addEventListener('load', function() {
               if (items[opt] === true)
                 document.getElementById(opt).checked = true;
             }
+            break;
 
           default:
             console.warn('Unrecognized option: ' + opt);
