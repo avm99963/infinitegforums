@@ -90,13 +90,14 @@ function getProfile(userId, forumId) {
 // https://stackoverflow.com/questions/33063774/communication-from-an-injected-script-to-the-content-script-with-a-response
 var contentScriptRequest = (function() {
   var requestId = 0;
+  var prefix = 'TWPT-profileindicator';
 
   function sendRequest(data) {
     var id = requestId++;
 
     return new Promise(function(resolve, reject) {
       var listener = function(evt) {
-        if (evt.source === window && evt.data && evt.data.prefix === 'TWPT' &&
+        if (evt.source === window && evt.data && evt.data.prefix === prefix &&
             evt.data.requestId == id) {
           // Deregister self
           window.removeEventListener('message', listener);
@@ -106,7 +107,7 @@ var contentScriptRequest = (function() {
 
       window.addEventListener('message', listener);
 
-      var payload = {data, id};
+      var payload = {data, id, prefix};
 
       window.dispatchEvent(
           new CustomEvent('TWPT_sendRequest', {detail: payload}));

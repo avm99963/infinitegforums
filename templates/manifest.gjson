@@ -34,7 +34,7 @@
     {
       "matches": ["https://support.google.com/s/community*", "https://support.google.com/*/thread/*"],
       "exclude_matches": ["https://support.google.com/*/thread/new*"],
-      "js": ["common/content_scripts.js", "content_scripts/profileindicator_inject.js"]
+      "js": ["common/content_scripts.js", "common/cs_event_listener.js", "content_scripts/profileindicator_inject.js"]
     },
     {
       "matches": ["https://support.google.com/*/profile/*"],
