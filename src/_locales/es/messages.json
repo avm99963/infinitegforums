@@ -83,6 +83,10 @@
     "message": "Permite arrastrar marcadores al editor de texto de la Consola de la Comunidad.",
     "description": "Feature checkbox in the options page"
   },
+  "options_batchlock": {
+    "message": "Añade la opción para bloquear varios hilos en la lista de hilos de la Consola de la Comunidad.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_profileindicator_header": {
     "message": "Punto indicador",
     "description": "Heading for the profile indicator feature options"
@@ -154,5 +158,53 @@
   "inject_extension_badge_helper": {
     "message": "Añadido por $1",
     "description": "Tooltip for the extension badge, which appears next to components injected by the extension."
+  },
+  "inject_lockbtn": {
+    "message": "Bloquear/desbloquear hilos",
+    "description": "Tooltip of the 'lock/unlock threads' icon shown when selecting multiple threads in the Community Console. Also the title for the dialog shown after clicking this icon."
+  },
+  "inject_lockdialog_desc": {
+    "message": "Por favor, confirma la acción que quieres tomar haciendo clic en el botón correspondiente aquí debajo. Ten en cuenta que esta acción se tomará sobre todos los hilos que hayas seleccionado.",
+    "description": "Text in the 'lock/unlock threads' dialog, which asks the user for confirmation."
+  },
+  "inject_lockdialog_btn_lock": {
+    "message": "Bloquear",
+    "description": "Button in the 'lock/unlock threads' dialog."
+  },
+  "inject_lockdialog_btn_unlock": {
+    "message": "Desbloquear",
+    "description": "Button in the 'lock/unlock threads' dialog."
+  },
+  "inject_lockdialog_btn_cancel": {
+    "message": "Cancelar",
+    "description": "Button in the 'lock/unlock threads' dialog."
+  },
+  "inject_lockdialog_btn_reload": {
+    "message": "Recargar",
+    "description": "Button in the 'lock/unlock threads' dialog."
+  },
+  "inject_lockdialog_btn_close": {
+    "message": "Cerrar",
+    "description": "Button in the 'lock/unlock threads' dialog."
+  },
+  "inject_lockdialog_log_entry_beginning": {
+    "message": "Hilo $1",
+    "description": "First part of the entry in the log of the 'lock/unlock threads' dialog. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_lockdialog_log_entry_success_lock": {
+    "message": "Bloqueado correctamente.",
+    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_lockdialog_log_entry_error_lock": {
+    "message": "Ha ocurrido un error bloqueándolo ($1).",
+    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *not* locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_lockdialog_log_entry_success_unlock": {
+    "message": "Desbloqueado correctamente.",
+    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *un*locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_lockdialog_log_entry_error_unlock": {
+    "message": "Ha ocurrido un error desbloqueándolo ($1).",
+    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *not* *un*locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
   }
 }

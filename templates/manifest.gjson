@@ -52,7 +52,7 @@
     "injections/profileindicator_inject.js",
     "injections/profileindicator_inject.css",
     "injections/ccdarktheme.css",
-    "injections/ccdarktheme_switch.css"
+    "injections/batchlock_inject.js"
   ],
   "browser_action": {},
 #if defined(CHROMIUM)

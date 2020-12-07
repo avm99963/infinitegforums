@@ -21,6 +21,27 @@
   font-size: var(--icon-size, 16px);
 }
 
+.TWPT-btn--with-badge {
+  position: relative;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.TWPT-btn--with-badge .content {
+  padding: 8px;
+}
+
+.TWPT-btn--with-badge .TWPT-badge {
+  --icon-size: 13px;
+  position: absolute;
+  bottom: 6px;
+  right: 5px;
+}
+
+.TWPT-dark-theme {
+  padding: 4px 8px!important;
+}
+
 .TWPT-previous-posts {
   display: flex;
   flex-direction: row;
@@ -30,4 +51,100 @@
 .TWPT-previous-posts .TWPT-badge {
   --icon-size: 18px;
   margin-right: 8px;
+}
+
+.TWPT-dialog {
+  display: block!important;
+  width: 600px;
+  max-width: 100%;
+  padding: 16px 0;
+  background: white;
+  box-shadow: 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12), 0 11px 15px -7px rgba(0,0,0,.2);
+}
+
+.TWPT-dialog-header {
+  padding: 24px 24px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.TWPT-dialog-header--title {
+  color: #202124;
+  font-family: 'Google Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.TWPT-dialog-main {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, .87);
+  overflow: auto;
+  padding: 0 24px;
+}
+
+.TWPT-dialog-footer {
+  padding: 0 24px;
+}
+
+.TWPT-dialog-footer.is-hidden {
+  display: none;
+}
+
+.TWPT-dialog-footer-btn {
+  display: inline-block;
+  float: right;
+  position: relative;
+  height: 36px;
+  min-width: 64px;
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+.TWPT-dialog-footer-btn:hover::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: currentColor;
+  outline: 2px solid transparent;
+  opacity: .12;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.TWPT-dialog-footer-btn:not(.is-disabled) {
+  color: #1a73e8!important;
+}
+
+.TWPT-dialog-footer-btn.is-disabled {
+  color: #5f6368!important;
+  cursor: not-allowed;
+}
+
+.TWPT-dialog-footer-btn--content {
+  line-height: 36px;
+  text-align: center;
+}
+
+.TWPT-log {
+  max-height: 300px;
+  padding: 0 8px;
+  margin-bottom: 8px;
+  overflow-y: auto;
+  background-color: #e0e0e0;
+}
+
+.TWPT-log-entry {
+  font-family: 'Roboto Mono', 'Courier New', monospace;
+}
+
+.TWPT-log-entry.TWPT-log-entry--error {
+  color: #ff1744;
 }

@@ -1,17 +1,25 @@
 var mutationObserver, intersectionObserver, options, authuser;
 
-function parseUrl(url) {
-  var forum_a = url.match(/forum\/([0-9]+)/i);
-  var thread_a = url.match(/thread\/([0-9]+)/i);
-
-  if (forum_a === null || thread_a === null) {
-    return false;
+function removeChildNodes(node) {
+  while (node.firstChild) {
+    node.removeChild(node.firstChild);
   }
+}
 
-  return {
-    'forum': forum_a[1],
-    'thread': thread_a[1],
-  };
+function createExtBadge() {
+  var badge = document.createElement('div');
+  badge.classList.add('TWPT-badge');
+  badge.setAttribute(
+      'title', chrome.i18n.getMessage('inject_extension_badge_helper', [
+        chrome.i18n.getMessage('appName')
+      ]));
+
+  var badgeI = document.createElement('i');
+  badgeI.classList.add('material-icon-i', 'material-icons-extended');
+  badgeI.textContent = 'repeat';
+
+  badge.append(badgeI);
+  return badge;
 }
 
 function addProfileHistoryLink(node, type, query) {
@@ -40,6 +48,131 @@ function applyDragAndDropFix(node) {
       console.debug('Stopping link drop event propagation.');
     }
   }, true);
+}
+
+function nodeIsReadToggleBtn(node) {
+  return ('tagName' in node) && node.tagName == 'MATERIAL-BUTTON' &&
+      node.getAttribute('debugid') !== null &&
+      (node.getAttribute('debugid') == 'mark-read-button' ||
+       node.getAttribute('debugid') == 'mark-unread-button') &&
+      ('parentNode' in node) && node.parentNode !== null &&
+      ('parentNode' in node.parentNode) &&
+      node.parentNode.querySelector('[debugid="batchlock"]') === null &&
+      node.parentNode.parentNode !== null &&
+      ('tagName' in node.parentNode.parentNode) &&
+      node.parentNode.parentNode.tagName == 'EC-BULK-ACTIONS';
+}
+
+function addBatchLockBtn(readToggle) {
+  var clone = readToggle.cloneNode(true);
+  clone.setAttribute('debugid', 'batchlock');
+  clone.classList.add('TWPT-btn--with-badge');
+  clone.setAttribute('title', chrome.i18n.getMessage('inject_lockbtn'));
+  clone.querySelector('material-icon').setAttribute('icon', 'lock');
+  clone.querySelector('i.material-icon-i').textContent = 'lock';
+
+  var badge = createExtBadge();
+  clone.append(badge);
+
+  clone.addEventListener('click', function() {
+    var modal = document.querySelector('.pane[pane-id="default-1"]');
+
+    var dialog = document.createElement('material-dialog');
+    dialog.setAttribute('role', 'dialog');
+    dialog.setAttribute('aria-modal', 'true');
+    dialog.classList.add('TWPT-dialog');
+
+    var header = document.createElement('header');
+    header.setAttribute('role', 'presentation');
+    header.classList.add('TWPT-dialog-header');
+
+    var title = document.createElement('div');
+    title.classList.add('TWPT-dialog-header--title', 'title');
+    title.textContent = chrome.i18n.getMessage('inject_lockbtn');
+
+    header.append(title);
+
+    var main = document.createElement('main');
+    main.setAttribute('role', 'presentation');
+    main.classList.add('TWPT-dialog-main');
+
+    var p = document.createElement('p');
+    p.textContent = chrome.i18n.getMessage('inject_lockdialog_desc');
+
+    main.append(p);
+
+    dialog.append(header, main);
+
+    var footers = [['lock', 'unlock', 'cancel'], ['reload', 'close']];
+
+    for (var i = 0; i < footers.length; ++i) {
+      var footer = document.createElement('footer');
+      footer.setAttribute('role', 'presentation');
+      footer.classList.add('TWPT-dialog-footer');
+      footer.setAttribute('data-footer-id', i);
+
+      if (i > 0) footer.classList.add('is-hidden');
+
+      footers[i].forEach(action => {
+        var btn = document.createElement('material-button');
+        btn.setAttribute('role', 'button');
+        btn.classList.add('TWPT-dialog-footer-btn');
+        if (i == 1) btn.classList.add('is-disabled');
+
+        switch (action) {
+          case 'lock':
+          case 'unlock':
+            btn.addEventListener('click', _ => {
+              if (btn.classList.contains('is-disabled')) return;
+              var message = {
+                action,
+                prefix: 'TWPT-batchlock',
+              };
+              window.postMessage(message, '*');
+            });
+            break;
+
+          case 'cancel':
+          case 'close':
+            btn.addEventListener('click', _ => {
+              if (btn.classList.contains('is-disabled')) return;
+              modal.classList.remove('visible');
+              modal.style.display = 'none';
+              removeChildNodes(modal);
+            });
+            break;
+
+          case 'reload':
+            btn.addEventListener('click', _ => {
+              if (btn.classList.contains('is-disabled')) return;
+              window.location.reload()
+            });
+            break;
+        }
+
+        var content = document.createElement('div');
+        content.classList.add('content', 'TWPT-dialog-footer-btn--content');
+        content.textContent =
+            chrome.i18n.getMessage('inject_lockdialog_btn_' + action);
+
+        btn.append(content);
+        footer.append(btn);
+      });
+
+      var clear = document.createElement('div');
+      clear.style.clear = 'both';
+
+      footer.append(clear);
+      dialog.append(footer);
+    }
+
+    removeChildNodes(modal);
+    modal.append(dialog);
+    modal.classList.add('visible', 'modal');
+    modal.style.display = 'flex';
+  });
+  readToggle.parentNode.insertBefore(
+      clone, (readToggle.nextSibling || readToggle));
 }
 
 function mutationCallback(mutationList, observer) {
@@ -76,20 +209,7 @@ function mutationCallback(mutationList, observer) {
               var container = document.createElement('div');
               container.classList.add('TWPT-previous-posts');
 
-              var badge = document.createElement('div');
-              badge.classList.add('TWPT-badge');
-              badge.setAttribute(
-                  'title',
-                  chrome.i18n.getMessage(
-                      'inject_extension_badge_helper',
-                      [chrome.i18n.getMessage('appName')]));
-
-              var badgeI = document.createElement('i');
-              badgeI.classList.add(
-                  'material-icon-i', 'material-icons-extended');
-              badgeI.textContent = 'repeat';
-
-              badge.appendChild(badgeI);
+              var badge = createExtBadge();
               container.appendChild(badge);
 
               var linkContainer = document.createElement('div');
@@ -113,6 +233,10 @@ function mutationCallback(mutationList, observer) {
               (node.tagName == 'EC-MOVABLE-DIALOG' ||
                node.tagName == 'EC-RICH-TEXT-EDITOR')) {
             applyDragAndDropFix(node);
+          }
+
+          if (options.batchlock && nodeIsReadToggleBtn(node)) {
+            addBatchLockBtn(node);
           }
         }
       });
@@ -168,11 +292,8 @@ chrome.storage.sync.get(null, function(items) {
   }
 
   if (options.ccdarktheme && options.ccdarktheme_mode == 'switch') {
-    injectStylesheet(
-        chrome.runtime.getURL('injections/ccdarktheme_switch.css'));
-
     var darkThemeSwitch = document.createElement('material-button');
-    darkThemeSwitch.classList.add('TWPT-dark-theme');
+    darkThemeSwitch.classList.add('TWPT-dark-theme', 'TWPT-btn--with-badge');
     darkThemeSwitch.setAttribute('button', '');
     darkThemeSwitch.setAttribute(
         'title', chrome.i18n.getMessage('inject_ccdarktheme_helper'));
@@ -200,18 +321,8 @@ chrome.storage.sync.get(null, function(items) {
     switchContent.appendChild(icon);
     darkThemeSwitch.appendChild(switchContent);
 
-    var badgeContent = document.createElement('div');
-    badgeContent.classList.add('TWPT-badge');
-    badgeContent.setAttribute(
-        'title', chrome.i18n.getMessage('inject_extension_badge_helper', [
-          chrome.i18n.getMessage('appName')
-        ]));
+    var badgeContent = createExtBadge();
 
-    var badgeI = document.createElement('i');
-    badgeI.classList.add('material-icon-i', 'material-icons-extended');
-    badgeI.textContent = 'repeat';
-
-    badgeContent.appendChild(badgeI);
     darkThemeSwitch.appendChild(badgeContent);
 
     var rightControl = document.querySelector('header .right-control');
@@ -225,5 +336,9 @@ chrome.storage.sync.get(null, function(items) {
     if (drawer !== null && drawer.classList.contains('mat-drawer-expanded')) {
       document.querySelector('.material-drawer-button').click();
     }
+  }
+
+  if (options.batchlock) {
+    injectScript(chrome.runtime.getURL('injections/batchlock_inject.js'));
   }
 });
