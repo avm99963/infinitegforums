@@ -1,3 +1,8 @@
+.option {
+  margin: 4px 0;
+  line-height: 1.8em;
+}
+
 .help {
   cursor: help;
   border-bottom: dashed 1px gray;

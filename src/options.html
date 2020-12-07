@@ -3,34 +3,29 @@
   <head>
     <meta charset="utf-8">
     <title>Options</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="options.css">
   </head>
   <body>
     <form>
-      <p>
-        <input type="checkbox" id="list"> <label for="list" data-i18n="list"></label><br>
-        <input type="checkbox" id="thread"> <label for="thread" data-i18n="thread"></label><br>
-        <input type="checkbox" id="threadall"> <label for="threadall" data-i18n="threadall"></label>
-      </p>
+      <div class="option"><input type="checkbox" id="list"> <label for="list" data-i18n="list"></label></div>
+      <div class="option"><input type="checkbox" id="thread"> <label for="thread" data-i18n="thread"></label></div>
+      <div class="option"><input type="checkbox" id="threadall"> <label for="threadall" data-i18n="threadall"></label></div>
       <h4 data-i18n="enhancements"></h4>
-      <p>
-        <input type="checkbox" id="fixedtoolbar"> <label for="fixedtoolbar" data-i18n="fixedtoolbar"></label><br>
-        <input type="checkbox" id="redirect"> <label for="redirect" data-i18n="redirect"></label> <span class="experimental-label" data-i18n="experimental_label"></span><br>
-        <input type="checkbox" id="history"> <label for="history" data-i18n="history"></label><br>
-        <input type="checkbox" id="loaddrafts"> <label for="loaddrafts" data-i18n="loaddrafts"></label> <span class="experimental-label" data-i18n="experimental_label"></span><br>
-        <input type="checkbox" id="increasecontrast"> <label for="increasecontrast" data-i18n="increasecontrast"></label><br>
-        <input type="checkbox" id="stickysidebarheaders"> <label for="stickysidebarheaders" data-i18n="stickysidebarheaders"></label><br>
-        <input type="checkbox" id="ccdarktheme"> <label for="ccdarktheme" data-i18n="ccdarktheme"></label> <span class="experimental-label" data-i18n="experimental_label"></span><br>
-        <input type="checkbox" id="ccforcehidedrawer"> <label for="ccforcehidedrawer" data-i18n="ccforcehidedrawer"></label><br>
-        <span id="dragndrop-wrapper" hidden><input type="checkbox" id="ccdragndropfix"> <label for="ccdragndropfix" data-i18n="ccdragndropfix"></label></span><br>
-      </p>
+      <div class="option"><input type="checkbox" id="fixedtoolbar"> <label for="fixedtoolbar" data-i18n="fixedtoolbar"></label></div>
+      <div class="option"><input type="checkbox" id="redirect"> <label for="redirect" data-i18n="redirect"></label> <span class="experimental-label" data-i18n="experimental_label"></span></div>
+      <div class="option"><input type="checkbox" id="history"> <label for="history" data-i18n="history"></label></div>
+      <div class="option"><input type="checkbox" id="loaddrafts"> <label for="loaddrafts" data-i18n="loaddrafts"></label> <span class="experimental-label" data-i18n="experimental_label"></span></div>
+      <div class="option"><input type="checkbox" id="increasecontrast"> <label for="increasecontrast" data-i18n="increasecontrast"></label></div>
+      <div class="option"><input type="checkbox" id="stickysidebarheaders"> <label for="stickysidebarheaders" data-i18n="stickysidebarheaders"></label></div>
+      <div class="option"><input type="checkbox" id="ccdarktheme"> <label for="ccdarktheme" data-i18n="ccdarktheme"></label> <span class="experimental-label" data-i18n="experimental_label"></span></div>
+      <div class="option"><input type="checkbox" id="ccforcehidedrawer"> <label for="ccforcehidedrawer" data-i18n="ccforcehidedrawer"></label></div>
+      <div id="dragndrop-wrapper" class="option" hidden><input type="checkbox" id="ccdragndropfix"> <label for="ccdragndropfix" data-i18n="ccdragndropfix"></label></div>
       <h4 data-i18n="profileindicator_header"></h4>
-      <p>
-        <input type="checkbox" id="profileindicator"> <label for="profileindicator" data-i18n="profileindicator"></label> <span class="experimental-label" data-i18n="experimental_label"></span><br>
-        <input type="checkbox" id="profileindicatoralt"> <label for="profileindicatoralt" data-i18n="profileindicatoralt"></label> <span class="experimental-label" data-i18n="experimental_label"></span><br>
-        <a href="https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+/refs/heads/master/docs/op_indicator.md" target="_blank" rel="noreferrer noopener" data-i18n="profileindicator_moreinfo"></a><br>
-      </p>
-      <p class="actions"><button id="save" data-i18n="save"></button></p>
+      <div class="option"><input type="checkbox" id="profileindicator"> <label for="profileindicator" data-i18n="profileindicator"></label> <span class="experimental-label" data-i18n="experimental_label"></span></div>
+      <div class="option"><input type="checkbox" id="profileindicatoralt"> <label for="profileindicatoralt" data-i18n="profileindicatoralt"></label> <span class="experimental-label" data-i18n="experimental_label"></span></div>
+      <div class="option"><a href="https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+/refs/heads/master/docs/op_indicator.md" target="_blank" rel="noreferrer noopener" data-i18n="profileindicator_moreinfo"></a></div>
+      <div class="actions"><button id="save" data-i18n="save"></button></div>
     </form>
     <div id="save-indicator"></div>
     <script src="common/common.js"></script>
