@@ -338,6 +338,7 @@ if (CCRegex.test(location.href)) {
         mutation.addedNodes.forEach(function(node) {
           if (node.tagName == 'A' && ('href' in node) &&
               CCProfileRegex.test(node.href) &&
+              !isElementInside(node, 'EC-RELATIVE-TIME') &&
               isElementInside(node, 'EC-QUESTION') && ('children' in node) &&
               node.children.length == 0) {
             getOptionsAndHandleIndicators(node, true);
