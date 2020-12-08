@@ -1,5 +1,5 @@
 # TW Power Tools
-[![Available in the Chrome Web Store](https://developer.chrome.com/webstore/images/ChromeWebStore_Badge_v2_206x58.png)](https://chrome.google.com/webstore/detail/infinite-scroll-in-tw/hpgakoecmgibigdbnljgecablpipbajb)
+[![Available in the Chrome Web Store](docs/resources/ChromeWebStore_Badge_v2_206x58.png)](https://chrome.google.com/webstore/detail/infinite-scroll-in-tw/hpgakoecmgibigdbnljgecablpipbajb)
 
 An extension which brings several enhancements to the Google Forums and the
 Community Console.
