@@ -191,7 +191,8 @@ ec-thread-summary material-expansionpanel ec-second-summary-line,
   color: #928e89!important;
 }
 
-ec-thread-summary material-expansionpanel ec-safe-html.body {
+ec-thread-summary material-expansionpanel ec-safe-html.body,
+    material-expansionpanel .issue-tracking-work-state {
   color: var(--TWPT-primary-text)!important;
 }
 
