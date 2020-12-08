@@ -20,6 +20,12 @@ function recursiveParentElement(el, tag) {
   return undefined;
 }
 
+function returnAuthUser() {
+  var startup =
+      JSON.parse(document.querySelector('html').getAttribute('data-startup'));
+  return startup[2][1] || '0';
+}
+
 // Source:
 // https://stackoverflow.com/questions/33063774/communication-from-an-injected-script-to-the-content-script-with-a-response
 var contentScriptRequest = (function() {
@@ -116,6 +122,11 @@ function lockThreads(action) {
   modal.querySelector('main').textContent = '';
   modal.querySelector('main').append(p, log);
 
+  var authuser = returnAuthUser();
+  var APIRequestUrl =
+      'https://support.google.com/s/community/api/SetThreadAttribute' +
+      (authuser == '0' ? '' : '?authuser=' + encodeURIComponent(authuser));
+
   checkboxes.forEach(checkbox => {
     var url = recursiveParentElement(checkbox, 'A').href;
     var thread = parseUrl(url);
@@ -123,7 +134,7 @@ function lockThreads(action) {
       console.error('Fatal error: thread URL ' + url + ' could not be parsed.');
       return;
     }
-    fetch('https://support.google.com/s/community/api/SetThreadAttribute', {
+    fetch(APIRequestUrl, {
       'headers': {
         'content-type': 'text/plain; charset=utf-8',
       },
