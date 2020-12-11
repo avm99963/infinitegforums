@@ -7,6 +7,11 @@ chrome.storage.sync.get(null, function(items) {
       startup[4][13] = true;
     }
 
+    if (items.smei_sortdirection) {
+      if (!startup[1][6].includes(8))
+        startup[1][6].push(8);
+    }
+
     document.querySelector('html').setAttribute(
         'data-startup', JSON.stringify(startup));
   }

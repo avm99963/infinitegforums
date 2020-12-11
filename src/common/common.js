@@ -20,6 +20,7 @@ const defaultOptions = {
   'ccforcehidedrawer': false,
   'ccdragndropfix': false,
   'batchlock': false,
+  'smei_sortdirection': false,
 };
 
 const specialOptions = [

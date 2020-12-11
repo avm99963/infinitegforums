@@ -111,6 +111,14 @@ Console thread list_.
 
 ![GIF showing how the feature works](resources/batch_lock.gif)
 
+### Sort direction in the Community Console
+> **Option name:** _Enable the `SMEI_SORT_DIRECTION` experiment._
+
+This option enables an experiment available in the Community Console which lets
+you sort thread lists in ascending or descending order.
+
+![GIF showing how to switch between ascending/descending order](resources/smei_sort_direction.gif)
+
 ### Indicator dot
 > **Option names:** _Show whether the OP has participated in other threads_,
 _Show the number of questions and replies written by the OP within the last `n`
