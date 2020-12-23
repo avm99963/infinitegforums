@@ -102,7 +102,8 @@ fi
 mkdir -p out
 rm -rf out/twpowertools-$version-$browser-$channel.zip
 (cd src &&
-  zip -rq ../out/twpowertools-$version-$browser-$channel.zip * -x *.git*)
+  zip -rq ../out/twpowertools-$version-$browser-$channel.zip * -x "*/.git*" \
+  -x "*/\.DS_Store" -x "*/OWNERS")
 
 # Clean generated manifest.json file
 rm -f src/manifest.json
