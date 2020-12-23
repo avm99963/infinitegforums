@@ -1,3 +1,5 @@
+[English](install_on_firefox_for_android.md) • [Русский](install_on_firefox_for_android.ru.md)
+
 # Instala la extensión en Firefox para Android
 
 Se ha añadido soporte experimental para las extensiones en Firefox para Android

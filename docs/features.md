@@ -1,4 +1,4 @@
-[En español](features.es.md)
+[En español](features.es.md) • [Русский](features.ru.md)
 
 # Features
 The TW Power Tools extension offers the following features/options:

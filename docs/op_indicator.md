@@ -1,4 +1,4 @@
-[En español](op_indicator.es.md)
+[En español](op_indicator.es.md) • [Русский](op_indicator.ru.md)
 
 # OP indicator
 This is a feature which shows an indicator in threads next to the OP's username,

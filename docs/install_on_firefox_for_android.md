@@ -1,4 +1,4 @@
-[En español](install_on_firefox_for_android.es.md)
+[En español](install_on_firefox_for_android.es.md) • [Русский](install_on_firefox_for_android.ru.md)
 
 # Install the extension on Firefox for Android
 
