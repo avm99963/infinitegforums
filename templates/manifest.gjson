@@ -49,23 +49,13 @@
     "storage"
   ],
   "web_accessible_resources": [
-    "injections/profileindicator_inject.js",
-    "injections/profileindicator_inject.css",
-    "injections/ccdarktheme.css",
-    "injections/batchlock_inject.js"
   ],
   "browser_action": {},
 #if defined(CHROMIUM)
-  "options_page": "options.html",
+  "options_page": "options/options.html",
 #endif
   "options_ui": {
-    "page": "options.html",
-#if defined(CHROMIUM)
-    "chrome_style": true,
-#endif
-#if defined(GECKO)
-    "browser_style": true,
-#endif
+    "page": "options/options.html",
     "open_in_tab": false
   },
   "background": {
