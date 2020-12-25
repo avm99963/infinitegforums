@@ -69,7 +69,8 @@ You can also use _make_ to build the extension. This is just a wrapper for the
 
 Run `make all` to build the extension for all the available channels and
 browsers. You can also run `make {target}` where `{target}` is one of the
-following: `chromium-stable`, `chromium-beta`, `gecko-stable`, `gecko-beta`.
+following: `chromium-stable`, `chromium-beta`, `chromium-mv3-beta`,
+`gecko-stable`.
 
 Run `make clean` to clean all the release files (this removes the `out` folder,
 which is where the release files are saved).
@@ -78,11 +79,11 @@ which is where the release files are saved).
 When testing the extension during development, you don't have to build the
 extension each time you want to import an updated version to Chrome/Firefox.
 Instead, run `go run generateManifest.go {browser}` once, where `{browser}` is
-either `CHROMIUM` or `GECKO`, and this will generate a `manifest.json` file for
-the specified browser in the `src` directory. Now, you can load the `src` folder
-directly in the browser in order to import the extension, which removes the need
-to build it. When the `manifest.gjson` file is modified, you'll have to generate
-the manifest again.
+`CHROMIUM`, `GECKO` or `CHROMIUM_MV3`, and this will generate a `manifest.json`
+file for the specified browser in the `src` directory. Now, you can load the
+`src` folder directly in the browser in order to import the extension, which
+removes the need to build it. When the `manifest.gjson` file is modified,
+you'll have to generate the manifest again.
 
 To test translations, you might want to set your browser's locale. This section
 tells you how to set the locale in

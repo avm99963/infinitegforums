@@ -1,8 +1,13 @@
 {
+#if defined(CHROMIUM || GECKO)
   "manifest_version": 2,
+#endif
+#if defined(CHROMIUM_MV3)
+  "manifest_version": 3,
+#endif
   "name": "__MSG_appName__",
   "version": "0",
-#if defined(CHROMIUM)
+#if defined(CHROMIUM || CHROMIUM_MV3)
   "version_name": "dirty",
 #endif
   "description": "__MSG_appDescription__",
@@ -43,14 +48,43 @@
     }
   ],
   "permissions": [
+#if defined(CHROMIUM || GECKO)
     "https://support.google.com/s/community*",
     "https://support.google.com/*/threads*",
     "https://support.google.com/*/thread/*",
+#endif
     "storage"
   ],
-  "web_accessible_resources": [
+#if defined(CHROMIUM_MV3)
+  "host_permissions": [
+    "https://support.google.com/s/community*",
+    "https://support.google.com/*/threads*",
+    "https://support.google.com/*/thread/*"
   ],
+#endif
+  "web_accessible_resources": [
+#if defined(CHROMIUM_MV3)
+    {
+      "resources": [
+#endif
+        "injections/profileindicator_inject.js",
+        "injections/profileindicator_inject.css",
+        "injections/ccdarktheme.css",
+        "injections/batchlock_inject.js"
+#if defined(CHROMIUM_MV3)
+      ],
+      "matches": [
+        "https://support.google.com/*"
+      ]
+    }
+#endif
+  ],
+#if defined(CHROMIUM || GECKO)
   "browser_action": {},
+#endif
+#if defined(CHROMIUM_MV3)
+  "action": {},
+#endif
 #if defined(CHROMIUM)
   "options_page": "options/options.html",
 #endif
@@ -59,6 +93,7 @@
     "open_in_tab": false
   },
   "background": {
+#if defined(CHROMIUM || GECKO)
 #if defined(CHROMIUM)
     "persistent": false,
 #endif
@@ -66,6 +101,10 @@
       "common/common.js",
       "background.js"
     ]
+#endif
+#if defined(CHROMIUM_MV3)
+    "service_worker": "sw.js"
+#endif
   },
 #if defined(GECKO)
   "browser_specific_settings": {

@@ -13,7 +13,8 @@ function usage() {
     -c, --channel  indicates the channel of the release. Can be "beta"
                    or "stable". Defaults to "stable".
     -b, --browser  indicates the target browser for the release. Can be
-                   "chromium" or "gecko". Defaults to "chromium".
+                   "chromium", "gecko" or "chromium_mv3".
+                   Defaults to "chromium".
 
 END
 }
@@ -54,7 +55,8 @@ if [[ $channel != "stable" && $channel != "beta" ]]; then
   exit
 fi
 
-if [[ $browser != "chromium" && $browser != "gecko" ]]; then
+if [[ $browser != "chromium" && $browser != "gecko" &&
+      $browser != "chromium_mv3" ]]; then
   echo "browser parameter value is incorrect." >&2
   usage
   exit
