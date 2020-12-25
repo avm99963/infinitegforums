@@ -1,0 +1,7 @@
+{
+  "foo": "option",
+  "bar": 1,
+  "count": 2,
+  "shouldBe": true,
+  "so": 3.14
+}

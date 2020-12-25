@@ -1,0 +1,26 @@
+{
+  "foo": "option",
+#if defined(AAA)
+  "bar": 1,
+    #endif                   
+#if defined(    BBB )
+  "count": 2,
+  #if defined(B || C)    
+  "mmm": {},
+#endif
+#if defined(C)
+  #if defined(D)  
+  "ok": true,
+#endif
+#endif
+#if defined(D)
+#if defined(C)
+  "ok2": false,
+#endif
+#endif
+#endif
+#if defined(CDE || AAA)
+  "shouldBe": true,
+#endif
+  "so": 3.14
+}

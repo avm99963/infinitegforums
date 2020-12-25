@@ -64,9 +64,9 @@ echo "Started building release..."
 
 # First of all, generate the appropriate manifest.json file for the
 # target browser
-dependencies=(${browser^^})
+dependencies=(${browser})
 
-bash generateManifest.bash "${dependencies[@]}"
+go run generateManifest.go "${dependencies[@]}"
 
 # This is the version name which git gives us
 version=$(git describe --always --tags --dirty)

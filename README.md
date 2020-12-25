@@ -52,7 +52,8 @@ uploaded to addons.mozilla.org.
 ## Build the extension
 A zip file with the contents of the extension, which can be uploaded to the
 Chrome Web Store and addons.mozilla.org, can be created with any of the
-following procedures:
+following procedures (make sure to [install Go](https://golang.org) before
+building the extension, as it is needed during the build):
 
 ### Using the release.bash script
 Run `bash release.bash -h` in order to learn how to use this command. To
@@ -76,12 +77,12 @@ which is where the release files are saved).
 ## Testing notes
 When testing the extension during development, you don't have to build the
 extension each time you want to import an updated version to Chrome/Firefox.
-Instead, run `bash generateManifest.bash {browser}` once, where `{browser}`
-is either `CHROMIUM` or `GECKO`, and this will generate a `manifest.json`
-file for the specified browser in the `src` directory. Now, you can load the
-`src` folder directly in the browser in order to import the extension, which
-removes the need to build it. When the `manifest.gjson` file is modified, you'll
-have to generate the manifest again.
+Instead, run `go run generateManifest.go {browser}` once, where `{browser}` is
+either `CHROMIUM` or `GECKO`, and this will generate a `manifest.json` file for
+the specified browser in the `src` directory. Now, you can load the `src` folder
+directly in the browser in order to import the extension, which removes the need
+to build it. When the `manifest.gjson` file is modified, you'll have to generate
+the manifest again.
 
 To test translations, you might want to set your browser's locale. This section
 tells you how to set the locale in
