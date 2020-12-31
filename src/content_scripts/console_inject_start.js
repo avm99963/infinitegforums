@@ -1,5 +1,5 @@
 chrome.storage.sync.get(null, function(items) {
-  if (items.loaddrafts) {
+  if (items.loaddrafts || items.smei_sortdirection) {
     var startup =
         JSON.parse(document.querySelector('html').getAttribute('data-startup'));
 
