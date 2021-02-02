@@ -332,6 +332,7 @@ if (CCRegex.test(location.href)) {
 
   authuser = startup[2][1] || '0';
 
+  // When the OP's username is found, call getOptionsAndHandleIndicators
   function mutationCallback(mutationList, observer) {
     mutationList.forEach((mutation) => {
       if (mutation.type == 'childList') {
@@ -341,6 +342,7 @@ if (CCRegex.test(location.href)) {
               !isElementInside(node, 'EC-RELATIVE-TIME') &&
               isElementInside(node, 'EC-QUESTION') && ('children' in node) &&
               node.children.length == 0) {
+            console.info('Handling profile indicator via mutation callback.');
             getOptionsAndHandleIndicators(node, true);
           }
         });
@@ -351,6 +353,15 @@ if (CCRegex.test(location.href)) {
   var observerOptions = {
     childList: true,
     subtree: true,
+  }
+
+  // Before starting the mutation Observer, check if the OP's username link is
+  // already part of the page
+  var node = document.querySelector(
+      'ec-question ec-message-header .name-section ec-user-link a');
+  if (node !== null) {
+    console.info('Handling profile indicator via first check.');
+    getOptionsAndHandleIndicators(node, true);
   }
 
   mutationObserver = new MutationObserver(mutationCallback);
