@@ -239,14 +239,17 @@ function handleCandidateNode(node) {
     // Set up the intersectionObserver
     if (typeof intersectionObserver === 'undefined' && ('tagName' in node) &&
         node.tagName == 'EC-APP') {
-      intersectionOptions = {
-        root: node.querySelector('.scrollable-content'),
-        rootMargin: '0px',
-        threshold: 1.0,
-      };
+      var scrollableContent = node.querySelector('.scrollable-content');
+      if (scrollableContent !== null) {
+        intersectionOptions = {
+          root: scrollableContent,
+          rootMargin: '0px',
+          threshold: 1.0,
+        };
 
-      intersectionObserver =
-          new IntersectionObserver(intersectionCallback, intersectionOptions);
+        intersectionObserver =
+            new IntersectionObserver(intersectionCallback, intersectionOptions);
+      }
     }
 
     // Start the intersectionObserver for the "load more"/"load all" buttons
