@@ -1,4 +1,5 @@
-var mutationObserver, intersectionObserver, options, authuser;
+var mutationObserver, intersectionObserver, intersectionOptions, options,
+    authuser;
 
 function removeChildNodes(node) {
   while (node.firstChild) {
@@ -215,6 +216,9 @@ function injectPreviousPostsLinks(nameElement) {
 }
 
 const watchedNodesSelectors = [
+  // App container (used to set up the intersection observer)
+  'ec-app',
+
   // Load more bar (for the "load more"/"load all" buttons)
   '.load-more-bar',
 
@@ -232,15 +236,33 @@ const watchedNodesSelectors = [
 
 function handleCandidateNode(node) {
   if (typeof node.classList !== 'undefined') {
-    // Set up the intersectionObserver for the "load more" button inside a
-    // thread
-    if (options.thread && node.classList.contains('load-more-bar')) {
-      intersectionObserver.observe(node.querySelector('.load-more-button'));
+    // Set up the intersectionObserver
+    if (typeof intersectionObserver === 'undefined' && ('tagName' in node) &&
+        node.tagName == 'EC-APP') {
+      intersectionOptions = {
+        root: node.querySelector('.scrollable-content'),
+        rootMargin: '0px',
+        threshold: 1.0,
+      };
+
+      intersectionObserver =
+          new IntersectionObserver(intersectionCallback, intersectionOptions);
     }
 
-    // Set up the intersectionObserver for the "load all" button inside a thread
-    if (options.threadall && node.classList.contains('load-more-bar')) {
-      intersectionObserver.observe(node.querySelector('.load-all-button'));
+    // Start the intersectionObserver for the "load more"/"load all" buttons
+    // inside a thread
+    if ((options.thread || options.threadall) &&
+        node.classList.contains('load-more-bar')) {
+      if (typeof intersectionObserver !== 'undefined') {
+        if (options.thread)
+          intersectionObserver.observe(node.querySelector('.load-more-button'));
+        if (options.threadall)
+          intersectionObserver.observe(node.querySelector('.load-all-button'));
+      } else {
+        console.warn(
+            '[infinitescroll] ' +
+            'The intersectionObserver is not ready yet.');
+      }
     }
 
     // Show the "previous posts" links
@@ -291,12 +313,6 @@ function intersectionCallback(entries, observer) {
 var observerOptions = {
   childList: true,
   subtree: true,
-}
-
-var intersectionOptions = {
-  root: document.querySelector('.scrollable-content'),
-  rootMargin: '0px',
-  threshold: 1.0,
 };
 
 chrome.storage.sync.get(null, function(items) {
@@ -307,16 +323,14 @@ chrome.storage.sync.get(null, function(items) {
   authuser = startup[2][1] || '0';
 
   // Before starting the mutation Observer, check whether we missed any
-  // mutations by manually checking whether some watched nodes already exist.
+  // mutations by manually checking whether some watched nodes already
+  // exist.
   var cssSelectors = watchedNodesSelectors.join(',');
   document.querySelectorAll(cssSelectors)
       .forEach(node => handleCandidateNode(node));
 
   mutationObserver = new MutationObserver(mutationCallback);
   mutationObserver.observe(document.body, observerOptions);
-
-  intersectionObserver =
-      new IntersectionObserver(intersectionCallback, intersectionOptions);
 
   if (options.fixedtoolbar) {
     injectStyles(
