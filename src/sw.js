@@ -1,3 +1,5 @@
+// IMPORTANT: keep this file in sync with background.js
+
 importScripts('common/common.js')
 
 // When the extension gets updated, set new options to their default value.
