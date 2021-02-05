@@ -70,6 +70,45 @@ function nodeIsReadToggleBtn(node) {
       node.parentNode.parentNode.tagName == 'EC-BULK-ACTIONS';
 }
 
+function injectDarkModeButton(rightControl) {
+  var darkThemeSwitch = document.createElement('material-button');
+  darkThemeSwitch.classList.add('TWPT-dark-theme', 'TWPT-btn--with-badge');
+  darkThemeSwitch.setAttribute('button', '');
+  darkThemeSwitch.setAttribute(
+      'title', chrome.i18n.getMessage('inject_ccdarktheme_helper'));
+
+  darkThemeSwitch.addEventListener('click', e => {
+    chrome.storage.sync.get(null, currentOptions => {
+      currentOptions.ccdarktheme_switch_status =
+          !options.ccdarktheme_switch_status;
+      chrome.storage.sync.set(currentOptions, _ => {
+        location.reload();
+      });
+    });
+  });
+
+  var switchContent = document.createElement('div');
+  switchContent.classList.add('content');
+
+  var icon = document.createElement('material-icon');
+
+  var i = document.createElement('i');
+  i.classList.add('material-icon-i', 'material-icons-extended');
+  i.textContent = 'brightness_4';
+
+  icon.appendChild(i);
+  switchContent.appendChild(icon);
+  darkThemeSwitch.appendChild(switchContent);
+
+  var badgeContent = createExtBadge();
+
+  darkThemeSwitch.appendChild(badgeContent);
+
+  rightControl.style.width =
+      (parseInt(window.getComputedStyle(rightControl).width) + 58) + 'px';
+  rightControl.insertAdjacentElement('afterbegin', darkThemeSwitch);
+}
+
 function addBatchLockBtn(readToggle) {
   var clone = readToggle.cloneNode(true);
   clone.setAttribute('debugid', 'batchlock');
@@ -216,7 +255,8 @@ function injectPreviousPostsLinks(nameElement) {
 }
 
 const watchedNodesSelectors = [
-  // App container (used to set up the intersection observer)
+  // App container (used to set up the intersection observer and inject the dark
+  // mode button)
   'ec-app',
 
   // Load more bar (for the "load more"/"load all" buttons)
@@ -236,19 +276,26 @@ const watchedNodesSelectors = [
 
 function handleCandidateNode(node) {
   if (typeof node.classList !== 'undefined') {
-    // Set up the intersectionObserver
-    if (typeof intersectionObserver === 'undefined' && ('tagName' in node) &&
-        node.tagName == 'EC-APP') {
-      var scrollableContent = node.querySelector('.scrollable-content');
-      if (scrollableContent !== null) {
-        intersectionOptions = {
-          root: scrollableContent,
-          rootMargin: '0px',
-          threshold: 1.0,
-        };
+    if (('tagName' in node) && node.tagName == 'EC-APP') {
+      // Set up the intersectionObserver
+      if (typeof intersectionObserver === 'undefined') {
+        var scrollableContent = node.querySelector('.scrollable-content');
+        if (scrollableContent !== null) {
+          intersectionOptions = {
+            root: scrollableContent,
+            rootMargin: '0px',
+            threshold: 1.0,
+          };
 
-        intersectionObserver =
-            new IntersectionObserver(intersectionCallback, intersectionOptions);
+          intersectionObserver = new IntersectionObserver(
+              intersectionCallback, intersectionOptions);
+        }
+      }
+
+      // Inject the dark mode button
+      if (options.ccdarktheme && options.ccdarktheme_mode == 'switch') {
+        var rightControl = node.querySelector('header .right-control');
+        if (rightControl !== null) injectDarkModeButton(rightControl);
       }
     }
 
@@ -348,46 +395,6 @@ chrome.storage.sync.get(null, function(items) {
   if (options.stickysidebarheaders) {
     injectStyles(
         'material-drawer .main-header{background: var(--TWPT-drawer-background, #fff)!important; position: sticky; top: 0; z-index: 1;}');
-  }
-
-  if (options.ccdarktheme && options.ccdarktheme_mode == 'switch') {
-    var darkThemeSwitch = document.createElement('material-button');
-    darkThemeSwitch.classList.add('TWPT-dark-theme', 'TWPT-btn--with-badge');
-    darkThemeSwitch.setAttribute('button', '');
-    darkThemeSwitch.setAttribute(
-        'title', chrome.i18n.getMessage('inject_ccdarktheme_helper'));
-
-    darkThemeSwitch.addEventListener('click', e => {
-      chrome.storage.sync.get(null, currentOptions => {
-        currentOptions.ccdarktheme_switch_status =
-            !options.ccdarktheme_switch_status;
-        chrome.storage.sync.set(currentOptions, _ => {
-          location.reload();
-        });
-      });
-    });
-
-    var switchContent = document.createElement('div');
-    switchContent.classList.add('content');
-
-    var icon = document.createElement('material-icon');
-
-    var i = document.createElement('i');
-    i.classList.add('material-icon-i', 'material-icons-extended');
-    i.textContent = 'brightness_4';
-
-    icon.appendChild(i);
-    switchContent.appendChild(icon);
-    darkThemeSwitch.appendChild(switchContent);
-
-    var badgeContent = createExtBadge();
-
-    darkThemeSwitch.appendChild(badgeContent);
-
-    var rightControl = document.querySelector('header .right-control');
-    rightControl.style.width =
-        (parseInt(window.getComputedStyle(rightControl).width) + 58) + 'px';
-    rightControl.insertAdjacentElement('afterbegin', darkThemeSwitch);
   }
 
   if (options.ccforcehidedrawer) {
