@@ -104,12 +104,6 @@ input[type='radio'] {
 select {
   min-height: 2em;
   min-width: 4em;
-<if expr="is_win">
-  /* The following platform-specific rule is necessary to get adjacent
-   * buttons, text inputs, and so forth to align on their borders while also
-   * aligning on the text's baselines. */
-  padding-bottom: 1px;
-</if>
 }
 
 :-webkit-any(button,
@@ -168,10 +162,6 @@ textarea {
   min-height: 2em;
   padding: 3px;
   outline: none;
-<if expr="is_win or is_macosx or is_ios">
-  /* For better alignment between adjacent buttons and inputs. */
-  padding-bottom: 4px;
-</if>
 }
 
 input[type='search'] {
