@@ -175,70 +175,99 @@ function addBatchLockBtn(readToggle) {
       clone, (readToggle.nextSibling || readToggle));
 }
 
+function injectPreviousPostsLinks(node) {
+  var nameElement = node.querySelector('.name span');
+  if (nameElement !== null) {
+    var forumId = location.href.split('/forum/')[1].split('/')[0] || '0';
+
+    var name = escapeUsername(nameElement.textContent);
+    var query1 = encodeURIComponent(
+        '(creator:"' + name + '" | replier:"' + name + '") forum:' + forumId);
+    var query2 = encodeURIComponent(
+        '(creator:"' + name + '" | replier:"' + name + '") forum:any');
+
+    var container = document.createElement('div');
+    container.classList.add('TWPT-previous-posts');
+
+    var badge = createExtBadge();
+    container.appendChild(badge);
+
+    var linkContainer = document.createElement('div');
+    linkContainer.classList.add('TWPT-previous-posts--links');
+
+    addProfileHistoryLink(linkContainer, 'forum', query1);
+    addProfileHistoryLink(linkContainer, 'all', query2);
+
+    container.appendChild(linkContainer);
+
+    node.querySelector('.main-card-content').appendChild(container);
+  } else {
+    console.warn('[previousposts] Couldn\'t find the username element.');
+  }
+}
+
+const watchedNodesSelectors = [
+  // Load more bar (for the "load more"/"load all" buttons)
+  '.load-more-bar',
+
+  // Container inside ec-user (user profile view)
+  'ec-user > div',
+
+  // Rich text editor
+  'ec-movable-dialog',
+  'ec-rich-text-editor',
+
+  // Read/unread bulk action in the list of thread, for the batch lock feature
+  'ec-bulk-actions material-button[debugid="mark-read-button"]',
+  'ec-bulk-actions material-button[debugid="mark-unread-button"]',
+];
+
+function handleCandidateNode(node) {
+  if (typeof node.classList !== 'undefined') {
+    // Set up the intersectionObserver for the "load more" button inside a
+    // thread
+    if (options.thread && node.classList.contains('load-more-bar')) {
+      intersectionObserver.observe(node.querySelector('.load-more-button'));
+    }
+
+    // Set up the intersectionObserver for the "load all" button inside a thread
+    if (options.threadall && node.classList.contains('load-more-bar')) {
+      intersectionObserver.observe(node.querySelector('.load-all-button'));
+    }
+
+    // Show the "previous posts" links
+    //   Here we're selecting the 'ec-user > div' element (unique child)
+    if (options.history && ('parentNode' in node) && node.parentNode !== null &&
+        ('tagName' in node.parentNode) &&
+        node.parentNode.tagName == 'EC-USER') {
+      injectPreviousPostsLinks(node);
+    }
+
+    // Fix the drag&drop issue with the rich text editor
+    //
+    //   We target both tags because in different contexts different
+    //   elements containing the text editor get added to the DOM structure.
+    //   Sometimes it's a EC-MOVABLE-DIALOG which already contains the
+    //   EC-RICH-TEXT-EDITOR, and sometimes it's the EC-RICH-TEXT-EDITOR
+    //   directly.
+    if (options.ccdragndropfix && ('tagName' in node) &&
+        (node.tagName == 'EC-MOVABLE-DIALOG' ||
+         node.tagName == 'EC-RICH-TEXT-EDITOR')) {
+      applyDragAndDropFix(node);
+    }
+
+    // Inject the batch lock button in the thread list
+    if (options.batchlock && nodeIsReadToggleBtn(node)) {
+      addBatchLockBtn(node);
+    }
+  }
+}
+
 function mutationCallback(mutationList, observer) {
   mutationList.forEach((mutation) => {
     if (mutation.type == 'childList') {
       mutation.addedNodes.forEach(function(node) {
-        if (typeof node.classList !== 'undefined') {
-          if (options.thread && node.classList.contains('load-more-bar')) {
-            intersectionObserver.observe(
-                node.querySelector('.load-more-button'));
-          }
-
-          if (options.threadall && node.classList.contains('load-more-bar')) {
-            intersectionObserver.observe(
-                node.querySelector('.load-all-button'));
-          }
-
-          if (options.history && ('parentNode' in node) &&
-              node.parentNode !== null && ('tagName' in node.parentNode) &&
-              node.parentNode.tagName == 'EC-USER') {
-            var nameElement = node.querySelector('.name span');
-            if (nameElement !== null) {
-              var forumId =
-                  location.href.split('/forum/')[1].split('/')[0] || '0';
-
-              var name = escapeUsername(nameElement.textContent);
-              var query1 = encodeURIComponent(
-                  '(creator:"' + name + '" | replier:"' + name +
-                  '") forum:' + forumId);
-              var query2 = encodeURIComponent(
-                  '(creator:"' + name + '" | replier:"' + name +
-                  '") forum:any');
-
-              var container = document.createElement('div');
-              container.classList.add('TWPT-previous-posts');
-
-              var badge = createExtBadge();
-              container.appendChild(badge);
-
-              var linkContainer = document.createElement('div');
-              linkContainer.classList.add('TWPT-previous-posts--links');
-
-              addProfileHistoryLink(linkContainer, 'forum', query1);
-              addProfileHistoryLink(linkContainer, 'all', query2);
-
-              container.appendChild(linkContainer);
-
-              node.querySelector('.main-card-content').appendChild(container);
-            }
-          }
-
-          // We target both tags because in different contexts different
-          // elements containing the text editor get added to the DOM structure.
-          // Sometimes it's a EC-MOVABLE-DIALOG which already contains the
-          // EC-RICH-TEXT-EDITOR, and sometimes it's the EC-RICH-TEXT-EDITOR
-          // directly.
-          if (options.ccdragndropfix && ('tagName' in node) &&
-              (node.tagName == 'EC-MOVABLE-DIALOG' ||
-               node.tagName == 'EC-RICH-TEXT-EDITOR')) {
-            applyDragAndDropFix(node);
-          }
-
-          if (options.batchlock && nodeIsReadToggleBtn(node)) {
-            addBatchLockBtn(node);
-          }
-        }
+        handleCandidateNode(node);
       });
     }
   });
@@ -269,6 +298,12 @@ chrome.storage.sync.get(null, function(items) {
   var startup =
       JSON.parse(document.querySelector('html').getAttribute('data-startup'));
   authuser = startup[2][1] || '0';
+
+  // Before starting the mutation Observer, check whether we missed any
+  // mutations by manually checking whether some watched nodes already exist.
+  var cssSelectors = watchedNodesSelectors.join(',');
+  document.querySelectorAll(cssSelectors)
+      .forEach(node => handleCandidateNode(node));
 
   mutationObserver = new MutationObserver(mutationCallback);
   mutationObserver.observe(document.body, observerOptions);
