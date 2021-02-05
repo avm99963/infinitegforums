@@ -204,18 +204,25 @@ function handleIndicators(sourceNode, isCC, options) {
 
   var forumId = forumUrlSplit[1].split('/')[0];
 
+  /*
+   * TODO(avm99963): If the TW filters ever work again, set isCCLink to isCC.
+   * Otherwise, issue #29 should be resolved:
+   * https://github.com/avm99963/infinitegforums/issues/29
+   */
+  var isCCLink = true;
+
   var query = '(replier:"' + escapedUsername + '" | creator:"' +
       escapedUsername + '") ' + FILTER_ALL_LANGUAGES;
   var encodedQuery =
-      encodeURIComponent(query + (isCC ? ' forum:' + forumId : ''));
+      encodeURIComponent(query + (isCCLink ? ' forum:' + forumId : ''));
   var authuserPart =
       (authuser == '0' ?
            '' :
-           (isCC ? '?' : '&') + 'authuser=' + encodeURIComponent(authuser));
+           (isCCLink ? '?' : '&') + 'authuser=' + encodeURIComponent(authuser));
   var searchURL =
-      (isCC ? 'https://support.google.com/s/community/search/' +
+      (isCCLink ? 'https://support.google.com/s/community/search/' +
                encodeURIComponent('query=' + encodedQuery) + authuserPart :
-              document.location.pathname.split('/thread')[0] +
+                  document.location.pathname.split('/thread')[0] +
                '/threads?thread_filter=' + encodedQuery + authuserPart);
 
   if (options.numPosts) {

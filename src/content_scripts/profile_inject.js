@@ -1,12 +1,34 @@
+var authuser = (new URL(location.href)).searchParams.get('authuser') || '0';
+
 chrome.storage.sync.get(null, function(items) {
   if (items.history &&
       document.querySelector('.user-profile__user-links') === null) {
     var nameElement = document.querySelector('.user-profile__user-name');
     if (nameElement !== null) {
+      var profileLink = document.querySelector('.community-console');
+      if (profileLink === null) {
+        console.error(
+            '[previousposts] ' +
+            'The user is not a PE so we can\'t show the previous posts link.');
+        return;
+      }
+
+      var profileUrl = profileLink.href || '';
+      var profileUrlSplit = profileUrl.split('/forum/');
+      if (profileUrlSplit.length < 2) {
+        console.error('[previousposts] Can\'t get forum id.');
+        return;
+      }
+
+      var forumId = profileUrlSplit[1].split('/')[0];
       var name = escapeUsername(nameElement.textContent);
-      var filter = 'creator:"' + name + '" | replier:"' + name + '"';
-      var url = document.location.pathname.split('/profile')[0] +
-          '/threads?thread_filter=' + encodeURIComponent(filter);
+      var filter =
+          '(creator:"' + name + '" | replier:"' + name + '") forum:' + forumId;
+      var urlpart = encodeURIComponent('query=' + encodeURIComponent(filter));
+      var authuserpart =
+          (authuser == '0' ? '' : '?authuser=' + encodeURIComponent(authuser));
+      var url = 'https://support.google.com/s/community/search/' + urlpart +
+          authuserpart;
 
       var links = document.createElement('div');
       links.classList.add('user-profile__user-links');
@@ -50,10 +72,10 @@ chrome.storage.sync.get(null, function(items) {
       ul.appendChild(li);
       links.appendChild(ul);
 
-      console.log(links);
-
       document.querySelector('.user-profile__user-details-container')
           .appendChild(links);
+    } else {
+      console.error('[previousposts] Can\'t find username.');
     }
   }
 });
