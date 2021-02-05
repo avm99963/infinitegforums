@@ -6,6 +6,12 @@ function removeChildNodes(node) {
   }
 }
 
+function getNParent(node, n) {
+  if (n <= 0) return node;
+  if (!('parentNode' in node)) return null;
+  return getNParent(node.parentNode, n - 1);
+}
+
 function createExtBadge() {
   var badge = document.createElement('div');
   badge.classList.add('TWPT-badge');
@@ -175,43 +181,45 @@ function addBatchLockBtn(readToggle) {
       clone, (readToggle.nextSibling || readToggle));
 }
 
-function injectPreviousPostsLinks(node) {
-  var nameElement = node.querySelector('.name span');
-  if (nameElement !== null) {
-    var forumId = location.href.split('/forum/')[1].split('/')[0] || '0';
-
-    var name = escapeUsername(nameElement.textContent);
-    var query1 = encodeURIComponent(
-        '(creator:"' + name + '" | replier:"' + name + '") forum:' + forumId);
-    var query2 = encodeURIComponent(
-        '(creator:"' + name + '" | replier:"' + name + '") forum:any');
-
-    var container = document.createElement('div');
-    container.classList.add('TWPT-previous-posts');
-
-    var badge = createExtBadge();
-    container.appendChild(badge);
-
-    var linkContainer = document.createElement('div');
-    linkContainer.classList.add('TWPT-previous-posts--links');
-
-    addProfileHistoryLink(linkContainer, 'forum', query1);
-    addProfileHistoryLink(linkContainer, 'all', query2);
-
-    container.appendChild(linkContainer);
-
-    node.querySelector('.main-card-content').appendChild(container);
-  } else {
-    console.warn('[previousposts] Couldn\'t find the username element.');
+function injectPreviousPostsLinks(nameElement) {
+  var mainCardContent = getNParent(nameElement, 3);
+  if (mainCardContent === null) {
+    console.error(
+        '[previousposts] Couldn\'t find |.main-card-content| element.');
+    return;
   }
+
+  var forumId = location.href.split('/forum/')[1].split('/')[0] || '0';
+
+  var name = escapeUsername(nameElement.textContent);
+  var query1 = encodeURIComponent(
+      '(creator:"' + name + '" | replier:"' + name + '") forum:' + forumId);
+  var query2 = encodeURIComponent(
+      '(creator:"' + name + '" | replier:"' + name + '") forum:any');
+
+  var container = document.createElement('div');
+  container.classList.add('TWPT-previous-posts');
+
+  var badge = createExtBadge();
+  container.appendChild(badge);
+
+  var linkContainer = document.createElement('div');
+  linkContainer.classList.add('TWPT-previous-posts--links');
+
+  addProfileHistoryLink(linkContainer, 'forum', query1);
+  addProfileHistoryLink(linkContainer, 'all', query2);
+
+  container.appendChild(linkContainer);
+
+  mainCardContent.appendChild(container);
 }
 
 const watchedNodesSelectors = [
   // Load more bar (for the "load more"/"load all" buttons)
   '.load-more-bar',
 
-  // Container inside ec-user (user profile view)
-  'ec-user > div',
+  // Username span inside ec-user (user profile view)
+  'ec-user .main-card .header > .name > span',
 
   // Rich text editor
   'ec-movable-dialog',
@@ -237,9 +245,8 @@ function handleCandidateNode(node) {
 
     // Show the "previous posts" links
     //   Here we're selecting the 'ec-user > div' element (unique child)
-    if (options.history && ('parentNode' in node) && node.parentNode !== null &&
-        ('tagName' in node.parentNode) &&
-        node.parentNode.tagName == 'EC-USER') {
+    if (options.history &&
+        node.matches('ec-user .main-card .header > .name > span')) {
       injectPreviousPostsLinks(node);
     }
 
