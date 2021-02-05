@@ -181,7 +181,7 @@ function getOptionsAndHandleIndicators(sourceNode, isCC) {
 // Handle the profile indicator dot
 function handleIndicators(sourceNode, isCC, options) {
   var escapedUsername = escapeUsername(
-      (isCC ? sourceNode.innerHTML :
+      (isCC ? sourceNode.querySelector('.name-text').innerHTML :
               sourceNode.querySelector('span').innerHTML));
 
   if (isCC) {
@@ -279,7 +279,18 @@ function handleIndicators(sourceNode, isCC, options) {
     // Query threads in order to see what state the indicator should be in
     getPosts(query, forumId)
         .then(res => {
+          // Throw an error when the replies array is not present in the reply.
           if (!('1' in res) || !('2' in res['1'])) {
+            // Throw a different error when the numThreads field exists and is
+            // equal to 0. This reply can be received, but is enexpected,
+            // because we know that the user has replied in at least 1 thread
+            // (the current one).
+            if (('1' in res) && ('4' in res['1']) && res['1']['4'] == 0)
+              throw new Error(
+                  'Thread list is empty ' +
+                  '(but the OP has participated in this thread, ' +
+                  'so it shouldn\'t be empty).');
+
             throw new Error('Unexpected thread list response.');
             return;
           }
@@ -339,9 +350,8 @@ if (CCRegex.test(location.href)) {
         mutation.addedNodes.forEach(function(node) {
           if (node.tagName == 'A' && ('href' in node) &&
               CCProfileRegex.test(node.href) &&
-              !isElementInside(node, 'EC-RELATIVE-TIME') &&
-              isElementInside(node, 'EC-QUESTION') && ('children' in node) &&
-              node.children.length == 0) {
+              node.matches(
+                  'ec-question ec-message-header .name-section ec-user-link a')) {
             console.info('Handling profile indicator via mutation callback.');
             getOptionsAndHandleIndicators(node, true);
           }
