@@ -1,5 +1,5 @@
 var CCProfileRegex =
-    /^(?:https:\/\/support\.google\.com)?\/s\/community\/forum\/[0-9]*\/user\/(?:[0-9]+)$/;
+    /^(?:https:\/\/support\.google\.com)?\/s\/community(?:\/forum\/[0-9]*)?\/user\/(?:[0-9]+)$/;
 var CCRegex = /^https:\/\/support\.google\.com\/s\/community/;
 
 const BASE_URL = 'https://support.google.com/s/community/api/';
