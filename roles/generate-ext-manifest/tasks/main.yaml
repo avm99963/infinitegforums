@@ -1,0 +1,6 @@
+- name: Generate extension manifest
+  include_role:
+    name: go
+  vars:
+    go_command: "run generateManifest.go {{target_browser}}"
+    zuul_work_dir: "{{ zuul.project.src_dir }}"

@@ -1,0 +1,15 @@
+- job:
+    name: infinitegforums-lint
+    parent: web-ext-lint
+    pre-run: playbooks/lint/pre.yaml
+    run: playbooks/lint/run.yaml
+    irrelevant-files:
+      - ".github/.*"
+      - "docs/.*"
+      - "OWNERS"
+      - "README.md"
+
+- project:
+    check:
+      jobs:
+        - infinitegforums-lint

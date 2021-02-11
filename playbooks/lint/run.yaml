@@ -1,0 +1,6 @@
+- hosts: all
+  roles:
+    - role: generate-ext-manifest
+      target_browser: "GECKO"
+    - role: web-ext-lint
+      extra_lint_flags: "--ignore-files sw.js"
