@@ -58,6 +58,11 @@ TODO(avm99963): add a link to webext's `manifest.gjson` documentation when it is
 created.
 ***
 
+If you need any help, mentoring or anything else, send me an email at
+`me [at] avm99963.com` or create a thread in the
+[GitHub discussions tab](https://github.com/avm99963/infinitegforums/discussions).
+I will be more than happy to help you :)
+
 You can get a list of open issues which are recommended for first-time
 contributors here:
 
