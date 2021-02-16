@@ -397,6 +397,11 @@ chrome.storage.sync.get(null, function(items) {
         'material-drawer .main-header{background: var(--TWPT-drawer-background, #fff)!important; position: sticky; top: 0; z-index: 1;}');
   }
 
+  if (options.enhancedannouncementsdot) {
+    injectStylesheet(
+        chrome.runtime.getURL('injections/enhanced_announcements_dot.css'));
+  }
+
   if (options.ccforcehidedrawer) {
     var drawer = document.querySelector('material-drawer');
     if (drawer !== null && drawer.classList.contains('mat-drawer-expanded')) {

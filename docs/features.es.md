@@ -126,6 +126,17 @@ te permite ordenar las listas de hilos en sentido ascendente o descendente.
 
 ![GIF que muestra cómo cambiar entre el sentido ascendente/descendente](resources/smei_sort_direction.gif)
 
+### Indicador de anuncios nuevos más prominente
+> **Option name:** _Muestra el punto que notifica que hay anuncios sin leer de
+manera más prominente en la Consola de la Comunidad._.
+
+Cuando esta opción está activada, el banner "Alpha" que aparece en la esquina
+superior izquierda de la Consola de la Comunidad se oculta, y el punto de
+notificación que aparece en el menú de hamburguesa cuando hay un nuevo anuncio
+se hace más grande y animado para que lo veas mejor.
+
+![GIF que muestra el punto de notificación mejorado](resources/announcement_dot.gif)
+
 ### Punto indicador
 > **Opciones:** _Muestra si el autor del hilo ha participado en otros hilos_,
 _Muestra el número de preguntas y respuestas escritas por el autor del hilo

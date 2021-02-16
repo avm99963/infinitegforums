@@ -21,6 +21,7 @@ const defaultOptions = {
   'ccdragndropfix': false,
   'batchlock': false,
   'smei_sortdirection': false,
+  'enhancedannouncementsdot': false,
 };
 
 const specialOptions = [

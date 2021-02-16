@@ -1,0 +1,21 @@
+@keyframes TWPTAnnouncementDot {
+  from {
+    background-color: #d93025;
+    bottom: 8px;
+  }
+
+  to {
+    background-color: #e2b3b0;
+    bottom: 0px;
+  }
+}
+
+header .left-control .material-drawer-button.has-updates::after {
+  height: 10px;
+  width: 10px;
+  animation: .5s infinite alternate ease-in TWPTAnnouncementDot;
+}
+
+header .sash {
+  display: none;
+}

@@ -95,6 +95,10 @@
     "message": "Enable the <code class=\"help\" title=\"This experiment lets you sort the Community Console thread list in ascending or descending order.\">SMEI_SORT_DIRECTION</code> experiment.",
     "description": "Feature checkbox in the options page"
   },
+  "options_enhancedannouncementsdot": {
+    "message": "Show the announcements notification dot more prominently in the Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_profileindicator_header": {
     "message": "Indicator dot",
     "description": "Heading for the profile indicator feature options"

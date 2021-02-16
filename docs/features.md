@@ -119,6 +119,17 @@ you sort thread lists in ascending or descending order.
 
 ![GIF showing how to switch between ascending/descending order](resources/smei_sort_direction.gif)
 
+### More prominent announcements dot
+> **Option name:** _Show the announcements notification dot more prominently in
+the Community Console_.
+
+When this option is enabled, the "Alpha" banner in the upper-left corner of the
+Community Console is removed, and the notification dot which appears in the
+hamburguer menu when there's a new announcement is enlarged and animated so you
+don't miss it.
+
+![GIF showing the improved notification dot](resources/announcement_dot.gif)
+
 ### Indicator dot
 > **Option names:** _Show whether the OP has participated in other threads_,
 _Show the number of questions and replies written by the OP within the last `n`

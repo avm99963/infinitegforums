@@ -91,6 +91,10 @@
     "message": "Activa l'experiment <code class=\"help\" title=\"Aquest experiment et permet ordenar la llista de fils de la Consola de la Comunitat en ordre ascendent o descendent.\">SMEI_SORT_DIRECTION</code>.",
     "description": "Feature checkbox in the options page"
   },
+  "options_enhancedannouncementsdot": {
+    "message": "Mostra el punt que notifica que hi ha anuncis sense llegir d'una manera més prominent a la Consola de la Comunitat.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_profileindicator_header": {
     "message": "Punt indicador",
     "description": "Heading for the profile indicator feature options"
