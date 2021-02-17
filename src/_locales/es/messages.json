@@ -95,6 +95,10 @@
     "message": "Muestra el punto que notifica que hay anuncios sin leer de manera más prominente en la Consola de la Comunidad.",
     "description": "Feature checkbox in the options page"
   },
+  "options_repositionexpandthread": {
+    "message": "Pon el botón \"expandir hilo\" a la izquierda del todo en las listas de hilos de la Consola de la Comunidad.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_profileindicator_header": {
     "message": "Punto indicador",
     "description": "Heading for the profile indicator feature options"

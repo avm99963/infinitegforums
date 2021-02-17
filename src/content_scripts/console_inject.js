@@ -402,6 +402,11 @@ chrome.storage.sync.get(null, function(items) {
         chrome.runtime.getURL('injections/enhanced_announcements_dot.css'));
   }
 
+  if (options.repositionexpandthread) {
+    injectStylesheet(
+        chrome.runtime.getURL('injections/reposition_expand_thread.css'));
+  }
+
   if (options.ccforcehidedrawer) {
     var drawer = document.querySelector('material-drawer');
     if (drawer !== null && drawer.classList.contains('mat-drawer-expanded')) {

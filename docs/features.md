@@ -125,10 +125,16 @@ the Community Console_.
 
 When this option is enabled, the "Alpha" banner in the upper-left corner of the
 Community Console is removed, and the notification dot which appears in the
-hamburguer menu when there's a new announcement is enlarged and animated so you
+hamburger menu when there's a new announcement is enlarged and animated so you
 don't miss it.
 
 ![GIF showing the improved notification dot](resources/announcement_dot.gif)
+
+### Reposition the expand thread button
+> **Option name:** _Place the "expand thread" button all the way to the left in
+the Community Console thread lists_.
+
+![Picture showing the feature](resources/reposition_expand_thread.jpg)
 
 ### Indicator dot
 > **Option names:** _Show whether the OP has participated in other threads_,

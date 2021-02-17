@@ -99,6 +99,10 @@
     "message": "Show the announcements notification dot more prominently in the Community Console.",
     "description": "Feature checkbox in the options page"
   },
+  "options_repositionexpandthread": {
+    "message": "Place the \"expand thread\" button all the way to the left in the Community Console thread lists.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_profileindicator_header": {
     "message": "Indicator dot",
     "description": "Heading for the profile indicator feature options"

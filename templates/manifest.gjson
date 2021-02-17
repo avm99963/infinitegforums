@@ -71,7 +71,8 @@
         "injections/profileindicator_inject.css",
         "injections/ccdarktheme.css",
         "injections/batchlock_inject.js",
-        "injections/enhanced_announcements_dot.css"
+        "injections/enhanced_announcements_dot.css",
+        "injections/reposition_expand_thread.css"
 #if defined(CHROMIUM_MV3)
       ],
       "matches": [

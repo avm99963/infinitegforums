@@ -22,6 +22,7 @@ const defaultOptions = {
   'batchlock': false,
   'smei_sortdirection': false,
   'enhancedannouncementsdot': false,
+  'repositionexpandthread': false,
 };
 
 const specialOptions = [

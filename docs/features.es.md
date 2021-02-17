@@ -137,6 +137,12 @@ se hace más grande y animado para que lo veas mejor.
 
 ![GIF que muestra el punto de notificación mejorado](resources/announcement_dot.gif)
 
+### Reposiciona el botón para expandir hilos
+> **Option name:** _Pon el botón "expandir hilo" a la izquierda del todo en las
+listas de hilos de la Consola de la Comunidad._.
+
+![Imagen que muestra la función](resources/reposition_expand_thread.jpg)
+
 ### Punto indicador
 > **Opciones:** _Muestra si el autor del hilo ha participado en otros hilos_,
 _Muestra el número de preguntas y respuestas escritas por el autor del hilo
