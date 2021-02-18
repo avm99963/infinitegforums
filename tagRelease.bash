@@ -50,4 +50,8 @@ commitMessage1="$nextVersion"
 commitMessage2="Changelog: $GITILES_REPO_URL/+log/refs/tags/$prevVersion..refs/tags/$nextVersion"
 git tag -s $nextVersion -m "$commitMessage1" -m "$commitMessage2"
 
-echo "Tag created. Now run \`git push --tags\` to push the tags to the server."
+if [ $? -eq 0 ]; then
+  echo "Tag created. Now run \`git push --tags\` to push the tags to the server."
+else
+  echo "The tag could not be created." >&2
+fi
