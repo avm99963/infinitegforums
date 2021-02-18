@@ -80,11 +80,12 @@ material-drawer ec-forum-drawer-item material-checkbox material-icon {
 /*
  * This applies not only to the selector but also to the ec-work-state-picker.
  */
-.popup-wrapper, material-list {
+.popup-wrapper, material-list, .popup .item-group-list {
   background-color: var(--TWPT-drawer-background)!important;
 }
 
-material-list [group]:not(.empty) + *:not(script):not(template):not(.empty) {
+material-list [group]:not(.empty) + *:not(script):not(template):not(.empty),
+    .popup .item-group-list [group]:not(.empty) + *:not(script):not(template):not(.empty) {
   box-shadow: inset 0 8px 0 0 var(--TWPT-drawer-background)!important;
   border-top-color: #1f1f1f!important;
 }
@@ -94,12 +95,27 @@ material-list material-select-item:hover,
     material-list material-select-dropdown-item:hover,
     material-list material-select-dropdown-item:focus,
     material-list material-select-dropdown-item.active,
-    material-list material-select-dropdown-item:not(.multiselect).selected {
+    material-list material-select-dropdown-item:not(.multiselect).selected,
+    .popup .item-group-list material-select-item:hover,
+    .popup .item-group-list material-select-item:focus,
+    .popup .item-group-list material-select-dropdown-item:hover,
+    .popup .item-group-list material-select-dropdown-item:focus,
+    .popup .item-group-list material-select-dropdown-item.active,
+    .popup .item-group-list material-select-dropdown-item:not(.multiselect).selected {
   background-color: rgba(255, 255, 255, .04)!important;
 }
 
-material-list .menu-item-label, material-list .label, material-list .text-segment {
+material-list .menu-item-label,
+    material-list .label,
+    material-list .text-segment,
+    .popup .item-group-list .menu-item-label,
+    .popup .item-group-list .label,
+    .popup .item-group-list .text-segment {
   color: rgba(255, 255, 255, .87)!important;
+}
+
+.popup .item-group-list material-icon {
+  color: rgba(255, 255, 255, .7)!important;
 }
 
 material-list [group] > [label] {
