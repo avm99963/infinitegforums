@@ -1,3 +1,5 @@
+var CCThreadWithoutMessage = /forum\/[0-9]*\/thread\/[0-9]*$/;
+
 var intersectionObserver;
 
 function intersectionCallback(entries, observer) {
@@ -15,7 +17,15 @@ var intersectionOptions = {
 chrome.storage.sync.get(null, function(items) {
   var redirectLink = document.querySelector('.community-console');
   if (items.redirect && redirectLink !== null) {
-    window.location = redirectLink.href;
+    var redirectUrl = redirectLink.href;
+
+    var searchParams = new URLSearchParams(location.search);
+    if (searchParams.has('msgid') && searchParams.get('msgid') !== '' &&
+        CCThreadWithoutMessage.test(redirectUrl))
+      redirectUrl +=
+          '/message/' + encodeURIComponent(searchParams.get('msgid'));
+
+    window.location = redirectUrl;
   } else {
     var button =
         document.querySelector('.thread-all-replies__load-more-button');
