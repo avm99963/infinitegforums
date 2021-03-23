@@ -6,6 +6,8 @@ do:
 with [Homebrew](https://brew.sh/) by running `brew install go`.
    - This is because the build script uses a Go program to generate the
    manifest.
+1. Install the genmanifest Go program. In order to do this, run
+`go install gomodules.avm99963.com/webext/genmanifest@latest`.
 1. [Install NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/).
 1. Now, you must clone the git repository to your device to retrieve the
 extension source code. To do that,

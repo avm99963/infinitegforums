@@ -73,7 +73,7 @@ module.exports = (env, args) => {
       new WebpackShellPluginNext({
         onBuildEnd: {
           scripts:
-              ['go run tools/generateManifest.go -dest=' +
+              ['genmanifest -template templates/manifest.gjson -dest ' +
                path.join(outputPath, 'manifest.json') + ' ' +
                env.browser_target]
         }
