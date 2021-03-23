@@ -8,7 +8,8 @@
   --TWPT-card-border: #5f6368;
   --TWPT-subtle-border: #383735;
   --TWPT-link: #8ab4f8;
-  --TWPT-thread-read-background: rgba(255, 255, 255, .08);
+  --TWPT-highlighted-item-background: rgba(255, 255, 255, .08);
+  --TWPT-thread-read-background: var(--TWPT-highlighted-item-background);
   --TWPT-drawer-background: #2d2e30;
   --TWPT-button-background: #3c3e42;
   --TWPT-green-A400: #00E676;
@@ -98,11 +99,12 @@ material-list material-select-item:hover,
     material-list material-select-dropdown-item:not(.multiselect).selected,
     .popup .item-group-list material-select-item:hover,
     .popup .item-group-list material-select-item:focus,
+    .popup .item-group-list material-select-item.active,
     .popup .item-group-list material-select-dropdown-item:hover,
     .popup .item-group-list material-select-dropdown-item:focus,
     .popup .item-group-list material-select-dropdown-item.active,
     .popup .item-group-list material-select-dropdown-item:not(.multiselect).selected {
-  background-color: rgba(255, 255, 255, .04)!important;
+  background-color: var(--TWPT-highlighted-item-background)!important;
 }
 
 material-list .menu-item-label,
