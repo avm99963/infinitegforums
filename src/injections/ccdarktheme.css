@@ -34,7 +34,8 @@ body.ec a {
   background-color: var(--TWPT-primary-background)!important;
 }
 
-.material-content > header material-button {
+.material-content > header material-button,
+    .material-content > header notification-bell material-icon {
   color: rgba(255, 255, 255, .87)!important;
 }
 
@@ -124,6 +125,11 @@ material-list [group] > [label] {
   color: #8a8a8a!important;
 }
 
+/* This is shown in the new thread view */
+ec-forum-language-picker .labeled-select .select-label {
+  color: var(--TWPT-secondary-text)!important;
+}
+
 /* Main */
 .main {
   color: var(--TWPT-primary-text)!important;
@@ -158,8 +164,7 @@ main .title-bar .title, main .page-header h1, main .header h1 {
 .material-content .action-bar material-button,
     ec-bulk-actions material-button,
     ec-back-button material-button,
-    .sort-options material-button,
-    notification-bell material-icon {
+    .sort-options material-button {
   color: rgba(255, 255, 255, .54)!important;
 }
 
@@ -209,8 +214,18 @@ ec-thread-summary material-expansionpanel .title {
 
 ec-thread-summary material-expansionpanel ec-second-summary-line,
     material-expansionpanel .header-content,
-    material-expansionpanel ec-thread-counts > span:not(.recommended-answers) {
+    material-expansionpanel ec-thread-counts > span:not(.recommended-answers),
+    material-expansionpanel .duplicate-label {
   color: #928e89!important;
+}
+
+material-expansionpanel .removed-label {
+  /*
+   * The following color should be --TWPT-red-A400, but it unfortunately doesn't
+   * contrast well with the dark background, so this is the AA correction of
+   * that color.
+   **/
+  color: #ff6868!important;
 }
 
 ec-thread-summary material-expansionpanel ec-safe-html.body,
@@ -309,7 +324,8 @@ ec-question .details-heading {
   color: var(--TWPT-primary-text-alt) !important;
 }
 
-ec-question .footer {
+ec-question .footer,
+    ec-ask-flow .content-disclaimer {
   color: var(--TWPT-primary-text)!important;
   background-color: var(--TWPT-active-background)!important;
   border-top-color: var(--TWPT-card-border)!important;
@@ -418,12 +434,22 @@ ec-ask-flow .display-name-label,
   color: var(--TWPT-secondary-text)!important;
 }
 
+/* Note: see thread view section. There is a rule for the thread creation
+ * footer.
+ **/
+
 /* Profile view */
-ec-user .main-card-content {
+ec-user .main-card {
   background-color: var(--TWPT-secondary-background)!important;
-  border: 1px solid var(--TWPT-card-border)!important;
+}
+
+ec-user .abuse-alert-container {
+  background-color: var(--TWPT-active-background)!important;
   border-top-right-radius: 8px!important;
-  border-bottom-right-radius: 8px!important;
+}
+
+ec-user .abuse-alert-container .abuse-alert {
+  color: var(--TWPT-primary-text)!important;
 }
 
 ec-user ec-display-name-editor, ec-user .header .name {
@@ -625,8 +651,9 @@ material-menu material-button, material-dropdown-select dropdown-button {
   color: rgba(255, 255, 255, .54)!important;
 }
 
-material-dropdown-select dropdown-button .is-disabled .button-text {
-  color: rgba(255, 255, 255, .38)!important;
+material-dropdown-select dropdown-button .button.is-disabled .button-text,
+    material-dropdown-select dropdown-button .button.is-disabled material-icon {
+  color: rgba(255, 255, 255, .32)!important;
 }
 
 /* Announcements content */
@@ -643,6 +670,19 @@ ec-announcements-content .no-announcements-message {
   color: var(--TWPT-primary-text)!important;
 }
 
+/* Notifications bell popup/panel */
+.notification-panel .header material-button {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+.notification-panel .cards-container .promo-message {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+.notification-panel .cards-container .promo-message .header-text {
+  color: var(--TWPT-primary-text)!important;
+}
+
 /* Account selector */
 .popup-wrapper .profile .email {
   color: rgba(255, 255, 255, .54)!important;
@@ -651,6 +691,10 @@ ec-announcements-content .no-announcements-message {
 material-gaia-picker-footer {
   color: rgba(255, 255, 255, .54)!important;
   background-color: var(--TWPT-active-background)!important;
+}
+
+material-gaia-picker-footer material-button {
+  color: var(--TWPT-secondary-text)!important;
 }
 
 /* Canned responses */
