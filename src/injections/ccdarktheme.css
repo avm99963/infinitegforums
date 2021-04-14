@@ -14,6 +14,7 @@
   --TWPT-button-background: #3c3e42;
   --TWPT-green-A400: #00E676;
   --TWPT-red-A400: #FF1744;
+  --TWPT-blue-A100: #82B1FF;
 }
 
 body {
@@ -421,6 +422,25 @@ ec-activity-panel ec-activity .thread-title {
 /* Recommended answers - show in green where we've overwritten the colors */
 .recommended-answers {
   color: #34a853!important;
+}
+
+/* Suggested answers - show brighter blue */
+.suggested-icon {
+  color: var(--TWPT-blue-A100)!important;
+}
+
+/* Help button (shown in the suggested answers header) */
+.explanation-icon material-icon {
+  color: rgba(255, 255, 255, .54)!important;
+}
+
+/* Help button tooltip */
+.popup .paper-container {
+  background: var(--TWPT-drawer-background)!important;
+}
+
+.explanation-icon material-icon:hover {
+  color: var(--TWPT-blue-A100)!important;
 }
 
 /* New thread view */
