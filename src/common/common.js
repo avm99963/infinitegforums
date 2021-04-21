@@ -68,10 +68,6 @@ const optionsPrototype = {
     defaultValue: false,
     context: 'options',
   },
-  'smei_sortdirection': {
-    defaultValue: false,
-    context: 'options',
-  },
   'enhancedannouncementsdot': {
     defaultValue: false,
     context: 'options',
@@ -103,6 +99,10 @@ const optionsPrototype = {
     context: 'deprecated',
   },
   'batchduplicate': {
+    defaultValue: false,
+    context: 'deprecated',
+  },
+  'smei_sortdirection': {
     defaultValue: false,
     context: 'deprecated',
   },

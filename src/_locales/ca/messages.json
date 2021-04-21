@@ -87,10 +87,6 @@
     "message": "Afegeix l'opció per bloquejar diversos fils a la llista de fils de la Consola de la Comunitat.",
     "description": "Feature checkbox in the options page"
   },
-  "options_smei_sortdirection": {
-    "message": "Activa l'experiment <code class=\"help\" title=\"Aquest experiment et permet ordenar la llista de fils de la Consola de la Comunitat en ordre ascendent o descendent.\">SMEI_SORT_DIRECTION</code>.",
-    "description": "Feature checkbox in the options page"
-  },
   "options_enhancedannouncementsdot": {
     "message": "Mostra el punt que notifica que hi ha anuncis sense llegir d'una manera més prominent a la Consola de la Comunitat.",
     "description": "Feature checkbox in the options page"

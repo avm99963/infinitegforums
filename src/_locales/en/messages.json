@@ -91,10 +91,6 @@
     "message": "Add the option to lock multiple threads from the Community Console thread list.",
     "description": "Feature checkbox in the options page"
   },
-  "options_smei_sortdirection": {
-    "message": "Enable the <code class=\"help\" title=\"This experiment lets you sort the Community Console thread list in ascending or descending order.\">SMEI_SORT_DIRECTION</code> experiment.",
-    "description": "Feature checkbox in the options page"
-  },
   "options_enhancedannouncementsdot": {
     "message": "Show the announcements notification dot more prominently in the Community Console.",
     "description": "Feature checkbox in the options page"

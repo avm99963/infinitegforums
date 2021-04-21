@@ -118,14 +118,6 @@ de la Consola de la Comunidad_.
 
 ![GIF que muestra cómo funciona la función](resources/batch_lock.gif)
 
-### Sentido del orden en la Consola de la Comunidad
-> **Opción:** _Activa el experimento `SMEI_SORT_DIRECTION`._
-
-Esta opción activa un experimento disponible en la Consola de la Comunidad que
-te permite ordenar las listas de hilos en sentido ascendente o descendente.
-
-![GIF que muestra cómo cambiar entre el sentido ascendente/descendente](resources/smei_sort_direction.gif)
-
 ### Indicador de anuncios nuevos más prominente
 > **Option name:** _Muestra el punto que notifica que hay anuncios sin leer de
 manera más prominente en la Consola de la Comunidad._.

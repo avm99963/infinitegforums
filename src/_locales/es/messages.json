@@ -87,10 +87,6 @@
     "message": "Añade la opción para bloquear varios hilos en la lista de hilos de la Consola de la Comunidad.",
     "description": "Feature checkbox in the options page"
   },
-  "options_smei_sortdirection": {
-    "message": "Activa el experimento <code class=\"help\" title=\"Este experimento te permite ordenar la lista de hilos de la Consola de la Comunidad en orden ascendente o descendente.\">SMEI_SORT_DIRECTION</code>.",
-    "description": "Feature checkbox in the options page"
-  },
   "options_enhancedannouncementsdot": {
     "message": "Muestra el punto que notifica que hay anuncios sin leer de manera más prominente en la Consola de la Comunidad.",
     "description": "Feature checkbox in the options page"
