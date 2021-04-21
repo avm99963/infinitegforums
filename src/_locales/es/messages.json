@@ -103,6 +103,10 @@
     "message": "Punto indicador",
     "description": "Heading for the profile indicator feature options"
   },
+  "options_threadlistavatars": {
+    "message": "Muestra fotos de perfil en las listas de hilos de la Consola de la Comunidad.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_profileindicator_moreinfo": {
     "message": "+info sobre las 2 opciones anteriores",
     "description": "Link to learn more about the profile indicator feature"

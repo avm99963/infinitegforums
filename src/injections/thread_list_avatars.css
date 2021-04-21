@@ -1,0 +1,27 @@
+.TWPT-avatars {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 102px;
+  overflow-x: hidden;
+  margin-left: 8px;
+}
+
+.TWPT-avatars .TWPT-avatar {
+  height: 28px;
+  width: 28px;
+  align-self: center;
+  border-width: 0;
+  border-radius: 50%;
+  margin-left: 6px;
+  background-color: white;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/*
+ * Changing styles of existing elements so the avatars fit.
+ */
+ec-thread-summary .main-header .panel-description a.header .header-content {
+  width: calc(100% - 204px);
+}

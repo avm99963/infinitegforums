@@ -82,7 +82,10 @@ const optionsPrototype = {
   },
 
   // Experiments:
-
+  'threadlistavatars': {
+    defaultValue: false,
+    context: 'experiments',
+  },
 
   // Internal options:
   'ccdarktheme_switch_enabled': {

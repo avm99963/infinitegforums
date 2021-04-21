@@ -13,6 +13,20 @@ function getNParent(node, n) {
   return getNParent(node.parentNode, n - 1);
 }
 
+function parseUrl(url) {
+  var forum_a = url.match(/forum\/([0-9]+)/i);
+  var thread_a = url.match(/thread\/([0-9]+)/i);
+
+  if (forum_a === null || thread_a === null) {
+    return false;
+  }
+
+  return {
+    'forum': forum_a[1],
+    'thread': thread_a[1],
+  };
+}
+
 function createExtBadge() {
   var badge = document.createElement('div');
   badge.classList.add('TWPT-badge');
@@ -221,6 +235,93 @@ function addBatchLockBtn(readToggle) {
       clone, (readToggle.nextSibling || readToggle));
 }
 
+// TODO(avm99963): This is a prototype. DON'T FORGET TO ADD ERROR HANDLING.
+function injectAvatars(node) {
+  var header = node.querySelector(
+      'ec-thread-summary .main-header .panel-description a.header');
+  if (header === null) return;
+
+  var link = parseUrl(header.href);
+  if (link === false) return;
+
+  var APIRequestUrl = 'https://support.google.com/s/community/api/ViewThread' +
+      (authuser == '0' ? '' : '?authuser=' + encodeURIComponent(authuser));
+
+  fetch(APIRequestUrl, {
+    'headers': {
+      'content-type': 'text/plain; charset=utf-8',
+    },
+    'body': JSON.stringify({
+      1: link.forum,
+      2: link.thread,
+      3: {
+        1: {2: 15},
+        3: true,
+        5: true,
+        10: true,
+        16: true,
+        18: true,
+      }
+    }),
+    'method': 'POST',
+    'mode': 'cors',
+    'credentials': 'omit',
+  })
+      .then(res => {
+        if (res.status == 200 || res.status == 400) {
+          return res.json().then(data => ({
+                                   status: res.status,
+                                   body: data,
+                                 }));
+        } else {
+          throw new Error('Status code ' + res.status + ' was not expected.');
+        }
+      })
+      .then(res => {
+        if (res.status == 400) {
+          throw new Error(
+              res.body[4] ||
+              ('Response status: 400. Error code: ' + res.body[2]));
+        }
+
+        return res.body;
+      })
+      .then(data => {
+        if (!('1' in data) || !('8' in data['1'])) return false;
+
+        var messages = data['1']['8'];
+        if (messages == 0) return;
+
+        var avatarUrls = [];
+
+        if (!('3' in data['1'])) return false;
+        for (var m of data['1']['3']) {
+          if (!('3' in m) || !('1' in m['3']) || !('2' in m['3']['1']))
+            continue;
+
+          var url = m['3']['1']['2'];
+
+          if (!avatarUrls.includes(url)) avatarUrls.push(url);
+
+          if (avatarUrls.length == 3) break;
+        }
+
+        var avatarsContainer = document.createElement('div');
+        avatarsContainer.classList.add('TWPT-avatars');
+
+        var count = Math.floor(Math.random() * 4);
+
+        for (var i = 0; i < avatarUrls.length; ++i) {
+          var avatar = document.createElement('div');
+          avatar.classList.add('TWPT-avatar');
+          avatar.style.backgroundImage = 'url(\''+avatarUrls[i]+'\')';
+          avatarsContainer.appendChild(avatar);
+        }
+
+        header.appendChild(avatarsContainer);
+      });
+}
+
 function injectPreviousPostsLinks(nameElement) {
   var mainCardContent = getNParent(nameElement, 3);
   if (mainCardContent === null) {
@@ -272,6 +373,9 @@ const watchedNodesSelectors = [
   // Read/unread bulk action in the list of thread, for the batch lock feature
   'ec-bulk-actions material-button[debugid="mark-read-button"]',
   'ec-bulk-actions material-button[debugid="mark-unread-button"]',
+
+  // Thread list items (used to inject the avatars)
+  'li',
 ];
 
 function handleCandidateNode(node) {
@@ -338,6 +442,13 @@ function handleCandidateNode(node) {
     // Inject the batch lock button in the thread list
     if (options.batchlock && nodeIsReadToggleBtn(node)) {
       addBatchLockBtn(node);
+    }
+
+    // Inject avatar links to threads in the thread list
+    if (options.threadlistavatars && ('tagName' in node) &&
+        (node.tagName == 'LI') &&
+        node.querySelector('ec-thread-summary') !== null) {
+      injectAvatars(node);
     }
   }
 }
@@ -416,5 +527,10 @@ chrome.storage.sync.get(null, function(items) {
 
   if (options.batchlock) {
     injectScript(chrome.runtime.getURL('injections/batchlock_inject.js'));
+  }
+
+  if (options.threadlistavatars) {
+    injectStylesheet(
+        chrome.runtime.getURL('injections/thread_list_avatars.css'));
   }
 });
