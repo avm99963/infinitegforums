@@ -6,7 +6,7 @@ importScripts('common/common.js')
 chrome.runtime.onInstalled.addListener(details => {
   if (details.reason == 'install' || details.reason == 'update') {
     chrome.storage.sync.get(null, options => {
-      cleanUpOptions(options);
+      cleanUpOptions(options, false);
     });
   }
 });

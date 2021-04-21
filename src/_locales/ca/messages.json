@@ -127,6 +127,14 @@
     "message": "Desat",
     "description": "Message which appears in the options page when the settings are saved"
   },
+  "options_experiments_title": {
+    "message": "Experiments",
+    "description": "Title of the experiments page: a page where highly experimental options can be set."
+  },
+  "options_experiments_description": {
+    "message": "<i>Welchrome!</i> Aquí a sota trobaràs una llista d'experiments: funcions que estan en desenvolupament i que encara no estan llestes del tot per ser llençades. Són altament experimentals i podrien trencar-se i/o causar problemes, però si ets valent/a, sisplau activa les que més t'interessin i <a href='https://github.com/avm99963/infinitegforums/discussions/categories/feedback'>envia feedback</a>!",
+    "description": "Description shown in the beginning of the experiments page, below the title."
+  },
   "inject_links": {
     "message": "Enllaços",
     "description": "Heading which we use before the 'previous post' link in a user profile in TW"

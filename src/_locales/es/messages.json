@@ -127,6 +127,14 @@
     "message": "Guardado",
     "description": "Message which appears in the options page when the settings are saved"
   },
+  "options_experiments_title": {
+    "message": "Experimentos",
+    "description": "Title of the experiments page: a page where highly experimental options can be set."
+  },
+  "options_experiments_description": {
+    "message": "<i>Welchrome!</i> Aquí abajo encontrarás una lista de experimentos: funciones que están en desarrollo y que todavía no están listas del todo para lanzarse. Son altamente experimentales y podrían romperse y/o causar problemas, pero si eres valiente, por favor activa las que más te interesen, ¡y <a href='https://github.com/avm99963/infinitegforums/discussions/categories/feedback'>envia feedback</a>!",
+    "description": "Description shown in the beginning of the experiments page, below the title."
+  },
   "inject_links": {
     "message": "Enlaces",
     "description": "Heading which we use before the 'previous post' link in a user profile in TW"

@@ -2,6 +2,11 @@ body {
   padding-top: 16px;
 }
 
+main {
+  margin: auto;
+  max-width: 600px;
+}
+
 .features-link {
   position: absolute;
   top: 8px;

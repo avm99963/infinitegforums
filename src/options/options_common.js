@@ -2,62 +2,68 @@ var savedSuccessfullyTimeout = null;
 
 const exclusiveOptions = [['thread', 'threadall']];
 
-function save(e) {
-  var options = defaultOptions;
+// Get the value of the option set in the options/experiments page
+function getOptionValue(opt) {
+  if (specialOptions.includes(opt)) {
+    switch (opt) {
+      case 'profileindicatoralt_months':
+        return document.getElementById(opt).value || 12;
 
+      case 'ccdarktheme_mode':
+        return document.getElementById(opt).value || 'switch';
+
+      case 'ccdragndropfix':
+        return document.getElementById(opt).checked || false;
+
+      default:
+        console.warn('Unrecognized option: ' + opt);
+        return undefined;
+    }
+  }
+
+  return document.getElementById(opt).checked || false;
+}
+
+// Returns whether the option is included in the current context
+function isOptionShown(opt) {
+  if (!optionsPrototype.hasOwnProperty(opt)) return false;
+  return optionsPrototype[opt].context == window.CONTEXT;
+}
+
+function save(e) {
   // Validation checks before saving
-  var months = document.getElementById('profileindicatoralt_months');
-  if (!months.checkValidity()) {
-    console.warn(months.validationMessage);
-    return;
+  if (isOptionShown('profileindicatoralt_months')) {
+    var months = document.getElementById('profileindicatoralt_months');
+    if (!months.checkValidity()) {
+      console.warn(months.validationMessage);
+      return;
+    }
   }
 
   e.preventDefault();
 
-  // Save
-  Object.keys(options).forEach(function(opt) {
-    if (deprecatedOptions.includes(opt)) return;
+  chrome.storage.sync.get(null, function(items) {
+    var options = cleanUpOptions(items, true);
 
-    if (specialOptions.includes(opt)) {
-      switch (opt) {
-        case 'profileindicatoralt_months':
-          options[opt] = document.getElementById(opt).value || 12;
-          break;
+    // Save
+    Object.keys(options).forEach(function(opt) {
+      if (!isOptionShown(opt)) return;
+      options[opt] = getOptionValue(opt);
+    });
 
-        case 'ccdarktheme_mode':
-          options[opt] = document.getElementById(opt).value || 'switch';
-          break;
+    chrome.storage.sync.set(options, function() {
+      window.close();
 
-        // This option is controlled directly in the Community Console.
-        case 'ccdarktheme_switch_enabled':
-          break;
+      // In browsers like Firefox window.close is not supported:
+      if (savedSuccessfullyTimeout !== null)
+        window.clearTimeout(savedSuccessfullyTimeout);
 
-        case 'ccdragndropfix':
-          options[opt] = document.getElementById(opt).checked || false;
-          break;
-
-        default:
-          console.warn('Unrecognized option: ' + opt);
-          break;
-      }
-      return;
-    }
-
-    options[opt] = document.getElementById(opt).checked || false;
-  });
-
-  chrome.storage.sync.set(options, function() {
-    window.close();
-
-    // In browsers like Firefox window.close is not supported:
-    if (savedSuccessfullyTimeout !== null)
-      window.clearTimeout(savedSuccessfullyTimeout);
-
-    document.getElementById('save-indicator').innerText =
-        '✓ ' + chrome.i18n.getMessage('options_saved');
-    savedSuccessfullyTimeout = window.setTimeout(_ => {
-      document.getElementById('save-indicator').innerText = '';
-    }, 3699);
+      document.getElementById('save-indicator').innerText =
+          '✓ ' + chrome.i18n.getMessage('options_saved');
+      savedSuccessfullyTimeout = window.setTimeout(_ => {
+        document.getElementById('save-indicator').innerText = '';
+      }, 3699);
+    });
   });
 }
 
@@ -72,10 +78,10 @@ window.addEventListener('load', function() {
   i18n();
 
   chrome.storage.sync.get(null, function(items) {
-    items = cleanUpOptions(items);
+    items = cleanUpOptions(items, false);
 
-    Object.keys(defaultOptions).forEach(function(opt) {
-      if (deprecatedOptions.includes(opt)) return;
+    for ([opt, optMeta] of Object.entries(optionsPrototype)) {
+      if (!isOptionShown(opt)) continue;
 
       if (specialOptions.includes(opt)) {
         switch (opt) {
@@ -109,10 +115,6 @@ window.addEventListener('load', function() {
                 .appendChild(select);
             break;
 
-          // This option is controlled directly in the Community Console.
-          case 'ccdarktheme_switch_enabled':
-            break;
-
           // Firefox doesn't support drag and dropping bookmarks into the text
           // editor while preserving the bookmark title.
           case 'ccdragndropfix':
@@ -130,13 +132,15 @@ window.addEventListener('load', function() {
             console.warn('Unrecognized option: ' + opt);
             break;
         }
-        return;
+        continue;
       }
 
       if (items[opt] === true) document.getElementById(opt).checked = true;
-    });
+    }
 
     exclusiveOptions.forEach(exclusive => {
+      if (!isOptionShown(exclusive[0]) || !isOptionShown(exclusive[1])) return;
+
       exclusive.forEach(
           el => document.getElementById(el).addEventListener('change', e => {
             if (document.getElementById(exclusive[0]).checked &&

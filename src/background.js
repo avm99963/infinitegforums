@@ -4,7 +4,7 @@
 chrome.runtime.onInstalled.addListener(function(details) {
   if (details.reason == 'install' || details.reason == 'update') {
     chrome.storage.sync.get(null, function(options) {
-      cleanUpOptions(options);
+      cleanUpOptions(options, false);
     });
   }
 });

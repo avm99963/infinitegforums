@@ -9,8 +9,8 @@ feature will be enabled or not.
 
 ### How to add the feature switch option
 1. First of all, think of a short codename for the feature.
-2. Modify the `//src/common/common.js` file by adding the default value for the
-option in the `defaultOptions` object.
+2. Modify the `//src/common/common.js` file by adding an entry in the
+`optionsPrototype` object.
     - All features should have the `false` value set as a default, so existing
     users have to explicitly enable the option after they receive the extension
     update. Otherwise, it might cause confusion, because users wouldn't know if
@@ -59,7 +59,7 @@ options:
 codename appended by an underscore and a suffix
 (`{{feature_codename}}_{{suffix}}`).
 2. Modify the `//src/common/common.js` file by doing the following things:
-    1. Add a default value for the option in the `defaultOptions` object.
+    1. Add an entry for the option in the `optionsPrototype` object.
     2. Append the option's codename to the `specialOptions` object. This is so
     the option can be handled in a specific way when showing/saving it in the
     options page, or so it is handled outside of the options page.
