@@ -12,6 +12,7 @@
   --TWPT-thread-read-background: var(--TWPT-highlighted-item-background);
   --TWPT-drawer-background: #2d2e30;
   --TWPT-button-background: #3c3e42;
+  --TWPT-input-underline: rgba(255, 255, 255, .28);
   --TWPT-green-A400: #00E676;
   --TWPT-red-A400: #FF1744;
   --TWPT-blue-A100: #82B1FF;
@@ -76,6 +77,16 @@ material-drawer material-list-item, material-drawer material-list-item .title {
 
 material-drawer ec-forum-drawer-item material-checkbox material-icon {
   filter: brightness(1.5);
+}
+
+/* Filters (ec-query-builder) */
+material-condition-builder .compound-condition-operator {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+material-condition-builder .compound-condition-operator::before,
+    material-condition-builder .compound-condition-operator::after {
+  border-left-color: rgba(255, 255, 255, .20)!important;
 }
 
 /* Selector */
@@ -157,7 +168,7 @@ main .title-bar .title, main .page-header h1, main .header h1 {
   color: var(--TWPT-primary-text)!important;
 }
 
-.card .card-section-hint {
+.card .card-section-hint, .card .card-section-checkbox-hint {
   color: var(--TWPT-secondary-text)!important;
 }
 
@@ -365,6 +376,10 @@ ec-question .me-too-button,
   background-color: var(--TWPT-button-background)!important;
 }
 
+ec-message .alert {
+  color: var(--TWPT-secondary-text)!important;
+}
+
 ec-question .me-too-button.selected,
     ec-question .subscribe-button.selected,
     ec-message .upvote-button.selected,
@@ -443,15 +458,24 @@ ec-activity-panel ec-activity .thread-title {
   color: var(--TWPT-blue-A100)!important;
 }
 
-/* New thread view */
+/* New thread and edit message views */
+material-stepper {
+  border-top-color: var(--TWPT-card-border)!important;
+}
+
 material-stepper .stepper-step-name,
     material-stepper .purpose-title {
   color: var(--TWPT-primary-text)!important;
 }
 
 ec-ask-flow .display-name-label,
-    material-stepper .additional-details-label {
+    material-stepper .additional-details-label,
+    material-stepper .detail-label {
   color: var(--TWPT-secondary-text)!important;
+}
+
+material-stepper .stepper-step[selectable=true]:focus {
+  background-color: rgba(60, 64, 67, .24)!important;
 }
 
 /* Note: see thread view section. There is a rule for the thread creation
@@ -545,12 +569,14 @@ ec-filter-drawer-item material-icon,
     .search-results ec-thread-option ec-icon,
     ec-rich-text-editor material-icon,
     ec-editor-command material-icon,
-    ec-canned-responses ec-canned-response-row material-icon {
+    ec-canned-responses ec-canned-response-row material-icon,
+    ec-ask-flow > .header material-button {
   color: rgba(255, 255, 255, .87)!important;
 }
 
 material-drawer ec-icon,
-  .search-results ec-thread-option ec-icon {
+  .search-results ec-thread-option ec-icon,
+  ec-thread-summary material-expansionpanel .title ec-icon {
   fill: rgba(255, 255, 255, .87)!important;
 }
 
@@ -573,6 +599,10 @@ ec-movable-dialog[showminimize] material-dialog .dialog-header .title, ec-movabl
 
 ec-movable-dialog[showminimize] material-dialog .header-notice, material-dialog .legal-prompt {
   background-color: #170f01!important;
+}
+
+ec-movable-dialog[showminimize] material-dialog .main .header-notice material-icon[icon="info_outline"] {
+  color: var(--TWPT-blue-A100)!important;
 }
 
 material-dialog .section-title,
@@ -648,7 +678,7 @@ material-input .label-text,
 }
 
 material-input .underline .unfocused-underline {
-  background-color: rgba(255, 255, 255, .12)!important;
+  background-color: var(--TWPT-input-underline)!important;
 }
 
 label .label {
@@ -658,7 +688,7 @@ label .label {
 /* Input underline */
 material-input .underline .unfocused-underline,
     material-dropdown-select dropdown-button [buttondecorator] {
-  border-bottom-color: rgba(255, 255, 255, .12)!important;
+  border-bottom-color: var(--TWPT-input-underline)!important;
 }
 
 /* Checkbox input */
@@ -668,7 +698,7 @@ material-checkbox, material-checkbox .content {
 
 /* Material menu button and dropdown select */
 material-menu material-button, material-dropdown-select dropdown-button {
-  color: rgba(255, 255, 255, .54)!important;
+  color: var(--TWPT-primary-text)!important;
 }
 
 material-dropdown-select dropdown-button .button.is-disabled .button-text,
@@ -677,12 +707,22 @@ material-dropdown-select dropdown-button .button.is-disabled .button-text,
 }
 
 /* Announcements content */
+ec-announcements-content .header,
+    ec-announcements-content .no-announcements,
+    ec-announcements-content .announcement {
+  border-bottom-color: var(--TWPT-card-border)!important;
+}
+
 ec-announcements-content .header .title, ec-announcements-content .announcement-title {
   color: var(--TWPT-primary-text-alt)!important;
 }
 
 ec-announcements-content .no-announcements-message {
   color: #c3bfbc!important;
+}
+
+ec-announcements-content .view-all-link {
+  color: var(--TWPT-link)!important;
 }
 
 /* Generic popup (for notification bell, account selector, etc.) */
@@ -746,6 +786,19 @@ ec-canned-responses .filter-row,
 material-fab.reply-button {
   background-color: var(--TWPT-link)!important;
   color: var(--TWPT-primary-background)!important;
+}
+
+/* Settings view */
+ec-settings .forum-language-container {
+  border-bottom-color: var(--TWPT-subtle-border)!important;
+}
+
+ec-settings .forum-language-container material-button {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+ec-settings material-checkbox, ec-settings material-checkbox .content {
+  color: var(--TWPT-primary-text)!important;
 }
 
 /* Custom injected components */
