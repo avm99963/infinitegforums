@@ -1,4 +1,4 @@
-[English](op_indicator.md) • [Русский](op_indicador.ru.md)
+[English](op_indicator.md) • [Русский](op_indicator.ru.md)
 
 # Indicador para el autor del hilo
 Esta es una función que muestra un indicador en los hilos al lado del nombre de
