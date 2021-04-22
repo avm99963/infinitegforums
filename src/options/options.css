@@ -7,11 +7,19 @@ main {
   max-width: 600px;
 }
 
-.features-link {
+.features-link, .experiments-link {
   position: absolute;
   top: 8px;
-  right: 8px;
   width: 24px;
+}
+
+.features-link {
+  right: 8px;
+}
+
+.experiments-link {
+  cursor: pointer;
+  right: 40px;
 }
 
 .option {

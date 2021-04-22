@@ -150,3 +150,9 @@ function isFirefox() {
   return manifest.browser_specific_settings !== undefined &&
       manifest.browser_specific_settings.gecko !== undefined;
 }
+
+// Returns whether the extension is a release version.
+function isReleaseVersion() {
+  var manifest = chrome.runtime.getManifest();
+  return ('version' in manifest) && manifest.version != '0';
+}

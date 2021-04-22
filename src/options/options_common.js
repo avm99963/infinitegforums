@@ -77,6 +77,14 @@ function i18n() {
 window.addEventListener('load', function() {
   i18n();
 
+  if (window.CONTEXT == 'options' && !isReleaseVersion()) {
+    var experimentsLink = document.querySelector('.experiments-link');
+    experimentsLink.removeAttribute('hidden');
+    experimentsLink.addEventListener('click', _ => chrome.tabs.create({
+      url: chrome.runtime.getURL('options/experiments.html'),
+    }));
+  }
+
   chrome.storage.sync.get(null, function(items) {
     items = cleanUpOptions(items, false);
 
