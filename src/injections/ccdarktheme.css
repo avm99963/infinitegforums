@@ -36,6 +36,10 @@ body.ec a {
   background-color: var(--TWPT-primary-background)!important;
 }
 
+.material-content > header .app-title-button {
+  color: var(--TWPT-link)!important;
+}
+
 .material-content > header material-button,
     .material-content > header notification-bell material-icon {
   color: rgba(255, 255, 255, .87)!important;
@@ -178,6 +182,11 @@ main .title-bar .title, main .page-header h1, main .header h1 {
     ec-back-button material-button,
     .sort-options material-button {
   color: rgba(255, 255, 255, .54)!important;
+}
+
+.material-content .action-bar .review-button.reviewing {
+  color: #1a73e8!important;
+  background: #dae7ff!important;
 }
 
 .material-content .action-bar material-button.starred {
@@ -407,6 +416,11 @@ ec-thread button.reply.collapsed {
 ec-thread .finished-question {
   background-color: var(--TWPT-active-background)!important;
   border: var(--TWPT-card-border)!important;
+}
+
+ec-thread .finished-question .next-question {
+  color: var(--TWPT-link)!important;
+  border-color: var(--TWPT-link)!important;
 }
 
 .material-content .action-bar material-button.has-activity {
