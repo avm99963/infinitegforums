@@ -36,11 +36,13 @@ body.ec a {
   background-color: var(--TWPT-primary-background)!important;
 }
 
-.material-content > header .app-title-button {
-  color: var(--TWPT-link)!important;
+.material-content > header .app-title-button,
+    .material-content > header .app-title-text {
+  color: var(--TWPT-secondary-text)!important;
 }
 
 .material-content > header material-button,
+    .material-content > header material-button material-icon,
     .material-content > header notification-bell material-icon {
   color: rgba(255, 255, 255, .87)!important;
 }
@@ -75,12 +77,18 @@ material-drawer .drawer-section-title, material-drawer .header > material-icon {
   color: var(--TWPT-secondary-text)!important;
 }
 
-material-drawer material-list-item, material-drawer material-list-item .title {
+material-drawer material-list-item,
+    material-drawer material-list-item .title {
   color: #d2cecb!important;
 }
 
 material-drawer ec-forum-drawer-item material-checkbox material-icon {
   filter: brightness(1.5);
+}
+
+/* Header menus */
+.popup material-list-item {
+  color: #d2cecb!important;
 }
 
 /* Filters (ec-query-builder) */
@@ -590,7 +598,8 @@ ec-filter-drawer-item material-icon,
 
 material-drawer ec-icon,
   .search-results ec-thread-option ec-icon,
-  ec-thread-summary material-expansionpanel .title ec-icon {
+  ec-thread-summary material-expansionpanel .title ec-icon,
+  ec-announcements-menu-item ec-icon {
   fill: rgba(255, 255, 255, .87)!important;
 }
 
@@ -731,12 +740,25 @@ ec-announcements-content .header .title, ec-announcements-content .announcement-
   color: var(--TWPT-primary-text-alt)!important;
 }
 
+ec-announcements-content .announcement-date {
+  color: var(--TWPT-secondary-text)!important;
+}
+
 ec-announcements-content .no-announcements-message {
   color: #c3bfbc!important;
 }
 
-ec-announcements-content .view-all-link {
+ec-announcements-content .view-all-link,
+    ec-announcements-content .read-more-button {
   color: var(--TWPT-link)!important;
+}
+
+ec-announcements-content ::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, .26)!important;
+}
+
+ec-announcements-content ::-webkit-scrollbar-thumb:hover {
+  background-color: #4285f4!important;
 }
 
 /* Generic popup (for notification bell, account selector, etc.) */
