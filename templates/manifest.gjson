@@ -73,7 +73,8 @@
         "injections/batchlock_inject.js",
         "injections/enhanced_announcements_dot.css",
         "injections/reposition_expand_thread.css",
-        "injections/thread_list_avatars.css"
+        "injections/thread_list_avatars.css",
+        "injections/autorefresh_list.css"
 #if defined(CHROMIUM_MV3)
       ],
       "matches": [

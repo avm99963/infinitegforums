@@ -99,6 +99,10 @@
     "message": "Mostra fotos de perfil a les llistes de fils de la Consola de la Comunitat.",
     "description": "Feature checkbox in the options page"
   },
+  "options_autorefreshlist": {
+    "message": "Actualitza les llistes de fils de la Consola de la Comunitat automàticament.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_profileindicator_header": {
     "message": "Punt indicador",
     "description": "Heading for the profile indicator feature options"
@@ -226,5 +230,13 @@
   "inject_lockdialog_log_entry_error_unlock": {
     "message": "Hi ha hagut un error desbloquejant-lo ($1).",
     "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *not* *un*locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_autorefresh_list_snackbar_message": {
+    "message": "Hi ha nous fils.",
+    "description": "Message shown in a snackbar when new threads are found in a thread list. Another button asks the user to refresh the list."
+  },
+  "inject_autorefresh_list_snackbar_action": {
+    "message": "Actualitza",
+    "description": "Button shown in a snackbar asking users to refresh/reload the list to show the new threads."
   }
 }

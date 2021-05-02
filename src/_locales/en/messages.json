@@ -103,6 +103,10 @@
     "message": "Show avatars in thread lists in the Community Console.",
     "description": "Feature checkbox in the options page"
   },
+  "options_autorefreshlist": {
+    "message": "Autorefresh thread lists in the Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_profileindicator_header": {
     "message": "Indicator dot",
     "description": "Heading for the profile indicator feature options"
@@ -226,5 +230,13 @@
   "inject_lockdialog_log_entry_error_unlock": {
     "message": "An error occurred while unlocking ($1).",
     "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *not* *un*locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_autorefresh_list_snackbar_message": {
+    "message": "There are new threads.",
+    "description": "Message shown in a snackbar when new threads are found in a thread list. Another button asks the user to refresh the list."
+  },
+  "inject_autorefresh_list_snackbar_action": {
+    "message": "Refresh",
+    "description": "Button shown in a snackbar asking users to refresh/reload the list to show the new threads."
   }
 }
