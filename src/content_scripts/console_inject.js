@@ -609,8 +609,9 @@ const watchedNodesSelectors = [
   // Load more bar (for the "load more"/"load all" buttons)
   '.load-more-bar',
 
-  // Username span inside ec-user (user profile view)
+  // Username span/editor inside ec-user (user profile view)
   'ec-user .main-card .header > .name > span',
+  'ec-user .main-card .header > .name > ec-display-name-editor',
 
   // Rich text editor
   'ec-movable-dialog',
@@ -671,7 +672,9 @@ function handleCandidateNode(node) {
     // Show the "previous posts" links
     //   Here we're selecting the 'ec-user > div' element (unique child)
     if (options.history &&
-        node.matches('ec-user .main-card .header > .name > span')) {
+        (node.matches('ec-user .main-card .header > .name > span') ||
+         node.matches(
+             'ec-user .main-card .header > .name > ec-display-name-editor'))) {
       injectPreviousPostsLinks(node);
     }
 
