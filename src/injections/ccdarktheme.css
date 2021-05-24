@@ -505,6 +505,55 @@ material-stepper .stepper-step[selectable=true]:focus {
   background-color: rgba(60, 64, 67, .24)!important;
 }
 
+/* Compose thread view */
+ec-thread-composer .main-content .title-label,
+    ec-thread-composer .main-content .post-label {
+  color: var(--TWPT-primary-text-alt)!important;
+}
+
+ec-thread-composer .main-content .title-input,
+    ec-thread-composer .main-content ec-rich-text-editor {
+  border-color: var(--TWPT-card-border)!important;
+}
+
+ec-thread-composer .main-content .title-alert {
+  color: var(--TWPT-red-A400)!important;
+}
+
+ec-thread-composer material-drawer {
+  background-color: inherit!important;
+}
+
+ec-thread-composer material-drawer .right-panel {
+  border-left-color: var(--TWPT-card-border)!important;
+}
+
+ec-thread-composer material-drawer .panel-section-title {
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-thread-composer material-drawer .panel-section-divider {
+  border-color: var(--TWPT-card-border)!important;
+}
+
+ec-thread-composer material-drawer material-radio .radio-label {
+  color: var(--TWPT-primary-text-alt)!important;
+}
+
+ec-thread-composer material-drawer material-radio .radio-description,
+    ec-thread-composer material-drawer .settings-section .panel-section-item .select-label {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+ec-thread-composer material-drawer material-checkbox material-icon {
+  opacity: 1!important;
+  color: rgba(255, 255, 255, .74)!important; /* Custom value */
+}
+
+ec-thread-composer material-drawer material-checkbox .content {
+  color: var(--TWPT-primary-text-alt)!important;
+}
+
 /* Note: see thread view section. There is a rule for the thread creation
  * footer.
  **/
@@ -642,10 +691,18 @@ material-dialog .section-title,
   color: var(--TWPT-secondary-text)!important;
 }
 
+material-dialog main > .user {
+  border-bottom-color: var(--TWPT-card-border)!important;
+}
+
 ec-movable-dialog[showminimize] material-dialog footer > [footer] > .footer > [footer] > simple-html {
   color: var(--TWPT-secondary-text)!important;
   background-color: var(--TWPT-active-background)!important;
   border-top-color: #25231f!important;
+}
+
+ec-movable-dialog[showminimize] material-dialog footer > [footer] > .footer > [footer] > simple-html a {
+  color: var(--TWPT-link)!important;
 }
 
 /* Keyboard shortcuts dialog */
@@ -665,6 +722,15 @@ ec-editor-command material-button.is-active {
 
 ec-rich-text-editor .placeholder {
   color: rgba(255, 255, 255, .38)!important;
+}
+
+ec-rich-text-editor .input-wrapper,
+    ec-rich-text-editor .spacer {
+  border-color: var(--TWPT-card-border)!important;
+}
+
+ec-rich-text-editor .input-wrapper.input-wrapper--focused {
+  border-color: var(--TWPT-blue-A100)!important;
 }
 
 ec-rich-text-editor .input {
@@ -709,6 +775,10 @@ material-input .underline .unfocused-underline {
   background-color: var(--TWPT-input-underline)!important;
 }
 
+material-input .underline .focused-underline {
+  background-color: var(--TWPT-blue-A100)!important;
+}
+
 label .label {
   color: var(--TWPT-primary-text)!important;
 }
@@ -716,7 +786,7 @@ label .label {
 /* Input underline */
 material-input .underline .unfocused-underline,
     material-dropdown-select dropdown-button [buttondecorator] {
-  border-bottom-color: var(--TWPT-input-underline)!important;
+  border-color: var(--TWPT-input-underline)!important;
 }
 
 /* Checkbox input */
