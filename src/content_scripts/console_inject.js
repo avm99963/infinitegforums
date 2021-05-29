@@ -578,7 +578,11 @@ function injectPreviousPostsLinks(nameElement) {
 
   var forumId = location.href.split('/forum/')[1].split('/')[0] || '0';
 
-  var name = escapeUsername(nameElement.textContent);
+  var nameTag =
+      (nameElement.tagName == 'EC-DISPLAY-NAME-EDITOR' ?
+           nameElement.querySelector('.top-section > span') ?? nameElement :
+           nameElement);
+  var name = escapeUsername(nameTag.textContent);
   var query1 = encodeURIComponent(
       '(creator:"' + name + '" | replier:"' + name + '") forum:' + forumId);
   var query2 = encodeURIComponent(
