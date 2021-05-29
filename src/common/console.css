@@ -148,3 +148,12 @@
 .TWPT-log-entry.TWPT-log-entry--error {
   color: #ff1744;
 }
+
+/*
+ * Fix for the headers' right controls so the dark theme switch has space and
+ * doesn't overlap the search bar.
+ **/
+.material-content > header .right-control {
+  width: auto!important;
+  max-width: 252px!important;
+}

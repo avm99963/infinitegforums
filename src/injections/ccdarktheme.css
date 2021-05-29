@@ -56,11 +56,6 @@ body.ec a {
   color: rgba(255, 255, 255, .87)!important;
 }
 
-.material-content > header .right-control {
-  width: auto!important;
-  max-width: 252px!important;
-}
-
 .material-content > header .bell.mixin {
   fill: rgba(255, 255, 255, .87)!important;
 }
