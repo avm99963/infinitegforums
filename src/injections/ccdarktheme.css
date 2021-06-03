@@ -353,6 +353,17 @@ ec-question .details-heading {
   color: var(--TWPT-primary-text-alt) !important;
 }
 
+ec-question .state-chips material-chip {
+  background-color: var(--TWPT-button-background)!important;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2),
+      0 1px 1px 0 rgba(0, 0, 0, 0.14),
+      0 1px 3px 0 rgba(0, 0, 0, 0.12);
+}
+
+ec-question .state-chips material-chip .content {
+  color: var(--TWPT-primary-text)!important;
+}
+
 ec-question .footer,
     ec-ask-flow .content-disclaimer {
   color: var(--TWPT-primary-text)!important;
