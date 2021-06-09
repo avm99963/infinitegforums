@@ -7,7 +7,7 @@
 #endif
   "name": "__MSG_appName__",
   "version": "0",
-#if defined(CHROMIUM || CHROMIUM_MV3)
+#if defined(CHROMIUM || CHROMIUM_MV3)
   "version_name": "dirty",
 #endif
   "description": "__MSG_appDescription__",
@@ -48,18 +48,14 @@
     }
   ],
   "permissions": [
-#if defined(CHROMIUM || GECKO)
-    "https://support.google.com/s/community*",
-    "https://support.google.com/*/threads*",
-    "https://support.google.com/*/thread/*",
+#if defined(CHROMIUM || GECKO)
+    "https://support.google.com/*",
 #endif
     "storage"
   ],
 #if defined(CHROMIUM_MV3)
   "host_permissions": [
-    "https://support.google.com/s/community*",
-    "https://support.google.com/*/threads*",
-    "https://support.google.com/*/thread/*"
+    "https://support.google.com/*"
   ],
 #endif
   "web_accessible_resources": [
@@ -83,7 +79,7 @@
     }
 #endif
   ],
-#if defined(CHROMIUM || GECKO)
+#if defined(CHROMIUM || GECKO)
   "browser_action": {},
 #endif
 #if defined(CHROMIUM_MV3)
