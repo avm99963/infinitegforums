@@ -76,6 +76,10 @@ const optionsPrototype = {
     defaultValue: false,
     context: 'options',
   },
+  'disableunifiedprofiles': {
+    defaultValue: false,
+    context: 'options',
+  },
 
   // Experiments:
   'threadlistavatars': {

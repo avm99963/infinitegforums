@@ -4,6 +4,8 @@
 La extensión Herramientas Avanzadas para TW ofrece las siguientes
 funciones/opciones:
 
+[TOC]
+
 ## Scroll infinito
 ### Listas de hilos
 > **Opción:** _Activa el scroll infinito en las listas de hilos_.
@@ -119,8 +121,8 @@ de la Consola de la Comunidad_.
 ![GIF que muestra cómo funciona la función](resources/batch_lock.gif)
 
 ### Indicador de anuncios nuevos más prominente
-> **Option name:** _Muestra el punto que notifica que hay anuncios sin leer de
-manera más prominente en la Consola de la Comunidad._.
+> **Opción:** _Muestra el punto que notifica que hay anuncios sin leer de manera
+más prominente en la Consola de la Comunidad._.
 
 Cuando esta opción está activada, el banner "Alpha" que aparece en la esquina
 superior izquierda de la Consola de la Comunidad se oculta, y el punto de
@@ -135,7 +137,25 @@ listas de hilos de la Consola de la Comunidad._.
 
 ![Imagen que muestra la función](resources/reposition_expand_thread.jpg)
 
-### Punto indicador
+### Muestra la vieja interfaz de los perfiles
+> **Opción:** _Desactiva forzosamente el experimento `SMEI_UNIFIED_PROFILES` en
+la Consola de la Comunidad._
+
+Esta opción desactiva el experimento `SMEI_UNIFIED_PROFILES`, que cuando está
+activado introduce un rediseño de la interfaz de los perfiles que también
+unifica todos los perfiles de cada foro en uno único.
+
+Esto significa que independientemente de si tu cuenta forma parte de este
+experimento, cuando actives esta opción el experimento se desactivará
+forzosamente y podrás continuar viendo la interfaz vieja/normal de los
+perfiles, que muestra los perfiles de los usuarios separados para cada foro.
+
+Nótese que esto solo aplica a a la Consola de la Comunidad.
+
+Esto podría ser útil si usas el modo oscuro, ya que los nuevos perfiles
+unificados no se han adaptado todavía al tema oscuro.
+
+## Punto indicador
 > **Opciones:** _Muestra si el autor del hilo ha participado en otros hilos_,
 _Muestra el número de preguntas y respuestas escritas por el autor del hilo
 durante los últimos {n} meses al lado de su nombre de usuario_.

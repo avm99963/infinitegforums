@@ -107,6 +107,10 @@
     "message": "Autorefresh thread lists in the Community Console.",
     "description": "Feature checkbox in the options page"
   },
+  "options_disableunifiedprofiles": {
+    "message": "Force disable the <code class=\"help\" title=\"This experiment, when enabled, introduces a redesign of the profile view which also unifies all forum profiles into a single one.\">SMEI_UNIFIED_PROFILES</code> experiment in the Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_profileindicator_header": {
     "message": "Indicator dot",
     "description": "Heading for the profile indicator feature options"

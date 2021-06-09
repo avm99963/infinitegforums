@@ -1,3 +1,6 @@
+const SMEI_SORT_DIRECTION = 8;
+const SMEI_UNIFIED_PROFILES = 9;
+
 chrome.storage.sync.get(null, function(items) {
   if (items.loaddrafts || items.smei_sortdirection) {
     var startup =
@@ -8,8 +11,14 @@ chrome.storage.sync.get(null, function(items) {
     }
 
     if (items.smei_sortdirection) {
-      if (!startup[1][6].includes(8))
-        startup[1][6].push(8);
+      if (!startup[1][6].includes(SMEI_SORT_DIRECTION))
+        startup[1][6].push(SMEI_SORT_DIRECTION);
+    }
+
+    if (items.disableunifiedprofiles) {
+      var index = startup[1][6].indexOf(SMEI_UNIFIED_PROFILES);
+      if (index > -1)
+        startup[1][6].splice(index, 1);
     }
 
     document.querySelector('html').setAttribute(
