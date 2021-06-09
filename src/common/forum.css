@@ -23,6 +23,11 @@
   filter: invert(1);
 }
 
-.user-profile__user-link.TWPT-user-link > * {
+.TWPT-user-profile__user-links {
+  margin-top: 8px;
+}
+
+.user-profile__user-link.TWPT-user-link > *,
+    .TWPT-user-profile__user-link.TWPT-user-link > * {
   vertical-align: middle;
 }

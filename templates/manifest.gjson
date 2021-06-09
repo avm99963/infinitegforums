@@ -42,7 +42,7 @@
       "js": ["common/content_scripts.js", "common/cs_event_listener.js", "content_scripts/profileindicator_inject.js"]
     },
     {
-      "matches": ["https://support.google.com/*/profile/*"],
+      "matches": ["https://support.google.com/*/profile/*", "https://support.google.com/profile/*"],
       "js": ["common/content_scripts.js", "content_scripts/profile_inject.js"],
       "css": ["common/forum.css"]
     }
