@@ -145,9 +145,6 @@ profiles in a per-forum basis.
 
 Note that this only applies to the Community Console.
 
-This might be useful if you're using the dark theme, since the new unified
-profiles haven't been yet adapted to the dark theme.
-
 ## Indicator dot
 > **Option names:** _Show whether the OP has participated in other threads_,
 _Show the number of questions and replies written by the OP within the last `n`

@@ -568,6 +568,30 @@ var autoRefresh = {
   },
 };
 
+function isDarkThemeOn() {
+  if (!options.ccdarktheme) return false;
+
+  if (options.ccdarktheme_mode == 'switch')
+    return options.ccdarktheme_switch_status;
+
+  return window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
+
+var unifiedProfilesFix = {
+  checkIframe(iframe) {
+    var srcRegex = /support.*\.google\.com\/profile\//;
+    console.log(srcRegex.test(iframe.src ?? ''));
+    return srcRegex.test(iframe.src ?? '');
+  },
+  fixIframe(iframe) {
+    console.info('[unifiedProfilesFix] Fixing unified profiles iframe');
+    var url = new URL(iframe.src);
+    url.searchParams.set('dark', 1);
+    iframe.src = url.href;
+  },
+};
+
 function injectPreviousPostsLinks(nameElement) {
   var mainCardContent = getNParent(nameElement, 3);
   if (mainCardContent === null) {
@@ -630,6 +654,9 @@ const watchedNodesSelectors = [
 
   // Thread list (used for the autorefresh feature)
   'ec-thread-list',
+
+  // Unified profile iframe
+  'iframe',
 ];
 
 function handleCandidateNode(node) {
@@ -711,6 +738,12 @@ function handleCandidateNode(node) {
     if (options.autorefreshlist && ('tagName' in node) &&
         node.tagName == 'EC-THREAD-LIST') {
       autoRefresh.setUp();
+    }
+
+    // Redirect unified profile iframe to dark version if applicable
+    if (node.tagName == 'IFRAME' && isDarkThemeOn() &&
+        unifiedProfilesFix.checkIframe(node)) {
+      unifiedProfilesFix.fixIframe(node);
     }
   }
 }

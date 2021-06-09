@@ -152,9 +152,6 @@ perfiles, que muestra los perfiles de los usuarios separados para cada foro.
 
 Nótese que esto solo aplica a a la Consola de la Comunidad.
 
-Esto podría ser útil si usas el modo oscuro, ya que los nuevos perfiles
-unificados no se han adaptado todavía al tema oscuro.
-
 ## Punto indicador
 > **Opciones:** _Muestra si el autor del hilo ha participado en otros hilos_,
 _Muestra el número de preguntas y respuestas escritas por el autor del hilo
