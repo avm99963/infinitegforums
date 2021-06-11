@@ -27,7 +27,10 @@
   margin-top: 8px;
 }
 
-.user-profile__user-link.TWPT-user-link > *,
-    .TWPT-user-profile__user-link.TWPT-user-link > * {
+.TWPT-user-link > * {
   vertical-align: middle;
+}
+
+.TWPT-user-link .TWPT-badge {
+  margin-left: 0;
 }
