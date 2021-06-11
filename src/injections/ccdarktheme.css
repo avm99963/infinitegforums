@@ -13,9 +13,9 @@
   --TWPT-drawer-background: #2d2e30;
   --TWPT-button-background: #3c3e42;
   --TWPT-input-underline: rgba(255, 255, 255, .28);
-  --TWPT-green-A400: #00E676;
-  --TWPT-red-A400: #FF1744;
   --TWPT-blue-A100: #82B1FF;
+  --TWPT-bad-text: #f6aea9;
+  --TWPT-good-text: #34a853;
 }
 
 body {
@@ -249,12 +249,7 @@ ec-thread-summary material-expansionpanel ec-second-summary-line,
 }
 
 material-expansionpanel .removed-label {
-  /*
-   * The following color should be --TWPT-red-A400, but it unfortunately doesn't
-   * contrast well with the dark background, so this is the AA correction of
-   * that color.
-   **/
-  color: #ff6868!important;
+  color: var(--TWPT-bad-text)!important;
 }
 
 ec-thread-summary material-expansionpanel ec-safe-html.body,
@@ -282,7 +277,6 @@ ec-review-bar material-chip {
 }
 
 ec-review-bar material-chip:not(.relevant-active):not(.active) {
-  color: var(--TWPT-primary-text)!important;
   border-color: var(--TWPT-card-border)!important;
 }
 
@@ -291,24 +285,34 @@ ec-review-bar material-chip:not(.relevant-active):not(.active) material-icon {
   fill: var(--TWPT-primary-text)!important;
 }
 
+ec-review-bar material-chip:not(.relevant-active):not(.active) .content {
+  color: var(--TWPT-primary-text)!important;
+}
+
 ec-review-bar material-chip.relevant-active {
-  color: var(--TWPT-green-A400)!important;
-  border-color: var(--TWPT-green-A400)!important;
+  border-color: var(--TWPT-good-text)!important;
 }
 
 ec-review-bar material-chip.relevant-active material-icon {
-  color: var(--TWPT-green-A400)!important;
-  fill: var(--TWPT-green-A400)!important;
+  color: var(--TWPT-good-text)!important;
+  fill: var(--TWPT-good-text)!important;
+}
+
+ec-review-bar material-chip.relevant-active .content {
+  color: var(--TWPT-good-text)!important;
 }
 
 ec-review-bar material-chip.active {
-  color: var(--TWPT-red-A400)!important;
-  border-color: var(--TWPT-red-A400)!important;
+  border-color: var(--TWPT-bad-text)!important;
 }
 
 ec-review-bar material-chip.active material-icon {
-  color: var(--TWPT-red-A400)!important;
-  fill: var(--TWPT-red-A400)!important;
+  color: var(--TWPT-bad-text)!important;
+  fill: var(--TWPT-bad-text)!important;
+}
+
+ec-review-bar material-chip.active .content {
+  color: var(--TWPT-bad-text)!important;
 }
 
 ec-message-header .header, ec-question .state, ec-question ec-thread-counts > span, ec-message ec-thread-counts > span {
@@ -523,7 +527,7 @@ ec-thread-composer .main-content .title-input,
 }
 
 ec-thread-composer .main-content .title-alert {
-  color: var(--TWPT-red-A400)!important;
+  color: var(--TWPT-bad-text)!important;
 }
 
 ec-thread-composer material-drawer {
