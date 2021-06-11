@@ -2,7 +2,9 @@ const SMEI_SORT_DIRECTION = 8;
 const SMEI_UNIFIED_PROFILES = 9;
 
 chrome.storage.sync.get(null, function(items) {
-  if (items.loaddrafts || items.smei_sortdirection) {
+  /* IMPORTANT NOTE: Remember to change this when changing the "ifs" below!! */
+  if (items.loaddrafts || items.smei_sortdirection ||
+      items.disableunifiedprofiles) {
     var startup =
         JSON.parse(document.querySelector('html').getAttribute('data-startup'));
 
@@ -17,8 +19,7 @@ chrome.storage.sync.get(null, function(items) {
 
     if (items.disableunifiedprofiles) {
       var index = startup[1][6].indexOf(SMEI_UNIFIED_PROFILES);
-      if (index > -1)
-        startup[1][6].splice(index, 1);
+      if (index > -1) startup[1][6].splice(index, 1);
     }
 
     document.querySelector('html').setAttribute(
