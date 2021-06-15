@@ -43,6 +43,7 @@
     },
     {
       "matches": ["https://support.google.com/*/profile/*", "https://support.google.com/profile/*"],
+      "all_frames": true,
       "js": ["common/content_scripts.js", "content_scripts/profile_inject.js"],
       "css": ["common/forum.css"]
     }

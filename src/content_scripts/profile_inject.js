@@ -26,6 +26,7 @@ function injectPreviousPostsLinksUnifiedProfile() {
   var a = document.createElement('a');
   a.classList.add('TWPT-user-profile__user-link', 'TWPT-user-link');
   a.href = url;
+  a.target = '_parent';
   a.setAttribute(
       'data-stats-id', 'user-posts-link--tw-power-tools-by-avm99963');
 

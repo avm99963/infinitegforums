@@ -581,7 +581,6 @@ function isDarkThemeOn() {
 var unifiedProfilesFix = {
   checkIframe(iframe) {
     var srcRegex = /support.*\.google\.com\/profile\//;
-    console.log(srcRegex.test(iframe.src ?? ''));
     return srcRegex.test(iframe.src ?? '');
   },
   fixIframe(iframe) {
