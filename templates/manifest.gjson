@@ -68,6 +68,7 @@
         "injections/profileindicator_inject.css",
         "injections/ccdarktheme.css",
         "injections/batchlock_inject.js",
+        "injections/batchlock_inject.css",
         "injections/enhanced_announcements_dot.css",
         "injections/reposition_expand_thread.css",
         "injections/thread_list_avatars.css",

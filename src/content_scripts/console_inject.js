@@ -231,8 +231,15 @@ function addBatchLockBtn(readToggle) {
     modal.classList.add('visible', 'modal');
     modal.style.display = 'flex';
   });
-  readToggle.parentNode.insertBefore(
-      clone, (readToggle.nextSibling || readToggle));
+
+  var duplicateBtn =
+      readToggle.parentNode.querySelector('[debugid="mark-duplicate-button"]');
+  if (duplicateBtn)
+    duplicateBtn.parentNode.insertBefore(
+        clone, (duplicateBtn.nextSibling || duplicateBtn));
+  else
+    readToggle.parentNode.insertBefore(
+        clone, (readToggle.nextSibling || readToggle));
 }
 
 // TODO(avm99963): This is a prototype. DON'T FORGET TO ADD ERROR HANDLING.
@@ -832,6 +839,7 @@ chrome.storage.sync.get(null, function(items) {
 
   if (options.batchlock) {
     injectScript(chrome.runtime.getURL('injections/batchlock_inject.js'));
+    injectStylesheet(chrome.runtime.getURL('injections/batchlock_inject.css'));
   }
 
   if (options.threadlistavatars) {
