@@ -107,6 +107,10 @@
     "message": "Desactiva a la força l'experiment <code class=\"help\" title=\"Aquest experiment, quan està actiu, introdueix un rediseny de la interfície dels perfils que també unifica tots els perfils en un únic.\">SMEI_UNIFIED_PROFILES</code> a la Consola de la Comunitat.",
     "description": "Link to learn more about the profile indicator feature"
   },
+  "options_forcemarkasread": {
+    "message": "Cada vegada que obris un fil a la Consola de la Comunitat, envia automàticament una petició per marcar-lo com a llegit. Aquesta és una opció temporal usada com a <i>workaround</i> d'<a href=\"https://support.google.com/s/community/forum/51488989/thread/114559215\" target=\"_blank\" rel=\"noreferrer noopener\">aquest bug</a>.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_profileindicator_header": {
     "message": "Punt indicador",
     "description": "Heading for the profile indicator feature options"

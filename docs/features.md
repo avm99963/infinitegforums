@@ -145,6 +145,40 @@ profiles in a per-forum basis.
 
 Note that this only applies to the Community Console.
 
+### Automatically mark threads as read (temporary option)
+> **Option name:** _Each time you open a thread in the Community Console,
+automatically send a request to mark it as read. This is a temporary option used
+to work around
+[this bug](https://support.google.com/s/community/forum/51488989/thread/114559215)._
+
+*** promo
+**Note:** When this issue is fixed by Google, an update to the extension will
+remove this option and its underlying functionality.
+***
+
+Currently there's an issue in the Community Console: when opening threads, they
+are not being marked as read automatically. This is in the process of being
+fixed by Google, but until the fix is out, this option serves as a workaround.
+
+When this option is enabled, each time you open a thread in the Community
+Console, the following will happen:
+
+1. The extension will send an authenticated request to the API to get the
+contents of the thread being viewed. This is used to retrieve the ID of the last
+message.
+2. The extension will send an authenticated request to the API to change the
+read status of the thread. In order to mark a thread as read, the API requires
+the caller to pass the forum ID, thread ID, and the ID of the last message which
+has loaded, and this last value is retrieved from the previous call to the API.
+
+*** promo
+**Note:** Due to the nature of the API, the first request will also load many
+unnecessary details such as the contents of the first messages. This means that
+this call is not very efficient. For this reason, I recommend turning this
+feature off once we are notified that the issue has been fixed by Google, so we
+don't put extra load on Google servers.
+***
+
 ## Indicator dot
 > **Option names:** _Show whether the OP has participated in other threads_,
 _Show the number of questions and replies written by the OP within the last `n`

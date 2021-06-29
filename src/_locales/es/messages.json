@@ -111,6 +111,10 @@
     "message": "Desactiva forzosamente el experimento <code class=\"help\" title=\"Este experimento, cuando está activado, introduce un rediseño de la interfaz de los perfiles que también unifica todos los perfiles en cada foro en uno único.\">SMEI_UNIFIED_PROFILES</code> en la Consola de la Comunidad.",
     "description": "Link to learn more about the profile indicator feature"
   },
+  "options_forcemarkasread": {
+    "message": "Cada vez que abras un hilo en la Consola de la Comunidad, enviar automáticamente una petición para marcarlo como leído. Esta es una opción temporal usada como <i>workaround</i> de <a href=\"https://support.google.com/s/community/forum/51488989/thread/114559215\" target=\"_blank\" rel=\"noreferrer noopener\">este bug</a>.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_profileindicator_moreinfo": {
     "message": "+info sobre las 2 opciones anteriores",
     "description": "Link to learn more about the profile indicator feature"

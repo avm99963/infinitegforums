@@ -80,6 +80,10 @@ const optionsPrototype = {
     defaultValue: false,
     context: 'options',
   },
+  'forcemarkasread': {
+    defaultValue: false,
+    context: 'options',
+  },
 
   // Experiments:
   'threadlistavatars': {

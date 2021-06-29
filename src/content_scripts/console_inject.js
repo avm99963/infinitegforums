@@ -635,6 +635,65 @@ function injectPreviousPostsLinks(nameElement) {
   mainCardContent.appendChild(container);
 }
 
+// Send a request to mark the current thread as read
+function markCurrentThreadAsRead() {
+  var threadRegex =
+      /\/s\/community\/?.*\/forum\/([0-9]+)\/?.*\/thread\/([0-9]+)/;
+
+  var url = location.href;
+  var matches = url.match(threadRegex);
+  if (matches !== null && matches.length > 2) {
+    var forumId = matches[1];
+    var threadId = matches[2];
+
+    return CCApi(
+               'ViewThread', {
+                 1: forumId,
+                 2: threadId,
+                 // options
+                 3: {
+                   // pagination
+                   1: {
+                     2: 0,  // maxNum
+                   },
+                   3: false,   // withMessages
+                   5: false,   // withUserProfile
+                   6: true,    // withUserReadState
+                   9: false,   // withRequestorProfile
+                   10: false,  // withPromotedMessages
+                   11: false,  // withExpertResponder
+                 },
+               },
+               authuser)
+        .then(thread => {
+          if (thread?.[1]?.[6] === true) {
+            console.debug(
+                'This thread is already marked as read, but marking it as read anyways.');
+          }
+
+          var lastMessageId = thread?.[1]?.[2]?.[10];
+          if (lastMessageId === undefined)
+            throw new Error(
+                'Couldn\'t find lastMessageId in the ViewThread response.');
+
+          return CCApi(
+              'SetUserReadStateBulk', {
+                1: [{
+                  1: forumId,
+                  2: threadId,
+                  3: lastMessageId,
+                }],
+              },
+              authuser);
+        })
+        .catch(err => {
+          console.error(
+              '[forceMarkAsRead] Error while marking current thread as read: ',
+              err);
+        });
+  }
+}
+
 const watchedNodesSelectors = [
   // App container (used to set up the intersection observer and inject the dark
   // mode button)
@@ -663,6 +722,9 @@ const watchedNodesSelectors = [
 
   // Unified profile iframe
   'iframe',
+
+  // Thread component
+  'ec-thread',
 ];
 
 function handleCandidateNode(node) {
@@ -750,6 +812,11 @@ function handleCandidateNode(node) {
     if (node.tagName == 'IFRAME' && isDarkThemeOn() &&
         unifiedProfilesFix.checkIframe(node)) {
       unifiedProfilesFix.fixIframe(node);
+    }
+
+    // Force mark thread as read
+    if (options.forcemarkasread && node.tagName == 'EC-THREAD') {
+      markCurrentThreadAsRead();
     }
   }
 }

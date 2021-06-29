@@ -18,7 +18,7 @@
   "content_scripts": [
     {
       "matches": ["https://support.google.com/s/community*"],
-      "js": ["common/content_scripts.js", "content_scripts/console_inject.js"]
+      "js": ["common/api.js", "common/content_scripts.js", "content_scripts/console_inject.js"]
     },
     {
       "matches": ["https://support.google.com/s/community*"],
