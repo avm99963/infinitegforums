@@ -679,7 +679,7 @@ function markCurrentThreadAsRead() {
 
           var lastMessageId = thread?.[1]?.[2]?.[10];
 
-          console.info('[forceMarkAsRead] lastMessageId is:', lastMessageId);
+          console.debug('[forceMarkAsRead] lastMessageId is:', lastMessageId);
 
           if (lastMessageId === undefined)
             throw new Error(
