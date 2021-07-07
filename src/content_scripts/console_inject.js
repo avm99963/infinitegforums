@@ -823,7 +823,8 @@ function handleCandidateNode(node) {
 
 function handleRemovedNode(node) {
   // Remove snackbar when exiting thread list view
-  if ('tagName' in node && node.tagName == 'EC-THREAD-LIST') {
+  if (options.autorefreshlist && 'tagName' in node &&
+      node.tagName == 'EC-THREAD-LIST') {
     autoRefresh.hideUpdatePrompt();
   }
 }
