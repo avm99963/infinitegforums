@@ -637,6 +637,10 @@ function injectPreviousPostsLinks(nameElement) {
 
 // Send a request to mark the current thread as read
 function markCurrentThreadAsRead() {
+  console.debug(
+      '[forceMarkAsRead] %cTrying to mark a thread as read.',
+      'color: #1a73e8;');
+
   var threadRegex =
       /\/s\/community\/?.*\/forum\/([0-9]+)\/?.*\/thread\/([0-9]+)/;
 
@@ -645,6 +649,8 @@ function markCurrentThreadAsRead() {
   if (matches !== null && matches.length > 2) {
     var forumId = matches[1];
     var threadId = matches[2];
+
+    console.debug('[forceMarkAsRead] Thread details:', {forumId, threadId});
 
     return CCApi(
                'ViewThread', {
@@ -668,10 +674,13 @@ function markCurrentThreadAsRead() {
         .then(thread => {
           if (thread?.[1]?.[6] === true) {
             console.debug(
-                'This thread is already marked as read, but marking it as read anyways.');
+                '[forceMarkAsRead] This thread is already marked as read, but marking it as read anyways.');
           }
 
           var lastMessageId = thread?.[1]?.[2]?.[10];
+
+          console.info('[forceMarkAsRead] lastMessageId is:', lastMessageId);
+
           if (lastMessageId === undefined)
             throw new Error(
                 'Couldn\'t find lastMessageId in the ViewThread response.');
@@ -686,11 +695,20 @@ function markCurrentThreadAsRead() {
               },
               authuser);
         })
+        .then(_ => {
+          console.debug(
+              '[forceMarkAsRead] %cSuccessfully set as read!',
+              'color: #1e8e3e;');
+        })
         .catch(err => {
           console.error(
               '[forceMarkAsRead] Error while marking current thread as read: ',
               err);
         });
+  } else {
+    console.error(
+        '[forceMarkAsRead] Couldn\'t retrieve forumId and threadId from the current URL.',
+        url);
   }
 }
 
