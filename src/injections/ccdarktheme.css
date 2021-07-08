@@ -257,6 +257,36 @@ ec-thread-summary material-expansionpanel ec-safe-html.body,
   color: var(--TWPT-primary-text)!important;
 }
 
+ec-thread-summary material-expansionpanel .action material-button,
+    ec-thread-list material-checkbox material-icon,
+    ec-thread-summary material-expansionpanel .star-button:not(.starred) {
+  color: #696867!important; /* Custom value to match previous behavior */
+  opacity: 1!important;
+}
+
+ec-thread-list material-checkbox material-icon.filled {
+  color: #62a5ff!important; /* Custom value to contrast well with the background */
+}
+
+ec-thread-list material-checkbox:focus:not(.disabled).gm-icons .icon,
+    .gm-icons ec-thread-list material-checkbox:focus:not(.disabled) .icon,
+    ec-thread-list material-checkbox:hover:not(.disabled).gm-icons .icon,
+    .gm-icons ec-thread-list material-checkbox:hover:not(.disabled) .icon {
+  color: #807d7c!important; /* custom value */
+}
+
+ec-thread-list material-checkbox:focus:not(.disabled).gm-icons .icon.filled,
+    .gm-icons ec-thread-list material-checkbox:focus:not(.disabled) .icon.filled,
+    ec-thread-list material-checkbox:hover:not(.disabled).gm-icons .icon.filled,
+    .gm-icons ec-thread-list material-checkbox:hover:not(.disabled) .icon.filled {
+  color: #92c1ff!important; /* custom value */
+}
+
+/* .gm-icons is added by the SMEI_GOOGLE_MATERIAL_ICONS experiment. */
+.gm-icons ec-thread-list material-checkbox .icon-container::after{
+  background-color: #dfdedb!important; /* custom value */
+}
+
 /* Thread view (including review/live review components) */
 ec-question, .heading + .group, ec-message {
   background-color: var(--TWPT-secondary-background)!important;
