@@ -952,6 +952,11 @@ ec-settings material-checkbox, ec-settings material-checkbox .content {
   color: var(--TWPT-primary-text)!important;
 }
 
+/* Loading spinner */
+material-spinner {
+  border-color: var(--TWPT-blue-A100)!important;
+}
+
 /* Custom injected components */
 .TWPT-log {
   background-color: #424242!important;
