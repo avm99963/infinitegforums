@@ -5,10 +5,15 @@ them, so don't feel shy! Any help, even if small, is very much appreciated.
 
 ## Make feature requests and report issues
 If you have some fresh ideas or insight into how to make the extension better,
-or you've found a bug (sorry!), you can create a new issue at the GitHub issue
-tracker:
+or you've found a bug (sorry!), you can create a new issue at the Monorail Issue
+Tracker:
 
-- https://github.com/avm99963/infinitegforums/issues
+- https://bugs.avm99963.com/p/twpowertools/issues
+
+Old issues are still hosted in GitHub, while new ones are hosted in Monorail.
+You can view the old ones here:
+
+- https://www.github.com/avm99963/infinitegforums/issues
 
 If you're reporting a bug, please consider specifying your browser and version,
 and maybe the Javascript console logs (open the Javascript console by pressing

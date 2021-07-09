@@ -11,10 +11,11 @@ For a list of features/enhancements, check out the
 This extension is being actively developed, and everyone is welcome to make
 feature requests, report issues and contribute code changes.
 
-In order to make feature requests or report issues, please do so at the GitHub
-issue tracker:
+In order to make feature requests or report issues, please do so at the Monorail
+Issue Tracker:
 
-- [Issues · avm99963/infinitegforums · GitHub](https://github.com/avm99963/infinitegforums/issues)
+- [Submit a new issue](https://bugs.avm99963.com/p/twpowertools/issues/entry)
+- [List of open issues](https://bugs.avm99963.com/p/twpowertools/issues/list)
 
 To see a more exhaustive guide on how to contribute, and information on how to
 contribute code changes, please read the following doc: <!--It also includes
