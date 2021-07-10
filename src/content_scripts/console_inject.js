@@ -296,7 +296,8 @@ var avatars = {
     });
   },
 
-  // Get an array with the first |num| messages from the thread |thread|.
+  // Get an object with the author of the thread and an array of the first |num|
+  // replies from the thread |thread|.
   getFirstMessages(thread, num = 15) {
     return CCApi(
                'ViewThread', {
@@ -325,17 +326,25 @@ var avatars = {
                /* authentication = */ false)
         .then(data => {
           var numMessages = data?.['1']?.['8'];
-          if (numMessages == undefined)
+          if (numMessages === undefined)
             throw new Error(
                 'Request to view thread doesn\'t include the number of messages');
-          if (numMessages == 0) return [];
 
-          var messages = data?.['1']['3'];
-          if (messages == undefined)
+          var messages = numMessages == 0 ? [] : data?.['1']['3'];
+          if (messages === undefined)
             throw new Error(
                 'numMessages was ' + numMessages +
                 ' but the response didn\'t include any message.');
-          return messages;
+
+          var author = data?.['1']?.['4'];
+          if (author === undefined)
+            throw new Error(
+                'Author isn\'t included in the ViewThread response.');
+
+          return {
+            messages,
+            author,
+          };
         });
   },
 
@@ -347,8 +356,15 @@ var avatars = {
         return [];
       }
 
-      return this.getFirstMessages(thread).then(messages => {
+      return this.getFirstMessages(thread).then(result => {
+        var messages = result.messages;
+        var author = result.author;
+
         var avatarUrls = [];
+
+        var authorUrl = author?.['1']?.['2'];
+        if (authorUrl !== undefined) avatarUrls.push(authorUrl);
+
         for (var m of messages) {
           var url = m?.['3']?.['1']?.['2'];
 
