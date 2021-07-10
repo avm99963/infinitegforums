@@ -2,7 +2,7 @@ const CC_API_BASE_URL = 'https://support.google.com/s/community/api/';
 
 // Function to wrap calls to the Community Console API with intelligent error
 // handling.
-function CCApi(method, data, authuser, authenticated = true) {
+function CCApi(method, data, authenticated, authuser = 0) {
   var authuserPart =
       authuser == '0' ? '' : '?authuser=' + encodeURIComponent(authuser);
 
