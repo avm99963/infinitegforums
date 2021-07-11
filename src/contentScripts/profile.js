@@ -1,10 +1,12 @@
+import {escapeUsername} from '../common/communityConsoleUtils.js';
+
 var authuser = (new URL(location.href)).searchParams.get('authuser') || '0';
 
 function getSearchUrl(query) {
   var urlpart = encodeURIComponent('query=' + encodeURIComponent(query));
   var authuserpart =
       (authuser == '0' ? '' : '?authuser=' + encodeURIComponent(authuser));
-  return url = 'https://support.google.com/s/community/search/' + urlpart +
+  return 'https://support.google.com/s/community/search/' + urlpart +
       authuserpart;
 }
 

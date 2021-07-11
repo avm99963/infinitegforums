@@ -1,4 +1,4 @@
-const optionsPrototype = {
+{
   // Available options:
   'list': {
     defaultValue: true,
@@ -118,53 +118,4 @@ const optionsPrototype = {
     defaultValue: false,
     context: 'deprecated',
   },
-};
-
-const specialOptions = [
-  'profileindicatoralt_months',
-  'ccdarktheme_mode',
-  'ccdarktheme_switch_enabled',
-  'ccdragndropfix',
-];
-
-function isEmpty(obj) {
-  return Object.keys(obj).length === 0;
-}
-
-// Adds missing options with their default value. If |dryRun| is set to false,
-// they are also saved to the sync storage area.
-function cleanUpOptions(options, dryRun = false) {
-  console.log('[cleanUpOptions] Previous options', JSON.stringify(options));
-
-  if (typeof options !== 'object' || options === null) options = {};
-
-  var ok = true;
-  for (const [opt, optMeta] of Object.entries(optionsPrototype)) {
-    if (!(opt in options)) {
-      ok = false;
-      options[opt] = optMeta['defaultValue'];
-    }
-  }
-
-  console.log('[cleanUpOptions] New options', JSON.stringify(options));
-
-  if (!ok && !dryRun) {
-    chrome.storage.sync.set(options);
-  }
-
-  return options;
-}
-
-// This method is based on the fact that when building the extension for Firefox
-// the browser_specific_settings.gecko entry is included.
-function isFirefox() {
-  var manifest = chrome.runtime.getManifest();
-  return manifest.browser_specific_settings !== undefined &&
-      manifest.browser_specific_settings.gecko !== undefined;
-}
-
-// Returns whether the extension is a release version.
-function isReleaseVersion() {
-  var manifest = chrome.runtime.getManifest();
-  return ('version' in manifest) && manifest.version != '0';
 }

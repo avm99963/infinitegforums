@@ -1,0 +1,37 @@
+{
+  "name": "twpowertools",
+  "version": "0.0.0",
+  "description": "An extension which brings several enhancements to the Google Forums and the Community Console.",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://gerrit.avm99963.com/infinitegforums"
+  },
+  "author": "Adrià Vilanova Martínez (avm99963)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://bugs.avm99963.com/p/twpowertools"
+  },
+  "keywords": [
+    "chrome",
+    "firefox",
+    "extension",
+    "webext",
+    "add-on",
+    "forums",
+    "google"
+  ],
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "copy-webpack-plugin": "^9.0.1",
+    "json5": "^2.2.0",
+    "path": "^0.12.7",
+    "webpack": "^5.44.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-shell-plugin-next": "^2.2.2"
+  },
+  "private": true
+}

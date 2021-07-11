@@ -1,3 +1,5 @@
+import {escapeUsername} from '../common/communityConsoleUtils.js';
+
 var CCProfileRegex =
     /^(?:https:\/\/support\.google\.com)?\/s\/community(?:\/forum\/[0-9]*)?\/user\/(?:[0-9]+)$/;
 var CCRegex = /^https:\/\/support\.google\.com\/s\/community/;
@@ -37,12 +39,6 @@ function isElementInside(element, outerTag) {
   }
 
   return false;
-}
-
-function escapeUsername(username) {
-  var quoteRegex = /"/g;
-  var commentRegex = /<!---->/g;
-  return username.replace(quoteRegex, '\\"').replace(commentRegex, '');
 }
 
 function APIRequest(action, body) {
@@ -381,7 +377,7 @@ if (CCRegex.test(location.href)) {
     getOptionsAndHandleIndicators(node, true);
   }
 
-  mutationObserver = new MutationObserver(mutationCallback);
+  var mutationObserver = new MutationObserver(mutationCallback);
   mutationObserver.observe(document.body, observerOptions);
 } else {
   // We are in TW

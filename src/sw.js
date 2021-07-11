@@ -1,6 +1,5 @@
 // IMPORTANT: keep this file in sync with background.js
-
-importScripts('common/common.js')
+import {cleanUpOptions} from './common/optionsUtils.js'
 
 // When the extension gets updated, set new options to their default value.
 chrome.runtime.onInstalled.addListener(details => {

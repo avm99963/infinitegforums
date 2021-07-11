@@ -1,3 +1,5 @@
+import {injectStylesheet} from '../../common/contentScriptsUtils.js';
+
 const SMEI_SORT_DIRECTION = 8;
 const SMEI_UNIFIED_PROFILES = 9;
 
@@ -30,11 +32,11 @@ chrome.storage.sync.get(null, function(items) {
     switch (items.ccdarktheme_mode) {
       case 'switch':
         if (items.ccdarktheme_switch_status == true)
-          injectStylesheet(chrome.runtime.getURL('injections/ccdarktheme.css'));
+          injectStylesheet(chrome.runtime.getURL('css/ccdarktheme.css'));
         break;
 
       case 'system':
-        injectStylesheet(chrome.runtime.getURL('injections/ccdarktheme.css'), {
+        injectStylesheet(chrome.runtime.getURL('css/ccdarktheme.css'), {
           'media': '(prefers-color-scheme: dark)',
         });
         break;

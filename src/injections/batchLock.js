@@ -1,16 +1,5 @@
-function parseUrl(url) {
-  var forum_a = url.match(/forum\/([0-9]+)/i);
-  var thread_a = url.match(/thread\/([0-9]+)/i);
-
-  if (forum_a === null || thread_a === null) {
-    return false;
-  }
-
-  return {
-    'forum': forum_a[1],
-    'thread': thread_a[1],
-  };
-}
+import {parseUrl} from '../common/commonUtils.js';
+import {getAuthUser} from '../common/communityConsoleUtils.js';
 
 function recursiveParentElement(el, tag) {
   while (el !== document.documentElement) {
@@ -18,12 +7,6 @@ function recursiveParentElement(el, tag) {
     if (el.tagName == tag) return el;
   }
   return undefined;
-}
-
-function returnAuthUser() {
-  var startup =
-      JSON.parse(document.querySelector('html').getAttribute('data-startup'));
-  return startup[2][1] || '0';
 }
 
 // Source:
@@ -122,7 +105,7 @@ function lockThreads(action) {
   modal.querySelector('main').textContent = '';
   modal.querySelector('main').append(p, log);
 
-  var authuser = returnAuthUser();
+  var authuser = getAuthUser();
   var APIRequestUrl =
       'https://support.google.com/s/community/api/SetThreadAttribute' +
       (authuser == '0' ? '' : '?authuser=' + encodeURIComponent(authuser));

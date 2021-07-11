@@ -1,3 +1,6 @@
+import {cleanUpOptions, optionsPrototype, specialOptions} from './common/optionsUtils.js';
+import {isFirefox, isReleaseVersion} from './common/extUtils.js';
+
 var savedSuccessfullyTimeout = null;
 
 const exclusiveOptions = [['thread', 'threadall']];
@@ -88,7 +91,10 @@ window.addEventListener('load', function() {
   chrome.storage.sync.get(null, function(items) {
     items = cleanUpOptions(items, false);
 
-    for ([opt, optMeta] of Object.entries(optionsPrototype)) {
+    for (var entry of Object.entries(optionsPrototype)) {
+      var opt = entry[0];
+      var optMeta = entry[1];
+
       if (!isOptionShown(opt)) continue;
 
       if (specialOptions.includes(opt)) {

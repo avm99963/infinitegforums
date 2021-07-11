@@ -9,22 +9,21 @@ feature will be enabled or not.
 
 ### How to add the feature switch option
 1. First of all, think of a short codename for the feature.
-2. Modify the `//src/common/common.js` file by adding an entry in the
-`optionsPrototype` object.
+2. Modify the `//src/common/optionsPrototype.json5` file by adding an entry.
     - All features should have the `false` value set as a default, so existing
     users have to explicitly enable the option after they receive the extension
     update. Otherwise, it might cause confusion, because users wouldn't know if
     the feature was added by the extension or Google.
-3. Now, modify the `//src/options/options.html` file by appending the following
-HTML code in the corresponding section:
+3. Now, modify the `//src/static/options/options.html` file by appending the
+following HTML code in the corresponding section:
     ```
     <div class="option"><input type="checkbox" id="{{codename}}"> <label for="{{codename}}" data-i18n="{{codename}}"></label> <span class="experimental-label" data-i18n="experimental_label"></span></div>
     ```
     where you should substitute `{{codename}}` with the codename you've chosen.
 The _experimental_ label is optional and should only be used with features which
 are unreliable (or could be at some point in the future) due to their nature.
-4. Finally, add the option string at `//src/_locales/en/manifest.json`, by
-adding the string under the `options_{{codename}}` key.
+4. Finally, add the option string at `//src/static/_locales/en/manifest.json`,
+by adding the string under the `options_{{codename}}` key.
 
 ### How to add additional options for the feature
 Apart from the feature switch option, additional options can be defined in order
@@ -58,30 +57,33 @@ options:
 1. Think of a codename for the additional option. It should be the feature
 codename appended by an underscore and a suffix
 (`{{feature_codename}}_{{suffix}}`).
-2. Modify the `//src/common/common.js` file by doing the following things:
-    1. Add an entry for the option in the `optionsPrototype` object.
-    2. Append the option's codename to the `specialOptions` object. This is so
-    the option can be handled in a specific way when showing/saving it in the
-    options page, or so it is handled outside of the options page.
+2. Modify the following files:
+    1. Add an entry for the option in the `//src/common/optionsPrototype.json5`
+    file.
+    2. Append the option's codename to the `//src/common/specialOptions.json5`
+    file. This is so the option can be handled in a specific way when
+    showing/saving it in the options page, or so it is handled outside of the
+    options page.
 3. If you want to handle the option from the options page, follow these steps:
-    1. Modify the `//src/options/options.html` file to add the appropriate code
-    which implements the option (usually in the same `.option` div as the
-    feature switch).
+    1. Modify the `//src/static/options/options.html` file to add the
+    appropriate code which implements the option (usually in the same `.option`
+    div as the feature switch).
         - Don't include text, only the HTML structure. If you add a `data-i18n`
         attribute to an HTML element, its contents will be replaced with the
         corresponding i18n string (for instance,
         `<span data-i18n="test"></span>` will be rendered as
         `<span data-i18n="test">Test</span>` if `Test` was the string defined
         with the key `options_test`).
-    2. Modify the `//src/options/options.js` file to add the following things:
+    2. Modify the `//src/optionsCommon.js` file to add the following things:
         1. In the switch statement inside the save function, add a case to
         handle saving your additional option.
         2. In the switch statement inside the load event listener, add another
         case so your option is correctly set in the options page with the saved
         value.
-    3. Add the corresponding i18n strings at `//src/_locales/en/manifest.json`.
+    3. Add the corresponding i18n strings at
+    `//src/static/_locales/en/manifest.json`.
 4. If you want to handle the option outside of the options page, include an
-empty case in both switches at `//src/options/options.js`, so the option is not
+empty case in both switches at `//src/optionsCommon.js`, so the option is not
 handled there.
 
 ## Develop the feature

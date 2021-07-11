@@ -1,0 +1,6 @@
+- name: Build extension
+  make:
+    chdir: "{{ zuul.project.src_dir }}"
+    target: "{{ make_target }}"
+  environment:
+    PATH: /usr/local/go/bin:{{ ansible_env.PATH }}

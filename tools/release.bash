@@ -1,6 +1,8 @@
 #!/bin/bash
 #
 # Generate release files (ZIP archives of the extension source code).
+#
+# Precondition: webpack has already built the extension.
 
 # Prints help text
 function usage() {
@@ -21,7 +23,7 @@ END
 
 # Updates manifest.json field
 function set_manifest_field() {
-  sed -i -E "s/\"$1\": \"[^\"]*\"/\"$1\": \"$2\"/" src/manifest.json
+  sed -i -E "s/\"$1\": \"[^\"]*\"/\"$1\": \"$2\"/" dist/$browser/manifest.json
 }
 
 # Get options
@@ -30,6 +32,7 @@ eval set -- "$opts"
 
 channel=stable
 browser=chromium
+folder=null
 
 while true; do
   case "$1" in
@@ -64,12 +67,6 @@ fi
 
 echo "Started building release..."
 
-# First of all, generate the appropriate manifest.json file for the
-# target browser
-dependencies=(${browser})
-
-go run generateManifest.go "${dependencies[@]}"
-
 # This is the version name which git gives us
 version=$(git describe --always --tags --dirty)
 
@@ -103,11 +100,8 @@ fi
 # Create ZIP file for upload to the Chrome Web Store
 mkdir -p out
 rm -rf out/twpowertools-$version-$browser-$channel.zip
-(cd src &&
-  zip -rq ../out/twpowertools-$version-$browser-$channel.zip * -x "*/.git*" \
+(cd dist/$browser &&
+  zip -rq ../../out/twpowertools-$version-$browser-$channel.zip * -x "*/.git*" \
   -x "*/\.DS_Store" -x "*/OWNERS")
-
-# Clean generated manifest.json file
-rm -f src/manifest.json
 
 echo "Done!"

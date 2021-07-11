@@ -18,34 +18,34 @@
   "content_scripts": [
     {
       "matches": ["https://support.google.com/s/community*"],
-      "js": ["common/api.js", "common/content_scripts.js", "content_scripts/console_inject.js"]
+      "js": ["communityConsoleMain.bundle.js"]
     },
     {
       "matches": ["https://support.google.com/s/community*"],
-      "js": ["common/content_scripts.js", "content_scripts/console_inject_start.js"],
-      "css": ["common/console.css"],
+      "js": ["communityConsoleStart.bundle.js"],
+      "css": ["css/common/console.css"],
       "run_at": "document_start"
     },
     {
       "matches": ["https://support.google.com/*/threads*"],
-      "js": ["content_scripts/forum_inject.js"]
+      "js": ["publicForum.bundle.js"]
     },
     {
       "matches": ["https://support.google.com/*/thread/*"],
       "exclude_matches": ["https://support.google.com/s/community*", "https://support.google.com/*/thread/new*"],
-      "js": ["common/content_scripts.js", "content_scripts/thread_inject.js"],
+      "js": ["publicThread.bundle.js"],
       "run_at": "document_end"
     },
     {
       "matches": ["https://support.google.com/s/community*", "https://support.google.com/*/thread/*"],
       "exclude_matches": ["https://support.google.com/*/thread/new*"],
-      "js": ["common/content_scripts.js", "common/cs_event_listener.js", "content_scripts/profileindicator_inject.js"]
+      "js": ["profileIndicator.bundle.js"]
     },
     {
       "matches": ["https://support.google.com/*/profile/*", "https://support.google.com/profile/*"],
       "all_frames": true,
-      "js": ["common/content_scripts.js", "content_scripts/profile_inject.js"],
-      "css": ["common/forum.css"]
+      "js": ["profile.bundle.js"],
+      "css": ["css/common/forum.css"]
     }
   ],
   "permissions": [
@@ -64,15 +64,16 @@
     {
       "resources": [
 #endif
-        "injections/profileindicator_inject.js",
-        "injections/profileindicator_inject.css",
-        "injections/ccdarktheme.css",
-        "injections/batchlock_inject.js",
-        "injections/batchlock_inject.css",
-        "injections/enhanced_announcements_dot.css",
-        "injections/reposition_expand_thread.css",
-        "injections/thread_list_avatars.css",
-        "injections/autorefresh_list.css"
+        "profileIndicatorInject.bundle.js",
+        "batchLockInject.bundle.js",
+
+        "css/profileindicator_inject.css",
+        "css/ccdarktheme.css",
+        "css/batchlock_inject.css",
+        "css/enhanced_announcements_dot.css",
+        "css/reposition_expand_thread.css",
+        "css/thread_list_avatars.css",
+        "css/autorefresh_list.css"
 #if defined(CHROMIUM_MV3)
       ],
       "matches": [
@@ -99,13 +100,10 @@
 #if defined(CHROMIUM)
     "persistent": false,
 #endif
-    "scripts": [
-      "common/common.js",
-      "background.js"
-    ]
+    "scripts": ["background.bundle.js"]
 #endif
 #if defined(CHROMIUM_MV3)
-    "service_worker": "sw.js"
+    "service_worker": "sw.bundle.js"
 #endif
   },
 #if defined(GECKO)

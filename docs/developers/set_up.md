@@ -6,7 +6,8 @@ do:
 with [Homebrew](https://brew.sh/) by running `brew install go`.
    - This is because the build script uses a Go program to generate the
    manifest.
-2. That's it! If you're using a Mac, you're out of luck, because you must
+1. [Install NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/).
+1. That's it! If you're using a Mac, you're out of luck, because you must
 perform some more steps.
 
 ## Mac-specific configuration

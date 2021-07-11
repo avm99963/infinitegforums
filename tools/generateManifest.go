@@ -16,7 +16,6 @@ import (
 
 const (
   manifestTemplate = "templates/manifest.gjson"
-  manifestSrc = "src/manifest.json"
 )
 
 var beginningOfIfStatement = regexp.MustCompile(`^\s*#if defined\(([^\(\)]*)\)\s*$`)
@@ -24,6 +23,7 @@ var endOfIfStatement = regexp.MustCompile(`^\s*#endif\s*$`)
 
 var (
   quietMode = flag.Bool("quiet", false, "Quiet mode")
+  destFile  = flag.String("dest", "", "Destination file")
 )
 
 func FindWithCaseFolding(slice []string, val string) bool {
@@ -86,15 +86,19 @@ func main() {
     log.Fatalf("Pass the dependencies as arguments (for instance, run `go run generateManifest.go CHROMIUM`).")
   }
 
+  if *destFile == "" {
+    log.Fatalf("Pass the destination file name via the -dest flag.")
+  }
+
   template, err := os.Open(manifestTemplate)
   if err != nil {
     log.Fatalf("Couldn't open file %v: %v", manifestTemplate, err)
   }
   defer template.Close()
 
-  dest, err := os.Create(manifestSrc)
+  dest, err := os.Create(*destFile)
   if err != nil {
-    log.Fatalf("Couldn't create file %v: %v", manifestSrc, err)
+    log.Fatalf("Couldn't create file %v: %v", *destFile, err)
   }
   defer dest.Close()
 
