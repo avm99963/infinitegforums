@@ -1,4 +1,3 @@
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const path = require('path');
 const json5 = require('json5');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -35,15 +34,9 @@ module.exports = (env, args) => {
     output: {
       filename: '[name].bundle.js',
       path: outputPath,
-      clean: {
-        keep(asset) {
-          return asset.includes('static/') || asset.includes('manifest.json') ||
-              asset.includes('LICENSE') || asset.includes('_locales');
-        },
-      },
+      clean: true,
     },
     plugins: [
-      new CleanWebpackPlugin(),
       new WebpackShellPluginNext({
         onBuildEnd: {
           scripts:
