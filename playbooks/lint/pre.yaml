@@ -1,4 +1,4 @@
 - hosts: all
   roles:
     - role: ensure-go
-      go_version: 1.13
+      go_version: 1.16
