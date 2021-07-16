@@ -16,6 +16,7 @@ module.exports = (env, args) => {
     // Injected JS
     profileIndicatorInject: './src/injections/profileIndicator.js',
     batchLockInject: './src/injections/batchLock.js',
+    xhrInterceptorInject: './src/injections/xhrInterceptor.js',
 
     // Options page
     optionsCommon: './src/optionsCommon.js',

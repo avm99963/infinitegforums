@@ -1,4 +1,4 @@
-import {injectStylesheet} from '../../common/contentScriptsUtils.js';
+import {injectStylesheet, injectScript} from '../../common/contentScriptsUtils.js';
 
 const SMEI_SORT_DIRECTION = 8;
 const SMEI_UNIFIED_PROFILES = 9;
@@ -42,4 +42,6 @@ chrome.storage.sync.get(null, function(items) {
         break;
     }
   }
+
+  injectScript(chrome.runtime.getURL('xhrInterceptorInject.bundle.js'));
 });

@@ -66,6 +66,7 @@
 #endif
         "profileIndicatorInject.bundle.js",
         "batchLockInject.bundle.js",
+        "xhrInterceptorInject.bundle.js",
 
         "css/profileindicator_inject.css",
         "css/ccdarktheme.css",

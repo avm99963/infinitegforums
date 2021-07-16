@@ -1,0 +1,9 @@
+{
+  interceptors: [
+    /*{
+      eventName: "ViewThreadResponse",
+      urlRegex: "api/ViewThread",
+      intercepts: "response",
+    },*/ // Example
+  ],
+}
