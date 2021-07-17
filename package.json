@@ -32,5 +32,9 @@
     "webpack-cli": "^4.7.2",
     "webpack-shell-plugin-next": "^2.2.2"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "idb": "^6.1.2",
+    "poll-until-promise": "^3.6.1"
+  }
 }

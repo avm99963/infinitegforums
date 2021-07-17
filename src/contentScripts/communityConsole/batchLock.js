@@ -1,4 +1,4 @@
-import {removeChildNodes, createExtBadge} from './utils.js';
+import {removeChildNodes, createExtBadge} from './utils/common.js';
 
 export function nodeIsReadToggleBtn(node) {
   return ('tagName' in node) && node.tagName == 'MATERIAL-BUTTON' &&

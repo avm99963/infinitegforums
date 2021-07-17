@@ -1,4 +1,4 @@
-import {getNParent, createExtBadge} from './utils.js';
+import {getNParent, createExtBadge} from './utils/common.js';
 import {escapeUsername, getAuthUser} from '../../common/communityConsoleUtils.js';
 
 var authuser = getAuthUser();

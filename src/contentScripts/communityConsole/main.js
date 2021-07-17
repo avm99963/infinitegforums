@@ -1,7 +1,7 @@
 import {injectScript, injectStyles, injectStylesheet} from '../../common/contentScriptsUtils.js';
 
 import {autoRefresh} from './autoRefresh.js';
-import {avatars} from './avatars.js';
+import AvatarsHandler from './avatars.js';
 import {addBatchLockBtn, nodeIsReadToggleBtn} from './batchLock.js';
 import {injectDarkModeButton, isDarkThemeOn} from './darkMode.js';
 import {applyDragAndDropFix} from './dragAndDropFix.js';
@@ -9,7 +9,7 @@ import {markCurrentThreadAsRead} from './forceMarkAsRead.js';
 import {injectPreviousPostsLinks} from './profileHistoryLink.js';
 import {unifiedProfilesFix} from './unifiedProfiles.js';
 
-var mutationObserver, intersectionObserver, intersectionOptions, options;
+var mutationObserver, intersectionObserver, intersectionOptions, options, avatars;
 
 const watchedNodesSelectors = [
   // App container (used to set up the intersection observer and inject the dark
@@ -177,6 +177,10 @@ var observerOptions = {
 chrome.storage.sync.get(null, function(items) {
   options = items;
 
+  // Initialize classes needed by the mutation observer
+  if (options.threadlistavatars)
+    avatars = new AvatarsHandler();
+
   // Before starting the mutation Observer, check whether we missed any
   // mutations by manually checking whether some watched nodes already
   // exist.
@@ -208,8 +212,7 @@ chrome.storage.sync.get(null, function(items) {
   }
 
   if (options.repositionexpandthread) {
-    injectStylesheet(
-        chrome.runtime.getURL('css/reposition_expand_thread.css'));
+    injectStylesheet(chrome.runtime.getURL('css/reposition_expand_thread.css'));
   }
 
   if (options.ccforcehidedrawer) {
@@ -225,8 +228,7 @@ chrome.storage.sync.get(null, function(items) {
   }
 
   if (options.threadlistavatars) {
-    injectStylesheet(
-        chrome.runtime.getURL('css/thread_list_avatars.css'));
+    injectStylesheet(chrome.runtime.getURL('css/thread_list_avatars.css'));
   }
 
   if (options.autorefreshlist) {

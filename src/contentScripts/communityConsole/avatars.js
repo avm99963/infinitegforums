@@ -1,9 +1,16 @@
+import {waitFor} from 'poll-until-promise';
+
 import {CCApi} from '../../common/api.js';
 import {parseUrl} from '../../common/commonUtils.js';
 
-export var avatars = {
-  isFilterSetUp: false,
-  privateForums: [],
+import AvatarsDB from './utils/AvatarsDB.js'
+
+export default class AvatarsHandler {
+  constructor() {
+    this.isFilterSetUp = false;
+    this.privateForums = [];
+    this.db = new AvatarsDB();
+  }
 
   // Gets a list of private forums. If it is already cached, the cached list is
   // returned; otherwise it is also computed and cached.
@@ -41,7 +48,7 @@ export var avatars = {
       this.isFilterSetUp = true;
       return resolve(this.privateForums);
     });
-  },
+  }
 
   // Some threads belong to private forums, and this feature will not be able to
   // get its avatars since it makes an anonymomus call to get the contents of
@@ -53,10 +60,11 @@ export var avatars = {
     return this.getPrivateForums().then(privateForums => {
       return !privateForums.includes(thread.forum);
     });
-  },
+  }
 
-  // Get an object with the author of the thread and an array of the first |num|
-  // replies from the thread |thread|.
+  // Get an object with the author of the thread, an array of the first |num|
+  // replies from the thread |thread|, and additional information about the
+  // thread.
   getFirstMessages(thread, num = 15) {
     return CCApi(
                'ViewThread', {
@@ -103,9 +111,82 @@ export var avatars = {
           return {
             messages,
             author,
+
+            // The following fields are useful for the cache and can be
+            // undefined, but this is checked before adding an entry to the
+            // cache.
+            updatedTimestamp: data?.['1']?.['2']?.['1']?.['4'],
+            lastMessageId: data?.['1']?.['2']?.['10'],
           };
         });
-  },
+  }
+
+  // Get a list of at most |num| avatars for thread |thread| by calling the API
+  getVisibleAvatarsFromServer(thread, num) {
+    return this.getFirstMessages(thread).then(result => {
+      var messages = result.messages;
+      var author = result.author;
+      var updatedTimestamp =
+          Math.floor(Number.parseInt(result.updatedTimestamp) / 1000000);
+      var lastMessageId = result.lastMessageId;
+
+      var avatarUrls = [];
+
+      var authorUrl = author?.['1']?.['2'];
+      if (authorUrl !== undefined) avatarUrls.push(authorUrl);
+
+      for (var m of messages) {
+        var url = m?.['3']?.['1']?.['2'];
+
+        if (url === undefined) continue;
+        if (!avatarUrls.includes(url)) avatarUrls.push(url);
+        if (avatarUrls.length == 3) break;
+      }
+
+      // Add entry to cache if all the extra metadata could be retrieved.
+      if (updatedTimestamp !== undefined && lastMessageId !== undefined)
+        this.db.putCacheEntry({
+          threadId: thread.thread,
+          updatedTimestamp,
+          lastMessageId,
+          avatarUrls,
+          num,
+          lastUsedTimestamp: Math.floor(Date.now() / 1000),
+        });
+
+      return avatarUrls;
+    });
+  }
+
+  // Returns an object with a cache entry that matches the request if found (via
+  // the |entry| property). The property |found| indicates whether the cache
+  // entry was found.
+  getVisibleAvatarsFromCache(thread, num) {
+    return waitFor(
+        () => this.db.getCacheEntry(thread.thread).then(entry => {
+          if (entry === undefined || entry.num < num)
+            return {
+              found: false,
+            };
+
+          // Only use cache entry if lastUsedTimestamp is within the last 30
+          // seconds (which means it has been checked for invalidations):
+          var now = Math.floor(Date.now() / 1000);
+          var diff = now - entry.lastUsedTimestamp;
+          if (diff > 30)
+            throw new Error(
+                'lastUsedTimestamp isn\'t within the last 30 seconds (the difference is:',
+                diff, ').');
+          return {
+            found: true,
+            entry,
+          };
+        }),
+        {
+          interval: 400,
+          timeout: 10 * 1000,
+        });
+  }
 
   // Get a list of at most |num| avatars for thread |thread|
   getVisibleAvatars(thread, num = 3) {
@@ -115,27 +196,19 @@ export var avatars = {
         return [];
       }
 
-      return this.getFirstMessages(thread).then(result => {
-        var messages = result.messages;
-        var author = result.author;
+      return this.getVisibleAvatarsFromCache(thread, num)
+          .then(res => {
+            if (res.found) return res.entry.avatarUrls;
 
-        var avatarUrls = [];
-
-        var authorUrl = author?.['1']?.['2'];
-        if (authorUrl !== undefined) avatarUrls.push(authorUrl);
-
-        for (var m of messages) {
-          var url = m?.['3']?.['1']?.['2'];
-
-          if (url === undefined) continue;
-          if (!avatarUrls.includes(url)) avatarUrls.push(url);
-          if (avatarUrls.length == 3) break;
-        }
-
-        return avatarUrls;
-      });
+            return this.getVisibleAvatarsFromServer(thread, num);
+          })
+          .catch(err => {
+            console.error(
+                '[threadListAvatars] Error while retrieving avatars:', err);
+            return this.getVisibleAvatarsFromServer(thread, num);
+          });
     });
-  },
+  }
 
   // Inject avatars for thread summary (thread item) |node| in a thread list.
   inject(node) {
@@ -174,5 +247,5 @@ export var avatars = {
               '[threadListAvatars] Could not retrieve avatars for thread',
               thread, err);
         });
-  },
+  }
 };

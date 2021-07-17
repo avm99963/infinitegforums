@@ -1,4 +1,4 @@
-import {createExtBadge} from './utils.js';
+import {createExtBadge} from './utils/common.js';
 
 export function injectDarkModeButton(rightControl, previousDarkModeOption) {
   var darkThemeSwitch = document.createElement('material-button');

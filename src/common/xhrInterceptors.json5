@@ -1,9 +1,9 @@
 {
   interceptors: [
-    /*{
-      eventName: "ViewThreadResponse",
-      urlRegex: "api/ViewThread",
+    {
+      eventName: "ViewForumResponse",
+      urlRegex: "api/ViewForum",
       intercepts: "response",
-    },*/ // Example
+    },
   ],
 }

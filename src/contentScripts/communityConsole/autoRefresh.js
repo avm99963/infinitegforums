@@ -1,4 +1,4 @@
-import {createExtBadge} from './utils.js';
+import {createExtBadge} from './utils/common.js';
 import {getAuthUser} from '../../common/communityConsoleUtils.js';
 
 var authuser = getAuthUser();
