@@ -58,7 +58,9 @@ export default class AvatarsHandler {
   // the thread belongs to a known private forum.
   shouldRetrieveAvatars(thread) {
     return this.getPrivateForums().then(privateForums => {
-      return !privateForums.includes(thread.forum);
+      if (privateForums.includes(thread.forum)) return false;
+
+      return this.db.isForumUnauthorized(thread.forum).then(res => !res);
     });
   }
 
@@ -90,8 +92,16 @@ export default class AvatarsHandler {
                // Due to the fact that we have to call this endpoint
                // anonymously, this means we can't retrieve information about
                // threads in private forums.
-               /* authentication = */ false)
-        .then(data => {
+               /* authentication = */ false, /* authuser = */ 0,
+               /* returnUnauthorizedStatus = */ true)
+        .then(response => {
+          if (response.unauthorized)
+            return this.db.putUnauthorizedForum(thread.forum).then(() => {
+              throw new Error('Permission denied to load thread.');
+            });
+
+          var data = response.body;
+
           var numMessages = data?.['1']?.['8'];
           if (numMessages === undefined)
             throw new Error(

@@ -3,10 +3,13 @@ import {openDB} from 'idb';
 const dbName = 'TWPTAvatarsDB';
 const threadListLoadEvent = 'TWPT_ViewForumResponse';
 // Time after the last use when a cache entry should be deleted (in s):
-const expirationTime = 4 * 24 * 60 * 60;  // 4 days
+const cacheExpirationTime = 4 * 24 * 60 * 60;  // 4 days
 // Probability of running the piece of code to remove unused cache entries after
 // loading the thread list.
 const probRemoveUnusedCacheEntries = 0.10;  // 10%
+
+// Time after which an unauthorized forum entry expires (in s).
+const unauthorizedForumExpirationTime = 1 * 24 * 60 * 60;  // 1 day
 
 export default class AvatarsDB {
   constructor() {
@@ -38,6 +41,7 @@ export default class AvatarsDB {
       });
   }
 
+  // avatarsCache methods:
   getCacheEntry(threadId) {
     return this.dbPromise.then(db => db.get('avatarsCache', threadId));
   }
@@ -55,7 +59,7 @@ export default class AvatarsDB {
     return this.dbPromise
         .then(db => {
           var upperBoundTimestamp =
-              Math.floor(Date.now() / 1000) - expirationTime;
+              Math.floor(Date.now() / 1000) - cacheExpirationTime;
           var range = IDBKeyRange.upperBound(upperBoundTimestamp);
 
           var tx = db.transaction('avatarsCache', 'readwrite');
@@ -126,5 +130,31 @@ export default class AvatarsDB {
               err);
         });
     });
+  }
+
+  // unauthorizedForums methods:
+  isForumUnauthorized(forumId) {
+    return this.dbPromise.then(db => db.get('unauthorizedForums', forumId))
+        .then(entry => {
+          if (entry === undefined) return false;
+
+          var now = Math.floor(Date.now() / 1000);
+          if (entry.expirationTimestamp > now) return true;
+
+          this.invalidateUnauthorizedForum(forumId);
+          return false;
+        });
+  }
+
+  putUnauthorizedForum(forumId) {
+    return this.dbPromise.then(db => db.put('unauthorizedForums', {
+      forumId,
+      expirationTimestamp:
+          Math.floor(Date.now() / 1000) + unauthorizedForumExpirationTime,
+    }));
+  }
+
+  invalidateUnauthorizedForum(forumId) {
+    return this.dbPromise.then(db => db.delete('unauthorizedForums', forumId));
   }
 };
