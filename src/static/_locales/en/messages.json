@@ -111,10 +111,6 @@
     "message": "Force disable the <code class=\"help\" title=\"This experiment, when enabled, introduces a redesign of the profile view which also unifies all forum profiles into a single one.\">SMEI_UNIFIED_PROFILES</code> experiment in the Community Console.",
     "description": "Feature checkbox in the options page"
   },
-  "options_forcemarkasread": {
-    "message": "Each time you open a thread in the Community Console, automatically send a request to mark it as read. This is a temporary option used to work around <a href=\"https://support.google.com/s/community/forum/51488989/thread/114559215\" target=\"_blank\" rel=\"noreferrer noopener\">this bug</a>.",
-    "description": "Feature checkbox in the options page"
-  },
   "options_profileindicator_header": {
     "message": "Indicator dot",
     "description": "Heading for the profile indicator feature options"

@@ -80,10 +80,6 @@
     defaultValue: false,
     context: 'options',
   },
-  'forcemarkasread': {
-    defaultValue: false,
-    context: 'options',
-  },
 
   // Experiments:
   'threadlistavatars': {
@@ -115,6 +111,10 @@
     context: 'deprecated',
   },
   'smei_sortdirection': {
+    defaultValue: false,
+    context: 'deprecated',
+  },
+  'forcemarkasread': {
     defaultValue: false,
     context: 'deprecated',
   },

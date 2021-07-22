@@ -5,7 +5,6 @@ import AvatarsHandler from './avatars.js';
 import {addBatchLockBtn, nodeIsReadToggleBtn} from './batchLock.js';
 import {injectDarkModeButton, isDarkThemeOn} from './darkMode.js';
 import {applyDragAndDropFix} from './dragAndDropFix.js';
-import {markCurrentThreadAsRead} from './forceMarkAsRead.js';
 import {injectPreviousPostsLinks} from './profileHistoryLink.js';
 import {unifiedProfilesFix} from './unifiedProfiles.js';
 
@@ -39,9 +38,6 @@ const watchedNodesSelectors = [
 
   // Unified profile iframe
   'iframe',
-
-  // Thread component
-  'ec-thread',
 ];
 
 function handleCandidateNode(node) {
@@ -130,11 +126,6 @@ function handleCandidateNode(node) {
     if (node.tagName == 'IFRAME' && isDarkThemeOn(options) &&
         unifiedProfilesFix.checkIframe(node)) {
       unifiedProfilesFix.fixIframe(node);
-    }
-
-    // Force mark thread as read
-    if (options.forcemarkasread && node.tagName == 'EC-THREAD') {
-      markCurrentThreadAsRead();
     }
   }
 }

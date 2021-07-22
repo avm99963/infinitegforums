@@ -152,42 +152,6 @@ perfiles, que muestra los perfiles de los usuarios separados para cada foro.
 
 Nótese que esto solo aplica a a la Consola de la Comunidad.
 
-### Marca hilos como vistos automáticamente (opción temporal)
-> **Opción:** _Cada vez que abras un hilo en la Consola de la Comunidad, enviar
-automáticamente una petición para marcarlo como leído. Esta es una opción
-temporal usada como <i>workaround</i> de
-[este bug](https://support.google.com/s/community/forum/51488989/thread/114559215)._
-
-*** promo
-**Nota:** Cuando este problema se arregle por parte de Google, una actualización
-a la extensión quitará esta opción y su funcionalidad.
-***
-
-En estos momentos hay un problema en la Consola de la Comunidad: cuando uno abre
-un hilo para leerlo, este no se marca automáticamente como leído. Esto está en
-proceso de ser arreglado por parte de Google, pero hasta que salga el arreglo,
-esta opción sirve como un _workaround_ (solución temporal).
-
-Cuando esta opción está activada, cada vez que abres un hilo en la Consola de la
-Comunidad ocurre lo siguiente:
-
-1. La extensión enviará una petición autenticada a la API para obtener el
-contenido del hilo siendo visualizado. Esto se usa para obtener el ID del último
-mensaje del hilo.
-
-2. La extensión enviará una petición autenticada a la API para cambiar el estado
-del hilo a leído. Para marcar el hilo como leído, la API necesita que se pase el
-ID del foro, el ID del hilo y el ID del último mensaje que se ha cargado, y este
-último valor se obtiene de la llamada anterior a la API.
-
-*** promo
-**Nota:** Debido a la naturaleza de la API, la primera petición también cargará
-varios detalles innecesarios como los contenidos de los primeros mensajes. Esto
-significa que la petición no es muy eficiente. Por esta razón, recomiendo
-desactivar esta opción una vez nos notifiquen que el problema ha sido arreglado
-por Google, para no poner una carga extra a los servidores de Google.
-***
-
 ## Punto indicador
 > **Opciones:** _Muestra si el autor del hilo ha participado en otros hilos_,
 _Muestra el número de preguntas y respuestas escritas por el autor del hilo
