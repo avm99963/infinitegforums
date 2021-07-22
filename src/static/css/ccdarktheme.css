@@ -201,8 +201,9 @@ main .title-bar .title, main .page-header h1, main .header h1 {
   color: #fbbc04!important;
 }
 
-/* ec-work-state-picker */
-ec-work-state-picker > button {
+/* ec-work-state-picker and ec-symptom-picker */
+ec-work-state-picker > button,
+    ec-symptom-picker > button {
   color: var(--TWPT-secondary-text)!important;
   background-color: var(--TWPT-button-background)!important;
   border-color: var(--TWPT-subtle-border)!important;
