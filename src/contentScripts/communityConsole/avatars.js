@@ -167,30 +167,64 @@ export default class AvatarsHandler {
   // Returns an object with a cache entry that matches the request if found (via
   // the |entry| property). The property |found| indicates whether the cache
   // entry was found.
-  getVisibleAvatarsFromCache(thread, num) {
-    return waitFor(
-        () => this.db.getCacheEntry(thread.thread).then(entry => {
-          if (entry === undefined || entry.num < num)
-            return {
-              found: false,
-            };
+  //
+  // The |checkRecent| parameter is used to indicate whether lastUsedTimestamp
+  // must be within the last 30 seconds (which means that the thread has been
+  // checked for a potential invalidation).
+  getVisibleAvatarsFromCache(thread, num, checkRecent) {
+    return this.db.getCacheEntry(thread.thread).then(entry => {
+      if (entry === undefined || entry.num < num)
+        return {
+          found: false,
+        };
 
-          // Only use cache entry if lastUsedTimestamp is within the last 30
-          // seconds (which means it has been checked for invalidations):
-          var now = Math.floor(Date.now() / 1000);
-          var diff = now - entry.lastUsedTimestamp;
-          if (diff > 30)
-            throw new Error(
-                'lastUsedTimestamp isn\'t within the last 30 seconds (the difference is:',
-                diff, ').');
-          return {
-            found: true,
-            entry,
-          };
-        }),
-        {
-          interval: 400,
-          timeout: 10 * 1000,
+      if (checkRecent) {
+        var now = Math.floor(Date.now() / 1000);
+        var diff = now - entry.lastUsedTimestamp;
+        if (diff > 30)
+          throw new Error(
+              'lastUsedTimestamp isn\'t within the last 30 seconds (id: ' +
+              thread.thread + ' the difference is: ' + diff + ').');
+      }
+
+      return {
+        found: true,
+        entry,
+      };
+    });
+  }
+
+  // Waits for the XHR interceptor to invalidate any outdated threads and
+  // returns what getVisibleAvatarsFromCache returns. If this times out, it
+  // returns the current cache entry anyways if it exists.
+  getVisibleAvatarsFromCacheAfterInvalidations(thread, num) {
+    return waitFor(
+               () => this.getVisibleAvatarsFromCache(
+                   thread, num, /* checkRecent = */ true),
+               {
+                 interval: 450,
+                 timeout: 2 * 1000,
+               })
+        .catch(err => {
+          console.debug(
+              '[threadListAvatars] Error while retrieving avatars from cache ' +
+                  '(probably timed out waiting for lastUsedTimestamp to change):',
+              err);
+
+          // Sometimes when going back to a thread list, the API call to load
+          // the thread list is not made, and so the previous piece of code
+          // times out waiting to intercept that API call and handle thread
+          // invalidations.
+          //
+          // If this is the case, this point will be reached. We'll assume we
+          // intercept all API calls, so reaching this point means that an API
+          // call wasn't made. Therefore, try again to get visible avatars from
+          // the cache without checking whether the entry has been checked for
+          // potential invalidation.
+          //
+          // See https://bugs.avm99963.com/p/twpowertools/issues/detail?id=10.
+          return this.getVisibleAvatarsFromCache(
+              thread, num, /* checkRecent = */ false);
         });
   }
 
@@ -202,15 +236,23 @@ export default class AvatarsHandler {
         return [];
       }
 
-      return this.getVisibleAvatarsFromCache(thread, num)
+      return this.getVisibleAvatarsFromCacheAfterInvalidations(thread, num)
           .then(res => {
-            if (res.found) return res.entry.avatarUrls;
-
-            return this.getVisibleAvatarsFromServer(thread, num);
+            if (!res.found) {
+              var err = new Error('Cache entry doesn\'t exist.');
+              err.name = 'notCached';
+              throw err;
+            }
+            return res.entry.avatarUrls;
           })
           .catch(err => {
-            console.error(
-                '[threadListAvatars] Error while retrieving avatars:', err);
+            // If the name is "notCached", then this is not an actual error so
+            // don't log an error, but still get avatars from the server.
+            if (err?.name !== 'notCached')
+              console.error(
+                  '[threadListAvatars] Error while accessing avatars cache:',
+                  err);
+
             return this.getVisibleAvatarsFromServer(thread, num);
           });
     });
