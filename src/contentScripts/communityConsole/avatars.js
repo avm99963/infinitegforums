@@ -125,7 +125,6 @@ export default class AvatarsHandler {
             // The following fields are useful for the cache and can be
             // undefined, but this is checked before adding an entry to the
             // cache.
-            updatedTimestamp: data?.['1']?.['2']?.['1']?.['4'],
             lastMessageId: data?.['1']?.['2']?.['10'],
           };
         });
@@ -136,8 +135,6 @@ export default class AvatarsHandler {
     return this.getFirstMessages(thread).then(result => {
       var messages = result.messages;
       var author = result.author;
-      var updatedTimestamp =
-          Math.floor(Number.parseInt(result.updatedTimestamp) / 1000000);
       var lastMessageId = result.lastMessageId;
 
       var avatarUrls = [];
@@ -154,10 +151,9 @@ export default class AvatarsHandler {
       }
 
       // Add entry to cache if all the extra metadata could be retrieved.
-      if (updatedTimestamp !== undefined && lastMessageId !== undefined)
+      if (lastMessageId !== undefined)
         this.db.putCacheEntry({
           threadId: thread.thread,
-          updatedTimestamp,
           lastMessageId,
           avatarUrls,
           num,

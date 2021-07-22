@@ -90,20 +90,15 @@ export default class AvatarsDB {
     var promises = [];
     threads.forEach(t => {
       var id = t?.['2']?.['1']?.['1'];
-      var currentUpdatedTimestamp =
-          Math.floor(Number.parseInt(t?.['2']?.['1']?.['4']) / 1000000);
       var currentLastMessageId = t?.['2']?.['10'];
 
-      if (id === undefined || currentUpdatedTimestamp === undefined ||
-          currentLastMessageId === undefined)
-        return;
+      if (id === undefined || currentLastMessageId === undefined) return;
 
       promises.push(this.getCacheEntry(id).then(entry => {
         if (entry === undefined) return;
 
         // If the cache entry is still valid.
-        if (currentLastMessageId == entry.lastMessageId ||
-            currentUpdatedTimestamp <= entry.updatedTimestamp) {
+        if (currentLastMessageId == entry.lastMessageId) {
           entry.lastUsedTimestamp = Math.floor(Date.now() / 1000);
           return this.putCacheEntry(entry).catch(err => {
             console.error(
