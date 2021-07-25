@@ -1,22 +1,15 @@
-import {injectStylesheet, injectScript} from '../../common/contentScriptsUtils.js';
+import {injectScript, injectStylesheet} from '../../common/contentScriptsUtils.js';
 
-const SMEI_SORT_DIRECTION = 8;
 const SMEI_UNIFIED_PROFILES = 9;
 
 chrome.storage.sync.get(null, function(items) {
   /* IMPORTANT NOTE: Remember to change this when changing the "ifs" below!! */
-  if (items.loaddrafts || items.smei_sortdirection ||
-      items.disableunifiedprofiles) {
+  if (items.loaddrafts || items.disableunifiedprofiles) {
     var startup =
         JSON.parse(document.querySelector('html').getAttribute('data-startup'));
 
     if (items.loaddrafts) {
       startup[4][13] = true;
-    }
-
-    if (items.smei_sortdirection) {
-      if (!startup[1][6].includes(SMEI_SORT_DIRECTION))
-        startup[1][6].push(SMEI_SORT_DIRECTION);
     }
 
     if (items.disableunifiedprofiles) {
