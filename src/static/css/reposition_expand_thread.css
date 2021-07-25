@@ -3,18 +3,17 @@ ec-thread-summary .panel > .main-header {
 }
 
 ec-thread-summary .panel > .main-header .expand-container {
-  padding: 0 0 0 8px;
+  padding-inline: 8px 0;
 }
 
 ec-thread-summary .panel > .main-header > .header {
-  padding-left: 0px!important;
-  padding-right: 19px!important;
+  padding-inline: 0px 19px!important;
 }
 
 ec-thread-list ec-bulk-actions .selection {
-  padding-left: 29px;
+  padding-inline-start: 29px;
 }
 
 ec-thread-summary .panel .main .content-wrapper > .content > .content {
-  padding: 0 8px 0 121px;
+  padding-inline: 121px 8px;
 }
