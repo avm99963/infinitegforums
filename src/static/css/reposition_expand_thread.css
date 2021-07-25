@@ -1,14 +1,14 @@
-ec-thread-summary .panel .main-header {
+ec-thread-summary .panel > .main-header {
   flex-direction: row-reverse;
 }
 
-ec-thread-summary .panel .main-header .expand-container {
+ec-thread-summary .panel > .main-header .expand-container {
   padding: 0 0 0 8px;
 }
 
-ec-thread-summary .panel .main-header .header {
+ec-thread-summary .panel > .main-header > .header {
   padding-left: 0px!important;
-  padding-right: 16px!important;
+  padding-right: 19px!important;
 }
 
 ec-thread-list ec-bulk-actions .selection {
