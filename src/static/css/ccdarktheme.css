@@ -822,7 +822,8 @@ material-input .underline .unfocused-underline,
 }
 
 /* Checkbox input */
-material-checkbox material-icon {
+material-checkbox material-icon,
+    material-checkbox .content {
   color: var(--TWPT-secondary-text)!important;
 }
 
@@ -975,7 +976,8 @@ ec-canned-responses .filter-row,
 }
 
 /* Reply button */
-material-fab.reply-button {
+material-fab.reply-button,
+    material-fab.reply-fab {
   background-color: var(--TWPT-link)!important;
   color: var(--TWPT-primary-background)!important;
 }
@@ -987,10 +989,6 @@ ec-settings .forum-language-container {
 
 ec-settings .forum-language-container material-button {
   color: var(--TWPT-secondary-text)!important;
-}
-
-ec-settings material-checkbox, ec-settings material-checkbox .content {
-  color: var(--TWPT-primary-text)!important;
 }
 
 /* Loading spinner */
