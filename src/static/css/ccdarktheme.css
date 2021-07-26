@@ -13,6 +13,7 @@
   --TWPT-drawer-background: #2d2e30;
   --TWPT-button-background: #3c3e42;
   --TWPT-input-underline: rgba(255, 255, 255, .28);
+  --TWPT-blue-100: #BBDEFB;
   --TWPT-blue-A100: #82B1FF;
   --TWPT-bad-text: #f6aea9;
   --TWPT-good-text: #34a853;
@@ -258,6 +259,10 @@ ec-thread-summary material-expansionpanel ec-safe-html.body,
   color: var(--TWPT-primary-text)!important;
 }
 
+/*
+ * The following section changes the styles of the checkboxes in thread lists,
+ * based in the styles defined in the "Checkbox input" section.
+ **/
 ec-thread-summary material-expansionpanel .action material-button,
     ec-thread-list material-checkbox material-icon,
     ec-thread-summary material-expansionpanel .star-button:not(.starred) {
@@ -269,6 +274,7 @@ ec-thread-list material-checkbox material-icon.filled {
   color: #62a5ff!important; /* Custom value to contrast well with the background */
 }
 
+/* .gm-icons is added by the SMEI_GOOGLE_MATERIAL_ICONS experiment. */
 ec-thread-list material-checkbox:focus:not(.disabled).gm-icons .icon,
     .gm-icons ec-thread-list material-checkbox:focus:not(.disabled) .icon,
     ec-thread-list material-checkbox:hover:not(.disabled).gm-icons .icon,
@@ -281,11 +287,6 @@ ec-thread-list material-checkbox:focus:not(.disabled).gm-icons .icon.filled,
     ec-thread-list material-checkbox:hover:not(.disabled).gm-icons .icon.filled,
     .gm-icons ec-thread-list material-checkbox:hover:not(.disabled) .icon.filled {
   color: #92c1ff!important; /* custom value */
-}
-
-/* .gm-icons is added by the SMEI_GOOGLE_MATERIAL_ICONS experiment. */
-.gm-icons ec-thread-list material-checkbox .icon-container::after{
-  background-color: #dfdedb!important; /* custom value */
 }
 
 /* Thread view (including review/live review components) */
@@ -586,15 +587,6 @@ ec-thread-composer material-drawer material-radio .radio-description,
   color: var(--TWPT-secondary-text)!important;
 }
 
-ec-thread-composer material-drawer material-checkbox material-icon {
-  opacity: 1!important;
-  color: rgba(255, 255, 255, .74)!important; /* Custom value */
-}
-
-ec-thread-composer material-drawer material-checkbox .content {
-  color: var(--TWPT-primary-text-alt)!important;
-}
-
 /* Note: see thread view section. There is a rule for the thread creation
  * footer.
  **/
@@ -680,7 +672,6 @@ ec-filter-drawer-item material-icon,
     material-drawer .drawer-section ec-icon,
     material-list material-icon,
     ec-query-builder material-icon,
-    material-radio .icon-container:not(.checked) material-icon,
     ec-thread-summary material-expansionpanel .title material-icon,
     .search-results ec-thread-option material-icon,
     .search-results ec-thread-option ec-icon,
@@ -831,8 +822,57 @@ material-input .underline .unfocused-underline,
 }
 
 /* Checkbox input */
-material-checkbox, material-checkbox .content {
+material-checkbox material-icon {
   color: var(--TWPT-secondary-text)!important;
+}
+
+/* .gm-icons is added by the SMEI_GOOGLE_MATERIAL_ICONS experiment. */
+material-checkbox material-icon.filled {
+  color: var(--TWPT-blue-A100)!important;
+}
+
+material-checkbox:focus:not(.disabled).gm-icons .icon,
+    .gm-icons material-checkbox:focus:not(.disabled) .icon,
+    material-checkbox:hover:not(.disabled).gm-icons .icon,
+    .gm-icons material-checkbox:hover:not(.disabled) .icon {
+  color: #cfd2d8!important; /* custom value */
+}
+
+material-checkbox:focus:not(.disabled).gm-icons .icon.filled,
+    .gm-icons material-checkbox:focus:not(.disabled) .icon.filled,
+    material-checkbox:hover:not(.disabled).gm-icons .icon.filled,
+    .gm-icons material-checkbox:hover:not(.disabled) .icon.filled {
+  color: var(--TWPT-blue-100)!important;
+}
+
+.gm-icons material-checkbox .icon-container::before{
+  background-color: #dfdedb!important; /* custom value */
+}
+
+/* Radio input */
+material-radio .icon-container:not(.checked) material-icon {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+material-radio .icon-container.checked material-icon {
+  color: var(--TWPT-blue-A100)!important;
+}
+
+/* Material switch */
+.mdc-switch:not(.mdc-switch--checked) .mdc-switch__track {
+  background-color: #7d7d7d!important; /* custom value */
+}
+
+.mdc-switch:not(.mdc-switch--checked) .mdc-switch__thumb {
+  border-color: #fff!important; /* custom value */
+}
+
+.mdc-switch.mdc-switch--checked .mdc-switch__track {
+  background-color: var(--TWPT-blue-A100)!important;
+}
+
+.mdc-switch.mdc-switch--checked .mdc-switch__thumb {
+  border-color: var(--TWPT-blue-A100)!important;
 }
 
 /* Material menu button and dropdown select */
