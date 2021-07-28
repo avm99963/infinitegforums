@@ -42,24 +42,14 @@ https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+log/refs/tags/{prev
 upload the Chromium beta and Gecko stable packages and mark the release as a
 pre-release if there is no intention of promoting this release to stable in the
 future).
-5. Mark the option **Create a discussion for this release** and select category
-**Releases**.
-6. Click **Publish release**.
-7. Click **Join release discussion**.
-8. Add something like this to the beginning of the discussion:
-``` md
-# Version 1.9.3
-
-## Status
-
-- **Beta channel:** pending review. It will probably take some hours to be reviewed and automatically
-published.
-- **Stable channel:** it will be available by the end of the week.
-```
 
 ## Submitting to the Chrome Web Store
 1. [Upload both release files](https://developer.chrome.com/webstore/publish#upload-your-item)
 to the Chrome Web Store, one for each release channel.
+
+   You can use the following links: [[stable]](http://go/twpt-cwsd-stable),
+   [[beta]](http://go/twpt-cwsd-beta) (internal-only).
+
 2. [Submit both releases](https://developer.chrome.com/webstore/publish#submit-your-item-for-publishing)
 to be reviewed by the Chrome Web Store team, but in the case of the stable
 channel uncheck the "Publish automatically after it has passed review" option.
