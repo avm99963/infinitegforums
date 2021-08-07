@@ -1,30 +1,19 @@
-import {removeChildNodes, createExtBadge} from './utils/common.js';
+import {createExtBadge, removeChildNodes} from './utils/common.js';
 
-export function nodeIsReadToggleBtn(node) {
-  return ('tagName' in node) && node.tagName == 'MATERIAL-BUTTON' &&
-      node.getAttribute('debugid') !== null &&
-      (node.getAttribute('debugid') == 'mark-read-button' ||
-       node.getAttribute('debugid') == 'mark-unread-button') &&
-      ('parentNode' in node) && node.parentNode !== null &&
-      ('parentNode' in node.parentNode) &&
-      node.parentNode.querySelector('[debugid="batchlock"]') === null &&
-      node.parentNode.parentNode !== null &&
-      ('tagName' in node.parentNode.parentNode) &&
-      node.parentNode.parentNode.tagName == 'EC-BULK-ACTIONS';
-}
-
-export function addBatchLockBtn(readToggle) {
-  var clone = readToggle.cloneNode(true);
-  clone.setAttribute('debugid', 'batchlock');
-  clone.classList.add('TWPT-btn--with-badge');
-  clone.setAttribute('title', chrome.i18n.getMessage('inject_lockbtn'));
-  clone.querySelector('material-icon').setAttribute('icon', 'lock');
-  clone.querySelector('i.material-icon-i').textContent = 'lock';
-
-  var badge = createExtBadge();
-  clone.append(badge);
-
-  clone.addEventListener('click', function() {
+export var batchLock = {
+  nodeIsReadToggleBtn(node) {
+    return ('tagName' in node) && node.tagName == 'MATERIAL-BUTTON' &&
+        node.getAttribute('debugid') !== null &&
+        (node.getAttribute('debugid') == 'mark-read-button' ||
+         node.getAttribute('debugid') == 'mark-unread-button') &&
+        ('parentNode' in node) && node.parentNode !== null &&
+        ('parentNode' in node.parentNode) &&
+        node.parentNode.querySelector('[debugid="batchlock"]') === null &&
+        node.parentNode.parentNode !== null &&
+        ('tagName' in node.parentNode.parentNode) &&
+        node.parentNode.parentNode.tagName == 'EC-BULK-ACTIONS';
+  },
+  createDialog() {
     var modal = document.querySelector('.pane[pane-id="default-1"]');
 
     var dialog = document.createElement('material-dialog');
@@ -120,14 +109,29 @@ export function addBatchLockBtn(readToggle) {
     modal.append(dialog);
     modal.classList.add('visible', 'modal');
     modal.style.display = 'flex';
-  });
+  },
+  addButton(readToggle) {
+    var clone = readToggle.cloneNode(true);
+    clone.setAttribute('debugid', 'batchlock');
+    clone.classList.add('TWPT-btn--with-badge');
+    clone.setAttribute('title', chrome.i18n.getMessage('inject_lockbtn'));
+    clone.querySelector('material-icon').setAttribute('icon', 'lock');
+    clone.querySelector('i.material-icon-i').textContent = 'lock';
 
-  var duplicateBtn =
-      readToggle.parentNode.querySelector('[debugid="mark-duplicate-button"]');
-  if (duplicateBtn)
-    duplicateBtn.parentNode.insertBefore(
-        clone, (duplicateBtn.nextSibling || duplicateBtn));
-  else
-    readToggle.parentNode.insertBefore(
-        clone, (readToggle.nextSibling || readToggle));
-}
+    var badge = createExtBadge();
+    clone.append(badge);
+
+    clone.addEventListener('click', () => {
+      this.createDialog();
+    });
+
+    var duplicateBtn = readToggle.parentNode.querySelector(
+        '[debugid="mark-duplicate-button"]');
+    if (duplicateBtn)
+      duplicateBtn.parentNode.insertBefore(
+          clone, (duplicateBtn.nextSibling || duplicateBtn));
+    else
+      readToggle.parentNode.insertBefore(
+          clone, (readToggle.nextSibling || readToggle));
+  }
+};

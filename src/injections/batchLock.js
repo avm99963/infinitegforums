@@ -1,3 +1,4 @@
+import {CCApi} from '../common/api.js';
 import {parseUrl} from '../common/commonUtils.js';
 import {getAuthUser} from '../common/communityConsoleUtils.js';
 
@@ -106,9 +107,6 @@ function lockThreads(action) {
   modal.querySelector('main').append(p, log);
 
   var authuser = getAuthUser();
-  var APIRequestUrl =
-      'https://support.google.com/s/community/api/SetThreadAttribute' +
-      (authuser == '0' ? '' : '?authuser=' + encodeURIComponent(authuser));
 
   checkboxes.forEach(checkbox => {
     var url = recursiveParentElement(checkbox, 'A').href;
@@ -117,37 +115,12 @@ function lockThreads(action) {
       console.error('Fatal error: thread URL ' + url + ' could not be parsed.');
       return;
     }
-    fetch(APIRequestUrl, {
-      'headers': {
-        'content-type': 'text/plain; charset=utf-8',
-      },
-      'body': JSON.stringify({
-        1: thread.forum,
-        2: thread.thread,
-        3: (action == 'lock' ? 1 : 2),
-      }),
-      'method': 'POST',
-      'mode': 'cors',
-      'credentials': 'include',
-    })
-        .then(res => {
-          if (res.status == 200 || res.status == 400) {
-            return res.json().then(data => ({
-                                     status: res.status,
-                                     body: data,
-                                   }));
-          } else {
-            throw new Error('Status code ' + res.status + ' was not expected.');
-          }
-        })
-        .then(res => {
-          if (res.status == 400) {
-            throw new Error(
-                res.body[4] ||
-                ('Response status: 400. Error code: ' + res.body[2]));
-          }
-        })
-        .then(_ => {
+    CCApi('SetThreadAttribute', {
+      1: thread.forum,
+      2: thread.thread,
+      3: (action == 'lock' ? 1 : 2),
+    }, /* authenticated = */ true, authuser)
+        .then(() => {
           addLogEntry(true, action, url, thread.thread);
         })
         .catch(err => {
@@ -155,7 +128,7 @@ function lockThreads(action) {
               'An error occurred while locking thread ' + url + ': ' + err);
           addLogEntry(false, action, url, thread.thread, err);
         })
-        .then(_ => {
+        .then(() => {
           progress.value = parseInt(progress.value) + 1;
           if (progress.value == progress.getAttribute('max'))
             enableEndButtons();
@@ -169,7 +142,7 @@ window.addEventListener('message', e => {
     switch (e.data.action) {
       case 'lock':
       case 'unlock':
-        console.info('Performing action ' + e.data.action);
+        console.debug('Performing action ' + e.data.action);
         lockThreads(e.data.action);
         break;
 

@@ -2,7 +2,7 @@ import {injectScript, injectStyles, injectStylesheet} from '../../common/content
 
 import {autoRefresh} from './autoRefresh.js';
 import AvatarsHandler from './avatars.js';
-import {addBatchLockBtn, nodeIsReadToggleBtn} from './batchLock.js';
+import {batchLock} from './batchLock.js';
 import {injectDarkModeButton, isDarkThemeOn} from './darkMode.js';
 import {applyDragAndDropFix} from './dragAndDropFix.js';
 import {injectPreviousPostsLinks} from './profileHistoryLink.js';
@@ -105,8 +105,8 @@ function handleCandidateNode(node) {
     }
 
     // Inject the batch lock button in the thread list
-    if (options.batchlock && nodeIsReadToggleBtn(node)) {
-      addBatchLockBtn(node);
+    if (options.batchlock && batchLock.nodeIsReadToggleBtn(node)) {
+      batchLock.addButton(node);
     }
 
     // Inject avatar links to threads in the thread list
