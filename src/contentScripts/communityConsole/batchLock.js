@@ -42,7 +42,7 @@ export var batchLock = {
 
     dialog.append(header, main);
 
-    var footers = [['lock', 'unlock', 'cancel'], ['reload', 'close']];
+    var footers = [['lock', 'unlock', 'cancel'], ['close']];
 
     for (var i = 0; i < footers.length; ++i) {
       var footer = document.createElement('footer');
@@ -71,20 +71,17 @@ export var batchLock = {
             });
             break;
 
-          case 'cancel':
           case 'close':
             btn.addEventListener('click', _ => {
               if (btn.classList.contains('is-disabled')) return;
+              var refreshButton = document.querySelector('.app-title-button');
+              if (refreshButton == null)
+                window.location.reload();
+              else
+                refreshButton.click();
               modal.classList.remove('visible');
               modal.style.display = 'none';
               removeChildNodes(modal);
-            });
-            break;
-
-          case 'reload':
-            btn.addEventListener('click', _ => {
-              if (btn.classList.contains('is-disabled')) return;
-              window.location.reload()
             });
             break;
         }
