@@ -1,11 +1,31 @@
 const CC_API_BASE_URL = 'https://support.google.com/s/community/api/';
 
+const apiErrors = {
+  0: 'OK',
+  1: 'CANCELLED',
+  2: 'UNKNOWN',
+  3: 'INVALID_ARGUMENT',
+  4: 'DEADLINE_EXCEEDED',
+  5: 'NOT_FOUND',
+  6: 'ALREADY_EXISTS',
+  7: 'PERMISSION_DENIED',
+  8: 'RESOURCE_EXHAUSTED',
+  9: 'FAILED_PRECONDITION',
+  10: 'ABORTED',
+  11: 'OUT_OF_RANGE',
+  12: 'OUT_OF_RANGE',
+  13: 'INTERNAL',
+  14: 'UNAVAILABLE',
+  15: 'DATA_LOSS',
+  16: 'UNAUTHENTICATED',
+};
+
 // Function to wrap calls to the Community Console API with intelligent error
 // handling.
 export function CCApi(
     method, data, authenticated, authuser = 0,
     returnUnauthorizedStatus = false) {
-  var authuserPart =
+  let authuserPart =
       authuser == '0' ? '' : '?authuser=' + encodeURIComponent(authuser);
 
   return fetch(CC_API_BASE_URL + method + authuserPart, {
@@ -40,7 +60,8 @@ export function CCApi(
           throw new Error(
               res.body[4] ||
               ('Response status 400 for method ' + method + '. ' +
-               'Error code: ' + (res.body[2] ?? 'unknown')));
+               'Error code: ' +
+               (apiErrors[res.body?.[2]] ?? res.body?.[2] ?? 'unknown')));
         }
 
         if (returnUnauthorizedStatus)
