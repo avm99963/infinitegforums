@@ -5,5 +5,10 @@
       urlRegex: "api/ViewForum",
       intercepts: "response",
     },
+    {
+      eventName: "CreateMessageRequest",
+      urlRegex: "api/CreateMessage",
+      intercepts: "request",
+    },
   ],
 }

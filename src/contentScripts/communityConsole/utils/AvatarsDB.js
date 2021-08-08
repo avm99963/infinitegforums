@@ -2,6 +2,7 @@ import {openDB} from 'idb';
 
 const dbName = 'TWPTAvatarsDB';
 const threadListLoadEvent = 'TWPT_ViewForumResponse';
+const createMessageLoadEvent = 'TWPT_CreateMessageRequest';
 // Time after the last use when a cache entry should be deleted (in s):
 const cacheExpirationTime = 4 * 24 * 60 * 60;  // 4 days
 // Probability of running the piece of code to remove unused cache entries after
@@ -15,7 +16,7 @@ export default class AvatarsDB {
   constructor() {
     this.dbPromise = undefined;
     this.openDB();
-    this.setUpInvalidationsHandler();
+    this.setUpInvalidationsHandlers();
   }
 
   openDB() {
@@ -73,12 +74,14 @@ export default class AvatarsDB {
         });
   }
 
-  setUpInvalidationsHandler() {
+  setUpInvalidationsHandlers() {
     window.addEventListener(
-        threadListLoadEvent, e => this.handleInvalidations(e));
+        threadListLoadEvent, e => this.handleInvalidationsByListLoad(e));
+    window.addEventListener(
+        createMessageLoadEvent, e => this.handleInvalidationByNewMessage(e));
   }
 
-  handleInvalidations(e) {
+  handleInvalidationsByListLoad(e) {
     var response = e?.detail?.body;
     var threads = response?.['1']?.['2'];
     if (threads === undefined) {
@@ -126,6 +129,21 @@ export default class AvatarsDB {
               err);
         });
     });
+  }
+
+  handleInvalidationByNewMessage(e) {
+    var request = e?.detail?.body;
+    var threadId = request?.['2'];
+    if (threadId === undefined) {
+      console.warn(
+          '[threadListAvatars] Thread ID couldn\'t be parsed from the CreateMessage request.');
+      return;
+    }
+
+    console.debug(
+        '[threadListAvatars] Invalidating thread', threadId,
+        'due to intercepting a CreateMessage request for that thread.');
+    return this.invalidateCacheEntryIfExists(threadId);
   }
 
   // unauthorizedForums methods:
