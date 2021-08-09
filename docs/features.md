@@ -97,9 +97,9 @@ Console_.
 When opening the Community Console, the sidebar which shows the forums, filters,
 etc. will be hidden/closed by default. Useful if your screen is small.
 
-### Drag and drop bookmarks to the text editor (Chrome-only)
-> **Option name:** _Allow to drag and drop bookmarks to the Community Console
-text editor_.
+### Drag and drop links to the text editor (Chrome-only)
+> **Option name:** _Allow to drag and drop links to the Community Console text
+editor while preserving the text_.
 
 In Chrome, when drag and dropping bookmarks or Omnibox links to the Community
 Console rich text editor, the bookmark/link title gets replaced by the URL.

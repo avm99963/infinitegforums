@@ -104,9 +104,9 @@ Cuando se abra la Consola de la Comunidad, la barra lateral que muestra los
 foros, filtros, etc. estará oculta/cerrada por defecto. Útil si tu pantalla es
 pequeña.
 
-### Arrastra marcadores al editor de texto (solo en Chrome)
-> **Opción:** _Permite arrastrar marcadores al editor de texto de la Consola de
-la Comunidad_
+### Arrastra enlaces al editor de texto (solo en Chrome)
+> **Opción:** _Permite arrastrar enlaces al editor de texto de la Consola de la
+Comunidad preservando su texto_.
 
 En Chrome, cuando se arrastran marcadores o enlaces de la Omnibox al editor de
 texto enriquecido de la Consola de la Comunidad, el título del marcador/enlace

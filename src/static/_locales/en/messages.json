@@ -84,7 +84,7 @@
     "description": "Feature checkbox in the options page"
   },
   "options_ccdragndropfix": {
-    "message": "Allow to drag and drop bookmarks to the Community Console text editor.",
+    "message": "Allow to drag and drop links to the Community Console text editor while preserving the text.",
     "description": "Feature checkbox in the options page"
   },
   "options_batchlock": {
