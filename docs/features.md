@@ -72,7 +72,7 @@ In thread lists in the Community Console, the backgrounds for read and unread
 threads are very similar. This option increases this contrast.
 
 ### Sticky drawer headers
-> **Option name_** _Make the headers in the Community Console sidebar stick at
+> **Option name:** _Make the headers in the Community Console sidebar stick at
 the top_.
 
 ![GIF showing the feature](resources/sticky_headers.gif)
@@ -130,6 +130,35 @@ don't miss it.
 the Community Console thread lists_.
 
 ![Picture showing the feature](resources/reposition_expand_thread.jpg)
+
+### Avatars in thread lists
+> **Option name:** _Show avatars in thread lists in the Community Console_.
+
+When this option is enabled, in thread lists in the Community Console avatars
+will be shown next to each thread to show the avatars of the people who have
+participated in the thread.
+
+The extension retrieves the main message and the first 15 replies, and shows
+the avatars in order (the first avatar corresponds to the first person who
+joined the thread). If a user hasn't set an avatar, it is skipped, and only up
+to 3 avatars are shown.
+
+#### Known issues
+- Avatars aren't shown for threads in private forums, due to technical reasons.
+- Only the main message and the first 15 replies are considered in each thread,
+so if someone joins the thread after this limit, their avatar won't appear.
+- When going back from a thread to the thread list by clicking the "back"
+button, avatars take some seconds to appear.
+- If more than 3 people with avatar have posted a message, the extension will
+not indicate this in any way, it will just show the first 3 avatars.
+- Even if a PE is not badged in a forum, their avatar will be shown in the
+thread list (this is actually a feature, not an issue). The avatar won't show
+however inside the thread.
+- If a PE changes their avatar, you might still see the old one in the thread
+list, due to the fact that avatars are stored in a cache, and are only updated
+when a new reply is posted in the thread.
+
+![Picture showing the thread list avatars feature](resources/thread_list_avatars.jpg)
 
 ## Indicator dot
 > **Option names:** _Show whether the OP has participated in other threads_,

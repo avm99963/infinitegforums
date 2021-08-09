@@ -138,6 +138,38 @@ listas de hilos de la Consola de la Comunidad._.
 
 ![Imagen que muestra la función](resources/reposition_expand_thread.jpg)
 
+### Avatares/fotos de perfil en las listas de hilos
+> **Opción:** _Muestra fotos de perfil en las listas de hilos de la Consola de
+la Comunidad_.
+
+Cuando esta opción está activada, se mostrarán los avatares/fotos de perfil en
+las listas de hilos de la Consola de la Comunidad al lado de cada hilo, para
+mostrar quién ha participado en cada hilo.
+
+La extensión obtiene el mensaje principal y las primeras 15 respuestas, y
+muestra los avatares en orden (el primer avatar corresponde a la primera persona
+que se ha unido al hilo). Si un usuario no ha configurado un avatar, se salta,
+y solo se muestran un máximo de 3 avatares.
+
+#### Problemas conocidos
+- Los avatares no se muestran para hilos en foros privados, debido a razones
+técnicas.
+- Solo el mensaje principal y las primeras 15 respuestas son consideradas para
+cada hilo, así que si alguien se une al hilo después de este límite, su avatar
+no aparecerá.
+- Cuando se vuelve de un hilo a la lista de hilos haciendo clic en el botón
+"atrás", los avatares tardan unos segundos en aparecer.
+- Si más de 3 personas con avatar han publicado un mensaje, la extensión no lo
+indicará de ninguna manera, solo mostrará los primeros 3 avatares.
+- Aunque un EP no tenga insignia en un foro, su avatar se mostrará en la lista
+de hilos (esto es de hecho por diseño, no es un problema). Aun así, el avatar
+no se mostrará dentro del hilo.
+- Si un EP cambia su avatar, podrías continuar viendo el viejo en las listas de
+hilos, debido al hecho que los avatares se guardan en una caché, y solo se
+actualizan cuando se publica una nueva respuesta en el hilo.
+
+![Imagen que muestra la función de avatares en listas de hilos](resources/thread_list_avatars.jpg)
+
 ## Punto indicador
 > **Opciones:** _Muestra si el autor del hilo ha participado en otros hilos_,
 _Muestra el número de preguntas y respuestas escritas por el autor del hilo

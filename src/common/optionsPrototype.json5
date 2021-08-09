@@ -95,13 +95,13 @@
     context: 'options',
     killSwitchType: 'option',
   },
-
-  // Experiments:
   'threadlistavatars': {
     defaultValue: false,
-    context: 'experiments',
-    killSwitchType: 'experiment',
+    context: 'options',
+    killSwitchType: 'option',
   },
+
+  // Experiments:
   'autorefreshlist': {
     defaultValue: false,
     context: 'experiments',
