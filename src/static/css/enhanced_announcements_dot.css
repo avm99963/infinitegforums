@@ -32,7 +32,7 @@ header .left-control .material-drawer-button.has-updates::after {
   animation: .5s infinite alternate ease-in TWPTAnnouncementDot;
 }
 
-header .right-control material-button.has-updates::after {
+header .right-control .help-button.has-updates::after {
   animation: .5s infinite alternate ease-in TWPTAnnouncementDot-v2;
 }
 
