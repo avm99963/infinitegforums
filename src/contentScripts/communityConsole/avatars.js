@@ -54,19 +54,19 @@ export default class AvatarsHandler {
   // get its avatars since it makes an anonymomus call to get the contents of
   // the thread.
   //
-  // This function returns whether avatars should be retrieved depending on if
-  // the thread belongs to a known private forum.
-  shouldRetrieveAvatars(thread) {
+  // This function returns whether the thread belongs to a known private forum.
+  isPrivateThread(thread) {
     return this.getPrivateForums().then(privateForums => {
-      if (privateForums.includes(thread.forum)) return false;
+      if (privateForums.includes(thread.forum)) return true;
 
-      return this.db.isForumUnauthorized(thread.forum).then(res => !res);
+      return this.db.isForumUnauthorized(thread.forum);
     });
   }
 
   // Get an object with the author of the thread, an array of the first |num|
   // replies from the thread |thread|, and additional information about the
-  // thread.
+  // thread. It also returns whether the thread is private, in which case the
+  // previous properties will be missing.
   getFirstMessages(thread, num = 15) {
     return CCApi(
                'ViewThread', {
@@ -97,7 +97,9 @@ export default class AvatarsHandler {
         .then(response => {
           if (response.unauthorized)
             return this.db.putUnauthorizedForum(thread.forum).then(() => {
-              throw new Error('Permission denied to load thread.');
+              return {
+                isPrivate: true,
+              };
             });
 
           var data = response.body;
@@ -119,6 +121,7 @@ export default class AvatarsHandler {
                 'Author isn\'t included in the ViewThread response.');
 
           return {
+            isPrivate: false,
             messages,
             author,
 
@@ -130,9 +133,17 @@ export default class AvatarsHandler {
         });
   }
 
-  // Get a list of at most |num| avatars for thread |thread| by calling the API
+  // Get the following data:
+  // - |isPrivate|: whether the thread is private.
+  // - |avatars|: a list of at most |num| avatars for thread |thread| by calling
+  // the API, if |isPrivate| is false.
   getVisibleAvatarsFromServer(thread, num) {
     return this.getFirstMessages(thread).then(result => {
+      if (result.isPrivate)
+        return {
+          isPrivate: true,
+        };
+
       var messages = result.messages;
       var author = result.author;
       var lastMessageId = result.lastMessageId;
@@ -160,7 +171,10 @@ export default class AvatarsHandler {
           lastUsedTimestamp: Math.floor(Date.now() / 1000),
         });
 
-      return avatarUrls;
+      return {
+        isPrivate: false,
+        avatars: avatarUrls,
+      };
     });
   }
 
@@ -228,13 +242,17 @@ export default class AvatarsHandler {
         });
   }
 
-  // Get a list of at most |num| avatars for thread |thread|
+  // Get an object with the following data:
+  // - |state|: 'ok' (the avatars list could be retrieved) or 'private' (the
+  // thread is private, so the avatars list could not be retrieved).
+  // - |avatars|: list of at most |num| avatars for thread |thread|
   getVisibleAvatars(thread, num = 3) {
-    return this.shouldRetrieveAvatars(thread).then(shouldRetrieve => {
-      if (!shouldRetrieve) {
-        console.debug('[threadListAvatars] Skipping thread', thread);
-        return [];
-      }
+    return this.isPrivateThread(thread).then(isPrivate => {
+      if (isPrivate)
+        return {
+          state: 'private',
+          avatars: [],
+        };
 
       return this.getVisibleAvatarsFromCacheAfterInvalidations(thread, num)
           .then(res => {
@@ -243,7 +261,10 @@ export default class AvatarsHandler {
               err.name = 'notCached';
               throw err;
             }
-            return res.entry.avatarUrls;
+            return {
+              state: 'ok',
+              avatars: res.entry.avatarUrls,
+            };
           })
           .catch(err => {
             // If the name is "notCached", then this is not an actual error so
@@ -253,7 +274,18 @@ export default class AvatarsHandler {
                   '[threadListAvatars] Error while accessing avatars cache:',
                   err);
 
-            return this.getVisibleAvatarsFromServer(thread, num);
+            return this.getVisibleAvatarsFromServer(thread, num).then(res => {
+              if (res.isPrivate)
+                return {
+                  state: 'private',
+                  avatars: [],
+                };
+
+              return {
+                state: 'ok',
+                avatars: res.avatars,
+              };
+            });
           });
     });
   }
@@ -275,17 +307,24 @@ export default class AvatarsHandler {
     }
 
     this.getVisibleAvatars(thread)
-        .then(avatarUrls => {
+        .then(res => {
           var avatarsContainer = document.createElement('div');
           avatarsContainer.classList.add('TWPT-avatars');
 
-          var count = Math.floor(Math.random() * 4);
+          var avatarUrls = res.avatars;
 
-          for (var i = 0; i < avatarUrls.length; ++i) {
+          if (res.state == 'private') {
             var avatar = document.createElement('div');
-            avatar.classList.add('TWPT-avatar');
-            avatar.style.backgroundImage = 'url(\'' + avatarUrls[i] + '\')';
+            avatar.classList.add('TWPT-avatar-private-placeholder');
+            avatar.textContent = 'vpn_key';
             avatarsContainer.appendChild(avatar);
+          } else {
+            for (var i = 0; i < avatarUrls.length; ++i) {
+              var avatar = document.createElement('div');
+              avatar.classList.add('TWPT-avatar');
+              avatar.style.backgroundImage = 'url(\'' + avatarUrls[i] + '\')';
+              avatarsContainer.appendChild(avatar);
+            }
           }
 
           header.appendChild(avatarsContainer);
