@@ -3,8 +3,11 @@ import * as utils from '../common/xhrInterceptorUtils.js';
 const originalOpen = XMLHttpRequest.prototype.open;
 const originalSend = XMLHttpRequest.prototype.send;
 
+let messageID = 0;
+
 XMLHttpRequest.prototype.open = function() {
   this.$TWPTRequestURL = arguments[1] || location.href;
+  this.$TWPTID = messageID++;
 
   let interceptors = utils.matchInterceptors('response', this.$TWPTRequestURL);
   if (interceptors.length > 0) {
@@ -12,7 +15,7 @@ XMLHttpRequest.prototype.open = function() {
       var body = utils.getResponseJSON(this);
       if (body !== undefined)
         interceptors.forEach(i => {
-          utils.triggerEvent(i.eventName, body);
+          utils.triggerEvent(i.eventName, body, this.$TWPTID);
         });
     });
   }
@@ -40,7 +43,7 @@ XMLHttpRequest.prototype.send = function() {
     var JSONBody = JSON.parse(body);
 
     interceptors.forEach(i => {
-      utils.triggerEvent(i.eventName, JSONBody);
+      utils.triggerEvent(i.eventName, JSONBody, this.$TWPTID);
     });
   }
 };

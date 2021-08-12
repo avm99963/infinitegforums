@@ -31,10 +31,11 @@ export function getResponseJSON(xhr) {
   return undefined;
 }
 
-export function triggerEvent(eventName, body) {
+export function triggerEvent(eventName, body, id) {
   var evt = new CustomEvent('TWPT_' + eventName, {
     detail: {
       body,
+      id,
     }
   });
   window.dispatchEvent(evt);
