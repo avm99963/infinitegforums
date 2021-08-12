@@ -1,5 +1,7 @@
 import {injectScript, injectStylesheet} from '../../common/contentScriptsUtils.js';
 
+import AutoRefresh from './autoRefresh.js';
+
 const SMEI_UNIFIED_PROFILES = 9;
 
 chrome.storage.sync.get(null, function(items) {
@@ -20,6 +22,11 @@ chrome.storage.sync.get(null, function(items) {
     document.querySelector('html').setAttribute(
         'data-startup', JSON.stringify(startup));
   }
+
+  // Initialized here instead of in main.js so the first |ViewForumResponse|
+  // event is received if it happens when the page loads.
+  if (items.autorefreshlist)
+    window.autoRefresh = new AutoRefresh();
 
   if (items.ccdarktheme) {
     switch (items.ccdarktheme_mode) {

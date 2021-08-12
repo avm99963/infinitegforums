@@ -1,6 +1,11 @@
 {
   interceptors: [
     {
+      eventName: "ViewForumRequest",
+      urlRegex: "api/ViewForum",
+      intercepts: "request",
+    },
+    {
       eventName: "ViewForumResponse",
       urlRegex: "api/ViewForum",
       intercepts: "response",

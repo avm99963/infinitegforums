@@ -5,6 +5,7 @@ import {createExtBadge} from './utils/common.js';
 
 var authuser = getAuthUser();
 
+const threadListRequestEvent = 'TWPT_ViewForumRequest';
 const intervalMs = 3 * 60 * 1000;  // 3 minutes
 const firstCallDelayMs = 3 * 1000;  // 3 seconds
 
@@ -15,9 +16,13 @@ export default class AutoRefresh {
     this.lastTimestamp = null;
     this.filter = null;
     this.path = null;
+    this.requestId = null;
+    this.requestOrderOptions = null;
     this.snackbar = null;
     this.interval = null;
     this.firstCallTimeout = null;
+
+    this.setUpHandlers();
   }
 
   getStartupData() {
@@ -26,11 +31,14 @@ export default class AutoRefresh {
   }
 
   isOrderedByTimestampDescending() {
-    var startup = this.getStartupData();
+    // This means we didn't intercept the request.
+    if (!this.requestOrderOptions)
+      return false;
+
     // Returns orderOptions.by == TIMESTAMP && orderOptions.desc == true
     return (
-        startup?.[1]?.[1]?.[3]?.[14]?.[1] == 1 &&
-        startup?.[1]?.[1]?.[3]?.[14]?.[2] == true);
+        this.requestOrderOptions?.[1] == 1 &&
+        this.requestOrderOptions?.[2] == true);
   }
 
   getCustomFilter(path) {
@@ -224,8 +232,25 @@ export default class AutoRefresh {
                 'Couldn\'t get last timestamp (while setting up): ', err));
   }
 
+  setUpHandlers() {
+    window.addEventListener(
+        threadListRequestEvent, e => this.handleListRequest(e));
+  }
+
+  handleListRequest(e) {
+    console.debug('autorefresh_list: handling ViewForum request');
+    if (this.requestId === null || e.detail.id > this.requestId) {
+      this.requestId = e.detail.id;
+      this.requestOrderOptions = e.detail.body?.['2']?.['2'];
+    }
+  }
+
   setUp() {
-    if (!this.isOrderedByTimestampDescending()) return;
+    if (!this.isOrderedByTimestampDescending()) {
+      console.debug(
+          'autorefresh_list: refused to start up because the order is not by timestamp descending.');
+      return;
+    }
 
     this.unregister();
 

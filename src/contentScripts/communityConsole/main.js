@@ -1,6 +1,5 @@
 import {injectScript, injectStyles, injectStylesheet} from '../../common/contentScriptsUtils.js';
 
-import AutoRefresh from './autoRefresh.js';
 import AvatarsHandler from './avatars.js';
 import {batchLock} from './batchLock.js';
 import {injectDarkModeButton, isDarkThemeOn} from './darkMode.js';
@@ -8,7 +7,7 @@ import {applyDragAndDropFix} from './dragAndDropFix.js';
 import {injectPreviousPostsLinks} from './profileHistoryLink.js';
 import {unifiedProfilesFix} from './unifiedProfiles.js';
 
-var mutationObserver, intersectionObserver, intersectionOptions, options, avatars, autoRefresh;
+var mutationObserver, intersectionObserver, intersectionOptions, options, avatars;
 
 const watchedNodesSelectors = [
   // App container (used to set up the intersection observer and inject the dark
@@ -172,8 +171,7 @@ chrome.storage.sync.get(null, function(items) {
   if (options.threadlistavatars)
     avatars = new AvatarsHandler();
 
-  if (options.autorefreshlist)
-    autoRefresh = new AutoRefresh();
+  // autoRefresh is initialized in start.js
 
   // Before starting the mutation Observer, check whether we missed any
   // mutations by manually checking whether some watched nodes already
