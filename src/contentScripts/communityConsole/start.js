@@ -26,7 +26,7 @@ chrome.storage.sync.get(null, function(items) {
   // Initialized here instead of in main.js so the first |ViewForumResponse|
   // event is received if it happens when the page loads.
   if (items.autorefreshlist)
-    window.autoRefresh = new AutoRefresh();
+    window.TWPTAutoRefresh = new AutoRefresh();
 
   if (items.ccdarktheme) {
     switch (items.ccdarktheme_mode) {

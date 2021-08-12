@@ -118,7 +118,7 @@ function handleCandidateNode(node) {
     // Set up the autorefresh list feature
     if (options.autorefreshlist && ('tagName' in node) &&
         node.tagName == 'EC-THREAD-LIST') {
-      autoRefresh.setUp();
+      window.TWPTAutoRefresh.setUp();
     }
 
     // Redirect unified profile iframe to dark version if applicable
@@ -133,7 +133,7 @@ function handleRemovedNode(node) {
   // Remove snackbar when exiting thread list view
   if (options.autorefreshlist && 'tagName' in node &&
       node.tagName == 'EC-THREAD-LIST') {
-    autoRefresh.hideUpdatePrompt();
+    window.TWPTAutoRefresh.hideUpdatePrompt();
   }
 }
 
