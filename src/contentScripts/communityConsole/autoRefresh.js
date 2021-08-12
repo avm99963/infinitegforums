@@ -1,30 +1,38 @@
-import {createExtBadge} from './utils/common.js';
+import {CCApi} from '../../common/api.js';
 import {getAuthUser} from '../../common/communityConsoleUtils.js';
+
+import {createExtBadge} from './utils/common.js';
 
 var authuser = getAuthUser();
 
-export var autoRefresh = {
-  isLookingForUpdates: false,
-  isUpdatePromptShown: false,
-  lastTimestamp: null,
-  filter: null,
-  path: null,
-  snackbar: null,
-  interval: null,
-  firstCallTimeout: null,
-  intervalMs: 3 * 60 * 1000,   // 3 minutes
-  firstCallDelayMs: 3 * 1000,  // 3 seconds
+const intervalMs = 3 * 60 * 1000;  // 3 minutes
+const firstCallDelayMs = 3 * 1000;  // 3 seconds
+
+export default class AutoRefresh {
+  constructor() {
+    this.isLookingForUpdates = false;
+    this.isUpdatePromptShown = false;
+    this.lastTimestamp = null;
+    this.filter = null;
+    this.path = null;
+    this.snackbar = null;
+    this.interval = null;
+    this.firstCallTimeout = null;
+  }
+
   getStartupData() {
     return JSON.parse(
         document.querySelector('html').getAttribute('data-startup'));
-  },
+  }
+
   isOrderedByTimestampDescending() {
     var startup = this.getStartupData();
     // Returns orderOptions.by == TIMESTAMP && orderOptions.desc == true
     return (
         startup?.[1]?.[1]?.[3]?.[14]?.[1] == 1 &&
         startup?.[1]?.[1]?.[3]?.[14]?.[2] == true);
-  },
+  }
+
   getCustomFilter(path) {
     var searchRegex = /^\/s\/community\/search\/([^\/]*)/;
     var matches = path.match(searchRegex);
@@ -35,12 +43,14 @@ export var autoRefresh = {
     }
 
     return '';
-  },
+  }
+
   filterHasOverride(filter, override) {
     var escapedOverride = override.replace(/([^\w\d\s])/gi, '\\$1');
     var regex = new RegExp('[^a-zA-Z0-9]?' + escapedOverride + ':');
     return regex.test(filter);
-  },
+  }
+
   getFilter(path) {
     var query = this.getCustomFilter(path);
 
@@ -64,52 +74,28 @@ export var autoRefresh = {
     if (query.length !== 0 && conditions.length !== 0)
       return '(' + query + ')' + conditions;
     return query + conditions;
-  },
+  }
+
   getLastTimestamp() {
-    var APIRequestUrl = 'https://support.google.com/s/community/api/ViewForum' +
-        (authuser == '0' ? '' : '?authuser=' + encodeURIComponent(authuser));
-
-    return fetch(APIRequestUrl, {
-             'headers': {
-               'content-type': 'text/plain; charset=utf-8',
-             },
-             'body': JSON.stringify({
-               1: '0',  // TODO: Change, when only a forum is selected, it
-                        // should be set here
-               2: {
-                 1: {
-                   2: 2,
-                 },
+    return CCApi(
+               'ViewForum', {
+                 1: '0',  // TODO: Change, when only a forum is selected, it
+                          // should be set here
+                 // options
                  2: {
-                   1: 1,
-                   2: true,
+                   // pagination
+                   1: {
+                     2: 2,  // maxNum
+                   },
+                   // order
+                   2: {
+                     1: 1,     // by
+                     2: true,  // desc
+                   },
+                   12: this.filter,  // forumViewFilters
                  },
-                 12: this.filter,
                },
-             }),
-             'method': 'POST',
-             'mode': 'cors',
-             'credentials': 'include',
-           })
-        .then(res => {
-          if (res.status == 200 || res.status == 400) {
-            return res.json().then(data => ({
-                                     status: res.status,
-                                     body: data,
-                                   }));
-          } else {
-            throw new Error('Status code ' + res.status + ' was not expected.');
-          }
-        })
-        .then(res => {
-          if (res.status == 400) {
-            throw new Error(
-                res.body[4] ||
-                ('Response status: 400. Error code: ' + res.body[2]));
-          }
-
-          return res.body;
-        })
+               /* authenticated = */ true, authuser)
         .then(body => {
           var timestamp = body?.[1]?.[2]?.[0]?.[2]?.[17];
           if (timestamp === undefined)
@@ -127,7 +113,8 @@ export var autoRefresh = {
     //
     // NOTE(avm99963): It seems like loading the first 2 threads instead of only
     // the first one fixes this (empty lists are now rarely returned).
-  },
+  }
+
   unregister() {
     console.debug('autorefresh_list: unregistering');
 
@@ -137,17 +124,20 @@ export var autoRefresh = {
     window.clearInterval(this.interval);
     this.isUpdatePromptShown = false;
     this.isLookingForUpdates = false;
-  },
+  }
+
   showUpdatePrompt() {
     this.snackbar.classList.remove('TWPT-hidden');
     document.title = '[!!!] ' + document.title.replace('[!!!] ', '');
     this.isUpdatePromptShown = true;
-  },
+  }
+
   hideUpdatePrompt() {
     this.snackbar.classList.add('TWPT-hidden');
     document.title = document.title.replace('[!!!] ', '');
     this.isUpdatePromptShown = false;
-  },
+  }
+
   injectUpdatePrompt() {
     var pane = document.createElement('div');
     pane.classList.add('TWPT-pane-for-snackbar');
@@ -192,7 +182,8 @@ export var autoRefresh = {
     pane.append(snackbar);
     document.getElementById('default-acx-overlay-container').append(pane);
     this.snackbar = snackbar;
-  },
+  }
+
   checkUpdate() {
     if (location.pathname != this.path) {
       this.unregister();
@@ -210,7 +201,8 @@ export var autoRefresh = {
         .catch(
             err => console.error(
                 'Coudln\'t get last timestamp (while updating): ', err));
-  },
+  }
+
   firstCall() {
     console.debug(
         'autorefresh_list: now performing first call to finish setup (filter: [' +
@@ -225,13 +217,13 @@ export var autoRefresh = {
         .then(timestamp => {
           this.lastTimestamp = timestamp;
           var checkUpdateCallback = this.checkUpdate.bind(this);
-          this.interval =
-              window.setInterval(checkUpdateCallback, this.intervalMs);
+          this.interval = window.setInterval(checkUpdateCallback, intervalMs);
         })
         .catch(
             err => console.error(
                 'Couldn\'t get last timestamp (while setting up): ', err));
-  },
+  }
+
   setUp() {
     if (!this.isOrderedByTimestampDescending()) return;
 
@@ -245,6 +237,6 @@ export var autoRefresh = {
     this.filter = this.getFilter(this.path);
 
     var firstCall = this.firstCall.bind(this);
-    this.firstCallTimeout = window.setTimeout(firstCall, this.firstCallDelayMs);
-  },
+    this.firstCallTimeout = window.setTimeout(firstCall, firstCallDelayMs);
+  }
 };
