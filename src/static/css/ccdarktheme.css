@@ -61,6 +61,11 @@ body.ec a {
   fill: rgba(255, 255, 255, .87)!important;
 }
 
+/* Notification bell */
+notification-bell:focus {
+  background-color: rgba(255, 255, 255, .10)!important;
+}
+
 /* Drawer */
 material-drawer, material-drawer .panel, material-list-item {
   background-color: var(--TWPT-drawer-background)!important;
@@ -924,6 +929,10 @@ ec-announcements-content ::-webkit-scrollbar-thumb:hover {
 }
 
 /* Notifications bell popup/panel */
+.notification-panel .header {
+  border-bottom-color: var(--TWPT-card-border)!important;
+}
+
 .notification-panel .header material-button {
   color: var(--TWPT-secondary-text)!important;
 }
@@ -934,6 +943,19 @@ ec-announcements-content ::-webkit-scrollbar-thumb:hover {
 
 .notification-panel .cards-container .promo-message .header-text {
   color: var(--TWPT-primary-text)!important;
+}
+
+.notification-panel .cards-container ec-notification-card-content {
+  border-bottom-color: var(--TWPT-card-border)!important;
+}
+
+.notification-panel .cards-container ec-notification-card-content .text {
+  color: var(--TWPT-primary-text)!important;
+}
+
+.notification-panel .cards-container ec-notification-card-content .time,
+    .notification-panel .cards-container ec-notification-card-content .close material-button {
+  color: var(--TWPT-secondary-text)!important;
 }
 
 /* Account selector */
