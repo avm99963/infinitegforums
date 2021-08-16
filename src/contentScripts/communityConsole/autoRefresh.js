@@ -140,7 +140,7 @@ export default class AutoRefresh {
   }
 
   hideUpdatePrompt() {
-    this.snackbar.classList.add('TWPT-hidden');
+    if (this.snackbar) this.snackbar.classList.add('TWPT-hidden');
     document.title = document.title.replace('[!!!] ', '');
     this.isUpdatePromptShown = false;
   }
