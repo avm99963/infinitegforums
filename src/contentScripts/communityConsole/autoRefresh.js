@@ -6,7 +6,7 @@ import {createExtBadge} from './utils/common.js';
 var authuser = getAuthUser();
 
 const threadListRequestEvent = 'TWPT_ViewForumRequest';
-const intervalMs = 3 * 60 * 1000;  // 3 minutes
+const intervalMs = 3 * 60 * 1000;   // 3 minutes
 const firstCallDelayMs = 3 * 1000;  // 3 seconds
 
 export default class AutoRefresh {
@@ -32,8 +32,7 @@ export default class AutoRefresh {
 
   isOrderedByTimestampDescending() {
     // This means we didn't intercept the request.
-    if (!this.requestOrderOptions)
-      return false;
+    if (!this.requestOrderOptions) return false;
 
     // Returns orderOptions.by == TIMESTAMP && orderOptions.desc == true
     return (
@@ -238,11 +237,28 @@ export default class AutoRefresh {
   }
 
   handleListRequest(e) {
-    console.debug('autorefresh_list: handling ViewForum request');
-    if (this.requestId === null || e.detail.id > this.requestId) {
-      this.requestId = e.detail.id;
-      this.requestOrderOptions = e.detail.body?.['2']?.['2'];
-    }
+    // If the request was made before the last known one, return.
+    if (this.requestId !== null && e.detail.id < this.requestId) return;
+
+    // Ignore ViewForum requests made by the chat feature and the "Mark as
+    // duplicate" dialog.
+    //
+    // All those requests have |maxNum| set to 10 and 20 respectively, while the
+    // request that we want to handle is the initial request to load the thread
+    // list which currently requests 100 threads.
+    var maxNum = e.detail.body?.['2']?.['1']?.['2'];
+    if (maxNum == 10 || maxNum == 20) return;
+
+    // Ignore requests to load more threads in the current thread list. All
+    // those requests include a PaginationToken, and also have |maxNum| set
+    // to 50.
+    var token = e.detail.body?.['2']?.['1']?.['3'];
+    if (token) return;
+
+    console.debug('autorefresh_list: handling valid ViewForum request');
+
+    this.requestId = e.detail.id;
+    this.requestOrderOptions = e.detail.body?.['2']?.['2'];
   }
 
   setUp() {
