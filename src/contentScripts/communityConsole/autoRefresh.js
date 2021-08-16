@@ -6,28 +6,23 @@ import {createExtBadge} from './utils/common.js';
 var authuser = getAuthUser();
 
 const threadListRequestEvent = 'TWPT_ViewForumRequest';
-const intervalMs = 3 * 60 * 1000;   // 3 minutes
-const firstCallDelayMs = 3 * 1000;  // 3 seconds
+const threadListLoadEvent = 'TWPT_ViewForumResponse';
+const intervalMs = 3 * 60 * 1000;  // 3 minutes
 
 export default class AutoRefresh {
   constructor() {
     this.isLookingForUpdates = false;
     this.isUpdatePromptShown = false;
     this.lastTimestamp = null;
+    this.forumId = null;
     this.filter = null;
     this.path = null;
     this.requestId = null;
     this.requestOrderOptions = null;
     this.snackbar = null;
     this.interval = null;
-    this.firstCallTimeout = null;
 
     this.setUpHandlers();
-  }
-
-  getStartupData() {
-    return JSON.parse(
-        document.querySelector('html').getAttribute('data-startup'));
   }
 
   isOrderedByTimestampDescending() {
@@ -40,54 +35,10 @@ export default class AutoRefresh {
         this.requestOrderOptions?.[2] == true);
   }
 
-  getCustomFilter(path) {
-    var searchRegex = /^\/s\/community\/search\/([^\/]*)/;
-    var matches = path.match(searchRegex);
-    if (matches !== null && matches.length > 1) {
-      var search = decodeURIComponent(matches[1]);
-      var params = new URLSearchParams(search);
-      return params.get('query') || '';
-    }
-
-    return '';
-  }
-
-  filterHasOverride(filter, override) {
-    var escapedOverride = override.replace(/([^\w\d\s])/gi, '\\$1');
-    var regex = new RegExp('[^a-zA-Z0-9]?' + escapedOverride + ':');
-    return regex.test(filter);
-  }
-
-  getFilter(path) {
-    var query = this.getCustomFilter(path);
-
-    // Note: This logic has been copied and adapted from the
-    // _buildQuery$1$threadId function in the Community Console
-    var conditions = '';
-    var startup = this.getStartupData();
-
-    // TODO(avm99963): if the selected forums are changed without reloading the
-    // page, this will get the old selected forums. Fix this.
-    var forums = startup?.[1]?.[1]?.[3]?.[8] ?? [];
-    if (!this.filterHasOverride(query, 'forum') && forums !== null &&
-        forums.length > 0)
-      conditions += ' forum:(' + forums.join(' | ') + ')';
-
-    var langs = startup?.[1]?.[1]?.[3]?.[5] ?? [];
-    if (!this.filterHasOverride(query, 'lang') && langs !== null &&
-        langs.length > 0)
-      conditions += ' lang:(' + langs.map(l => '"' + l + '"').join(' | ') + ')';
-
-    if (query.length !== 0 && conditions.length !== 0)
-      return '(' + query + ')' + conditions;
-    return query + conditions;
-  }
-
   getLastTimestamp() {
     return CCApi(
                'ViewForum', {
-                 1: '0',  // TODO: Change, when only a forum is selected, it
-                          // should be set here
+                 1: this.forumId,
                  // options
                  2: {
                    // pagination
@@ -127,7 +78,6 @@ export default class AutoRefresh {
 
     if (!this.isLookingForUpdates) return;
 
-    window.clearTimeout(this.firstCallTimeout);
     window.clearInterval(this.interval);
     this.isUpdatePromptShown = false;
     this.isLookingForUpdates = false;
@@ -197,6 +147,12 @@ export default class AutoRefresh {
       return;
     }
 
+    if (!this.lastTimestamp) {
+      console.error('autorefresh_list: this.lastTimestamp is not set.');
+      this.unregister();
+      return;
+    }
+
     if (this.isUpdatePromptShown) return;
 
     console.debug('Checking for update at: ', new Date());
@@ -210,32 +166,14 @@ export default class AutoRefresh {
                 'Coudln\'t get last timestamp (while updating): ', err));
   }
 
-  firstCall() {
-    console.debug(
-        'autorefresh_list: now performing first call to finish setup (filter: [' +
-        this.filter + '])');
-
-    if (location.pathname != this.path) {
-      this.unregister();
-      return;
-    }
-
-    this.getLastTimestamp()
-        .then(timestamp => {
-          this.lastTimestamp = timestamp;
-          var checkUpdateCallback = this.checkUpdate.bind(this);
-          this.interval = window.setInterval(checkUpdateCallback, intervalMs);
-        })
-        .catch(
-            err => console.error(
-                'Couldn\'t get last timestamp (while setting up): ', err));
-  }
-
   setUpHandlers() {
     window.addEventListener(
         threadListRequestEvent, e => this.handleListRequest(e));
+    window.addEventListener(threadListLoadEvent, e => this.handleListLoad(e));
   }
 
+  // This will set the forum ID and filter which is going to be used to check
+  // for new updates in the thread list.
   handleListRequest(e) {
     // If the request was made before the last known one, return.
     if (this.requestId !== null && e.detail.id < this.requestId) return;
@@ -255,12 +193,37 @@ export default class AutoRefresh {
     var token = e.detail.body?.['2']?.['1']?.['3'];
     if (token) return;
 
-    console.debug('autorefresh_list: handling valid ViewForum request');
-
     this.requestId = e.detail.id;
     this.requestOrderOptions = e.detail.body?.['2']?.['2'];
+    this.forumId = e.detail.body?.['1'] ?? '0';
+    this.filter = e.detail.body?.['2']?.['12'] ?? '';
+
+    console.debug(
+        'autorefresh_list: handled valid ViewForum request (forumId: ' +
+        this.forumId + ', filter: [' + this.filter + '])');
   }
 
+  // This will set the timestamp of the first thread in the list, so we can
+  // decide in the future whether there is an update or not.
+  handleListLoad(e) {
+    // We ignore past requests and only consider the most recent one.
+    if (this.requestId !== e.detail.id) return;
+
+    console.debug(
+        'autorefresh_list: handling corresponding ViewForum response');
+
+    this.lastTimestamp = e.detail.body?.['1']?.['2']?.[0]?.['2']?.['17'];
+    if (this.lastTimestamp === undefined)
+      console.error(
+          'autorefresh_list: Unexpected body of response (' +
+          (body?.['1']?.['2']?.[0] === undefined ?
+               'no threads were returned' :
+               'the timestamp value is not present in the first thread') +
+          ').');
+  }
+
+  // This is called when a thread list node is detected in the page. This
+  // initializes the interval to check for updates, and several other things.
   setUp() {
     if (!this.isOrderedByTimestampDescending()) {
       console.debug(
@@ -275,9 +238,8 @@ export default class AutoRefresh {
     if (this.snackbar === null) this.injectUpdatePrompt();
     this.isLookingForUpdates = true;
     this.path = location.pathname;
-    this.filter = this.getFilter(this.path);
 
-    var firstCall = this.firstCall.bind(this);
-    this.firstCallTimeout = window.setTimeout(firstCall, firstCallDelayMs);
+    var checkUpdateCallback = this.checkUpdate.bind(this);
+    this.interval = window.setInterval(checkUpdateCallback, intervalMs);
   }
 };
