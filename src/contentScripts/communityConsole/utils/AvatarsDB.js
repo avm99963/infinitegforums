@@ -75,8 +75,19 @@ export default class AvatarsDB {
   }
 
   setUpInvalidationsHandlers() {
-    window.addEventListener(
-        threadListLoadEvent, e => this.handleInvalidationsByListLoad(e));
+    window.addEventListener(threadListLoadEvent, e => {
+      // Ignore ViewForum requests made by the chat feature and the "Mark as
+      // duplicate" dialog.
+      //
+      // All those requests have |maxNum| set to 10 and 20 respectively, while
+      // the requests that we want to handle are the ones to initially load the
+      // thread list (which currently requests 100 threads) and the ones to load
+      // more threads (which request 50 threads).
+      var maxNum = e.detail.body?.['2']?.['1']?.['2'];
+      if (maxNum == 10 || maxNum == 20) return;
+
+      this.handleInvalidationsByListLoad(e);
+    });
     window.addEventListener(
         createMessageLoadEvent, e => this.handleInvalidationByNewMessage(e));
   }
