@@ -23,7 +23,6 @@ export default class AutoRefresh {
     this.firstCallTimeout = null;
 
     this.setUpHandlers();
-    this.injectUpdatePrompt();
   }
 
   getStartupData() {
@@ -273,6 +272,7 @@ export default class AutoRefresh {
 
     console.debug('autorefresh_list: starting set up...');
 
+    if (this.snackbar === null) this.injectUpdatePrompt();
     this.isLookingForUpdates = true;
     this.path = location.pathname;
     this.filter = this.getFilter(this.path);
