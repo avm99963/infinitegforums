@@ -1,6 +1,7 @@
 import {openDB} from 'idb';
 
 const dbName = 'TWPTAvatarsDB';
+const threadListRequestEvent = 'TWPT_ViewForumRequest';
 const threadListLoadEvent = 'TWPT_ViewForumResponse';
 const createMessageLoadEvent = 'TWPT_CreateMessageRequest';
 // Time after the last use when a cache entry should be deleted (in s):
@@ -75,7 +76,9 @@ export default class AvatarsDB {
   }
 
   setUpInvalidationsHandlers() {
-    window.addEventListener(threadListLoadEvent, e => {
+    let ignoredRequests = [];
+
+    window.addEventListener(threadListRequestEvent, e => {
       // Ignore ViewForum requests made by the chat feature and the "Mark as
       // duplicate" dialog.
       //
@@ -84,7 +87,13 @@ export default class AvatarsDB {
       // thread list (which currently requests 100 threads) and the ones to load
       // more threads (which request 50 threads).
       var maxNum = e.detail.body?.['2']?.['1']?.['2'];
-      if (maxNum == 10 || maxNum == 20) return;
+      if (maxNum == 10 || maxNum == 20) ignoredRequests.push(e.$TWPTID);
+    });
+    window.addEventListener(threadListLoadEvent, e => {
+      if (ignoredRequests.includes(e.$TWPTID)) {
+        ignoredRequests = ignoredRequests.filter(item => item != e.$TWPTID);
+        return;
+      }
 
       this.handleInvalidationsByListLoad(e);
     });
