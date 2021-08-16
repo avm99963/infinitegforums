@@ -128,6 +128,7 @@ material-list material-select-item:hover,
     material-list material-select-dropdown-item:focus,
     material-list material-select-dropdown-item.active,
     material-list material-select-dropdown-item:not(.multiselect).selected,
+    material-select-searchbox:focus-within + material-list .single-select-item:first-of-type,
     .popup .item-group-list material-select-item:hover,
     .popup .item-group-list material-select-item:focus,
     .popup .item-group-list material-select-item.active,
@@ -138,9 +139,11 @@ material-list material-select-item:hover,
   background-color: var(--TWPT-highlighted-item-background)!important;
 }
 
-material-list .menu-item-label,
+material-list .single-select-item,
+    material-list .menu-item-label,
     material-list .label,
     material-list .text-segment,
+    .popup .item-group-list .single-select-item
     .popup .item-group-list .menu-item-label,
     .popup .item-group-list .label,
     .popup .item-group-list .text-segment {
