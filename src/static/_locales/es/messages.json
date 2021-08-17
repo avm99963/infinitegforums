@@ -104,7 +104,7 @@
     "description": "Feature checkbox in the options page"
   },
   "options_autorefreshlist": {
-    "message": "Actualiza las listas de hilos de la Consola de la Comunidad automáticamente.",
+    "message": "Muestra una notificación en la Consola de la Comunidad cuando una lista de hilos recibe actualizaciones.",
     "description": "Feature checkbox in the options page"
   },
   "options_disableunifiedprofiles": {
@@ -242,5 +242,13 @@
   "inject_autorefresh_list_snackbar_action": {
     "message": "Actualizar",
     "description": "Button shown in a snackbar asking users to refresh/reload the list to show the new threads."
+  },
+  "inject_autorefresh_list_status_indicator_label_active": {
+    "message": "Observando cambios en la lista de hilos...",
+    "description": "Helper text which appears when hovering the status indicator of the 'autorefresh list' feature to indicate that the feature is active and watching for updates in the current thread list."
+  },
+  "inject_autorefresh_list_status_indicator_label_disabled": {
+    "message": "No se pueden observar cambios en la lista de hilos. Por favor cambia las opciones de orden a 'Ordenar por: Última actualización' y orden descendiente.",
+    "description": "Helper text which appears when hovering the status indicator of the 'autorefresh list' feature to indicate that the feature is disabled in the current thread list because the sort options are incompatible with the feature."
   }
 }

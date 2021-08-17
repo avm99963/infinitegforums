@@ -1,3 +1,4 @@
+/* Snackbar */
 .TWPT-pane-for-snackbar {
   height: 48px;
   position: fixed;
@@ -76,4 +77,53 @@
 
 .TWPT-snackbar.TWPT-hidden {
   display: none;
+}
+
+/* Status indicator */
+.TWPT-autorefresh-status-indicator-container {
+  position: relative;
+  padding: 0 8px;
+  height: 46px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: help;
+}
+
+.TWPT-autorefresh-status-indicator {
+  width: 24px;
+  height: 24px;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 50%;
+  font-family: 'Google Material Icons';
+  text-align: center;
+  font-size: 17px;
+  line-height: 24px;
+  user-select: none;
+}
+
+.TWPT-autorefresh-status-indicator--active {
+  color: #202124;
+  background: #e3f2fd;
+  border-color: #2389e3;
+}
+
+.TWPT-autorefresh-status-indicator--muted {
+  color: #5f6368;
+  background: #f1f3f4;
+  border-color: #757575;
+}
+
+.TWPT-autorefresh-status-indicator--disabled {
+  color: #c5221f;
+  background: #fce8e6;
+  border-color: #c5221f;
+}
+
+.TWPT-autorefresh-status-indicator-container .TWPT-badge {
+  --icon-size:  13px;
+  position: absolute;
+  bottom: 2px;
+  right: 1px;
 }

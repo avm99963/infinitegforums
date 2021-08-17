@@ -20,6 +20,7 @@ export default class AutoRefresh {
     this.requestId = null;
     this.requestOrderOptions = null;
     this.snackbar = null;
+    this.statusIndicator = null;
     this.interval = null;
 
     this.setUpHandlers();
@@ -141,6 +142,41 @@ export default class AutoRefresh {
     this.snackbar = snackbar;
   }
 
+  // Create an indicator element.
+  createStatusIndicator(isSetUp) {
+    var container = document.createElement('div');
+    container.classList.add('TWPT-autorefresh-status-indicator-container');
+    var title = chrome.i18n.getMessage(
+        isSetUp ? 'inject_autorefresh_list_status_indicator_label_active' :
+                  'inject_autorefresh_list_status_indicator_label_disabled');
+    container.setAttribute('title', title);
+
+    var indicator = document.createElement('div');
+    indicator.classList.add(
+        'TWPT-autorefresh-status-indicator',
+        isSetUp ? 'TWPT-autorefresh-status-indicator--active' :
+                  'TWPT-autorefresh-status-indicator--disabled');
+    indicator.textContent =
+        isSetUp ? 'notifications_active' : 'notifications_off';
+
+    var badge = createExtBadge();
+
+    container.append(indicator, badge);
+    return container;
+  }
+
+  injectStatusIndicator(isSetUp) {
+    this.statusIndicator = this.createStatusIndicator(isSetUp);
+
+    var sortOptionsDiv = document.querySelector('ec-thread-list .sort-options');
+    if (sortOptionsDiv) {
+      sortOptionsDiv.prepend(this.statusIndicator);
+      return;
+    }
+
+    console.error('threadListAvatars: Couldn\'t inject status indicator.');
+  }
+
   checkUpdate() {
     if (location.pathname != this.path) {
       this.unregister();
@@ -226,6 +262,7 @@ export default class AutoRefresh {
   // initializes the interval to check for updates, and several other things.
   setUp() {
     if (!this.isOrderedByTimestampDescending()) {
+      this.injectStatusIndicator(false);
       console.debug(
           'autorefresh_list: refused to start up because the order is not by timestamp descending.');
       return;
@@ -236,6 +273,8 @@ export default class AutoRefresh {
     console.debug('autorefresh_list: starting set up...');
 
     if (this.snackbar === null) this.injectUpdatePrompt();
+    this.injectStatusIndicator(true);
+
     this.isLookingForUpdates = true;
     this.path = location.pathname;
 

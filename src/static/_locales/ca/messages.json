@@ -100,7 +100,7 @@
     "description": "Feature checkbox in the options page"
   },
   "options_autorefreshlist": {
-    "message": "Actualitza les llistes de fils de la Consola de la Comunitat automàticament.",
+    "message": "Mostra una notificació a la Consola de la Comunitat quan una llista de fils rep actualitzacions.",
     "description": "Feature checkbox in the options page"
   },
   "options_disableunifiedprofiles": {
@@ -242,5 +242,13 @@
   "inject_autorefresh_list_snackbar_action": {
     "message": "Actualitza",
     "description": "Button shown in a snackbar asking users to refresh/reload the list to show the new threads."
+  },
+  "inject_autorefresh_list_status_indicator_label_active": {
+    "message": "Observant canvis a la llista de fils...",
+    "description": "Helper text which appears when hovering the status indicator of the 'autorefresh list' feature to indicate that the feature is active and watching for updates in the current thread list."
+  },
+  "inject_autorefresh_list_status_indicator_label_disabled": {
+    "message": "No es poden observar canvis a la llista de fils. Sisplau canvia les opcions d'ordre a 'Ordena per: Darrera actualització' i ordre descendent.",
+    "description": "Helper text which appears when hovering the status indicator of the 'autorefresh list' feature to indicate that the feature is disabled in the current thread list because the sort options are incompatible with the feature."
   }
 }

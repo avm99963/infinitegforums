@@ -104,7 +104,7 @@
     "description": "Feature checkbox in the options page"
   },
   "options_autorefreshlist": {
-    "message": "Autorefresh thread lists in the Community Console.",
+    "message": "Show a notification in the Community Console when a thread list has new updates.",
     "description": "Feature checkbox in the options page"
   },
   "options_disableunifiedprofiles": {
@@ -242,5 +242,13 @@
   "inject_autorefresh_list_snackbar_action": {
     "message": "Refresh",
     "description": "Button shown in a snackbar asking users to refresh/reload the list to show the new threads."
+  },
+  "inject_autorefresh_list_status_indicator_label_active": {
+    "message": "Watching for updates to the thread list...",
+    "description": "Helper text which appears when hovering the status indicator of the 'autorefresh list' feature to indicate that the feature is active and watching for updates in the current thread list."
+  },
+  "inject_autorefresh_list_status_indicator_label_disabled": {
+    "message": "Can't watch for updates to the thread list. Please change the sort options to 'Sort by: Last updated' and descending order.",
+    "description": "Helper text which appears when hovering the status indicator of the 'autorefresh list' feature to indicate that the feature is disabled in the current thread list because the sort options are incompatible with the feature."
   }
 }
