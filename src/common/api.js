@@ -13,7 +13,7 @@ const apiErrors = {
   9: 'FAILED_PRECONDITION',
   10: 'ABORTED',
   11: 'OUT_OF_RANGE',
-  12: 'OUT_OF_RANGE',
+  12: 'UNIMPLEMENTED',
   13: 'INTERNAL',
   14: 'UNAVAILABLE',
   15: 'DATA_LOSS',
