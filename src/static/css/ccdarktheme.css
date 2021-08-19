@@ -143,10 +143,10 @@ material-list .single-select-item,
     material-list .menu-item-label,
     material-list .label,
     material-list .text-segment,
-    .popup .item-group-list .single-select-item
-    .popup .item-group-list .menu-item-label,
-    .popup .item-group-list .label,
-    .popup .item-group-list .text-segment {
+    menu-item-groups .single-select-item,
+    menu-item-groups .menu-item-label,
+    menu-item-groups .label,
+    menu-item-groups .text-segment {
   color: rgba(255, 255, 255, .87)!important;
 }
 
