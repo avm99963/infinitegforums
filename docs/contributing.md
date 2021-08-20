@@ -56,6 +56,7 @@ You can get started by reading the following docs:
 - [Set up the development environment](developers/set_up.md)
 - [Build the extension](developers/build.md)
 - [Add a new feature](developers/add_feature.md)
+- [Submit changes for review](https://gerrit.avm99963.com/Documentation/intro-gerrit-walkthrough-github.html)
 - [How to test translations](https://developer.chrome.com/docs/extensions/reference/i18n/#how-to-set-your-browsers-locale)
 
 *** promo
