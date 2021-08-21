@@ -14,4 +14,4 @@ branches = [
 
 [[paths]]
   reference = "src/static/_locales/en/messages.json"
-  l10n = "src/static/_locales/{locale}/messages.json"
+  l10n = "src/static/_locales/{android_locale}/messages.json"
