@@ -21,10 +21,10 @@ and maybe the Javascript console logs (open the Javascript console by pressing
 
 ## Contribute translations
 If you speak a language other than English, you can help translate the UI to
-your language!
+your language! Just go to the following website and select your language to
+start translating:
 
-If you're interested in helping with this, please email me at
-`me [at] avm99963.com`.
+- https://avm99963-pontoon.herokuapp.com/projects/tw-power-tools/
 
 ## Beta test the extension
 Releasing an update to the stable channel isn't always an easy task, because
