@@ -40,7 +40,7 @@
     "description": "Feature checkbox in the options page"
   },
   "options_loaddrafts": {
-    "message": "Activa la <i>flag<\/i> <code class=\"help\" title=\"Aquesta flag permet a la Consola de la Comunitat carregar una resposta automàticament desada anteriorment quan obres un fil i fas clic al botó de respondre.\">enableLoadingDraftMessages<\/code> de la Consola de la Comunitat.",
+    "message": "Activa la <i>flag</i> <code class=\"help\" title=\"Aquesta flag permet a la Consola de la Comunitat carregar una resposta automàticament desada anteriorment quan obres un fil i fas clic al botó de respondre.\">enableLoadingDraftMessages</code> de la Consola de la Comunitat.",
     "description": "Feature checkbox in the options page"
   },
   "options_experimental_label": {
@@ -51,15 +51,19 @@
     "message": "Mostra un enllaç \"historial de publicacions\" als perfils d'usuari.",
     "description": "Feature checkbox in the options page"
   },
-  "options_escalatethreads":{
+  "options_escalatethreads": {
     "message": "Activa la <i>flag</i> <code class=\"help\" title=\"Aquesta flag activa la funcionalitat d'escalar fils del fòrum públic als privats a la Consola de la Comunitat.\">enableEscalateThread</code> de la Consola de la Comunitat.",
     "description": "Feature checkbox in the options page"
   },
-  "options_movethreads":{
+  "options_movethreads": {
     "message": "Activa la <i>flag</i> <code class=\"help\" title=\"Aquesta flag activa la funcionalitat de moure fils d'un fòrum on ets un EP a un altre fòrum a la Consola de la Comunitat.\">enableMoveThread</code> de la Consola de la Comunitat.",
     "description": "Feature checkbox in the options page"
   },
-  "options_increasecontrast":{
+  "options_stickysidebarheaders": {
+    "message": "Fes que les capçaleres de la barra lateral de la Consola de la Comunitat es quedin enganxades a dalt (+info a <code>pekb/thread/60784834</code>).",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_increasecontrast": {
     "message": "Incrementa el contrast entre els fils llegits i no llegits a la Consola de la Comunitat.",
     "description": "Feature checkbox in the options page"
   },
@@ -105,7 +109,7 @@
   },
   "options_disableunifiedprofiles": {
     "message": "Desactiva a la força l'experiment <code class=\"help\" title=\"Aquest experiment, quan està actiu, introdueix un rediseny de la interfície dels perfils que també unifica tots els perfils en un únic.\">SMEI_UNIFIED_PROFILES</code> a la Consola de la Comunitat.",
-    "description": "Link to learn more about the profile indicator feature"
+    "description": "Feature checkbox in the options page"
   },
   "options_profileindicator_header": {
     "message": "Punt indicador",
@@ -121,10 +125,6 @@
   },
   "options_profileindicatoralt": {
     "message": "Mostra el nombre de preguntes i respostes escrites per l'autor del fil durant els últims <span id='profileindicatoralt_months--container'></span> mesos al costat del seu nom d'usuari.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_stickysidebarheaders": {
-    "message": "Fes que les capçaleres de la barra lateral de la Consola de la Comunitat es quedin enganxades a dalt (+info a <code>pekb/thread/60784834</code>).",
     "description": "Feature checkbox in the options page"
   },
   "options_save": {
@@ -179,7 +179,7 @@
     "message": "Nombre de preguntes i respostes en els $1 darrers mesos.",
     "description": "Tooltip for the profile indicator dot."
   },
-  "inject_ccdarkmode_helper": {
+  "inject_ccdarktheme_helper": {
     "message": "Canviar tema",
     "description": "Tooltip for the dark mode switch."
   },
