@@ -8,6 +8,7 @@
       - "docs/.*"
       - "OWNERS"
       - "README.md"
+      - "i18n-config.toml"
 
 - project:
     check:

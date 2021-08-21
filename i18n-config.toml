@@ -1,0 +1,17 @@
+base_path = "."
+
+locales = [
+  "ca",
+  "es",
+  "ru",
+  "pt_BR",
+  "pt_PT",
+]
+
+branches = [
+  "master",
+]
+
+[[paths]]
+  reference = "src/static/_locales/en/messages.json"
+  l10n = "src/static/_locales/{locale}/messages.json"
