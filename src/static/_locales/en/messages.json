@@ -51,14 +51,6 @@
     "message": "Show a \"previous posts\" link in user profiles.",
     "description": "Feature checkbox in the options page"
   },
-  "options_escalatethreads":{
-    "message": "Enables the <code class=\"help\" title=\"This flag activates the functionality which allows a PE to escalate threads from the public forums to the private ones in the Community Console.\">enableEscalateThread</code> Community Console flag.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_movethreads":{
-    "message": "Enables the <code class=\"help\" title=\"This flag activates the functionality which allows a PE to move threads from a forum where they are currently a PE to another forum in the Community Console.\">enableMoveThread</code> Community Console flag.",
-    "description": "Feature checkbox in the options page"
-  },
   "options_stickysidebarheaders": {
     "message": "Make the headers in the Community Console sidebar stick at the top (+info at <code>pekb/thread/60784834</code>).",
     "description": "Feature checkbox in the options page"
@@ -205,10 +197,6 @@
   },
   "inject_lockdialog_btn_cancel": {
     "message": "Cancel",
-    "description": "Button in the 'lock/unlock threads' dialog."
-  },
-  "inject_lockdialog_btn_reload": {
-    "message": "Reload",
     "description": "Button in the 'lock/unlock threads' dialog."
   },
   "inject_lockdialog_btn_close": {
