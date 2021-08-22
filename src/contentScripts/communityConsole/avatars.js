@@ -316,7 +316,10 @@ export default class AvatarsHandler {
           if (res.state == 'private') {
             var avatar = document.createElement('div');
             avatar.classList.add('TWPT-avatar-private-placeholder');
-            avatar.textContent = 'vpn_key';
+            avatar.textContent = 'person_off';
+            var label = chrome.i18n.getMessage(
+                'inject_threadlistavatars_private_thread_indicator_label');
+            avatar.setAttribute('title', label);
             avatarsContainer.appendChild(avatar);
           } else {
             for (var i = 0; i < avatarUrls.length; ++i) {

@@ -250,5 +250,9 @@
   "inject_autorefresh_list_status_indicator_label_disabled": {
     "message": "Can't watch for updates to the thread list. Please change the sort options to 'Sort by: Last updated' and descending order.",
     "description": "Helper text which appears when hovering the status indicator of the 'autorefresh list' feature to indicate that the feature is disabled in the current thread list because the sort options are incompatible with the feature."
+  },
+  "inject_threadlistavatars_private_thread_indicator_label": {
+    "message": "Due to technical reasons, we can't load the avatars of threads published in private forums.",
+    "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
   }
 }
