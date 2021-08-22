@@ -39,7 +39,7 @@
     "message": "Redirige todos los hilos abiertos en TW a la Consola de la Comunidad.",
     "description": "Feature checkbox in the options page"
   },
-  "options_loaddrafts":{
+  "options_loaddrafts": {
     "message": "Activa la <i>flag</i> <code class=\"help\" title=\"Esta flag permite a la Consola de la Comunidad cargar una respuesta previamente autoguardada cuando abres un hilo y haces clic en el botón de responder.\">enableLoadingDraftMessages</code> de la Consola de la Comunidad.",
     "description": "Feature checkbox in the options page"
   },
@@ -51,15 +51,11 @@
     "message": "Muestra un enlace \"historial de publicaciones\" en los perfiles de usuario.",
     "description": "Feature checkbox in the options page"
   },
-  "options_escalatethreads":{
-    "message": "Activa la <i>flag</i> <code class=\"help\" title=\"Esta flag activa la funcionalidad de escalar hilos del foro público a los privados en la Consola de la Comunidad.\">enableEscalateThread</code> de la Consola de la Comunidad.",
+  "options_stickysidebarheaders": {
+    "message": "Hacer que los encabezados de la barra lateral de la Consola de la Comunidad se queden pegados arriba (+info en <code>pekb/thread/60784834</code>).",
     "description": "Feature checkbox in the options page"
   },
-  "options_movethreads":{
-    "message": "Activa la <i>flag</i> <code class=\"help\" title=\"Esta flag activa la funcionalidad de mover hilos de un foro donde seas un EP a otro foro en la Consola de la Comunidad.\">enableMoveThread</code> de la Consola de la Comunidad.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_increasecontrast":{
+  "options_increasecontrast": {
     "message": "Incrementa el contraste entre los hilos leídos y no leídos en la Consola de la Comunidad.",
     "description": "Feature checkbox in the options page"
   },
@@ -95,10 +91,6 @@
     "message": "Pon el botón \"expandir hilo\" a la izquierda del todo en las listas de hilos de la Consola de la Comunidad.",
     "description": "Feature checkbox in the options page"
   },
-  "options_profileindicator_header": {
-    "message": "Punto indicador",
-    "description": "Heading for the profile indicator feature options"
-  },
   "options_threadlistavatars": {
     "message": "Muestra fotos de perfil en las listas de hilos de la Consola de la Comunidad.",
     "description": "Feature checkbox in the options page"
@@ -109,7 +101,11 @@
   },
   "options_disableunifiedprofiles": {
     "message": "Desactiva forzosamente el experimento <code class=\"help\" title=\"Este experimento, cuando está activado, introduce un rediseño de la interfaz de los perfiles que también unifica todos los perfiles en cada foro en uno único.\">SMEI_UNIFIED_PROFILES</code> en la Consola de la Comunidad.",
-    "description": "Link to learn more about the profile indicator feature"
+    "description": "Feature checkbox in the options page"
+  },
+  "options_profileindicator_header": {
+    "message": "Punto indicador",
+    "description": "Heading for the profile indicator feature options"
   },
   "options_profileindicator_moreinfo": {
     "message": "+info sobre las 2 opciones anteriores",
@@ -121,10 +117,6 @@
   },
   "options_profileindicatoralt": {
     "message": "Muestra el número de preguntas y respuestas escritas por el autor del hilo durante los últimos <span id='profileindicatoralt_months--container'></span> meses al lado de su nombre de usuario.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_stickysidebarheaders": {
-    "message": "Hacer que los encabezados de la barra lateral de la Consola de la Comunidad se queden pegados arriba (+info en <code>pekb/thread/60784834</code>).",
     "description": "Feature checkbox in the options page"
   },
   "options_save": {
@@ -207,10 +199,6 @@
     "message": "Cancelar",
     "description": "Button in the 'lock/unlock threads' dialog."
   },
-  "inject_lockdialog_btn_reload": {
-    "message": "Recargar",
-    "description": "Button in the 'lock/unlock threads' dialog."
-  },
   "inject_lockdialog_btn_close": {
     "message": "Cerrar",
     "description": "Button in the 'lock/unlock threads' dialog."
@@ -250,5 +238,9 @@
   "inject_autorefresh_list_status_indicator_label_disabled": {
     "message": "No se pueden observar cambios en la lista de hilos. Por favor cambia las opciones de orden a 'Ordenar por: Última actualización' y orden descendiente.",
     "description": "Helper text which appears when hovering the status indicator of the 'autorefresh list' feature to indicate that the feature is disabled in the current thread list because the sort options are incompatible with the feature."
+  },
+  "inject_threadlistavatars_private_thread_indicator_label": {
+    "message": "Debido a razones técnicas, no se pueden cargar las fotos de perfil de hilos publicados en foros privados.",
+    "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
   }
 }
