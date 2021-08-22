@@ -51,14 +51,6 @@
     "message": "Mostra un enllaç \"historial de publicacions\" als perfils d'usuari.",
     "description": "Feature checkbox in the options page"
   },
-  "options_escalatethreads": {
-    "message": "Activa la <i>flag</i> <code class=\"help\" title=\"Aquesta flag activa la funcionalitat d'escalar fils del fòrum públic als privats a la Consola de la Comunitat.\">enableEscalateThread</code> de la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_movethreads": {
-    "message": "Activa la <i>flag</i> <code class=\"help\" title=\"Aquesta flag activa la funcionalitat de moure fils d'un fòrum on ets un EP a un altre fòrum a la Consola de la Comunitat.\">enableMoveThread</code> de la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
   "options_stickysidebarheaders": {
     "message": "Fes que les capçaleres de la barra lateral de la Consola de la Comunitat es quedin enganxades a dalt (+info a <code>pekb/thread/60784834</code>).",
     "description": "Feature checkbox in the options page"
@@ -207,10 +199,6 @@
     "message": "Cancel·la",
     "description": "Button in the 'lock/unlock threads' dialog."
   },
-  "inject_lockdialog_btn_reload": {
-    "message": "Torna a carregar",
-    "description": "Button in the 'lock/unlock threads' dialog."
-  },
   "inject_lockdialog_btn_close": {
     "message": "Tanca",
     "description": "Button in the 'lock/unlock threads' dialog."
@@ -250,5 +238,9 @@
   "inject_autorefresh_list_status_indicator_label_disabled": {
     "message": "No es poden observar canvis a la llista de fils. Sisplau canvia les opcions d'ordre a 'Ordena per: Darrera actualització' i ordre descendent.",
     "description": "Helper text which appears when hovering the status indicator of the 'autorefresh list' feature to indicate that the feature is disabled in the current thread list because the sort options are incompatible with the feature."
+  },
+  "inject_threadlistavatars_private_thread_indicator_label": {
+    "message": "Degut a raons tècniques, no es poden carregar les fotos de perfil de fils publicats a fòrums privats.",
+    "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
   }
 }
