@@ -1,0 +1,246 @@
+{
+  "appName": {
+    "message": "TW Power Tools (المعروف سابقا بالتّمرير اللانهائي)",
+    "description": "The extension's name"
+  },
+  "appNameBeta": {
+    "message": "TW Power Tools (النّسخة التّجريبية)",
+    "description": "The extension's name for the beta version"
+  },
+  "appNameGecko": {
+    "message": "TW Power Tools",
+    "description": "The extension's name (with a 50 character limit for Gecko)"
+  },
+  "appDescription": {
+    "message": "احصل/ي على التمرير اللانهائي والتحسينات الأخرى في منتديات Google و وحدة التّحكّم في المجتمع",
+    "description": "The extension's description"
+  },
+  "options_list": {
+    "message": "تفعيل التمرير اللانهائي في قوائم المواضيع",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_thread": {
+    "message": "تحميل مجموعات الرسائل تلقائيًا داخل سلاسل المحادثات عند التمرير لأسفل",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_threadall": {
+    "message": "تحميل جميع الرسائل تلقائيا مرة واحدة داخل سلاسل المحادثات عند التمرير لأسفل",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_enhancements": {
+    "message": "تحسينات إضافية",
+    "description": "Heading for several options that can be enabled in the options page"
+  },
+  "options_fixedtoolbar": {
+    "message": "تثبيت شريط الأدوات في قوائم سلاسل المحادثات في وحدة التحكم في المجتمع",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_redirect": {
+    "message": "أعد توجيه جميع سلاسل المحادثات المفتوحة في TW إلى وحدة التحكم في المجتمع.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_loaddrafts": {
+    "message": "تشغيل علامة <code class=\"help\" title=\"تسمح هذه العلامة لوحدة تحكم المجتمع بتحميل رد تم حفظه تلقائيًا مسبقًا عند تحميل سلسلة رسائل والنقر على الرد button.\">enableLoadingDraftMessages</code> على وحدة تحكّم المجتمع",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_experimental_label": {
+    "message": "(تجريبي)",
+    "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
+  },
+  "options_history": {
+    "message": "إظهار ارتباط \"المشاركات السابقة\" في ملفات تعريف المستخدمين.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_stickysidebarheaders": {
+    "message": "اجعل الرؤوس في الشريط الجانبي لوحدة التحكم في المجتمع تلتصق بالأعلى. (مزيدا من التّفاصيل <code>pekb/thread/60784834</code>).",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_increasecontrast": {
+    "message": "زيادة التباين بين المواضيع المقروءة وغير المقروءة في وحدة التّحكّم في المجتمع (Community Console).",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_ccdarktheme": {
+    "message": "تفعيل المظهر الداكن في وحدة التّحكّم في المجتمع، يتم التحكم فيه <span id='ccdarktheme_mode--container'></span>.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_ccdarktheme_mode_switch": {
+    "message": "مع خيار التّحكّم، في وحدة التحكم في المجتمع",
+    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
+  },
+  "options_ccdarktheme_mode_system": {
+    "message": "من خلال إعداد الوضع المظلم لنظام التشغيل",
+    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
+  },
+  "options_ccforcehidedrawer": {
+    "message": "إخفاء القائمة (العمود الأيسر) -دائما- في وحدة التحكم في المجتمع.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_ccdragndropfix": {
+    "message": "اسمح بسحب وإسقاط الروابط إلى محرر نصوص وحدة التحكّم في المجتمع مع الحفاظ على النص.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_batchlock": {
+    "message": "أضف خيار قفل سلاسل محادثات متعددة من قائمة سلاسل محادثات وحدة التحكم في المجتمع.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_enhancedannouncementsdot": {
+    "message": "عرض نقطة إشعارات الإعلانات بشكل أكثر بروزًا في وحدة التحكم في المجتمع.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_repositionexpandthread": {
+    "message": "وضع زر \"توسيع الموضوع\" على طول الطريق إلى اليسار في قوائم سلسلة محادثات وحدة التحكم في المجتمع.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_threadlistavatars": {
+    "message": "عرض الصور الرمزية في قوائم المواضيع في وحدة التحكم في المجتمع.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_autorefreshlist": {
+    "message": "إظهار إشعار في وحدة التّحكّم في المجتمع عندما تحتوي قائمة سلاسل المحادثات على تحديثات جديدة.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_disableunifiedprofiles": {
+    "message": "فرض تعطيل تجربة <code class=\"help\" title=\"تقدم هذه التجربة، عند تمكينها، إعادة تصميم لعرض الملف الشّخصي الذي يوحد أيضا جميع الملفات الشخصية للمنتدى في ملف شخصي واحد.\">SMEI_UNIFIED_PROFILES</code> في وحدة التّحكّم في المجتمع.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_profileindicator_header": {
+    "message": "نقطة المؤشِّر",
+    "description": "Heading for the profile indicator feature options"
+  },
+  "options_profileindicator_moreinfo": {
+    "message": "مزيدا من المعلومات حول الخيارين السابقين",
+    "description": "Link to learn more about the profile indicator feature"
+  },
+  "options_profileindicator": {
+    "message": "Show <span class=\"help\" title=\"إذا شارك المستخدم (OP) في سلاسل محادثات أخرى، فستظهر نقطة حمراء بجوار اسم المستخدم الخاص به. إذا تمت قراءة أحدث منشورات المستخدم (OP)، فستظهر نقطة برتقالية بدلاً من ذلك. يمكنك تحريك الفأرة على النّقطة لإظهار معنى لونها.\">ما إذا كان المستخدم (OP) قد شارك في مواضيع أخرى</span>.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_profileindicatoralt": {
+    "message": "عرض عدد الأسئلة والرّدود الخاصة بالمستخدم (OP) خلال <span id='profileindicatoralt_months--container'></span> الأشهر الماضية بجانب اسم المستخدم الخاص بهم.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_save": {
+    "message": "حفظ",
+    "description": "Button in the options page to save the settings"
+  },
+  "options_saved": {
+    "message": "تمّ الحفظ",
+    "description": "Message which appears in the options page when the settings are saved"
+  },
+  "options_experiments_title": {
+    "message": "تجارب",
+    "description": "Title of the experiments page: a page where highly experimental options can be set."
+  },
+  "options_experiments_description": {
+    "message": "ويلكروم! ستجد أدناه قائمة بالتجارب: ميزات قيد التطوير وليست جاهزة تمامًا للإطلاق. إنها تجريبية للغاية وبالتالي قد تتعطل و/أو تسبب مشكلات، ولكن إذا كنت شجاعا، فالرجاء تمكين أكثر الأشياء التي تهتم بها، و <a href='https://github.com/avm99963/infinitegforums/discussions/categories/feedback'>تقديم التّعليقات</a>!",
+    "description": "Description shown in the beginning of the experiments page, below the title."
+  },
+  "inject_links": {
+    "message": "روابط",
+    "description": "Heading which we use before the 'previous post' link in a user profile in TW"
+  },
+  "inject_previousposts": {
+    "message": "المشاركات السابقة",
+    "description": "Link shown in a user profile (in TW) which points to a search showing the user's posts and messages"
+  },
+  "inject_previousposts_forum": {
+    "message": "المشاركات السابقة (في هذا المنتدى)",
+    "description": "Link shown in a user profile (in the Community Console) which points to a search showing the user's posts and messages in the current forum"
+  },
+  "inject_previousposts_all": {
+    "message": "المشاركات السّابقة (في جميع المنتديات)",
+    "description": "Link shown in a user profile (in the Community Console) which points to a search showing the user's posts and messages in all forums"
+  },
+  "inject_profileindicator_loading": {
+    "message": "تحميل...",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_profileindicator_first_post": {
+    "message": "هذا أول موضوع تم إنشاؤه بواسطة المستخدم في هذا المنتدى.",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_profileindicator_other_posts_read": {
+    "message": "شارك المستخدم (OP) في سلاسل محادثات أخرى في هذا المنتدى، لكنك قرأت أحدث 5 منها.",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_profileindicator_other_posts_unread": {
+    "message": "شارك المستخدم (OP) في سلاسل محادثات أخرى في هذا المنتدى، بعضها لم تقرأه.",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_profileindicatoralt_numposts": {
+    "message": "عدد الأسئلة والرّدود في آخر $1 من الأشهر.",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_ccdarktheme_helper": {
+    "message": "تغيير الوضع",
+    "description": "Tooltip for the dark mode switch."
+  },
+  "inject_extension_badge_helper": {
+    "message": "تمت الإضافة بواسطة $1",
+    "description": "Tooltip for the extension badge, which appears next to components injected by the extension."
+  },
+  "inject_lockbtn": {
+    "message": "قفل/فتح قفل سلسلة المحادثات",
+    "description": "Tooltip of the 'lock/unlock threads' icon shown when selecting multiple threads in the Community Console. Also the title for the dialog shown after clicking this icon."
+  },
+  "inject_lockdialog_desc": {
+    "message": "الرجاء تأكيد الإجراء الذي تريد اتخاذه بالنقر فوق الزر المناسب أدناه. ضع في اعتبارك أن هذا الإجراء سيتم تنفيذه في جميع سلاسل المحادثات التي حددتها.",
+    "description": "Text in the 'lock/unlock threads' dialog, which asks the user for confirmation."
+  },
+  "inject_lockdialog_btn_lock": {
+    "message": "قفل",
+    "description": "Button in the 'lock/unlock threads' dialog."
+  },
+  "inject_lockdialog_btn_unlock": {
+    "message": "فتح",
+    "description": "Button in the 'lock/unlock threads' dialog."
+  },
+  "inject_lockdialog_btn_cancel": {
+    "message": "إلغاء",
+    "description": "Button in the 'lock/unlock threads' dialog."
+  },
+  "inject_lockdialog_btn_close": {
+    "message": "إغلاق",
+    "description": "Button in the 'lock/unlock threads' dialog."
+  },
+  "inject_lockdialog_log_entry_beginning": {
+    "message": "سلسلة محادثة $1",
+    "description": "First part of the entry in the log of the 'lock/unlock threads' dialog. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_lockdialog_log_entry_success_lock": {
+    "message": "تمّ القفل بنجاح.",
+    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_lockdialog_log_entry_error_lock": {
+    "message": "حدث خطأ أثناء قفل ($1).",
+    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *not* locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_lockdialog_log_entry_success_unlock": {
+    "message": "تم إلغاء القفل بنجاح.",
+    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *un*locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_lockdialog_log_entry_error_unlock": {
+    "message": "حدث خطأ أثناء فتح ($1).",
+    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *not* *un*locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_autorefresh_list_snackbar_message": {
+    "message": "هناك مواضيع جديدة.",
+    "description": "Message shown in a snackbar when new threads are found in a thread list. Another button asks the user to refresh the list."
+  },
+  "inject_autorefresh_list_snackbar_action": {
+    "message": "إعادة تحميل",
+    "description": "Button shown in a snackbar asking users to refresh/reload the list to show the new threads."
+  },
+  "inject_autorefresh_list_status_indicator_label_active": {
+    "message": "جاري البحث عن تحديثات لقائمة المواضيع ...",
+    "description": "Helper text which appears when hovering the status indicator of the 'autorefresh list' feature to indicate that the feature is active and watching for updates in the current thread list."
+  },
+  "inject_autorefresh_list_status_indicator_label_disabled": {
+    "message": "لا يمكن مشاهدة التحديثات لقائمة المواضيع. الرجاء تغيير خيارات الفرز إلى: فرز حسب: آخر تحديث، وترتيب تنازلي.",
+    "description": "Helper text which appears when hovering the status indicator of the 'autorefresh list' feature to indicate that the feature is disabled in the current thread list because the sort options are incompatible with the feature."
+  },
+  "inject_threadlistavatars_private_thread_indicator_label": {
+    "message": "لأسباب فنية، لا يمكننا تحميل الصور الرمزية للمواضيع المنشورة في المنتديات الخاصة.",
+    "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
+  }
+}
