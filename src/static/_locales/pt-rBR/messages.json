@@ -1,0 +1,82 @@
+{
+  "appName": {
+    "message": "Super Ferramenta do TW (Antiga Rolagem Infinita)",
+    "description": "The extension's name"
+  },
+  "appNameBeta": {
+    "message": "Super Ferramenta do TW (Beta)",
+    "description": "The extension's name for the beta version"
+  },
+  "appNameGecko": {
+    "message": "Super Ferramenta do TW",
+    "description": "The extension's name (with a 50 character limit for Gecko)"
+  },
+  "appDescription": {
+    "message": "Ativar a rolagem infinita e outras melhorias dos Fóruns da Google e do Community Console",
+    "description": "The extension's description"
+  },
+  "options_list": {
+    "message": "Ativar a rolagem infinita das listas de tópicos.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_thread": {
+    "message": "Carregar automaticamente todas as mensagens dentro do tópico ao rolar para baixo.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_threadall": {
+    "message": "Carregar automaticamente de uma vez dentro do tópico ao rolar para baixo.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_enhancements": {
+    "message": "Melhorias Adicionais",
+    "description": "Heading for several options that can be enabled in the options page"
+  },
+  "options_fixedtoolbar": {
+    "message": "Manter a Barra de ferramentas sempre visível no Console.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_redirect": {
+    "message": "Redirecione todos os tópicos abertos na Central para o Console",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_experimental_label": {
+    "message": "(Experimental)",
+    "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
+  },
+  "options_history": {
+    "message": "Mostrar um link das \"Postagens Anteriores\" nos perfis dos usuários.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_stickysidebarheaders": {
+    "message": "Mantenha os Atalhos da barra lateral do Community Console na parte superior (+ informações em <code>pekb/thread/60784834</code>).",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_increasecontrast": {
+    "message": "Aumente o contraste entre os tópicos lidos e os não lidos no Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_ccdarktheme": {
+    "message": "Ativar o tema escuro no Community Console, conforme <span id='ccdarktheme_mode--container'></span>.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_ccdarktheme_mode_switch": {
+    "message": "o botão (Modo Escuro) no CC",
+    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
+  },
+  "options_ccdarktheme_mode_system": {
+    "message": "as configurações do Sistema Operacional",
+    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
+  },
+  "options_ccforcehidedrawer": {
+    "message": "Ocultar sempre a Barra de Menu (lado esquerdo) no Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_ccdragndropfix": {
+    "message": "Permitir arrastar e soltar links para caixa de texto no Community Console enquanto preserva o texto.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_batchlock": {
+    "message": "Adicione a opção de bloquear vários tópicos na lista de tópicos do Community Console.",
+    "description": "Feature checkbox in the options page"
+  }
+}
