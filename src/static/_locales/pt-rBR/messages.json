@@ -78,5 +78,157 @@
   "options_batchlock": {
     "message": "Adicione a opção de bloquear vários tópicos na lista de tópicos do Community Console.",
     "description": "Feature checkbox in the options page"
+  },
+  "options_enhancedannouncementsdot": {
+    "message": "Mostre um ponto nas notificações de anúncios com mais destaque no Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_repositionexpandthread": {
+    "message": "Coloque o botão \"expandir tópicos\" à esquerda nas listas de tópicos do Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_threadlistavatars": {
+    "message": "Mostrar a foto de perfil na lista de tópicos no Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_autorefreshlist": {
+    "message": "Mostre uma notificação no Community Console quando a lista de tópicos tiver novas atualizações.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_disableunifiedprofiles": {
+    "message": "Forçar a Desativação <code class=\"help\" title=\"Esta experiência, quando ativada, introduz um redesenho da visualização do perfil que também unifica todos os perfis do fórum em um único.\">SMEI_UNIFIED_PROFILES</code> experimento no Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_profileindicator_header": {
+    "message": "Ícone indicador",
+    "description": "Heading for the profile indicator feature options"
+  },
+  "options_profileindicator_moreinfo": {
+    "message": "+ informações sobre as 2 opções anteriores",
+    "description": "Link to learn more about the profile indicator feature"
+  },
+  "options_profileindicatoralt": {
+    "message": "Mostra o número de perguntas e respostas criadas pelo usuário nos últimos <span id='profileindicatoralt_months--container'></span> meses ao lado do nome do usuário.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_save": {
+    "message": "Salvar",
+    "description": "Button in the options page to save the settings"
+  },
+  "options_saved": {
+    "message": "Salvo com Sucesso!",
+    "description": "Message which appears in the options page when the settings are saved"
+  },
+  "options_experiments_title": {
+    "message": "Experimentos",
+    "description": "Title of the experiments page: a page where highly experimental options can be set."
+  },
+  "inject_links": {
+    "message": "Links",
+    "description": "Heading which we use before the 'previous post' link in a user profile in TW"
+  },
+  "inject_previousposts": {
+    "message": "Postagens anteriores",
+    "description": "Link shown in a user profile (in TW) which points to a search showing the user's posts and messages"
+  },
+  "inject_previousposts_forum": {
+    "message": "Postagens anteriores (neste fórum)",
+    "description": "Link shown in a user profile (in the Community Console) which points to a search showing the user's posts and messages in the current forum"
+  },
+  "inject_previousposts_all": {
+    "message": "Postagens anteriores (Em todos os fóruns)",
+    "description": "Link shown in a user profile (in the Community Console) which points to a search showing the user's posts and messages in all forums"
+  },
+  "inject_profileindicator_loading": {
+    "message": "Carregando...",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_profileindicator_first_post": {
+    "message": "Este é o primeiro tópico criado pelo usuário neste fórum.",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_profileindicator_other_posts_read": {
+    "message": "O usuário participou de outros tópicos neste fórum, e você leu os 5 mais recentes.",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_profileindicator_other_posts_unread": {
+    "message": "O usuário participou de outros tópicos neste fórum, alguns dos quais você não leu.",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_profileindicatoralt_numposts": {
+    "message": "Número de perguntas e respostas nos últimos $1 meses.",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_ccdarktheme_helper": {
+    "message": "Mudar de tema",
+    "description": "Tooltip for the dark mode switch."
+  },
+  "inject_extension_badge_helper": {
+    "message": "Adicionado por $1",
+    "description": "Tooltip for the extension badge, which appears next to components injected by the extension."
+  },
+  "inject_lockbtn": {
+    "message": "Bloquear/Desbloquear tópicos",
+    "description": "Tooltip of the 'lock/unlock threads' icon shown when selecting multiple threads in the Community Console. Also the title for the dialog shown after clicking this icon."
+  },
+  "inject_lockdialog_desc": {
+    "message": "Por favor! Confirme a ação que deseja realizar clicando no botão apropriado abaixo. Lembre-se de que esta ação será realizada em todos os tópicos que você selecionou!",
+    "description": "Text in the 'lock/unlock threads' dialog, which asks the user for confirmation."
+  },
+  "inject_lockdialog_btn_lock": {
+    "message": "Bloquear",
+    "description": "Button in the 'lock/unlock threads' dialog."
+  },
+  "inject_lockdialog_btn_unlock": {
+    "message": "Desbloquear",
+    "description": "Button in the 'lock/unlock threads' dialog."
+  },
+  "inject_lockdialog_btn_cancel": {
+    "message": "Cancelar",
+    "description": "Button in the 'lock/unlock threads' dialog."
+  },
+  "inject_lockdialog_btn_close": {
+    "message": "Fechar",
+    "description": "Button in the 'lock/unlock threads' dialog."
+  },
+  "inject_lockdialog_log_entry_beginning": {
+    "message": "Tópico $1",
+    "description": "First part of the entry in the log of the 'lock/unlock threads' dialog. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_lockdialog_log_entry_success_lock": {
+    "message": "Bloqueado com sucesso!",
+    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_lockdialog_log_entry_error_lock": {
+    "message": "Eita! Ocorreu um erro ao bloquear ($1).",
+    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *not* locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_lockdialog_log_entry_success_unlock": {
+    "message": "Desbloqueado com Sucesso.",
+    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *un*locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_lockdialog_log_entry_error_unlock": {
+    "message": "Eita! Ocorreu um erro ao desbloquear ($1).",
+    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *not* *un*locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_autorefresh_list_snackbar_message": {
+    "message": "Existem novos tópicos.",
+    "description": "Message shown in a snackbar when new threads are found in a thread list. Another button asks the user to refresh the list."
+  },
+  "inject_autorefresh_list_snackbar_action": {
+    "message": "Atualizar",
+    "description": "Button shown in a snackbar asking users to refresh/reload the list to show the new threads."
+  },
+  "inject_autorefresh_list_status_indicator_label_active": {
+    "message": "Calma ai, estamos procurando atualizações na lista de tópicos...",
+    "description": "Helper text which appears when hovering the status indicator of the 'autorefresh list' feature to indicate that the feature is active and watching for updates in the current thread list."
+  },
+  "inject_autorefresh_list_status_indicator_label_disabled": {
+    "message": "Não é possível visualizar as atualizações nas listas de tópicos. Altere as opções de classificação para 'Classificar por: Última atualização' e em ordem decrescente.",
+    "description": "Helper text which appears when hovering the status indicator of the 'autorefresh list' feature to indicate that the feature is disabled in the current thread list because the sort options are incompatible with the feature."
+  },
+  "inject_threadlistavatars_private_thread_indicator_label": {
+    "message": "Por motivos técnicos, não podemos carregar os avatares de tópicos publicados em fóruns privados.",
+    "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
   }
 }
