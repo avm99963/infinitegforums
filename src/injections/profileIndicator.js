@@ -1,10 +1,9 @@
+import {CCApi} from '../common/api.js';
 import {escapeUsername} from '../common/communityConsoleUtils.js';
 
 var CCProfileRegex =
     /^(?:https:\/\/support\.google\.com)?\/s\/community(?:\/forum\/[0-9]*)?\/user\/(?:[0-9]+)$/;
 var CCRegex = /^https:\/\/support\.google\.com\/s\/community/;
-
-const BASE_URL = 'https://support.google.com/s/community/api/';
 
 const OP_FIRST_POST = 0;
 const OP_OTHER_POSTS_READ = 1;
@@ -41,45 +40,35 @@ function isElementInside(element, outerTag) {
   return false;
 }
 
-function APIRequest(action, body) {
-  var authuserPart =
-      (authuser == '0' ? '' : '?authuser=' + encodeURIComponent(authuser));
-
-  return fetch(BASE_URL + action + authuserPart, {
-           'credentials': 'include',
-           'headers': {'content-type': 'text/plain; charset=utf-8'},
-           'body': JSON.stringify(body),
-           'method': 'POST',
-           'mode': 'cors',
-         })
-      .then(res => res.json());
-}
-
 function getPosts(query, forumId) {
-  return APIRequest('ViewForum', {
-    '1': forumId,
-    '2': {
-      '1': {
-        '2': 5,
+  return CCApi(
+      'ViewForum', {
+        '1': forumId,
+        '2': {
+          '1': {
+            '2': 5,
+          },
+          '2': {
+            '1': 1,
+            '2': true,
+          },
+          '12': query,
+        },
       },
-      '2': {
-        '1': 1,
-        '2': true,
-      },
-      '12': query,
-    },
-  });
+      /* authenticated = */ true, authuser);
 }
 
 function getProfile(userId, forumId) {
-  return APIRequest('ViewUser', {
-    '1': userId,
-    '2': 0,
-    '3': forumId,
-    '4': {
-      '20': true,
-    },
-  });
+  return CCApi(
+      'ViewUser', {
+        '1': userId,
+        '2': 0,
+        '3': forumId,
+        '4': {
+          '20': true,
+        },
+      },
+      /* authenticated = */ true, authuser);
 }
 
 // Source:
