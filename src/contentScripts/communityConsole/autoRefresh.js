@@ -252,7 +252,7 @@ export default class AutoRefresh {
     if (this.lastTimestamp === undefined)
       console.error(
           'autorefresh_list: Unexpected body of response (' +
-          (body?.['1']?.['2']?.[0] === undefined ?
+          (e.detail.body?.['1']?.['2']?.[0] === undefined ?
                'no threads were returned' :
                'the timestamp value is not present in the first thread') +
           ').');
