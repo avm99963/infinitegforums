@@ -123,6 +123,10 @@
     "message": "Experimentos",
     "description": "Title of the experiments page: a page where highly experimental options can be set."
   },
+  "options_experiments_description": {
+    "message": "Bem-vindo! Abaixo, você encontrará uma lista de experimentos: recursos que estão em desenvolvimento e ainda não estão prontos para o lançamento. Eles são altamente experimentais e podem quebrar, por conta disso:<a href='https://github.com/avm99963/infinitegforums/discussions/categories/feedback'> aguardo seu feedback</a>!",
+    "description": "Description shown in the beginning of the experiments page, below the title."
+  },
   "inject_links": {
     "message": "Links",
     "description": "Heading which we use before the 'previous post' link in a user profile in TW"
