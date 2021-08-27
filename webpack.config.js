@@ -3,6 +3,31 @@ const json5 = require('json5');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WebpackShellPluginNext = require('webpack-shell-plugin-next');
 
+// Pontoon uses their own locale set. This array lets us convert those locales
+// to the ones accepted by Chrome, Firefox, etc.
+const localeOverrides = [
+  {
+    pontoonLocale: 'pt-rBR',
+    webExtLocale: 'pt',  // This way it targets both 'pt_BR' and 'pt_PT'
+  },
+];
+
+const getCopyPluginsForOverridenLocales = outputPath => {
+  return localeOverrides.map(l => {
+    return new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.join(__dirname, 'src/static/_locales/' + l.pontoonLocale),
+          to: path.join(outputPath, '_locales/' + l.webExtLocale),
+          globOptions: {
+            ignore: ['**/OWNERS', '**.md'],
+          }
+        },
+      ]
+    });
+  });
+};
+
 module.exports = (env, args) => {
   let entry = {
     // Content scripts
@@ -30,6 +55,9 @@ module.exports = (env, args) => {
 
   let outputPath = path.join(__dirname, 'dist', env.browser_target);
 
+  let overridenLocalePaths =
+      localeOverrides.map(l => '**/_locales/' + l.pontoonLocale);
+
   return {
     entry,
     output: {
@@ -52,11 +80,12 @@ module.exports = (env, args) => {
             from: path.join(__dirname, 'src/static'),
             to: outputPath,
             globOptions: {
-              ignore: ['**/OWNERS'],
+              ignore: ['**/OWNERS', '**.md', ...overridenLocalePaths],
             }
           },
         ]
       }),
+      ...getCopyPluginsForOverridenLocales(outputPath),
     ],
     // NOTE: Change to
     //   (args.mode == 'production' ? 'source-map' : 'inline-source-map')
