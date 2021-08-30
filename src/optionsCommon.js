@@ -1,9 +1,25 @@
+import {getExtVersion, isFirefox, isReleaseVersion} from './common/extUtils.js';
 import {cleanUpOptions, optionsPrototype, specialOptions} from './common/optionsUtils.js';
-import {isFirefox, isReleaseVersion} from './common/extUtils.js';
 
 var savedSuccessfullyTimeout = null;
 
 const exclusiveOptions = [['thread', 'threadall']];
+
+// Get a URL to a document which is part of the extension documentation (using
+// |ref| as the Git ref).
+function getDocURLWithRef(doc, ref) {
+  return 'https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+/' +
+      ref + '/docs/' + doc;
+}
+
+// Get a URL to a document which is part of the extension documentation
+// (autodetect the appropriate Git ref)
+function getDocURL(doc) {
+  if (!isReleaseVersion()) return getDocURLWithRef(doc, 'HEAD');
+
+  var version = getExtVersion();
+  return getDocURLWithRef(doc, 'refs/tags/v' + version);
+}
 
 // Get the value of the option set in the options/experiments page
 function getOptionValue(opt) {
@@ -80,12 +96,20 @@ function i18n() {
 window.addEventListener('load', function() {
   i18n();
 
-  if (window.CONTEXT == 'options' && !isReleaseVersion()) {
-    var experimentsLink = document.querySelector('.experiments-link');
-    experimentsLink.removeAttribute('hidden');
-    experimentsLink.addEventListener('click', _ => chrome.tabs.create({
-      url: chrome.runtime.getURL('options/experiments.html'),
-    }));
+  if (window.CONTEXT == 'options') {
+    if (!isReleaseVersion()) {
+      var experimentsLink = document.querySelector('.experiments-link');
+      experimentsLink.removeAttribute('hidden');
+      experimentsLink.addEventListener('click', _ => chrome.tabs.create({
+        url: chrome.runtime.getURL('options/experiments.html'),
+      }));
+    }
+
+    var featuresLink = document.querySelector('.features-link');
+    featuresLink.href = getDocURL('features.md');
+
+    var profileIndicatorLink = document.getElementById('profileIndicatorMoreInfo');
+    profileIndicatorLink.href = getDocURL('op_indicator.md');
   }
 
   chrome.storage.sync.get(null, function(items) {
