@@ -1,4 +1,5 @@
 [English](features.md) • [Русский](features.ru.md)
+• [العربية](https://docs.google.com/document/d/1QgMy4wQ0RNkreYJzaqJriXvR8xu9zI0vzoPfcDYMKU8/preview)
 
 # Funciones
 La extensión Herramientas Avanzadas para TW ofrece las siguientes
