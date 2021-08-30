@@ -39,6 +39,10 @@
     "message": "Redirecione todos os tópicos abertos na Central para o Console",
     "description": "Feature checkbox in the options page"
   },
+  "options_loaddrafts": {
+    "message": "Ativar <code class=\"help\" title=\"este sinalizador para permite que o Community Console carregue uma resposta previamente salva automaticamente ao carregar um tópico e ao clicar no botão de resposta.\">enableLoadingDraftMessages</code> no Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_experimental_label": {
     "message": "(Experimental)",
     "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
@@ -106,6 +110,10 @@
   "options_profileindicator_moreinfo": {
     "message": "+ informações sobre as 2 opções anteriores",
     "description": "Link to learn more about the profile indicator feature"
+  },
+  "options_profileindicator": {
+    "message": "Mostrar <span class=\"help\" title=\"se o usuário participou de outros tópicos, um ponto vermelho será mostrado ao lado de seu nome de usuário. Se as postagens mais recentes do usuário foram lidas, um ponto laranja será mostrado. Você pode passar o mouse sobre o ponto para mostrar o significado de sua cor.\"> e se o OP participou de outros tópicos </span>.",
+    "description": "Feature checkbox in the options page"
   },
   "options_profileindicatoralt": {
     "message": "Mostra o número de perguntas e respostas criadas pelo usuário nos últimos <span id='profileindicatoralt_months--container'></span> meses ao lado do nome do usuário.",
