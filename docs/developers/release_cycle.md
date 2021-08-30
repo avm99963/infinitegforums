@@ -61,6 +61,17 @@ fact that the stable version is directly uploaded to the store.
 You can upload the new version using the following link:
 https://addons.mozilla.org/en-US/developers/addon/tw-power-tools/versions/submit/.
 
+In the "notes to reviewer", add the following message:
+
+```
+For instructions on how to build the extension:
+
+- Set up your environment: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+/HEAD/docs/developers/set_up.md
+- Build the extension: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+/HEAD/docs/developers/build.md
+
+(These files are also included inside the source code ZIP)
+```
+
 ## Promoting the beta release to stable
 After the beta release is reviewed and approved by Google, the following should
 be done:
