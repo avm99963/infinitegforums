@@ -71,14 +71,19 @@ export var batchLock = {
             });
             break;
 
+          case 'cancel':
           case 'close':
             btn.addEventListener('click', _ => {
               if (btn.classList.contains('is-disabled')) return;
-              var refreshButton = document.querySelector('.app-title-button');
-              if (refreshButton == null)
-                window.location.reload();
-              else
-                refreshButton.click();
+
+              if (action == 'close') {
+                var refreshButton = document.querySelector('.app-title-button');
+                if (refreshButton == null)
+                  window.location.reload();
+                else
+                  refreshButton.click();
+              }
+
               modal.classList.remove('visible');
               modal.style.display = 'none';
               removeChildNodes(modal);
