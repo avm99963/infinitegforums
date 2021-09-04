@@ -1,3 +1,5 @@
+import {isOptionEnabled} from '../../common/optionsUtils.js';
+
 import {createExtBadge, removeChildNodes} from './utils/common.js';
 
 export var batchLock = {
@@ -135,5 +137,10 @@ export var batchLock = {
     else
       readToggle.parentNode.insertBefore(
           clone, (readToggle.nextSibling || readToggle));
-  }
+  },
+  addButtonIfEnabled(readToggle) {
+    isOptionEnabled('batchlock').then(isEnabled => {
+      if (isEnabled) this.addButton(readToggle);
+    });
+  },
 };

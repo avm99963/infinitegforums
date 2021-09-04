@@ -1,4 +1,5 @@
 import {escapeUsername} from '../common/communityConsoleUtils.js';
+import {getOptions} from '../common/optionsUtils.js';
 
 var authuser = (new URL(location.href)).searchParams.get('authuser') || '0';
 
@@ -137,8 +138,8 @@ function injectPreviousPostsLinksOldProfile() {
   }
 }
 
-chrome.storage.sync.get(null, function(items) {
-  if (items.history) {
+getOptions('history').then(options => {
+  if (options?.history) {
     if (document.getElementById('unified-user-profile') !== null)
       injectPreviousPostsLinksUnifiedProfile();
     else

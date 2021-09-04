@@ -1,5 +1,6 @@
 import {CCApi} from '../../common/api.js';
 import {getAuthUser} from '../../common/communityConsoleUtils.js';
+import {isOptionEnabled} from '../../common/optionsUtils.js';
 
 import {createExtBadge} from './utils/common.js';
 
@@ -90,6 +91,7 @@ export default class AutoRefresh {
     this.isUpdatePromptShown = true;
   }
 
+  // This function can be called even if the update prompt is not shown.
   hideUpdatePrompt() {
     if (this.snackbar) this.snackbar.classList.add('TWPT-hidden');
     document.title = document.title.replace('[!!!] ', '');
@@ -261,24 +263,28 @@ export default class AutoRefresh {
   // This is called when a thread list node is detected in the page. This
   // initializes the interval to check for updates, and several other things.
   setUp() {
-    if (!this.isOrderedByTimestampDescending()) {
-      this.injectStatusIndicator(false);
-      console.debug(
-          'autorefresh_list: refused to start up because the order is not by timestamp descending.');
-      return;
-    }
+    isOptionEnabled('autorefreshlist').then(isEnabled => {
+      if (!isEnabled) return;
 
-    this.unregister();
+      if (!this.isOrderedByTimestampDescending()) {
+        this.injectStatusIndicator(false);
+        console.debug(
+            'autorefresh_list: refused to start up because the order is not by timestamp descending.');
+        return;
+      }
 
-    console.debug('autorefresh_list: starting set up...');
+      this.unregister();
 
-    if (this.snackbar === null) this.injectUpdatePrompt();
-    this.injectStatusIndicator(true);
+      console.debug('autorefresh_list: starting set up...');
 
-    this.isLookingForUpdates = true;
-    this.path = location.pathname;
+      if (this.snackbar === null) this.injectUpdatePrompt();
+      this.injectStatusIndicator(true);
 
-    var checkUpdateCallback = this.checkUpdate.bind(this);
-    this.interval = window.setInterval(checkUpdateCallback, intervalMs);
+      this.isLookingForUpdates = true;
+      this.path = location.pathname;
+
+      var checkUpdateCallback = this.checkUpdate.bind(this);
+      this.interval = window.setInterval(checkUpdateCallback, intervalMs);
+    });
   }
 };

@@ -2,6 +2,7 @@ import {waitFor} from 'poll-until-promise';
 
 import {CCApi} from '../../common/api.js';
 import {parseUrl} from '../../common/commonUtils.js';
+import {isOptionEnabled} from '../../common/optionsUtils.js';
 
 import AvatarsDB from './utils/AvatarsDB.js'
 
@@ -10,6 +11,14 @@ export default class AvatarsHandler {
     this.isFilterSetUp = false;
     this.privateForums = [];
     this.db = new AvatarsDB();
+
+    // Preload whether the option is enabled or not. This is because in the case
+    // avatars should be injected, if we don't preload this the layout will
+    // shift when injecting the first avatar.
+    isOptionEnabled('threadlistavatars').then(isEnabled => {
+      if (isEnabled)
+        document.body.classList.add('TWPT-threadlistavatars-enabled');
+    });
   }
 
   // Gets a list of private forums. If it is already cached, the cached list is
@@ -337,5 +346,18 @@ export default class AvatarsHandler {
               '[threadListAvatars] Could not retrieve avatars for thread',
               thread, err);
         });
+  }
+
+  // Inject avatars for thread summary (thread item) |node| in a thread list if
+  // the threadlistavatars option is enabled.
+  injectIfEnabled(node) {
+    isOptionEnabled('threadlistavatars').then(isEnabled => {
+      if (isEnabled) {
+        document.body.classList.add('TWPT-threadlistavatars-enabled');
+        this.inject(node);
+      } else {
+        document.body.classList.remove('TWPT-threadlistavatars-enabled');
+      }
+    });
   }
 };

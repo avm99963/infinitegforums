@@ -1,5 +1,7 @@
-import {getNParent, createExtBadge} from './utils/common.js';
 import {escapeUsername, getAuthUser} from '../../common/communityConsoleUtils.js';
+import {isOptionEnabled} from '../../common/optionsUtils.js';
+
+import {createExtBadge, getNParent} from './utils/common.js';
 
 var authuser = getAuthUser();
 
@@ -56,4 +58,10 @@ export function injectPreviousPostsLinks(nameElement) {
   container.appendChild(linkContainer);
 
   mainCardContent.appendChild(container);
+}
+
+export function injectPreviousPostsLinksIfEnabled(nameElement) {
+  isOptionEnabled('history').then(isEnabled => {
+    if (isEnabled) injectPreviousPostsLinks(nameElement);
+  });
 }

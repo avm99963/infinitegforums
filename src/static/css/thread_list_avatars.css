@@ -36,6 +36,6 @@
 /*
  * Changing styles of existing elements so the avatars fit.
  */
-ec-thread-summary .main-header .panel-description a.header .header-content {
+body.TWPT-threadlistavatars-enabled ec-thread-summary .main-header .panel-description a.header .header-content {
   width: calc(100% - 218px);
 }

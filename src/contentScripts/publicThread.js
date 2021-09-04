@@ -1,3 +1,5 @@
+import {getOptions} from '../common/optionsUtils.js';
+
 var CCThreadWithoutMessage = /forum\/[0-9]*\/thread\/[0-9]*$/;
 
 var intersectionObserver;
@@ -14,9 +16,9 @@ var intersectionOptions = {
   threshold: 1.0,
 };
 
-chrome.storage.sync.get(null, function(items) {
+getOptions(null).then(options => {
   var redirectLink = document.querySelector('.community-console');
-  if (items.redirect && redirectLink !== null) {
+  if (options.redirect && redirectLink !== null) {
     var redirectUrl = redirectLink.href;
 
     var searchParams = new URLSearchParams(location.search);
@@ -29,14 +31,14 @@ chrome.storage.sync.get(null, function(items) {
   } else {
     var button =
         document.querySelector('.thread-all-replies__load-more-button');
-    if (items.thread && button !== null) {
+    if (options.thread && button !== null) {
       intersectionObserver =
           new IntersectionObserver(intersectionCallback, intersectionOptions);
       intersectionObserver.observe(button);
     }
     var allbutton =
         document.querySelector('.thread-all-replies__load-all-button');
-    if (items.threadall && button !== null) {
+    if (options.threadall && button !== null) {
       intersectionObserver =
           new IntersectionObserver(intersectionCallback, intersectionOptions);
       intersectionObserver.observe(allbutton);

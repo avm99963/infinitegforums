@@ -26,3 +26,23 @@ export function cleanUpOptions(options, dryRun = false) {
 
   return options;
 }
+
+// Returns a promise which returns the values of options |options| which are
+// stored in the sync storage area.
+export function getOptions(options) {
+  // Once we only target MV3, this can be greatly simplified.
+  return new Promise(
+      (resolve, reject) => {chrome.storage.sync.get(options, items => {
+        if (chrome.runtime.lastError) return reject(chrome.runtime.lastError);
+
+        resolve(items);
+      })});
+}
+
+// Returns a promise which returns whether the |option| option/feature is
+// currently enabled.
+export function isOptionEnabled(option) {
+  return getOptions(option).then(options => {
+    return options?.[option] === true;
+  });
+}

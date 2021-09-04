@@ -1,3 +1,5 @@
+import {isOptionEnabled} from '../../common/optionsUtils.js';
+
 export function applyDragAndDropFix(node) {
   console.debug('Adding link drag&drop fix to ', node);
   node.addEventListener('drop', e => {
@@ -6,4 +8,10 @@ export function applyDragAndDropFix(node) {
       console.debug('Stopping link drop event propagation.');
     }
   }, true);
+}
+
+export function applyDragAndDropFixIfEnabled(node) {
+  isOptionEnabled('ccdragndropfix').then(isEnabled => {
+    if (isEnabled) applyDragAndDropFix(node);
+  });
 }

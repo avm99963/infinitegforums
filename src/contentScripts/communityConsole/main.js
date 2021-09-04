@@ -1,13 +1,15 @@
 import {injectScript, injectStyles, injectStylesheet} from '../../common/contentScriptsUtils.js';
+import {getOptions, isOptionEnabled} from '../../common/optionsUtils.js';
 
 import AvatarsHandler from './avatars.js';
 import {batchLock} from './batchLock.js';
 import {injectDarkModeButton, isDarkThemeOn} from './darkMode.js';
-import {applyDragAndDropFix} from './dragAndDropFix.js';
-import {injectPreviousPostsLinks} from './profileHistoryLink.js';
+import {applyDragAndDropFixIfEnabled} from './dragAndDropFix.js';
+import {injectPreviousPostsLinksIfEnabled} from './profileHistoryLink.js';
 import {unifiedProfilesFix} from './unifiedProfiles.js';
 
-var mutationObserver, intersectionObserver, intersectionOptions, options, avatars;
+var mutationObserver, intersectionObserver, intersectionOptions, options,
+    avatars;
 
 const watchedNodesSelectors = [
   // App container (used to set up the intersection observer and inject the dark
@@ -58,6 +60,7 @@ function handleCandidateNode(node) {
       }
 
       // Inject the dark mode button
+      // TODO(avm99963): make this feature dynamic.
       if (options.ccdarktheme && options.ccdarktheme_mode == 'switch') {
         var rightControl = node.querySelector('header .right-control');
         if (rightControl !== null)
@@ -66,14 +69,17 @@ function handleCandidateNode(node) {
     }
 
     // Start the intersectionObserver for the "load more"/"load all" buttons
-    // inside a thread
-    if ((options.thread || options.threadall) &&
-        node.classList.contains('load-more-bar')) {
+    // inside a thread if the option is currently enabled.
+    if (node.classList.contains('load-more-bar')) {
       if (typeof intersectionObserver !== 'undefined') {
-        if (options.thread)
-          intersectionObserver.observe(node.querySelector('.load-more-button'));
-        if (options.threadall)
-          intersectionObserver.observe(node.querySelector('.load-all-button'));
+        getOptions(['thread', 'threadall']).then(threadOptions => {
+          if (threadOptions.thread)
+            intersectionObserver.observe(
+                node.querySelector('.load-more-button'));
+          if (threadOptions.threadall)
+            intersectionObserver.observe(
+                node.querySelector('.load-all-button'));
+        });
       } else {
         console.warn(
             '[infinitescroll] ' +
@@ -81,43 +87,46 @@ function handleCandidateNode(node) {
       }
     }
 
-    // Show the "previous posts" links
+    // Show the "previous posts" links if the option is currently enabled.
     //   Here we're selecting the 'ec-user > div' element (unique child)
-    if (options.history &&
-        (node.matches('ec-user .main-card .header > .name > span') ||
-         node.matches(
-             'ec-user .main-card .header > .name > ec-display-name-editor'))) {
-      injectPreviousPostsLinks(node);
+    if (node.matches('ec-user .main-card .header > .name > span') ||
+        node.matches(
+            'ec-user .main-card .header > .name > ec-display-name-editor')) {
+      injectPreviousPostsLinksIfEnabled(node);
     }
 
-    // Fix the drag&drop issue with the rich text editor
+    // Fix the drag&drop issue with the rich text editor if the option is
+    // currently enabled.
     //
     //   We target both tags because in different contexts different
     //   elements containing the text editor get added to the DOM structure.
     //   Sometimes it's a EC-MOVABLE-DIALOG which already contains the
     //   EC-RICH-TEXT-EDITOR, and sometimes it's the EC-RICH-TEXT-EDITOR
     //   directly.
-    if (options.ccdragndropfix && ('tagName' in node) &&
+    if (('tagName' in node) &&
         (node.tagName == 'EC-MOVABLE-DIALOG' ||
          node.tagName == 'EC-RICH-TEXT-EDITOR')) {
-      applyDragAndDropFix(node);
+      applyDragAndDropFixIfEnabled(node);
     }
 
-    // Inject the batch lock button in the thread list
-    if (options.batchlock && batchLock.nodeIsReadToggleBtn(node)) {
-      batchLock.addButton(node);
+    // Inject the batch lock button in the thread list if the option is
+    // currently enabled.
+    if (batchLock.nodeIsReadToggleBtn(node)) {
+      batchLock.addButtonIfEnabled(node);
     }
 
-    // Inject avatar links to threads in the thread list
-    if (options.threadlistavatars && ('tagName' in node) &&
-        (node.tagName == 'LI') &&
+    // Inject avatar links to threads in the thread list. injectIfEnabled is
+    // responsible of determining whether it should run or not depending on its
+    // current setting.
+    if (('tagName' in node) && (node.tagName == 'LI') &&
         node.querySelector('ec-thread-summary') !== null) {
-      avatars.inject(node);
+      avatars.injectIfEnabled(node);
     }
 
-    // Set up the autorefresh list feature
-    if (options.autorefreshlist && ('tagName' in node) &&
-        node.tagName == 'EC-THREAD-LIST') {
+    // Set up the autorefresh list feature. The setUp function is responsible
+    // of determining whether it should run or not depending on the current
+    // setting.
+    if (('tagName' in node) && node.tagName == 'EC-THREAD-LIST') {
       window.TWPTAutoRefresh.setUp();
     }
 
@@ -131,8 +140,7 @@ function handleCandidateNode(node) {
 
 function handleRemovedNode(node) {
   // Remove snackbar when exiting thread list view
-  if (options.autorefreshlist && 'tagName' in node &&
-      node.tagName == 'EC-THREAD-LIST') {
+  if ('tagName' in node && node.tagName == 'EC-THREAD-LIST') {
     window.TWPTAutoRefresh.hideUpdatePrompt();
   }
 }
@@ -164,12 +172,11 @@ var observerOptions = {
   subtree: true,
 };
 
-chrome.storage.sync.get(null, function(items) {
+getOptions(null).then(items => {
   options = items;
 
   // Initialize classes needed by the mutation observer
-  if (options.threadlistavatars)
-    avatars = new AvatarsHandler();
+  avatars = new AvatarsHandler();
 
   // autoRefresh is initialized in start.js
 
@@ -183,6 +190,7 @@ chrome.storage.sync.get(null, function(items) {
   mutationObserver = new MutationObserver(mutationCallback);
   mutationObserver.observe(document.body, observerOptions);
 
+  // TODO(avm99963): The following features are not dynamic. Make them be.
   if (options.fixedtoolbar) {
     injectStyles(
         'ec-bulk-actions{position: sticky; top: 0; background: var(--TWPT-primary-background, #fff); z-index: 96;}');
@@ -214,16 +222,11 @@ chrome.storage.sync.get(null, function(items) {
     }
   }
 
-  if (options.batchlock) {
-    injectScript(chrome.runtime.getURL('batchLockInject.bundle.js'));
-    injectStylesheet(chrome.runtime.getURL('css/batchlock_inject.css'));
-  }
-
-  if (options.threadlistavatars) {
-    injectStylesheet(chrome.runtime.getURL('css/thread_list_avatars.css'));
-  }
-
-  if (options.autorefreshlist) {
-    injectStylesheet(chrome.runtime.getURL('css/autorefresh_list.css'));
-  }
+  // Batch lock
+  injectScript(chrome.runtime.getURL('batchLockInject.bundle.js'));
+  injectStylesheet(chrome.runtime.getURL('css/batchlock_inject.css'));
+  // Thread list avatars
+  injectStylesheet(chrome.runtime.getURL('css/thread_list_avatars.css'));
+  // Auto refresh list
+  injectStylesheet(chrome.runtime.getURL('css/autorefresh_list.css'));
 });
