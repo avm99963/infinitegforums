@@ -3,21 +3,14 @@ import {getOptions} from '../../common/optionsUtils.js';
 
 import AutoRefresh from './autoRefresh.js';
 
-const SMEI_UNIFIED_PROFILES = 9;
-
 getOptions(null).then(options => {
   /* IMPORTANT NOTE: Remember to change this when changing the "ifs" below!! */
-  if (options.loaddrafts || options.disableunifiedprofiles) {
+  if (options.loaddrafts) {
     var startup =
         JSON.parse(document.querySelector('html').getAttribute('data-startup'));
 
     if (options.loaddrafts) {
       startup[4][13] = true;
-    }
-
-    if (options.disableunifiedprofiles) {
-      var index = startup[1][6].indexOf(SMEI_UNIFIED_PROFILES);
-      if (index > -1) startup[1][6].splice(index, 1);
     }
 
     document.querySelector('html').setAttribute(

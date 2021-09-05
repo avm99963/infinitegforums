@@ -95,11 +95,6 @@
     context: 'options',
     killSwitchType: 'option',
   },
-  'disableunifiedprofiles': {
-    defaultValue: false,
-    context: 'options',
-    killSwitchType: 'option',
-  },
 
   // Experiments:
   'threadlistavatars': {
@@ -142,6 +137,11 @@
     killSwitchType: 'deprecated',
   },
   'forcemarkasread': {
+    defaultValue: false,
+    context: 'deprecated',
+    killSwitchType: 'deprecated',
+  },
+  'disableunifiedprofiles': {
     defaultValue: false,
     context: 'deprecated',
     killSwitchType: 'deprecated',
