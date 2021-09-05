@@ -131,21 +131,6 @@ the Community Console thread lists_.
 
 ![Picture showing the feature](resources/reposition_expand_thread.jpg)
 
-### Go back to the old profile view
-> **Option name:** _Force disable the `SMEI_UNIFIED_PROFILES` experiment in the
-Community Console._
-
-This option disables the `SMEI_UNIFIED_PROFILES` experiment, which when enabled
-introduces a redesign of the profile view which also unifies all forum profiles
-into a single one.
-
-This means that independently of whether your account is part of this
-experiment, when enabling this option the experiment will be forced disabled
-and you'll continue to see the old/regular profile view, which shows user
-profiles in a per-forum basis.
-
-Note that this only applies to the Community Console.
-
 ## Indicator dot
 > **Option names:** _Show whether the OP has participated in other threads_,
 _Show the number of questions and replies written by the OP within the last `n`

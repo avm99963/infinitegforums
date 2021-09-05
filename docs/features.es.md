@@ -138,21 +138,6 @@ listas de hilos de la Consola de la Comunidad._.
 
 ![Imagen que muestra la función](resources/reposition_expand_thread.jpg)
 
-### Muestra la vieja interfaz de los perfiles
-> **Opción:** _Desactiva forzosamente el experimento `SMEI_UNIFIED_PROFILES` en
-la Consola de la Comunidad._
-
-Esta opción desactiva el experimento `SMEI_UNIFIED_PROFILES`, que cuando está
-activado introduce un rediseño de la interfaz de los perfiles que también
-unifica todos los perfiles de cada foro en uno único.
-
-Esto significa que independientemente de si tu cuenta forma parte de este
-experimento, cuando actives esta opción el experimento se desactivará
-forzosamente y podrás continuar viendo la interfaz vieja/normal de los
-perfiles, que muestra los perfiles de los usuarios separados para cada foro.
-
-Nótese que esto solo aplica a a la Consola de la Comunidad.
-
 ## Punto indicador
 > **Opciones:** _Muestra si el autor del hilo ha participado en otros hilos_,
 _Muestra el número de preguntas y respuestas escritas por el autor del hilo
