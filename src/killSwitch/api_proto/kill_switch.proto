@@ -1,0 +1,94 @@
+syntax = "proto3";
+
+import "api_proto/common.proto";
+import "api_proto/kill_switch_objects.proto";
+
+option go_package = "gomodules.avm99963.com/twpt-server/api_proto";
+
+service KillSwitchService {
+  rpc GetKillSwitchStatus (GetKillSwitchStatusRequest) returns (GetKillSwitchStatusResponse) {}
+  rpc GetKillSwitchOverview (GetKillSwitchOverviewRequest) returns (GetKillSwitchOverviewResponse) {}
+  rpc ListFeatures (ListFeaturesRequest) returns (ListFeaturesResponse) {}
+  rpc SyncFeatures (SyncFeaturesRequest) returns (SyncFeaturesResponse) {}
+  rpc EnableKillSwitch (EnableKillSwitchRequest) returns (EnableKillSwitchResponse) {}
+  rpc DisableKillSwitch (DisableKillSwitchRequest) returns (DisableKillSwitchResponse) {}
+  rpc ListAuthorizedUsers (ListAuthorizedUsersRequest) returns (ListAuthorizedUsersResponse) {}
+  rpc AddAuthorizedUser (AddAuthorizedUserRequest) returns (AddAuthorizedUserResponse) {}
+  rpc UpdateAuthorizedUser (UpdateAuthorizedUserRequest) returns (UpdateAuthorizedUserResponse) {}
+  rpc DeleteAuthorizedUser (DeleteAuthorizedUserRequest) returns (DeleteAuthorizedUserResponse) {}
+}
+
+// Retrieve kill switch status depending on the environment.
+message GetKillSwitchStatusRequest {
+  Environment environment = 1;
+}
+
+message GetKillSwitchStatusResponse {
+  repeated KillSwitch kill_switches = 1;
+}
+
+message GetKillSwitchOverviewRequest {
+  bool with_nonactive_kill_switches = 1;
+}
+
+message GetKillSwitchOverviewResponse {
+  repeated KillSwitch kill_switches = 1;
+}
+
+message ListFeaturesRequest {
+  bool with_deprecated_features = 1;
+}
+
+message ListFeaturesResponse {
+  repeated Feature features = 1;
+}
+
+message SyncFeaturesRequest {
+  repeated Feature features = 1;
+}
+
+message SyncFeaturesResponse {
+}
+
+message EnableKillSwitchRequest {
+  KillSwitch kill_switch = 1;
+}
+
+message EnableKillSwitchResponse {
+}
+
+message DisableKillSwitchRequest {
+  int32 kill_switch_id = 1;
+}
+
+message DisableKillSwitchResponse {
+}
+
+message ListAuthorizedUsersRequest {
+}
+
+message ListAuthorizedUsersResponse {
+  repeated KillSwitchAuthorizedUser users = 1;
+}
+
+message AddAuthorizedUserRequest {
+  KillSwitchAuthorizedUser user = 1;
+}
+
+message AddAuthorizedUserResponse {
+}
+
+message UpdateAuthorizedUserRequest {
+  int32 user_id = 1;
+  KillSwitchAuthorizedUser user = 2;
+}
+
+message UpdateAuthorizedUserResponse {
+}
+
+message DeleteAuthorizedUserRequest {
+  int32 user_id = 1;
+}
+
+message DeleteAuthorizedUserResponse {
+}

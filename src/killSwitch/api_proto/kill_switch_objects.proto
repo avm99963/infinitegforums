@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+import "api_proto/common.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "gomodules.avm99963.com/twpt-server/api_proto";
+
+message Feature {
+  int32 id = 1;
+  string codename = 2;
+  enum Type {
+    TYPE_UNKNOWN = 0;
+    TYPE_EXPERIMENT = 1;
+    TYPE_OPTION = 2;
+    TYPE_DEPRECATED = 10;
+  }
+  Type type = 3;
+}
+
+message KillSwitch {
+  int32 id = 1;
+  Feature feature = 2;
+  string min_version = 3;
+  string max_version = 4;
+  repeated Environment.Browser browsers = 5;
+  bool active = 6;
+}
+
+message KillSwitchAuthorizedUser {
+  int32 id = 1;
+  string google_uid = 2;
+  string email = 3;
+  enum AccessLevel {
+    ACCESS_LEVEL_NONE = 0;
+    ACCESS_LEVEL_ACTIVATOR = 5; // The user may enable/disable kill switches.
+    ACCESS_LEVEL_ADMIN = 10; // The user may perform any action.
+  }
+  AccessLevel access_level = 4;
+}
+
+message KillSwitchTransformation {
+  KillSwitch old = 1;
+  KillSwitch new = 2;
+}
+
+message AuthorizedUserTransformation {
+  KillSwitchAuthorizedUser old = 1;
+  KillSwitchAuthorizedUser new = 2;
+}
+
+// Log entry which describes an action which has taken place.
+message KillSwitchAuditLogEntry {
+  // Timestamp in which the action was taken.
+  google.protobuf.Timestamp timestamp = 1;
+
+  // User who/which performed the action.
+  KillSwitchAuthorizedUser user = 2;
+
+  message KillSwitchEnabled {
+    KillSwitch kill_switch = 1;
+  }
+
+  message KillSwitchDisabled {
+    KillSwitchTransformation transformation = 1;
+  }
+
+  message AuthorizedUserAdded {
+    KillSwitchAuthorizedUser user = 1;
+  }
+
+  message AuthorizedUserUpdated {
+    AuthorizedUserTransformation transformation = 1;
+  }
+
+  message AuthorizedUserDeleted {
+    KillSwitchAuthorizedUser old_user = 1;
+  }
+
+  // Description of the action taken
+  oneof description {
+    KillSwitchEnabled kill_switch_enabled = 3;
+    KillSwitchDisabled kill_switch_disabled = 4;
+    AuthorizedUserAdded authorized_user_added = 5;
+    AuthorizedUserUpdated authorized_user_updated = 6;
+    AuthorizedUserDeleted authorized_user_deleted  = 7;
+  }
+}

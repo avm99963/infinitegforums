@@ -34,7 +34,11 @@
   },
   "private": true,
   "dependencies": {
+    "google-protobuf": "^3.18.0-rc.2",
+    "grpc-web": "^1.2.1",
     "idb": "^6.1.2",
-    "poll-until-promise": "^3.6.1"
+    "poll-until-promise": "^3.6.1",
+    "semver": "^7.3.5",
+    "sw-xhr": "^0.0.3"
   }
 }

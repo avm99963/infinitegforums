@@ -24,9 +24,13 @@ main {
   cursor: pointer;
 }
 
-.option {
+.option, .kill-switch-text {
   margin: 4px 0;
   line-height: 1.8em;
+}
+
+.kill-switch-text {
+  color: red;
 }
 
 .help {

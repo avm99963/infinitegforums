@@ -108,12 +108,25 @@ window.addEventListener('load', function() {
     var featuresLink = document.querySelector('.features-link');
     featuresLink.href = getDocURL('features.md');
 
-    var profileIndicatorLink = document.getElementById('profileIndicatorMoreInfo');
+    var profileIndicatorLink =
+        document.getElementById('profileIndicatorMoreInfo');
     profileIndicatorLink.href = getDocURL('op_indicator.md');
   }
 
   chrome.storage.sync.get(null, function(items) {
     items = cleanUpOptions(items, false);
+
+    // If some features have been force disabled, communicate this to the user.
+    if (items?._forceDisabledFeatures &&
+        items._forceDisabledFeatures.length > 0) {
+      if (window.CONTEXT == 'options') {
+        document.getElementById('kill-switch-warning')
+            .removeAttribute('hidden');
+      }
+
+      // TODO(avm99963): show a message above each option that has been force
+      // disabled
+    }
 
     for (var entry of Object.entries(optionsPrototype)) {
       var opt = entry[0];

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = "gomodules.avm99963.com/twpt-server/api_proto";
+
+message Environment {
+  enum Browser {
+    BROWSER_UNKNOWN = 0;
+    BROWSER_CHROMIUM = 1;
+    BROWSER_GECKO = 2;
+  }
+
+  enum VersionChannel {
+    CHANNEL_UNKNOWN = 0;
+    CHANNEL_STABLE = 1;
+    CHANNEL_BETA = 2;
+  }
+
+  Browser browser = 1;
+  string version = 2;
+  VersionChannel version_channel = 3;
+}

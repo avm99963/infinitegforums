@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const json5 = require('json5');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -84,6 +85,9 @@ module.exports = (env, args) => {
             }
           },
         ]
+      }),
+      new webpack.DefinePlugin({
+        'PRODUCTION': args.mode == 'production',
       }),
       ...getCopyPluginsForOverridenLocales(outputPath),
     ],
