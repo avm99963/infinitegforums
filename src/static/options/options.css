@@ -24,13 +24,18 @@ main {
   cursor: pointer;
 }
 
-.option, .kill-switch-text {
+.option, #kill-switch-warning {
   margin: 4px 0;
   line-height: 1.8em;
 }
 
-.kill-switch-text {
+#kill-switch-warning, .kill-switch-label {
   color: red;
+}
+
+.kill-switch-label {
+  margin: 0 0 8px 0;
+  line-height: 1em;
 }
 
 .help {

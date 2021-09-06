@@ -117,31 +117,39 @@ window.addEventListener('load', function() {
         for (let option of section.options) {
           if (option?.customHTML) {
             optionsContainer.insertAdjacentHTML('beforeend', option.customHTML);
-            continue;
+          } else {
+            let optionEl = document.createElement('div');
+            optionEl.classList.add('option');
+
+            let checkbox = document.createElement('input');
+            checkbox.setAttribute('type', 'checkbox');
+            checkbox.id = option.codename;
+
+            let label = document.createElement('label');
+            label.setAttribute('for', checkbox.id);
+            label.setAttribute('data-i18n', option.codename);
+
+            optionEl.append(checkbox, ' ', label);
+
+            if (option?.experimental) {
+              let experimental = document.createElement('span');
+              experimental.classList.add('experimental-label');
+              experimental.setAttribute('data-i18n', 'experimental_label');
+
+              optionEl.append(' ', experimental);
+            }
+
+            optionsContainer.append(optionEl);
           }
 
-          let optionEl = document.createElement('div');
-          optionEl.classList.add('option');
+          // Add kill switch component after each option.
+          let killSwitchComponent = document.createElement('div');
+          killSwitchComponent.classList.add('kill-switch-label');
+          killSwitchComponent.setAttribute('hidden', '');
+          killSwitchComponent.setAttribute('data-feature', option.codename);
+          killSwitchComponent.setAttribute('data-i18n', 'killswitchenabled');
 
-          let checkbox = document.createElement('input');
-          checkbox.setAttribute('type', 'checkbox');
-          checkbox.id = option.codename;
-
-          let label = document.createElement('label');
-          label.setAttribute('for', checkbox.id);
-          label.setAttribute('data-i18n', option.codename);
-
-          optionEl.append(checkbox, ' ', label);
-
-          if (option?.experimental) {
-            let experimental = document.createElement('span');
-            experimental.classList.add('experimental-label');
-            experimental.setAttribute('data-i18n', 'experimental_label');
-
-            optionEl.append(experimental);
-          }
-
-          optionsContainer.append(optionEl);
+          optionsContainer.append(killSwitchComponent);
         }
       }
 
@@ -234,6 +242,10 @@ window.addEventListener('load', function() {
       }
 
       if (items[opt] === true) document.getElementById(opt).checked = true;
+      if (window.CONTEXT == 'options' &&
+          items?._forceDisabledFeatures?.includes?.(opt))
+        document.querySelector('.kill-switch-label[data-feature="' + opt + '"]')
+            .removeAttribute('hidden');
     }
 
     exclusiveOptions.forEach(exclusive => {
