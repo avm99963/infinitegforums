@@ -15,6 +15,14 @@
     "message": "Fes scroll infinit i obtén altres millores als Fòrums de Google i la Consola de la Comunitat",
     "description": "The extension's description"
   },
+  "options_killswitchwarning": {
+    "message": "Una o més opcions han sigut desactivades forçosament perquè podrien no estar funcionant correctament. Sisplau ves al <a href='https://groups.google.com/g/twpowertools-discuss' rel='noreferrer noopener' target='_blank'>grup twpowertools-discuss</a> per obtenir més informació sobre per què algunes opcions s'han desactivat forçosament.",
+    "description": "Warning shown in the options page if a feature has been remotely force disabled via the kill switch mechanism. This happens when a feature doesn't work properly and might be doing dangerous things, and the maintainer or an authorized user remotely force disables the feature."
+  },
+  "options_killswitchenabled": {
+    "message": "L'opció anterior està desactivada forçosament degut a un problema.",
+    "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
+  },
   "options_list": {
     "message": "Activa el scroll infinit a les llistes de fils.",
     "description": "Feature checkbox in the options page"
@@ -97,10 +105,6 @@
   },
   "options_autorefreshlist": {
     "message": "Mostra una notificació a la Consola de la Comunitat quan una llista de fils rep actualitzacions.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_disableunifiedprofiles": {
-    "message": "Desactiva a la força l'experiment <code class=\"help\" title=\"Aquest experiment, quan està actiu, introdueix un rediseny de la interfície dels perfils que també unifica tots els perfils en un únic.\">SMEI_UNIFIED_PROFILES</code> a la Consola de la Comunitat.",
     "description": "Feature checkbox in the options page"
   },
   "options_profileindicator_header": {
