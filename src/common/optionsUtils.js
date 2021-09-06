@@ -34,10 +34,12 @@ export function getOptions(options) {
   return new Promise((resolve, reject) => {
     if (typeof options === 'string')
       options = [options, '_forceDisabledFeatures'];
-    else if (typeof options === 'array')
+    else if (Array.isArray(options))
       options = [...options, '_forceDisabledFeatures'];
     else if (options !== null)
-      console.error('Unexpected |options| parameter (expected: string, array, or null).');
+      console.error(
+          'Unexpected |options| parameter of type ' + (typeof options) +
+          ' (expected: string, array, or null).');
 
     chrome.storage.sync.get(options, items => {
       if (chrome.runtime.lastError) return reject(chrome.runtime.lastError);
