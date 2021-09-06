@@ -15,6 +15,14 @@
     "message": "احصل/ي على التمرير اللانهائي والتحسينات الأخرى في منتديات Google و وحدة التّحكّم في المجتمع",
     "description": "The extension's description"
   },
+  "options_killswitchwarning": {
+    "message": "تم الإيقاف القسري لخيار واحد أو أكثر كونُها قد لا تعمل بالطّريقة الصّحيحة. يُرجى الانتقال إلى <a href='https://groups.google.com/g/twpowertools-discuss' rel='noreferrer noopener' target='_blank'>مجموعة Google الخاصة بـTWPT</a> لمعرفة المزيد حول سبب الإيقاف القسري لبعض الخيارات.",
+    "description": "Warning shown in the options page if a feature has been remotely force disabled via the kill switch mechanism. This happens when a feature doesn't work properly and might be doing dangerous things, and the maintainer or an authorized user remotely force disables the feature."
+  },
+  "options_killswitchenabled": {
+    "message": "تم الإيقاف القسري للخيار السابق بسبب مشكلة.",
+    "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
+  },
   "options_list": {
     "message": "تفعيل التمرير اللانهائي في قوائم المواضيع",
     "description": "Feature checkbox in the options page"
@@ -97,10 +105,6 @@
   },
   "options_autorefreshlist": {
     "message": "إظهار إشعار في وحدة التّحكّم في المجتمع عندما تحتوي قائمة سلاسل المحادثات على تحديثات جديدة.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_disableunifiedprofiles": {
-    "message": "فرض تعطيل تجربة <code class=\"help\" title=\"تقدم هذه التجربة، عند تمكينها، إعادة تصميم لعرض الملف الشّخصي الذي يوحد أيضا جميع الملفات الشخصية للمنتدى في ملف شخصي واحد.\">SMEI_UNIFIED_PROFILES</code> في وحدة التّحكّم في المجتمع.",
     "description": "Feature checkbox in the options page"
   },
   "options_profileindicator_header": {
