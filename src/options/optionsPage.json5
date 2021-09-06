@@ -1,0 +1,40 @@
+// This file defines the sections of the options page, in which section each
+// option appears in, whether the "experimental" label should appear next to the
+// option label, and whether each option should use custom HTML.
+{
+  sections: [
+    {
+      name: null,
+      options: [
+        {codename: 'list'},
+        {codename: 'thread'},
+        {codename: 'threadall'},
+      ],
+    },
+    {
+      name: 'enhancements',
+      options: [
+        {codename: 'fixedtoolbar'},
+        {codename: 'redirect'},
+        {codename: 'history'},
+        {codename: 'loaddrafts', experimental: true},
+        {codename: 'increasecontrast'},
+        {codename: 'stickysidebarheaders'},
+        {codename: 'ccdarktheme'},
+        {codename: 'ccforcehidedrawer'},
+        {codename: 'ccdragndropfix', customHTML: '<div id="dragndrop-wrapper" class="option" hidden><input type="checkbox" id="ccdragndropfix"> <label for="ccdragndropfix" data-i18n="ccdragndropfix"></label></div>'},
+        {codename: 'batchlock'},
+        {codename: 'enhancedannouncementsdot'},
+        {codename: 'repositionexpandthread', experimental: true},
+      ],
+    },
+    {
+      name: 'profileindicator_header',
+      options: [
+        {codename: 'profileindicator'},
+        {codename: 'profileindicatoralt'},
+      ],
+      footerHTML: '<div class="option"><a id="profileIndicatorMoreInfo" target="_blank" rel="noreferrer noopener" data-i18n="profileindicator_moreinfo"></a></div>',
+    },
+  ],
+}

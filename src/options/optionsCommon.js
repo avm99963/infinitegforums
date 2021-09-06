@@ -1,5 +1,6 @@
-import {getExtVersion, isFirefox, isReleaseVersion} from './common/extUtils.js';
-import {cleanUpOptions, optionsPrototype, specialOptions} from './common/optionsUtils.js';
+import {getExtVersion, isFirefox, isReleaseVersion} from '../common/extUtils.js';
+import {cleanUpOptions, optionsPrototype, specialOptions} from '../common/optionsUtils.js';
+import optionsPage from './optionsPage.json5';
 
 var savedSuccessfullyTimeout = null;
 
@@ -94,8 +95,6 @@ function i18n() {
 }
 
 window.addEventListener('load', function() {
-  i18n();
-
   if (window.CONTEXT == 'options') {
     if (!isReleaseVersion()) {
       var experimentsLink = document.querySelector('.experiments-link');
@@ -105,6 +104,52 @@ window.addEventListener('load', function() {
       }));
     }
 
+    // Add options to page
+    let optionsContainer = document.getElementById('options-container');
+    for (let section of optionsPage.sections) {
+      if (section?.name) {
+        let sectionHeader = document.createElement('h4');
+        sectionHeader.setAttribute('data-i18n', section.name);
+        optionsContainer.append(sectionHeader);
+      }
+
+      if (section?.options) {
+        for (let option of section.options) {
+          if (option?.customHTML) {
+            optionsContainer.insertAdjacentHTML('beforeend', option.customHTML);
+            continue;
+          }
+
+          let optionEl = document.createElement('div');
+          optionEl.classList.add('option');
+
+          let checkbox = document.createElement('input');
+          checkbox.setAttribute('type', 'checkbox');
+          checkbox.id = option.codename;
+
+          let label = document.createElement('label');
+          label.setAttribute('for', checkbox.id);
+          label.setAttribute('data-i18n', option.codename);
+
+          optionEl.append(checkbox, ' ', label);
+
+          if (option?.experimental) {
+            let experimental = document.createElement('span');
+            experimental.classList.add('experimental-label');
+            experimental.setAttribute('data-i18n', 'experimental_label');
+
+            optionEl.append(experimental);
+          }
+
+          optionsContainer.append(optionEl);
+        }
+      }
+
+      if (section?.footerHTML) {
+        optionsContainer.insertAdjacentHTML('beforeend', section.footerHTML);
+      }
+    }
+
     var featuresLink = document.querySelector('.features-link');
     featuresLink.href = getDocURL('features.md');
 
@@ -112,6 +157,8 @@ window.addEventListener('load', function() {
         document.getElementById('profileIndicatorMoreInfo');
     profileIndicatorLink.href = getDocURL('op_indicator.md');
   }
+
+  i18n();
 
   chrome.storage.sync.get(null, function(items) {
     items = cleanUpOptions(items, false);

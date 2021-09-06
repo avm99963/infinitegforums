@@ -45,7 +45,7 @@ module.exports = (env, args) => {
     xhrInterceptorInject: './src/injections/xhrInterceptor.js',
 
     // Options page
-    optionsCommon: './src/optionsCommon.js',
+    optionsCommon: './src/options/optionsCommon.js',
   };
 
   // Background script (or service worker for MV3)

@@ -14,14 +14,10 @@ feature will be enabled or not.
     users have to explicitly enable the option after they receive the extension
     update. Otherwise, it might cause confusion, because users wouldn't know if
     the feature was added by the extension or Google.
-3. Now, modify the `//src/static/options/options.html` file by appending the
-following HTML code in the corresponding section:
-    ```
-    <div class="option"><input type="checkbox" id="{{codename}}"> <label for="{{codename}}" data-i18n="{{codename}}"></label> <span class="experimental-label" data-i18n="experimental_label"></span></div>
-    ```
-    where you should substitute `{{codename}}` with the codename you've chosen.
-The _experimental_ label is optional and should only be used with features which
-are unreliable (or could be at some point in the future) due to their nature.
+3. Now, modify the `//src/static/options/optionsPage.json5` file by adding an
+entry to the corresponding section. The _experimental_ property is optional and
+should only be used with features which are unreliable (or could be at some
+point in the future) due to their nature.
 4. Finally, add the option string at `//src/static/_locales/en/manifest.json`,
 by adding the string under the `options_{{codename}}` key.
 
@@ -65,9 +61,9 @@ codename appended by an underscore and a suffix
     showing/saving it in the options page, or so it is handled outside of the
     options page.
 3. If you want to handle the option from the options page, follow these steps:
-    1. Modify the `//src/static/options/options.html` file to add the
-    appropriate code which implements the option (usually in the same `.option`
-    div as the feature switch).
+    1. Modify the `//src/static/options/optionsPage.json5` file to add the
+    appropriate code which implements the option under the `customHTML`
+    property.
         - Don't include text, only the HTML structure. If you add a `data-i18n`
         attribute to an HTML element, its contents will be replaced with the
         corresponding i18n string (for instance,
