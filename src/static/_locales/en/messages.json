@@ -16,7 +16,7 @@
     "description": "The extension's description"
   },
   "options_killswitchwarning": {
-    "message": "One or more options have been force disabled because they might not be working properly. Please go to the <a href='https://groups.google.com/g/twpowertools-discuss' rel='noreferrer noopener' action='_blank'>twpowertools-discuss Google Group</a> to learn more about why some options have been force disabled.",
+    "message": "One or more options have been force disabled because they might not be working properly. Please go to the <a href='https://groups.google.com/g/twpowertools-discuss' rel='noreferrer noopener' target='_blank'>twpowertools-discuss Google Group</a> to learn more about why some options have been force disabled.",
     "description": "Warning shown in the options page if a feature has been remotely force disabled via the kill switch mechanism. This happens when a feature doesn't work properly and might be doing dangerous things, and the maintainer or an authorized user remotely force disables the feature."
   },
   "options_list": {
