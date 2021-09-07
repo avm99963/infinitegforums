@@ -52,6 +52,7 @@ git tag -s $nextVersion -m "$commitMessage1" -m "$commitMessage2"
 
 if [ $? -eq 0 ]; then
   echo "Tag created. Now run \`git push --tags\` to push the tags to the server."
+  echo "Also, remember to sync the features to the TWPT-server."
 else
   echo "The tag could not be created." >&2
 fi

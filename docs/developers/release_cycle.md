@@ -6,7 +6,9 @@ be made. This is the procedure:
 extension's [version number](https://developer.chrome.com/extensions/manifest/version)
 for that release) by running `bash tagRelease.bash --version vx`. Note that the
 tag must be pushed to Gerrit after being created.
-2. [Build the extension](build.md) for both the stable and beta channels. This
+1. Sync the features with the TWPT-server via the `syncfeatures` command. (e.g.
+`cat src/common/optionsPrototype.json5 | json5 | syncfeatures --grpcEndpoint __ENTER_ENDPOINT__ --jwt __ENTER_JWT__`).
+1. [Build the extension](build.md) for both the stable and beta channels. This
 will output a ZIP file for each release channel and each supported browser.
 
 Afterwards, the release should be published in GitHub along with a changelog,
