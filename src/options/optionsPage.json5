@@ -27,6 +27,7 @@
         {codename: 'enhancedannouncementsdot'},
         {codename: 'repositionexpandthread', experimental: true},
         {codename: 'threadlistavatars'},
+        {codename: 'autorefreshlist'},
       ],
     },
     {

@@ -170,6 +170,29 @@ actualizan cuando se publica una nueva respuesta en el hilo.
 
 ![Imagen que muestra la función de avatares en listas de hilos](resources/thread_list_avatars.jpg)
 
+### Notificación cuando una lista de hilos recibe actualizaciones
+> **Opción:** _Muestra una notificación en la Consola de la Comunidad cuando una
+lista de hilos recibe actualizaciones._
+
+Esta función comprueba si hay nuevos hilos en la lista de hilos actual cada 3
+minutos, y te notifica cuando hay nuevos hilos arriba del todo de la lista. La
+notificación es una "notificación suave": te notifica añadiendo algunos signos
+de exclamación (`[!!!]`) al principio del nombre de la pestaña, y mostrándote un
+mensaje en la página, como puedes ver en la siguiente captura de pantalla:
+
+![Picture showing the soft notification](resources/auto_refresh_list.jpg)
+
+Te notifica con una notificación suave en vez de una notificación en sí porque
+de esta manera puedes controlar cuándo quieres participar en los foros o no. Si
+no estás prestando atención a la pestala de la Consola de la Comunidad, no te
+molestará.
+
+Esta función solo funciona en la Consola de la Comunidad, no en los foros
+públicos, y solo cuando las opciones de orden están establecidas a "Ordenar por:
+Última actualización" y orden descendiente. El icono de la campana que hay al
+lado de las opciones de orden te indicará si las opciones del orden están
+correctamente establecidas (y por tanto esta función funcionará) o no.
+
 ## Punto indicador
 > **Opciones:** _Muestra si el autor del hilo ha participado en otros hilos_,
 _Muestra el número de preguntas y respuestas escritas por el autor del hilo

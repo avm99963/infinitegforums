@@ -160,6 +160,28 @@ when a new reply is posted in the thread.
 
 ![Picture showing the thread list avatars feature](resources/thread_list_avatars.jpg)
 
+### Notification when a thread list receives updates
+> **Option name:** _Show a notification in the Community Console when a thread
+list has new updates._
+
+This feature checks whether there are new threads in the current thread list
+every 3 minutes, and notifies you when there are new threads at the top of the
+list. The notification is a "soft notification": it notifies you by adding some
+exclamation marks (`[!!!]`) at the beginning of the tab title, and by showing a
+snackbar in the page, as you can see in the following screenshot:
+
+![Picture showing the soft notification](resources/auto_refresh_list.jpg)
+
+It notifies you with a soft notification instead of an actual notification
+because this way you can control when you want to participate in the forums or
+not. If you're not paying attention to the Community Console tab, you won't be
+bothered.
+
+This feature only works in the Community Console, not in the public forums, and
+only when the sort settings are set to "Sort by: Last Updated" and descending
+order. The bell icon next to the sort settings will indicate whether the sort
+settings are correct (and thus this feature is working) or not.
+
 ## Indicator dot
 > **Option names:** _Show whether the OP has participated in other threads_,
 _Show the number of questions and replies written by the OP within the last `n`
