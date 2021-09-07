@@ -15,6 +15,14 @@
     "message": "Ativar a rolagem infinita e outras melhorias dos Fóruns da Google e do Community Console",
     "description": "The extension's description"
   },
+  "options_killswitchwarning": {
+    "message": "Uma ou mais opções foram desativadas à força, porque não estão funcionando como deveriam. Por favor, vá para o <a href='https://groups.google.com/g/twpowertools-discuss' rel='noreferrer noopener' target='_blank'> twpowertools-discuss no Google Groups </a> para saber mais sobre porque algumas opções foram desativadas à força.",
+    "description": "Warning shown in the options page if a feature has been remotely force disabled via the kill switch mechanism. This happens when a feature doesn't work properly and might be doing dangerous things, and the maintainer or an authorized user remotely force disables the feature."
+  },
+  "options_killswitchenabled": {
+    "message": "A opção anterior foi desativada à força devido a um problema.",
+    "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
+  },
   "options_list": {
     "message": "Ativar a rolagem infinita das listas de tópicos.",
     "description": "Feature checkbox in the options page"
@@ -97,10 +105,6 @@
   },
   "options_autorefreshlist": {
     "message": "Mostre uma notificação no Community Console quando a lista de tópicos tiver novas atualizações.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_disableunifiedprofiles": {
-    "message": "Forçar a Desativação <code class=\"help\" title=\"Esta experiência, quando ativada, introduz um redesenho da visualização do perfil que também unifica todos os perfis do fórum em um único.\">SMEI_UNIFIED_PROFILES</code> experimento no Community Console.",
     "description": "Feature checkbox in the options page"
   },
   "options_profileindicator_header": {
