@@ -830,13 +830,13 @@ material-input .underline .unfocused-underline,
 }
 
 /* Checkbox input (except for forum checkboxes in the drawer) */
-material-checkbox material-icon:not(ec-forum-drawer-item material-icon),
-    material-checkbox .content:not(ec-forum-drawer-item material-icon) {
+material-checkbox material-icon:not(ec-forum-drawer-item material-icon, ec-thread-list material-icon),
+    material-checkbox .content:not(ec-forum-drawer-item material-icon, ec-thread-list material-icon) {
   color: var(--TWPT-secondary-text)!important;
 }
 
 /* .gm-icons is added by the SMEI_GOOGLE_MATERIAL_ICONS experiment. */
-material-checkbox material-icon.filled:not(ec-forum-drawer-item material-icon) {
+material-checkbox material-icon.filled:not(ec-forum-drawer-item material-icon, ec-thread-list material-icon) {
   color: var(--TWPT-blue-A100)!important;
 }
 
