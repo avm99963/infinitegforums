@@ -1,5 +1,6 @@
 import {escapeUsername} from '../common/communityConsoleUtils.js';
 import {getOptions} from '../common/optionsUtils.js';
+import {createPlainTooltip} from '../common/tooltip.js';
 
 import {getSearchUrl, injectPreviousPostsLinksUnifiedProfile} from './utilsCommon/unifiedProfiles.js';
 
@@ -51,10 +52,6 @@ function injectPreviousPostsLinksOldProfile() {
 
       var badge = document.createElement('span');
       badge.classList.add('TWPT-badge');
-      badge.setAttribute(
-          'title', chrome.i18n.getMessage('inject_extension_badge_helper', [
-            chrome.i18n.getMessage('appName')
-          ]));
 
       var badgeImg = document.createElement('img');
       badgeImg.src =
@@ -73,6 +70,11 @@ function injectPreviousPostsLinksOldProfile() {
 
       document.querySelector('.user-profile__user-details-container')
           .appendChild(links);
+
+      createPlainTooltip(
+          badge, chrome.i18n.getMessage('inject_extension_badge_helper', [
+            chrome.i18n.getMessage('appName')
+          ]));
     } else {
       console.error('[previousposts] Can\'t find username.');
     }

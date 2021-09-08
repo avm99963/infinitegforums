@@ -87,7 +87,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  cursor: help;
 }
 
 .TWPT-autorefresh-status-indicator {
@@ -101,6 +100,7 @@
   font-size: 17px;
   line-height: 24px;
   user-select: none;
+  cursor: help;
 }
 
 .TWPT-autorefresh-status-indicator--active {

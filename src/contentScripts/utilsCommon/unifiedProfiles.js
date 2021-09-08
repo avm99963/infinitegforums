@@ -1,5 +1,8 @@
+import {MDCTooltip} from '@material/tooltip';
+
 import {escapeUsername} from '../../common/communityConsoleUtils.js';
 import {isOptionEnabled} from '../../common/optionsUtils.js';
+import {createPlainTooltip} from '../../common/tooltip.js';
 import {createExtBadge} from '../communityConsole/utils/common.js';
 
 var authuser = (new URL(location.href)).searchParams.get('authuser') || '0';
@@ -34,16 +37,12 @@ export function injectPreviousPostsLinksUnifiedProfile(isCommunityConsole) {
   a.setAttribute(
       'data-stats-id', 'user-posts-link--tw-power-tools-by-avm99963');
 
-  let badge;
+  let badge, badgeTooltip;
   if (isCommunityConsole) {
-    badge = createExtBadge();
+    [badge, badgeTooltip] = createExtBadge();
   } else {
     badge = document.createElement('span');
     badge.classList.add('TWPT-badge');
-    badge.setAttribute(
-        'title', chrome.i18n.getMessage('inject_extension_badge_helper', [
-          chrome.i18n.getMessage('appName')
-        ]));
 
     var badgeImg = document.createElement('img');
     badgeImg.src =
@@ -68,9 +67,18 @@ export function injectPreviousPostsLinksUnifiedProfile(isCommunityConsole) {
   }
 
   userDetailsNode.parentNode.insertBefore(links, userDetailsNode.nextSibling);
+
+  if (isCommunityConsole)
+    new MDCTooltip(badgeTooltip);
+  else
+    createPlainTooltip(
+        badge, chrome.i18n.getMessage('inject_extension_badge_helper', [
+          chrome.i18n.getMessage('appName')
+        ]));
 }
 
-export function injectPreviousPostsLinksUnifiedProfileIfEnabled(isCommunityConsole) {
+export function injectPreviousPostsLinksUnifiedProfileIfEnabled(
+    isCommunityConsole) {
   isOptionEnabled('history').then(isEnabled => {
     if (isEnabled) injectPreviousPostsLinksUnifiedProfile(isCommunityConsole);
   });

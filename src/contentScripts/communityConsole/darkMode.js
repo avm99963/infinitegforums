@@ -1,11 +1,13 @@
+import {MDCTooltip} from '@material/tooltip';
+
+import {createPlainTooltip} from '../../common/tooltip.js';
+
 import {createExtBadge} from './utils/common.js';
 
 export function injectDarkModeButton(rightControl, previousDarkModeOption) {
   var darkThemeSwitch = document.createElement('material-button');
   darkThemeSwitch.classList.add('TWPT-dark-theme', 'TWPT-btn--with-badge');
   darkThemeSwitch.setAttribute('button', '');
-  darkThemeSwitch.setAttribute(
-      'title', chrome.i18n.getMessage('inject_ccdarktheme_helper'));
 
   darkThemeSwitch.addEventListener('click', e => {
     chrome.storage.sync.get(null, currentOptions => {
@@ -29,13 +31,18 @@ export function injectDarkModeButton(rightControl, previousDarkModeOption) {
   switchContent.appendChild(icon);
   darkThemeSwitch.appendChild(switchContent);
 
-  var badgeContent = createExtBadge();
+  let badgeContent, badgeTooltip;
+  [badgeContent, badgeTooltip] = createExtBadge();
 
   darkThemeSwitch.appendChild(badgeContent);
 
   rightControl.style.width =
       (parseInt(window.getComputedStyle(rightControl).width) + 58) + 'px';
   rightControl.insertAdjacentElement('afterbegin', darkThemeSwitch);
+
+  createPlainTooltip(
+      switchContent, chrome.i18n.getMessage('inject_ccdarktheme_helper'));
+  new MDCTooltip(badgeTooltip);
 }
 
 export function isDarkThemeOn(options) {

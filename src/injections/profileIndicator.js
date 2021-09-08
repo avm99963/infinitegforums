@@ -1,5 +1,6 @@
 import {CCApi} from '../common/api.js';
 import {escapeUsername} from '../common/communityConsoleUtils.js';
+import {createPlainTooltip} from '../common/tooltip.js';
 
 var CCProfileRegex =
     /^(?:https:\/\/support\.google\.com)?\/s\/community(?:\/forum\/[0-9]*)?\/user\/(?:[0-9]+)$/;
@@ -108,12 +109,6 @@ function createIndicatorDot(sourceNode, searchURL, options) {
   if (options.numPosts) return document.querySelector('.num-posts-indicator');
   var dotContainer = document.createElement('div');
   dotContainer.classList.add('profile-indicator', 'profile-indicator--loading');
-  contentScriptRequest
-      .sendRequest({
-        'action': 'geti18nMessage',
-        'msg': 'inject_profileindicator_loading'
-      })
-      .then(string => dotContainer.setAttribute('title', string));
 
   var dotLink = document.createElement('a');
   dotLink.href = searchURL;
@@ -121,6 +116,13 @@ function createIndicatorDot(sourceNode, searchURL, options) {
 
   dotContainer.appendChild(dotLink);
   sourceNode.parentNode.appendChild(dotContainer);
+
+  contentScriptRequest
+      .sendRequest({
+        'action': 'geti18nMessage',
+        'msg': 'inject_profileindicator_loading'
+      })
+      .then(string => createPlainTooltip(dotContainer, string));
 
   return dotContainer;
 }
@@ -133,12 +135,6 @@ function createNumPostsBadge(sourceNode, searchURL) {
   var numPostsContainer = document.createElement('div');
   numPostsContainer.classList.add(
       'num-posts-indicator', 'num-posts-indicator--loading');
-  contentScriptRequest
-      .sendRequest({
-        'action': 'geti18nMessage',
-        'msg': 'inject_profileindicator_loading'
-      })
-      .then(string => numPostsContainer.setAttribute('title', string));
 
   var numPostsSpan = document.createElement('span');
   numPostsSpan.classList.add('num-posts-indicator--num');
@@ -146,6 +142,14 @@ function createNumPostsBadge(sourceNode, searchURL) {
   numPostsContainer.appendChild(numPostsSpan);
   link.appendChild(numPostsContainer);
   sourceNode.parentNode.appendChild(link);
+
+  contentScriptRequest
+      .sendRequest({
+        'action': 'geti18nMessage',
+        'msg': 'inject_profileindicator_loading'
+      })
+      .then(string => createPlainTooltip(numPostsContainer, string));
+
   return numPostsContainer;
 }
 
@@ -235,7 +239,7 @@ function handleIndicators(sourceNode, isCC, options) {
                       })
                       .then(
                           string =>
-                              numPostsContainer.setAttribute('title', string));
+                              createPlainTooltip(numPostsContainer, string));
 
                 var numPosts = 0;
 
@@ -319,7 +323,7 @@ function handleIndicators(sourceNode, isCC, options) {
                 'action': 'geti18nMessage',
                 'msg': 'inject_profileindicator_' + OPi18n[OPStatus]
               })
-              .then(string => dotContainer.setAttribute('title', string));
+              .then(string => createPlainTooltip(dotContainer, string));
         })
         .catch(
             err => console.error(

@@ -46,6 +46,9 @@ module.exports = (env, args) => {
 
     // Options page
     optionsCommon: './src/options/optionsCommon.js',
+
+    // Common CSS
+    mdcStyles: './src/mdc/index.js',
   };
 
   // Background script (or service worker for MV3)
@@ -98,11 +101,25 @@ module.exports = (env, args) => {
     module: {
       rules: [
         {
-          test: /\.json5$/,
+          test: /\.json5$/i,
           type: 'json',
           parser: {
             parse: json5.parse,
           },
+        },
+        {
+          test: /\.s[ac]ss$/i,
+          use: [
+            'style-loader',
+            'css-loader',
+            {
+              loader: 'sass-loader',
+              options: {
+                // Prefer `dart-sass`
+                implementation: require('sass'),
+              },
+            },
+          ],
         },
       ]
     },

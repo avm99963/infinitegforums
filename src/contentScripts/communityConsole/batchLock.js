@@ -1,4 +1,7 @@
+import {MDCTooltip} from '@material/tooltip';
+
 import {isOptionEnabled} from '../../common/optionsUtils.js';
+import {createPlainTooltip} from '../../common/tooltip.js';
 
 import {createExtBadge, removeChildNodes} from './utils/common.js';
 
@@ -118,11 +121,11 @@ export var batchLock = {
     var clone = readToggle.cloneNode(true);
     clone.setAttribute('debugid', 'batchlock');
     clone.classList.add('TWPT-btn--with-badge');
-    clone.setAttribute('title', chrome.i18n.getMessage('inject_lockbtn'));
     clone.querySelector('material-icon').setAttribute('icon', 'lock');
     clone.querySelector('i.material-icon-i').textContent = 'lock';
 
-    var badge = createExtBadge();
+    let badge, badgeTooltip;
+    [badge, badgeTooltip] = createExtBadge();
     clone.append(badge);
 
     clone.addEventListener('click', () => {
@@ -137,6 +140,9 @@ export var batchLock = {
     else
       readToggle.parentNode.insertBefore(
           clone, (readToggle.nextSibling || readToggle));
+
+    createPlainTooltip(clone, chrome.i18n.getMessage('inject_lockbtn'));
+    new MDCTooltip(badgeTooltip);
   },
   addButtonIfEnabled(readToggle) {
     isOptionEnabled('batchlock').then(isEnabled => {

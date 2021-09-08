@@ -18,7 +18,7 @@
   "content_scripts": [
     {
       "matches": ["https://support.google.com/s/community*"],
-      "js": ["communityConsoleMain.bundle.js"]
+      "js": ["communityConsoleMain.bundle.js", "mdcStyles.bundle.js"]
     },
     {
       "matches": ["https://support.google.com/s/community*"],
@@ -28,12 +28,12 @@
     },
     {
       "matches": ["https://support.google.com/*/threads*"],
-      "js": ["publicForum.bundle.js"]
+      "js": ["publicForum.bundle.js", "mdcStyles.bundle.js"]
     },
     {
       "matches": ["https://support.google.com/*/thread/*"],
       "exclude_matches": ["https://support.google.com/s/community*", "https://support.google.com/*/thread/new*"],
-      "js": ["publicThread.bundle.js"],
+      "js": ["publicThread.bundle.js", "mdcStyles.bundle.js"],
       "run_at": "document_end"
     },
     {
@@ -44,7 +44,7 @@
     {
       "matches": ["https://support.google.com/*/profile/*", "https://support.google.com/profile/*"],
       "all_frames": true,
-      "js": ["profile.bundle.js"],
+      "js": ["profile.bundle.js", "mdcStyles.bundle.js"],
       "css": ["css/common/forum.css", "css/unifiedprofile.css"]
     }
   ],

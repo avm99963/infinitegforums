@@ -1,3 +1,5 @@
+import {createPlainTooltip} from '../../../common/tooltip.js';
+
 export function removeChildNodes(node) {
   while (node.firstChild) {
     node.removeChild(node.firstChild);
@@ -11,17 +13,18 @@ export function getNParent(node, n) {
 }
 
 export function createExtBadge() {
-  var badge = document.createElement('div');
+  let badge = document.createElement('div');
   badge.classList.add('TWPT-badge');
-  badge.setAttribute(
-      'title', chrome.i18n.getMessage('inject_extension_badge_helper', [
-        chrome.i18n.getMessage('appName')
-      ]));
+  let badgeTooltip = createPlainTooltip(
+      badge,
+      chrome.i18n.getMessage(
+          'inject_extension_badge_helper', [chrome.i18n.getMessage('appName')]),
+      false);
 
-  var badgeI = document.createElement('i');
+  let badgeI = document.createElement('i');
   badgeI.classList.add('material-icon-i', 'material-icons-extended');
   badgeI.textContent = 'repeat';
 
   badge.append(badgeI);
-  return badge;
+  return [badge, badgeTooltip];
 }

@@ -46,7 +46,8 @@ export function injectPreviousPostsLinks(nameElement) {
   var container = document.createElement('div');
   container.classList.add('TWPT-previous-posts');
 
-  var badge = createExtBadge();
+  let badge, badgeTooltip;
+  [badge, badgeTooltip] = createExtBadge();
   container.appendChild(badge);
 
   var linkContainer = document.createElement('div');
@@ -58,6 +59,7 @@ export function injectPreviousPostsLinks(nameElement) {
   container.appendChild(linkContainer);
 
   mainCardContent.appendChild(container);
+  new MDCTooltip(badgeTooltip);
 }
 
 export function injectPreviousPostsLinksIfEnabled(nameElement) {

@@ -3,6 +3,7 @@ import {waitFor} from 'poll-until-promise';
 import {CCApi} from '../../common/api.js';
 import {parseUrl} from '../../common/commonUtils.js';
 import {isOptionEnabled} from '../../common/optionsUtils.js';
+import {createPlainTooltip} from '../../common/tooltip.js';
 
 import AvatarsDB from './utils/AvatarsDB.js'
 
@@ -322,14 +323,12 @@ export default class AvatarsHandler {
 
           var avatarUrls = res.avatars;
 
+          let singleAvatar;
           if (res.state == 'private') {
-            var avatar = document.createElement('div');
-            avatar.classList.add('TWPT-avatar-private-placeholder');
-            avatar.textContent = 'person_off';
-            var label = chrome.i18n.getMessage(
-                'inject_threadlistavatars_private_thread_indicator_label');
-            avatar.setAttribute('title', label);
-            avatarsContainer.appendChild(avatar);
+            singleAvatar = document.createElement('div');
+            singleAvatar.classList.add('TWPT-avatar-private-placeholder');
+            singleAvatar.textContent = 'person_off';
+            avatarsContainer.appendChild(singleAvatar);
           } else {
             for (var i = 0; i < avatarUrls.length; ++i) {
               var avatar = document.createElement('div');
@@ -340,6 +339,12 @@ export default class AvatarsHandler {
           }
 
           header.appendChild(avatarsContainer);
+
+          if (res.state == 'private') {
+            var label = chrome.i18n.getMessage(
+                'inject_threadlistavatars_private_thread_indicator_label');
+            createPlainTooltip(singleAvatar, label);
+          }
         })
         .catch(err => {
           console.error(

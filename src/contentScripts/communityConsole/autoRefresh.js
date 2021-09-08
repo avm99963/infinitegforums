@@ -1,6 +1,9 @@
+import {MDCTooltip} from '@material/tooltip';
+
 import {CCApi} from '../../common/api.js';
 import {getAuthUser} from '../../common/communityConsoleUtils.js';
 import {isOptionEnabled} from '../../common/optionsUtils.js';
+import {createPlainTooltip} from '../../common/tooltip.js';
 
 import {createExtBadge} from './utils/common.js';
 
@@ -117,7 +120,8 @@ export default class AutoRefresh {
     var content = document.createElement('div');
     content.classList.add('TWPT-focus-content-wrapper');
 
-    var badge = createExtBadge();
+    let badge, badgeTooltip;
+    [badge, badgeTooltip] = createExtBadge();
 
     var message = document.createElement('div');
     message.classList.add('TWPT-message');
@@ -141,6 +145,7 @@ export default class AutoRefresh {
     snackbar.append(ac);
     pane.append(snackbar);
     document.getElementById('default-acx-overlay-container').append(pane);
+    new MDCTooltip(badgeTooltip);
     this.snackbar = snackbar;
   }
 
@@ -148,10 +153,6 @@ export default class AutoRefresh {
   createStatusIndicator(isSetUp) {
     var container = document.createElement('div');
     container.classList.add('TWPT-autorefresh-status-indicator-container');
-    var title = chrome.i18n.getMessage(
-        isSetUp ? 'inject_autorefresh_list_status_indicator_label_active' :
-                  'inject_autorefresh_list_status_indicator_label_disabled');
-    container.setAttribute('title', title);
 
     var indicator = document.createElement('div');
     indicator.classList.add(
@@ -160,19 +161,27 @@ export default class AutoRefresh {
                   'TWPT-autorefresh-status-indicator--disabled');
     indicator.textContent =
         isSetUp ? 'notifications_active' : 'notifications_off';
+    let label = chrome.i18n.getMessage(
+        isSetUp ? 'inject_autorefresh_list_status_indicator_label_active' :
+                  'inject_autorefresh_list_status_indicator_label_disabled');
+    let statusTooltip = createPlainTooltip(indicator, label, false);
 
-    var badge = createExtBadge();
+    let badge, badgeTooltip;
+    [badge, badgeTooltip] = createExtBadge();
 
     container.append(indicator, badge);
-    return container;
+    return [container, badgeTooltip, statusTooltip];
   }
 
   injectStatusIndicator(isSetUp) {
-    this.statusIndicator = this.createStatusIndicator(isSetUp);
+    let badgeTooltip, statusTooltip;
+    [this.statusIndicator, badgeTooltip, statusTooltip] = this.createStatusIndicator(isSetUp);
 
     var sortOptionsDiv = document.querySelector('ec-thread-list .sort-options');
     if (sortOptionsDiv) {
       sortOptionsDiv.prepend(this.statusIndicator);
+      new MDCTooltip(badgeTooltip);
+      new MDCTooltip(statusTooltip);
       return;
     }
 
