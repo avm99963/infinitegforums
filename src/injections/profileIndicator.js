@@ -166,8 +166,8 @@ function getOptionsAndHandleIndicators(sourceNode, isCC) {
 // Handle the profile indicator dot
 function handleIndicators(sourceNode, isCC, options) {
   var escapedUsername = escapeUsername(
-      (isCC ? sourceNode.querySelector('.name-text').innerHTML :
-              sourceNode.querySelector('span').innerHTML));
+      (isCC ? sourceNode.querySelector('.name-text').textContent :
+              sourceNode.querySelector('span').textContent));
 
   if (isCC) {
     var threadLink = document.location.href;
