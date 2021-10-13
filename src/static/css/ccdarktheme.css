@@ -17,6 +17,9 @@
   --TWPT-blue-A100: #82B1FF;
   --TWPT-bad-text: #f6aea9;
   --TWPT-good-text: #34a853;
+  --TWPT-interop-primary-text: var(--TWPT-primary-text);
+  --TWPT-interop-secondary-text: #c4c7c5;
+  --TWPT-interop-subtle-border: #474747;
 }
 
 body {
@@ -599,7 +602,8 @@ ec-thread-composer material-drawer material-radio .radio-description,
  * footer.
  **/
 
-/* Profile view */
+/* Old profile view */
+/* TODO(b/twpowertools/80): Remove this code. */
 ec-user .main-card {
   background-color: var(--TWPT-secondary-background)!important;
 }
@@ -621,27 +625,37 @@ ec-user .role {
   filter: brightness(1.5);
 }
 
-ec-user bar-chart .axis text {
+/* Chart in both old and new profile view */
+ec-user bar-chart .axis text,
+    ec-unified-user sc-tailwind-shared-activity-chart .axis text {
   fill: rgba(255, 255, 255, .54)!important;
 }
 
 ec-user bar-chart .axis path,
     ec-user bar-chart .axis .gridline,
-    ec-user bar-chart .axis line {
+    ec-user bar-chart .axis line,
+    ec-unified-user sc-tailwind-shared-activity-chart .axis path,
+    ec-unified-user sc-tailwind-shared-activity-chart .axis .gridline,
+    ec-unified-user sc-tailwind-shared-activity-chart .axis line {
   stroke: rgba(255, 255, 255, .12)!important;
 }
 
 ec-user bar-chart .axis line.axis-zero-tick,
-    ec-user bar-chart .axis.x .tick-mark {
+    ec-user bar-chart .axis.x .tick-mark,
+    ec-unified-user sc-tailwind-shared-activity-chart .axis line.axis-zero-tick,
+    ec-unified-user sc-tailwind-shared-activity-chart .axis.x .tick-mark {
   stroke: rgba(255, 255, 255, .38)!important;
 }
 
-ec-user bar-chart .aplos-legend-entry {
+ec-user bar-chart .aplos-legend-entry,
+    ec-unified-user sc-tailwind-shared-activity-chart .aplos-legend-entry {
   color: var(--TWPT-secondary-text)!important;
 }
 
 .aplos-hovercard {
+  color: var(--TWPT-interop-secondary-text)!important;
   background: var(--TWPT-secondary-background)!important;
+  border: none!important;
 }
 
 .aplos-hovercard .title {
@@ -655,6 +669,513 @@ ec-user bar-chart .aplos-legend-entry {
     .aplos-hovercard .value,
     .aplos-donut-center .value {
   color: var(--TWPT-secondary-text)!important;
+}
+
+/*
+ * IMPORTANT NOTICE:
+ * Note: the following styles (for interop components) have been written by
+ * Googlers and thus are not included as part of the MIT license. This also
+ * applies to the styles of the unified profiles.
+ **/
+
+/* Common styles for interop components */
+.scSharedCalloutroot {
+  color: var(--TWPT-interop-primary-text)!important;
+}
+
+.scSharedCallouterror {
+  background-color: #523a3b!important;
+  border-color: #f9dedc!important;
+}
+
+.scSharedCallouterror sc-shared-material-icon {
+  color: #f9dedc!important;
+}
+
+.scSharedCallouterror>.scSharedCalloutsecondary-button button {
+  color: #ec928e!important;
+}
+
+.scSharedCalloutcaution {
+  background-color: #554c33!important;
+  border-color: #ffdf99!important;
+}
+
+.scSharedCalloutcaution sc-shared-material-icon {
+  color: #ffdf99!important;
+}
+
+.scSharedCalloutcaution>.scSharedCalloutsecondary-button button {
+  color: #f09d00!important;
+}
+
+.scSharedCalloutinformational {
+  background-color: #394457!important;
+  border-color: #d3e3fd!important;
+}
+
+.scSharedCalloutinformational sc-shared-material-icon {
+  color: #d3e3fd!important;
+}
+
+.scSharedCalloutinformational>.scSharedCalloutsecondary-button button {
+  color: #7cacf8!important;
+}
+
+.scSharedCalloutsuccess {
+  background-color: #37493f!important;
+  border-color: #c4eed0!important;
+}
+
+.scSharedCalloutsuccess sc-shared-material-icon {
+  color: #c4eed0!important;
+}
+
+.scSharedCalloutsuccess>.scSharedCalloutsecondary-button button {
+  color: #37be5f!important;
+}
+
+.scSharedMaterialbuttonroot:disabled {
+  color: rgba(227, 227, 227, 0.369)!important;
+}
+
+.scSharedMaterialbuttontext {
+  color: #7cacf8!important;
+}
+
+.scSharedMaterialbuttoncolor-label {
+  color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scSharedMaterialbuttoncolor-hint {
+  color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scSharedMaterialbuttonnavigational {
+  color: var(--TWPT-interop-primary-text)!important;
+}
+
+.scSharedMaterialbuttonnavigational-alt {
+  color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scSharedMaterialbuttonhairline {
+  border-color: var(--TWPT-interop-subtle-border)!important;
+  color: #7cacf8!important;
+}
+
+.scSharedMaterialbuttonhairline:disabled {
+  border-color: rgba(227, 227, 227, 0.369)!important;
+}
+
+.scSharedMaterialbuttonhairline:hover,
+    .scSharedMaterialbuttonhairline:focus {
+  border-color: rgba(124, 172, 248, 0.239)!important;
+}
+
+.scSharedMaterialbuttonhairline:active {
+  box-shadow: 0 1px 2px 0 rgba(124, 172, 248, 0.302), 0 1px 3px 1px rgba(124, 172, 248, 0.149)!important;
+}
+
+.scSharedMaterialbuttontonal {
+  color: #7cacf8!important;
+  background: #394457!important;
+}
+
+.scSharedMaterialbuttontonal:hover {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.302), 0 1px 3px 1px rgba(0, 0, 0, 0.149)!important;
+}
+
+.scSharedMaterialbuttontonal:active {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.302), 0 2px 6px 2px rgba(0, 0, 0, 0.149)!important;
+}
+
+.scSharedMaterialbuttontonal:disabled {
+  background: rgba(227, 227, 227, 0.122)!important;
+}
+
+.scSharedMaterialbuttonfilled {
+  background: #7cacf8!important;
+  color: #1f1f1f!important;
+}
+
+.scSharedMaterialbuttonfilled:disabled {
+  background: rgba(227, 227, 227, 0.122)!important;
+}
+
+.scSharedMaterialbuttonfilled:hover,
+    .scSharedMaterialbuttonfilled:focus {
+  box-shadow: 0 1px 2px 0 rgba(124, 172, 248, 0.302), 0 1px 3px 1px rgba(124, 172, 248, 0.149)!important;
+}
+
+.scSharedMaterialbuttonfilled:active {
+  box-shadow: 0 1px 3px 0 rgba(124, 172, 248, 0.302), 0 4px 8px 3px rgba(124, 172, 248, 0.149)!important;
+}
+
+.scSharedMaterialbuttonprotected {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.302), 0 1px 3px 1px rgba(0, 0, 0, 0.149)!important;
+  background: #1f1f1f!important;
+  color: #7cacf8!important;
+}
+
+.scSharedMaterialbuttonprotected:disabled {
+  background: rgba(227, 227, 227, 0.122)!important;
+}
+
+.scSharedMaterialbuttonprotected:hover {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.302), 0 1px 3px 1px rgba(0, 0, 0, 0.149)!important;
+}
+
+.scSharedMaterialbuttonprotected:focus {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.302), 0 2px 6px 2px rgba(0, 0, 0, 0.149)!important;
+}
+
+.scSharedMaterialbuttonprotected:active {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.302), 0 4px 8px 3px rgba(0, 0, 0, 0.149)!important;
+}
+
+.scSharedExpandabletextexpander {
+  color: #7cacf8!important;
+}
+
+.scSharedMaterialborderfilled {
+  background: #313235!important;
+  border-bottom: 1px solid var(--TWPT-interop-secondary-text)!important;
+}
+
+.scSharedMaterialborderfilled-error {
+  border-bottom-color: #ec928e!important;
+}
+
+.scSharedMaterialborderfilled-bottom {
+  background-color: #7cacf8!important;
+}
+
+.scSharedMaterialborderfilled-label {
+  color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scSharedMaterialborderfilled-label-focused {
+  color: #7cacf8!important;
+}
+
+.scSharedMaterialborderlabel {
+  color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scSharedMaterialborderleft {
+  border-bottom-color: var(--TWPT-interop-secondary-text)!important;
+  border-left-color: var(--TWPT-interop-secondary-text)!important;
+  border-top-color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scSharedMaterialborderleft-error {
+  border-bottom-color: #ec928e!important;
+  border-left-color: #ec928e!important;
+  border-top-color: #ec928e!important;
+}
+
+.scSharedMaterialbordermid {
+  border-bottom-color: var(--TWPT-interop-secondary-text)!important;
+  border-top-color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scSharedMaterialbordermid-error {
+  border-bottom-color: #ec928e!important;
+  border-top-color: #ec928e!important;
+}
+
+.scSharedMaterialborderright {
+  border-bottom-color: var(--TWPT-interop-secondary-text)!important;
+  border-right-color: var(--TWPT-interop-secondary-text)!important;
+  border-top-color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scSharedMaterialborderright-error {
+  border-bottom-color: #ec928e!important;
+  border-right-color: #ec928e!important;
+  border-top-color: #ec928e!important;
+}
+
+.scSharedMaterialborderfocused {
+  border-color: #7cacf8!important;
+}
+
+.scSharedMaterialborderdisabled {
+  border-color: var(--TWPT-interop-subtle-border)!important;
+}
+
+.scSharedMaterialborderlabel-focused {
+  color: #7cacf8!important;
+}
+
+.scSharedMaterialborderlabel-disabled {
+  color: rgba(255, 255, 255, 0.239)!important;
+}
+
+.scSharedMaterialborderlabel-error {
+  color: #ec928e!important;
+}
+
+.scSharedMaterialcheckboxcheckbox {
+  color: #7cacf8!important;
+}
+
+.scSharedMaterialcheckboxbox {
+  border-color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scSharedMaterialcheckboxcheckmark-path {
+  stroke: #1f1f1f!important;
+}
+
+.scSharedMaterialcheckboxmixedmark {
+  border-color: #1f1f1f!important;
+}
+
+.scSharedMaterial_dialogDialogcontentloading-overlay {
+  background: rgba(227, 227, 227, 0.122)!important;
+}
+
+.scSharedMaterialpopupbackground {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.302), 0 1px 3px 1px rgba(0, 0, 0, 0.149)!important;
+  background: #2a2b2f!important;
+  border: 1px solid var(--TWPT-interop-subtle-border)!important;
+}
+
+.scSharedMaterialmenuroot {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.302), 0 1px 3px 1px rgba(0, 0, 0, 0.149)!important;
+  background: #2a2b2f!important;
+}
+
+.scSharedMaterialmenuitem {
+  color: var(--TWPT-interop-primary-text)!important;
+}
+
+.scSharedMaterialmenuitem-separator {
+  border-top-color: var(--TWPT-interop-subtle-border)!important;
+}
+
+.scSharedMaterialmenuhighlight:focus,
+    .scSharedMaterialmenuhighlight:hover {
+  background-color: #394457!important;
+}
+
+.scSharedMaterialmenuhighlight:focus {
+  outline: auto #7cacf8 1px!important;
+}
+
+.scSharedMaterialsnackbarsnackbar {
+  background: var(--TWPT-interop-primary-text)!important;
+  color: #1f1f1f!important;
+}
+
+.scSharedMaterialsnackbaraction button {
+  color: #0b57d0!important;
+}
+
+.scSharedMaterialtabbartab {
+  color: var(--TWPT-interop-primary-text)!important;
+}
+
+.scSharedMaterialtabbartab:hover,
+    .scSharedMaterialtabbartab:focus {
+  background-color: #313235!important;
+}
+
+.scSharedMaterialtabbarselected {
+  border-bottom-color: #7cacf8!important;
+  color: #7cacf8!important;
+}
+
+.scSharedMaterialtextfieldlabel {
+  color: var(--TWPT-interop-primary-text)!important;
+}
+
+.scSharedMaterialtextfieldnative-control {
+  caret-color: #7cacf8!important;
+  color: var(--TWPT-interop-primary-text)!important;
+}
+
+.scSharedMaterialtextfieldinvalid .scSharedMaterialtextfieldnative-control {
+  caret-color: #ec928e!important;
+}
+
+.scSharedMaterialtextfieldnative-control:disabled {
+  color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scSharedMaterialtextfieldfocused .scSharedMaterialtextfieldlabel {
+  color: #7cacf8!important;
+}
+
+.scSharedMaterialtextfieldinvalid .scSharedMaterialtextfieldlabel {
+  color: #ec928e!important;
+}
+
+.scSharedMaterialtextfielddisabled .scSharedMaterialtextfieldlabel {
+  color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scSharedMaterialtextfieldhelper-text {
+  color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scSharedMaterialtextfieldhelper-text-invalid {
+  color: #ec928e!important;
+}
+
+.scSharedMaterialtextfieldhelper-text-disabled {
+  color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scTailwindSharedActivitychartroot {
+  border: 1px solid var(--TWPT-interop-subtle-border)!important;
+}
+
+.scTailwindSharedAvataravatar-loading {
+  background: #1f1f1f!important;
+}
+
+.scTailwindSharedReportabusedialogcontent .abuse-link {
+  color: #7cacf8!important;
+}
+
+/* Unified profile view */
+.scTailwindUser_profileAchievementsempty a,
+    .scTailwindUser_profileAchievementsempty a:visited,
+    sc-tailwind-user_profile-user-profile .link-icon {
+  color: #7cacf8!important;
+}
+
+.scTailwindUser_profileBiosectionsection-heading {
+  color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scTailwindUser_profileBiosectionbio {
+  color: var(--TWPT-interop-primary-text)!important;
+}
+
+.scTailwindUser_profileBiosectionlinks,
+    .scTailwindUser_profileBiosectionlink {
+  color: #7cacf8!important;
+}
+
+.scTailwindUser_profileBiosectioninput-label {
+  color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scTailwindUser_profileEmaildisplayemail-display {
+  color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scTailwindUser_profileEmaildisplayshow-email {
+  color: #7cacf8!important;
+}
+
+.scTailwindUser_profileMessagecardthread-link {
+  color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scTailwindUser_profileMessagecardlabel {
+  color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scTailwindUser_profileMessagecardcontent {
+  border-left: 2px solid var(--TWPT-interop-subtle-border)!important;
+  color: var(--TWPT-interop-primary-text)!important;
+}
+
+.scTailwindUser_profileMessagecardcount {
+  color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scTailwindUser_profileMessagecardrecommended-answer {
+  color: #6dd58c!important;
+}
+
+.scTailwindUser_profileMessagecardrecommended-answer .icon {
+  background-color: #6dd58c!important;
+  color: #1f1f1f!important;
+}
+
+sc-tailwind-user_profile-user-profile .notificationIcon {
+  color: var(--TWPT-interop-secondary-text)!important;
+}
+
+sc-tailwind-user_profile-user-profile .deleteIcon,
+    sc-tailwind-user_profile-user-profile .reportAbuseIcon,
+    sc-tailwind-user_profile-user-profile .reactivateIcon {
+  color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scTailwindUser_profilePosthistorysection+.scTailwindUser_profilePosthistorysection {
+  border-top-color: var(--TWPT-interop-subtle-border)!important;
+}
+
+.scTailwindUser_profilePosthistorycontent,
+    .scTailwindUser_profilePosthistoryheader,
+    .scTailwindUser_profilePosthistoryerror {
+  border-color: var(--TWPT-interop-subtle-border)!important;
+}
+
+.scTailwindUser_profileThreadcardtitle {
+  color: var(--TWPT-interop-primary-text)!important;
+}
+
+.scTailwindUser_profileThreadcardlabel {
+  color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scTailwindUser_profileThreadcardcontent {
+  color: var(--TWPT-interop-primary-text)!important;
+}
+
+.scTailwindUser_profileThreadcardcount {
+  color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scTailwindUser_profileThreadcardreply .icon {
+  color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scTailwindUser_profileThreadcardrecommended-answer {
+  color: #6dd58c!important;
+}
+
+.scTailwindUser_profileThreadcardrecommended-answer .icon {
+  background-color: #6dd58c!important;
+  color: #1f1f1f!important;
+}
+
+.scTailwindUser_profileUsercardroot {
+  border: 1px solid var(--TWPT-interop-subtle-border)!important;
+}
+
+.scTailwindUser_profileUsercardinput-label {
+  color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scTailwindUser_profileUsercardheadline {
+  color: var(--TWPT-interop-primary-text)!important;
+}
+
+.scTailwindUser_profileUsercarddetails {
+  color: var(--TWPT-interop-secondary-text)!important;
+}
+
+.scTailwindUser_profileUsercardlinks,
+    .scTailwindUser_profileUsercardlink {
+  color: #7cacf8!important;
+}
+
+.scTailwindUser_profileUsercardhorizontal-separator {
+  background-color: var(--TWPT-interop-subtle-border)!important;
+  color: var(--TWPT-interop-subtle-border)!important;
+}
+
+.scTailwindUser_profileUsercardsection-heading {
+  color: var(--TWPT-interop-secondary-text)!important;
 }
 
 /* Duplicate thread feature */
