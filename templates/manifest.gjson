@@ -23,7 +23,7 @@
     {
       "matches": ["https://support.google.com/s/community*"],
       "js": ["communityConsoleStart.bundle.js"],
-      "css": ["css/common/console.css"],
+      "css": ["css/common/console.css", "css/unifiedprofile.css"],
       "run_at": "document_start"
     },
     {
@@ -45,7 +45,7 @@
       "matches": ["https://support.google.com/*/profile/*", "https://support.google.com/profile/*"],
       "all_frames": true,
       "js": ["profile.bundle.js"],
-      "css": ["css/common/forum.css"]
+      "css": ["css/common/forum.css", "css/unifiedprofile.css"]
     }
   ],
   "permissions": [

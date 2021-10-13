@@ -1,5 +1,6 @@
 import {injectScript, injectStyles, injectStylesheet} from '../../common/contentScriptsUtils.js';
 import {getOptions, isOptionEnabled} from '../../common/optionsUtils.js';
+import {injectPreviousPostsLinksUnifiedProfileIfEnabled} from '../utilsCommon/unifiedProfiles.js';
 
 import AvatarsHandler from './avatars.js';
 import {batchLock} from './batchLock.js';
@@ -22,6 +23,7 @@ const watchedNodesSelectors = [
   // Username span/editor inside ec-user (user profile view)
   'ec-user .main-card .header > .name > span',
   'ec-user .main-card .header > .name > ec-display-name-editor',
+  'ec-unified-user .scTailwindUser_profileUsercarddetails',
 
   // Rich text editor
   'ec-movable-dialog',
@@ -89,10 +91,18 @@ function handleCandidateNode(node) {
 
     // Show the "previous posts" links if the option is currently enabled.
     //   Here we're selecting the 'ec-user > div' element (unique child)
+
+    // TODO(b/twpowertools/80): Remove this:
     if (node.matches('ec-user .main-card .header > .name > span') ||
         node.matches(
             'ec-user .main-card .header > .name > ec-display-name-editor')) {
       injectPreviousPostsLinksIfEnabled(node);
+    }
+
+    if (node.matches(
+            'ec-unified-user .scTailwindUser_profileUsercarddetails')) {
+      injectPreviousPostsLinksUnifiedProfileIfEnabled(
+          /* isCommunityConsole = */ true);
     }
 
     // Fix the drag&drop issue with the rich text editor if the option is

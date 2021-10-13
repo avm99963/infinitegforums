@@ -1,0 +1,11 @@
+.TWPT-user-profile__user-links {
+  margin-top: 8px;
+}
+
+.TWPT-user-link > * {
+  vertical-align: middle;
+}
+
+.TWPT-user-link .TWPT-badge {
+  margin-left: 0;
+}
