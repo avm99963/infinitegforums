@@ -23,6 +23,14 @@
     "message": "The previous option has been force disabled due to an issue.",
     "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
   },
+  "options_featuredoptions": {
+    "message": "Featured options",
+    "description": "Heading for several options that can be enabled in the options page."
+  },
+  "options_minorenhancements": {
+    "message": "Minor enhancements",
+    "description": "Heading for several options that can be enabled in the options page."
+  },
   "options_list": {
     "message": "Enable infinite scrolling in thread lists.",
     "description": "Feature checkbox in the options page"
@@ -34,10 +42,6 @@
   "options_threadall": {
     "message": "Automatically load all messages at once inside threads when scrolling down.",
     "description": "Feature checkbox in the options page"
-  },
-  "options_enhancements": {
-    "message": "Additional enhancements",
-    "description": "Heading for several options that can be enabled in the options page"
   },
   "options_fixedtoolbar": {
     "message": "Fix the toolbar in thread lists in the Community Console.",
@@ -106,10 +110,6 @@
   "options_autorefreshlist": {
     "message": "Show a notification in the Community Console when a thread list has new updates.",
     "description": "Feature checkbox in the options page"
-  },
-  "options_profileindicator_header": {
-    "message": "Indicator dot",
-    "description": "Heading for the profile indicator feature options"
   },
   "options_profileindicator_moreinfo": {
     "message": "+info about the 2 previous options",

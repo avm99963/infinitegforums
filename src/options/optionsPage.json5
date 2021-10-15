@@ -4,39 +4,39 @@
 {
   sections: [
     {
-      name: null,
+      name: 'featuredoptions',
       options: [
         {codename: 'list'},
         {codename: 'thread'},
         {codename: 'threadall'},
-      ],
-    },
-    {
-      name: 'enhancements',
-      options: [
-        {codename: 'fixedtoolbar'},
-        {codename: 'redirect'},
-        {codename: 'history'},
-        {codename: 'loaddrafts', experimental: true},
-        {codename: 'increasecontrast'},
-        {codename: 'stickysidebarheaders'},
         {codename: 'ccdarktheme'},
-        {codename: 'ccforcehidedrawer'},
-        {codename: 'ccdragndropfix', customHTML: '<div id="dragndrop-wrapper" class="option" hidden><input type="checkbox" id="ccdragndropfix"> <label for="ccdragndropfix" data-i18n="ccdragndropfix"></label></div>'},
-        {codename: 'batchlock'},
-        {codename: 'enhancedannouncementsdot'},
-        {codename: 'repositionexpandthread', experimental: true},
         {codename: 'threadlistavatars'},
+        {codename: 'history'},
+        {codename: 'batchlock'},
         {codename: 'autorefreshlist'},
       ],
     },
     {
-      name: 'profileindicator_header',
+      name: null,
       options: [
         {codename: 'profileindicator'},
         {codename: 'profileindicatoralt'},
       ],
       footerHTML: '<div class="option"><a id="profileIndicatorMoreInfo" target="_blank" rel="noreferrer noopener" data-i18n="profileindicator_moreinfo"></a></div>',
+    },
+    {
+      name: 'minorenhancements',
+      options: [
+        {codename: 'fixedtoolbar'},
+        {codename: 'redirect'},
+        {codename: 'loaddrafts', experimental: true},
+        {codename: 'increasecontrast'},
+        {codename: 'stickysidebarheaders'},
+        {codename: 'ccforcehidedrawer'},
+        {codename: 'ccdragndropfix', customHTML: '<div id="dragndrop-wrapper" class="option" hidden><input type="checkbox" id="ccdragndropfix"> <label for="ccdragndropfix" data-i18n="ccdragndropfix"></label></div>'},
+        {codename: 'enhancedannouncementsdot'},
+        {codename: 'repositionexpandthread', experimental: true},
+      ],
     },
   ],
 }
