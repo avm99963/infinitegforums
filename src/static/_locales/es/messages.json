@@ -23,6 +23,14 @@
     "message": "La opción anterior está desactivada forzosamente debido a un problema.",
     "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
   },
+  "options_featuredoptions": {
+    "message": "Funciones destacadas",
+    "description": "Heading for several options that can be enabled in the options page."
+  },
+  "options_minorenhancements": {
+    "message": "Mejoras menores",
+    "description": "Heading for several options that can be enabled in the options page."
+  },
   "options_list": {
     "message": "Activa el scroll infinito en las listas de hilos.",
     "description": "Feature checkbox in the options page"
@@ -34,10 +42,6 @@
   "options_threadall": {
     "message": "Carga automáticamente todos los mensajes a la vez cuando hagas scroll por un hilo.",
     "description": "Feature checkbox in the options page"
-  },
-  "options_enhancements": {
-    "message": "Mejoras adicionales",
-    "description": "Heading for several options that can be enabled in the options page"
   },
   "options_fixedtoolbar": {
     "message": "Mantén visible la barra de herramientas de la lista de hilos en la Consola de la Comunidad.",
@@ -106,10 +110,6 @@
   "options_autorefreshlist": {
     "message": "Muestra una notificación en la Consola de la Comunidad cuando una lista de hilos recibe actualizaciones.",
     "description": "Feature checkbox in the options page"
-  },
-  "options_profileindicator_header": {
-    "message": "Punto indicador",
-    "description": "Heading for the profile indicator feature options"
   },
   "options_profileindicator_moreinfo": {
     "message": "+info sobre las 2 opciones anteriores",
