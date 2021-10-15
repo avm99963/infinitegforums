@@ -6,12 +6,12 @@
     killSwitchType: 'option',
   },
   'thread': {
-    defaultValue: true,
+    defaultValue: false,
     context: 'options',
     killSwitchType: 'option',
   },
   'threadall': {
-    defaultValue: false,
+    defaultValue: true,
     context: 'options',
     killSwitchType: 'option',
   },
