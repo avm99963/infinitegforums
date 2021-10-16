@@ -1,5 +1,6 @@
 import {MDCTooltip} from '@material/tooltip';
 
+import {createImmuneLink} from '../../common/commonUtils.js';
 import {escapeUsername} from '../../common/communityConsoleUtils.js';
 import {isOptionEnabled} from '../../common/optionsUtils.js';
 import {createPlainTooltip} from '../../common/tooltip.js';
@@ -30,7 +31,7 @@ export function injectPreviousPostsLinksUnifiedProfile(isCommunityConsole) {
   var links = document.createElement('div');
   links.classList.add('TWPT-user-profile__user-links');
 
-  var a = document.createElement('a');
+  var a = isCommunityConsole ? createImmuneLink() : document.createElement('a');
   a.classList.add('TWPT-user-profile__user-link', 'TWPT-user-link');
   a.href = url;
   a.target = '_parent';

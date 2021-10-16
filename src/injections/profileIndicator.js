@@ -1,4 +1,5 @@
 import {CCApi} from '../common/api.js';
+import {createImmuneLink} from '../common/commonUtils.js';
 import {escapeUsername} from '../common/communityConsoleUtils.js';
 import {createPlainTooltip} from '../common/tooltip.js';
 
@@ -105,12 +106,12 @@ var contentScriptRequest = (function() {
 
 // Create profile indicator dot with a loading state, or return the numPosts
 // badge if it is already created.
-function createIndicatorDot(sourceNode, searchURL, options) {
+function createIndicatorDot(sourceNode, searchURL, options, isCC) {
   if (options.numPosts) return document.querySelector('.num-posts-indicator');
   var dotContainer = document.createElement('div');
   dotContainer.classList.add('profile-indicator', 'profile-indicator--loading');
 
-  var dotLink = document.createElement('a');
+  var dotLink = isCC ? createImmuneLink() : document.createElement('a');
   dotLink.href = searchURL;
   dotLink.innerText = '●';
 
@@ -128,8 +129,8 @@ function createIndicatorDot(sourceNode, searchURL, options) {
 }
 
 // Create badge indicating the number of posts with a loading state
-function createNumPostsBadge(sourceNode, searchURL) {
-  var link = document.createElement('a');
+function createNumPostsBadge(sourceNode, searchURL, isCC) {
+  var link = isCC ? createImmuneLink() : document.createElement('a');
   link.href = searchURL;
 
   var numPostsContainer = document.createElement('div');
@@ -219,7 +220,7 @@ function handleIndicators(sourceNode, isCC, options) {
     var userId =
         profileURL.pathname.split(isCC ? 'user/' : 'profile/')[1].split('/')[0];
 
-    var numPostsContainer = createNumPostsBadge(sourceNode, searchURL);
+    var numPostsContainer = createNumPostsBadge(sourceNode, searchURL, isCC);
 
     getProfile(userId, forumId)
         .then(res => {
@@ -270,7 +271,7 @@ function handleIndicators(sourceNode, isCC, options) {
   }
 
   if (options.indicatorDot) {
-    var dotContainer = createIndicatorDot(sourceNode, searchURL, options);
+    var dotContainer = createIndicatorDot(sourceNode, searchURL, options, isCC);
 
     // Query threads in order to see what state the indicator should be in
     getPosts(query, forumId)

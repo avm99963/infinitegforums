@@ -1,3 +1,4 @@
+import {createImmuneLink} from '../../common/commonUtils.js';
 import {escapeUsername, getAuthUser} from '../../common/communityConsoleUtils.js';
 import {isOptionEnabled} from '../../common/optionsUtils.js';
 
@@ -12,7 +13,7 @@ function addProfileHistoryLink(node, type, query) {
   var container = document.createElement('div');
   container.style.margin = '3px 0';
 
-  var link = document.createElement('a');
+  var link = createImmuneLink();
   link.setAttribute(
       'href',
       'https://support.google.com/s/community/search/' + urlpart +

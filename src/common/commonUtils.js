@@ -15,3 +15,12 @@ export function parseUrl(url) {
 export function isEmpty(obj) {
   return Object.keys(obj).length === 0;
 }
+
+// Create a link element which isn't handled by the Community Console when
+// clicked. This is done by cancelling the event propagation in the beginning of
+// the bubbling phase.
+export function createImmuneLink() {
+  var a = document.createElement('a');
+  a.addEventListener('click', e => e.stopPropagation(), false);
+  return a;
+}
