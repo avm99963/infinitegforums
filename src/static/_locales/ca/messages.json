@@ -23,6 +23,14 @@
     "message": "L'opció anterior està desactivada forçosament degut a un problema.",
     "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
   },
+  "options_featuredoptions": {
+    "message": "Funcions destacades",
+    "description": "Heading for several options that can be enabled in the options page."
+  },
+  "options_minorenhancements": {
+    "message": "Millores menors",
+    "description": "Heading for several options that can be enabled in the options page."
+  },
   "options_list": {
     "message": "Activa el scroll infinit a les llistes de fils.",
     "description": "Feature checkbox in the options page"
@@ -34,10 +42,6 @@
   "options_threadall": {
     "message": "Carrega automàticament tots els missatges de cop quan facis scroll per un fil.",
     "description": "Feature checkbox in the options page"
-  },
-  "options_enhancements": {
-    "message": "Millores addicionals",
-    "description": "Heading for several options that can be enabled in the options page"
   },
   "options_fixedtoolbar": {
     "message": "Mantén visible la barra d'eines de la llista de fils a la Consola de la Comunitat.",
@@ -106,10 +110,6 @@
   "options_autorefreshlist": {
     "message": "Mostra una notificació a la Consola de la Comunitat quan una llista de fils rep actualitzacions.",
     "description": "Feature checkbox in the options page"
-  },
-  "options_profileindicator_header": {
-    "message": "Punt indicador",
-    "description": "Heading for the profile indicator feature options"
   },
   "options_profileindicator_moreinfo": {
     "message": "+info sobre les 2 darreres opcions",
