@@ -35,14 +35,12 @@ automatically being loaded into Chrome. You'll have to reload the extension
 manually in Chrome (but at least you won't have to both build and reload it).
 
 ## About the _Chromium MV3_ target
-Chromium is working in a
+Chromium announced a while back a
 [new version of the manifest.json file](https://developer.chrome.com/docs/extensions/mv3/intro/),
-which also introduces some changes to the extension APIs. Eventually, all Chrome
-extensions will be required to have migrated to Manifest V3 (MV3), so in order
-to anticipate this change, a new experimental _Chromium MV3_ target has been
-added.
+which also introduces some changes to the extension APIs. The _Chromium MV3_
+target builds the extension using this new version.
 
-This target is experimental in the sense that it isn't actually used when
-building the extension ZIPs which are uploaded to the Chrome Web Store (MV2 is
-still used), and because these builds aren't currently being exhaustively
-tested.
+[MV2 will phase out in January 2023](https://developer.chrome.com/docs/extensions/mv3/mv2-sunset/),
+so starting with version v2.1.2, the CWS beta channel will receive the MV3
+variant of the extension to begin testing it publicly. For now, the stable
+channel will continue to receive the MV2 variant of the extension.

@@ -41,9 +41,9 @@ release_chromium_stable: deps
 	rm -rf dist/chromium
 
 release_chromium_beta: deps
-	$(WEBPACK) --mode production --env browser_target=chromium
-	$(RELEASE_SCRIPT) -c beta -b chromium
-	rm -rf dist/chromium
+	$(WEBPACK) --mode production --env browser_target=chromium_mv3
+	$(RELEASE_SCRIPT) -c beta -b chromium_mv3
+	rm -rf dist/chromium_mv3
 
 release_gecko_stable: deps
 	$(WEBPACK) --mode production --env browser_target=gecko
