@@ -23,6 +23,14 @@
     "message": "A opção anterior foi desativada à força devido a um problema.",
     "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
   },
+  "options_featuredoptions": {
+    "message": "Opções em destaque",
+    "description": "Heading for several options that can be enabled in the options page."
+  },
+  "options_minorenhancements": {
+    "message": "Melhorias",
+    "description": "Heading for several options that can be enabled in the options page."
+  },
   "options_list": {
     "message": "Ativar a rolagem infinita das listas de tópicos.",
     "description": "Feature checkbox in the options page"
@@ -34,10 +42,6 @@
   "options_threadall": {
     "message": "Carregar automaticamente de uma vez dentro do tópico ao rolar para baixo.",
     "description": "Feature checkbox in the options page"
-  },
-  "options_enhancements": {
-    "message": "Melhorias Adicionais",
-    "description": "Heading for several options that can be enabled in the options page"
   },
   "options_fixedtoolbar": {
     "message": "Manter a Barra de ferramentas sempre visível no Console.",
@@ -106,10 +110,6 @@
   "options_autorefreshlist": {
     "message": "Mostre uma notificação no Community Console quando a lista de tópicos tiver novas atualizações.",
     "description": "Feature checkbox in the options page"
-  },
-  "options_profileindicator_header": {
-    "message": "Ícone indicador",
-    "description": "Heading for the profile indicator feature options"
   },
   "options_profileindicator_moreinfo": {
     "message": "+ informações sobre as 2 opções anteriores",
