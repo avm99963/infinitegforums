@@ -52,7 +52,7 @@
     "description": "Feature checkbox in the options page"
   },
   "options_loaddrafts": {
-    "message": "Ativar <code class=\"help\" title=\"este sinalizador para permite que o Community Console carregue uma resposta previamente salva automaticamente ao carregar um tópico e ao clicar no botão de resposta.\">enableLoadingDraftMessages</code> no Community Console.",
+    "message": "Ativar o flag <code class=\"help\" title=\"Este sinalizador para permite que o Community Console carregue uma resposta previamente salva automaticamente ao carregar um tópico e ao clicar no botão de resposta.\">enableLoadingDraftMessages</code> no Community Console.",
     "description": "Feature checkbox in the options page"
   },
   "options_experimental_label": {
@@ -188,7 +188,7 @@
     "description": "Tooltip of the 'lock/unlock threads' icon shown when selecting multiple threads in the Community Console. Also the title for the dialog shown after clicking this icon."
   },
   "inject_lockdialog_desc": {
-    "message": "Por favor! Confirme a ação que deseja realizar clicando no botão apropriado abaixo. Lembre-se de que esta ação será realizada em todos os tópicos que você selecionou!",
+    "message": "Por favor, confirme a ação que deseja realizar clicando no botão apropriado abaixo. Lembre-se que esta ação será realizada em todos os tópicos que você selecionou.",
     "description": "Text in the 'lock/unlock threads' dialog, which asks the user for confirmation."
   },
   "inject_lockdialog_btn_lock": {
