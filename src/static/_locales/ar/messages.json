@@ -23,6 +23,14 @@
     "message": "تم الإيقاف القسري للخيار السابق بسبب مشكلة.",
     "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
   },
+  "options_featuredoptions": {
+    "message": "خيارات مميَّزة",
+    "description": "Heading for several options that can be enabled in the options page."
+  },
+  "options_minorenhancements": {
+    "message": "تحسينات طفيفة",
+    "description": "Heading for several options that can be enabled in the options page."
+  },
   "options_list": {
     "message": "تفعيل التمرير اللانهائي في قوائم المواضيع",
     "description": "Feature checkbox in the options page"
@@ -34,10 +42,6 @@
   "options_threadall": {
     "message": "تحميل جميع الرسائل تلقائيا مرة واحدة داخل سلاسل المحادثات عند التمرير لأسفل",
     "description": "Feature checkbox in the options page"
-  },
-  "options_enhancements": {
-    "message": "تحسينات إضافية",
-    "description": "Heading for several options that can be enabled in the options page"
   },
   "options_fixedtoolbar": {
     "message": "تثبيت شريط الأدوات في قوائم سلاسل المحادثات في وحدة التحكم في المجتمع",
@@ -106,10 +110,6 @@
   "options_autorefreshlist": {
     "message": "إظهار إشعار في وحدة التّحكّم في المجتمع عندما تحتوي قائمة سلاسل المحادثات على تحديثات جديدة.",
     "description": "Feature checkbox in the options page"
-  },
-  "options_profileindicator_header": {
-    "message": "نقطة المؤشِّر",
-    "description": "Heading for the profile indicator feature options"
   },
   "options_profileindicator_moreinfo": {
     "message": "مزيدا من المعلومات حول الخيارين السابقين",
