@@ -193,6 +193,16 @@ públicos, y solo cuando las opciones de orden están establecidas a "Ordenar po
 lado de las opciones de orden te indicará si las opciones del orden están
 correctamente establecidas (y por tanto esta función funcionará) o no.
 
+### Limita la altura de imágenes
+> **Opción:** _Limita la altura de las imágenes insertadas en mensajes a
+la altura de la ventana._
+
+A veces los usuarios suben capturas de pantalla en alta definición de su
+teléfono, lo que resulta en que en el foro se muestra una imagen muy alta. Esta
+función añade un estilo personalizado que establece una altura máxima para las
+imágenes dentro de mensajes del foro, para que no sean más altas que la ventana
+actual.
+
 ## Punto indicador
 > **Opciones:** _Muestra si el autor del hilo ha participado en otros hilos_,
 _Muestra el número de preguntas y respuestas escritas por el autor del hilo

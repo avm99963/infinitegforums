@@ -182,6 +182,15 @@ only when the sort settings are set to "Sort by: Last Updated" and descending
 order. The bell icon next to the sort settings will indicate whether the sort
 settings are correct (and thus this feature is working) or not.
 
+### Limit the height of inline images
+> **Option name:** _Prevent inline images in messages from being taller than the
+current window._
+
+It is a common case that users upload high resolution screenshots of their
+phone, which results in a very tall image being shown in the forum. This
+feature adds a custom style to set a maximum height for images inside forum
+messages, so they aren't taller than the current viewport.
+
 ## Indicator dot
 > **Option names:** _Show whether the OP has participated in other threads_,
 _Show the number of questions and replies written by the OP within the last `n`

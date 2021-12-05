@@ -111,6 +111,10 @@
     "message": "Show a notification in the Community Console when a thread list has new updates.",
     "description": "Feature checkbox in the options page"
   },
+  "options_imagemaxheight": {
+    "message": "Prevent inline images in messages from being taller than the current window.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_profileindicator_moreinfo": {
     "message": "+info about the 2 previous options",
     "description": "Link to learn more about the profile indicator feature"

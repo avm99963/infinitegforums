@@ -105,6 +105,11 @@
     context: 'options',
     killSwitchType: 'option',
   },
+  'imagemaxheight': {
+    defaultValue: false,
+    context: 'options',
+    killSwitchType: 'option',
+  },
 
   // Experiments:
 

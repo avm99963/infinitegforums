@@ -36,6 +36,7 @@
         {codename: 'ccdragndropfix', customHTML: '<div id="dragndrop-wrapper" class="option" hidden><input type="checkbox" id="ccdragndropfix"> <label for="ccdragndropfix" data-i18n="ccdragndropfix"></label></div>'},
         {codename: 'enhancedannouncementsdot'},
         {codename: 'repositionexpandthread', experimental: true},
+        {codename: 'imagemaxheight'},
       ],
     },
   ],

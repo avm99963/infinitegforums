@@ -225,6 +225,10 @@ getOptions(null).then(items => {
     injectStylesheet(chrome.runtime.getURL('css/reposition_expand_thread.css'));
   }
 
+  if (options.imagemaxheight) {
+    injectStylesheet(chrome.runtime.getURL('css/image_max_height.css'));
+  }
+
   if (options.ccforcehidedrawer) {
     var drawer = document.querySelector('material-drawer');
     if (drawer !== null && drawer.classList.contains('mat-drawer-expanded')) {
