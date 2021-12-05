@@ -602,30 +602,7 @@ ec-thread-composer material-drawer material-radio .radio-description,
  * footer.
  **/
 
-/* Old profile view */
-/* TODO(b/twpowertools/80): Remove this code. */
-ec-user .main-card {
-  background-color: var(--TWPT-secondary-background)!important;
-}
-
-ec-user .abuse-alert-container {
-  background-color: var(--TWPT-active-background)!important;
-  border-top-right-radius: 8px!important;
-}
-
-ec-user .abuse-alert-container .abuse-alert {
-  color: var(--TWPT-primary-text)!important;
-}
-
-ec-user ec-display-name-editor, ec-user .header .name {
-  color: var(--TWPT-primary-text)!important;
-}
-
-ec-user .role {
-  filter: brightness(1.5);
-}
-
-/* Chart in both old and new profile view */
+/* Chart in the profile view */
 ec-user bar-chart .axis text,
     ec-unified-user sc-tailwind-shared-activity-chart .axis text {
   fill: rgba(255, 255, 255, .54)!important;

@@ -6,7 +6,6 @@ import AvatarsHandler from './avatars.js';
 import {batchLock} from './batchLock.js';
 import {injectDarkModeButton, isDarkThemeOn} from './darkMode.js';
 import {applyDragAndDropFixIfEnabled} from './dragAndDropFix.js';
-import {injectPreviousPostsLinksIfEnabled} from './profileHistoryLink.js';
 import {unifiedProfilesFix} from './unifiedProfiles.js';
 
 var mutationObserver, intersectionObserver, intersectionOptions, options,
@@ -20,9 +19,7 @@ const watchedNodesSelectors = [
   // Load more bar (for the "load more"/"load all" buttons)
   '.load-more-bar',
 
-  // Username span/editor inside ec-user (user profile view)
-  'ec-user .main-card .header > .name > span',
-  'ec-user .main-card .header > .name > ec-display-name-editor',
+  // Username span/editor inside ec-unified-user (user profile view)
   'ec-unified-user .scTailwindUser_profileUsercarddetails',
 
   // Rich text editor
@@ -91,14 +88,6 @@ function handleCandidateNode(node) {
 
     // Show the "previous posts" links if the option is currently enabled.
     //   Here we're selecting the 'ec-user > div' element (unique child)
-
-    // TODO(b/twpowertools/80): Remove this:
-    if (node.matches('ec-user .main-card .header > .name > span') ||
-        node.matches(
-            'ec-user .main-card .header > .name > ec-display-name-editor')) {
-      injectPreviousPostsLinksIfEnabled(node);
-    }
-
     if (node.matches(
             'ec-unified-user .scTailwindUser_profileUsercarddetails')) {
       injectPreviousPostsLinksUnifiedProfileIfEnabled(

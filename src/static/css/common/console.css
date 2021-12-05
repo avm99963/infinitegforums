@@ -42,18 +42,6 @@
   padding: 4px 8px!important;
 }
 
-/* TODO(b/twpowertools/80): Remove this code. */
-.TWPT-previous-posts {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.TWPT-previous-posts .TWPT-badge {
-  --icon-size: 18px;
-  margin-right: 8px;
-}
-
 /* Unified profiles "previous posts" link badge */
 .TWPT-user-link .TWPT-badge {
   display: inline-flex;
