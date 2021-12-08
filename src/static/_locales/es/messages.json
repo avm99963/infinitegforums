@@ -111,6 +111,10 @@
     "message": "Muestra una notificación en la Consola de la Comunidad cuando una lista de hilos recibe actualizaciones.",
     "description": "Feature checkbox in the options page"
   },
+  "options_imagemaxheight": {
+    "message": "Limita la altura de las imágenes de los mensajes a la altura de la ventana.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_profileindicator_moreinfo": {
     "message": "+info sobre las 2 opciones anteriores",
     "description": "Link to learn more about the profile indicator feature"
