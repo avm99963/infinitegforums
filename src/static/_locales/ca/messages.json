@@ -111,6 +111,10 @@
     "message": "Mostra una notificació a la Consola de la Comunitat quan una llista de fils rep actualitzacions.",
     "description": "Feature checkbox in the options page"
   },
+  "options_imagemaxheight": {
+    "message": "Limita l'altura de les imatges dels missatges a l'altura de la finestra.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_profileindicator_moreinfo": {
     "message": "+info sobre les 2 darreres opcions",
     "description": "Link to learn more about the profile indicator feature"
