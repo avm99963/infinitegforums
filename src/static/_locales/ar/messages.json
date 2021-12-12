@@ -111,6 +111,10 @@
     "message": "إظهار إشعار في وحدة التّحكّم في المجتمع عندما تحتوي قائمة سلاسل المحادثات على تحديثات جديدة.",
     "description": "Feature checkbox in the options page"
   },
+  "options_imagemaxheight": {
+    "message": "منع الصور المضمنة في الرسائل من أن تكون أطول من النافذة الحالية.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_profileindicator_moreinfo": {
     "message": "مزيدا من المعلومات حول الخيارين السابقين",
     "description": "Link to learn more about the profile indicator feature"
