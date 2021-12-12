@@ -111,6 +111,10 @@
     "message": "Mostre uma notificação no Community Console quando a lista de tópicos tiver novas atualizações.",
     "description": "Feature checkbox in the options page"
   },
+  "options_imagemaxheight": {
+    "message": "Impedir que o tamanho das imagens nas mensagens excedam a janela atual.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_profileindicator_moreinfo": {
     "message": "+ informações sobre as 2 opções anteriores",
     "description": "Link to learn more about the profile indicator feature"
