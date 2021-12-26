@@ -1,9 +1,6 @@
-import {MDCTooltip} from '@material/tooltip';
-
 import {isOptionEnabled} from '../../common/optionsUtils.js';
-import {createPlainTooltip} from '../../common/tooltip.js';
 
-import {createExtBadge, removeChildNodes} from './utils/common.js';
+import {addButtonToThreadListActions, removeChildNodes} from './utils/common.js';
 
 export var batchLock = {
   nodeIsReadToggleBtn(node) {
@@ -13,7 +10,7 @@ export var batchLock = {
          node.getAttribute('debugid') == 'mark-unread-button') &&
         ('parentNode' in node) && node.parentNode !== null &&
         ('parentNode' in node.parentNode) &&
-        node.parentNode.querySelector('[debugid="batchlock"]') === null &&
+        node.parentNode.querySelector('[debugid="twpt-lock"]') === null &&
         node.parentNode.parentNode !== null &&
         ('tagName' in node.parentNode.parentNode) &&
         node.parentNode.parentNode.tagName == 'EC-BULK-ACTIONS';
@@ -117,36 +114,16 @@ export var batchLock = {
     modal.classList.add('visible', 'modal');
     modal.style.display = 'flex';
   },
-  addButton(readToggle) {
-    var clone = readToggle.cloneNode(true);
-    clone.setAttribute('debugid', 'batchlock');
-    clone.classList.add('TWPT-btn--with-badge');
-    clone.querySelector('material-icon').setAttribute('icon', 'lock');
-    clone.querySelector('i.material-icon-i').textContent = 'lock';
-
-    let badge, badgeTooltip;
-    [badge, badgeTooltip] = createExtBadge();
-    clone.append(badge);
-
-    clone.addEventListener('click', () => {
-      this.createDialog();
-    });
-
-    var duplicateBtn = readToggle.parentNode.querySelector(
-        '[debugid="mark-duplicate-button"]');
-    if (duplicateBtn)
-      duplicateBtn.parentNode.insertBefore(
-          clone, (duplicateBtn.nextSibling || duplicateBtn));
-    else
-      readToggle.parentNode.insertBefore(
-          clone, (readToggle.nextSibling || readToggle));
-
-    createPlainTooltip(clone, chrome.i18n.getMessage('inject_lockbtn'));
-    new MDCTooltip(badgeTooltip);
-  },
   addButtonIfEnabled(readToggle) {
     isOptionEnabled('batchlock').then(isEnabled => {
-      if (isEnabled) this.addButton(readToggle);
+      if (isEnabled) {
+        let tooltip = chrome.i18n.getMessage('inject_lockbtn');
+        let btn = addButtonToThreadListActions(
+            readToggle, 'lock', 'twpt-lock', tooltip);
+        btn.addEventListener('click', () => {
+          this.createDialog();
+        });
+      }
     });
   },
 };

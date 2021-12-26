@@ -1,3 +1,5 @@
+import {MDCTooltip} from '@material/tooltip';
+
 import {createPlainTooltip} from '../../../common/tooltip.js';
 
 export function removeChildNodes(node) {
@@ -27,4 +29,33 @@ export function createExtBadge() {
 
   badge.append(badgeI);
   return [badge, badgeTooltip];
+}
+
+// Adds a button to the thread list actions bar next to the button given by
+// |originalBtn|. The button will have icon |icon|, when hovered it will display
+// |tooltip|, and will have a debugid attribute with value |debugId|.
+export function addButtonToThreadListActions(originalBtn, icon, debugId, tooltip) {
+  let clone = originalBtn.cloneNode(true);
+  clone.setAttribute('debugid', debugId);
+  clone.classList.add('TWPT-btn--with-badge');
+  clone.querySelector('material-icon').setAttribute('icon', icon);
+  clone.querySelector('i.material-icon-i').textContent = icon;
+
+  let badge, badgeTooltip;
+  [badge, badgeTooltip] = createExtBadge();
+  clone.append(badge);
+
+  var duplicateBtn =
+      originalBtn.parentNode.querySelector('[debugid="mark-duplicate-button"]');
+  if (duplicateBtn)
+    duplicateBtn.parentNode.insertBefore(
+        clone, (duplicateBtn.nextSibling || duplicateBtn));
+  else
+    originalBtn.parentNode.insertBefore(
+        clone, (originalBtn.nextSibling || originalBtn));
+
+  createPlainTooltip(clone, tooltip);
+  new MDCTooltip(badgeTooltip);
+
+  return clone;
 }
