@@ -143,6 +143,14 @@
     "message": "Block the sending of your replies as you type to Google servers in the Community Console.",
     "description": "Feature checkbox in the options page"
   },
+  "options_workflows": {
+    "message": "Enable the workflows feature.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_workflows_manage": {
+    "message": "Manage workflows",
+    "description": "Button in the options page which opens the workflow management page."
+  },
   "options_save": {
     "message": "Save",
     "description": "Button in the options page to save the settings"

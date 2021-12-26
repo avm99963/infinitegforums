@@ -121,6 +121,11 @@
   // #!endif
 
   // Experiments:
+  'workflows': {
+    defaultValue: false,
+    context: 'experiments',
+    killSwitchType: 'experiment',
+  },
 
   // Internal options:
   'ccdarktheme_switch_enabled': {

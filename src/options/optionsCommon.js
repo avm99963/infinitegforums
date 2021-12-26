@@ -179,6 +179,16 @@ window.addEventListener('load', function() {
 
   i18n();
 
+  // Add custom handlers
+  let manageWorkflowsBtn = document.getElementById('manage-workflows');
+  if (manageWorkflowsBtn)
+    manageWorkflowsBtn.addEventListener('click', e => {
+      e.preventDefault();
+      chrome.tabs.create({
+        url: chrome.runtime.getURL('options/workflows.html'),
+      })
+    });
+
   chrome.storage.sync.get(null, function(items) {
     items = cleanUpOptions(items, false);
 
