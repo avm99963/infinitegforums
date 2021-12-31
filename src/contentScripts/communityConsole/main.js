@@ -9,9 +9,10 @@ import {injectDarkModeButton, isDarkThemeOn} from './darkMode.js';
 import {applyDragAndDropFixIfEnabled} from './dragAndDropFix.js';
 // #!endif
 import {unifiedProfilesFix} from './unifiedProfiles.js';
+import Workflows from './workflows/workflows.js';
 
 var mutationObserver, intersectionObserver, intersectionOptions, options,
-    avatars;
+    avatars, workflows;
 
 const watchedNodesSelectors = [
   // App container (used to set up the intersection observer and inject the dark
@@ -112,11 +113,14 @@ function handleCandidateNode(node) {
     }
     // #!endif
 
-    // Inject the batch lock button in the thread list if the option is
-    // currently enabled.
-    if (batchLock.nodeIsReadToggleBtn(node)) {
+    // Inject the batch lock and workflow buttons in the thread list if the
+    // corresponding options are currently enabled.
+    // The order is the inverse because the first one will be shown last.
+    if (batchLock.shouldAddButton(node))
       batchLock.addButtonIfEnabled(node);
-    }
+
+    if (workflows.shouldAddThreadListBtn(node))
+      workflows.addThreadListBtnIfEnabled(node);
 
     // Inject avatar links to threads in the thread list. injectIfEnabled is
     // responsible of determining whether it should run or not depending on its
@@ -180,6 +184,7 @@ getOptions(null).then(items => {
 
   // Initialize classes needed by the mutation observer
   avatars = new AvatarsHandler();
+  workflows = new Workflows();
 
   // autoRefresh is initialized in start.js
 

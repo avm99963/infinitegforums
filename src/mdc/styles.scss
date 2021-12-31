@@ -1,1 +1,9 @@
 @use "@material/tooltip/styles";
+@use "@material/list/mdc-list";
+@use "@material/menu-surface/mdc-menu-surface";
+@use "@material/menu/mdc-menu";
+
+a.mdc-list-item {
+  color: inherit!important;
+  text-decoration: none!important;
+}

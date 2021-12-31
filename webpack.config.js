@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const json5 = require('json5');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const {VueLoaderPlugin} = require('vue-loader');
 const WebpackShellPluginNext = require('webpack-shell-plugin-next');
 
 // Pontoon uses their own locale set. This array lets us convert those locales
@@ -106,8 +107,11 @@ module.exports = (env, args) => {
           },
         ]
       }),
+      new VueLoaderPlugin(),
       new webpack.DefinePlugin({
         'PRODUCTION': args.mode == 'production',
+        '__VUE_OPTIONS_API__': true,
+        '__VUE_PROD_DEVTOOLS__': args.mode != 'production',
       }),
       ...getCopyPluginsForOverridenLocales(outputPath),
     ],
@@ -130,7 +134,7 @@ module.exports = (env, args) => {
         {
           test: /\.s[ac]ss$/i,
           use: [
-            'style-loader',
+            'vue-style-loader',
             'css-loader',
             {
               loader: 'sass-loader',
@@ -142,10 +146,21 @@ module.exports = (env, args) => {
           ],
         },
         {
+          test: /\.css$/i,
+          use: [
+            'vue-style-loader',
+            'css-loader',
+          ],
+        },
+        {
           test: /\.js$/i,
           use: [
             preprocessorLoader,
           ],
+        },
+        {
+          test: /\.vue$/i,
+          loader: 'vue-loader',
         },
       ]
     },

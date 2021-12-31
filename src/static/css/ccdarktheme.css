@@ -31,7 +31,7 @@ p {
   color: var(--TWPT-primary-text);
 }
 
-body.ec a {
+body.ec a:not(.mdc-list-item) {
   color: var(--TWPT-link);
 }
 
