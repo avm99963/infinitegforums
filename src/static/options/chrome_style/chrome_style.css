@@ -84,7 +84,6 @@ a:active {
 select,
 input[type='checkbox'],
 input[type='radio'] {
-  -webkit-appearance: none;
   -webkit-user-select: none;
   background-image: linear-gradient(#ededed, #ededed 38%, #dedede);
   border: 1px solid rgba(0, 0, 0, 0.25);
@@ -96,6 +95,12 @@ input[type='radio'] {
   margin: 0 1px 0 0;
   outline: none;
   text-shadow: 0 1px 0 rgb(240, 240, 240);
+}
+
+select,
+input[type='checkbox']:not(:indeterminate),
+input[type='radio'] {
+  -webkit-appearance: none;
 }
 
 :-webkit-any(button,
@@ -173,7 +178,7 @@ input[type='search'] {
 
 /* Checked ********************************************************************/
 
-input[type='checkbox']:checked::before {
+input[type='checkbox']:checked:not(:indeterminate)::before {
   -webkit-user-select: none;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAQAAAADpb+tAAAAZ0lEQVR4AWNAA2xAiAXEM8xiMEAXVGJYz7AZCFEkmBi6wYKtEC4/gxqY9gILrmYQhwiXMWxkiAVyVoOFfSCCpkAmCK4Fk+1QA4GqekECUAMkka0KY9gIFvZDd5oawwyGBqACdIDqOwAQzBnTWnnU+gAAAABJRU5ErkJggg==);
   background-size: 100% 100%;

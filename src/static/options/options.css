@@ -24,16 +24,22 @@ main {
   cursor: pointer;
 }
 
-.option, #kill-switch-warning {
+.option,
+    #kill-switch-warning,
+    #optional-permissions-warning {
   margin: 4px 0;
   line-height: 1.8em;
 }
 
-#kill-switch-warning, .kill-switch-label {
+#kill-switch-warning,
+    .kill-switch-label,
+    #optional-permissions-warning,
+    .optional-permissions-warning-label {
   color: red;
 }
 
-.kill-switch-label {
+.kill-switch-label,
+    .optional-permissions-warning-label {
   margin: 0 0 8px 0;
   line-height: 1em;
 }

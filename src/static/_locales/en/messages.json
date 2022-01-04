@@ -23,6 +23,14 @@
     "message": "The previous option has been force disabled due to an issue.",
     "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
   },
+  "options_optionalpermissionswarning_header": {
+    "message": "One or more features can't be used because they need additional permissions. These features have been highlighted below, click their checkboxes to grant the appropriate permissions.",
+    "description": "Warning shown at the top of the options page if a feature cannot be used because one or more required permissions haven't been granted to the extension."
+  },
+  "options_optionalpermissionswarning_label": {
+    "message": "The previous feature needs additional permissions to work.",
+    "description": "Warning shown in the options page below an option, when a feature needs more permissions to work."
+  },
   "options_featuredoptions": {
     "message": "Featured options",
     "description": "Heading for several options that can be enabled in the options page."
@@ -250,5 +258,9 @@
   "inject_threadlistavatars_private_thread_indicator_label": {
     "message": "Due to technical reasons, we can't load the avatars of threads published in private forums.",
     "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
+  },
+  "actionbadge_permissions_requested": {
+    "message": "Some features need additional permissions to work. Click to fix it.",
+    "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."
   }
 }

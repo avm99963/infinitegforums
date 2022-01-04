@@ -121,6 +121,20 @@ module.exports = (env, args) => {
             },
           ],
         },
+        {
+          test: /\.js$/i,
+          use: [
+            {
+              loader: 'webpack-preprocessor-loader',
+              options: {
+                params: {
+                  browser_target: env.browser_target,
+                  production: args.mode == 'production',
+                },
+              },
+            },
+          ],
+        },
       ]
     },
   };
