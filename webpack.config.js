@@ -52,10 +52,7 @@ module.exports = (env, args) => {
   };
 
   // Background script (or service worker for MV3)
-  if (env.browser_target == 'chromium_mv3')
-    entry.sw = './src/sw.js';
-  else
-    entry.background = './src/background.js';
+  entry.bg = './src/bg.js';
 
   let outputPath = path.join(__dirname, 'dist', env.browser_target);
 

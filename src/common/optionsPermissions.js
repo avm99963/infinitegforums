@@ -1,11 +1,6 @@
 import optionsPrototype from './optionsPrototype.json5';
 import {getOptions} from './optionsUtils.js';
-
-// #!if browser_target == 'chromium_mv3'
-const actionApi = chrome.action;
-// #!else
-const actionApi = chrome.browserAction;
-// #!endif
+import actionApi from './actionApi.js';
 
 // Required permissions, including host permissions.
 //

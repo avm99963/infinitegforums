@@ -1,9 +1,20 @@
-// IMPORTANT: keep this file in sync with sw.js
+// #!if browser_target == 'chromium_mv3'
+import XMLHttpRequest from 'sw-xhr';
+// #!endif
+
+import actionApi from './common/actionApi.js';
 import {cleanUpOptPermissions} from './common/optionsPermissions.js';
 import {cleanUpOptions, disableItemsWithMissingPermissions} from './common/optionsUtils.js';
 import KillSwitchMechanism from './killSwitch/index.js';
 
-chrome.browserAction.onClicked.addListener(function() {
+// #!if browser_target == 'chromium_mv3'
+// XMLHttpRequest is not present in service workers (MV3) and is required by the
+// grpc-web package. Importing a shim to work around this.
+// https://github.com/grpc/grpc-web/issues/1134
+self.XMLHttpRequest = XMLHttpRequest;
+// #!endif
+
+actionApi.onClicked.addListener(() => {
   chrome.runtime.openOptionsPage();
 });
 

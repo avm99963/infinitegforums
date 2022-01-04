@@ -4,4 +4,3 @@
       make_target: build_test_extension
     - role: web-ext-lint
       source_dir: "dist/gecko"
-      extra_lint_flags: "--ignore-files sw.js"

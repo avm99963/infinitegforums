@@ -103,10 +103,10 @@
 #if defined(CHROMIUM)
     "persistent": false,
 #endif
-    "scripts": ["background.bundle.js"]
+    "scripts": ["bg.bundle.js"]
 #endif
 #if defined(CHROMIUM_MV3)
-    "service_worker": "sw.bundle.js"
+    "service_worker": "bg.bundle.js"
 #endif
   },
 #if defined(GECKO)
