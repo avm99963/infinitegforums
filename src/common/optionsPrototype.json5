@@ -75,11 +75,13 @@
     context: 'options',
     killSwitchType: 'option',
   },
+  // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
   'ccdragndropfix': {
     defaultValue: false,
     context: 'options',
     killSwitchType: 'option',
   },
+  // #!endif
   'batchlock': {
     defaultValue: false,
     context: 'options',

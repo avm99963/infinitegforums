@@ -1,6 +1,6 @@
 import {compareLoose} from 'semver';
 
-import {getExtVersion, isFirefox} from '../common/extUtils.js';
+import {getExtVersion} from '../common/extUtils.js';
 
 import * as commonPb from './api_proto/common_pb.js';
 import {KillSwitchServicePromiseClient} from './api_proto/kill_switch_grpc_web_pb.js';
@@ -16,8 +16,11 @@ export default class KillSwitchMechanism {
   }
 
   getCurrentBrowser() {
-    if (isFirefox()) return commonPb.Environment.Browser.BROWSER_GECKO;
+    // #!if browser_target == 'gecko'
+    return commonPb.Environment.Browser.BROWSER_GECKO;
+    // #!else
     return commonPb.Environment.Browser.BROWSER_CHROMIUM;
+    // #!endif
   }
 
   updateKillSwitchStatus() {

@@ -5,7 +5,9 @@ import {injectPreviousPostsLinksUnifiedProfileIfEnabled} from '../utilsCommon/un
 import AvatarsHandler from './avatars.js';
 import {batchLock} from './batchLock.js';
 import {injectDarkModeButton, isDarkThemeOn} from './darkMode.js';
+// #!if ['chromium', 'chromium_mv3'].includes(browser_target)
 import {applyDragAndDropFixIfEnabled} from './dragAndDropFix.js';
+// #!endif
 import {unifiedProfilesFix} from './unifiedProfiles.js';
 
 var mutationObserver, intersectionObserver, intersectionOptions, options,
@@ -94,6 +96,7 @@ function handleCandidateNode(node) {
           /* isCommunityConsole = */ true);
     }
 
+    // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
     // Fix the drag&drop issue with the rich text editor if the option is
     // currently enabled.
     //
@@ -107,6 +110,7 @@ function handleCandidateNode(node) {
          node.tagName == 'EC-RICH-TEXT-EDITOR')) {
       applyDragAndDropFixIfEnabled(node);
     }
+    // #!endif
 
     // Inject the batch lock button in the thread list if the option is
     // currently enabled.

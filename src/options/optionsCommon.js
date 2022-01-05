@@ -1,4 +1,4 @@
-import {getExtVersion, isFirefox, isReleaseVersion} from '../common/extUtils.js';
+import {getExtVersion, isReleaseVersion} from '../common/extUtils.js';
 import {ensureOptPermissions, grantedOptPermissions, missingPermissions} from '../common/optionsPermissions.js';
 import {cleanUpOptions, optionsPrototype, specialOptions} from '../common/optionsUtils.js';
 
@@ -34,9 +34,6 @@ function getOptionValue(opt) {
 
       case 'ccdarktheme_mode':
         return document.getElementById(opt).value || 'switch';
-
-      case 'ccdragndropfix':
-        return document.getElementById(opt).checked || false;
 
       default:
         console.warn('Unrecognized option: ' + opt);
@@ -230,19 +227,6 @@ window.addEventListener('load', function() {
 
             document.getElementById('ccdarktheme_mode--container')
                 .appendChild(select);
-            break;
-
-          // Firefox doesn't support drag and dropping bookmarks into the text
-          // editor while preserving the bookmark title.
-          case 'ccdragndropfix':
-            var showOption = !isFirefox();
-            if (showOption) {
-              document.getElementById('dragndrop-wrapper')
-                  .removeAttribute('hidden');
-
-              if (items[opt] === true)
-                document.getElementById(opt).checked = true;
-            }
             break;
 
           default:

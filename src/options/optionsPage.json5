@@ -36,7 +36,9 @@
         {codename: 'increasecontrast'},
         {codename: 'stickysidebarheaders'},
         {codename: 'ccforcehidedrawer'},
-        {codename: 'ccdragndropfix', customHTML: '<div id="dragndrop-wrapper" class="option" hidden><input type="checkbox" id="ccdragndropfix"> <label for="ccdragndropfix" data-i18n="ccdragndropfix"></label></div>'},
+        // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
+        {codename: 'ccdragndropfix'},
+        // #!endif
         {codename: 'enhancedannouncementsdot'},
         {codename: 'repositionexpandthread', experimental: true},
         {codename: 'imagemaxheight'},
