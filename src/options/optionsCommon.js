@@ -313,7 +313,7 @@ window.addEventListener('load', function() {
                               .getElementById('optional-permissions-warning')
                               .setAttribute('hidden', '');
                       } else
-                        document.getElementById('blockdrafts').checked = false;
+                        document.getElementById(opt).checked = false;
                     })
                     .catch(err => {
                       console.error(
@@ -321,7 +321,7 @@ window.addEventListener('load', function() {
                               'permissions were granted after the checkbox ' +
                               'was clicked for feature "' + opt + '":',
                           err);
-                      document.getElementById('blockdrafts').checked = false;
+                      document.getElementById(opt).checked = false;
                     });
             });
 
