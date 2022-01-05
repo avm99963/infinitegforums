@@ -59,6 +59,16 @@ module.exports = (env, args) => {
   let overridenLocalePaths =
       localeOverrides.map(l => '**/_locales/' + l.pontoonLocale);
 
+  let preprocessorLoader = {
+    loader: 'webpack-preprocessor-loader',
+    options: {
+      params: {
+        browser_target: env.browser_target,
+        production: args.mode == 'production',
+      },
+    },
+  };
+
   return {
     entry,
     output: {
@@ -103,6 +113,9 @@ module.exports = (env, args) => {
           parser: {
             parse: json5.parse,
           },
+          use: [
+            preprocessorLoader,
+          ],
         },
         {
           test: /\.s[ac]ss$/i,
@@ -121,15 +134,7 @@ module.exports = (env, args) => {
         {
           test: /\.js$/i,
           use: [
-            {
-              loader: 'webpack-preprocessor-loader',
-              options: {
-                params: {
-                  browser_target: env.browser_target,
-                  production: args.mode == 'production',
-                },
-              },
-            },
+            preprocessorLoader,
           ],
         },
       ]

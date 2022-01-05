@@ -110,6 +110,13 @@
     context: 'options',
     killSwitchType: 'option',
   },
+  // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
+  'blockdrafts': {
+    defaultValue: false,
+    context: 'options',
+    killSwitchType: 'option',
+  },
+  // #!endif
 
   // Experiments:
 

@@ -9,6 +9,9 @@ import actionApi from './actionApi.js';
 const requiredPermissions = new Set([
   'storage',
   'alarms',
+// #!if ['chromium', 'chromium_mv3'].includes(browser_target)
+  'declarativeNetRequestWithHostAccess',
+// #!endif
 ]);
 
 // Returns an array of optional permissions needed by |feature|.

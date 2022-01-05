@@ -6,6 +6,7 @@ import actionApi from './common/actionApi.js';
 import {cleanUpOptPermissions} from './common/optionsPermissions.js';
 import {cleanUpOptions, disableItemsWithMissingPermissions} from './common/optionsUtils.js';
 import KillSwitchMechanism from './killSwitch/index.js';
+import {handleBgOptionChange, handleBgOptionsOnStart} from './options/bgHandler.js';
 
 // #!if browser_target == 'chromium_mv3'
 // XMLHttpRequest is not present in service workers (MV3) and is required by the
@@ -47,11 +48,17 @@ chrome.runtime.onInstalled.addListener(details => {
 });
 
 // Clean up optional permissions and check that none are missing for enabled
-// features as soon as the extension starts and when the options change.
+// features, and also handle background option changes as soon as the extension
+// starts and when the options change.
 cleanUpOptPermissions();
+handleBgOptionsOnStart();
 
-chrome.storage.sync.onChanged.addListener(() => {
+chrome.storage.sync.onChanged.addListener(changes => {
   cleanUpOptPermissions();
+
+  for (let [key, {oldValue, newValue}] of Object.entries(changes)) {
+    handleBgOptionChange(key);
+  }
 });
 
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {

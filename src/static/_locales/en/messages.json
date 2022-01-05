@@ -135,6 +135,10 @@
     "message": "Show the number of questions and replies written by the OP within the last <span id='profileindicatoralt_months--container'></span> months next to their username.",
     "description": "Feature checkbox in the options page"
   },
+  "options_blockdrafts": {
+    "message": "Block the sending of your replies as you type to Google servers in the Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Save",
     "description": "Button in the options page to save the settings"
