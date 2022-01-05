@@ -23,6 +23,14 @@
     "message": "L'opció anterior està desactivada forçosament degut a un problema.",
     "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
   },
+  "options_optionalpermissionswarning_header": {
+    "message": "Una o més funcions no es poden utilitzar perquè necessiten permisos addicionals. Aquestes funcions estan destacades aquí sota, fes clic a les seves caselles de selecció per donar-lis els permisos adequats.",
+    "description": "Warning shown at the top of the options page if a feature cannot be used because one or more required permissions haven't been granted to the extension."
+  },
+  "options_optionalpermissionswarning_label": {
+    "message": "La funció anterior necessita permisos addicionals per funcionar.",
+    "description": "Warning shown in the options page below an option, when a feature needs more permissions to work."
+  },
   "options_featuredoptions": {
     "message": "Funcions destacades",
     "description": "Heading for several options that can be enabled in the options page."
@@ -125,6 +133,10 @@
   },
   "options_profileindicatoralt": {
     "message": "Mostra el nombre de preguntes i respostes escrites per l'autor del fil durant els últims <span id='profileindicatoralt_months--container'></span> mesos al costat del seu nom d'usuari.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_blockdrafts": {
+    "message": "Bloqueja l'enviament de les teves respostes mentre les escrius als servidors de Google a la Consola de la Comunitat.",
     "description": "Feature checkbox in the options page"
   },
   "options_save": {
@@ -250,5 +262,9 @@
   "inject_threadlistavatars_private_thread_indicator_label": {
     "message": "Degut a raons tècniques, no es poden carregar les fotos de perfil de fils publicats a fòrums privats.",
     "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
+  },
+  "actionbadge_permissions_requested": {
+    "message": "Algunes funcions necessiten permisos addicionals per funcionar. Fes clic per arreglar-lo.",
+    "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."
   }
 }
