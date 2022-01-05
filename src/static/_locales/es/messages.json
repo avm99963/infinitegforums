@@ -24,7 +24,7 @@
     "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
   },
   "options_optionalpermissionswarning_header": {
-    "message": "Una o más funciones no se pueden usar porque necesitan permisos adicionales. Estas funciones están destacadas aquí abajo, haz clic en sus casillas de selección para darles los permisos adecuados.",
+    "message": "Algunas funciones necesitan permisos adicionales para funcionar. Están destacadas aquí abajo, haz clic en sus casillas de selección para darles los permisos adecuados.",
     "description": "Warning shown at the top of the options page if a feature cannot be used because one or more required permissions haven't been granted to the extension."
   },
   "options_optionalpermissionswarning_label": {
