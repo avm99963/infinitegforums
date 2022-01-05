@@ -1,210 +1,190 @@
 {
   "appName": {
-    "message": "TW Power Tools (ранее Infinite Scroll)",
-    "description": "Имя расширения"
+    "message": "TW Power Tools",
+    "description": "The extension's name"
   },
   "appNameBeta": {
     "message": "TW Power Tools (beta)",
-    "description": "Имя расширения для бета-версии"
+    "description": "The extension's name for the beta version"
   },
   "appNameGecko": {
     "message": "TW Power Tools",
-    "description": "Имя расширения (не более 50 символов для Gecko)"
+    "description": "The extension's name (with a 50 character limit for Gecko)"
   },
   "appDescription": {
     "message": "Получите бесконечную прокрутку и другие улучшения на Форумах Google и в Консоли сообщества",
-    "description": "Описание расширения"
+    "description": "The extension's description"
   },
   "options_list": {
     "message": "Включить бесконечную прокрутку в списках тем.",
-    "description": "Опция на странице настроек"
+    "description": "Feature checkbox in the options page"
   },
   "options_thread": {
     "message": "Автоматическая частичная загрузка сообщений внутри тем при прокрутке вниз.",
-    "description": "Опция на странице настроек"
+    "description": "Feature checkbox in the options page"
   },
   "options_threadall": {
     "message": "Автоматически загружать все сообщения сразу в темах при прокрутке вниз.",
-    "description": "Опция на странице настроек"
-  },
-  "options_enhancements": {
-    "message": "Дополнительные возможности",
-    "description": "Заголовок для нескольких опций, которые могут быть включены на странице опций"
+    "description": "Feature checkbox in the options page"
   },
   "options_fixedtoolbar": {
     "message": "Закрепить панель инструментов в списках тем в КС [Консоли сообщества].",
-    "description": "Опция на странице настроек"
+    "description": "Feature checkbox in the options page"
   },
   "options_redirect": {
     "message": "Перенаправлять все темы, открытые в TW, в КС.",
-    "description": "Опция на странице настроек"
+    "description": "Feature checkbox in the options page"
   },
   "options_loaddrafts": {
     "message": "Активировать <code class=\"help\" title=\"Этот флаг позволяет КС загружать ранее сохраненный ответ при загрузке цепочки и нажатии кнопки ответа.\">enableLoadingDraftMessages</code> флаг КС.",
-    "description": "Опция на странице настроек"
+    "description": "Feature checkbox in the options page"
   },
   "options_experimental_label": {
     "message": "(эксперимент)",
-    "description": "Метка, которая размещена рядом с опцией, чтобы указать, что она может не работать или может сломаться в любое время"
+    "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
   },
   "options_history": {
     "message": "Показывать ссылку \"Сообщения пользователя\" в профилях пользователей.",
-    "description": "Опция на странице настроек"
-  },
-  "options_escalatethreads": {
-    "message": "Включает <code class=\"help\" title=\"Этот флаг активирует функциональность, которая позволяет эксперту по продукту эскалировать потоки из открытых форумов в частные в КС.\">enableEscalateThread</code> флаг КС.",
-    "description": "Опция на странице настроек"
-  },
-  "options_movethreads": {
-    "message": "Включает <code class=\"help\" title=\"Этот флаг активирует функциональность, которая позволяет эксперту по продукту перемещать потоки из форума, где они в данный момент являются PE, в другой форум в КС.\">enableMoveThread</code> флаг КС.",
-    "description": "Опция на странице настроек"
+    "description": "Feature checkbox in the options page"
   },
   "options_stickysidebarheaders": {
     "message": "Сделайте так, чтобы заголовки на боковой панели КС прилипали к верху при прокрутке (+info at <code>pekb/thread/60784834</code>).",
-    "description": "Опция на странице настроек"
+    "description": "Feature checkbox in the options page"
   },
   "options_increasecontrast": {
     "message": "Увеличить контраст между прочитанными и непрочитанными цепочками в списке тем КС.",
-    "description": "Опция на странице настроек"
+    "description": "Feature checkbox in the options page"
   },
   "options_ccdarktheme": {
     "message": "Разрешить темную тему в КС, используя <span id='ccdarktheme_mode--container'></span>.",
-    "description": "Опция на странице настроек"
+    "description": "Feature checkbox in the options page"
   },
   "options_ccdarktheme_mode_switch": {
     "message": "переключатель в КС",
-    "description": "Выбирает опцию, добавленную в #ccdarktheme_mode--container, в строке options_ccdarktheme"
+    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
   },
   "options_ccdarktheme_mode_system": {
     "message": "темная тема режима настроек ОС",
-    "description": "Выбирает опцию, добавленную в #ccdarktheme_mode--container, в строке options_ccdarktheme"
+    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
   },
   "options_ccforcehidedrawer": {
     "message": "Всегда скрывать дрор-панель (левую колонку) в КС.",
-    "description": "Опция на странице настроек"
+    "description": "Feature checkbox in the options page"
   },
   "options_ccdragndropfix": {
     "message": "Разрешить перетаскивать закладки в текстовый редактор КС.",
-    "description": "Опция на странице настроек"
+    "description": "Feature checkbox in the options page"
   },
   "options_batchlock": {
     "message": "Добавить опцию одновременной блокировки нескольких веток в спике тем КС.",
-    "description": "Опция на странице настроек"
-  },
-  "options_profileindicator_header": {
-    "message": "Точка индикации",
-    "description": "Заголовок для параметров функции индикатора профиля"
+    "description": "Feature checkbox in the options page"
   },
   "options_profileindicator_moreinfo": {
     "message": "+инфо о двух предыдущих вариантах",
-    "description": "Ссылка, чтобы узнать больше о функции индикатора профиля"
+    "description": "Link to learn more about the profile indicator feature"
   },
   "options_profileindicator": {
     "message": "Показать, <span class=\"help\" title=\"Если автор темы участвовал в других обсуждениях рядом с его именем будет отображаться красная точка. Если были прочитаны самые последние сообщения автора темы, будет показана оранжевая точка. Вы можете навести курсор мыши на точку, чтобы показать значение ее цвета.\"> участвовал ли автор темы в других обсуждениях</span>.",
-    "description": "Опция на странице настроек"
+    "description": "Feature checkbox in the options page"
   },
   "options_profileindicatoralt": {
     "message": "Показывать количество вопросов и ответов, написанных автором темы за последние <span id='profileindicatoralt_months--container'></span> месяцев рядом с их именем пользователя.",
-    "description": "Опция на странице настроек"
+    "description": "Feature checkbox in the options page"
   },
   "options_save": {
     "message": "Сохранить",
-    "description": "Кнопка на странице настроек для сохранения настроек"
+    "description": "Button in the options page to save the settings"
   },
   "options_saved": {
     "message": "Сохранено",
-    "description": "Сообщение, которое появляется на странице параметров после сохранения настроек"
+    "description": "Message which appears in the options page when the settings are saved"
   },
   "inject_links": {
     "message": "Ссылки",
-    "description": "Заголовок, который мы используем перед ссылкой \"предыдущий пост\" в профиле пользователя в TW"
+    "description": "Heading which we use before the 'previous post' link in a user profile in TW"
   },
   "inject_previousposts": {
     "message": "Сообщения пользователя",
-    "description": "Ссылка отображаемая в профиле пользователя (в TW и в КС), которая указывает на поиск, показывающий посты и ответы пользователя"
+    "description": "Link shown in a user profile (in TW) which points to a search showing the user's posts and messages"
   },
   "inject_previousposts_forum": {
     "message": "Предыдущие темы (на этом форуме)",
-    "description": "Ссылка, отображаемая в профиле пользователя (в КС), которая указывает на поиск сообщений пользователя на текущем форуме."
+    "description": "Link shown in a user profile (in the Community Console) which points to a search showing the user's posts and messages in the current forum"
   },
   "inject_previousposts_all": {
     "message": "Предыдущие темы (на всех форумах)",
-    "description": "Ссылка, отображаемая в профиле пользователя (в КС), которая указывает на поиск сообщений пользователя на всех форумах."
+    "description": "Link shown in a user profile (in the Community Console) which points to a search showing the user's posts and messages in all forums"
   },
   "inject_profileindicator_loading": {
     "message": "Загрузка...",
-    "description": "Подсказка для точки индикатора профиля"
+    "description": "Tooltip for the profile indicator dot."
   },
   "inject_profileindicator_first_post": {
     "message": "Это первая ветка, созданная автором темы на этом форуме.",
-    "description": "Подсказка для точки индикатора профиля"
+    "description": "Tooltip for the profile indicator dot."
   },
   "inject_profileindicator_other_posts_read": {
     "message": "Автор темы участвовал в других обсуждениях этого форума, вы прочитали 5 самых последних.",
-    "description": "Подсказка для точки индикатора профиля"
+    "description": "Tooltip for the profile indicator dot."
   },
   "inject_profileindicator_other_posts_unread": {
     "message": "Автор темы участвовал в других обсуждениях этого форума, вы читали не все эти темы.",
-    "description": "Подсказка для точки индикатора профиля"
+    "description": "Tooltip for the profile indicator dot."
   },
   "inject_profileindicatoralt_numposts": {
     "message": "Количество вопросов и ответов за последнее время в месяцах: $1.",
-    "description": "Подсказка для точки индикатора профиля"
+    "description": "Tooltip for the profile indicator dot."
   },
   "inject_ccdarktheme_helper": {
     "message": "Переключить тему",
-    "description": "Подсказка для переключателя темы"
+    "description": "Tooltip for the dark mode switch."
   },
   "inject_extension_badge_helper": {
     "message": "Добавлено с помощью $1",
-    "description": "Всплывающая подсказка для значка расширения, которая появляется рядом с компонентами, добавленными расширением"
+    "description": "Tooltip for the extension badge, which appears next to components injected by the extension."
   },
   "inject_lockbtn": {
     "message": "Заблокировать/разблокировать темы",
-    "description": "Всплывающая подсказка значка \"заблокировать/разблокировать темы\", отображаемая при выборе нескольких тем в КС. Также заголовок диалогового окна, отображаемого после щелчка по этому значку"
+    "description": "Tooltip of the 'lock/unlock threads' icon shown when selecting multiple threads in the Community Console. Also the title for the dialog shown after clicking this icon."
   },
   "inject_lockdialog_desc": {
     "message": "Подтвердите действие, которое вы хотите предпринять, нажав соответствующую кнопку ниже. Имейте в виду, что это действие будет выполнено для всех выбранных вами тем.",
-    "description": "Текст в диалоговом окне \"Заблокировать/разблокировать темы\", которое запрашивает у пользователя подтверждение."
+    "description": "Text in the 'lock/unlock threads' dialog, which asks the user for confirmation."
   },
   "inject_lockdialog_btn_lock": {
     "message": "Заблокировать",
-    "description": "Кнопка в диалоговом окне блокировки/разблокировки тем"
+    "description": "Button in the 'lock/unlock threads' dialog."
   },
   "inject_lockdialog_btn_unlock": {
     "message": "Разблокировать",
-    "description": "Кнопка в диалоговом окне блокировки/разблокировки тем"
+    "description": "Button in the 'lock/unlock threads' dialog."
   },
   "inject_lockdialog_btn_cancel": {
     "message": "Отмена",
-    "description": "Кнопка в диалоговом окне блокировки/разблокировки тем"
-  },
-  "inject_lockdialog_btn_reload": {
-    "message": "Перезагрузить",
-    "description": "Кнопка в диалоговом окне блокировки/разблокировки тем"
+    "description": "Button in the 'lock/unlock threads' dialog."
   },
   "inject_lockdialog_btn_close": {
     "message": "Закрыть",
-    "description": "Кнопка в диалоговом окне блокировки/разблокировки тем"
+    "description": "Button in the 'lock/unlock threads' dialog."
   },
   "inject_lockdialog_log_entry_beginning": {
     "message": "Тема $1",
-    "description": "Первая часть записи в журнале диалога \"блокировки/разблокировки тем\". Записи журнала имеют форму \"{first_part}: {second_part}\". Например: \"Тема 164: успешно заблокирована\""
+    "description": "First part of the entry in the log of the 'lock/unlock threads' dialog. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
   },
   "inject_lockdialog_log_entry_success_lock": {
     "message": "Locked successfully.",
-    "description": "Вторая часть записи в журнале диалога \"блокировки/разблокировки тем\", когда в записи журнала указано, что тема была успешно заблокирована. Записи журнала имеют форму \"{first_part}: {second_part}\". Например: \"Тема 164: успешно заблокирована\""
+    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
   },
   "inject_lockdialog_log_entry_error_lock": {
     "message": "An error occurred while locking ($1).",
-    "description": "Вторая часть записи в журнале диалога \"блокировки/разблокировки тем\", когда в записи журнала указано, что тема *не* была успешно заблокирована. Записи журнала имеют форму \"{first_part}: {second_part}\". Например: \"Тема 164: успешно заблокирована\""
+    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *not* locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
   },
   "inject_lockdialog_log_entry_success_unlock": {
     "message": "Unlocked successfully.",
-    "description": "Вторая часть записи в журнале диалога \"блокировки/разблокировки тем\", когда в записи журнала указано, что тема была успешно *раз*блокирована. Записи журнала имеют форму \"{first_part}: {second_part}\". Например: \"Тема 164: успешно заблокирована\""
+    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *un*locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
   },
   "inject_lockdialog_log_entry_error_unlock": {
     "message": "An error occurred while unlocking ($1).",
-    "description": "Вторая часть записи в журнале диалога \"блокировки/разблокировки тем\", когда в записи журнала указано, что тема была *не* была успешно *раз*блокирована. Записи журнала имеют форму \"{first_part}: {second_part}\". Например: \"Тема 164: успешно заблокирована\""
+    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *not* *un*locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
   }
 }
