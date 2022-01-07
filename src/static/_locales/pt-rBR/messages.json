@@ -23,12 +23,20 @@
     "message": "A opção anterior foi desativada à força devido a um problema.",
     "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
   },
+  "options_optionalpermissionswarning_header": {
+    "message": "Alguns recursos precisam de permissões adicionais para funcionar. São esses abaixo, marque a caixas de seleção para conceder as permissões apropriadas.",
+    "description": "Warning shown at the top of the options page if a feature cannot be used because one or more required permissions haven't been granted to the extension."
+  },
+  "options_optionalpermissionswarning_label": {
+    "message": "O recurso anterior precisa de permissões adicionais para funcionar.",
+    "description": "Warning shown in the options page below an option, when a feature needs more permissions to work."
+  },
   "options_featuredoptions": {
     "message": "Opções em destaque",
     "description": "Heading for several options that can be enabled in the options page."
   },
   "options_minorenhancements": {
-    "message": "Melhorias",
+    "message": "Pequenas melhorias",
     "description": "Heading for several options that can be enabled in the options page."
   },
   "options_list": {
@@ -125,6 +133,10 @@
   },
   "options_profileindicatoralt": {
     "message": "Mostra o número de perguntas e respostas criadas pelo usuário nos últimos <span id='profileindicatoralt_months--container'></span> meses ao lado do nome do usuário.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_blockdrafts": {
+    "message": "Não permita que os servidores do Google saibam o que estou digitando no Community Console.",
     "description": "Feature checkbox in the options page"
   },
   "options_save": {
@@ -250,5 +262,9 @@
   "inject_threadlistavatars_private_thread_indicator_label": {
     "message": "Por motivos técnicos, não podemos carregar os avatares de tópicos publicados em fóruns privados.",
     "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
+  },
+  "actionbadge_permissions_requested": {
+    "message": "Alguns recursos precisam de permissões adicionais para funcionar. Clique para corrigir.",
+    "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."
   }
 }
