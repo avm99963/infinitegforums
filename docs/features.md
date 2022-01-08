@@ -191,6 +191,24 @@ phone, which results in a very tall image being shown in the forum. This
 feature adds a custom style to set a maximum height for images inside forum
 messages, so they aren't taller than the current viewport.
 
+### Block draft messages from being saved in Google servers
+> **Option name:** _Block the sending of your replies as you type to Google
+servers in the Community Console._
+
+The Community Console has a feature which lets users save in Google servers
+regular drafts of the message they're typing in a reply box, so they can recover
+it later on (for instance if their computer crashes).
+
+In theory, this feature is controlled by the flag called
+`enableLoadingDraftMessages`, which is disabled by default. However, even if
+this flag is disabled, the Community Console keeps saving (and deleting) the
+draft message (see [this video](https://drive.avm99963.com/s/AdEBZRDCye15aU3)).
+Thus, the only thing that changes the flag is whether the saved draft message is
+attempted to be recovered or not.
+
+This option blocks all these requests to save/delete/retrieve draft messages, so
+the feature is effectively disabled.
+
 ## Indicator dot
 > **Option names:** _Show whether the OP has participated in other threads_,
 _Show the number of questions and replies written by the OP within the last `n`

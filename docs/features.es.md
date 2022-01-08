@@ -203,6 +203,25 @@ función añade un estilo personalizado que establece una altura máxima para la
 imágenes dentro de mensajes del foro, para que no sean más altas que la ventana
 actual.
 
+### Bloquear que los borradores de mensaje se guarden en los servidores de Google
+> **Opción:** _Bloquea el envío de tus respuestas mientras las escribes a los
+servidores de Google en la Consola de la Comunidad._
+
+La Consola de la Comunidad tiene una función que permite a los usuarios guardar
+en los servidores de Google borradores regulares del mensaje que están
+escribiendo en la caja de respuesta, para que puedan recuperarlo más tarde (por
+ejemplo si el ordenador crashea).
+
+En teoría, esta función está controlada por la _flag_ llamada
+`enableLoadingDraftMessages`, que está desactivada por defecto. Sin embargo,
+aunque la _flag_ esté desactivada, la Consola de la Comunidad continúa guardando
+(y eliminando) el borrador del mensaje (véase
+[este vídeo](https://drive.avm99963.com/s/AdEBZRDCye15aU3)). Por tanto, lo único
+que cambia la _flag_ es si el borrador guardado se intenta recuperar o no.
+
+Esta opción bloquea todas estas peticiones de red para guardar, eliminar y
+recuperar borradores para que la función esté efectivamente desactivada.
+
 ## Punto indicador
 > **Opciones:** _Muestra si el autor del hilo ha participado en otros hilos_,
 _Muestra el número de preguntas y respuestas escritas por el autor del hilo
