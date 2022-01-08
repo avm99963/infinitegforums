@@ -9,6 +9,7 @@
       - "OWNERS"
       - "README.md"
       - "i18n-config.toml"
+      - "cws/.*"
 
 - project:
     check:

@@ -15,3 +15,7 @@ branches = [
 [[paths]]
   reference = "src/static/_locales/en/messages.json"
   l10n = "src/static/_locales/{android_locale}/messages.json"
+
+[[paths]]
+  reference = "cws/en/listing-description.lang"
+  l10n = "cws/{android_locale}/listing-description.lang"
