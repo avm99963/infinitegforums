@@ -23,6 +23,14 @@
     "message": "تم الإيقاف القسري للخيار السابق بسبب مشكلة.",
     "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
   },
+  "options_optionalpermissionswarning_header": {
+    "message": "تحتاج بعض الميزات إلى أذونات إضافية للعمل. لقد تم تمييزها أدناه، انقر/ي فوق مربعات الاختيار الخاصة بها لمنح الأذونات المناسبة.",
+    "description": "Warning shown at the top of the options page if a feature cannot be used because one or more required permissions haven't been granted to the extension."
+  },
+  "options_optionalpermissionswarning_label": {
+    "message": "تحتاج الميزة السابقة أذونات إضافية للعمل.",
+    "description": "Warning shown in the options page below an option, when a feature needs more permissions to work."
+  },
   "options_featuredoptions": {
     "message": "خيارات مميَّزة",
     "description": "Heading for several options that can be enabled in the options page."
@@ -125,6 +133,10 @@
   },
   "options_profileindicatoralt": {
     "message": "عرض عدد الأسئلة والرّدود الخاصة بالمستخدم (OP) خلال <span id='profileindicatoralt_months--container'></span> الأشهر الماضية بجانب اسم المستخدم الخاص بهم.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_blockdrafts": {
+    "message": "احظر/ي إرسال ردودك إلى خوادم Google أثناء الكتابة في وحدة تحكّم المجتمع Community Console.",
     "description": "Feature checkbox in the options page"
   },
   "options_save": {
@@ -250,5 +262,9 @@
   "inject_threadlistavatars_private_thread_indicator_label": {
     "message": "لأسباب فنية، لا يمكننا تحميل الصور الرمزية للمواضيع المنشورة في المنتديات الخاصة.",
     "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
+  },
+  "actionbadge_permissions_requested": {
+    "message": "تحتاج بعض الميزات إلى أذونات إضافية للعمل. يلزم النّقر لإصلاحها.",
+    "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."
   }
 }
