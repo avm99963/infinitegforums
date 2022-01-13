@@ -375,6 +375,10 @@ ec-question .alert ec-icon, ec-message .alert ec-icon {
   fill: var(--TWPT-primary-text)!important;
 }
 
+ec-question .alert material-button {
+  color: var(--TWPT-link)!important;
+}
+
 ec-question .title {
   color: var(--TWPT-primary-text-alt)!important;
 }
