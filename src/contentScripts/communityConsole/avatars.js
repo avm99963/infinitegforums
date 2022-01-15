@@ -1,3 +1,4 @@
+import {Mutex, withTimeout} from 'async-mutex';
 import {waitFor} from 'poll-until-promise';
 
 import {CCApi} from '../../common/api.js';
@@ -12,13 +13,44 @@ export default class AvatarsHandler {
     this.isFilterSetUp = false;
     this.privateForums = [];
     this.db = new AvatarsDB();
+    this.featureEnabled = false;
+    this.featureEnabledIsStale = true;
+    this.featureEnabledMutex = withTimeout(new Mutex(), 60 * 1000);
 
     // Preload whether the option is enabled or not. This is because in the case
     // avatars should be injected, if we don't preload this the layout will
     // shift when injecting the first avatar.
-    isOptionEnabled('threadlistavatars').then(isEnabled => {
+    this.isEnabled().then(isEnabled => {
       if (isEnabled)
         document.body.classList.add('TWPT-threadlistavatars-enabled');
+    });
+
+    // If the extension settings change, set this.featureEnabled as stale. We
+    // could try only doing this only when we're sure it has changed, but there
+    // are many factors (if the user has changed it manually, if a kill switch
+    // was activated, etc.) so we'll do it every time.
+    chrome.storage.sync.onChanged.addListener(() => {
+      console.debug('[threadListAvatars] Marking featureEnabled as stale.');
+      this.featureEnabledIsStale = true;
+    });
+  }
+
+  // Returns a promise resolving to whether the threadlistavatars feature is
+  // enabled.
+  isEnabled() {
+    // When this.featureEnabled is marked as stale, the next time avatars are
+    // injected there is a flood of calls to isEnabled(), which in turn causes a
+    // flood of calls to isOptionEnabled() because it takes some time for it to
+    // be marked as not stale. Thus, hiding the logic behind a mutex fixes this.
+    return this.featureEnabledMutex.runExclusive(() => {
+      if (!this.featureEnabledIsStale)
+        return Promise.resolve(this.featureEnabled);
+
+      return isOptionEnabled('threadlistavatars').then(isEnabled => {
+        this.featureEnabled = isEnabled;
+        this.featureEnabledIsStale = false;
+        return isEnabled;
+      });
     });
   }
 
@@ -356,7 +388,7 @@ export default class AvatarsHandler {
   // Inject avatars for thread summary (thread item) |node| in a thread list if
   // the threadlistavatars option is enabled.
   injectIfEnabled(node) {
-    isOptionEnabled('threadlistavatars').then(isEnabled => {
+    this.isEnabled().then(isEnabled => {
       if (isEnabled) {
         document.body.classList.add('TWPT-threadlistavatars-enabled');
         this.inject(node);
