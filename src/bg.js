@@ -15,14 +15,39 @@ import {handleBgOptionChange, handleBgOptionsOnStart} from './options/bgHandler.
 self.XMLHttpRequest = XMLHttpRequest;
 // #!endif
 
+// Returns whether the script is being ran when the extension starts up. It does
+// so on a best-effort-basis.
+function isExtensionStartup() {
+  // If chrome.storage.session isn't implemented in this version of Chrome, we
+  // don't know whether it's the extension startup.
+  if (!chrome.storage.session) return Promise.resolve(true);
+
+  return new Promise((resolve, reject) => {
+    return chrome.storage.session.get('hasAlreadyStarted', v => {
+      resolve(v.hasAlreadyStarted !== true);
+    });
+  });
+}
+
+// Sets that the extension has already started up
+function setHasAlreadyStarted() {
+  if (!chrome.storage.session) return;
+  chrome.storage.session.set({
+    hasAlreadyStarted: true,
+  });
+}
+
 actionApi.onClicked.addListener(() => {
   chrome.runtime.openOptionsPage();
 });
 
 const killSwitchMechanism = new KillSwitchMechanism();
 
-chrome.alarms.create('updateKillSwitchStatus', {
-  periodInMinutes: PRODUCTION ? 30 : 1,
+chrome.alarms.get('updateKillSwitchStatus', alarm => {
+  if (!alarm)
+    chrome.alarms.create('updateKillSwitchStatus', {
+      periodInMinutes: PRODUCTION ? 30 : 1,
+    });
 });
 
 chrome.alarms.onAlarm.addListener(alarm => {
@@ -50,9 +75,6 @@ chrome.runtime.onInstalled.addListener(details => {
 // Clean up optional permissions and check that none are missing for enabled
 // features, and also handle background option changes as soon as the extension
 // starts and when the options change.
-cleanUpOptPermissions();
-handleBgOptionsOnStart();
-
 chrome.storage.sync.onChanged.addListener(changes => {
   cleanUpOptPermissions();
 
@@ -81,5 +103,14 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
 
     default:
       console.warn('Unknown message "' + msg.message + '".');
+  }
+});
+
+// This should only run once when the extension starts up.
+isExtensionStartup().then(isStartup => {
+  if (isStartup) {
+    cleanUpOptPermissions();
+    handleBgOptionsOnStart();
+    setHasAlreadyStarted();
   }
 });
