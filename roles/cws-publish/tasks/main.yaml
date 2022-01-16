@@ -29,7 +29,7 @@
 
 - name: Upload and publish the ZIP file to the Chrome Web Store
   when: not (dry_run|bool)
-  ansible.builtin.command:
+  ansible.builtin.shell:
     cmd: >
       chrome-webstore-upload upload --auto-publish --extension-id {{ extension_id }}
       --source {{ zuul.project.src_dir|quote }}/out/{{ zip_file.stdout|quote }}

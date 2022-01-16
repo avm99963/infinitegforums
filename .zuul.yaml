@@ -10,7 +10,8 @@
       - "README.md"
       - "i18n-config.toml"
       - "cws/.*"
-      - "roles/cws-upload/*"
+      - "roles/cws-publish/*"
+      - "roles/fetch-cws-log/*"
       - "playbooks/nightly-build/*"
 
 - job:
@@ -24,7 +25,8 @@
         clientId: "testClientId"
         refreshToken: "testRefreshToken"
     files:
-      - "roles/cws-upload/*"
+      - "roles/cws-publish/*"
+      - "roles/fetch-cws-log/*"
       - "playbooks/nightly-build/*"
 
 - job:
