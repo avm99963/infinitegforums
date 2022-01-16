@@ -88,6 +88,15 @@ module.exports = (env, args) => {
       new CopyWebpackPlugin({
         patterns: [
           {
+            from: path.join(
+                __dirname, 'src/icons', env.canary ? 'canary' : 'regular'),
+            to: path.join(outputPath, 'icons'),
+          },
+        ]
+      }),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
             from: path.join(__dirname, 'src/static'),
             to: outputPath,
             globOptions: {

@@ -7,6 +7,10 @@
     "message": "Eines avançades per TW (beta)",
     "description": "The extension's name for the beta version"
   },
+  "appNameCanary": {
+    "message": "Eines avançades per TW (canary)",
+    "description": "The extension's name for the beta version"
+  },
   "appNameGecko": {
     "message": "Eines avançades per TW",
     "description": "The extension's name (with a 50 character limit for Gecko)"

@@ -7,6 +7,10 @@
     "message": "Herramientas avanzadas para TW (beta)",
     "description": "The extension's name for the beta version"
   },
+  "appNameCanary": {
+    "message": "Herramientas avanzadas para TW (canary)",
+    "description": "The extension's name for the beta version"
+  },
   "appNameGecko": {
     "message": "Herramientas avanzadas para TW",
     "description": "The extension's name (with a 50 character limit for Gecko)"

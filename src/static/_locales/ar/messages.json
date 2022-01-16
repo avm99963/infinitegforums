@@ -7,6 +7,10 @@
     "message": "TW Power Tools (النّسخة التّجريبية)",
     "description": "The extension's name for the beta version"
   },
+  "appNameCanary": {
+    "message": "TW Power Tools (canary)",
+    "description": "The extension's name for the beta version"
+  },
   "appNameGecko": {
     "message": "TW Power Tools",
     "description": "The extension's name (with a 50 character limit for Gecko)"

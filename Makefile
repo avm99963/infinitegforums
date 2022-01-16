@@ -1,4 +1,4 @@
-.PHONY: node_deps clean_dist deps clean_deps serve_chromium serve_chromium_mv3 serve_gecko release release_chromium_stable release_chromium_beta release_gecko_stable build_test_extension clean_releases clean
+.PHONY: node_deps clean_dist deps clean_deps serve_chromium serve_chromium_mv3 serve_gecko release release_chromium_stable release_chromium_beta release_chromium_canary release_gecko_stable build_test_extension clean_releases clean
 
 WEBPACK := ./node_modules/webpack-cli/bin/cli.js
 RELEASE_SCRIPT := bash tools/release.bash
@@ -43,6 +43,11 @@ release_chromium_stable: deps
 release_chromium_beta: deps
 	$(WEBPACK) --mode production --env browser_target=chromium_mv3
 	$(RELEASE_SCRIPT) -c beta -b chromium_mv3
+	rm -rf dist/chromium_mv3
+
+release_chromium_canary: deps
+	$(WEBPACK) --mode production --env browser_target=chromium_mv3 --env canary
+	$(RELEASE_SCRIPT) -c canary -b chromium_mv3
 	rm -rf dist/chromium_mv3
 
 release_gecko_stable: deps

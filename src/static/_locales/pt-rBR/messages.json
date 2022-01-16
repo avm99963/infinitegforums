@@ -7,6 +7,10 @@
     "message": "Super Ferramenta do TW (Beta)",
     "description": "The extension's name for the beta version"
   },
+  "appNameCanary": {
+    "message": "Super Ferramenta do TW (Canary)",
+    "description": "The extension's name for the beta version"
+  },
   "appNameGecko": {
     "message": "Super Ferramenta do TW",
     "description": "The extension's name (with a 50 character limit for Gecko)"
