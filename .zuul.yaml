@@ -32,6 +32,7 @@
     attempts: 1
     pre-run: playbooks/nightly-build/pre.yaml
     run: playbooks/nightly-build/run.yaml
+    post-run: playbooks/nightly-build/post.yaml
     roles:
       - zuul: zuul/jobs
     secrets:

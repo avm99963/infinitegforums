@@ -1,0 +1,14 @@
+- name: Is there a cws-log.txt
+  register: stat_log
+  stat:
+    path: "{{ zuul.project.src_dir }}/cws-log.txt"
+
+- name: Store on executor
+  when: stat_log.stat.exists
+  synchronize:
+    mode: pull
+    src: "{{ zuul.project.src_dir }}/cws-log.txt"
+    dest: "{{ zuul.executor.log_root }}/cws-log.txt"
+    verify_host: true
+    owner: no
+    group: no
