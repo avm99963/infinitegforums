@@ -30,13 +30,15 @@
 - name: Upload and publish the ZIP file to the Chrome Web Store
   when: not (dry_run|bool)
   ansible.builtin.shell:
-    cmd: >
-      chrome-webstore-upload upload --auto-publish --extension-id {{ extension_id }}
-      --source {{ zip_file.stdout|quote }} --client-id {{ credentials.clientId|quote }}
-      --refresh-token {{ credentials.refreshToken|quote }}
-      2>cws-log.txt
+    cmd: |
+      set -o pipefile
+      chrome-webstore-upload upload --auto-publish --extension-id {{ extension_id }} \
+          --source {{ zip_file.stdout|quote }} \
+          --client-id {{ credentials.clientId|quote }} \
+          --refresh-token {{ credentials.refreshToken|quote }} \
+          |& tee cws-log.txt
     chdir: "{{ zuul.project.src_dir }}/out"
   no_log: True
   register: uploadcmd
   failed_when:
-    - not (uploadcmd.rc == 0 or ('ITEM_NOT_UPDATABLE' in uploadcmd.stderr))
+    - not (uploadcmd.rc == 0 or ('ITEM_NOT_UPDATABLE' in uploadcmd.stdout))
