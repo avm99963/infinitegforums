@@ -8,7 +8,7 @@
   synchronize:
     mode: pull
     src: "{{ zuul.project.src_dir }}/out/cws-log.txt"
-    dest: "{{ zuul.executor.log_root }}/out/cws-log.txt"
+    dest: "{{ zuul.executor.log_root }}/cws-log.txt"
     verify_host: true
     owner: no
     group: no
