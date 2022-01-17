@@ -35,6 +35,7 @@
       --source {{ zuul.project.src_dir|quote }}/out/{{ zip_file.stdout|quote }}
       --client-id {{ credentials.clientId|quote }} --refresh-token {{ credentials.refreshToken|quote }}
       2>cws-log.txt
+    chdir: "{{ zuul.project.src_dir }}"
   no_log: True
   register: uploadcmd
   failed_when:
