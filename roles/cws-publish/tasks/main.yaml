@@ -32,10 +32,10 @@
   ansible.builtin.shell:
     cmd: >
       chrome-webstore-upload upload --auto-publish --extension-id {{ extension_id }}
-      --source {{ zuul.project.src_dir|quote }}/out/{{ zip_file.stdout|quote }}
-      --client-id {{ credentials.clientId|quote }} --refresh-token {{ credentials.refreshToken|quote }}
+      --source {{ zip_file.stdout|quote }} --client-id {{ credentials.clientId|quote }}
+      --refresh-token {{ credentials.refreshToken|quote }}
       2>cws-log.txt
-    chdir: "{{ zuul.project.src_dir }}"
+    chdir: "{{ zuul.project.src_dir }}/out"
   no_log: True
   register: uploadcmd
   failed_when:
