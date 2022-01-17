@@ -14,10 +14,10 @@ feature will be enabled or not.
     users have to explicitly enable the option after they receive the extension
     update. Otherwise, it might cause confusion, because users wouldn't know if
     the feature was added by the extension or Google.
-3. Now, modify the `//src/static/options/optionsPage.json5` file by adding an
-entry to the corresponding section. The _experimental_ property is optional and
-should only be used with features which are unreliable (or could be at some
-point in the future) due to their nature.
+3. Now, modify the `//src/options/optionsPage.json5` file by adding an entry to
+the corresponding section. The _experimental_ property is optional and should
+only be used with features which are unreliable (or could be at some point in
+the future) due to their nature.
 4. Finally, add the option string at `//src/static/_locales/en/manifest.json`,
 by adding the string under the `options_{{codename}}` key.
 

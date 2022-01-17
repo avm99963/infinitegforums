@@ -57,7 +57,7 @@ You can get started by reading the following docs:
 - [Build the extension](developers/build.md)
 - [Add a new feature](developers/add_feature.md)
 - [Submit changes for review](https://gerrit.avm99963.com/Documentation/intro-gerrit-walkthrough-github.html)
-- [How to test translations](https://developer.chrome.com/docs/extensions/reference/i18n/#how-to-set-your-browsers-locale)
+- [How to test translations](https://developer.chrome.com/docs/extensions/reference/i18n/#how-to-set-browsers-locale)
 
 *** promo
 TODO(avm99963): add a link to webext's `manifest.gjson` documentation when it is
@@ -66,20 +66,20 @@ created.
 
 If you need any help, mentoring or anything else, send me an email at
 `me [at] avm99963.com` or create a thread in the
-[GitHub discussions tab](https://github.com/avm99963/infinitegforums/discussions).
+[Google group](https://groups.google.com/g/twpowertools-discuss).
 I will be more than happy to help you :)
 
 You can get a list of open issues which are recommended for first-time
 contributors here:
 
-- https://github.com/avm99963/infinitegforums/contribute
+- https://bugs.avm99963.com/p/twpowertools/issues/list?q=label%3AGoodFirstIssue
 
 These issues will let you get familiar with the codebase and are not too
 difficult to implement.
 
 You can also assign yourself any of the open issues which haven't been assigned:
 
-- https://github.com/avm99963/infinitegforums/issues?q=is%3Aissue+is%3Aopen+no%3Aassignee
+- https://bugs.avm99963.com/p/twpowertools/issues/list?q=status%3ANew%20OR%20status%3AAccepted
 
 For your information, the following doc contains a description of the release
 cycle for this extension, and how it is performed by its maintainers:
