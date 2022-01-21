@@ -1,0 +1,92 @@
+syntax = "proto3";
+
+package workflows;
+
+message Thread {
+  int64 forum_id = 1;
+  int64 thread_id = 2;
+}
+
+message Action {
+  message ReplyAction {
+    string payload = 1;
+    bool subscribe = 2;
+    bool mark_as_answer = 3;
+  }
+
+  message MoveAction {
+    int64 forum_id = 1;
+    string category = 2;
+    string language = 3;
+    map<string, string> property = 4;
+  }
+
+  message MarkDuplicateAction {
+    Thread destination = 1;
+  }
+
+  message UnmarkDuplicateAction {}
+
+  message StarAction {
+    bool star = 1; // true stars, and false unstars.
+  }
+
+  message SubscribeAction {
+    bool subscribe = 1; // true subscribes, false unsubscribes.
+  }
+
+  message VoteAction {
+    enum Vote {
+      NONE = 0;
+      UP = 1;
+      DOWN = -1;
+    }
+    Vote vote = 1;
+  }
+
+  message AttributeAction {
+    enum AttributeAction {
+      AA_NONE = 0;
+      AA_LOCK = 1;
+      AA_UNLOCK = 2;
+      AA_PIN = 3;
+      AA_UNPIN = 4;
+      AA_NON_ISSUE = 5;
+      AA_OBSOLETE = 6;
+      AA_REVERT = 7;
+      AA_SET_TRENDING = 8;
+      AA_UNSET_TRENDING = 9;
+      AA_SET_ISSUE_RESOLVED = 10;
+      AA_UNSET_ISSUE_RESOLVED = 11;
+    }
+    AttributeAction attribute_action = 1;
+  }
+
+  message ReportAction {
+    enum ReportType {
+      RT_UNKNOWN = 0;
+      RT_OFF_TOPIC = 1;
+      RT_ABUSE = 2;
+    }
+    ReportType report_type = 1;
+  }
+
+  oneof action {
+    ReplyAction reply_action = 1;
+    MoveAction move_action = 2;
+    MarkDuplicateAction mark_duplicate_action = 3;
+    UnmarkDuplicateAction unmark_duplicate_action = 4;
+    AttributeAction attribute_action = 5;
+    StarAction star_action = 16;
+    SubscribeAction subscribe_action = 17;
+    VoteAction vote_action = 18;
+    ReportAction report_action = 19;
+  }
+}
+
+message Workflow {
+  string name = 1;
+  string description = 2;
+  int32 index = 3;
+  repeated Action actions = 4;
+}

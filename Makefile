@@ -9,6 +9,8 @@ grpc_proto_gen:
 	(cd src/killSwitch && \
 		protoc -I=. --js_out=import_style=commonjs_strict:. api_proto/*.proto && \
 		protoc -I. --grpc-web_out=import_style=commonjs,mode=grpcwebtext:. api_proto/*.proto)
+	(cd src/workflows && \
+		protoc -I=. --js_out=import_style=commonjs_strict:. proto/*.proto)
 
 node_deps:
 	npm ci --no-save
