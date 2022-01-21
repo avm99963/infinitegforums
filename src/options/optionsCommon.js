@@ -1,4 +1,4 @@
-import {getExtVersion, isReleaseVersion} from '../common/extUtils.js';
+import {getExtVersion, isProdVersion} from '../common/extUtils.js';
 import {ensureOptPermissions, grantedOptPermissions, missingPermissions} from '../common/optionsPermissions.js';
 import {cleanUpOptions, optionsPrototype, specialOptions} from '../common/optionsUtils.js';
 
@@ -19,7 +19,7 @@ function getDocURLWithRef(doc, ref) {
 // Get a URL to a document which is part of the extension documentation
 // (autodetect the appropriate Git ref)
 function getDocURL(doc) {
-  if (!isReleaseVersion()) return getDocURLWithRef(doc, 'HEAD');
+  if (!isProdVersion()) return getDocURLWithRef(doc, 'HEAD');
 
   var version = getExtVersion();
   return getDocURLWithRef(doc, 'refs/tags/v' + version);
@@ -96,7 +96,7 @@ function i18n() {
 
 window.addEventListener('load', function() {
   if (window.CONTEXT == 'options') {
-    if (!isReleaseVersion()) {
+    if (!isProdVersion()) {
       var experimentsLink = document.querySelector('.experiments-link');
       experimentsLink.removeAttribute('hidden');
       experimentsLink.addEventListener('click', _ => chrome.tabs.create({

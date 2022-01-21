@@ -1,7 +1,11 @@
-// Returns whether the extension is a release version.
-export function isReleaseVersion() {
-  var manifest = chrome.runtime.getManifest();
-  return ('version' in manifest) && manifest.version != '0';
+// Returns whether the extension is a production version (released stable or
+// beta version).
+export function isProdVersion() {
+  // #!if production && !canary
+  return true;
+  // #!else
+  return false;
+  // #!endif
 }
 
 // Returns the extension version

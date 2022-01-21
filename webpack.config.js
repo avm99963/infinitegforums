@@ -65,6 +65,7 @@ module.exports = (env, args) => {
       params: {
         browser_target: env.browser_target,
         production: args.mode == 'production',
+        canary: !!env.canary
       },
     },
   };
