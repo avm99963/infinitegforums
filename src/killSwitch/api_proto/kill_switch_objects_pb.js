@@ -17,7 +17,7 @@ var proto = {};
 
 var api_proto_common_pb = require('../api_proto/common_pb.js');
 goog.object.extend(proto, api_proto_common_pb);
-var google_protobuf_timestamp_pb = require('../../third_party/google-protobuf-commonjs_strict/google/protobuf/timestamp_pb.js');
+var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
 goog.object.extend(proto, google_protobuf_timestamp_pb);
 goog.exportSymbol('AuthorizedUserTransformation', null, proto);
 goog.exportSymbol('Feature', null, proto);

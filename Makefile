@@ -8,9 +8,7 @@ RELEASE_SCRIPT := bash tools/release.bash
 grpc_proto_gen:
 	(cd src/killSwitch && \
 		protoc -I=. --js_out=import_style=commonjs_strict:. api_proto/*.proto && \
-		protoc -I. --grpc-web_out=import_style=commonjs,mode=grpcwebtext:. api_proto/*.proto && \
-		(cd api_proto && \
-			sed -i -E "s/require\('google-protobuf\//require('..\/..\/third_party\/google-protobuf-commonjs_strict\//" *_pb.js ))
+		protoc -I. --grpc-web_out=import_style=commonjs,mode=grpcwebtext:. api_proto/*.proto)
 
 node_deps:
 	npm ci --no-save

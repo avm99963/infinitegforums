@@ -24,7 +24,7 @@ const proto = require('./kill_switch_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -32,7 +32,7 @@ const proto = require('./kill_switch_pb.js');
 proto.KillSwitchServiceClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -50,7 +50,7 @@ proto.KillSwitchServiceClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -58,7 +58,7 @@ proto.KillSwitchServiceClient =
 proto.KillSwitchServicePromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -96,30 +96,11 @@ const methodDescriptor_KillSwitchService_GetKillSwitchStatus = new grpc.web.Meth
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.GetKillSwitchStatusRequest,
- *   !proto.GetKillSwitchStatusResponse>}
- */
-const methodInfo_KillSwitchService_GetKillSwitchStatus = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.GetKillSwitchStatusResponse,
-  /**
-   * @param {!proto.GetKillSwitchStatusRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.GetKillSwitchStatusResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.GetKillSwitchStatusRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.GetKillSwitchStatusResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.GetKillSwitchStatusResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.GetKillSwitchStatusResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -138,7 +119,7 @@ proto.KillSwitchServiceClient.prototype.getKillSwitchStatus =
 /**
  * @param {!proto.GetKillSwitchStatusRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.GetKillSwitchStatusResponse>}
  *     Promise that resolves to the response
@@ -176,30 +157,11 @@ const methodDescriptor_KillSwitchService_GetKillSwitchOverview = new grpc.web.Me
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.GetKillSwitchOverviewRequest,
- *   !proto.GetKillSwitchOverviewResponse>}
- */
-const methodInfo_KillSwitchService_GetKillSwitchOverview = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.GetKillSwitchOverviewResponse,
-  /**
-   * @param {!proto.GetKillSwitchOverviewRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.GetKillSwitchOverviewResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.GetKillSwitchOverviewRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.GetKillSwitchOverviewResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.GetKillSwitchOverviewResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.GetKillSwitchOverviewResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -218,7 +180,7 @@ proto.KillSwitchServiceClient.prototype.getKillSwitchOverview =
 /**
  * @param {!proto.GetKillSwitchOverviewRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.GetKillSwitchOverviewResponse>}
  *     Promise that resolves to the response
@@ -256,30 +218,11 @@ const methodDescriptor_KillSwitchService_ListFeatures = new grpc.web.MethodDescr
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ListFeaturesRequest,
- *   !proto.ListFeaturesResponse>}
- */
-const methodInfo_KillSwitchService_ListFeatures = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ListFeaturesResponse,
-  /**
-   * @param {!proto.ListFeaturesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ListFeaturesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ListFeaturesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ListFeaturesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ListFeaturesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ListFeaturesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -298,7 +241,7 @@ proto.KillSwitchServiceClient.prototype.listFeatures =
 /**
  * @param {!proto.ListFeaturesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ListFeaturesResponse>}
  *     Promise that resolves to the response
@@ -336,30 +279,11 @@ const methodDescriptor_KillSwitchService_SyncFeatures = new grpc.web.MethodDescr
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.SyncFeaturesRequest,
- *   !proto.SyncFeaturesResponse>}
- */
-const methodInfo_KillSwitchService_SyncFeatures = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.SyncFeaturesResponse,
-  /**
-   * @param {!proto.SyncFeaturesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.SyncFeaturesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.SyncFeaturesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.SyncFeaturesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.SyncFeaturesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.SyncFeaturesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -378,7 +302,7 @@ proto.KillSwitchServiceClient.prototype.syncFeatures =
 /**
  * @param {!proto.SyncFeaturesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.SyncFeaturesResponse>}
  *     Promise that resolves to the response
@@ -416,30 +340,11 @@ const methodDescriptor_KillSwitchService_EnableKillSwitch = new grpc.web.MethodD
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.EnableKillSwitchRequest,
- *   !proto.EnableKillSwitchResponse>}
- */
-const methodInfo_KillSwitchService_EnableKillSwitch = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.EnableKillSwitchResponse,
-  /**
-   * @param {!proto.EnableKillSwitchRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.EnableKillSwitchResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.EnableKillSwitchRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.EnableKillSwitchResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.EnableKillSwitchResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.EnableKillSwitchResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -458,7 +363,7 @@ proto.KillSwitchServiceClient.prototype.enableKillSwitch =
 /**
  * @param {!proto.EnableKillSwitchRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.EnableKillSwitchResponse>}
  *     Promise that resolves to the response
@@ -496,30 +401,11 @@ const methodDescriptor_KillSwitchService_DisableKillSwitch = new grpc.web.Method
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.DisableKillSwitchRequest,
- *   !proto.DisableKillSwitchResponse>}
- */
-const methodInfo_KillSwitchService_DisableKillSwitch = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.DisableKillSwitchResponse,
-  /**
-   * @param {!proto.DisableKillSwitchRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.DisableKillSwitchResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.DisableKillSwitchRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.DisableKillSwitchResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.DisableKillSwitchResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.DisableKillSwitchResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -538,7 +424,7 @@ proto.KillSwitchServiceClient.prototype.disableKillSwitch =
 /**
  * @param {!proto.DisableKillSwitchRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.DisableKillSwitchResponse>}
  *     Promise that resolves to the response
@@ -576,30 +462,11 @@ const methodDescriptor_KillSwitchService_ListAuthorizedUsers = new grpc.web.Meth
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ListAuthorizedUsersRequest,
- *   !proto.ListAuthorizedUsersResponse>}
- */
-const methodInfo_KillSwitchService_ListAuthorizedUsers = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ListAuthorizedUsersResponse,
-  /**
-   * @param {!proto.ListAuthorizedUsersRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ListAuthorizedUsersResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ListAuthorizedUsersRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ListAuthorizedUsersResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ListAuthorizedUsersResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ListAuthorizedUsersResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -618,7 +485,7 @@ proto.KillSwitchServiceClient.prototype.listAuthorizedUsers =
 /**
  * @param {!proto.ListAuthorizedUsersRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ListAuthorizedUsersResponse>}
  *     Promise that resolves to the response
@@ -656,30 +523,11 @@ const methodDescriptor_KillSwitchService_AddAuthorizedUser = new grpc.web.Method
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.AddAuthorizedUserRequest,
- *   !proto.AddAuthorizedUserResponse>}
- */
-const methodInfo_KillSwitchService_AddAuthorizedUser = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.AddAuthorizedUserResponse,
-  /**
-   * @param {!proto.AddAuthorizedUserRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.AddAuthorizedUserResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.AddAuthorizedUserRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.AddAuthorizedUserResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.AddAuthorizedUserResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.AddAuthorizedUserResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -698,7 +546,7 @@ proto.KillSwitchServiceClient.prototype.addAuthorizedUser =
 /**
  * @param {!proto.AddAuthorizedUserRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.AddAuthorizedUserResponse>}
  *     Promise that resolves to the response
@@ -736,30 +584,11 @@ const methodDescriptor_KillSwitchService_UpdateAuthorizedUser = new grpc.web.Met
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.UpdateAuthorizedUserRequest,
- *   !proto.UpdateAuthorizedUserResponse>}
- */
-const methodInfo_KillSwitchService_UpdateAuthorizedUser = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.UpdateAuthorizedUserResponse,
-  /**
-   * @param {!proto.UpdateAuthorizedUserRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.UpdateAuthorizedUserResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.UpdateAuthorizedUserRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.UpdateAuthorizedUserResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.UpdateAuthorizedUserResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.UpdateAuthorizedUserResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -778,7 +607,7 @@ proto.KillSwitchServiceClient.prototype.updateAuthorizedUser =
 /**
  * @param {!proto.UpdateAuthorizedUserRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.UpdateAuthorizedUserResponse>}
  *     Promise that resolves to the response
@@ -816,30 +645,11 @@ const methodDescriptor_KillSwitchService_DeleteAuthorizedUser = new grpc.web.Met
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.DeleteAuthorizedUserRequest,
- *   !proto.DeleteAuthorizedUserResponse>}
- */
-const methodInfo_KillSwitchService_DeleteAuthorizedUser = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.DeleteAuthorizedUserResponse,
-  /**
-   * @param {!proto.DeleteAuthorizedUserRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.DeleteAuthorizedUserResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.DeleteAuthorizedUserRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.DeleteAuthorizedUserResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.DeleteAuthorizedUserResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.DeleteAuthorizedUserResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -858,7 +668,7 @@ proto.KillSwitchServiceClient.prototype.deleteAuthorizedUser =
 /**
  * @param {!proto.DeleteAuthorizedUserRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.DeleteAuthorizedUserResponse>}
  *     Promise that resolves to the response

@@ -45,7 +45,7 @@
     "@material/menu": "^10.0.0",
     "@material/tooltip": "^12.0.0",
     "async-mutex": "^0.3.2",
-    "google-protobuf": "^3.18.0-rc.2",
+    "google-protobuf": "^3.19.3",
     "grpc-web": "^1.2.1",
     "idb": "^6.1.2",
     "poll-until-promise": "^3.6.1",
