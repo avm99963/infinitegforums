@@ -1,0 +1,34 @@
+.TWPT-extrainfo-container {
+  display: inline-flex;
+  color: var(--TWPT-interop-secondary-text, #444746)!important;
+  align-items: center;
+}
+
+.TWPT-extrainfo-badge-cell {
+  margin: 0 8px;
+  --icon-size: 14px;
+  opacity: 0.6;
+}
+
+.TWPT-extrainfo-info-cell {
+  border-left: solid 1px var(--TWPT-interop-subtle-border, #ababab);
+  padding-left: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.TWPT-extrainfo-info-cell > div:not(:last-child) {
+  margin-bottom: 2px;
+}
+
+/* Specific styles inside context */
+
+ec-unified-user .scTailwindUser_profileUsercardmain {
+  display: flex;
+  flex-direction: column;
+}
+
+ec-unified-user .TWPT-extrainfo-container {
+  margin-top: 16px;
+  align-self: end;
+}

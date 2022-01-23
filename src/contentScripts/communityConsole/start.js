@@ -2,6 +2,7 @@ import {injectScript, injectStylesheet} from '../../common/contentScriptsUtils.j
 import {getOptions} from '../../common/optionsUtils.js';
 
 import AutoRefresh from './autoRefresh.js';
+import ExtraInfo from './extraInfo.js';
 
 getOptions(null).then(options => {
   /* IMPORTANT NOTE: Remember to change this when changing the "ifs" below!! */
@@ -17,9 +18,10 @@ getOptions(null).then(options => {
         'data-startup', JSON.stringify(startup));
   }
 
-  // Initialized here instead of in main.js so the first |ViewForumResponse|
-  // event is received if it happens when the page loads.
+  // Initialized here instead of in main.js so the first event is received if it
+  // happens when the page loads.
   window.TWPTAutoRefresh = new AutoRefresh();
+  window.TWPTExtraInfo = new ExtraInfo();
 
   if (options.ccdarktheme) {
     switch (options.ccdarktheme_mode) {

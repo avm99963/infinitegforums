@@ -79,7 +79,8 @@
         "css/reposition_expand_thread.css",
         "css/thread_list_avatars.css",
         "css/autorefresh_list.css",
-        "css/image_max_height.css"
+        "css/image_max_height.css",
+        "css/extrainfo.css"
 #if defined(CHROMIUM_MV3)
       ],
       "matches": [

@@ -22,6 +22,9 @@ const watchedNodesSelectors = [
   // Load more bar (for the "load more"/"load all" buttons)
   '.load-more-bar',
 
+  // User profile card inside ec-unified-user
+  'ec-unified-user .scTailwindUser_profileUsercardmain',
+
   // Username span/editor inside ec-unified-user (user profile view)
   'ec-unified-user .scTailwindUser_profileUsercarddetails',
 
@@ -89,6 +92,11 @@ function handleCandidateNode(node) {
       }
     }
 
+    // Show additional details in the profile view.
+    if (node.matches('ec-unified-user .scTailwindUser_profileUsercardmain')) {
+      window.TWPTExtraInfo.injectAtProfileIfEnabled(node);
+    }
+
     // Show the "previous posts" links if the option is currently enabled.
     //   Here we're selecting the 'ec-user > div' element (unique child)
     if (node.matches(
@@ -116,8 +124,7 @@ function handleCandidateNode(node) {
     // Inject the batch lock and workflow buttons in the thread list if the
     // corresponding options are currently enabled.
     // The order is the inverse because the first one will be shown last.
-    if (batchLock.shouldAddButton(node))
-      batchLock.addButtonIfEnabled(node);
+    if (batchLock.shouldAddButton(node)) batchLock.addButtonIfEnabled(node);
 
     if (workflows.shouldAddThreadListBtn(node))
       workflows.addThreadListBtnIfEnabled(node);
@@ -241,4 +248,6 @@ getOptions(null).then(items => {
   injectStylesheet(chrome.runtime.getURL('css/thread_list_avatars.css'));
   // Auto refresh list
   injectStylesheet(chrome.runtime.getURL('css/autorefresh_list.css'));
+  // Extra info
+  injectStylesheet(chrome.runtime.getURL('css/extrainfo.css'));
 });

@@ -15,5 +15,10 @@
       urlRegex: "api/CreateMessage",
       intercepts: "request",
     },
+    {
+      eventName: "ViewUnifiedUserResponse",
+      urlRegex: "api/ViewUnifiedUser",
+      intercepts: "response",
+    },
   ],
 }
