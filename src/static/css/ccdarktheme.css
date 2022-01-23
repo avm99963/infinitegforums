@@ -1502,7 +1502,8 @@ ec-canned-responses .filter-label,
 
 ec-canned-responses .label-row,
     ec-canned-responses ec-canned-response-row .snippet,
-    ec-canned-responses ec-canned-response-row .tag {
+    ec-canned-responses ec-canned-response-row .tag .content,
+    ec-canned-responses ec-canned-response-row .TWPT-tag .TWPT-content {
   color: var(--TWPT-secondary-text)!important;
 }
 

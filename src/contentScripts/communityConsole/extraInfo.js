@@ -2,10 +2,12 @@ import {MDCTooltip} from '@material/tooltip';
 import {waitFor} from 'poll-until-promise';
 
 import {isOptionEnabled} from '../../common/optionsUtils.js';
+import {createPlainTooltip} from '../../common/tooltip.js';
 
 import {createExtBadge} from './utils/common.js';
 
 const kViewUnifiedUserResponseEvent = 'TWPT_ViewUnifiedUserResponse';
+const kListCannedResponsesResponse = 'TWPT_ListCannedResponsesResponse';
 
 const kAbuseCategories = [
   ['1', 'Account'],
@@ -147,6 +149,11 @@ export default class ExtraInfo {
       id: -1,
       timestamp: 0,
     };
+    this.lastCRsList = {
+      body: {},
+      id: -1,
+      duplicateNames: new Set(),
+    };
     this.setUpHandlers();
   }
 
@@ -160,6 +167,27 @@ export default class ExtraInfo {
         timestamp: Date.now(),
       };
     });
+    window.addEventListener(kListCannedResponsesResponse, e => {
+      if (e.detail.id < this.lastCRsList.id) return;
+
+      // Look if there are duplicate names
+      const crs = e.detail.body?.['1'] ?? [];
+      const names = crs.map(cr => cr?.['7']).slice().sort();
+      let duplicateNames = new Set();
+      for (let i = 1; i < names.length; i++)
+        if (names[i - 1] == names[i]) duplicateNames.add(names[i]);
+
+      this.lastCRsList = {
+        body: e.detail.body,
+        id: e.detail.id,
+        duplicateNames,
+      };
+    });
+  }
+
+  // Whether the feature is enabled
+  isEnabled() {
+    return isOptionEnabled('extrainfo');
   }
 
   // Add a pretty component which contains |info| to |node|.
@@ -173,8 +201,7 @@ export default class ExtraInfo {
     let badgeCell = document.createElement('div');
     badgeCell.classList.add('TWPT-extrainfo-badge-cell');
 
-    let badge, badgeTooltip;
-    [badge, badgeTooltip] = createExtBadge();
+    const [badge, badgeTooltip] = createExtBadge();
     badgeCell.append(badge);
 
     let infoCell = document.createElement('div');
@@ -250,8 +277,79 @@ export default class ExtraInfo {
   }
 
   injectAtProfileIfEnabled(card) {
-    isOptionEnabled('extrainfo').then(isEnabled => {
+    this.isEnabled().then(isEnabled => {
       if (isEnabled) return this.injectAtProfile(card);
+    });
+  }
+
+  // Canned responses (CRs) functionality
+
+  getCRName(tags, isExpanded) {
+    if (!isExpanded)
+      return tags.parentNode?.querySelector?.('.text .name')?.textContent;
+
+    // https://www.youtube.com/watch?v=Z6_ZNW1DACE
+    return tags.parentNode?.parentNode?.parentNode?.parentNode?.parentNode
+        ?.parentNode?.parentNode?.querySelector?.('.text .name')
+        ?.textContent;
+  }
+
+  // Inject usage stats in the |tags| component of a CR
+  injectAtCR(tags, isExpanded) {
+    waitFor(() => {
+      if (this.lastCRsList.id != -1) return Promise.resolve(this.lastCRsList);
+      return Promise.reject('Didn\'t receive canned responses list');
+    }, {
+      interval: 500,
+      timeout: 15 * 1000,
+    }).then(crs => {
+      let name = this.getCRName(tags, isExpanded);
+
+      // If another CR has the same name, there's no easy way to distinguish
+      // them, so don't show the usage stats.
+      if (crs.duplicateNames.has(name)) return;
+
+      for (const cr of (crs.body?.['1'] ?? [])) {
+        if (cr['7'] == name) {
+          let tag = document.createElement('material-chip');
+          tag.classList.add('TWPT-tag');
+
+          let container = document.createElement('div');
+          container.classList.add('TWPT-chip-content-container');
+
+          let content = document.createElement('div');
+          content.classList.add('TWPT-content');
+
+          const [badge, badgeTooltip] = createExtBadge();
+
+          let label = document.createElement('span');
+          label.textContent = 'Used ' + (cr['8'] ?? '0') + ' times';
+
+          content.append(badge, label);
+          container.append(content);
+          tag.append(container);
+          tags.append(tag);
+
+          new MDCTooltip(badgeTooltip);
+
+          if (cr['9']) {
+            const lastUsedTime = Math.floor(parseInt(cr['9']) / 1e3);
+            let date = (new Date(lastUsedTime)).toLocaleString();
+            createPlainTooltip(label, 'Last used: ' + date);
+          }
+
+          break;
+        }
+      }
+    });
+  }
+
+  injectAtCRIfEnabled(tags, isExpanded) {
+    // If the tag has already been injected, exit.
+    if (tags.querySelector('.TWPT-tag')) return;
+
+    this.isEnabled().then(isEnabled => {
+      if (isEnabled) return this.injectAtCR(tags, isExpanded);
     });
   }
 }

@@ -32,3 +32,38 @@ ec-unified-user .TWPT-extrainfo-container {
   margin-top: 16px;
   align-self: end;
 }
+
+/* Special tags components for canned responses */
+ec-canned-response-row .TWPT-tag {
+  background-color: transparent;
+  color: #474747;
+  margin: 0 0 0 4px;
+  border: 1px solid #ababab;
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
+  height: 32px;
+  overflow: hidden;
+}
+
+ec-canned-response-row .TWPT-chip-content-container {
+  margin: 0 12px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+ec-canned-response-row .TWPT-content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+}
+
+ec-canned-response-row .TWPT-content .TWPT-badge {
+  --icon-size: 14px;
+  margin-right: 6px;
+}
+
+ec-canned-response-row .TWPT-content span[aria-describedby] {
+  cursor: help;
+}

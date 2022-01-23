@@ -20,5 +20,10 @@
       urlRegex: "api/ViewUnifiedUser",
       intercepts: "response",
     },
+    {
+      eventName: "ListCannedResponsesResponse",
+      urlRegex: "api/ListCannedResponses",
+      intercepts: "response",
+    },
   ],
 }

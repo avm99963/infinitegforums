@@ -44,6 +44,10 @@ const watchedNodesSelectors = [
 
   // Unified profile iframe
   'iframe',
+
+  // Canned response tags or toolbelt (for the extra info feature)
+  '.tags',
+  '.toolbelt',
 ];
 
 function handleCandidateNode(node) {
@@ -148,6 +152,15 @@ function handleCandidateNode(node) {
     if (node.tagName == 'IFRAME' && isDarkThemeOn(options) &&
         unifiedProfilesFix.checkIframe(node)) {
       unifiedProfilesFix.fixIframe(node);
+    }
+
+    // Show additional details in the canned responses view.
+    if (node.matches('ec-canned-response-row .tags')) {
+      window.TWPTExtraInfo.injectAtCRIfEnabled(node, /* isExpanded = */ false);
+    }
+    if (node.matches('ec-canned-response-row .main .toolbelt')) {
+      const tags = node.parentNode?.querySelector?.('.tags');
+      if (tags) window.TWPTExtraInfo.injectAtCRIfEnabled(tags, /* isExpanded = */ true);
     }
   }
 }

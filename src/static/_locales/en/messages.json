@@ -152,7 +152,7 @@
     "description": "Button in the options page which opens the workflow management page."
   },
   "options_extrainfo": {
-    "message": "Show extra information in threads and profiles.",
+    "message": "Show additional information in threads, profiles and the canned responses list.",
     "description": "Feature checkbox in the options page"
   },
   "options_save": {
