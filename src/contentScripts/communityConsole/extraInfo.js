@@ -1,6 +1,7 @@
 import {MDCTooltip} from '@material/tooltip';
 import {waitFor} from 'poll-until-promise';
 
+import {parseUrl} from '../../common/commonUtils.js';
 import {isOptionEnabled} from '../../common/optionsUtils.js';
 import {createPlainTooltip} from '../../common/tooltip.js';
 
@@ -8,6 +9,7 @@ import {createExtBadge} from './utils/common.js';
 
 const kViewUnifiedUserResponseEvent = 'TWPT_ViewUnifiedUserResponse';
 const kListCannedResponsesResponse = 'TWPT_ListCannedResponsesResponse';
+const kViewThreadResponse = 'TWPT_ViewThreadResponse';
 
 const kAbuseCategories = [
   ['1', 'Account'],
@@ -141,6 +143,31 @@ const kAbuseViolationTypes = {
   18: 'TERRORISM_SUPPORT',
   56: 'CSAI_WORST_OF_WORST',
 };
+const kItemMetadataState = {
+  0: 'UNDEFINED',
+  1: 'PUBLISHED',
+  2: 'DRAFT',
+  3: 'AUTOMATED_ABUSE_TAKE_DOWN_HIDE',
+  4: 'AUTOMATED_ABUSE_TAKE_DOWN_DELETE',
+  13: 'AUTOMATED_ABUSE_REINSTATE',
+  10: 'AUTOMATED_OFF_TOPIC_HIDE',
+  14: 'AUTOMATED_FLAGGED_PENDING_MANUAL_REVIEW',
+  5: 'USER_FLAGGED_PENDING_MANUAL_REVIEW',
+  6: 'OWNER_DELETED',
+  7: 'MANUAL_TAKE_DOWN_HIDE',
+  17: 'MANUAL_PROFILE_TAKE_DOWN_SUSPEND',
+  8: 'MANUAL_TAKE_DOWN_DELETE',
+  18: 'REINSTATE_PROFILE_TAKEDOWN',
+  9: 'REINSTATE_ABUSE_TAKEDOWN',
+  11: 'CLEAR_OFF_TOPIC',
+  12: 'CONFIRM_OFF_TOPIC',
+  15: 'GOOGLER_OFF_TOPIC_HIDE',
+  16: 'EXPERT_FLAGGED_PENDING_MANUAL_REVIEW',
+};
+const kShadowBlockReason = {
+  0: 'REASON_UNDEFINED',
+  1: 'ULTRON_LOW_QUALITY',
+};
 
 export default class ExtraInfo {
   constructor() {
@@ -153,6 +180,11 @@ export default class ExtraInfo {
       body: {},
       id: -1,
       duplicateNames: new Set(),
+    };
+    this.lastThread = {
+      body: {},
+      id: -1,
+      timestamp: 0,
     };
     this.setUpHandlers();
   }
@@ -181,6 +213,15 @@ export default class ExtraInfo {
         body: e.detail.body,
         id: e.detail.id,
         duplicateNames,
+      };
+    });
+    window.addEventListener(kViewThreadResponse, e => {
+      if (e.detail.id < this.lastThread.id) return;
+
+      this.lastThread = {
+        body: e.detail.body,
+        id: e.detail.id,
+        timestamp: Date.now(),
       };
     });
   }
@@ -230,14 +271,17 @@ export default class ExtraInfo {
     return span;
   }
 
-  // Profile functionality
+  /**
+   * Profile functionality
+   */
   injectAtProfile(card) {
     waitFor(
         () => {
           let now = Date.now();
           if (now - this.lastProfile.timestamp < 15 * 1000)
             return Promise.resolve(this.lastProfile);
-          return Promise.reject('Didn\'t receive profile information');
+          return Promise.reject(
+              new Error('Didn\'t receive profile information'));
         },
         {
           interval: 500,
@@ -282,8 +326,9 @@ export default class ExtraInfo {
     });
   }
 
-  // Canned responses (CRs) functionality
-
+  /**
+   * Canned responses (CRs) functionality
+   */
   getCRName(tags, isExpanded) {
     if (!isExpanded)
       return tags.parentNode?.querySelector?.('.text .name')?.textContent;
@@ -298,7 +343,7 @@ export default class ExtraInfo {
   injectAtCR(tags, isExpanded) {
     waitFor(() => {
       if (this.lastCRsList.id != -1) return Promise.resolve(this.lastCRsList);
-      return Promise.reject('Didn\'t receive canned responses list');
+      return Promise.reject(new Error('Didn\'t receive canned responses list'));
     }, {
       interval: 500,
       timeout: 15 * 1000,
@@ -350,6 +395,268 @@ export default class ExtraInfo {
 
     this.isEnabled().then(isEnabled => {
       if (isEnabled) return this.injectAtCR(tags, isExpanded);
+    });
+  }
+
+  /**
+   * Thread view functionality
+   */
+
+  getPendingStateInfo(endPendingStateTimestampMicros) {
+    const endPendingStateTimestamp =
+        Math.floor(endPendingStateTimestampMicros / 1e3);
+    const now = Date.now();
+    if (endPendingStateTimestampMicros && endPendingStateTimestamp > now) {
+      let span = document.createElement('span');
+      span.textContent = 'Only visible to badged users';
+
+      let date = new Date(endPendingStateTimestamp).toLocaleString();
+      let pendingTooltip =
+          createPlainTooltip(span, 'Visible after ' + date, false);
+      return [span, pendingTooltip];
+    }
+
+    return [null, null];
+  }
+
+  getMetadataInfo(itemMetadata) {
+    let info = [];
+
+    const state = itemMetadata?.['1'];
+    if (state && state != 1)
+      info.push(this.fieldInfo('State', kItemMetadataState[state] ?? state));
+
+    const shadowBlockInfo = itemMetadata?.['10'];
+    const blockedTimestampMicros = shadowBlockInfo?.['2'];
+    if (blockedTimestampMicros) {
+      const isBlocked = shadowBlockInfo?.['1'];
+      let span = document.createElement('span');
+      span.textContent =
+          isBlocked ? 'Shadow block active' : 'Shadow block no longer active';
+      if (isBlocked) span.classList.add('TWPT-extrainfo-bad');
+      info.push(span);
+    }
+
+    return info;
+  }
+
+  getLiveReviewStatusInfo(liveReviewStatus) {
+    const verdict = liveReviewStatus?.['1'];
+    if (!verdict) return [null, null];
+    let label, labelClass;
+    switch (verdict) {
+      case 1:  // LIVE_REVIEW_RELEVANT
+        label = 'Relevant';
+        labelClass = 'TWPT-extrainfo-good';
+        break;
+
+      case 2:  // LIVE_REVIEW_OFF_TOPIC
+        label = 'Off-topic';
+        labelClass = 'TWPT-extrainfo-bad';
+        break;
+
+      case 3:  // LIVE_REVIEW_ABUSE
+        label = 'Abuse';
+        labelClass = 'TWPT-extrainfo-bad';
+        break;
+    }
+    const reviewedBy = liveReviewStatus?.['2'];
+    const timestamp = liveReviewStatus?.['3'];
+    const date = (new Date(Math.floor(timestamp / 1e3))).toLocaleString();
+
+    let a = document.createElement('a');
+    a.href = 'https://support.google.com/s/community/user/' + reviewedBy;
+    a.classList.add(labelClass);
+    a.textContent = 'Live review verdict: ' + label;
+    let liveReviewTooltip = createPlainTooltip(a, date, false);
+    return [a, liveReviewTooltip];
+  }
+
+  injectAtQuestion(question) {
+    let currentPage = parseUrl(location.href);
+    if (currentPage === false) return;
+
+    let content = question.querySelector('ec-question > .content');
+    if (!content) return;
+
+    waitFor(() => {
+      let now = Date.now();
+      let threadInfo = this.lastThread.body['1']?.['2']?.['1'];
+      if (now - this.lastThread.timestamp < 15 * 1000 &&
+          threadInfo?.['1'] == currentPage.thread &&
+          threadInfo?.['3'] == currentPage.forum)
+        return Promise.resolve(this.lastThread);
+      return Promise.reject(new Error('Didn\'t receive thread information'));
+    }, {
+      interval: 500,
+      timeout: 15 * 1000,
+    }).then(thread => {
+      let info = [];
+
+      const endPendingStateTimestampMicros = thread.body['1']?.['2']?.['39'];
+      const [pendingStateInfo, pendingTooltip] =
+          this.getPendingStateInfo(endPendingStateTimestampMicros);
+      if (pendingStateInfo) info.push(pendingStateInfo);
+
+      // NOTE: These attributes don't seem to be included when calling
+      // ViewThread (but are included when calling ViewForum).
+      const isTrending = thread.body['1']?.['2']?.['25'];
+      const isTrendingAutoMarked = thread.body['1']?.['39'];
+      if (isTrendingAutoMarked)
+        info.push(document.createTextNode('Automatically marked as trending'));
+      else if (isTrending)
+        info.push(document.createTextNode('Trending'));
+
+      const itemMetadata = thread.body['1']?.['2']?.['12'];
+      const mdInfo = this.getMetadataInfo(itemMetadata);
+      info.push(...mdInfo);
+
+      const liveReviewStatus = thread.body['1']?.['2']?.['38'];
+      const [liveReviewInfo, liveReviewTooltip] =
+          this.getLiveReviewStatusInfo(liveReviewStatus);
+      if (liveReviewInfo) info.push(liveReviewInfo);
+
+      this.addExtraInfoElement(info, content);
+      if (pendingTooltip) new MDCTooltip(pendingTooltip);
+      if (liveReviewTooltip) new MDCTooltip(liveReviewTooltip);
+    });
+  }
+
+  injectAtQuestionIfEnabled(question) {
+    this.isEnabled().then(isEnabled => {
+      if (isEnabled) return this.injectAtQuestion(question);
+    });
+  }
+
+  getMessagesByType(thread, type) {
+    if (type === 'reply') return thread?.['1']?.['3'];
+    if (type === 'lastMessage') return thread?.['1']?.['17']?.['3'];
+    if (type === 'suggested') return thread?.['1']?.['17']?.['4'];
+    if (type === 'recommended') return thread?.['1']?.['17']?.['1'];
+  }
+
+  getMessageByTypeAndIndex(thread, type, index) {
+    return this.getMessagesByType(thread, type)?.[index];
+  }
+
+  // Returns true if the last message is included in the messages array (in the
+  // extension context, we say those messages are of the type "reply").
+  lastMessageInReplies(thread) {
+    const lastMessageId = thread?.['1']?.['17']?.['3']?.[0]?.['1']?.['1'];
+    if (!lastMessageId) return true;
+
+    // If the last message is included in the lastMessage array, check if it
+    // also exists in the messages/replies array.
+    const replies = thread?.['1']?.['3'];
+    if (!replies?.length) return false;
+    const lastReplyIndex = replies.length - 1;
+    const lastReplyId = replies[lastReplyIndex]?.['1']?.['1'];
+    return lastMessageId && lastMessageId == lastReplyId;
+  }
+
+  getMessageInfo(thread, message) {
+    const section = message.parentNode;
+
+    let type = 'reply';
+    if (section?.querySelector?.('.heading material-icon[icon="auto_awesome"]'))
+      type = 'suggested';
+    if (section?.querySelector?.('.heading material-icon[icon="check_circle"]'))
+      type = 'recommended';
+
+    let index = -1;
+    let messagesInDom = section.querySelectorAll('ec-message');
+
+    // Number of messages in the DOM.
+    const n = messagesInDom.length;
+
+    if (type !== 'reply') {
+      for (let i = 0; i < n; ++i) {
+        if (message.isEqualNode(messagesInDom[i])) {
+          index = i;
+          break;
+        }
+      }
+    } else {
+      // If the type of the message is a reply, things are slightly more
+      // complex, since replies are paginated and the last message should be
+      // treated separately (it is included diferently in the API response).
+      let lastMessageInReplies = this.lastMessageInReplies(thread);
+      if (message.isEqualNode(messagesInDom[n - 1]) && !lastMessageInReplies) {
+        type = 'lastMessage';
+        index = 0
+      } else {
+        // Number of messages in the current API response.
+        const messagesInResponse = this.getMessagesByType(thread, type);
+        const m = messagesInResponse.length;
+        // If the last message is included in the replies array, we also have to
+        // consider the last message in the DOM.
+        let modifier = lastMessageInReplies ? 1 : 0;
+        for (let k = 0; k < m; ++k) {
+          let i = n - 2 - k + modifier;
+          if (message.isEqualNode(messagesInDom[i])) {
+            index = m - 1 - k;
+            break;
+          }
+        }
+      }
+    }
+
+    return [type, index];
+  }
+
+  injectAtMessage(messageNode) {
+    let currentPage = parseUrl(location.href);
+    if (currentPage === false) return;
+
+    let footer = messageNode.querySelector('.footer-fill');
+    if (!footer) return;
+
+    const [type, index] =
+        this.getMessageInfo(this.lastThread.body, messageNode);
+
+    waitFor(() => {
+      let now = Date.now();
+      let threadInfo = this.lastThread.body['1']?.['2']?.['1'];
+      if (now - this.lastThread.timestamp < 15 * 1000 &&
+          threadInfo?.['1'] == currentPage.thread &&
+          threadInfo?.['3'] == currentPage.forum) {
+        const message =
+            this.getMessageByTypeAndIndex(this.lastThread.body, type, index);
+        if (message) return Promise.resolve(message);
+      }
+
+      return Promise.reject(new Error(
+          'Didn\'t receive thread information (type: ' + type +
+          ', index: ' + index + ')'));
+    }, {
+      interval: 1000,
+      timeout: 15 * 1000,
+    }).then(message => {
+      let info = [];
+
+      const endPendingStateTimestampMicros = message['1']?.['17'];
+      const [pendingStateInfo, pendingTooltip] =
+          this.getPendingStateInfo(endPendingStateTimestampMicros);
+      if (pendingStateInfo) info.push(pendingStateInfo);
+
+      const itemMetadata = message['1']?.['5'];
+      const mdInfo = this.getMetadataInfo(itemMetadata);
+      info.push(...mdInfo);
+
+      const liveReviewStatus = message['1']?.['36'];
+      const [liveReviewInfo, liveReviewTooltip] =
+          this.getLiveReviewStatusInfo(liveReviewStatus);
+      if (liveReviewInfo) info.push(liveReviewInfo);
+
+      this.addExtraInfoElement(info, footer);
+      if (pendingTooltip) new MDCTooltip(pendingTooltip);
+      if (liveReviewTooltip) new MDCTooltip(liveReviewTooltip);
+    });
+  }
+
+  injectAtMessageIfEnabled(message) {
+    this.isEnabled().then(isEnabled => {
+      if (isEnabled) return this.injectAtMessage(message);
     });
   }
 }

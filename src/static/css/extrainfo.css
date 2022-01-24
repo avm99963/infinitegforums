@@ -7,7 +7,7 @@
 .TWPT-extrainfo-badge-cell {
   margin: 0 8px;
   --icon-size: 14px;
-  opacity: 0.6;
+  opacity: 0.4;
 }
 
 .TWPT-extrainfo-info-cell {
@@ -31,6 +31,45 @@ ec-unified-user .scTailwindUser_profileUsercardmain {
 ec-unified-user .TWPT-extrainfo-container {
   margin-top: 16px;
   align-self: end;
+}
+
+ec-question .TWPT-extrainfo-container,
+    ec-message .footer .TWPT-extrainfo-container {
+  color: var(--TWPT-secondary-text, #6c6c6c);
+}
+
+ec-question .TWPT-extrainfo-container {
+  font-size: 13px;
+  position: absolute;
+  bottom: 25px;
+  right: 48px;
+}
+
+ec-message .footer .TWPT-extrainfo-container {
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+ec-message .footer .TWPT-extrainfo-badge-cell {
+  margin: 0 6px 0 0;
+  --icon-size: 12px;
+}
+
+ec-message .footer .TWPT-extrainfo-info-cell {
+  padding-left: 6px;
+}
+
+/* Special styles for good/bad labels */
+.TWPT-extrainfo-good {
+  color: var(--TWPT-good-text, green)!important;
+}
+
+.TWPT-extrainfo-warning {
+  color: var(--TWPT-warning-text, orange)!important;
+}
+
+.TWPT-extrainfo-bad {
+  color: var(--TWPT-bad-text, red)!important;
 }
 
 /* Special tags components for canned responses */

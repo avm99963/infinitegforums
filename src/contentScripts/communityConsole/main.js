@@ -46,8 +46,14 @@ const watchedNodesSelectors = [
   'iframe',
 
   // Canned response tags or toolbelt (for the extra info feature)
-  '.tags',
-  '.toolbelt',
+  'ec-canned-response-row .tags',
+  'ec-canned-response-row .main .toolbelt',
+
+  // Div containing ec-question (for the extra info feature)
+  'ec-thread div[role="list"]',
+
+  // Replies (for the extra info feature)
+  'ec-thread ec-message',
 ];
 
 function handleCandidateNode(node) {
@@ -160,7 +166,17 @@ function handleCandidateNode(node) {
     }
     if (node.matches('ec-canned-response-row .main .toolbelt')) {
       const tags = node.parentNode?.querySelector?.('.tags');
-      if (tags) window.TWPTExtraInfo.injectAtCRIfEnabled(tags, /* isExpanded = */ true);
+      if (tags)
+        window.TWPTExtraInfo.injectAtCRIfEnabled(tags, /* isExpanded = */ true);
+    }
+
+    // Show additional details in the thread view.
+    if (node.matches('ec-thread div[role="list"]')) {
+      const question = node.querySelector('ec-question');
+      if (question) window.TWPTExtraInfo.injectAtQuestionIfEnabled(question);
+    }
+    if (node.matches('ec-thread ec-message')) {
+      window.TWPTExtraInfo.injectAtMessageIfEnabled(node);
     }
   }
 }

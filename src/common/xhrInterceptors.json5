@@ -25,5 +25,10 @@
       urlRegex: "api/ListCannedResponses",
       intercepts: "response",
     },
+    {
+      eventName: "ViewThreadResponse",
+      urlRegex: "api/ViewThread",
+      intercepts: "response",
+    },
   ],
 }
