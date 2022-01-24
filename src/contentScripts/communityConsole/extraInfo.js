@@ -2,7 +2,7 @@ import {MDCTooltip} from '@material/tooltip';
 import {waitFor} from 'poll-until-promise';
 
 import {parseUrl} from '../../common/commonUtils.js';
-import {isOptionEnabled} from '../../common/optionsUtils.js';
+import OptionsWatcher from '../../common/optionsWatcher.js';
 import {createPlainTooltip} from '../../common/tooltip.js';
 
 import {createExtBadge} from './utils/common.js';
@@ -186,6 +186,7 @@ export default class ExtraInfo {
       id: -1,
       timestamp: 0,
     };
+    this.optionsWatcher = new OptionsWatcher(['extrainfo']);
     this.setUpHandlers();
   }
 
@@ -228,7 +229,7 @@ export default class ExtraInfo {
 
   // Whether the feature is enabled
   isEnabled() {
-    return isOptionEnabled('extrainfo');
+    return this.optionsWatcher.isEnabled('extrainfo');
   }
 
   // Add a pretty component which contains |info| to |node|.
