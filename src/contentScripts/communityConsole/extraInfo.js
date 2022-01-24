@@ -483,14 +483,14 @@ export default class ExtraInfo {
     waitFor(() => {
       let now = Date.now();
       let threadInfo = this.lastThread.body['1']?.['2']?.['1'];
-      if (now - this.lastThread.timestamp < 15 * 1000 &&
+      if (now - this.lastThread.timestamp < 30 * 1000 &&
           threadInfo?.['1'] == currentPage.thread &&
           threadInfo?.['3'] == currentPage.forum)
         return Promise.resolve(this.lastThread);
       return Promise.reject(new Error('Didn\'t receive thread information'));
     }, {
       interval: 500,
-      timeout: 15 * 1000,
+      timeout: 30 * 1000,
     }).then(thread => {
       let info = [];
 
@@ -618,7 +618,7 @@ export default class ExtraInfo {
     waitFor(() => {
       let now = Date.now();
       let threadInfo = this.lastThread.body['1']?.['2']?.['1'];
-      if (now - this.lastThread.timestamp < 15 * 1000 &&
+      if (now - this.lastThread.timestamp < 30 * 1000 &&
           threadInfo?.['1'] == currentPage.thread &&
           threadInfo?.['3'] == currentPage.forum) {
         const message =
@@ -631,7 +631,7 @@ export default class ExtraInfo {
           ', index: ' + index + ')'));
     }, {
       interval: 1000,
-      timeout: 15 * 1000,
+      timeout: 30 * 1000,
     }).then(message => {
       let info = [];
 
