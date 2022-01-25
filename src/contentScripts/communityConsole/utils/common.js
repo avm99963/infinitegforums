@@ -72,3 +72,10 @@ export function shouldAddBtnToActionBar(debugid, node) {
       node.parentNode?.querySelector('[debugid="' + debugid + '"]') === null &&
       node.parentNode?.parentNode?.tagName == 'EC-BULK-ACTIONS';
 }
+
+// Returns the display language set by the user.
+export function getDisplayLanguage() {
+  var startup =
+      JSON.parse(document.querySelector('html').getAttribute('data-startup'));
+  return startup?.[1]?.[1]?.[3]?.[6] ?? 'en';
+}

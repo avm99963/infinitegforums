@@ -39,4 +39,5 @@ getOptions(null).then(options => {
   }
 
   injectScript(chrome.runtime.getURL('xhrInterceptorInject.bundle.js'));
+  injectScript(chrome.runtime.getURL('extraInfoInject.bundle.js'));
 });

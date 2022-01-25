@@ -155,6 +155,10 @@
     "message": "Show additional information in threads, profiles and the canned responses list.",
     "description": "Feature checkbox in the options page"
   },
+  "options_perforumstats": {
+    "message": "Show per-forum activity in profiles in the Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Save",
     "description": "Button in the options page to save the settings"

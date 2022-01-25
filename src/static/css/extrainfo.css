@@ -106,3 +106,18 @@ ec-canned-response-row .TWPT-content .TWPT-badge {
 ec-canned-response-row .TWPT-content span[aria-describedby] {
   cursor: help;
 }
+
+/* Per-forum stats section */
+.TWPT-scTailwindSharedActivitychartroot .scTailwindSharedActivitychartchart {
+  margin-top: 18px;
+}
+
+.TWPT-scTailwindSharedActivitychartroot .TWPT-select-container {
+  position: absolute;
+  top: 48px;
+  z-index: 2;
+}
+
+.TWPT-scTailwindSharedActivitychartroot .TWPT-select-container select {
+  max-width: 300px;
+}

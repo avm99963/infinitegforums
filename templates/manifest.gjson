@@ -71,6 +71,7 @@
         "profileIndicatorInject.bundle.js",
         "batchLockInject.bundle.js",
         "xhrInterceptorInject.bundle.js",
+        "extraInfoInject.bundle.js",
 
         "css/profileindicator_inject.css",
         "css/ccdarktheme.css",

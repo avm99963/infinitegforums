@@ -5,7 +5,7 @@ import {parseUrl} from '../../common/commonUtils.js';
 import OptionsWatcher from '../../common/optionsWatcher.js';
 import {createPlainTooltip} from '../../common/tooltip.js';
 
-import {createExtBadge} from './utils/common.js';
+import {createExtBadge, getDisplayLanguage} from './utils/common.js';
 
 const kViewUnifiedUserResponseEvent = 'TWPT_ViewUnifiedUserResponse';
 const kListCannedResponsesResponse = 'TWPT_ListCannedResponsesResponse';
@@ -186,7 +186,8 @@ export default class ExtraInfo {
       id: -1,
       timestamp: 0,
     };
-    this.optionsWatcher = new OptionsWatcher(['extrainfo']);
+    this.displayLanguage = getDisplayLanguage();
+    this.optionsWatcher = new OptionsWatcher(['extrainfo', 'perforumstats']);
     this.setUpHandlers();
   }
 
@@ -227,9 +228,9 @@ export default class ExtraInfo {
     });
   }
 
-  // Whether the feature is enabled
-  isEnabled() {
-    return this.optionsWatcher.isEnabled('extrainfo');
+  // Whether |feature| is enabled
+  isEnabled(feature) {
+    return this.optionsWatcher.isEnabled(feature);
   }
 
   // Add a pretty component which contains |info| to |node|.
@@ -322,7 +323,7 @@ export default class ExtraInfo {
   }
 
   injectAtProfileIfEnabled(card) {
-    this.isEnabled().then(isEnabled => {
+    this.isEnabled('extrainfo').then(isEnabled => {
       if (isEnabled) return this.injectAtProfile(card);
     });
   }
@@ -394,7 +395,7 @@ export default class ExtraInfo {
     // If the tag has already been injected, exit.
     if (tags.querySelector('.TWPT-tag')) return;
 
-    this.isEnabled().then(isEnabled => {
+    this.isEnabled('extrainfo').then(isEnabled => {
       if (isEnabled) return this.injectAtCR(tags, isExpanded);
     });
   }
@@ -524,7 +525,7 @@ export default class ExtraInfo {
   }
 
   injectAtQuestionIfEnabled(question) {
-    this.isEnabled().then(isEnabled => {
+    this.isEnabled('extrainfo').then(isEnabled => {
       if (isEnabled) return this.injectAtQuestion(question);
     });
   }
@@ -656,8 +657,39 @@ export default class ExtraInfo {
   }
 
   injectAtMessageIfEnabled(message) {
-    this.isEnabled().then(isEnabled => {
+    this.isEnabled('extrainfo').then(isEnabled => {
       if (isEnabled) return this.injectAtMessage(message);
+    });
+  }
+
+  /**
+   * Per-forum stats in user profiles.
+   */
+
+  injectPerForumStats(chart) {
+    waitFor(() => {
+      let now = Date.now();
+      if (now - this.lastProfile.timestamp < 15 * 1000)
+        return Promise.resolve(this.lastProfile);
+      return Promise.reject(new Error(
+          'Didn\'t receive profile information (for per-profile stats)'));
+    }, {
+      interval: 500,
+      timeout: 15 * 1000,
+    }).then(profile => {
+      const message = {
+        action: 'injectPerForumStatsSection',
+        prefix: 'TWPT-extrainfo',
+        profile: profile.body,
+        locale: this.displayLanguage,
+      };
+      window.postMessage(message, '*');
+    });
+  }
+
+  injectPerForumStatsIfEnabled(chart) {
+    this.isEnabled('perforumstats').then(isEnabled => {
+      if (isEnabled) this.injectPerForumStats(chart);
     });
   }
 }

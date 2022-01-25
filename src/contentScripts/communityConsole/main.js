@@ -54,6 +54,10 @@ const watchedNodesSelectors = [
 
   // Replies (for the extra info feature)
   'ec-thread ec-message',
+
+  // User activity chart (for the per-forum stats feature)
+  'ec-unified-user .scTailwindUser_profileUserprofilesection ' +
+      'sc-tailwind-shared-activity-chart',
 ];
 
 function handleCandidateNode(node) {
@@ -177,6 +181,13 @@ function handleCandidateNode(node) {
     }
     if (node.matches('ec-thread ec-message')) {
       window.TWPTExtraInfo.injectAtMessageIfEnabled(node);
+    }
+
+    // Inject per-forum stats section in the user profile
+    if (node.matches(
+            'ec-unified-user .scTailwindUser_profileUserprofilesection ' +
+            'sc-tailwind-shared-activity-chart')) {
+      window.TWPTExtraInfo.injectPerForumStatsIfEnabled(node);
     }
   }
 }
