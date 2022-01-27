@@ -11,8 +11,8 @@
 }
 
 .TWPT-extrainfo-info-cell {
-  border-left: solid 1px var(--TWPT-interop-subtle-border, #ababab);
-  padding-left: 8px;
+  border-inline-start: solid 1px var(--TWPT-interop-subtle-border, #ababab);
+  padding-inline-start: 8px;
   display: flex;
   flex-direction: column;
 }
@@ -42,7 +42,7 @@ ec-question .TWPT-extrainfo-container {
   font-size: 13px;
   position: absolute;
   bottom: 25px;
-  right: 48px;
+  inset-inline-end: 48px;
 }
 
 ec-message .footer .TWPT-extrainfo-container {
@@ -56,7 +56,7 @@ ec-message .footer .TWPT-extrainfo-badge-cell {
 }
 
 ec-message .footer .TWPT-extrainfo-info-cell {
-  padding-left: 6px;
+  padding-inline-start: 6px;
 }
 
 /* Special styles for good/bad labels */
@@ -100,7 +100,7 @@ ec-canned-response-row .TWPT-content {
 
 ec-canned-response-row .TWPT-content .TWPT-badge {
   --icon-size: 14px;
-  margin-right: 6px;
+  margin-inline-end: 6px;
 }
 
 ec-canned-response-row .TWPT-content span[aria-describedby] {

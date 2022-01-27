@@ -15,7 +15,7 @@ ec-user-link.name > *, .thread-message-header__name > *, .thread-message-header_
 .profile-indicator {
   display: inline-block;
   font-size: 16px;
-  margin-left: 4px;
+  margin-inline-start: 4px;
 }
 
 .profile-indicator a {
@@ -51,7 +51,7 @@ ec-user-link.name > *, .thread-message-header__name > *, .thread-message-header_
 .num-posts-indicator {
   display: inline-block;
   padding: 3px 7px;
-  margin-left: 8px;
+  margin-inline-start: 8px;
   border-radius: 16px;
   height: 14px;
   min-width: 12px;
