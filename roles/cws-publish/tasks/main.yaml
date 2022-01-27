@@ -42,4 +42,4 @@
   no_log: True
   register: uploadcmd
   failed_when:
-    - not (uploadcmd.rc == 0 or ('ITEM_NOT_UPDATABLE' in uploadcmd.stdout))
+    - "not (uploadcmd.rc == 0 or ('ITEM_NOT_UPDATABLE' in uploadcmd.stdout) or ('PKG_INVALID_VERSION_NUMBER') in uploadcmd.stdout)"
