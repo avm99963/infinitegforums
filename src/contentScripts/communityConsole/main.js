@@ -8,19 +8,23 @@ import {injectDarkModeButton, isDarkThemeOn} from './darkMode.js';
 // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
 import {applyDragAndDropFixIfEnabled} from './dragAndDropFix.js';
 // #!endif
+import InfiniteScroll from './infiniteScroll.js';
 import {unifiedProfilesFix} from './unifiedProfiles.js';
 import Workflows from './workflows/workflows.js';
 
-var mutationObserver, intersectionObserver, intersectionOptions, options,
-    avatars, workflows;
+var mutationObserver, options, avatars, infiniteScroll, workflows;
 
 const watchedNodesSelectors = [
   // App container (used to set up the intersection observer and inject the dark
   // mode button)
   'ec-app',
 
-  // Load more bar (for the "load more"/"load all" buttons)
+  // Scrollable content (used for the intersection observer)
+  '.scrollable-content',
+
+  // Load more bar and buttons
   '.load-more-bar',
+  '.scTailwindThreadMorebuttonbutton',
 
   // User profile card inside ec-unified-user
   'ec-unified-user .scTailwindUser_profileUsercardmain',
@@ -63,20 +67,7 @@ const watchedNodesSelectors = [
 function handleCandidateNode(node) {
   if (typeof node.classList !== 'undefined') {
     if (('tagName' in node) && node.tagName == 'EC-APP') {
-      // Set up the intersectionObserver
-      if (typeof intersectionObserver === 'undefined') {
-        var scrollableContent = node.querySelector('.scrollable-content');
-        if (scrollableContent !== null) {
-          intersectionOptions = {
-            root: scrollableContent,
-            rootMargin: '0px',
-            threshold: 1.0,
-          };
-
-          intersectionObserver = new IntersectionObserver(
-              intersectionCallback, intersectionOptions);
-        }
-      }
+      infiniteScroll.setUpIntersectionObserver(node, false);
 
       // Inject the dark mode button
       // TODO(avm99963): make this feature dynamic.
@@ -87,23 +78,18 @@ function handleCandidateNode(node) {
       }
     }
 
+    // To set up infinite scroll
+    if (node.classList.contains('scrollable-content')) {
+      infiniteScroll.setUpIntersectionObserver(node, true);
+    }
+
     // Start the intersectionObserver for the "load more"/"load all" buttons
     // inside a thread if the option is currently enabled.
     if (node.classList.contains('load-more-bar')) {
-      if (typeof intersectionObserver !== 'undefined') {
-        getOptions(['thread', 'threadall']).then(threadOptions => {
-          if (threadOptions.thread)
-            intersectionObserver.observe(
-                node.querySelector('.load-more-button'));
-          if (threadOptions.threadall)
-            intersectionObserver.observe(
-                node.querySelector('.load-all-button'));
-        });
-      } else {
-        console.warn(
-            '[infinitescroll] ' +
-            'The intersectionObserver is not ready yet.');
-      }
+      infiniteScroll.observeLoadMoreBar(node);
+    }
+    if (node.classList.contains('scTailwindThreadMorebuttonbutton')) {
+      infiniteScroll.observeLoadMoreInteropBtn(node);
     }
 
     // Show additional details in the profile view.
@@ -213,14 +199,6 @@ function mutationCallback(mutationList, observer) {
   });
 }
 
-function intersectionCallback(entries, observer) {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.click();
-    }
-  });
-};
-
 var observerOptions = {
   childList: true,
   subtree: true,
@@ -231,6 +209,7 @@ getOptions(null).then(items => {
 
   // Initialize classes needed by the mutation observer
   avatars = new AvatarsHandler();
+  infiniteScroll = new InfiniteScroll();
   workflows = new Workflows();
 
   // autoRefresh is initialized in start.js
