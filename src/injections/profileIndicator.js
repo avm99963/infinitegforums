@@ -213,8 +213,8 @@ function handleIndicators(sourceNode, ui, options) {
   var forumId = forumUrlSplit[1].split('/')[0];
 
   var query = '(replier:"' + escapedUsername + '" | creator:"' +
-      escapedUsername + '") ' + FILTER_ALL_LANGUAGES;
-  var encodedQuery = encodeURIComponent(' forum:' + forumId);
+      escapedUsername + '") ' + FILTER_ALL_LANGUAGES + ' forum:' + forumId;
+  var encodedQuery = encodeURIComponent(query);
   var authuserPart =
       (authuser == '0' ? '' : '?authuser=' + encodeURIComponent(authuser));
   var searchURL = 'https://support.google.com/s/community/search/' +
@@ -304,7 +304,7 @@ function handleIndicators(sourceNode, ui, options) {
           if (threadUrlSplit.length < 2)
             throw new Error('Can\'t get thread id.');
 
-          var currId = threadUrlSplit[1].split('/')[0];
+          var currId = threadUrlSplit[1].split('?')[0].split('/')[0];
 
           var OPStatus = OP_FIRST_POST;
 
