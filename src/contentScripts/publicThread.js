@@ -2,6 +2,23 @@ import {getOptions} from '../common/optionsUtils.js';
 
 var CCThreadWithoutMessage = /forum\/[0-9]*\/thread\/[0-9]*$/;
 
+const kLoadMoreButtons = [
+  {
+    feature: 'thread',
+    buttonSelectors: [
+      '.thread-all-replies__load-more-button',
+      '.scTailwindThreadMorebuttonload-more .scTailwindThreadMorebuttonbutton',
+    ],
+  },
+  {
+    feature: 'threadall',
+    buttonSelectors: [
+      '.thread-all-replies__load-all-button',
+      '.scTailwindThreadMorebuttonload-all .scTailwindThreadMorebuttonbutton',
+    ],
+  }
+];
+
 var intersectionObserver;
 
 function intersectionCallback(entries, observer) {
@@ -29,19 +46,15 @@ getOptions(null).then(options => {
 
     window.location = redirectUrl;
   } else {
-    var button =
-        document.querySelector('.thread-all-replies__load-more-button');
-    if (options.thread && button !== null) {
-      intersectionObserver =
-          new IntersectionObserver(intersectionCallback, intersectionOptions);
-      intersectionObserver.observe(button);
-    }
-    var allbutton =
-        document.querySelector('.thread-all-replies__load-all-button');
-    if (options.threadall && button !== null) {
-      intersectionObserver =
-          new IntersectionObserver(intersectionCallback, intersectionOptions);
-      intersectionObserver.observe(allbutton);
-    }
+    for (const entry of kLoadMoreButtons)
+      if (options[entry.feature])
+        for (const selector of entry.buttonSelectors) {
+          let button = document.querySelector(selector);
+          if (button !== null) {
+            intersectionObserver = new IntersectionObserver(
+                intersectionCallback, intersectionOptions);
+            intersectionObserver.observe(button);
+          }
+        }
   }
 });
