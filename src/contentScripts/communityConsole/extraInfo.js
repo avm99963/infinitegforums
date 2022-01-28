@@ -235,7 +235,7 @@ export default class ExtraInfo {
 
   // Add a pretty component which contains |info| to |node|.
   addExtraInfoElement(info, node) {
-    // Don't create
+    // Don't create if there's nothing to show
     if (info.length == 0) return;
 
     let container = document.createElement('div');
@@ -343,52 +343,66 @@ export default class ExtraInfo {
 
   // Inject usage stats in the |tags| component of a CR
   injectAtCR(tags, isExpanded) {
-    waitFor(() => {
-      if (this.lastCRsList.id != -1) return Promise.resolve(this.lastCRsList);
-      return Promise.reject(new Error('Didn\'t receive canned responses list'));
-    }, {
-      interval: 500,
-      timeout: 15 * 1000,
-    }).then(crs => {
-      let name = this.getCRName(tags, isExpanded);
+    waitFor(
+        () => {
+          if (this.lastCRsList.id != -1)
+            return Promise.resolve(this.lastCRsList);
+          return Promise.reject(
+              new Error('Didn\'t receive canned responses list'));
+        },
+        {
+          interval: 500,
+          timeout: 15 * 1000,
+        })
+        .then(crs => {
+          let name = this.getCRName(tags, isExpanded);
 
-      // If another CR has the same name, there's no easy way to distinguish
-      // them, so don't show the usage stats.
-      if (crs.duplicateNames.has(name)) return;
-
-      for (const cr of (crs.body?.['1'] ?? [])) {
-        if (cr['7'] == name) {
-          let tag = document.createElement('material-chip');
-          tag.classList.add('TWPT-tag');
-
-          let container = document.createElement('div');
-          container.classList.add('TWPT-chip-content-container');
-
-          let content = document.createElement('div');
-          content.classList.add('TWPT-content');
-
-          const [badge, badgeTooltip] = createExtBadge();
-
-          let label = document.createElement('span');
-          label.textContent = 'Used ' + (cr['8'] ?? '0') + ' times';
-
-          content.append(badge, label);
-          container.append(content);
-          tag.append(container);
-          tags.append(tag);
-
-          new MDCTooltip(badgeTooltip);
-
-          if (cr['9']) {
-            const lastUsedTime = Math.floor(parseInt(cr['9']) / 1e3);
-            let date = (new Date(lastUsedTime)).toLocaleString();
-            createPlainTooltip(label, 'Last used: ' + date);
+          // If another CR has the same name, there's no easy way to distinguish
+          // them, so don't show the usage stats.
+          if (crs.duplicateNames.has(name)) {
+            console.info(
+                'CR "' + name +
+                '" is duplicate, so skipping the injection of usage stats.');
+            return;
           }
 
-          break;
-        }
-      }
-    });
+          for (const cr of (crs.body?.['1'] ?? [])) {
+            if (cr['7'] == name) {
+              let tag = document.createElement('material-chip');
+              tag.classList.add('TWPT-tag');
+
+              let container = document.createElement('div');
+              container.classList.add('TWPT-chip-content-container');
+
+              let content = document.createElement('div');
+              content.classList.add('TWPT-content');
+
+              const [badge, badgeTooltip] = createExtBadge();
+
+              let label = document.createElement('span');
+              label.textContent = 'Used ' + (cr['8'] ?? '0') + ' times';
+
+              content.append(badge, label);
+              container.append(content);
+              tag.append(container);
+              tags.append(tag);
+
+              new MDCTooltip(badgeTooltip);
+
+              if (cr['9']) {
+                const lastUsedTime = Math.floor(parseInt(cr['9']) / 1e3);
+                let date = (new Date(lastUsedTime)).toLocaleString();
+                createPlainTooltip(label, 'Last used: ' + date);
+              }
+
+              break;
+            }
+          }
+        })
+        .catch(err => {
+          console.error(
+              'extraInfo: error while injecting profile extra info: ', err);
+        });
   }
 
   injectAtCRIfEnabled(tags, isExpanded) {
@@ -481,47 +495,55 @@ export default class ExtraInfo {
     let content = question.querySelector('ec-question > .content');
     if (!content) return;
 
-    waitFor(() => {
-      let now = Date.now();
-      let threadInfo = this.lastThread.body['1']?.['2']?.['1'];
-      if (now - this.lastThread.timestamp < 30 * 1000 &&
-          threadInfo?.['1'] == currentPage.thread &&
-          threadInfo?.['3'] == currentPage.forum)
-        return Promise.resolve(this.lastThread);
-      return Promise.reject(new Error('Didn\'t receive thread information'));
-    }, {
-      interval: 500,
-      timeout: 30 * 1000,
-    }).then(thread => {
-      let info = [];
+    waitFor(
+        () => {
+          let now = Date.now();
+          let threadInfo = this.lastThread.body['1']?.['2']?.['1'];
+          if (now - this.lastThread.timestamp < 30 * 1000 &&
+              threadInfo?.['1'] == currentPage.thread &&
+              threadInfo?.['3'] == currentPage.forum)
+            return Promise.resolve(this.lastThread);
+          return Promise.reject(
+              new Error('Didn\'t receive thread information'));
+        },
+        {
+          interval: 500,
+          timeout: 30 * 1000,
+        })
+        .then(thread => {
+          let info = [];
 
-      const endPendingStateTimestampMicros = thread.body['1']?.['2']?.['39'];
-      const [pendingStateInfo, pendingTooltip] =
-          this.getPendingStateInfo(endPendingStateTimestampMicros);
-      if (pendingStateInfo) info.push(pendingStateInfo);
+          const endPendingStateTimestampMicros =
+              thread.body['1']?.['2']?.['39'];
+          const [pendingStateInfo, pendingTooltip] =
+              this.getPendingStateInfo(endPendingStateTimestampMicros);
+          if (pendingStateInfo) info.push(pendingStateInfo);
 
-      // NOTE: These attributes don't seem to be included when calling
-      // ViewThread (but are included when calling ViewForum).
-      const isTrending = thread.body['1']?.['2']?.['25'];
-      const isTrendingAutoMarked = thread.body['1']?.['39'];
-      if (isTrendingAutoMarked)
-        info.push(document.createTextNode('Automatically marked as trending'));
-      else if (isTrending)
-        info.push(document.createTextNode('Trending'));
+          const isTrending = thread.body['1']?.['2']?.['25'];
+          const isTrendingAutoMarked = thread.body['1']?.['39'];
+          if (isTrendingAutoMarked)
+            info.push(
+                document.createTextNode('Automatically marked as trending'));
+          else if (isTrending)
+            info.push(document.createTextNode('Trending'));
 
-      const itemMetadata = thread.body['1']?.['2']?.['12'];
-      const mdInfo = this.getMetadataInfo(itemMetadata);
-      info.push(...mdInfo);
+          const itemMetadata = thread.body['1']?.['2']?.['12'];
+          const mdInfo = this.getMetadataInfo(itemMetadata);
+          info.push(...mdInfo);
 
-      const liveReviewStatus = thread.body['1']?.['2']?.['38'];
-      const [liveReviewInfo, liveReviewTooltip] =
-          this.getLiveReviewStatusInfo(liveReviewStatus);
-      if (liveReviewInfo) info.push(liveReviewInfo);
+          const liveReviewStatus = thread.body['1']?.['2']?.['38'];
+          const [liveReviewInfo, liveReviewTooltip] =
+              this.getLiveReviewStatusInfo(liveReviewStatus);
+          if (liveReviewInfo) info.push(liveReviewInfo);
 
-      this.addExtraInfoElement(info, content);
-      if (pendingTooltip) new MDCTooltip(pendingTooltip);
-      if (liveReviewTooltip) new MDCTooltip(liveReviewTooltip);
-    });
+          this.addExtraInfoElement(info, content);
+          if (pendingTooltip) new MDCTooltip(pendingTooltip);
+          if (liveReviewTooltip) new MDCTooltip(liveReviewTooltip);
+        })
+        .catch(err => {
+          console.error(
+              'extraInfo: error while injecting question extra info: ', err);
+        });
   }
 
   injectAtQuestionIfEnabled(question) {
@@ -608,52 +630,69 @@ export default class ExtraInfo {
 
   injectAtMessage(messageNode) {
     let currentPage = parseUrl(location.href);
-    if (currentPage === false) return;
+    if (currentPage === false) {
+      console.error('extraInfo: couldn\'t parse current URL:', location.href);
+      return;
+    }
 
     let footer = messageNode.querySelector('.footer-fill');
-    if (!footer) return;
+    if (!footer) {
+      console.error('extraInfo: message doesn\'t have a footer:', messageNode);
+      return;
+    }
 
     const [type, index] =
         this.getMessageInfo(this.lastThread.body, messageNode);
+    if (index == -1) {
+      console.error('extraInfo: this.getMessageInfo() returned index -1.');
+      return;
+    }
 
-    waitFor(() => {
-      let now = Date.now();
-      let threadInfo = this.lastThread.body['1']?.['2']?.['1'];
-      if (now - this.lastThread.timestamp < 30 * 1000 &&
-          threadInfo?.['1'] == currentPage.thread &&
-          threadInfo?.['3'] == currentPage.forum) {
-        const message =
-            this.getMessageByTypeAndIndex(this.lastThread.body, type, index);
-        if (message) return Promise.resolve(message);
-      }
+    waitFor(
+        () => {
+          let now = Date.now();
+          let threadInfo = this.lastThread.body['1']?.['2']?.['1'];
+          if (now - this.lastThread.timestamp < 30 * 1000 &&
+              threadInfo?.['1'] == currentPage.thread &&
+              threadInfo?.['3'] == currentPage.forum) {
+            const message = this.getMessageByTypeAndIndex(
+                this.lastThread.body, type, index);
+            if (message) return Promise.resolve(message);
+          }
 
-      return Promise.reject(new Error(
-          'Didn\'t receive thread information (type: ' + type +
-          ', index: ' + index + ')'));
-    }, {
-      interval: 1000,
-      timeout: 30 * 1000,
-    }).then(message => {
-      let info = [];
+          return Promise.reject(new Error(
+              'Didn\'t receive thread information (type: ' + type +
+              ', index: ' + index + ')'));
+        },
+        {
+          interval: 1000,
+          timeout: 30 * 1000,
+        })
+        .then(message => {
+          let info = [];
 
-      const endPendingStateTimestampMicros = message['1']?.['17'];
-      const [pendingStateInfo, pendingTooltip] =
-          this.getPendingStateInfo(endPendingStateTimestampMicros);
-      if (pendingStateInfo) info.push(pendingStateInfo);
+          const endPendingStateTimestampMicros = message['1']?.['17'];
+          const [pendingStateInfo, pendingTooltip] =
+              this.getPendingStateInfo(endPendingStateTimestampMicros);
+          if (pendingStateInfo) info.push(pendingStateInfo);
 
-      const itemMetadata = message['1']?.['5'];
-      const mdInfo = this.getMetadataInfo(itemMetadata);
-      info.push(...mdInfo);
+          const itemMetadata = message['1']?.['5'];
+          const mdInfo = this.getMetadataInfo(itemMetadata);
+          info.push(...mdInfo);
 
-      const liveReviewStatus = message['1']?.['36'];
-      const [liveReviewInfo, liveReviewTooltip] =
-          this.getLiveReviewStatusInfo(liveReviewStatus);
-      if (liveReviewInfo) info.push(liveReviewInfo);
+          const liveReviewStatus = message['1']?.['36'];
+          const [liveReviewInfo, liveReviewTooltip] =
+              this.getLiveReviewStatusInfo(liveReviewStatus);
+          if (liveReviewInfo) info.push(liveReviewInfo);
 
-      this.addExtraInfoElement(info, footer);
-      if (pendingTooltip) new MDCTooltip(pendingTooltip);
-      if (liveReviewTooltip) new MDCTooltip(liveReviewTooltip);
-    });
+          this.addExtraInfoElement(info, footer);
+          if (pendingTooltip) new MDCTooltip(pendingTooltip);
+          if (liveReviewTooltip) new MDCTooltip(liveReviewTooltip);
+        })
+        .catch(err => {
+          console.error(
+              'extraInfo: error while injecting message extra info: ', err);
+        });
   }
 
   injectAtMessageIfEnabled(message) {
@@ -667,24 +706,32 @@ export default class ExtraInfo {
    */
 
   injectPerForumStats(chart) {
-    waitFor(() => {
-      let now = Date.now();
-      if (now - this.lastProfile.timestamp < 15 * 1000)
-        return Promise.resolve(this.lastProfile);
-      return Promise.reject(new Error(
-          'Didn\'t receive profile information (for per-profile stats)'));
-    }, {
-      interval: 500,
-      timeout: 15 * 1000,
-    }).then(profile => {
-      const message = {
-        action: 'injectPerForumStatsSection',
-        prefix: 'TWPT-extrainfo',
-        profile: profile.body,
-        locale: this.displayLanguage,
-      };
-      window.postMessage(message, '*');
-    });
+    waitFor(
+        () => {
+          let now = Date.now();
+          if (now - this.lastProfile.timestamp < 15 * 1000)
+            return Promise.resolve(this.lastProfile);
+          return Promise.reject(new Error(
+              'Didn\'t receive profile information (for per-profile stats)'));
+        },
+        {
+          interval: 500,
+          timeout: 15 * 1000,
+        })
+        .then(profile => {
+          const message = {
+            action: 'injectPerForumStatsSection',
+            prefix: 'TWPT-extrainfo',
+            profile: profile.body,
+            locale: this.displayLanguage,
+          };
+          window.postMessage(message, '*');
+        })
+        .catch(err => {
+          console.error(
+              'extraInfo: error while preparing to inject per-forum stats: ',
+              err);
+        });
   }
 
   injectPerForumStatsIfEnabled(chart) {
