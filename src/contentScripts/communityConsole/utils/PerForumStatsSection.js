@@ -1,12 +1,11 @@
 // Each entry includes the following information in order:
 // - ID
-// - Name (for the label in the legend)
 // - Codename
 // - Color (for the label in the legend)
 const kDataKeys = [
-  [4, 'Recommended', 'recommended', '#34A853'],
-  [6, 'Replies (not recommended)', 'replies', '#DADCE0'],
-  [5, 'Questions', 'questions', '#77909D'],
+  [4, 'recommended', '#34A853'],
+  [6, 'replies', '#DADCE0'],
+  [5, 'questions', '#77909D'],
 ];
 const kRoles = {
   1: 'bronze',
@@ -22,11 +21,6 @@ const kRoles = {
 
 export default class PerForumStatsSection {
   constructor(existingChartSection, profile, locale) {
-    if (typeof window.sc_renderProfileActivityChart !== 'function') {
-      console.error(
-          'PerForumStatsSection: window.sc_renderProfileActivityChart is not available.');
-      return;
-    }
     this.locale = locale;
     this.parseAndSetData(profile);
     this.buildDOM(existingChartSection);
@@ -79,23 +73,22 @@ export default class PerForumStatsSection {
 
     let title = document.createElement('h2');
     title.classList.add('scTailwindSharedActivitycharttitle');
-    title.textContent = 'Per-forum activity';
+    title.textContent = chrome.i18n.getMessage('inject_perforumstats_heading');
 
     let selector = this.createForumSelector();
 
     let chartEl = document.createElement('div');
     chartEl.classList.add('scTailwindSharedActivitychartchart');
+    chartEl.setAttribute('data-twpt-per-forum-chart', '');
 
     root.append(title, selector, chartEl);
     section.append(root);
     existingChartSection.after(section);
-
-    this.chartEl = chartEl;
   }
 
   getAplosData(forumId) {
     let aplosData = [];
-    for (const [key, label, name, color] of kDataKeys) {
+    for (const [key, name, color] of kDataKeys) {
       let rawData = this.data.find(f => f.id === forumId)?.forumUserInfo?.[key];
       let data;
       if (!rawData)
@@ -105,11 +98,33 @@ export default class PerForumStatsSection {
       aplosData.push({
         color,
         data,
-        label,
+        label: chrome.i18n.getMessage('inject_perforumstats_chart_' + name),
         name,
       });
     }
     return aplosData;
+  }
+
+  getMessagesString(num) {
+    if (num == 1) {
+      return chrome.i18n.getMessage(
+          'inject_perforumstats_nummessages_singular');
+    }
+    return chrome.i18n.getMessage(
+        'inject_perforumstats_nummessages_plural', [num]);
+  }
+
+  getForumOptionString(forumTitle, labels) {
+    if (labels.length == 0) return forumTitle;
+    if (labels.length == 1)
+      return chrome.i18n.getMessage(
+          'inject_perforumstats_forumoption_1helper', [forumTitle, ...labels]);
+    if (labels.length == 2)
+      return chrome.i18n.getMessage(
+          'inject_perforumstats_forumoption_2helpers', [forumTitle, ...labels]);
+
+    // If labels.length > 3, this is unexpected. Here's a sensible fallback:
+    return forumTitle + ' (' + labels.join(', ') + ')';
   }
 
   createForumSelector() {
@@ -124,21 +139,22 @@ export default class PerForumStatsSection {
 
       if (!hasPosted && !noPostsGroupFlag) {
         noPostsGroup = document.createElement('optgroup');
-        noPostsGroup.label = 'Not posted to within the last 12 months';
+        noPostsGroup.label =
+            chrome.i18n.getMessage('inject_perforumstats_optgroup_notposted');
         noPostsGroupFlag = true;
       }
 
-      let additionalLabelsArray = [];
+      let additionalLabels = [];
       if (hasPosted)
-        additionalLabelsArray.push(forumData.numMessages + ' messages');
+        additionalLabels.push(this.getMessagesString(forumData.numMessages));
       let role = forumData.forumUserInfo?.[1]?.[3] ?? 0;
-      if (role) additionalLabelsArray.push(kRoles[role]);
-      let additionalLabels = '';
-      if (additionalLabelsArray.length > 0)
-        additionalLabels = ' (' + additionalLabelsArray.join(', ') + ')';
+      if (role)
+        additionalLabels.push(chrome.i18n.getMessage(
+            'inject_perforumstats_role_' + kRoles[role]));
 
       let option = document.createElement('option');
-      option.textContent = forumData.forumTitle + additionalLabels;
+      option.textContent =
+          this.getForumOptionString(forumData.forumTitle, additionalLabels);
       option.value = forumData.id;
       if (hasPosted)
         select.append(option);
@@ -156,8 +172,6 @@ export default class PerForumStatsSection {
   }
 
   injectChart(forumId) {
-    this.chartEl.replaceChildren();
-
     let data = this.getAplosData(forumId);
     let metadata = {
       activities: [],
@@ -165,8 +179,14 @@ export default class PerForumStatsSection {
       locale: this.locale,
       shouldDisableTransitions: true,
     };
-    let chartTitle = 'User activity chart';
-    let chart = window.sc_renderProfileActivityChart(
-        this.chartEl, data, metadata, chartTitle);
+    let chartTitle = chrome.i18n.getMessage('inject_perforumstats_chart_label');
+    const message = {
+      action: 'renderProfileActivityChart',
+      prefix: 'TWPT-extrainfo',
+      data,
+      metadata,
+      chartTitle,
+    };
+    window.postMessage(message, '*');
   }
 }

@@ -6,6 +6,7 @@ import OptionsWatcher from '../../common/optionsWatcher.js';
 import {createPlainTooltip} from '../../common/tooltip.js';
 
 import {createExtBadge, getDisplayLanguage} from './utils/common.js';
+import PerForumStatsSection from './utils/PerForumStatsSection.js';
 
 const kViewUnifiedUserResponseEvent = 'TWPT_ViewUnifiedUserResponse';
 const kListCannedResponsesResponse = 'TWPT_ListCannedResponsesResponse';
@@ -719,13 +720,8 @@ export default class ExtraInfo {
           timeout: 15 * 1000,
         })
         .then(profile => {
-          const message = {
-            action: 'injectPerForumStatsSection',
-            prefix: 'TWPT-extrainfo',
-            profile: profile.body,
-            locale: this.displayLanguage,
-          };
-          window.postMessage(message, '*');
+          new PerForumStatsSection(
+              chart?.parentNode, profile.body, this.displayLanguage);
         })
         .catch(err => {
           console.error(

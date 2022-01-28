@@ -1,20 +1,23 @@
-import PerForumStatsSection from '../contentScripts/communityConsole/utils/PerForumStatsSection.js';
-
 window.addEventListener('message', e => {
   if (e.source === window && e.data?.prefix === 'TWPT-extrainfo') {
     switch (e.data?.action) {
-      case 'injectPerForumStatsSection':
-        let existingChartSection =
-            document
-                .querySelector(
-                    'sc-tailwind-user_profile-user-profile sc-tailwind-shared-activity-chart')
-                ?.parentNode;
-        if (!existingChartSection) {
-          console.error('extraInfo: couldn\'t find existing chart section.');
+      case 'renderProfileActivityChart':
+        if (typeof window.sc_renderProfileActivityChart !== 'function') {
+          console.error(
+              'extraInfo: window.sc_renderProfileActivityChart is not available.');
           return;
         }
-        new PerForumStatsSection(
-            existingChartSection, e.data?.profile, e.data?.locale);
+
+        let chartEl = document.querySelector(
+            '.scTailwindSharedActivitychartchart[data-twpt-per-forum-chart]');
+        if (!chartEl) {
+          console.error('extraInfo: couldn\'t find per-forum chart div.');
+          return;
+        }
+
+        chartEl.replaceChildren();
+        window.sc_renderProfileActivityChart(
+            chartEl, e.data?.data, e.data?.metadata, e.data?.chartTitle);
         break;
 
       default:
