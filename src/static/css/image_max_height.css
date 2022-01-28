@@ -1,5 +1,6 @@
 ec-question .body img,
-    ec-message .body img {
+    ec-message .body img,
+    .scTailwindThreadPostcontentroot img {
   /* "Max height = full height - 2 * height of the header" */
   max-height: calc(100vh - 2*64px);
 }

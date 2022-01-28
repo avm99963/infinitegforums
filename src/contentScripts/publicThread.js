@@ -1,3 +1,4 @@
+import {injectStylesheet} from '../common/contentScriptsUtils.js';
 import {getOptions} from '../common/optionsUtils.js';
 
 var CCThreadWithoutMessage = /forum\/[0-9]*\/thread\/[0-9]*$/;
@@ -56,5 +57,8 @@ getOptions(null).then(options => {
             intersectionObserver.observe(button);
           }
         }
+
+    if (options.imagemaxheight)
+      injectStylesheet(chrome.runtime.getURL('css/image_max_height.css'));
   }
 });
