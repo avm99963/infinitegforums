@@ -4,7 +4,7 @@ import {escapeUsername} from '../common/communityConsoleUtils.js';
 import {createPlainTooltip} from '../common/tooltip.js';
 
 var CCProfileRegex =
-    /^(?:https:\/\/support\.google\.com)?\/s\/community(?:\/forum\/[0-9]*)?\/user\/(?:[0-9]+)$/;
+    /^(?:https:\/\/support\.google\.com)?\/s\/community(?:\/forum\/[0-9]*)?\/user\/(?:[0-9]+)(?:\?.*)?$/;
 var CCRegex = /^https:\/\/support\.google\.com\/s\/community/;
 
 const OP_FIRST_POST = 0;
@@ -26,6 +26,7 @@ const OPi18n = {
 const UI_COMMUNITY_CONSOLE = 0;
 const UI_TW_LEGACY = 1;
 const UI_TW_INTEROP = 2;
+const UI_COMMUNITY_CONSOLE_INTEROP = 3;
 
 const indicatorTypes = ['numPosts', 'indicatorDot'];
 
@@ -36,6 +37,14 @@ const FILTER_ALL_LANGUAGES =
 const numPostsForumArraysToSum = [3, 4];
 
 var authuser = null;
+
+function isCommunityConsole(ui) {
+  return ui === UI_COMMUNITY_CONSOLE || ui === UI_COMMUNITY_CONSOLE_INTEROP;
+}
+
+function isInterop(ui) {
+  return ui === UI_TW_INTEROP || ui === UI_COMMUNITY_CONSOLE_INTEROP;
+}
 
 function isElementInside(element, outerTag) {
   while (element !== null && ('tagName' in element)) {
@@ -115,8 +124,8 @@ function createIndicatorDot(sourceNode, searchURL, options, ui) {
   var dotContainer = document.createElement('div');
   dotContainer.classList.add('profile-indicator', 'profile-indicator--loading');
 
-  var dotLink = (ui === UI_COMMUNITY_CONSOLE) ? createImmuneLink() :
-                                                document.createElement('a');
+  var dotLink = (isCommunityConsole(ui)) ? createImmuneLink() :
+                                           document.createElement('a');
   dotLink.href = searchURL;
   dotLink.innerText = '●';
 
@@ -135,8 +144,8 @@ function createIndicatorDot(sourceNode, searchURL, options, ui) {
 
 // Create badge indicating the number of posts with a loading state
 function createNumPostsBadge(sourceNode, searchURL, ui) {
-  var link = (ui === UI_COMMUNITY_CONSOLE) ? createImmuneLink() :
-                                             document.createElement('a');
+  var link = (isCommunityConsole(ui)) ? createImmuneLink() :
+                                        document.createElement('a');
   link.href = searchURL;
 
   var numPostsContainer = document.createElement('div');
@@ -180,10 +189,10 @@ function handleIndicators(sourceNode, ui, options) {
   if (ui === UI_COMMUNITY_CONSOLE)
     nameEl = sourceNode.querySelector('.name-text');
   if (ui === UI_TW_LEGACY) nameEl = sourceNode.querySelector('span');
-  if (ui === UI_TW_INTEROP) nameEl = sourceNode;
+  if (isInterop(ui)) nameEl = sourceNode;
   var escapedUsername = escapeUsername(nameEl.textContent);
 
-  if (ui === UI_COMMUNITY_CONSOLE) {
+  if (isCommunityConsole(ui)) {
     var threadLink = document.location.href;
   } else {
     var CCLink = document.getElementById('onebar-community-console');
@@ -213,10 +222,10 @@ function handleIndicators(sourceNode, ui, options) {
 
   if (options.numPosts) {
     var profileURL = new URL(sourceNode.href);
-    var userId =
-        profileURL.pathname
-            .split(ui === UI_COMMUNITY_CONSOLE ? 'user/' : 'profile/')[1]
-            .split('/')[0];
+    var userId = profileURL.pathname
+                     .split(isCommunityConsole(ui) ? 'user/' : 'profile/')[1]
+                     .split('?')[0]
+                     .split('/')[0];
 
     var numPostsContainer = createNumPostsBadge(sourceNode, searchURL, ui);
 
@@ -344,11 +353,19 @@ if (CCRegex.test(location.href)) {
       if (mutation.type == 'childList') {
         mutation.addedNodes.forEach(function(node) {
           if (node.tagName == 'A' && ('href' in node) &&
-              CCProfileRegex.test(node.href) &&
-              node.matches(
-                  'ec-question ec-message-header .name-section ec-user-link a')) {
-            console.info('Handling profile indicator via mutation callback.');
-            getOptionsAndHandleIndicators(node, UI_COMMUNITY_CONSOLE);
+              CCProfileRegex.test(node.href)) {
+            if (node.matches(
+                    'ec-question ec-message-header .name-section ec-user-link a')) {
+              console.info('Handling profile indicator via mutation callback.');
+              getOptionsAndHandleIndicators(node, UI_COMMUNITY_CONSOLE);
+            } else if (node.matches(
+                           'sc-tailwind-thread-question-question-card ' +
+                           'sc-tailwind-thread-post_header-user-info ' +
+                           '.scTailwindThreadPost_headerUserinfoname a')) {
+              console.info(
+                  'Handling interop profile indicator via mutation callback.');
+              getOptionsAndHandleIndicators(node, UI_COMMUNITY_CONSOLE_INTEROP);
+            }
           }
         });
       }
@@ -367,6 +384,15 @@ if (CCRegex.test(location.href)) {
   if (node !== null) {
     console.info('Handling profile indicator via first check.');
     getOptionsAndHandleIndicators(node, UI_COMMUNITY_CONSOLE);
+  } else {
+    var node = document.querySelector(
+        'sc-tailwind-thread-question-question-card ' +
+        'sc-tailwind-thread-post_header-user-info ' +
+        '.scTailwindThreadPost_headerUserinfoname a');
+    if (node !== null) {
+      console.info('Handling interop profile indicator via first check.');
+      getOptionsAndHandleIndicators(node, UI_COMMUNITY_CONSOLE_INTEROP);
+    }
   }
 
   var mutationObserver = new MutationObserver(mutationCallback);
