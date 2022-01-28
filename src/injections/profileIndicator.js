@@ -23,6 +23,10 @@ const OPi18n = {
   2: 'other_posts_unread',
 };
 
+const UI_COMMUNITY_CONSOLE = 0;
+const UI_TW_LEGACY = 1;
+const UI_TW_INTEROP = 2;
+
 const indicatorTypes = ['numPosts', 'indicatorDot'];
 
 // Filter used as a workaround to speed up the ViewForum request.
@@ -106,12 +110,13 @@ var contentScriptRequest = (function() {
 
 // Create profile indicator dot with a loading state, or return the numPosts
 // badge if it is already created.
-function createIndicatorDot(sourceNode, searchURL, options, isCC) {
+function createIndicatorDot(sourceNode, searchURL, options, ui) {
   if (options.numPosts) return document.querySelector('.num-posts-indicator');
   var dotContainer = document.createElement('div');
   dotContainer.classList.add('profile-indicator', 'profile-indicator--loading');
 
-  var dotLink = isCC ? createImmuneLink() : document.createElement('a');
+  var dotLink = (ui === UI_COMMUNITY_CONSOLE) ? createImmuneLink() :
+                                                document.createElement('a');
   dotLink.href = searchURL;
   dotLink.innerText = '●';
 
@@ -129,8 +134,9 @@ function createIndicatorDot(sourceNode, searchURL, options, isCC) {
 }
 
 // Create badge indicating the number of posts with a loading state
-function createNumPostsBadge(sourceNode, searchURL, isCC) {
-  var link = isCC ? createImmuneLink() : document.createElement('a');
+function createNumPostsBadge(sourceNode, searchURL, ui) {
+  var link = (ui === UI_COMMUNITY_CONSOLE) ? createImmuneLink() :
+                                             document.createElement('a');
   link.href = searchURL;
 
   var numPostsContainer = document.createElement('div');
@@ -163,18 +169,21 @@ function setNumPostsBadge(badge, text) {
 }
 
 // Get options and then handle all the indicators
-function getOptionsAndHandleIndicators(sourceNode, isCC) {
+function getOptionsAndHandleIndicators(sourceNode, ui) {
   contentScriptRequest.sendRequest({'action': 'getProfileIndicatorOptions'})
-      .then(options => handleIndicators(sourceNode, isCC, options));
+      .then(options => handleIndicators(sourceNode, ui, options));
 }
 
 // Handle the profile indicator dot
-function handleIndicators(sourceNode, isCC, options) {
-  var escapedUsername = escapeUsername(
-      (isCC ? sourceNode.querySelector('.name-text').textContent :
-              sourceNode.querySelector('span').textContent));
+function handleIndicators(sourceNode, ui, options) {
+  let nameEl;
+  if (ui === UI_COMMUNITY_CONSOLE)
+    nameEl = sourceNode.querySelector('.name-text');
+  if (ui === UI_TW_LEGACY) nameEl = sourceNode.querySelector('span');
+  if (ui === UI_TW_INTEROP) nameEl = sourceNode;
+  var escapedUsername = escapeUsername(nameEl.textContent);
 
-  if (isCC) {
+  if (ui === UI_COMMUNITY_CONSOLE) {
     var threadLink = document.location.href;
   } else {
     var CCLink = document.getElementById('onebar-community-console');
@@ -194,33 +203,22 @@ function handleIndicators(sourceNode, isCC, options) {
 
   var forumId = forumUrlSplit[1].split('/')[0];
 
-  /*
-   * TODO(avm99963): If the TW filters ever work again, set isCCLink to isCC.
-   * Otherwise, issue #29 should be resolved:
-   * https://github.com/avm99963/infinitegforums/issues/29
-   */
-  var isCCLink = true;
-
   var query = '(replier:"' + escapedUsername + '" | creator:"' +
       escapedUsername + '") ' + FILTER_ALL_LANGUAGES;
-  var encodedQuery =
-      encodeURIComponent(query + (isCCLink ? ' forum:' + forumId : ''));
+  var encodedQuery = encodeURIComponent(' forum:' + forumId);
   var authuserPart =
-      (authuser == '0' ?
-           '' :
-           (isCCLink ? '?' : '&') + 'authuser=' + encodeURIComponent(authuser));
-  var searchURL =
-      (isCCLink ? 'https://support.google.com/s/community/search/' +
-               encodeURIComponent('query=' + encodedQuery) + authuserPart :
-                  document.location.pathname.split('/thread')[0] +
-               '/threads?thread_filter=' + encodedQuery + authuserPart);
+      (authuser == '0' ? '' : '?authuser=' + encodeURIComponent(authuser));
+  var searchURL = 'https://support.google.com/s/community/search/' +
+      encodeURIComponent('query=' + encodedQuery) + authuserPart;
 
   if (options.numPosts) {
     var profileURL = new URL(sourceNode.href);
     var userId =
-        profileURL.pathname.split(isCC ? 'user/' : 'profile/')[1].split('/')[0];
+        profileURL.pathname
+            .split(ui === UI_COMMUNITY_CONSOLE ? 'user/' : 'profile/')[1]
+            .split('/')[0];
 
-    var numPostsContainer = createNumPostsBadge(sourceNode, searchURL, isCC);
+    var numPostsContainer = createNumPostsBadge(sourceNode, searchURL, ui);
 
     getProfile(userId, forumId)
         .then(res => {
@@ -271,7 +269,7 @@ function handleIndicators(sourceNode, isCC, options) {
   }
 
   if (options.indicatorDot) {
-    var dotContainer = createIndicatorDot(sourceNode, searchURL, options, isCC);
+    var dotContainer = createIndicatorDot(sourceNode, searchURL, options, ui);
 
     // Query threads in order to see what state the indicator should be in
     getPosts(query, forumId)
@@ -350,7 +348,7 @@ if (CCRegex.test(location.href)) {
               node.matches(
                   'ec-question ec-message-header .name-section ec-user-link a')) {
             console.info('Handling profile indicator via mutation callback.');
-            getOptionsAndHandleIndicators(node, true);
+            getOptionsAndHandleIndicators(node, UI_COMMUNITY_CONSOLE);
           }
         });
       }
@@ -368,7 +366,7 @@ if (CCRegex.test(location.href)) {
       'ec-question ec-message-header .name-section ec-user-link a');
   if (node !== null) {
     console.info('Handling profile indicator via first check.');
-    getOptionsAndHandleIndicators(node, true);
+    getOptionsAndHandleIndicators(node, UI_COMMUNITY_CONSOLE);
   }
 
   var mutationObserver = new MutationObserver(mutationCallback);
@@ -380,7 +378,16 @@ if (CCRegex.test(location.href)) {
   var node =
       document.querySelector('.thread-question a.user-info-display-name');
   if (node !== null)
-    getOptionsAndHandleIndicators(node, false);
-  else
-    console.error('[opindicator] Couldn\'t find username.');
+    getOptionsAndHandleIndicators(node, UI_TW_LEGACY);
+  else {
+    // The user might be using the redesigned thread page.
+    var node = document.querySelector(
+        'sc-tailwind-thread-question-question-card ' +
+        'sc-tailwind-thread-post_header-user-info ' +
+        '.scTailwindThreadPost_headerUserinfoname a');
+    if (node !== null)
+      getOptionsAndHandleIndicators(node, UI_TW_INTEROP);
+    else
+      console.error('[opindicator] Couldn\'t find username.');
+  }
 }
