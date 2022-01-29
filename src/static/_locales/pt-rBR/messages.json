@@ -143,6 +143,18 @@
     "message": "Não permita que os servidores do Google saibam o que estou digitando no Community Console.",
     "description": "Feature checkbox in the options page"
   },
+  "options_workflows": {
+    "message": "Habilite o recurso de fluxos de trabalho.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_workflows_manage": {
+    "message": "Gerenciar fluxos de trabalho",
+    "description": "Button in the options page which opens the workflow management page."
+  },
+  "options_extrainfo": {
+    "message": "Mostre informações adicionais em tópicos, perfis e na lista de respostas automáticas.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Salvar",
     "description": "Button in the options page to save the settings"
@@ -266,6 +278,10 @@
   "inject_threadlistavatars_private_thread_indicator_label": {
     "message": "Por motivos técnicos, não podemos carregar os avatares de tópicos publicados em fóruns privados.",
     "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
+  },
+  "inject_workflows_menubtn": {
+    "message": "Executar um fluxo de trabalho...",
+    "description": "Tooltip of the icon shown above a thread or in thread lists when selecting multiple threads in the Community Console which lets the user show a menu with the worklofws they can run."
   },
   "actionbadge_permissions_requested": {
     "message": "Alguns recursos precisam de permissões adicionais para funcionar. Clique para corrigir.",
