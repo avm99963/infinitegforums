@@ -143,6 +143,22 @@
     "message": "Bloqueja l'enviament de les teves respostes mentre les escrius als servidors de Google a la Consola de la Comunitat.",
     "description": "Feature checkbox in the options page"
   },
+  "options_workflows": {
+    "message": "Activar la funció de fluxes de treball.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_workflows_manage": {
+    "message": "Configurar els fluxes de treball",
+    "description": "Button in the options page which opens the workflow management page."
+  },
+  "options_extrainfo": {
+    "message": "Mostra informació addicional als fils, perfils i la llista de respostes estàndard.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_perforumstats": {
+    "message": "Mostra la activitat separada per fòrums als perfils de la Consola de la Comunitat.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Desa",
     "description": "Button in the options page to save the settings"
@@ -266,6 +282,10 @@
   "inject_threadlistavatars_private_thread_indicator_label": {
     "message": "Degut a raons tècniques, no es poden carregar les fotos de perfil de fils publicats a fòrums privats.",
     "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
+  },
+  "inject_workflows_menubtn": {
+    "message": "Executa un flux de treball...",
+    "description": "Tooltip of the icon shown above a thread or in thread lists when selecting multiple threads in the Community Console which lets the user show a menu with the worklofws they can run."
   },
   "actionbadge_permissions_requested": {
     "message": "Algunes funcions necessiten permisos addicionals per funcionar. Fes clic per arreglar-lo.",
