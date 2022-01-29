@@ -1,0 +1,86 @@
+{
+  "appName": {
+    "message": "TW Power Tools",
+    "description": "The extension's name"
+  },
+  "appNameBeta": {
+    "message": "TW Power Tools (beta)",
+    "description": "The extension's name for the beta version"
+  },
+  "appNameGecko": {
+    "message": "TW Power Tools",
+    "description": "The extension's name (with a 50 character limit for Gecko)"
+  },
+  "options_experimental_label": {
+    "message": "(deneysel)",
+    "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
+  },
+  "options_history": {
+    "message": "Kullanıcı profillerinde \"önceki gönderiler\" bağlantısını göster.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_save": {
+    "message": "Kaydet",
+    "description": "Button in the options page to save the settings"
+  },
+  "options_saved": {
+    "message": "Kaydedildi",
+    "description": "Message which appears in the options page when the settings are saved"
+  },
+  "inject_links": {
+    "message": "Linkler",
+    "description": "Heading which we use before the 'previous post' link in a user profile in TW"
+  },
+  "inject_previousposts": {
+    "message": "Önceki gönderiler",
+    "description": "Link shown in a user profile (in TW) which points to a search showing the user's posts and messages"
+  },
+  "inject_previousposts_forum": {
+    "message": "Önceki gönderiler (bu forumda)",
+    "description": "Link shown in a user profile (in the Community Console) which points to a search showing the user's posts and messages in the current forum"
+  },
+  "inject_previousposts_all": {
+    "message": "Önceki gönderiler (tüm forumlarda)",
+    "description": "Link shown in a user profile (in the Community Console) which points to a search showing the user's posts and messages in all forums"
+  },
+  "inject_profileindicator_loading": {
+    "message": "Yükleniyor...",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_lockdialog_btn_lock": {
+    "message": "Kilitle",
+    "description": "Button in the 'lock/unlock threads' dialog."
+  },
+  "inject_lockdialog_btn_unlock": {
+    "message": "Kilidini aç",
+    "description": "Button in the 'lock/unlock threads' dialog."
+  },
+  "inject_lockdialog_btn_cancel": {
+    "message": "İptal et",
+    "description": "Button in the 'lock/unlock threads' dialog."
+  },
+  "inject_lockdialog_btn_close": {
+    "message": "Kapat",
+    "description": "Button in the 'lock/unlock threads' dialog."
+  },
+  "inject_lockdialog_log_entry_beginning": {
+    "message": "Konu $1",
+    "description": "First part of the entry in the log of the 'lock/unlock threads' dialog. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_lockdialog_log_entry_success_lock": {
+    "message": "Başarıyla kilitlendi.",
+    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_lockdialog_log_entry_error_lock": {
+    "message": "Kilitleme sırasında bir hata oluştu ($1).",
+    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *not* locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_lockdialog_log_entry_success_unlock": {
+    "message": "Kilidi başarıyla açıldı.",
+    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *un*locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_autorefresh_list_snackbar_action": {
+    "message": "Yenile",
+    "description": "Button shown in a snackbar asking users to refresh/reload the list to show the new threads."
+  }
+}
