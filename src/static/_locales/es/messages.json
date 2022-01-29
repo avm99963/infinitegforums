@@ -143,6 +143,22 @@
     "message": "Bloquea el envío de tus respuestas mientras las escribes a los servidores de Google en la Consola de la Comunidad.",
     "description": "Feature checkbox in the options page"
   },
+  "options_workflows": {
+    "message": "Activar la función de flujos de trabajo.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_workflows_manage": {
+    "message": "Configurar los flujos de trabajo",
+    "description": "Button in the options page which opens the workflow management page."
+  },
+  "options_extrainfo": {
+    "message": "Muestra información adicional en hilos, perfiles y la lista de respuestas enlatadas.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_perforumstats": {
+    "message": "Muestra la actividad separada por foros en los perfiles de la Consola de la Comunidad.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Guardar",
     "description": "Button in the options page to save the settings"
@@ -266,6 +282,10 @@
   "inject_threadlistavatars_private_thread_indicator_label": {
     "message": "Debido a razones técnicas, no se pueden cargar las fotos de perfil de hilos publicados en foros privados.",
     "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
+  },
+  "inject_workflows_menubtn": {
+    "message": "Ejecuta un flujo de trabajo...",
+    "description": "Tooltip of the icon shown above a thread or in thread lists when selecting multiple threads in the Community Console which lets the user show a menu with the worklofws they can run."
   },
   "actionbadge_permissions_requested": {
     "message": "Algunas funciones necesitan permisos adicionales para funcionar. Haz clic para arreglarlo.",
