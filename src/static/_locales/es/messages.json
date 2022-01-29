@@ -287,6 +287,112 @@
     "message": "Ejecuta un flujo de trabajo...",
     "description": "Tooltip of the icon shown above a thread or in thread lists when selecting multiple threads in the Community Console which lets the user show a menu with the worklofws they can run."
   },
+  "inject_perforumstats_heading": {
+    "message": "Actividad por foro",
+    "description": "Heading of the section with the per-forum activity stacked bars graph showing the number of questions, replies and recommended answers each month."
+  },
+  "inject_perforumstats_forumoption_1helper": {
+    "message": "$forumName$ ($helper1$)",
+    "description": "In the selector where the user can select the forum shown in the graph, one such option. $helper1$ will usually be the number of messages posted by the user in that forum.",
+    "placeholders": {
+      "forumName": {
+        "content": "$1",
+        "example": "Google Chrome"
+      },
+      "helper1": {
+        "content": "$2",
+        "example": "963 messages"
+      }
+    }
+  },
+  "inject_perforumstats_forumoption_2helpers": {
+    "message": "$forumName$ ($helper1$, $helper2$)",
+    "description": "In the selector where the user can select the forum shown in the graph, one such option. $helper1$ will be the number of messages posted by the user in that forum, and $helper2$ will be the badge awarded to the user in that forum.",
+    "placeholders": {
+      "forumName": {
+        "content": "$1",
+        "example": "Google Chrome"
+      },
+      "helper1": {
+        "content": "$2",
+        "example": "963 messages"
+      },
+      "helper2": {
+        "content": "$3",
+        "example": "gold"
+      }
+    }
+  },
+  "inject_perforumstats_nummessages_singular": {
+    "message": "1 mensaje",
+    "description": "Annotation shown in the forum selector which states how many messages have been published by a user in a forum (singular variant)."
+  },
+  "inject_perforumstats_nummessages_plural": {
+    "message": "$num$ mensajes",
+    "description": "Annotation shown in the forum selector which states how many messages have been published by a user in a forum (plural variant).",
+    "placeholders": {
+      "num": {
+        "content": "$1",
+        "example": "963"
+      }
+    }
+  },
+  "inject_perforumstats_role_bronze": {
+    "message": "bronce",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_silver": {
+    "message": "plata",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_gold": {
+    "message": "oro",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_platinum": {
+    "message": "platino",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_diamond": {
+    "message": "diamante",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_community_manager": {
+    "message": "CM",
+    "description": "Role that a user can have in the forums (short for community manager)."
+  },
+  "inject_perforumstats_role_community_specialist": {
+    "message": "especialista",
+    "description": "Role that a user can have in the forums (short for community specialist)."
+  },
+  "inject_perforumstats_role_google_employee": {
+    "message": "Googler",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_alumnus": {
+    "message": "antiguo EP",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_optgroup_notposted": {
+    "message": "No ha publicado en los últimos 12 meses",
+    "description": "Label showed above the forums for which the user hasn't posted in the last 12 months, in the forum selector list."
+  },
+  "inject_perforumstats_chart_label": {
+    "message": "Gráfico de actividad del usuario",
+    "description": "Label for the chart for accessibility purposes (e.g. users with screen-readers)."
+  },
+  "inject_perforumstats_chart_recommended": {
+    "message": "Recomendadas",
+    "description": "Label shown in the legend of the per-forum activity chart."
+  },
+  "inject_perforumstats_chart_replies": {
+    "message": "Respuestas (no recomendadas)",
+    "description": "Label shown in the legend of the per-forum activity chart."
+  },
+  "inject_perforumstats_chart_questions": {
+    "message": "Preguntas",
+    "description": "Label shown in the legend of the per-forum activity chart."
+  },
   "actionbadge_permissions_requested": {
     "message": "Algunas funciones necesitan permisos adicionales para funcionar. Haz clic para arreglarlo.",
     "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."
