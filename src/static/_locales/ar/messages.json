@@ -151,6 +151,14 @@
     "message": "إدارة سير العمل",
     "description": "Button in the options page which opens the workflow management page."
   },
+  "options_extrainfo": {
+    "message": "عرض معلومات إضافية في الملصقات، الملفات الشخصية وقائمة الردود الجاهزة.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_perforumstats": {
+    "message": "إظهار النشاط حسب كل منتدى في الملفات الشّخصية في وحدة التحكم في المجتمع.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "حفظ",
     "description": "Button in the options page to save the settings"
@@ -278,6 +286,80 @@
   "inject_workflows_menubtn": {
     "message": "تشغيل سير عمل...",
     "description": "Tooltip of the icon shown above a thread or in thread lists when selecting multiple threads in the Community Console which lets the user show a menu with the worklofws they can run."
+  },
+  "inject_perforumstats_heading": {
+    "message": "النّشاط بحسب المنتدى",
+    "description": "Heading of the section with the per-forum activity stacked bars graph showing the number of questions, replies and recommended answers each month."
+  },
+  "inject_perforumstats_nummessages_singular": {
+    "message": "1 رسالة",
+    "description": "Annotation shown in the forum selector which states how many messages have been published by a user in a forum (singular variant)."
+  },
+  "inject_perforumstats_nummessages_plural": {
+    "message": "$num من الرسائل",
+    "description": "Annotation shown in the forum selector which states how many messages have been published by a user in a forum (plural variant).",
+    "placeholders": {
+      "num": {
+        "content": "$1",
+        "example": "963"
+      }
+    }
+  },
+  "inject_perforumstats_role_bronze": {
+    "message": "برونزي",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_silver": {
+    "message": "فضّي",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_gold": {
+    "message": "ذهبي",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_platinum": {
+    "message": "بلاتيني",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_diamond": {
+    "message": "ماسي",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_community_manager": {
+    "message": "مدير منتدى",
+    "description": "Role that a user can have in the forums (short for community manager)."
+  },
+  "inject_perforumstats_role_community_specialist": {
+    "message": "اختصاصي",
+    "description": "Role that a user can have in the forums (short for community specialist)."
+  },
+  "inject_perforumstats_role_google_employee": {
+    "message": "موظّف Google",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_alumnus": {
+    "message": "متخرِّج",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_optgroup_notposted": {
+    "message": "لم يتمّ النّشر في آخر 12 شهرا",
+    "description": "Label showed above the forums for which the user hasn't posted in the last 12 months, in the forum selector list."
+  },
+  "inject_perforumstats_chart_label": {
+    "message": "مخطط نشاط المستخدم",
+    "description": "Label for the chart for accessibility purposes (e.g. users with screen-readers)."
+  },
+  "inject_perforumstats_chart_recommended": {
+    "message": "مقترَحة",
+    "description": "Label shown in the legend of the per-forum activity chart."
+  },
+  "inject_perforumstats_chart_replies": {
+    "message": "ردود (غير مُقتَرَحة)",
+    "description": "Label shown in the legend of the per-forum activity chart."
+  },
+  "inject_perforumstats_chart_questions": {
+    "message": "أسئلة",
+    "description": "Label shown in the legend of the per-forum activity chart."
   },
   "actionbadge_permissions_requested": {
     "message": "تحتاج بعض الميزات إلى أذونات إضافية للعمل. يلزم النّقر لإصلاحها.",
