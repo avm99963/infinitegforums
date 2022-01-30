@@ -20,4 +20,11 @@ perform some more steps.
 ## Mac-specific configuration
 On a Mac, you must also follow these steps:
 
-TODO(Issue #18): add macOS steps
+1. [Install Brew](https://brew.sh/) if not installed already.
+1. Use Brew to install the following packages: `bash`, `gnu-getopt`, and
+`gnu-sed`. Basically we want to get an updated bash version, an updated version
+of the `getopt` command, and the GNU version of `sed`.
+1. Set Brew's bash as the default shell (or just make sure to use Brew's bash
+when compiling the extension).
+1. Include the directories where `getopt` and `gnu-sed` were installed to
+`$PATH`.
