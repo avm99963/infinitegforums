@@ -611,28 +611,28 @@ ec-thread-composer material-drawer material-radio .radio-description,
 
 /* Chart in the profile view */
 ec-user bar-chart .axis text,
-    ec-unified-user sc-tailwind-shared-activity-chart .axis text {
+    ec-unified-user .scTailwindSharedActivitychartchart .axis text {
   fill: rgba(255, 255, 255, .54)!important;
 }
 
 ec-user bar-chart .axis path,
     ec-user bar-chart .axis .gridline,
     ec-user bar-chart .axis line,
-    ec-unified-user sc-tailwind-shared-activity-chart .axis path,
-    ec-unified-user sc-tailwind-shared-activity-chart .axis .gridline,
-    ec-unified-user sc-tailwind-shared-activity-chart .axis line {
+    ec-unified-user .scTailwindSharedActivitychartchart .axis path,
+    ec-unified-user .scTailwindSharedActivitychartchart .axis .gridline,
+    ec-unified-user .scTailwindSharedActivitychartchart .axis line {
   stroke: rgba(255, 255, 255, .12)!important;
 }
 
 ec-user bar-chart .axis line.axis-zero-tick,
     ec-user bar-chart .axis.x .tick-mark,
-    ec-unified-user sc-tailwind-shared-activity-chart .axis line.axis-zero-tick,
-    ec-unified-user sc-tailwind-shared-activity-chart .axis.x .tick-mark {
+    ec-unified-user .scTailwindSharedActivitychartchart .axis line.axis-zero-tick,
+    ec-unified-user .scTailwindSharedActivitychartchart .axis.x .tick-mark {
   stroke: rgba(255, 255, 255, .38)!important;
 }
 
 ec-user bar-chart .aplos-legend-entry,
-    ec-unified-user sc-tailwind-shared-activity-chart .aplos-legend-entry {
+    ec-unified-user .scTailwindSharedActivitychartchart .aplos-legend-entry {
   color: var(--TWPT-secondary-text)!important;
 }
 
