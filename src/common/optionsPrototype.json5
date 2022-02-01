@@ -119,6 +119,11 @@
     killSwitchType: 'option',
   },
   // #!endif
+  'perforumstats': {
+    defaultValue: false,
+    context: 'options',
+    killSwitchType: 'option',
+  },
 
   // Experiments:
   'workflows': {
@@ -127,11 +132,6 @@
     killSwitchType: 'experiment',
   },
   'extrainfo': {
-    defaultValue: false,
-    context: 'experiments',
-    killSwitchType: 'experiment',
-  },
-  'perforumstats': {
     defaultValue: false,
     context: 'experiments',
     killSwitchType: 'experiment',

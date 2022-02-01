@@ -209,6 +209,14 @@ attempted to be recovered or not.
 This option blocks all these requests to save/delete/retrieve draft messages, so
 the feature is effectively disabled.
 
+### Per-forum activity in profiles
+> **Option name:** _Show per-forum activity in profiles in the Community
+Console._
+
+An image is worth a thousand words:
+
+![Animated GIF showing the feature](resources/per_forum_activity_chart.gif)
+
 ## Indicator dot
 > **Option names:** _Show whether the OP has participated in other threads_,
 _Show the number of questions and replies written by the OP within the last `n`

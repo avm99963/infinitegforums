@@ -222,6 +222,14 @@ que cambia la _flag_ es si el borrador guardado se intenta recuperar o no.
 Esta opción bloquea todas estas peticiones de red para guardar, eliminar y
 recuperar borradores para que la función esté efectivamente desactivada.
 
+### Actividad separada por foros en perfiles
+> **Option name:** _Muestra la actividad separada por foros en los perfiles de
+la Consola de la Comunidad._
+
+Una imagen vale más que mil palabras:
+
+![Animated GIF showing the feature](resources/per_forum_activity_chart.gif)
+
 ## Punto indicador
 > **Opciones:** _Muestra si el autor del hilo ha participado en otros hilos_,
 _Muestra el número de preguntas y respuestas escritas por el autor del hilo
