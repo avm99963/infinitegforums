@@ -109,12 +109,21 @@ ec-canned-response-row .TWPT-content span[aria-describedby] {
 
 /* Per-forum stats section */
 .TWPT-scTailwindSharedActivitychartroot .scTailwindSharedActivitychartchart {
-  margin-top: 18px;
+  margin-top: 26px;
+}
+
+.TWPT-scTailwindSharedActivitychartroot .scTailwindSharedActivitycharttitle {
+  display: flex;
+  align-items: center;
+}
+
+.TWPT-scTailwindSharedActivitychartroot .scTailwindSharedActivitycharttitle .TWPT-badge {
+  margin-right: 6px;
 }
 
 .TWPT-scTailwindSharedActivitychartroot .TWPT-select-container {
   position: absolute;
-  top: 48px;
+  top: 56px;
   z-index: 2;
 }
 

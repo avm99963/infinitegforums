@@ -1,3 +1,7 @@
+import {MDCTooltip} from '@material/tooltip';
+
+import {createExtBadge} from './common.js';
+
 // Each entry includes the following information in order:
 // - ID
 // - Codename
@@ -73,7 +77,12 @@ export default class PerForumStatsSection {
 
     let title = document.createElement('h2');
     title.classList.add('scTailwindSharedActivitycharttitle');
-    title.textContent = chrome.i18n.getMessage('inject_perforumstats_heading');
+
+    const [badge, badgeTooltip] = createExtBadge();
+    let titleText = document.createElement('span');
+    titleText.textContent = chrome.i18n.getMessage('inject_perforumstats_heading');
+
+    title.append(badge, titleText);
 
     let selector = this.createForumSelector();
 
@@ -84,6 +93,7 @@ export default class PerForumStatsSection {
     root.append(title, selector, chartEl);
     section.append(root);
     existingChartSection.after(section);
+    new MDCTooltip(badgeTooltip);
   }
 
   getAplosData(forumId) {
