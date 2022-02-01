@@ -123,6 +123,9 @@
     "service_worker": "bg.bundle.js"
 #endif
   },
+#if defined(CHROMIUM || CHROMIUM_MV3)
+  "minimum_chrome_version": "96",
+#endif
 #if defined(GECKO)
   "browser_specific_settings": {
     "gecko": {
