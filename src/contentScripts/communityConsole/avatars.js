@@ -82,8 +82,10 @@ export default class AvatarsHandler {
 
   // Get an object with the author of the thread, an array of the first |num|
   // replies from the thread |thread|, and additional information about the
-  // thread. It also returns whether the thread is private, in which case the
-  // previous properties will be missing.
+  // thread.
+  //
+  // It also returns |state| which can be 'ok', 'private' or 'notVisible'. If it
+  // is 'private' or 'notVisible', the previous properties will be missing.
   getFirstMessages(thread, num = 15) {
     return CCApi(
                'ViewThread', {
@@ -115,16 +117,23 @@ export default class AvatarsHandler {
           if (response.unauthorized)
             return this.db.putUnauthorizedForum(thread.forum).then(() => {
               return {
-                isPrivate: true,
+                state: 'private',
               };
             });
 
           var data = response.body;
 
           var numMessages = data?.['1']?.['8'];
-          if (numMessages === undefined)
-            throw new Error(
-                'Request to view thread doesn\'t include the number of messages');
+          if (numMessages === undefined) {
+            if (data?.['1']?.['10'] === false) {
+              return {
+                state: 'notVisible',
+              };
+            } else {
+              throw new Error(
+                  'Request to view thread doesn\'t include the number of messages');
+            }
+          }
 
           var messages = numMessages == 0 ? [] : data?.['1']['3'];
           if (messages === undefined)
@@ -138,7 +147,7 @@ export default class AvatarsHandler {
                 'Author isn\'t included in the ViewThread response.');
 
           return {
-            isPrivate: false,
+            state: 'ok',
             messages,
             author,
 
@@ -151,14 +160,15 @@ export default class AvatarsHandler {
   }
 
   // Get the following data:
-  // - |isPrivate|: whether the thread is private.
+  // - |state|: the state of the request (can be 'ok', 'private' or
+  // 'notVisible').
   // - |avatars|: a list of at most |num| avatars for thread |thread| by calling
-  // the API, if |isPrivate| is false.
+  // the API, if |state| is 'ok'.
   getVisibleAvatarsFromServer(thread, num) {
     return this.getFirstMessages(thread).then(result => {
-      if (result.isPrivate)
+      if (result.state != 'ok')
         return {
-          isPrivate: true,
+          state: result.state,
         };
 
       var messages = result.messages;
@@ -189,7 +199,7 @@ export default class AvatarsHandler {
         });
 
       return {
-        isPrivate: false,
+        state: 'ok',
         avatars: avatarUrls,
       };
     });
@@ -260,8 +270,9 @@ export default class AvatarsHandler {
   }
 
   // Get an object with the following data:
-  // - |state|: 'ok' (the avatars list could be retrieved) or 'private' (the
-  // thread is private, so the avatars list could not be retrieved).
+  // - |state|: 'ok' (the avatars list could be retrieved), 'private' (the
+  // thread is in a private forum, so the avatars list could not be retrieved),
+  // or 'notVisible' (the thread has the visible field set to false).
   // - |avatars|: list of at most |num| avatars for thread |thread|
   getVisibleAvatars(thread, num = 3) {
     return this.isPrivateThread(thread).then(isPrivate => {
@@ -292,9 +303,9 @@ export default class AvatarsHandler {
                   err);
 
             return this.getVisibleAvatarsFromServer(thread, num).then(res => {
-              if (res.isPrivate)
+              if (res.state != 'ok')
                 return {
-                  state: 'private',
+                  state: res.state,
                   avatars: [],
                 };
 
@@ -331,10 +342,11 @@ export default class AvatarsHandler {
           var avatarUrls = res.avatars;
 
           let singleAvatar;
-          if (res.state == 'private') {
+          if (res.state == 'private' || res.state == 'notVisible') {
             singleAvatar = document.createElement('div');
             singleAvatar.classList.add('TWPT-avatar-private-placeholder');
-            singleAvatar.textContent = 'person_off';
+            singleAvatar.textContent =
+                (res.state == 'private' ? 'person_off' : 'visibility_off');
             avatarsContainer.appendChild(singleAvatar);
           } else {
             for (var i = 0; i < avatarUrls.length; ++i) {
@@ -350,6 +362,11 @@ export default class AvatarsHandler {
           if (res.state == 'private') {
             var label = chrome.i18n.getMessage(
                 'inject_threadlistavatars_private_thread_indicator_label');
+            createPlainTooltip(singleAvatar, label);
+          }
+          if (res.state == 'notVisible') {
+            var label = chrome.i18n.getMessage(
+                'inject_threadlistavatars_invisible_thread_indicator_label');
             createPlainTooltip(singleAvatar, label);
           }
         })
