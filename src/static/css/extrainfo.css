@@ -59,6 +59,12 @@ ec-message .footer .TWPT-extrainfo-info-cell {
   padding-inline-start: 6px;
 }
 
+ec-thread-summary .main .toolbelt .TWPT-extrainfo-container {
+  margin-inline-start: 115px;
+  margin-bottom: 16px;
+  font-size: 12px;
+}
+
 /* Special styles for good/bad labels */
 .TWPT-extrainfo-good {
   color: var(--TWPT-good-text, green)!important;
@@ -107,6 +113,19 @@ ec-canned-response-row .TWPT-content span[aria-describedby] {
   cursor: help;
 }
 
+/* Special component for the thread list */
+ec-thread-summary .header-content .TWPT-label {
+  display: flex;
+  align-items: center;
+  padding-inline-end: 10px;
+  font-weight: 500;
+}
+
+ec-thread-summary .header-content .TWPT-label .TWPT-badge {
+  --icon-size: 9.5px;
+  margin-right: 2px;
+}
+
 /* Per-forum stats section */
 .TWPT-scTailwindSharedActivitychartroot .scTailwindSharedActivitychartchart {
   margin-top: 26px;
@@ -118,7 +137,7 @@ ec-canned-response-row .TWPT-content span[aria-describedby] {
 }
 
 .TWPT-scTailwindSharedActivitychartroot .scTailwindSharedActivitycharttitle .TWPT-badge {
-  margin-right: 6px;
+  margin-inline-end: 6px;
 }
 
 .TWPT-scTailwindSharedActivitychartroot .TWPT-select-container {

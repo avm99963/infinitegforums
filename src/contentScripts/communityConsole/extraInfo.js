@@ -11,6 +11,7 @@ import PerForumStatsSection from './utils/PerForumStatsSection.js';
 const kViewUnifiedUserResponseEvent = 'TWPT_ViewUnifiedUserResponse';
 const kListCannedResponsesResponse = 'TWPT_ListCannedResponsesResponse';
 const kViewThreadResponse = 'TWPT_ViewThreadResponse';
+const kViewForumResponse = 'TWPT_ViewForumResponse';
 
 const kAbuseCategories = [
   ['1', 'Account'],
@@ -187,6 +188,9 @@ export default class ExtraInfo {
       id: -1,
       timestamp: 0,
     };
+    this.lastThreadList = null;
+    this.lastThreadListTimestamp = 0;
+    this.lastThreadListRequestId = -1;
     this.displayLanguage = getDisplayLanguage();
     this.optionsWatcher = new OptionsWatcher(['extrainfo', 'perforumstats']);
     this.setUpHandlers();
@@ -226,6 +230,21 @@ export default class ExtraInfo {
         id: e.detail.id,
         timestamp: Date.now(),
       };
+    });
+    window.addEventListener(kViewThreadResponse, e => {
+      if (e.detail.id < this.lastThread.id) return;
+
+      this.lastThread = {
+        body: e.detail.body,
+        id: e.detail.id,
+        timestamp: Date.now(),
+      };
+    });
+    window.addEventListener(kViewForumResponse, e => {
+      if (e.detail.id < this.lastThreadListRequestId) return;
+
+      this.lastThreadList = e.detail.body;
+      this.lastThreadListTimestamp = Date.now();
     });
   }
 
@@ -489,12 +508,53 @@ export default class ExtraInfo {
     return [a, liveReviewTooltip];
   }
 
+  // Get an |info| array with the info related to the thread, and a |tooltips|
+  // array with the corresponding tooltips which should be initialized after the
+  // info is added to the DOM.
+  //
+  // This is used by the injectAtQuestion() and injectAtThreadList() functions.
+  getThreadInfo(thread) {
+    let info = [];
+    let tooltips = [];
+
+    const endPendingStateTimestampMicros = thread?.['2']?.['39'];
+    const [pendingStateInfo, pendingTooltip] =
+        this.getPendingStateInfo(endPendingStateTimestampMicros);
+    if (pendingStateInfo) info.push(pendingStateInfo);
+    if (pendingTooltip) tooltips.push(pendingTooltip);
+
+    const isTrending = thread?.['2']?.['25'];
+    const isTrendingAutoMarked = thread?.['39'];
+    if (isTrendingAutoMarked)
+      info.push(document.createTextNode('Automatically marked as trending'));
+    else if (isTrending)
+      info.push(document.createTextNode('Trending'));
+
+    const itemMetadata = thread?.['2']?.['12'];
+    const mdInfo = this.getMetadataInfo(itemMetadata);
+    info.push(...mdInfo);
+
+    const liveReviewStatus = thread?.['2']?.['38'];
+    const [liveReviewInfo, liveReviewTooltip] =
+        this.getLiveReviewStatusInfo(liveReviewStatus);
+    if (liveReviewInfo) info.push(liveReviewInfo);
+    if (liveReviewTooltip) tooltips.push(liveReviewTooltip);
+
+    return [info, tooltips];
+  }
+
   injectAtQuestion(question) {
     let currentPage = parseUrl(location.href);
-    if (currentPage === false) return;
+    if (currentPage === false) {
+      console.error('extraInfo: couldn\'t parse current URL:', location.href);
+      return;
+    }
 
     let content = question.querySelector('ec-question > .content');
-    if (!content) return;
+    if (!content) {
+      console.error('extraInfo: question doesn\'t have .content:', messageNode);
+      return;
+    }
 
     waitFor(
         () => {
@@ -512,34 +572,9 @@ export default class ExtraInfo {
           timeout: 30 * 1000,
         })
         .then(thread => {
-          let info = [];
-
-          const endPendingStateTimestampMicros =
-              thread.body['1']?.['2']?.['39'];
-          const [pendingStateInfo, pendingTooltip] =
-              this.getPendingStateInfo(endPendingStateTimestampMicros);
-          if (pendingStateInfo) info.push(pendingStateInfo);
-
-          const isTrending = thread.body['1']?.['2']?.['25'];
-          const isTrendingAutoMarked = thread.body['1']?.['39'];
-          if (isTrendingAutoMarked)
-            info.push(
-                document.createTextNode('Automatically marked as trending'));
-          else if (isTrending)
-            info.push(document.createTextNode('Trending'));
-
-          const itemMetadata = thread.body['1']?.['2']?.['12'];
-          const mdInfo = this.getMetadataInfo(itemMetadata);
-          info.push(...mdInfo);
-
-          const liveReviewStatus = thread.body['1']?.['2']?.['38'];
-          const [liveReviewInfo, liveReviewTooltip] =
-              this.getLiveReviewStatusInfo(liveReviewStatus);
-          if (liveReviewInfo) info.push(liveReviewInfo);
-
+          const [info, tooltips] = this.getThreadInfo(thread.body?.['1']);
           this.addExtraInfoElement(info, content);
-          if (pendingTooltip) new MDCTooltip(pendingTooltip);
-          if (liveReviewTooltip) new MDCTooltip(liveReviewTooltip);
+          for (const tooltip of tooltips) new MDCTooltip(tooltip);
         })
         .catch(err => {
           console.error(
@@ -699,6 +734,122 @@ export default class ExtraInfo {
   injectAtMessageIfEnabled(message) {
     this.isEnabled('extrainfo').then(isEnabled => {
       if (isEnabled) return this.injectAtMessage(message);
+    });
+  }
+
+  /**
+   * Thread list functionality
+   */
+  injectAtThreadList(li) {
+    waitFor(
+        () => {
+          const header = li.querySelector(
+              'ec-thread-summary .main-header .panel-description a.header');
+          if (header === null) {
+            console.error(
+                'extraInfo: Header is not present in the thread item\'s DOM.');
+            return;
+          }
+
+          const threadInfo = parseUrl(header.href);
+          if (threadInfo === false) {
+            console.error('extraInfo: Thread\'s link cannot be parsed.');
+            return;
+          }
+
+          let authorLine = li.querySelector(
+              'ec-thread-summary .header-content .top-row .author-line');
+          if (!authorLine) {
+            console.error(
+                'extraInfo: Author line is not present in the thread item\'s DOM.');
+            return;
+          }
+
+          let thread = this.lastThreadList?.['1']?.['2']?.find?.(t => {
+            return t?.['2']?.['1']?.['1'] == threadInfo.thread &&
+                t?.['2']?.['1']?.['3'] == threadInfo.forum;
+          });
+          if (thread) return Promise.resolve([thread, authorLine]);
+          return Promise.reject(
+              new Error('Didn\'t receive thread information'));
+        },
+        {
+          interval: 500,
+          timeout: 7 * 1000,
+        })
+        .then(response => {
+          const [thread, authorLine] = response;
+          const state = thread?.['2']?.['12']?.['1'];
+          if (state && ![1, 13, 18, 9].includes(state)) {
+            let label = document.createElement('div');
+            label.classList.add('TWPT-label');
+
+            const [badge, badgeTooltip] = createExtBadge();
+
+            let span = document.createElement('span');
+            span.textContent = kItemMetadataState[state] ?? 'State ' + state;
+
+            label.append(badge, span);
+            authorLine.prepend(label);
+            new MDCTooltip(badgeTooltip);
+          }
+        })
+        .catch(err => {
+          console.error(
+              'extraInfo: error while injecting thread list extra info: ', err);
+        });
+  }
+
+  injectAtThreadListIfEnabled(li) {
+    this.isEnabled('extrainfo').then(isEnabled => {
+      if (isEnabled) this.injectAtThreadList(li);
+    });
+  }
+
+  injectAtExpandedThreadList(toolbelt) {
+    const header =
+        toolbelt?.parentNode?.parentNode?.parentNode?.querySelector?.(
+            '.main-header .panel-description a.header');
+    if (header === null) {
+      console.error(
+          'extraInfo: Header is not present in the thread item\'s DOM.');
+      return;
+    }
+
+    const threadInfo = parseUrl(header.href);
+    if (threadInfo === false) {
+      console.error('extraInfo: Thread\'s link cannot be parsed.');
+      return;
+    }
+
+    waitFor(
+        () => {
+          let thread = this.lastThreadList?.['1']?.['2']?.find?.(t => {
+            return t?.['2']?.['1']?.['1'] == threadInfo.thread &&
+                t?.['2']?.['1']?.['3'] == threadInfo.forum;
+          });
+          if (thread) return Promise.resolve(thread);
+          return Promise.reject(
+              new Error('Didn\'t receive thread information'));
+        },
+        {
+          interval: 500,
+          timeout: 7 * 1000,
+        })
+        .then(thread => {
+          const [info, tooltips] = this.getThreadInfo(thread);
+          this.addExtraInfoElement(info, toolbelt);
+          for (const tooltip of tooltips) new MDCTooltip(tooltip);
+        })
+        .catch(err => {
+          console.error(
+              'extraInfo: error while injecting thread list extra info: ', err);
+        });
+  }
+
+  injectAtExpandedThreadListIfEnabled(toolbelt) {
+    this.isEnabled('extrainfo').then(isEnabled => {
+      if (isEnabled) this.injectAtExpandedThreadList(toolbelt);
     });
   }
 

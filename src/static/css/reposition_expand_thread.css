@@ -17,3 +17,7 @@ ec-thread-list ec-bulk-actions .selection {
 ec-thread-summary .panel .main .content-wrapper > .content > .content {
   padding-inline: 121px 8px;
 }
+
+ec-thread-summary .main .toolbelt .TWPT-extrainfo-container {
+  margin-inline-start: 145px!important;
+}

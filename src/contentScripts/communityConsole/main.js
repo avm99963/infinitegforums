@@ -40,8 +40,11 @@ const watchedNodesSelectors = [
   'ec-bulk-actions material-button[debugid="mark-read-button"]',
   'ec-bulk-actions material-button[debugid="mark-unread-button"]',
 
-  // Thread list items (used to inject the avatars)
+  // Thread list items (used to inject the avatars and extra info)
   'li',
+
+  // Thread list item toolbelt (used for the extra info feature)
+  'ec-thread-summary .main .toolbelt',
 
   // Thread list (used for the autorefresh feature)
   'ec-thread-list',
@@ -132,9 +135,17 @@ function handleCandidateNode(node) {
     // Inject avatar links to threads in the thread list. injectIfEnabled is
     // responsible of determining whether it should run or not depending on its
     // current setting.
+    //
+    // Also, inject extra info in the thread list.
     if (('tagName' in node) && (node.tagName == 'LI') &&
         node.querySelector('ec-thread-summary') !== null) {
       avatars.injectIfEnabled(node);
+      window.TWPTExtraInfo.injectAtThreadListIfEnabled(node);
+    }
+
+    // Inject extra info in the toolbelt of an expanded thread list item.
+    if (node.matches('ec-thread-summary .main .toolbelt')) {
+      window.TWPTExtraInfo.injectAtExpandedThreadListIfEnabled(node);
     }
 
     // Set up the autorefresh list feature. The setUp function is responsible
@@ -212,7 +223,7 @@ getOptions(null).then(items => {
   infiniteScroll = new InfiniteScroll();
   workflows = new Workflows();
 
-  // autoRefresh is initialized in start.js
+  // autoRefresh and extraInfo are initialized in start.js
 
   // Before starting the mutation Observer, check whether we missed any
   // mutations by manually checking whether some watched nodes already
