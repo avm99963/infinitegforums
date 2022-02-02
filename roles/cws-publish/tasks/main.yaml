@@ -33,7 +33,7 @@
     cmd: |
       set -o pipefail
       chrome-webstore-upload upload --auto-publish --extension-id {{ extension_id }} \
-          --source {{ zip_file.stdout|quote }} \
+          --trusted-testers --source {{ zip_file.stdout|quote }} \
           --client-id {{ credentials.clientId|quote }} \
           --refresh-token {{ credentials.refreshToken|quote }} \
           2>&1 | tee cws-log.txt
