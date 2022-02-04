@@ -253,32 +253,48 @@ export default class ExtraInfo {
     return this.optionsWatcher.isEnabled(feature);
   }
 
-  // Add a pretty component which contains |info| to |node|.
-  addExtraInfoElement(info, node) {
+  // Add chips which contain |info| to |node|. If |withContainer| is set to
+  // true, a container will contain all the chips.
+  addExtraInfoElement(info, node, withContainer = false) {
     // Don't create if there's nothing to show
     if (info.length == 0) return;
 
-    let container = document.createElement('div');
-    container.classList.add('TWPT-extrainfo-container');
-
-    let badgeCell = document.createElement('div');
-    badgeCell.classList.add('TWPT-extrainfo-badge-cell');
-
-    const [badge, badgeTooltip] = createExtBadge();
-    badgeCell.append(badge);
-
-    let infoCell = document.createElement('div');
-    infoCell.classList.add('TWPT-extrainfo-info-cell');
-
-    for (const i of info) {
-      let iRow = document.createElement('div');
-      iRow.append(i);
-      infoCell.append(iRow);
+    let container;
+    if (withContainer) {
+      container = document.createElement('div');
+      container.classList.add('TWPT-extrainfo-container');
+    } else {
+      container = node;
     }
 
-    container.append(badgeCell, infoCell);
-    node.append(container);
-    new MDCTooltip(badgeTooltip);
+    let tooltips = [];
+
+    for (const i of info) {
+      let chip = document.createElement('material-chip');
+      chip.classList.add('TWPT-extrainfo-chip');
+
+      let chipCont = document.createElement('div');
+      chipCont.classList.add('TWPT-chip-content-container');
+
+      let content = document.createElement('div');
+      content.classList.add('TWPT-content');
+
+      const [badge, badgeTooltip] = createExtBadge();
+
+      let span = document.createElement('span');
+      span.append(i);
+
+      content.append(badge, span);
+      chipCont.append(content);
+      chip.append(chipCont);
+      container.append(chip);
+
+      tooltips.push(badgeTooltip);
+    }
+
+    if (withContainer) node.append(container);
+
+    for (const tooltip of tooltips) new MDCTooltip(tooltip);
   }
 
   fieldInfo(field, value) {
@@ -334,7 +350,7 @@ export default class ExtraInfo {
           if (appealCount !== undefined)
             info.push(this.fieldInfo('Number of appeals', appealCount));
 
-          this.addExtraInfoElement(info, card);
+          this.addExtraInfoElement(info, card, true);
         })
         .catch(err => {
           console.error(
@@ -543,16 +559,10 @@ export default class ExtraInfo {
     return [info, tooltips];
   }
 
-  injectAtQuestion(question) {
+  injectAtQuestion(stateChips) {
     let currentPage = parseUrl(location.href);
     if (currentPage === false) {
       console.error('extraInfo: couldn\'t parse current URL:', location.href);
-      return;
-    }
-
-    let content = question.querySelector('ec-question > .content');
-    if (!content) {
-      console.error('extraInfo: question doesn\'t have .content:', messageNode);
       return;
     }
 
@@ -573,7 +583,7 @@ export default class ExtraInfo {
         })
         .then(thread => {
           const [info, tooltips] = this.getThreadInfo(thread.body?.['1']);
-          this.addExtraInfoElement(info, content);
+          this.addExtraInfoElement(info, stateChips, false);
           for (const tooltip of tooltips) new MDCTooltip(tooltip);
         })
         .catch(err => {
@@ -582,9 +592,9 @@ export default class ExtraInfo {
         });
   }
 
-  injectAtQuestionIfEnabled(question) {
+  injectAtQuestionIfEnabled(stateChips) {
     this.isEnabled('extrainfo').then(isEnabled => {
-      if (isEnabled) return this.injectAtQuestion(question);
+      if (isEnabled) return this.injectAtQuestion(stateChips);
     });
   }
 
@@ -721,7 +731,7 @@ export default class ExtraInfo {
               this.getLiveReviewStatusInfo(liveReviewStatus);
           if (liveReviewInfo) info.push(liveReviewInfo);
 
-          this.addExtraInfoElement(info, footer);
+          this.addExtraInfoElement(info, footer, true);
           if (pendingTooltip) new MDCTooltip(pendingTooltip);
           if (liveReviewTooltip) new MDCTooltip(liveReviewTooltip);
         })
@@ -838,7 +848,7 @@ export default class ExtraInfo {
         })
         .then(thread => {
           const [info, tooltips] = this.getThreadInfo(thread);
-          this.addExtraInfoElement(info, toolbelt);
+          this.addExtraInfoElement(info, toolbelt, true);
           for (const tooltip of tooltips) new MDCTooltip(tooltip);
         })
         .catch(err => {

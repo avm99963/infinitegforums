@@ -18,7 +18,9 @@
   --TWPT-blue-100: #BBDEFB;
   --TWPT-blue-A100: #82B1FF;
   --TWPT-bad-text: #f6aea9;
+  --TWPT-bad-text-lightbg: #ffc4c0;
   --TWPT-good-text: #34a853;
+  --TWPT-good-text-lightbg: #3cc160;
   --TWPT-interop-primary-text: var(--TWPT-primary-text);
   --TWPT-interop-secondary-text: #c4c7c5;
   --TWPT-interop-subtle-border: #474747;
@@ -407,14 +409,17 @@ ec-question .details-heading {
   color: var(--TWPT-primary-text-alt) !important;
 }
 
-ec-question .state-chips material-chip {
+ec-question .state-chips material-chip,
+    .TWPT-extrainfo-chip {
   background-color: var(--TWPT-button-background)!important;
+  border: none!important;
   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2),
       0 1px 1px 0 rgba(0, 0, 0, 0.14),
-      0 1px 3px 0 rgba(0, 0, 0, 0.12);
+      0 1px 3px 0 rgba(0, 0, 0, 0.12)!important;
 }
 
-ec-question .state-chips material-chip .content {
+ec-question .state-chips material-chip .content,
+    .TWPT-extrainfo-chip .TWPT-content {
   color: var(--TWPT-primary-text)!important;
 }
 

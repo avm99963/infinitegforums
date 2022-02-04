@@ -56,8 +56,8 @@ const watchedNodesSelectors = [
   'ec-canned-response-row .tags',
   'ec-canned-response-row .main .toolbelt',
 
-  // Div containing ec-question (for the extra info feature)
-  'ec-thread div[role="list"]',
+  // Question state chips container (for the extra info feature)
+  'ec-question .state-chips',
 
   // Replies (for the extra info feature)
   'ec-thread ec-message',
@@ -172,9 +172,8 @@ function handleCandidateNode(node) {
     }
 
     // Show additional details in the thread view.
-    if (node.matches('ec-thread div[role="list"]')) {
-      const question = node.querySelector('ec-question');
-      if (question) window.TWPTExtraInfo.injectAtQuestionIfEnabled(question);
+    if (node.matches('ec-question .state-chips')) {
+      window.TWPTExtraInfo.injectAtQuestionIfEnabled(node);
     }
     if (node.matches('ec-thread ec-message')) {
       window.TWPTExtraInfo.injectAtMessageIfEnabled(node);

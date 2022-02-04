@@ -1,25 +1,56 @@
 .TWPT-extrainfo-container {
-  display: inline-flex;
-  color: var(--TWPT-interop-secondary-text, #444746)!important;
-  align-items: center;
-}
-
-.TWPT-extrainfo-badge-cell {
-  margin: 0 8px;
-  --icon-size: 14px;
-  opacity: 0.4;
-}
-
-.TWPT-extrainfo-info-cell {
-  border-inline-start: solid 1px var(--TWPT-interop-subtle-border, #ababab);
-  padding-inline-start: 8px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.TWPT-extrainfo-info-cell > div:not(:last-child) {
-  margin-bottom: 2px;
+.TWPT-extrainfo-chip,
+    ec-canned-response-row .TWPT-tag {
+  background-color: transparent;
+  color: #474747;
+  border: 1px solid #ababab;
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
+  height: 32px;
+  overflow: hidden;
 }
+
+.TWPT-extrainfo-chip {
+  margin: 4px;
+}
+
+ec-canned-response-row .TWPT-tag {
+  margin: 0 0 0 4px;
+}
+
+.TWPT-extrainfo-chip .TWPT-chip-content-container,
+    ec-canned-response-row .TWPT-chip-content-container {
+  margin: 0 12px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.TWPT-extrainfo-chip .TWPT-content,
+    ec-canned-response-row .TWPT-content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  color: var(--TWPT-interop-secondary-text, #444746);
+}
+
+.TWPT-extrainfo-chip .TWPT-content .TWPT-badge,
+    ec-canned-response-row .TWPT-content .TWPT-badge {
+  --icon-size: 14px;
+  margin-inline-end: 6px;
+}
+
+.TWPT-extrainfo-chip .TWPT-content span[aria-describedby],
+    ec-canned-response-row .TWPT-content span[aria-describedby] {
+  cursor: help;
+}
+
 
 /* Specific styles inside context */
 
@@ -33,87 +64,51 @@ ec-unified-user .TWPT-extrainfo-container {
   align-self: end;
 }
 
-ec-question .TWPT-extrainfo-container,
-    ec-message .footer .TWPT-extrainfo-container {
+/* This modifies the CC styles */
+ec-question .state-chips {
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+ec-question .TWPT-extrainfo-chip,
+    ec-message .footer .TWPT-extrainfo-chip,
+    ec-thread-summary .main .toolbelt .TWPT-extrainfo-chip {
+  height: 30px;
+  font-size: 12px;
   color: var(--TWPT-secondary-text, #6c6c6c);
 }
 
-ec-question .TWPT-extrainfo-container {
-  font-size: 13px;
-  position: absolute;
-  bottom: 25px;
-  inset-inline-end: 48px;
+ec-question .TWPT-extrainfo-chip .TWPT-chip-content-container,
+    ec-message .footer .TWPT-extrainfo-chip .TWPT-chip-content-container,
+    ec-thread-summary .main .toolbelt .TWPT-extrainfo-chip .TWPT-chip-content-container {
+  margin: 0 10px 0 6px;
 }
 
 ec-message .footer .TWPT-extrainfo-container {
   margin-top: 8px;
-  font-size: 12px;
-}
-
-ec-message .footer .TWPT-extrainfo-badge-cell {
-  margin: 0 6px 0 0;
-  --icon-size: 12px;
-}
-
-ec-message .footer .TWPT-extrainfo-info-cell {
-  padding-inline-start: 6px;
 }
 
 ec-thread-summary .main .toolbelt .TWPT-extrainfo-container {
   margin-inline-start: 115px;
   margin-bottom: 16px;
-  font-size: 12px;
 }
+
 
 /* Special styles for good/bad labels */
 .TWPT-extrainfo-good {
-  color: var(--TWPT-good-text, green)!important;
+  color: var(--TWPT-good-text-lightbg, #198639)!important;
 }
 
 .TWPT-extrainfo-warning {
-  color: var(--TWPT-warning-text, orange)!important;
+  color: var(--TWPT-warning-text-lightbg, orange)!important;
 }
 
 .TWPT-extrainfo-bad {
-  color: var(--TWPT-bad-text, red)!important;
+  color: var(--TWPT-bad-text-lightbg, #d50000)!important;
 }
 
-/* Special tags components for canned responses */
-ec-canned-response-row .TWPT-tag {
-  background-color: transparent;
-  color: #474747;
-  margin: 0 0 0 4px;
-  border: 1px solid #ababab;
-  display: flex;
-  align-items: center;
-  border-radius: 16px;
-  height: 32px;
-  overflow: hidden;
-}
 
-ec-canned-response-row .TWPT-chip-content-container {
-  margin: 0 12px;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-ec-canned-response-row .TWPT-content {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: flex;
-  align-items: center;
-}
-
-ec-canned-response-row .TWPT-content .TWPT-badge {
-  --icon-size: 14px;
-  margin-inline-end: 6px;
-}
-
-ec-canned-response-row .TWPT-content span[aria-describedby] {
-  cursor: help;
-}
-
-/* Special component for the thread list */
+/* Special component for the thread list statuses */
 ec-thread-summary .header-content .TWPT-label {
   display: flex;
   align-items: center;
@@ -125,6 +120,7 @@ ec-thread-summary .header-content .TWPT-label .TWPT-badge {
   --icon-size: 9.5px;
   margin-right: 2px;
 }
+
 
 /* Per-forum stats section */
 .TWPT-scTailwindSharedActivitychartroot .scTailwindSharedActivitychartchart {
