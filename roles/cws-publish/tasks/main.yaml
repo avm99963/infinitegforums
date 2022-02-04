@@ -41,5 +41,9 @@
     executable: /bin/bash
   no_log: True
   register: uploadcmd
-  failed_when:
-    - "not (uploadcmd.rc == 0 or ('ITEM_NOT_UPDATABLE' in uploadcmd.stdout) or ('PKG_INVALID_VERSION_NUMBER') in uploadcmd.stdout)"
+  failed_when: false
+
+- name: Check whether the upload was successful
+  when: "not (dry_run|bool) and not (uploadcmd.rc == 0 or ('ITEM_NOT_UPDATABLE' in uploadcmd.stdout) or ('PKG_INVALID_VERSION_NUMBER') in uploadcmd.stdout)"
+  fail:
+    msg: "{{ uploadcmd.stdout }}"
