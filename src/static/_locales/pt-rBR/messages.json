@@ -155,6 +155,10 @@
     "message": "Mostre informações adicionais em tópicos, perfis e na lista de respostas automáticas.",
     "description": "Feature checkbox in the options page"
   },
+  "options_perforumstats": {
+    "message": "Mostrar a atividade por fórum nos perfis no Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Salvar",
     "description": "Button in the options page to save the settings"
@@ -279,9 +283,119 @@
     "message": "Por motivos técnicos, não podemos carregar os avatares de tópicos publicados em fóruns privados.",
     "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
   },
+  "inject_threadlistavatars_invisible_thread_indicator_label": {
+    "message": "Por motivos técnicos, não podemos carregar os avatares de tópicos não visíveis para usuários anônimos.",
+    "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
+  },
   "inject_workflows_menubtn": {
     "message": "Executar um fluxo de trabalho...",
     "description": "Tooltip of the icon shown above a thread or in thread lists when selecting multiple threads in the Community Console which lets the user show a menu with the worklofws they can run."
+  },
+  "inject_perforumstats_heading": {
+    "message": "Atividade por fórum",
+    "description": "Heading of the section with the per-forum activity stacked bars graph showing the number of questions, replies and recommended answers each month."
+  },
+  "inject_perforumstats_forumoption_1helper": {
+    "message": "$forumName$ ($helper1$)",
+    "description": "In the selector where the user can select the forum shown in the graph, one such option. $helper1$ will usually be the number of messages posted by the user in that forum.",
+    "placeholders": {
+      "forumName": {
+        "content": "$1",
+        "example": "Google Chrome"
+      },
+      "helper1": {
+        "content": "$2",
+        "example": "963 messages"
+      }
+    }
+  },
+  "inject_perforumstats_forumoption_2helpers": {
+    "message": "$forumName$ ($helper1$, $helper2$)",
+    "description": "In the selector where the user can select the forum shown in the graph, one such option. $helper1$ will be the number of messages posted by the user in that forum, and $helper2$ will be the badge awarded to the user in that forum.",
+    "placeholders": {
+      "forumName": {
+        "content": "$1",
+        "example": "Google Chrome"
+      },
+      "helper1": {
+        "content": "$2",
+        "example": "963 messages"
+      },
+      "helper2": {
+        "content": "$3",
+        "example": "gold"
+      }
+    }
+  },
+  "inject_perforumstats_nummessages_singular": {
+    "message": "1 mensagem",
+    "description": "Annotation shown in the forum selector which states how many messages have been published by a user in a forum (singular variant)."
+  },
+  "inject_perforumstats_nummessages_plural": {
+    "message": "$num$ mensagens",
+    "description": "Annotation shown in the forum selector which states how many messages have been published by a user in a forum (plural variant).",
+    "placeholders": {
+      "num": {
+        "content": "$1",
+        "example": "963"
+      }
+    }
+  },
+  "inject_perforumstats_role_bronze": {
+    "message": "bronze",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_silver": {
+    "message": "prata",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_gold": {
+    "message": "ouro",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_platinum": {
+    "message": "platinum",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_diamond": {
+    "message": "diamante",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_community_manager": {
+    "message": "CM",
+    "description": "Role that a user can have in the forums (short for community manager)."
+  },
+  "inject_perforumstats_role_community_specialist": {
+    "message": "especialista",
+    "description": "Role that a user can have in the forums (short for community specialist)."
+  },
+  "inject_perforumstats_role_google_employee": {
+    "message": "Googler",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_alumnus": {
+    "message": "ex-expert",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_optgroup_notposted": {
+    "message": "Não postado nos últimos 12 meses",
+    "description": "Label showed above the forums for which the user hasn't posted in the last 12 months, in the forum selector list."
+  },
+  "inject_perforumstats_chart_label": {
+    "message": "Gráfico de atividade do usuário",
+    "description": "Label for the chart for accessibility purposes (e.g. users with screen-readers)."
+  },
+  "inject_perforumstats_chart_recommended": {
+    "message": "Recomendado",
+    "description": "Label shown in the legend of the per-forum activity chart."
+  },
+  "inject_perforumstats_chart_replies": {
+    "message": "Repostas (não recomendada)",
+    "description": "Label shown in the legend of the per-forum activity chart."
+  },
+  "inject_perforumstats_chart_questions": {
+    "message": "Perguntas",
+    "description": "Label shown in the legend of the per-forum activity chart."
   },
   "actionbadge_permissions_requested": {
     "message": "Alguns recursos precisam de permissões adicionais para funcionar. Clique para corrigir.",
