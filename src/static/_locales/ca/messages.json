@@ -283,6 +283,10 @@
     "message": "Degut a raons tècniques, no es poden carregar les fotos de perfil de fils publicats a fòrums privats.",
     "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
   },
+  "inject_threadlistavatars_invisible_thread_indicator_label": {
+    "message": "Degut a raons tècniques, no es poden carregar les fotos de perfil de fils que no són visibles a usuaris anònims.",
+    "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
+  },
   "inject_workflows_menubtn": {
     "message": "Executa un flux de treball...",
     "description": "Tooltip of the icon shown above a thread or in thread lists when selecting multiple threads in the Community Console which lets the user show a menu with the worklofws they can run."
