@@ -93,6 +93,11 @@ ec-thread-summary .main .toolbelt .TWPT-extrainfo-container {
   margin-bottom: 16px;
 }
 
+/* This modifies the CC styles */
+ec-thread-summary .author-line .removed-label {
+  width: auto!important;
+  min-width: 72px!important;
+}
 
 /* Special styles for good/bad labels */
 .TWPT-extrainfo-good {
