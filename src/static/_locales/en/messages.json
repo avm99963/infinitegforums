@@ -397,6 +397,174 @@
     "message": "Questions",
     "description": "Label shown in the legend of the per-forum activity chart."
   },
+  "inject_extrainfo_profile_abusecategory": {
+    "message": "Abuse category: $1",
+    "description": "Message shown in profiles when there is a policy violation."
+  },
+  "inject_extrainfo_profile_abusecategory_noviolation": {
+    "message": "No violation",
+    "description": "Abuse category"
+  },
+  "inject_extrainfo_profile_abusecategory_communitypolicy": {
+    "message": "Community policy violation",
+    "description": "Abuse category"
+  },
+  "inject_extrainfo_profile_abusecategory_legal": {
+    "message": "Legal violation",
+    "description": "Abuse category"
+  },
+  "inject_extrainfo_profile_abusecategory_csai": {
+    "message": "CSAI violation",
+    "description": "Abuse category"
+  },
+  "inject_extrainfo_profile_abusecategory_other": {
+    "message": "Other violation",
+    "description": "Abuse category"
+  },
+  "inject_extrainfo_profile_abuse_account": {
+    "message": "Account policy violation: $1",
+    "description": "Message shown in profiles when there is a policy violation."
+  },
+  "inject_extrainfo_profile_abuse_displayname": {
+    "message": "Display name policy violation: $1",
+    "description": "Message shown in profiles when there is a policy violation."
+  },
+  "inject_extrainfo_profile_abuse_avatar": {
+    "message": "Avatar policy violation: $1",
+    "description": "Message shown in profiles when there is a policy violation."
+  },
+  "inject_extrainfo_profile_appealsnum": {
+    "message": "Number of appeals: $1",
+    "description": "Message shown in profiles which states how many times the account has appealed the decision to ban their profile."
+  },
+  "inject_extrainfo_crs_used_singular": {
+    "message": "Used 1 time",
+    "description": "Shown alongside a canned response to state how many times it has been used."
+  },
+  "inject_extrainfo_crs_used_plural": {
+    "message": "Used $1 times",
+    "description": "Shown alongside a canned response to state how many times it has been used."
+  },
+  "inject_extrainfo_crs_lastused": {
+    "message": "Last used: $1",
+    "description": "Tooltip which states when a canned response was last used."
+  },
+  "inject_extrainfo_message_pendingstate": {
+    "message": "Only visible to badged users",
+    "description": "Label used in a thread or message when it is in the pending state (only visible to badged users)."
+  },
+  "inject_extrainfo_message_pendingstate_tooltip": {
+    "message": "Visible after $1",
+    "description": "Tooltip used for the label \"Only visible to badged users\" to state when the thread will become visible publicly."
+  },
+  "inject_extrainfo_message_state": {
+    "message": "State: $1",
+    "description": "Label used in a thread or message to show its state."
+  },
+  "inject_extrainfo_message_state_published": {
+    "message": "Published",
+    "description": "Thread/message state PUBLISHED."
+  },
+  "inject_extrainfo_message_state_draft": {
+    "message": "Draft",
+    "description": "Thread/message state DRAFT."
+  },
+  "inject_extrainfo_message_state_automated_abuse_take_down_hide": {
+    "message": "Take down hide automated abuse",
+    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_HIDE."
+  },
+  "inject_extrainfo_message_state_automated_abuse_take_down_delete": {
+    "message": "Take down delete automated abuse",
+    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_DELETE."
+  },
+  "inject_extrainfo_message_state_automated_abuse_reinstate": {
+    "message": "Reinstate automated abuse",
+    "description": "Thread/message state AUTOMATED_ABUSE_REINSTATE."
+  },
+  "inject_extrainfo_message_state_automated_off_topic_hide": {
+    "message": "Hide automated off-topic",
+    "description": "Thread/message state AUTOMATED_OFF_TOPIC_HIDE."
+  },
+  "inject_extrainfo_message_state_automated_flagged_pending_manual_review": {
+    "message": "Automated flagged (pending manual review)",
+    "description": "Thread/message state AUTOMATED_FLAGGED_PENDING_MANUAL_REVIEW."
+  },
+  "inject_extrainfo_message_state_user_flagged_pending_manual_review": {
+    "message": "User flagged (pending manual review)",
+    "description": "Thread/message state USER_FLAGGED_PENDING_MANUAL_REVIEW."
+  },
+  "inject_extrainfo_message_state_owner_deleted": {
+    "message": "Owner deleted",
+    "description": "Thread/message state OWNER_DELETED."
+  },
+  "inject_extrainfo_message_state_manual_take_down_hide": {
+    "message": "Manual take down hide",
+    "description": "Thread/message state MANUAL_TAKE_DOWN_HIDE."
+  },
+  "inject_extrainfo_message_state_manual_profile_take_down_suspend": {
+    "message": "Manual profile take down suspend",
+    "description": "Thread/message state MANUAL_PROFILE_TAKE_DOWN_SUSPEND."
+  },
+  "inject_extrainfo_message_state_manual_take_down_delete": {
+    "message": "Manual take down delete",
+    "description": "Thread/message state MANUAL_TAKE_DOWN_DELETE."
+  },
+  "inject_extrainfo_message_state_reinstate_profile_takedown": {
+    "message": "Reinstate profile takedown",
+    "description": "Thread/message state REINSTATE_PROFILE_TAKEDOWN."
+  },
+  "inject_extrainfo_message_state_reinstate_abuse_takedown": {
+    "message": "Reinstate abuse takedown",
+    "description": "Thread/message state REINSTATE_ABUSE_TAKEDOWN."
+  },
+  "inject_extrainfo_message_state_clear_off_topic": {
+    "message": "Clear off topic",
+    "description": "Thread/message state CLEAR_OFF_TOPIC."
+  },
+  "inject_extrainfo_message_state_confirm_off_topic": {
+    "message": "Confirm off topic",
+    "description": "Thread/message state CONFIRM_OFF_TOPIC."
+  },
+  "inject_extrainfo_message_state_googler_off_topic_hide": {
+    "message": "Googler off topic hide",
+    "description": "Thread/message state GOOGLER_OFF_TOPIC_HIDE."
+  },
+  "inject_extrainfo_message_state_expert_flagged_pending_manual_review": {
+    "message": "Expert flagged (pending manual review)",
+    "description": "Thread/message state EXPERT_FLAGGED_PENDING_MANUAL_REVIEW."
+  },
+  "inject_extrainfo_message_shadowblockactive": {
+    "message": "Shadow block active",
+    "description": "Label used in a thread or message when it has been shadow blocked and is thus hidden from view."
+  },
+  "inject_extrainfo_message_shadowblocknotactive": {
+    "message": "Shadow block no longer active",
+    "description": "Label used in a thread or message when it had been shadow blocked but it isn't active anymore."
+  },
+  "inject_extrainfo_message_livereviewverdict": {
+    "message": "Live review verdict: $1",
+    "description": "Label used in a thread or message to show what was the action taken when live reviewing it."
+  },
+  "inject_extrainfo_message_livereviewverdict_relevant": {
+    "message": "Relevant",
+    "description": "One of the actions of a live review."
+  },
+  "inject_extrainfo_message_livereviewverdict_offtopic": {
+    "message": "Off topic",
+    "description": "One of the actions of a live review."
+  },
+  "inject_extrainfo_message_livereviewverdict_abuse": {
+    "message": "Abuse",
+    "description": "One of the actions of a live review."
+  },
+  "inject_extrainfo_thread_autotrending": {
+    "message": "Automatically marked as trending",
+    "description": "Label used in a thread to show it has been automatically marked as trending."
+  },
+  "inject_extrainfo_thread_trending": {
+    "message": "Trending",
+    "description": "Label used in a thread to show it has been manually marked as trending."
+  },
   "actionbadge_permissions_requested": {
     "message": "Some features need additional permissions to work. Click to fix it.",
     "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."

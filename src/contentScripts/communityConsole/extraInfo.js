@@ -13,10 +13,11 @@ const kListCannedResponsesResponse = 'TWPT_ListCannedResponsesResponse';
 const kViewThreadResponse = 'TWPT_ViewThreadResponse';
 const kViewForumResponse = 'TWPT_ViewForumResponse';
 
+// Used to match each category with the corresponding string.
 const kAbuseCategories = [
-  ['1', 'Account'],
-  ['2', 'Display name'],
-  ['3', 'Avatar'],
+  ['1', 'account'],
+  ['2', 'displayname'],
+  ['3', 'avatar'],
 ];
 const kAbuseViolationCategories = {
   0: 'NO_VIOLATION',
@@ -25,6 +26,16 @@ const kAbuseViolationCategories = {
   3: 'CSAI_VIOLATION',
   4: 'OTHER_VIOLATION',
 };
+const kAbuseViolationCategoriesI18n = {
+  0: 'noviolation',
+  1: 'communitypolicy',
+  2: 'legal',
+  3: 'csai',
+  4: 'other',
+};
+
+// The following array will appear in the interface as is (without being
+// translated).
 const kAbuseViolationTypes = {
   0: 'UNSPECIFIED',
   23: 'ACCOUNT_DISABLED',
@@ -145,6 +156,28 @@ const kAbuseViolationTypes = {
   18: 'TERRORISM_SUPPORT',
   56: 'CSAI_WORST_OF_WORST',
 };
+
+// These values will be translated
+const kItemMetadataStateI18n = {
+  1: 'published',
+  2: 'draft',
+  3: 'automated_abuse_take_down_hide',
+  4: 'automated_abuse_take_down_delete',
+  13: 'automated_abuse_reinstate',
+  10: 'automated_off_topic_hide',
+  14: 'automated_flagged_pending_manual_review',
+  5: 'user_flagged_pending_manual_review',
+  6: 'owner_deleted',
+  7: 'manual_take_down_hide',
+  17: 'manual_profile_take_down_suspend',
+  8: 'manual_take_down_delete',
+  18: 'reinstate_profile_takedown',
+  9: 'reinstate_abuse_takedown',
+  11: 'clear_off_topic',
+  12: 'confirm_off_topic',
+  15: 'googler_off_topic_hide',
+  16: 'expert_flagged_pending_manual_review',
+};
 const kItemMetadataState = {
   0: 'UNDEFINED',
   1: 'PUBLISHED',
@@ -165,10 +198,6 @@ const kItemMetadataState = {
   12: 'CONFIRM_OFF_TOPIC',
   15: 'GOOGLER_OFF_TOPIC_HIDE',
   16: 'EXPERT_FLAGGED_PENDING_MANUAL_REVIEW',
-};
-const kShadowBlockReason = {
-  0: 'REASON_UNDEFINED',
-  1: 'ULTRON_LOW_QUALITY',
 };
 
 export default class ExtraInfo {
@@ -297,18 +326,6 @@ export default class ExtraInfo {
     for (const tooltip of tooltips) new MDCTooltip(tooltip);
   }
 
-  fieldInfo(field, value) {
-    let span = document.createElement('span');
-    span.append(document.createTextNode(field + ': '));
-
-    let valueEl = document.createElement('span');
-    valueEl.style.fontFamily = 'monospace';
-    valueEl.textContent = value;
-
-    span.append(valueEl);
-    return span;
-  }
-
   /**
    * Profile functionality
    */
@@ -329,10 +346,16 @@ export default class ExtraInfo {
           let info = [];
           const abuseViolationCategory = profile.body?.['1']?.['6'];
           if (abuseViolationCategory) {
-            info.push(this.fieldInfo(
-                'Abuse category',
-                kAbuseViolationCategories[abuseViolationCategory] ??
-                    abuseViolationCategory));
+            let avCat = document.createElement('span');
+            avCat.textContent = chrome.i18n.getMessage(
+                'inject_extrainfo_profile_abusecategory',
+                [chrome.i18n.getMessage(
+                     'inject_extrainfo_profile_abusecategory_' +
+                     kAbuseViolationCategoriesI18n[abuseViolationCategory]) ??
+                 abuseViolationCategory]);
+            avCat.title = kAbuseViolationCategories[abuseViolationCategory] ??
+                abuseViolationCategory;
+            info.push(avCat);
           }
 
           const profileAbuse = profile.body?.['1']?.['1']?.['8'];
@@ -340,15 +363,16 @@ export default class ExtraInfo {
           for (const [index, category] of kAbuseCategories) {
             const violation = profileAbuse?.[index]?.['1']?.['1'];
             if (violation) {
-              info.push(this.fieldInfo(
-                  category + ' policy violation',
-                  kAbuseViolationTypes[violation]));
+              info.push(chrome.i18n.getMessage(
+                  'inject_extrainfo_profile_abuse_' + category,
+                  [kAbuseViolationTypes[violation]]));
             }
           }
 
           const appealCount = profileAbuse?.['4'];
           if (appealCount !== undefined)
-            info.push(this.fieldInfo('Number of appeals', appealCount));
+            info.push(chrome.i18n.getMessage(
+                'inject_extrainfo_profile_appealsnum', [appealCount]));
 
           this.addExtraInfoElement(info, card, true);
         })
@@ -375,6 +399,13 @@ export default class ExtraInfo {
     return tags.parentNode?.parentNode?.parentNode?.parentNode?.parentNode
         ?.parentNode?.parentNode?.querySelector?.('.text .name')
         ?.textContent;
+  }
+
+  getUsageCountString(num) {
+    if (num == 1)
+      return chrome.i18n.getMessage('inject_extrainfo_crs_used_singular');
+
+    return chrome.i18n.getMessage('inject_extrainfo_crs_used_plural', [num]);
   }
 
   // Inject usage stats in the |tags| component of a CR
@@ -416,7 +447,7 @@ export default class ExtraInfo {
               const [badge, badgeTooltip] = createExtBadge();
 
               let label = document.createElement('span');
-              label.textContent = 'Used ' + (cr['8'] ?? '0') + ' times';
+              label.textContent = this.getUsageCountString(cr['8'] ?? '0');
 
               content.append(badge, label);
               container.append(content);
@@ -428,7 +459,10 @@ export default class ExtraInfo {
               if (cr['9']) {
                 const lastUsedTime = Math.floor(parseInt(cr['9']) / 1e3);
                 let date = (new Date(lastUsedTime)).toLocaleString();
-                createPlainTooltip(label, 'Last used: ' + date);
+                createPlainTooltip(
+                    label,
+                    chrome.i18n.getMessage(
+                        'inject_extrainfo_crs_lastused', [date]));
               }
 
               break;
@@ -460,11 +494,15 @@ export default class ExtraInfo {
     const now = Date.now();
     if (endPendingStateTimestampMicros && endPendingStateTimestamp > now) {
       let span = document.createElement('span');
-      span.textContent = 'Only visible to badged users';
+      span.textContent =
+          chrome.i18n.getMessage('inject_extrainfo_message_pendingstate');
 
       let date = new Date(endPendingStateTimestamp).toLocaleString();
-      let pendingTooltip =
-          createPlainTooltip(span, 'Visible after ' + date, false);
+      let pendingTooltip = createPlainTooltip(
+          span,
+          chrome.i18n.getMessage(
+              'inject_extrainfo_message_pendingstate_tooltip', [date]),
+          false);
       return [span, pendingTooltip];
     }
 
@@ -475,16 +513,26 @@ export default class ExtraInfo {
     let info = [];
 
     const state = itemMetadata?.['1'];
-    if (state && state != 1)
-      info.push(this.fieldInfo('State', kItemMetadataState[state] ?? state));
+    if (state && state != 1) {
+      let span = document.createElement('span');
+      span.textContent = chrome.i18n.getMessage(
+          'inject_extrainfo_message_state',
+          [chrome.i18n.getMessage(
+               'inject_extrainfo_message_state_' +
+               kItemMetadataStateI18n[state]) ??
+           state]);
+      span.title = kItemMetadataState[state] ?? state;
+      info.push(span);
+    }
 
     const shadowBlockInfo = itemMetadata?.['10'];
     const blockedTimestampMicros = shadowBlockInfo?.['2'];
     if (blockedTimestampMicros) {
       const isBlocked = shadowBlockInfo?.['1'];
       let span = document.createElement('span');
-      span.textContent =
-          isBlocked ? 'Shadow block active' : 'Shadow block no longer active';
+      span.textContent = chrome.i18n.getMessage(
+          'inject_extrainfo_message_shadowblock' +
+          (isBlocked ? 'active' : 'notactive'));
       if (isBlocked) span.classList.add('TWPT-extrainfo-bad');
       info.push(span);
     }
@@ -498,17 +546,17 @@ export default class ExtraInfo {
     let label, labelClass;
     switch (verdict) {
       case 1:  // LIVE_REVIEW_RELEVANT
-        label = 'Relevant';
+        label = 'relevant';
         labelClass = 'TWPT-extrainfo-good';
         break;
 
       case 2:  // LIVE_REVIEW_OFF_TOPIC
-        label = 'Off-topic';
+        label = 'offtopic';
         labelClass = 'TWPT-extrainfo-bad';
         break;
 
       case 3:  // LIVE_REVIEW_ABUSE
-        label = 'Abuse';
+        label = 'abuse';
         labelClass = 'TWPT-extrainfo-bad';
         break;
     }
@@ -519,7 +567,10 @@ export default class ExtraInfo {
     let a = document.createElement('a');
     a.href = 'https://support.google.com/s/community/user/' + reviewedBy;
     a.classList.add(labelClass);
-    a.textContent = 'Live review verdict: ' + label;
+    a.textContent = chrome.i18n.getMessage(
+        'inject_extrainfo_message_livereviewverdict',
+        [chrome.i18n.getMessage(
+            'inject_extrainfo_message_livereviewverdict_' + label)]);
     let liveReviewTooltip = createPlainTooltip(a, date, false);
     return [a, liveReviewTooltip];
   }
@@ -542,9 +593,11 @@ export default class ExtraInfo {
     const isTrending = thread?.['2']?.['25'];
     const isTrendingAutoMarked = thread?.['39'];
     if (isTrendingAutoMarked)
-      info.push(document.createTextNode('Automatically marked as trending'));
+      info.push(document.createTextNode(
+          chrome.i18n.getMessage('inject_extrainfo_thread_autotrending')));
     else if (isTrending)
-      info.push(document.createTextNode('Trending'));
+      info.push(document.createTextNode(
+          chrome.i18n.getMessage('inject_extrainfo_thread_trending')));
 
     const itemMetadata = thread?.['2']?.['12'];
     const mdInfo = this.getMetadataInfo(itemMetadata);
@@ -797,7 +850,11 @@ export default class ExtraInfo {
             const [badge, badgeTooltip] = createExtBadge();
 
             let span = document.createElement('span');
-            span.textContent = kItemMetadataState[state] ?? 'State ' + state;
+            span.textContent = chrome.i18n.getMessage(
+                                   'inject_extrainfo_message_state_' +
+                                   kItemMetadataStateI18n[state]) ??
+                state;
+            span.title = kItemMetadataState[state] ?? state;
 
             label.append(badge, span);
             authorLine.prepend(label);
