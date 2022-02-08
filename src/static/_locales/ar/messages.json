@@ -365,6 +365,22 @@
     "message": "أسئلة",
     "description": "Label shown in the legend of the per-forum activity chart."
   },
+  "inject_extrainfo_profile_abusecategory": {
+    "message": "فئة الإساءة: $1",
+    "description": "Message shown in profiles when there is a policy violation."
+  },
+  "inject_extrainfo_profile_abusecategory_noviolation": {
+    "message": "لا يوجد انتهاك",
+    "description": "Abuse category"
+  },
+  "inject_extrainfo_profile_abusecategory_communitypolicy": {
+    "message": "انتهاك سياسة المجتمع",
+    "description": "Abuse category"
+  },
+  "inject_extrainfo_profile_abusecategory_legal": {
+    "message": "انتهاك قانوني",
+    "description": "Abuse category"
+  },
   "actionbadge_permissions_requested": {
     "message": "تحتاج بعض الميزات إلى أذونات إضافية للعمل. يلزم النّقر لإصلاحها.",
     "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."
