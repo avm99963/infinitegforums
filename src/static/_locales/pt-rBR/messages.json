@@ -397,6 +397,10 @@
     "message": "Perguntas",
     "description": "Label shown in the legend of the per-forum activity chart."
   },
+  "inject_extrainfo_profile_abusecategory_csai": {
+    "message": "Violação CSAI",
+    "description": "Abuse category"
+  },
   "actionbadge_permissions_requested": {
     "message": "Alguns recursos precisam de permissões adicionais para funcionar. Clique para corrigir.",
     "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."
