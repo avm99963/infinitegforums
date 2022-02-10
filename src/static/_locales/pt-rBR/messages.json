@@ -397,9 +397,161 @@
     "message": "Perguntas",
     "description": "Label shown in the legend of the per-forum activity chart."
   },
+  "inject_extrainfo_profile_abusecategory": {
+    "message": "Tipo da violação: $1",
+    "description": "Message shown in profiles when there is a policy violation."
+  },
+  "inject_extrainfo_profile_abusecategory_noviolation": {
+    "message": "Sem violação",
+    "description": "Abuse category"
+  },
+  "inject_extrainfo_profile_abusecategory_communitypolicy": {
+    "message": "Violação da política da comunidade",
+    "description": "Abuse category"
+  },
+  "inject_extrainfo_profile_abusecategory_legal": {
+    "message": "Violação legal",
+    "description": "Abuse category"
+  },
   "inject_extrainfo_profile_abusecategory_csai": {
     "message": "Violação CSAI",
     "description": "Abuse category"
+  },
+  "inject_extrainfo_profile_abusecategory_other": {
+    "message": "Outras violações",
+    "description": "Abuse category"
+  },
+  "inject_extrainfo_profile_abuse_account": {
+    "message": "Essa conta violou a política: $1",
+    "description": "Message shown in profiles when there is a policy violation."
+  },
+  "inject_extrainfo_profile_abuse_displayname": {
+    "message": "Violação da política de nome de exibição: $1",
+    "description": "Message shown in profiles when there is a policy violation."
+  },
+  "inject_extrainfo_profile_abuse_avatar": {
+    "message": "Violação da política de foto de perfil: $1",
+    "description": "Message shown in profiles when there is a policy violation."
+  },
+  "inject_extrainfo_profile_appealsnum": {
+    "message": "Apelações enviadas: $1",
+    "description": "Message shown in profiles which states how many times the account has appealed the decision to ban their profile."
+  },
+  "inject_extrainfo_crs_used_singular": {
+    "message": "Usou 1 vez",
+    "description": "Shown alongside a canned response to state how many times it has been used."
+  },
+  "inject_extrainfo_crs_used_plural": {
+    "message": "Usou $1 vezes",
+    "description": "Shown alongside a canned response to state how many times it has been used."
+  },
+  "inject_extrainfo_crs_lastused": {
+    "message": "Último uso: $1",
+    "description": "Tooltip which states when a canned response was last used."
+  },
+  "inject_extrainfo_message_pendingstate": {
+    "message": "Visível apenas para usuários com selo",
+    "description": "Label used in a thread or message when it is in the pending state (only visible to badged users)."
+  },
+  "inject_extrainfo_message_pendingstate_tooltip": {
+    "message": "Ficará publico em $1",
+    "description": "Tooltip used for the label \"Only visible to badged users\" to state when the thread will become visible publicly."
+  },
+  "inject_extrainfo_message_state": {
+    "message": "Status: $1",
+    "description": "Label used in a thread or message to show its state."
+  },
+  "inject_extrainfo_message_state_published": {
+    "message": "Publicado",
+    "description": "Thread/message state PUBLISHED."
+  },
+  "inject_extrainfo_message_state_draft": {
+    "message": "Rascunho",
+    "description": "Thread/message state DRAFT."
+  },
+  "inject_extrainfo_message_state_automated_abuse_take_down_hide": {
+    "message": "Foi ocultada automaticamente por abuso",
+    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_HIDE."
+  },
+  "inject_extrainfo_message_state_automated_abuse_take_down_delete": {
+    "message": "Foi removida automaticamente por abuso",
+    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_DELETE."
+  },
+  "inject_extrainfo_message_state_automated_off_topic_hide": {
+    "message": "Ocultado automaticamente",
+    "description": "Thread/message state AUTOMATED_OFF_TOPIC_HIDE."
+  },
+  "inject_extrainfo_message_state_automated_flagged_pending_manual_review": {
+    "message": "Denunciada automaticamente (aguardando revisão manual)",
+    "description": "Thread/message state AUTOMATED_FLAGGED_PENDING_MANUAL_REVIEW."
+  },
+  "inject_extrainfo_message_state_user_flagged_pending_manual_review": {
+    "message": "Usuário denunciado (aguardando revisão manual)",
+    "description": "Thread/message state USER_FLAGGED_PENDING_MANUAL_REVIEW."
+  },
+  "inject_extrainfo_message_state_owner_deleted": {
+    "message": "Deletado pelo proprietário",
+    "description": "Thread/message state OWNER_DELETED."
+  },
+  "inject_extrainfo_message_state_manual_take_down_hide": {
+    "message": "Foi ocultada manualmente",
+    "description": "Thread/message state MANUAL_TAKE_DOWN_HIDE."
+  },
+  "inject_extrainfo_message_state_manual_profile_take_down_suspend": {
+    "message": "Esse perfil foi suspenso manualmente",
+    "description": "Thread/message state MANUAL_PROFILE_TAKE_DOWN_SUSPEND."
+  },
+  "inject_extrainfo_message_state_manual_take_down_delete": {
+    "message": "Foi removida manualmente",
+    "description": "Thread/message state MANUAL_TAKE_DOWN_DELETE."
+  },
+  "inject_extrainfo_message_state_reinstate_profile_takedown": {
+    "message": "Perfil restabelecido",
+    "description": "Thread/message state REINSTATE_PROFILE_TAKEDOWN."
+  },
+  "inject_extrainfo_message_state_reinstate_abuse_takedown": {
+    "message": "Restabelecido após abuso",
+    "description": "Thread/message state REINSTATE_ABUSE_TAKEDOWN."
+  },
+  "inject_extrainfo_message_state_clear_off_topic": {
+    "message": "Tópico analisado e limpo",
+    "description": "Thread/message state CLEAR_OFF_TOPIC."
+  },
+  "inject_extrainfo_message_state_confirm_off_topic": {
+    "message": "Tópico oculto confirmado",
+    "description": "Thread/message state CONFIRM_OFF_TOPIC."
+  },
+  "inject_extrainfo_message_state_googler_off_topic_hide": {
+    "message": "Um googler ocultou este tópico",
+    "description": "Thread/message state GOOGLER_OFF_TOPIC_HIDE."
+  },
+  "inject_extrainfo_message_state_expert_flagged_pending_manual_review": {
+    "message": "Denunciado por expert (aguardando revisão manual)",
+    "description": "Thread/message state EXPERT_FLAGGED_PENDING_MANUAL_REVIEW."
+  },
+  "inject_extrainfo_message_livereviewverdict": {
+    "message": "Após revisão a decisão foi: $1",
+    "description": "Label used in a thread or message to show what was the action taken when live reviewing it."
+  },
+  "inject_extrainfo_message_livereviewverdict_relevant": {
+    "message": "Relevante",
+    "description": "One of the actions of a live review."
+  },
+  "inject_extrainfo_message_livereviewverdict_offtopic": {
+    "message": "Não corresponde ao tópico",
+    "description": "One of the actions of a live review."
+  },
+  "inject_extrainfo_message_livereviewverdict_abuse": {
+    "message": "Violação",
+    "description": "One of the actions of a live review."
+  },
+  "inject_extrainfo_thread_autotrending": {
+    "message": "Marcado automaticamente como tendência",
+    "description": "Label used in a thread to show it has been automatically marked as trending."
+  },
+  "inject_extrainfo_thread_trending": {
+    "message": "Tendência",
+    "description": "Label used in a thread to show it has been manually marked as trending."
   },
   "actionbadge_permissions_requested": {
     "message": "Alguns recursos precisam de permissões adicionais para funcionar. Clique para corrigir.",
