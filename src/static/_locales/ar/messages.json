@@ -421,6 +421,10 @@
     "message": "مرئيّ بعد $1",
     "description": "Tooltip used for the label \"Only visible to badged users\" to state when the thread will become visible publicly."
   },
+  "inject_extrainfo_message_state": {
+    "message": "الحالة : $1",
+    "description": "Label used in a thread or message to show its state."
+  },
   "inject_extrainfo_message_state_published": {
     "message": "نُشِرَت",
     "description": "Thread/message state PUBLISHED."
