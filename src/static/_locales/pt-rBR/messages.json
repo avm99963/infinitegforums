@@ -477,6 +477,10 @@
     "message": "Foi removida automaticamente por abuso",
     "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_DELETE."
   },
+  "inject_extrainfo_message_state_automated_abuse_reinstate": {
+    "message": "Nenhuma violação encontrada",
+    "description": "Thread/message state AUTOMATED_ABUSE_REINSTATE."
+  },
   "inject_extrainfo_message_state_automated_off_topic_hide": {
     "message": "Ocultado automaticamente",
     "description": "Thread/message state AUTOMATED_OFF_TOPIC_HIDE."
@@ -528,6 +532,14 @@
   "inject_extrainfo_message_state_expert_flagged_pending_manual_review": {
     "message": "Denunciado por expert (aguardando revisão manual)",
     "description": "Thread/message state EXPERT_FLAGGED_PENDING_MANUAL_REVIEW."
+  },
+  "inject_extrainfo_message_shadowblockactive": {
+    "message": "Ativo na lista negra",
+    "description": "Label used in a thread or message when it has been shadow blocked and is thus hidden from view."
+  },
+  "inject_extrainfo_message_shadowblocknotactive": {
+    "message": "Removida da lista negra",
+    "description": "Label used in a thread or message when it had been shadow blocked but it isn't active anymore."
   },
   "inject_extrainfo_message_livereviewverdict": {
     "message": "Após revisão a decisão foi: $1",
