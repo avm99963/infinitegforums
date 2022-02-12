@@ -14,7 +14,8 @@ export default class OptionsWatcher {
     // We could try only doing this only when we're sure it has changed, but
     // there are many factors (if the user has changed it manually, if a kill
     // switch was activated, etc.) so we'll do it every time.
-    chrome.storage.sync.onChanged.addListener(() => {
+    chrome.storage.onChanged.addListener((changes, areaName) => {
+      if (areaName !== 'sync') return;
       console.debug('[optionsWatcher] Marking options as stale.');
       this.isStale = true;
     });

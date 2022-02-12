@@ -75,7 +75,8 @@ chrome.runtime.onInstalled.addListener(details => {
 // Clean up optional permissions and check that none are missing for enabled
 // features, and also handle background option changes as soon as the extension
 // starts and when the options change.
-chrome.storage.sync.onChanged.addListener(changes => {
+chrome.storage.onChanged.addListener((changes, areaName) => {
+  if (areaName !== 'sync') return;
   cleanUpOptPermissions();
 
   for (let [key, {oldValue, newValue}] of Object.entries(changes)) {
