@@ -477,6 +477,94 @@
     "message": "Eliminado automáticamente por abuso",
     "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_DELETE."
   },
+  "inject_extrainfo_message_state_automated_abuse_reinstate": {
+    "message": "Restaurar abuso automático",
+    "description": "Thread/message state AUTOMATED_ABUSE_REINSTATE."
+  },
+  "inject_extrainfo_message_state_automated_off_topic_hide": {
+    "message": "Ocultar off-topic automático",
+    "description": "Thread/message state AUTOMATED_OFF_TOPIC_HIDE."
+  },
+  "inject_extrainfo_message_state_automated_flagged_pending_manual_review": {
+    "message": "Marcado automáticamente (pendiente de revisión manual)",
+    "description": "Thread/message state AUTOMATED_FLAGGED_PENDING_MANUAL_REVIEW."
+  },
+  "inject_extrainfo_message_state_user_flagged_pending_manual_review": {
+    "message": "Marcado por usuario (pendiente de revisión manual)",
+    "description": "Thread/message state USER_FLAGGED_PENDING_MANUAL_REVIEW."
+  },
+  "inject_extrainfo_message_state_owner_deleted": {
+    "message": "Eliminado por el propietario",
+    "description": "Thread/message state OWNER_DELETED."
+  },
+  "inject_extrainfo_message_state_manual_take_down_hide": {
+    "message": "Ocultado manualmente",
+    "description": "Thread/message state MANUAL_TAKE_DOWN_HIDE."
+  },
+  "inject_extrainfo_message_state_manual_profile_take_down_suspend": {
+    "message": "Perfil suspendido manualmente",
+    "description": "Thread/message state MANUAL_PROFILE_TAKE_DOWN_SUSPEND."
+  },
+  "inject_extrainfo_message_state_manual_take_down_delete": {
+    "message": "Eliminado manualmente",
+    "description": "Thread/message state MANUAL_TAKE_DOWN_DELETE."
+  },
+  "inject_extrainfo_message_state_reinstate_profile_takedown": {
+    "message": "Perfil restaurado",
+    "description": "Thread/message state REINSTATE_PROFILE_TAKEDOWN."
+  },
+  "inject_extrainfo_message_state_reinstate_abuse_takedown": {
+    "message": "Restaurado de abuso",
+    "description": "Thread/message state REINSTATE_ABUSE_TAKEDOWN."
+  },
+  "inject_extrainfo_message_state_clear_off_topic": {
+    "message": "Desmarcado off-topic",
+    "description": "Thread/message state CLEAR_OFF_TOPIC."
+  },
+  "inject_extrainfo_message_state_confirm_off_topic": {
+    "message": "Confirmado off-topic",
+    "description": "Thread/message state CONFIRM_OFF_TOPIC."
+  },
+  "inject_extrainfo_message_state_googler_off_topic_hide": {
+    "message": "Ocultado off-topic por Googler",
+    "description": "Thread/message state GOOGLER_OFF_TOPIC_HIDE."
+  },
+  "inject_extrainfo_message_state_expert_flagged_pending_manual_review": {
+    "message": "Marcado por experto (pendiente de revisión manual)",
+    "description": "Thread/message state EXPERT_FLAGGED_PENDING_MANUAL_REVIEW."
+  },
+  "inject_extrainfo_message_shadowblockactive": {
+    "message": "Baneo en la sombra activo",
+    "description": "Label used in a thread or message when it has been shadow blocked and is thus hidden from view."
+  },
+  "inject_extrainfo_message_shadowblocknotactive": {
+    "message": "Baneo en la sombra ya no activo",
+    "description": "Label used in a thread or message when it had been shadow blocked but it isn't active anymore."
+  },
+  "inject_extrainfo_message_livereviewverdict": {
+    "message": "Veredicto de la revisión en vivo: $1",
+    "description": "Label used in a thread or message to show what was the action taken when live reviewing it."
+  },
+  "inject_extrainfo_message_livereviewverdict_relevant": {
+    "message": "Relevante",
+    "description": "One of the actions of a live review."
+  },
+  "inject_extrainfo_message_livereviewverdict_offtopic": {
+    "message": "Off-topic",
+    "description": "One of the actions of a live review."
+  },
+  "inject_extrainfo_message_livereviewverdict_abuse": {
+    "message": "Abuso",
+    "description": "One of the actions of a live review."
+  },
+  "inject_extrainfo_thread_autotrending": {
+    "message": "Marcada automáticamente como tendencia",
+    "description": "Label used in a thread to show it has been automatically marked as trending."
+  },
+  "inject_extrainfo_thread_trending": {
+    "message": "Tendencia",
+    "description": "Label used in a thread to show it has been manually marked as trending."
+  },
   "actionbadge_permissions_requested": {
     "message": "Algunas funciones necesitan permisos adicionales para funcionar. Haz clic para arreglarlo.",
     "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."
