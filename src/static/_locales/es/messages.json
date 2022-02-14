@@ -397,6 +397,86 @@
     "message": "Preguntas",
     "description": "Label shown in the legend of the per-forum activity chart."
   },
+  "inject_extrainfo_profile_abusecategory": {
+    "message": "Categoría de abuso: $1",
+    "description": "Message shown in profiles when there is a policy violation."
+  },
+  "inject_extrainfo_profile_abusecategory_noviolation": {
+    "message": "Ninguna violación",
+    "description": "Abuse category"
+  },
+  "inject_extrainfo_profile_abusecategory_communitypolicy": {
+    "message": "Violación de la política de la comunidad",
+    "description": "Abuse category"
+  },
+  "inject_extrainfo_profile_abusecategory_legal": {
+    "message": "Violación legal",
+    "description": "Abuse category"
+  },
+  "inject_extrainfo_profile_abusecategory_csai": {
+    "message": "Violación CSAI",
+    "description": "Abuse category"
+  },
+  "inject_extrainfo_profile_abusecategory_other": {
+    "message": "Otra violación",
+    "description": "Abuse category"
+  },
+  "inject_extrainfo_profile_abuse_account": {
+    "message": "Violación de la política de cuentas: $1",
+    "description": "Message shown in profiles when there is a policy violation."
+  },
+  "inject_extrainfo_profile_abuse_displayname": {
+    "message": "Violación de la política de nombres de usuario: $1",
+    "description": "Message shown in profiles when there is a policy violation."
+  },
+  "inject_extrainfo_profile_abuse_avatar": {
+    "message": "Violación de la política de avatares: $1",
+    "description": "Message shown in profiles when there is a policy violation."
+  },
+  "inject_extrainfo_profile_appealsnum": {
+    "message": "Número de apelaciones: $1",
+    "description": "Message shown in profiles which states how many times the account has appealed the decision to ban their profile."
+  },
+  "inject_extrainfo_crs_used_singular": {
+    "message": "Usada 1 vez",
+    "description": "Shown alongside a canned response to state how many times it has been used."
+  },
+  "inject_extrainfo_crs_used_plural": {
+    "message": "Usada $1 veces",
+    "description": "Shown alongside a canned response to state how many times it has been used."
+  },
+  "inject_extrainfo_crs_lastused": {
+    "message": "Último uso: $1",
+    "description": "Tooltip which states when a canned response was last used."
+  },
+  "inject_extrainfo_message_pendingstate": {
+    "message": "Solo visible a usuarios con insignia",
+    "description": "Label used in a thread or message when it is in the pending state (only visible to badged users)."
+  },
+  "inject_extrainfo_message_pendingstate_tooltip": {
+    "message": "Visible a partir del $1",
+    "description": "Tooltip used for the label \"Only visible to badged users\" to state when the thread will become visible publicly."
+  },
+  "inject_extrainfo_message_state": {
+    "message": "Estado: $1",
+    "description": "Label used in a thread or message to show its state."
+  },
+  "inject_extrainfo_message_state_published": {
+    "message": "Publicado",
+    "description": "Thread/message state PUBLISHED."
+  },
+  "inject_extrainfo_message_state_draft": {
+    "message": "Borrador",
+    "description": "Thread/message state DRAFT."
+  },
+  "inject_extrainfo_message_state_automated_abuse_take_down_hide": {
+    "message": "Ocultado automáticamente por abuso",
+    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_HIDE."
+  },
+  "inject_extrainfo_message_state_automated_abuse_take_down_delete": {
+    "message": "Eliminado automáticamente por abuso",
+    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_DELETE."
+  },
   "actionbadge_permissions_requested": {
     "message": "Algunas funciones necesitan permisos adicionales para funcionar. Haz clic para arreglarlo.",
     "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."
