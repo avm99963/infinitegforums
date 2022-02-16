@@ -514,11 +514,11 @@
     "description": "Thread/message state REINSTATE_PROFILE_TAKEDOWN."
   },
   "inject_extrainfo_message_state_reinstate_abuse_takedown": {
-    "message": "Restabelecido após abuso",
+    "message": "Restabelecida após suspeita de abuso",
     "description": "Thread/message state REINSTATE_ABUSE_TAKEDOWN."
   },
   "inject_extrainfo_message_state_clear_off_topic": {
-    "message": "Tópico analisado e limpo",
+    "message": "Tópico analisado e liberado",
     "description": "Thread/message state CLEAR_OFF_TOPIC."
   },
   "inject_extrainfo_message_state_confirm_off_topic": {
