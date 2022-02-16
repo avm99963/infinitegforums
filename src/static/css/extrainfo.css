@@ -81,7 +81,8 @@ ec-question .TWPT-extrainfo-chip,
 ec-question .TWPT-extrainfo-chip .TWPT-chip-content-container,
     ec-message .footer .TWPT-extrainfo-chip .TWPT-chip-content-container,
     ec-thread-summary .main .toolbelt .TWPT-extrainfo-chip .TWPT-chip-content-container {
-  margin: 0 10px 0 6px;
+  margin-block: 0;
+  margin-inline: 6px 10px;
 }
 
 ec-message .footer .TWPT-extrainfo-container {
