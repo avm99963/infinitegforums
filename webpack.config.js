@@ -10,7 +10,11 @@ const WebpackShellPluginNext = require('webpack-shell-plugin-next');
 const localeOverrides = [
   {
     pontoonLocale: 'pt-rBR',
-    webExtLocale: 'pt',  // This way it targets both 'pt_BR' and 'pt_PT'
+    webExtLocale: 'pt_BR',
+  },
+  {
+    pontoonLocale: 'pt-rBR',
+    webExtLocale: 'pt_PT',
   },
 ];
 
