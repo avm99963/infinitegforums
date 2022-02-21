@@ -939,7 +939,8 @@ export default class ExtraInfo {
         })
         .then(profile => {
           new PerForumStatsSection(
-              chart?.parentNode, profile.body, this.displayLanguage);
+              chart?.parentNode, profile.body, this.displayLanguage,
+              /* isCommunityConsole = */ true);
         })
         .catch(err => {
           console.error(

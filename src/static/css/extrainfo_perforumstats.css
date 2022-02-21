@@ -1,0 +1,23 @@
+/* Per-forum stats section */
+.TWPT-scTailwindSharedActivitychartroot .scTailwindSharedActivitychartchart {
+  margin-top: 26px;
+}
+
+.TWPT-scTailwindSharedActivitychartroot .scTailwindSharedActivitycharttitle {
+  display: flex;
+  align-items: center;
+}
+
+.TWPT-scTailwindSharedActivitychartroot .scTailwindSharedActivitycharttitle .TWPT-badge {
+  margin-inline-end: 6px;
+}
+
+.TWPT-scTailwindSharedActivitychartroot .TWPT-select-container {
+  position: absolute;
+  top: 56px;
+  z-index: 2;
+}
+
+.TWPT-scTailwindSharedActivitychartroot .TWPT-select-container select {
+  max-width: 300px;
+}

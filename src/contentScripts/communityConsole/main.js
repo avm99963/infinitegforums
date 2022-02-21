@@ -279,4 +279,5 @@ getOptions(null).then(items => {
   injectStylesheet(chrome.runtime.getURL('css/autorefresh_list.css'));
   // Extra info
   injectStylesheet(chrome.runtime.getURL('css/extrainfo.css'));
+  injectStylesheet(chrome.runtime.getURL('css/extrainfo_perforumstats.css'));
 });

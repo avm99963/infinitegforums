@@ -44,8 +44,14 @@
     {
       "matches": ["https://support.google.com/*/profile/*", "https://support.google.com/profile/*"],
       "all_frames": true,
-      "js": ["profile.bundle.js", "mdcStyles.bundle.js"],
-      "css": ["css/common/forum.css", "css/unifiedprofile.css"]
+      "js": ["publicProfileStart.bundle.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://support.google.com/*/profile/*", "https://support.google.com/profile/*"],
+      "all_frames": true,
+      "js": ["publicProfile.bundle.js", "mdcStyles.bundle.js"],
+      "css": ["css/common/forum.css", "css/unifiedprofile.css", "css/extrainfo_perforumstats.css"]
     }
   ],
   "permissions": [
@@ -82,6 +88,7 @@
         "css/autorefresh_list.css",
         "css/image_max_height.css",
         "css/extrainfo.css",
+        "css/extrainfo_perforumstats.css",
 
         "communityConsoleMain.bundle.js.map",
         "communityConsoleStart.bundle.js.map",

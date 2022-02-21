@@ -156,7 +156,7 @@
     "description": "Feature checkbox in the options page"
   },
   "options_perforumstats": {
-    "message": "Show per-forum activity in profiles in the Community Console.",
+    "message": "Show per-forum activity in profiles.",
     "description": "Feature checkbox in the options page"
   },
   "options_save": {

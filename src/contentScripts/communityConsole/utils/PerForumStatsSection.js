@@ -24,8 +24,9 @@ const kRoles = {
 };
 
 export default class PerForumStatsSection {
-  constructor(existingChartSection, profile, locale) {
+  constructor(existingChartSection, profile, locale, isCommunityConsole) {
     this.locale = locale;
+    this.isCommunityConsole = isCommunityConsole;
     this.parseAndSetData(profile);
     this.buildDOM(existingChartSection);
     if (this.data.length) this.injectChart(this.data[0]?.id);
@@ -42,7 +43,7 @@ export default class PerForumStatsSection {
 
     this.data = [];
     for (const id of intersectionForumIDs) {
-      const fui = forumUserInfos.find(ui => ui[1] === id)?.[2];
+      const fui = forumUserInfos.find(ui => ui?.[1] === id)?.[2];
       const numMessages = kDataKeys.reduce((prevVal, key) => {
         if (!fui?.[key[0]]) return prevVal;
         return prevVal + fui[key[0]].reduce((prevVal, userActivity) => {
@@ -51,7 +52,7 @@ export default class PerForumStatsSection {
       }, /* initialValue = */ 0);
       this.data.push({
         id,
-        forumTitle: forumTitles.find(t => t[1] === id)?.[2],
+        forumTitle: forumTitles.find(t => t?.[1] === id)?.[2],
         forumUserInfo: fui,
         numMessages,
       });
@@ -78,9 +79,23 @@ export default class PerForumStatsSection {
     let title = document.createElement('h2');
     title.classList.add('scTailwindSharedActivitycharttitle');
 
-    const [badge, badgeTooltip] = createExtBadge();
+    let badge, badgeTooltip;
+    if (this.isCommunityConsole) {
+      [badge, badgeTooltip] = createExtBadge();
+    } else {
+      badge = document.createElement('span');
+      badge.classList.add('TWPT-badge');
+
+      var badgeImg = document.createElement('img');
+      badgeImg.src =
+          'https://fonts.gstatic.com/s/i/materialicons/repeat/v6/24px.svg';
+
+      badge.appendChild(badgeImg);
+    }
+
     let titleText = document.createElement('span');
-    titleText.textContent = chrome.i18n.getMessage('inject_perforumstats_heading');
+    titleText.textContent =
+        chrome.i18n.getMessage('inject_perforumstats_heading');
 
     title.append(badge, titleText);
 
@@ -93,7 +108,7 @@ export default class PerForumStatsSection {
     root.append(title, selector, chartEl);
     section.append(root);
     existingChartSection.after(section);
-    new MDCTooltip(badgeTooltip);
+    if (this.isCommunityConsole) new MDCTooltip(badgeTooltip);
   }
 
   getAplosData(forumId) {
@@ -101,10 +116,15 @@ export default class PerForumStatsSection {
     for (const [key, name, color] of kDataKeys) {
       let rawData = this.data.find(f => f.id === forumId)?.forumUserInfo?.[key];
       let data;
-      if (!rawData)
+      if (!rawData) {
         data = [];
-      else
-        data = rawData.map(m => JSON.stringify(Object.values(m)));
+      } else {
+        // We're filtering empty strings since in the public forum there a lose
+        // conversion takes place and the first element of the array is always
+        // null, which breaks the Aplos graph rendering.
+        data =
+            rawData.map(m => JSON.stringify(Object.values(m))).filter(m => !!m);
+      }
       aplosData.push({
         color,
         data,

@@ -43,7 +43,8 @@ module.exports = (env, args) => {
     communityConsoleStart: './src/contentScripts/communityConsole/start.js',
     publicForum: './src/contentScripts/publicForum.js',
     publicThread: './src/contentScripts/publicThread.js',
-    profile: './src/contentScripts/profile.js',
+    publicProfile: './src/contentScripts/publicProfile.js',
+    publicProfileStart: './src/contentScripts/publicProfileStart.js',
     profileIndicator: './src/contentScripts/profileIndicator.js',
 
     // Injected JS
