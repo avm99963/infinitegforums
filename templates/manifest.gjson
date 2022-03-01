@@ -81,7 +81,20 @@
         "css/thread_list_avatars.css",
         "css/autorefresh_list.css",
         "css/image_max_height.css",
-        "css/extrainfo.css"
+        "css/extrainfo.css",
+
+        "communityConsoleMain.bundle.js.map",
+        "communityConsoleStart.bundle.js.map",
+        "publicForum.bundle.js.map",
+        "publicThread.bundle.js.map",
+        "profile.bundle.js.map",
+        "profileIndicator.bundle.js.map",
+        "profileIndicatorInject.bundle.js.map",
+        "batchLockInject.bundle.js.map",
+        "xhrInterceptorInject.bundle.js.map",
+        "extraInfoInject.bundle.js.map",
+        "optionsCommon.bundle.js.map",
+        "mdcStyles.bundle.js.map"
 #if defined(CHROMIUM_MV3)
       ],
       "matches": [

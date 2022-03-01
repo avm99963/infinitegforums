@@ -35,6 +35,8 @@ const getCopyPluginsForOverridenLocales = outputPath => {
 };
 
 module.exports = (env, args) => {
+  // NOTE: When adding an entry, add the corresponding source map file to
+  // web_accessible_resources in //templates/manifest.gjson.
   let entry = {
     // Content scripts
     communityConsoleMain: './src/contentScripts/communityConsole/main.js',
@@ -120,10 +122,7 @@ module.exports = (env, args) => {
       }),
       ...getCopyPluginsForOverridenLocales(outputPath),
     ],
-    // NOTE: Change to
-    //   (args.mode == 'production' ? 'source-map' : 'inline-source-map')
-    // once https://crbug.com/212374 is fixed.
-    devtool: 'inline-source-map',
+    devtool: (args.mode == 'production' ? 'source-map' : 'inline-source-map'),
     module: {
       rules: [
         {
