@@ -297,7 +297,7 @@
   },
   "inject_perforumstats_forumoption_1helper": {
     "message": "$forumName$ ($helper1$)",
-    "description": "In the selector where the user can select the forum shown in the graph, one such option. $helper1$ will usually be the number of messages posted by the user in that forum.",
+    "description": "In the selector where the user can select the forum shown in the graph, one such option. $HELPER1$ will usually be the number of messages posted by the user in that forum.",
     "placeholders": {
       "forumName": {
         "content": "$1",
@@ -311,7 +311,7 @@
   },
   "inject_perforumstats_forumoption_2helpers": {
     "message": "$forumName$ ($helper1$, $helper2$)",
-    "description": "In the selector where the user can select the forum shown in the graph, one such option. $helper1$ will be the number of messages posted by the user in that forum, and $helper2$ will be the badge awarded to the user in that forum.",
+    "description": "In the selector where the user can select the forum shown in the graph, one such option. $HELPER1$ will be the number of messages posted by the user in that forum, and $HELPER2$ will be the badge awarded to the user in that forum.",
     "placeholders": {
       "forumName": {
         "content": "$1",
@@ -396,6 +396,138 @@
   "inject_perforumstats_chart_questions": {
     "message": "Preguntes",
     "description": "Label shown in the legend of the per-forum activity chart."
+  },
+  "inject_extrainfo_profile_abusecategory": {
+    "message": "Categoria d'abús: $1",
+    "description": "Message shown in profiles when there is a policy violation."
+  },
+  "inject_extrainfo_profile_abusecategory_noviolation": {
+    "message": "Cap violació",
+    "description": "Abuse category"
+  },
+  "inject_extrainfo_profile_abusecategory_communitypolicy": {
+    "message": "Violació de la política de la comunitat",
+    "description": "Abuse category (when a community policy is violated)"
+  },
+  "inject_extrainfo_profile_abusecategory_legal": {
+    "message": "Violació legal",
+    "description": "Abuse category (when the violation is related to legal)"
+  },
+  "inject_extrainfo_profile_abusecategory_csai": {
+    "message": "Violació CSAI",
+    "description": "Abuse category (when the violation is related to CSAI)"
+  },
+  "inject_extrainfo_profile_abusecategory_other": {
+    "message": "Una altra violació",
+    "description": "Abuse category"
+  },
+  "inject_extrainfo_profile_abuse_account": {
+    "message": "Violació de la política de comptes: $1",
+    "description": "Message shown in profiles when there is an account policy violation."
+  },
+  "inject_extrainfo_profile_abuse_displayname": {
+    "message": "Violació de la política de noms d'usuari: $1",
+    "description": "Message shown in profiles when the display name is violating a policy."
+  },
+  "inject_extrainfo_profile_abuse_avatar": {
+    "message": "Violació de la política d'avatars: $1",
+    "description": "Message shown in profiles when the avatar is violating a policy."
+  },
+  "inject_extrainfo_profile_appealsnum": {
+    "message": "Nombre d'apel·lacions: $1",
+    "description": "Message shown in profiles which states how many times the account has appealed the decision to ban their profile."
+  },
+  "inject_extrainfo_crs_used_singular": {
+    "message": "Usada 1 cop",
+    "description": "Shown alongside a canned response to state how many times it has been used."
+  },
+  "inject_extrainfo_crs_used_plural": {
+    "message": "Usada $1 cops",
+    "description": "Shown alongside a canned response to state how many times it has been used."
+  },
+  "inject_extrainfo_crs_lastused": {
+    "message": "Últim us: $1",
+    "description": "Tooltip which states when a canned response was last used."
+  },
+  "inject_extrainfo_message_pendingstate": {
+    "message": "Només visible a usuaris amb insígnia",
+    "description": "Label used in a thread or message when it is in the pending state (only visible to badged users)."
+  },
+  "inject_extrainfo_message_pendingstate_tooltip": {
+    "message": "Visible a partir del $1",
+    "description": "Tooltip used for the label \"Only visible to badged users\" to state when the thread will become visible publicly."
+  },
+  "inject_extrainfo_message_state": {
+    "message": "Estat: $1",
+    "description": "Label used in a thread or message to show its state."
+  },
+  "inject_extrainfo_message_state_published": {
+    "message": "Publicat",
+    "description": "Thread/message state PUBLISHED (the normal state of a message: it is published and visible to everyone)."
+  },
+  "inject_extrainfo_message_state_draft": {
+    "message": "Esborrany",
+    "description": "Thread/message state DRAFT (when a message is saved as a draft and not yet published)."
+  },
+  "inject_extrainfo_message_state_owner_deleted": {
+    "message": "Eliminat pel propietari",
+    "description": "Thread/message state OWNER_DELETED (the owner deleted the message)."
+  },
+  "inject_extrainfo_message_state_automated_abuse_take_down_hide2": {
+    "message": "Ocult (automàticament marcat com abús)",
+    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_HIDE (the message is hidden because the AI classified it as \"abuse\")."
+  },
+  "inject_extrainfo_message_state_automated_abuse_take_down_delete2": {
+    "message": "Eliminat (automàticament marcat com abús)",
+    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_DELETE (the message is deleted because the AI classified it as \"abuse\")."
+  },
+  "inject_extrainfo_message_state_automated_off_topic_hide2": {
+    "message": "Ocult (automàticament marcat com off-topic)",
+    "description": "Thread/message state AUTOMATED_OFF_TOPIC_HIDE (the message is hidden because the AI classified it as \"off topic\")."
+  },
+  "inject_extrainfo_message_state_automated_flagged_pending_manual_review2": {
+    "message": "Automàticament marcat (pendent revisió manual)",
+    "description": "Thread/message state AUTOMATED_FLAGGED_PENDING_MANUAL_REVIEW (the message has been flagged by the AI and needs manual review)."
+  },
+  "inject_extrainfo_message_state_user_flagged_pending_manual_review": {
+    "message": "Marcat per usuari (pendent revisió manual)",
+    "description": "Thread/message state USER_FLAGGED_PENDING_MANUAL_REVIEW (a user flagged the message and needs manual review)."
+  },
+  "inject_extrainfo_message_state_expert_flagged_pending_manual_review": {
+    "message": "Marcat per expert (pendent revisió manual)",
+    "description": "Thread/message state EXPERT_FLAGGED_PENDING_MANUAL_REVIEW (a PE flagged the message and needs manual review)."
+  },
+  "inject_extrainfo_message_shadowblockactive": {
+    "message": "Baneig a l'ombra actiu",
+    "description": "Label used in a thread or message when it has been shadow blocked and is thus hidden from view."
+  },
+  "inject_extrainfo_message_shadowblocknotactive": {
+    "message": "Baneig a l'ombra ja no actiu",
+    "description": "Label used in a thread or message when it had been shadow blocked but it isn't active anymore."
+  },
+  "inject_extrainfo_message_livereviewverdict": {
+    "message": "Veredicte de la revisió en viu: $1",
+    "description": "Label used in a thread or message to show what was the action taken when live reviewing it."
+  },
+  "inject_extrainfo_message_livereviewverdict_relevant": {
+    "message": "Relevant",
+    "description": "One of the actions of a live review."
+  },
+  "inject_extrainfo_message_livereviewverdict_offtopic": {
+    "message": "Off-topic",
+    "description": "One of the actions of a live review."
+  },
+  "inject_extrainfo_message_livereviewverdict_abuse": {
+    "message": "Abús",
+    "description": "One of the actions of a live review."
+  },
+  "inject_extrainfo_thread_autotrending": {
+    "message": "Marcat automàticament com tendència",
+    "description": "Label used in a thread to show it has been automatically marked as trending."
+  },
+  "inject_extrainfo_thread_trending": {
+    "message": "Tendència",
+    "description": "Label used in a thread to show it has been manually marked as trending."
   },
   "actionbadge_permissions_requested": {
     "message": "Algunes funcions necessiten permisos addicionals per funcionar. Fes clic per arreglar-lo.",
