@@ -297,7 +297,7 @@
   },
   "inject_perforumstats_forumoption_1helper": {
     "message": "$forumName$ ($helper1$)",
-    "description": "In the selector where the user can select the forum shown in the graph, one such option. $helper1$ will usually be the number of messages posted by the user in that forum.",
+    "description": "In the selector where the user can select the forum shown in the graph, one such option. $HELPER1$ will usually be the number of messages posted by the user in that forum.",
     "placeholders": {
       "forumName": {
         "content": "$1",
@@ -311,7 +311,7 @@
   },
   "inject_perforumstats_forumoption_2helpers": {
     "message": "$forumName$ ($helper1$, $helper2$)",
-    "description": "In the selector where the user can select the forum shown in the graph, one such option. $helper1$ will be the number of messages posted by the user in that forum, and $helper2$ will be the badge awarded to the user in that forum.",
+    "description": "In the selector where the user can select the forum shown in the graph, one such option. $HELPER1$ will be the number of messages posted by the user in that forum, and $HELPER2$ will be the badge awarded to the user in that forum.",
     "placeholders": {
       "forumName": {
         "content": "$1",
@@ -407,15 +407,15 @@
   },
   "inject_extrainfo_profile_abusecategory_communitypolicy": {
     "message": "Violación de la política de la comunidad",
-    "description": "Abuse category"
+    "description": "Abuse category (when a community policy is violated)"
   },
   "inject_extrainfo_profile_abusecategory_legal": {
     "message": "Violación legal",
-    "description": "Abuse category"
+    "description": "Abuse category (when the violation is related to legal)"
   },
   "inject_extrainfo_profile_abusecategory_csai": {
     "message": "Violación CSAI",
-    "description": "Abuse category"
+    "description": "Abuse category (when the violation is related to CSAI)"
   },
   "inject_extrainfo_profile_abusecategory_other": {
     "message": "Otra violación",
@@ -423,15 +423,15 @@
   },
   "inject_extrainfo_profile_abuse_account": {
     "message": "Violación de la política de cuentas: $1",
-    "description": "Message shown in profiles when there is a policy violation."
+    "description": "Message shown in profiles when there is an account policy violation."
   },
   "inject_extrainfo_profile_abuse_displayname": {
     "message": "Violación de la política de nombres de usuario: $1",
-    "description": "Message shown in profiles when there is a policy violation."
+    "description": "Message shown in profiles when the display name is violating a policy."
   },
   "inject_extrainfo_profile_abuse_avatar": {
     "message": "Violación de la política de avatares: $1",
-    "description": "Message shown in profiles when there is a policy violation."
+    "description": "Message shown in profiles when the avatar is violating a policy."
   },
   "inject_extrainfo_profile_appealsnum": {
     "message": "Número de apelaciones: $1",
@@ -463,75 +463,43 @@
   },
   "inject_extrainfo_message_state_published": {
     "message": "Publicado",
-    "description": "Thread/message state PUBLISHED."
+    "description": "Thread/message state PUBLISHED (the normal state of a message: it is published and visible to everyone)."
   },
   "inject_extrainfo_message_state_draft": {
     "message": "Borrador",
-    "description": "Thread/message state DRAFT."
-  },
-  "inject_extrainfo_message_state_automated_abuse_take_down_hide": {
-    "message": "Ocultado automáticamente por abuso",
-    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_HIDE."
-  },
-  "inject_extrainfo_message_state_automated_abuse_take_down_delete": {
-    "message": "Eliminado automáticamente por abuso",
-    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_DELETE."
-  },
-  "inject_extrainfo_message_state_automated_abuse_reinstate": {
-    "message": "Restaurar abuso automático",
-    "description": "Thread/message state AUTOMATED_ABUSE_REINSTATE."
-  },
-  "inject_extrainfo_message_state_automated_off_topic_hide": {
-    "message": "Ocultar off-topic automático",
-    "description": "Thread/message state AUTOMATED_OFF_TOPIC_HIDE."
-  },
-  "inject_extrainfo_message_state_automated_flagged_pending_manual_review": {
-    "message": "Marcado automáticamente (pendiente de revisión manual)",
-    "description": "Thread/message state AUTOMATED_FLAGGED_PENDING_MANUAL_REVIEW."
-  },
-  "inject_extrainfo_message_state_user_flagged_pending_manual_review": {
-    "message": "Marcado por usuario (pendiente de revisión manual)",
-    "description": "Thread/message state USER_FLAGGED_PENDING_MANUAL_REVIEW."
+    "description": "Thread/message state DRAFT (when a message is saved as a draft and not yet published)."
   },
   "inject_extrainfo_message_state_owner_deleted": {
     "message": "Eliminado por el propietario",
-    "description": "Thread/message state OWNER_DELETED."
+    "description": "Thread/message state OWNER_DELETED (the owner deleted the message)."
   },
-  "inject_extrainfo_message_state_manual_take_down_hide": {
-    "message": "Ocultado manualmente",
-    "description": "Thread/message state MANUAL_TAKE_DOWN_HIDE."
+  "inject_extrainfo_message_state_automated_abuse_take_down_hide2": {
+    "message": "Oculto (automáticamente marcado como abuso)",
+    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_HIDE (the message is hidden because the AI classified it as \"abuse\")."
   },
-  "inject_extrainfo_message_state_manual_profile_take_down_suspend": {
-    "message": "Perfil suspendido manualmente",
-    "description": "Thread/message state MANUAL_PROFILE_TAKE_DOWN_SUSPEND."
+  "inject_extrainfo_message_state_automated_abuse_take_down_delete2": {
+    "message": "Eliminado (automáticamente marcado como abuso)",
+    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_DELETE (the message is deleted because the AI classified it as \"abuse\")."
   },
-  "inject_extrainfo_message_state_manual_take_down_delete": {
-    "message": "Eliminado manualmente",
-    "description": "Thread/message state MANUAL_TAKE_DOWN_DELETE."
+  "inject_extrainfo_message_state_automated_off_topic_hide2": {
+    "message": "Oculto (automáticamente marcado como off-topic)",
+    "description": "Thread/message state AUTOMATED_OFF_TOPIC_HIDE (the message is hidden because the AI classified it as \"off topic\")."
   },
-  "inject_extrainfo_message_state_reinstate_profile_takedown": {
-    "message": "Perfil restaurado",
-    "description": "Thread/message state REINSTATE_PROFILE_TAKEDOWN."
+  "inject_extrainfo_message_state_automated_flagged_pending_manual_review2": {
+    "message": "Automáticamente marcado (pendiente revisión manual)",
+    "description": "Thread/message state AUTOMATED_FLAGGED_PENDING_MANUAL_REVIEW (the message has been flagged by the AI and needs manual review)."
   },
-  "inject_extrainfo_message_state_reinstate_abuse_takedown": {
-    "message": "Restaurado de abuso",
-    "description": "Thread/message state REINSTATE_ABUSE_TAKEDOWN."
-  },
-  "inject_extrainfo_message_state_clear_off_topic": {
-    "message": "Desmarcado off-topic",
-    "description": "Thread/message state CLEAR_OFF_TOPIC."
-  },
-  "inject_extrainfo_message_state_confirm_off_topic": {
-    "message": "Confirmado off-topic",
-    "description": "Thread/message state CONFIRM_OFF_TOPIC."
-  },
-  "inject_extrainfo_message_state_googler_off_topic_hide": {
-    "message": "Ocultado off-topic por Googler",
-    "description": "Thread/message state GOOGLER_OFF_TOPIC_HIDE."
+  "inject_extrainfo_message_state_user_flagged_pending_manual_review": {
+    "message": "Marcado por usuario (pendiente revisión manual)",
+    "description": "Thread/message state USER_FLAGGED_PENDING_MANUAL_REVIEW (a user flagged the message and needs manual review)."
   },
   "inject_extrainfo_message_state_expert_flagged_pending_manual_review": {
-    "message": "Marcado por experto (pendiente de revisión manual)",
-    "description": "Thread/message state EXPERT_FLAGGED_PENDING_MANUAL_REVIEW."
+    "message": "Marcado por experto (pendiente revisión manual)",
+    "description": "Thread/message state EXPERT_FLAGGED_PENDING_MANUAL_REVIEW (a PE flagged the message and needs manual review)."
+  },
+  "inject_extrainfo_message_state_manual_take_down_hide2": {
+    "message": "Ocultado automáticamente",
+    "description": "Thread/message state MANUAL_TAKE_DOWN_HIDE (the message has been manually hidden by a Googler)."
   },
   "inject_extrainfo_message_shadowblockactive": {
     "message": "Baneo en la sombra activo",
