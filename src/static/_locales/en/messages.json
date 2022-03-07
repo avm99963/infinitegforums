@@ -296,8 +296,8 @@
     "description": "Heading of the section with the per-forum activity stacked bars graph showing the number of questions, replies and recommended answers each month."
   },
   "inject_perforumstats_forumoption_1helper": {
-    "message": "$forumName$ ($helper1$)",
-    "description": "In the selector where the user can select the forum shown in the graph, one such option. $helper1$ will usually be the number of messages posted by the user in that forum.",
+    "message": "$FORUMNAME$ ($HELPER1$)",
+    "description": "In the selector where the user can select the forum shown in the graph, one such option. $HELPER1$ will usually be the number of messages posted by the user in that forum.",
     "placeholders": {
       "forumName": {
         "content": "$1",
@@ -310,8 +310,8 @@
     }
   },
   "inject_perforumstats_forumoption_2helpers": {
-    "message": "$forumName$ ($helper1$, $helper2$)",
-    "description": "In the selector where the user can select the forum shown in the graph, one such option. $helper1$ will be the number of messages posted by the user in that forum, and $helper2$ will be the badge awarded to the user in that forum.",
+    "message": "$FORUMNAME$ ($HELPER1$, $HELPER2$)",
+    "description": "In the selector where the user can select the forum shown in the graph, one such option. $HELPER1$ will be the number of messages posted by the user in that forum, and $HELPER2$ will be the badge awarded to the user in that forum.",
     "placeholders": {
       "forumName": {
         "content": "$1",
@@ -332,7 +332,7 @@
     "description": "Annotation shown in the forum selector which states how many messages have been published by a user in a forum (singular variant)."
   },
   "inject_perforumstats_nummessages_plural": {
-    "message": "$num$ messages",
+    "message": "$NUM$ messages",
     "description": "Annotation shown in the forum selector which states how many messages have been published by a user in a forum (plural variant).",
     "placeholders": {
       "num": {
@@ -407,15 +407,15 @@
   },
   "inject_extrainfo_profile_abusecategory_communitypolicy": {
     "message": "Community policy violation",
-    "description": "Abuse category"
+    "description": "Abuse category (when a community policy is violated)"
   },
   "inject_extrainfo_profile_abusecategory_legal": {
     "message": "Legal violation",
-    "description": "Abuse category"
+    "description": "Abuse category (when the violation is related to legal)"
   },
   "inject_extrainfo_profile_abusecategory_csai": {
     "message": "CSAI violation",
-    "description": "Abuse category"
+    "description": "Abuse category (when the violation is related to CSAI)"
   },
   "inject_extrainfo_profile_abusecategory_other": {
     "message": "Other violation",
@@ -423,15 +423,15 @@
   },
   "inject_extrainfo_profile_abuse_account": {
     "message": "Account policy violation: $1",
-    "description": "Message shown in profiles when there is a policy violation."
+    "description": "Message shown in profiles when there is an account policy violation."
   },
   "inject_extrainfo_profile_abuse_displayname": {
     "message": "Display name policy violation: $1",
-    "description": "Message shown in profiles when there is a policy violation."
+    "description": "Message shown in profiles when the display name is violating a policy."
   },
   "inject_extrainfo_profile_abuse_avatar": {
     "message": "Avatar policy violation: $1",
-    "description": "Message shown in profiles when there is a policy violation."
+    "description": "Message shown in profiles when the avatar is violating a policy."
   },
   "inject_extrainfo_profile_appealsnum": {
     "message": "Number of appeals: $1",
@@ -463,75 +463,75 @@
   },
   "inject_extrainfo_message_state_published": {
     "message": "Published",
-    "description": "Thread/message state PUBLISHED."
+    "description": "Thread/message state PUBLISHED (the normal state of a message: it is published and visible to everyone)."
   },
   "inject_extrainfo_message_state_draft": {
     "message": "Draft",
-    "description": "Thread/message state DRAFT."
-  },
-  "inject_extrainfo_message_state_automated_abuse_take_down_hide": {
-    "message": "Take down hide automated abuse",
-    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_HIDE."
-  },
-  "inject_extrainfo_message_state_automated_abuse_take_down_delete": {
-    "message": "Take down delete automated abuse",
-    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_DELETE."
-  },
-  "inject_extrainfo_message_state_automated_abuse_reinstate": {
-    "message": "Reinstate automated abuse",
-    "description": "Thread/message state AUTOMATED_ABUSE_REINSTATE."
-  },
-  "inject_extrainfo_message_state_automated_off_topic_hide": {
-    "message": "Hide automated off-topic",
-    "description": "Thread/message state AUTOMATED_OFF_TOPIC_HIDE."
-  },
-  "inject_extrainfo_message_state_automated_flagged_pending_manual_review": {
-    "message": "Automated flagged (pending manual review)",
-    "description": "Thread/message state AUTOMATED_FLAGGED_PENDING_MANUAL_REVIEW."
-  },
-  "inject_extrainfo_message_state_user_flagged_pending_manual_review": {
-    "message": "User flagged (pending manual review)",
-    "description": "Thread/message state USER_FLAGGED_PENDING_MANUAL_REVIEW."
+    "description": "Thread/message state DRAFT (when a message is saved as a draft and not yet published)."
   },
   "inject_extrainfo_message_state_owner_deleted": {
     "message": "Owner deleted",
-    "description": "Thread/message state OWNER_DELETED."
+    "description": "Thread/message state OWNER_DELETED (the owner deleted the message)."
   },
-  "inject_extrainfo_message_state_manual_take_down_hide": {
-    "message": "Manual take down hide",
-    "description": "Thread/message state MANUAL_TAKE_DOWN_HIDE."
+  "inject_extrainfo_message_state_automated_abuse_take_down_hide2": {
+    "message": "Hidden (automatically marked as abuse)",
+    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_HIDE (the message is hidden because the AI classified it as \"abuse\")."
   },
-  "inject_extrainfo_message_state_manual_profile_take_down_suspend": {
-    "message": "Manual profile take down suspend",
-    "description": "Thread/message state MANUAL_PROFILE_TAKE_DOWN_SUSPEND."
+  "inject_extrainfo_message_state_automated_abuse_take_down_delete2": {
+    "message": "Deleted (automatically marked as abuse)",
+    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_DELETE (the message is deleted because the AI classified it as \"abuse\")."
   },
-  "inject_extrainfo_message_state_manual_take_down_delete": {
-    "message": "Manual take down delete",
-    "description": "Thread/message state MANUAL_TAKE_DOWN_DELETE."
+  "inject_extrainfo_message_state_automated_off_topic_hide2": {
+    "message": "Hidden (automatically marked as off-topic)",
+    "description": "Thread/message state AUTOMATED_OFF_TOPIC_HIDE (the message is hidden because the AI classified it as \"off topic\")."
   },
-  "inject_extrainfo_message_state_reinstate_profile_takedown": {
-    "message": "Reinstate profile takedown",
-    "description": "Thread/message state REINSTATE_PROFILE_TAKEDOWN."
+  "inject_extrainfo_message_state_automated_flagged_pending_manual_review2": {
+    "message": "Automatically flagged (pending manual review)",
+    "description": "Thread/message state AUTOMATED_FLAGGED_PENDING_MANUAL_REVIEW (the message has been flagged by the AI and needs manual review)."
   },
-  "inject_extrainfo_message_state_reinstate_abuse_takedown": {
-    "message": "Reinstate abuse takedown",
-    "description": "Thread/message state REINSTATE_ABUSE_TAKEDOWN."
-  },
-  "inject_extrainfo_message_state_clear_off_topic": {
-    "message": "Clear off topic",
-    "description": "Thread/message state CLEAR_OFF_TOPIC."
-  },
-  "inject_extrainfo_message_state_confirm_off_topic": {
-    "message": "Confirm off topic",
-    "description": "Thread/message state CONFIRM_OFF_TOPIC."
-  },
-  "inject_extrainfo_message_state_googler_off_topic_hide": {
-    "message": "Googler off topic hide",
-    "description": "Thread/message state GOOGLER_OFF_TOPIC_HIDE."
+  "inject_extrainfo_message_state_user_flagged_pending_manual_review": {
+    "message": "User flagged (pending manual review)",
+    "description": "Thread/message state USER_FLAGGED_PENDING_MANUAL_REVIEW (a user flagged the message and needs manual review)."
   },
   "inject_extrainfo_message_state_expert_flagged_pending_manual_review": {
     "message": "Expert flagged (pending manual review)",
-    "description": "Thread/message state EXPERT_FLAGGED_PENDING_MANUAL_REVIEW."
+    "description": "Thread/message state EXPERT_FLAGGED_PENDING_MANUAL_REVIEW (a PE flagged the message and needs manual review)."
+  },
+  "inject_extrainfo_message_state_manual_take_down_hide2": {
+    "message": "Hidden manually",
+    "description": "Thread/message state MANUAL_TAKE_DOWN_HIDE (the message has been manually hidden by a Googler)."
+  },
+  "inject_extrainfo_message_state_manual_take_down_delete2": {
+    "message": "Deleted manually",
+    "description": "Thread/message state MANUAL_TAKE_DOWN_DELETE (the message has been manually deleted by a Googler)."
+  },
+  "inject_extrainfo_message_state_googler_off_topic_hide2": {
+    "message": "Hidden as off-topic by a Googler",
+    "description": "Thread/message state GOOGLER_OFF_TOPIC_HIDE (the message has been hidden by a Googler because it is off-topic)."
+  },
+  "inject_extrainfo_message_state_manual_profile_take_down_suspend2": {
+    "message": "Hidden (profile suspended)",
+    "description": "Thread/message state MANUAL_PROFILE_TAKE_DOWN_SUSPEND (due to the fact that the profile has been manually suspended by a Googler, messages written by that account are in this state —and hidden from the public)."
+  },
+  "inject_extrainfo_message_state_reinstate_profile_takedown2": {
+    "message": "Reinstated (profile ban reverted)",
+    "description": "Thread/message state REINSTATE_PROFILE_TAKEDOWN (after a profile suspension has been reverted, messages which were previously in the \"MANUAL_PROFILE_TAKE_DOWN_SUSPEND\" state have this state (and are visible to the public again))."
+  },
+  "inject_extrainfo_message_state_reinstate_abuse_takedown2": {
+    "message": "Manually unmarked as abuse",
+    "description": "Thread/message state REINSTATE_ABUSE_TAKEDOWN (it is thought that messages in this state have been manually unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
+  },
+  "inject_extrainfo_message_state_automated_abuse_reinstate2": {
+    "message": "Automatically unmarked as abuse",
+    "description": "Thread/message state AUTOMATED_ABUSE_REINSTATE (it is thought that messages in this state have been automatically unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
+  },
+  "inject_extrainfo_message_state_clear_off_topic2": {
+    "message": "Cleared off topic",
+    "description": "Thread/message state CLEAR_OFF_TOPIC (the message has been confirmed to NOT be off-topic)."
+  },
+  "inject_extrainfo_message_state_confirm_off_topic2": {
+    "message": "Confirmed off topic",
+    "description": "Thread/message state CONFIRM_OFF_TOPIC (the message has been confirmed to be off-topic)."
   },
   "inject_extrainfo_message_shadowblockactive": {
     "message": "Shadow block active",
