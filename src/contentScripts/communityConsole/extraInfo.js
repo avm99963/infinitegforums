@@ -11,6 +11,7 @@ import PerForumStatsSection from './utils/PerForumStatsSection.js';
 const kViewUnifiedUserResponseEvent = 'TWPT_ViewUnifiedUserResponse';
 const kListCannedResponsesResponse = 'TWPT_ListCannedResponsesResponse';
 const kViewThreadResponse = 'TWPT_ViewThreadResponse';
+const kViewForumRequest = 'TWPT_ViewForumRequest';
 const kViewForumResponse = 'TWPT_ViewForumResponse';
 
 // Used to match each category with the corresponding string.
@@ -217,8 +218,10 @@ export default class ExtraInfo {
       id: -1,
       timestamp: 0,
     };
-    this.lastThreadList = null;
+    // Threads currently loaded in the thread list
+    this.lastThreadListThreads = [];
     this.lastThreadListTimestamp = 0;
+    this.lastThreadListIsFirst = null;
     this.lastThreadListRequestId = -1;
     this.displayLanguage = getDisplayLanguage();
     this.optionsWatcher = new OptionsWatcher(['extrainfo', 'perforumstats']);
@@ -269,10 +272,29 @@ export default class ExtraInfo {
         timestamp: Date.now(),
       };
     });
+    window.addEventListener(kViewForumRequest, e => {
+      // Ignore ViewForum requests made by the chat feature and the "Mark as
+      // duplicate" dialog.
+      //
+      // All those requests have |maxNum| set to 10 and 20 respectively, while
+      // the requests that we want to handle are the ones to initially load the
+      // thread list (which currently requests 100 threads) and the ones to load
+      // more threads (which request 50 threads).
+      let maxNum = e.detail.body?.['2']?.['1']?.['2'];
+      if (maxNum != 10 && maxNum != 20) {
+        this.lastThreadListRequestId = e.detail.id;
+        this.lastThreadListIsFirst =
+            !e.detail.body?.['2']?.['1']?.['3']?.['2'];  // Pagination token
+      }
+    });
     window.addEventListener(kViewForumResponse, e => {
-      if (e.detail.id < this.lastThreadListRequestId) return;
+      if (e.detail.id != this.lastThreadListRequestId) return;
 
-      this.lastThreadList = e.detail.body;
+      let threads = e.detail.body?.['1']?.['2'] ?? [];
+      if (this.lastThreadListIsFirst)
+        this.lastThreadListThreads = threads;
+      else
+        this.lastThreadListThreads = this.lastThreadListThreads.concat(threads);
       this.lastThreadListTimestamp = Date.now();
     });
   }
@@ -828,7 +850,7 @@ export default class ExtraInfo {
             return;
           }
 
-          let thread = this.lastThreadList?.['1']?.['2']?.find?.(t => {
+          let thread = this.lastThreadListThreads?.find?.(t => {
             return t?.['2']?.['1']?.['1'] == threadInfo.thread &&
                 t?.['2']?.['1']?.['3'] == threadInfo.forum;
           });
@@ -891,7 +913,7 @@ export default class ExtraInfo {
 
     waitFor(
         () => {
-          let thread = this.lastThreadList?.['1']?.['2']?.find?.(t => {
+          let thread = this.lastThreadListThreads?.find?.(t => {
             return t?.['2']?.['1']?.['1'] == threadInfo.thread &&
                 t?.['2']?.['1']?.['3'] == threadInfo.forum;
           });
