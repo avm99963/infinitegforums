@@ -501,6 +501,38 @@
     "message": "Ocultado automáticamente",
     "description": "Thread/message state MANUAL_TAKE_DOWN_HIDE (the message has been manually hidden by a Googler)."
   },
+  "inject_extrainfo_message_state_manual_take_down_delete2": {
+    "message": "Eliminado manualmente",
+    "description": "Thread/message state MANUAL_TAKE_DOWN_DELETE (the message has been manually deleted by a Googler)."
+  },
+  "inject_extrainfo_message_state_googler_off_topic_hide2": {
+    "message": "Ocultado como off-topic por Googler",
+    "description": "Thread/message state GOOGLER_OFF_TOPIC_HIDE (the message has been hidden by a Googler because it is off-topic)."
+  },
+  "inject_extrainfo_message_state_manual_profile_take_down_suspend2": {
+    "message": "Ocultado (perfil suspendido)",
+    "description": "Thread/message state MANUAL_PROFILE_TAKE_DOWN_SUSPEND (due to the fact that the profile has been manually suspended by a Googler, messages written by that account are in this state —and hidden from the public)."
+  },
+  "inject_extrainfo_message_state_reinstate_profile_takedown2": {
+    "message": "Restablecido (baneo de perfil revertido)",
+    "description": "Thread/message state REINSTATE_PROFILE_TAKEDOWN (after a profile suspension has been reverted, messages which were previously in the \"MANUAL_PROFILE_TAKE_DOWN_SUSPEND\" state have this state (and are visible to the public again))."
+  },
+  "inject_extrainfo_message_state_reinstate_abuse_takedown2": {
+    "message": "Desmarcado manualmente abuso",
+    "description": "Thread/message state REINSTATE_ABUSE_TAKEDOWN (it is thought that messages in this state have been manually unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
+  },
+  "inject_extrainfo_message_state_automated_abuse_reinstate2": {
+    "message": "Desmarcado automáticamente abuso",
+    "description": "Thread/message state AUTOMATED_ABUSE_REINSTATE (it is thought that messages in this state have been automatically unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
+  },
+  "inject_extrainfo_message_state_clear_off_topic2": {
+    "message": "Desmarcado off-topic",
+    "description": "Thread/message state CLEAR_OFF_TOPIC (the message has been confirmed to NOT be off-topic)."
+  },
+  "inject_extrainfo_message_state_confirm_off_topic2": {
+    "message": "Confirmado off-topic",
+    "description": "Thread/message state CONFIRM_OFF_TOPIC (the message has been confirmed to be off-topic)."
+  },
   "inject_extrainfo_message_shadowblockactive": {
     "message": "Baneo en la sombra activo",
     "description": "Label used in a thread or message when it has been shadow blocked and is thus hidden from view."
