@@ -43,7 +43,15 @@
   register: uploadcmd
   failed_when: false
 
+- name: Read upload log
+  when: not (dry_run|bool)
+  ansible.builtin.shell:
+    cmd: cat cws-log.txt
+    chdir: "{{ zuul.project.src_dir }}/out"
+    executable: /bin/bash
+  register: uploadlog
+
 - name: Check whether the upload was successful
-  when: "not (dry_run|bool) and not (uploadcmd.rc == 0 or ('ITEM_NOT_UPDATABLE' in uploadcmd.stdout) or ('PKG_INVALID_VERSION_NUMBER') in uploadcmd.stdout)"
+  when: "not (dry_run|bool) and not (uploadcmd.rc == 0 or ('ITEM_NOT_UPDATABLE' in uploadlog.stdout) or ('PKG_INVALID_VERSION_NUMBER') in uploadlog.stdout)"
   fail:
-    msg: "{{ uploadcmd.stdout }}"
+    msg: "{{ uploadlog.stdout }}"
