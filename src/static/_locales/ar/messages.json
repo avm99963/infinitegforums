@@ -295,6 +295,38 @@
     "message": "النّشاط بحسب المنتدى",
     "description": "Heading of the section with the per-forum activity stacked bars graph showing the number of questions, replies and recommended answers each month."
   },
+  "inject_perforumstats_forumoption_1helper": {
+    "message": "$FORUMNAME$ ($HELPER1$)",
+    "description": "In the selector where the user can select the forum shown in the graph, one such option. $HELPER1$ will usually be the number of messages posted by the user in that forum.",
+    "placeholders": {
+      "forumName": {
+        "content": "$1",
+        "example": "Google Chrome"
+      },
+      "helper1": {
+        "content": "$2",
+        "example": "963 messages"
+      }
+    }
+  },
+  "inject_perforumstats_forumoption_2helpers": {
+    "message": "$FORUMNAME$ ($HELPER1$, $HELPER2$)",
+    "description": "In the selector where the user can select the forum shown in the graph, one such option. $HELPER1$ will be the number of messages posted by the user in that forum, and $HELPER2$ will be the badge awarded to the user in that forum.",
+    "placeholders": {
+      "forumName": {
+        "content": "$1",
+        "example": "Google Chrome"
+      },
+      "helper1": {
+        "content": "$2",
+        "example": "963 messages"
+      },
+      "helper2": {
+        "content": "$3",
+        "example": "gold"
+      }
+    }
+  },
   "inject_perforumstats_nummessages_singular": {
     "message": "1 رسالة",
     "description": "Annotation shown in the forum selector which states how many messages have been published by a user in a forum (singular variant)."
@@ -375,11 +407,11 @@
   },
   "inject_extrainfo_profile_abusecategory_communitypolicy": {
     "message": "انتهاك سياسة المجتمع",
-    "description": "Abuse category"
+    "description": "Abuse category (when a community policy is violated)"
   },
   "inject_extrainfo_profile_abusecategory_legal": {
     "message": "انتهاك قانوني",
-    "description": "Abuse category"
+    "description": "Abuse category (when the violation is related to legal)"
   },
   "inject_extrainfo_profile_abusecategory_other": {
     "message": "انتهاك آخر",
@@ -387,15 +419,15 @@
   },
   "inject_extrainfo_profile_abuse_account": {
     "message": "انتهاك سياسة الحساب: $1",
-    "description": "Message shown in profiles when there is a policy violation."
+    "description": "Message shown in profiles when there is an account policy violation."
   },
   "inject_extrainfo_profile_abuse_displayname": {
     "message": "انتهاك سياسة اسم العرض: $1",
-    "description": "Message shown in profiles when there is a policy violation."
+    "description": "Message shown in profiles when the display name is violating a policy."
   },
   "inject_extrainfo_profile_abuse_avatar": {
     "message": "انتهاك سياسة الصورة الرمزية: $1",
-    "description": "Message shown in profiles when there is a policy violation."
+    "description": "Message shown in profiles when the avatar is violating a policy."
   },
   "inject_extrainfo_profile_appealsnum": {
     "message": "عدد الاستئنافات: $1",
@@ -427,43 +459,19 @@
   },
   "inject_extrainfo_message_state_published": {
     "message": "نُشِرَت",
-    "description": "Thread/message state PUBLISHED."
+    "description": "Thread/message state PUBLISHED (the normal state of a message: it is published and visible to everyone)."
   },
   "inject_extrainfo_message_state_draft": {
     "message": "مسودّة",
-    "description": "Thread/message state DRAFT."
-  },
-  "inject_extrainfo_message_state_automated_abuse_take_down_hide": {
-    "message": "إزالة إخفاء إساءة الاستخدام الآلي",
-    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_HIDE."
-  },
-  "inject_extrainfo_message_state_automated_abuse_take_down_delete": {
-    "message": "إزالة حذف الإساءة الآلية",
-    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_DELETE."
-  },
-  "inject_extrainfo_message_state_automated_off_topic_hide": {
-    "message": "إخفاء تلقائي خارج الموضوع",
-    "description": "Thread/message state AUTOMATED_OFF_TOPIC_HIDE."
-  },
-  "inject_extrainfo_message_state_automated_flagged_pending_manual_review": {
-    "message": "تم وضع علامة عليها تلقائيًا (في انتظار المراجعة اليدوية)",
-    "description": "Thread/message state AUTOMATED_FLAGGED_PENDING_MANUAL_REVIEW."
+    "description": "Thread/message state DRAFT (when a message is saved as a draft and not yet published)."
   },
   "inject_extrainfo_message_state_owner_deleted": {
     "message": "حُذف من طرف المالك",
-    "description": "Thread/message state OWNER_DELETED."
-  },
-  "inject_extrainfo_message_state_clear_off_topic": {
-    "message": "مسح خارج الموضوع",
-    "description": "Thread/message state CLEAR_OFF_TOPIC."
-  },
-  "inject_extrainfo_message_state_confirm_off_topic": {
-    "message": "تأكيد خارج الموضوع",
-    "description": "Thread/message state CONFIRM_OFF_TOPIC."
+    "description": "Thread/message state OWNER_DELETED (the owner deleted the message)."
   },
   "inject_extrainfo_message_state_expert_flagged_pending_manual_review": {
     "message": "تم وضع علامة على الخبير (في انتظار المراجعة اليدوية)",
-    "description": "Thread/message state EXPERT_FLAGGED_PENDING_MANUAL_REVIEW."
+    "description": "Thread/message state EXPERT_FLAGGED_PENDING_MANUAL_REVIEW (a PE flagged the message and needs manual review)."
   },
   "inject_extrainfo_message_livereviewverdict": {
     "message": "حكم المراجعة المباشِرة: $1",
