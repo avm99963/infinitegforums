@@ -469,9 +469,61 @@
     "message": "حُذف من طرف المالك",
     "description": "Thread/message state OWNER_DELETED (the owner deleted the message)."
   },
+  "inject_extrainfo_message_state_automated_abuse_take_down_hide2": {
+    "message": "مخفيَ (تم تحديده تلقائيًا على أنه إساءةُ استخدام)",
+    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_HIDE (the message is hidden because the AI classified it as \"abuse\")."
+  },
+  "inject_extrainfo_message_state_automated_abuse_take_down_delete2": {
+    "message": "محذوف (تمّ تحديده تلقائيًا على أنه إساءةُ استخدام)",
+    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_DELETE (the message is deleted because the AI classified it as \"abuse\")."
+  },
+  "inject_extrainfo_message_state_automated_off_topic_hide2": {
+    "message": "مخفيّ (تم تحديده تلقائيًا على أنه خارج الموضوع)",
+    "description": "Thread/message state AUTOMATED_OFF_TOPIC_HIDE (the message is hidden because the AI classified it as \"off topic\")."
+  },
+  "inject_extrainfo_message_state_automated_flagged_pending_manual_review2": {
+    "message": "تمّ الإبلاغ عنه تلقائيًا (في انتظار المراجعة اليدوية)",
+    "description": "Thread/message state AUTOMATED_FLAGGED_PENDING_MANUAL_REVIEW (the message has been flagged by the AI and needs manual review)."
+  },
+  "inject_extrainfo_message_state_user_flagged_pending_manual_review": {
+    "message": "تمّ الإبلاغ عن المستخدِم (في انتظار المراجعة اليدويّة)",
+    "description": "Thread/message state USER_FLAGGED_PENDING_MANUAL_REVIEW (a user flagged the message and needs manual review)."
+  },
   "inject_extrainfo_message_state_expert_flagged_pending_manual_review": {
     "message": "تم وضع علامة على الخبير (في انتظار المراجعة اليدوية)",
     "description": "Thread/message state EXPERT_FLAGGED_PENDING_MANUAL_REVIEW (a PE flagged the message and needs manual review)."
+  },
+  "inject_extrainfo_message_state_manual_take_down_hide2": {
+    "message": "مخفيّ يدويًّا",
+    "description": "Thread/message state MANUAL_TAKE_DOWN_HIDE (the message has been manually hidden by a Googler)."
+  },
+  "inject_extrainfo_message_state_manual_take_down_delete2": {
+    "message": "محذوف يدويًّا",
+    "description": "Thread/message state MANUAL_TAKE_DOWN_DELETE (the message has been manually deleted by a Googler)."
+  },
+  "inject_extrainfo_message_state_googler_off_topic_hide2": {
+    "message": "تم إخفاؤه باعتباره خارج الموضوع من قِبل موظّف Google",
+    "description": "Thread/message state GOOGLER_OFF_TOPIC_HIDE (the message has been hidden by a Googler because it is off-topic)."
+  },
+  "inject_extrainfo_message_state_manual_profile_take_down_suspend2": {
+    "message": "مخفيّ (تمّ تعليق الملفّ الشّخصيّ)",
+    "description": "Thread/message state MANUAL_PROFILE_TAKE_DOWN_SUSPEND (due to the fact that the profile has been manually suspended by a Googler, messages written by that account are in this state —and hidden from the public)."
+  },
+  "inject_extrainfo_message_state_reinstate_profile_takedown2": {
+    "message": "تمّت الإعادَة (تمّ إزالة حَظر الملفّ الشّخصيّ)",
+    "description": "Thread/message state REINSTATE_PROFILE_TAKEDOWN (after a profile suspension has been reverted, messages which were previously in the \"MANUAL_PROFILE_TAKE_DOWN_SUSPEND\" state have this state (and are visible to the public again))."
+  },
+  "inject_extrainfo_message_state_reinstate_abuse_takedown2": {
+    "message": "تمّ إزالة علامة إساءة الاستخدام يدويّا",
+    "description": "Thread/message state REINSTATE_ABUSE_TAKEDOWN (it is thought that messages in this state have been manually unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
+  },
+  "inject_extrainfo_message_state_automated_abuse_reinstate2": {
+    "message": "تمّ إزالة علامة إساءة الاستخدام تلقائيّا",
+    "description": "Thread/message state AUTOMATED_ABUSE_REINSTATE (it is thought that messages in this state have been automatically unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
+  },
+  "inject_extrainfo_message_state_confirm_off_topic2": {
+    "message": "تمّ تأكيدُ خارجَ الموضوعِ",
+    "description": "Thread/message state CONFIRM_OFF_TOPIC (the message has been confirmed to be off-topic)."
   },
   "inject_extrainfo_message_livereviewverdict": {
     "message": "حكم المراجعة المباشِرة: $1",
