@@ -156,6 +156,9 @@ export default class AvatarsHandler {
             // cache.
             lastMessageId: data?.['1']?.['2']?.['10'],
           };
+        })
+        .catch(cause => {
+          throw new Error('Failed ViewThread request.', {cause});
         });
   }
 

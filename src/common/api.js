@@ -28,15 +28,25 @@ export function CCApi(
   let authuserPart =
       authuser == '0' ? '' : '?authuser=' + encodeURIComponent(authuser);
 
-  return fetch(CC_API_BASE_URL + method + authuserPart, {
-           'headers': {
-             'content-type': 'text/plain; charset=utf-8',
-           },
-           'body': JSON.stringify(data),
-           'method': 'POST',
-           'mode': 'cors',
-           'credentials': (authenticated ? 'include' : 'omit'),
-         })
+  // #!if browser_target == 'gecko'
+  // See
+  // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#xhr_and_fetch
+  // and https://developer.mozilla.org/en-US/docs/Web/API/Window/content.
+  const context = window.content || window;
+  // #!else
+  const context = window;
+  // #!endif
+
+  return context
+      .fetch(CC_API_BASE_URL + method + authuserPart, {
+        'headers': {
+          'content-type': 'text/plain; charset=utf-8',
+        },
+        'body': JSON.stringify(data),
+        'method': 'POST',
+        'mode': 'cors',
+        'credentials': (authenticated ? 'include' : 'omit'),
+      })
       .then(res => {
         if (res.status == 200 || res.status == 400) {
           return res.json().then(data => ({
