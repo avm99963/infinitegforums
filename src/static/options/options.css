@@ -1,5 +1,7 @@
 body {
   padding-top: 16px;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI Adjusted', 'Segoe UI', 'Liberation Sans', sans-serif;
+  font-size: 13px;
 }
 
 main {

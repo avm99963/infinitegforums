@@ -46,7 +46,7 @@ p {
 h1,
 h2,
 h3 {
-  -webkit-user-select: none;
+  user-select: none;
   font-weight: normal;
   /* Makes the vertical size of the text the same for all fonts. */
   line-height: 1;
@@ -78,13 +78,13 @@ a:active {
 
 /* Default state **************************************************************/
 
-:-webkit-any(button,
+:is(button,
              input[type='button'],
              input[type='submit']),
 select,
 input[type='checkbox'],
 input[type='radio'] {
-  -webkit-user-select: none;
+  user-select: none;
   background-image: linear-gradient(#ededed, #ededed 38%, #dedede);
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 2px;
@@ -100,10 +100,10 @@ input[type='radio'] {
 select,
 input[type='checkbox']:not(:indeterminate),
 input[type='radio'] {
-  -webkit-appearance: none;
+  appearance: none;
 }
 
-:-webkit-any(button,
+:is(button,
              input[type='button'],
              input[type='submit']),
 select {
@@ -111,17 +111,17 @@ select {
   min-width: 4em;
 }
 
-:-webkit-any(button,
+:is(button,
              input[type='button'],
              input[type='submit']) {
-  -webkit-padding-end: 10px;
-  -webkit-padding-start: 10px;
+  padding-inline-end: 10px;
+  padding-inline-start: 10px;
 }
 
 select {
-  -webkit-appearance: none;
-  -webkit-padding-end: 20px;
-  -webkit-padding-start: 6px;
+  appearance: none;
+  padding-inline-end: 20px;
+  padding-inline-start: 6px;
   /* OVERRIDE */
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAICAQAAACxSAwfAAAAUUlEQVR4AWP4TxREZkYxpKHAKKzKEhOZvyG4zN8SE7Eq+6+wYCHbTwiT7eeChf8VsFsKVQhTxIDDbVCFfF8ginApgyp82wRShEcZVJIVzoJDAGqrgIJGRl20AAAAAElFTkSuQmCC),
       linear-gradient(#ededed, #ededed 38%, #dedede);
@@ -170,7 +170,7 @@ textarea {
 }
 
 input[type='search'] {
-  -webkit-appearance: textfield;
+  appearance: textfield;
   /* NOTE: Keep a relatively high min-width for this so we don't obscure the end
    * of the default text in relatively spacious languages (i.e. German). */
   min-width: 160px;
@@ -179,7 +179,7 @@ input[type='search'] {
 /* Checked ********************************************************************/
 
 input[type='checkbox']:checked:not(:indeterminate)::before {
-  -webkit-user-select: none;
+  user-select: none;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAQAAAADpb+tAAAAZ0lEQVR4AWNAA2xAiAXEM8xiMEAXVGJYz7AZCFEkmBi6wYKtEC4/gxqY9gILrmYQhwiXMWxkiAVyVoOFfSCCpkAmCK4Fk+1QA4GqekECUAMkka0KY9gIFvZDd5oawwyGBqACdIDqOwAQzBnTWnnU+gAAAABJRU5ErkJggg==);
   background-size: 100% 100%;
   content: '';
@@ -202,11 +202,11 @@ input[type='radio']:checked::before {
 
 /* Hover **********************************************************************/
 
-:enabled:hover:-webkit-any(
+:enabled:hover:is(
     select,
     input[type='checkbox'],
     input[type='radio'],
-    :-webkit-any(
+    :is(
         button,
         input[type='button'],
         input[type='submit'])) {
@@ -217,19 +217,19 @@ input[type='radio']:checked::before {
   color: black;
 }
 
-:enabled:hover:-webkit-any(select) {
+:enabled:hover:is(select) {
   /* OVERRIDE */
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAICAQAAACxSAwfAAAAUUlEQVR4AWP4TxREZkYxpKHAKKzKEhOZvyG4zN8SE7Eq+6+wYCHbTwiT7eeChf8VsFsKVQhTxIDDbVCFfF8ginApgyp82wRShEcZVJIVzoJDAGqrgIJGRl20AAAAAElFTkSuQmCC),
-      linear-gradient(#f0f0f0, #f0f0f0 38%, #e0e0e0);
+      linear-gradient(#f0f0f0, #f0f0f0 38%, #e0e0e0)!important;
 }
 
 /* Active *********************************************************************/
 
-:enabled:active:-webkit-any(
+:enabled:active:is(
     select,
     input[type='checkbox'],
     input[type='radio'],
-    :-webkit-any(
+    :is(
         button,
         input[type='button'],
         input[type='submit'])) {
@@ -238,7 +238,7 @@ input[type='radio']:checked::before {
   text-shadow: none;
 }
 
-:enabled:active:-webkit-any(select) {
+:enabled:active:is(select) {
   /* OVERRIDE */
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAICAQAAACxSAwfAAAAUUlEQVR4AWP4TxREZkYxpKHAKKzKEhOZvyG4zN8SE7Eq+6+wYCHbTwiT7eeChf8VsFsKVQhTxIDDbVCFfF8ginApgyp82wRShEcZVJIVzoJDAGqrgIJGRl20AAAAAElFTkSuQmCC),
       linear-gradient(#e7e7e7, #e7e7e7 38%, #d7d7d7);
@@ -246,7 +246,7 @@ input[type='radio']:checked::before {
 
 /* Disabled *******************************************************************/
 
-:disabled:-webkit-any(
+:disabled:is(
     button,
     input[type='button'],
     input[type='submit']),
@@ -264,12 +264,12 @@ select:disabled {
       linear-gradient(#f1f1f1, #f1f1f1 38%, #e6e6e6);
 }
 
-input:disabled:-webkit-any([type='checkbox'],
+input:disabled:is([type='checkbox'],
                            [type='radio']) {
   opacity: .75;
 }
 
-input:disabled:-webkit-any([type='password'],
+input:disabled:is([type='password'],
                            [type='search'],
                            [type='text'],
                            [type='url'],
@@ -279,7 +279,7 @@ input:disabled:-webkit-any([type='password'],
 
 /* Focus **********************************************************************/
 
-:enabled:focus:-webkit-any(
+:enabled:focus:is(
     select,
     input[type='checkbox'],
     input[type='number'],
@@ -289,12 +289,12 @@ input:disabled:-webkit-any([type='password'],
     input[type='text'],
     input[type='url'],
     input:not([type]),
-    :-webkit-any(
+    :is(
          button,
          input[type='button'],
          input[type='submit'])) {
   /* OVERRIDE */
-  -webkit-transition: border-color 200ms;
+  transition: border-color 200ms;
   /* We use border color because it follows the border radius (unlike outline).
    * This is particularly noticeable on mac. */
   border-color: rgb(77, 144, 254);
@@ -314,7 +314,7 @@ input:disabled:-webkit-any([type='password'],
  *   </div>
  */
 
-:-webkit-any(.checkbox, .radio) label {
+:is(.checkbox, .radio) label {
   /* Don't expand horizontally: <http://crbug.com/112091>. */
   align-items: center;
   display: inline-flex;
@@ -322,20 +322,20 @@ input:disabled:-webkit-any([type='password'],
   padding-top: 7px;
 }
 
-:-webkit-any(.checkbox, .radio) label input {
+:is(.checkbox, .radio) label input {
   flex-shrink: 0;
 }
 
-:-webkit-any(.checkbox, .radio) label input ~ span {
-  -webkit-margin-start: 0.6em;
+:is(.checkbox, .radio) label input ~ span {
+  margin-inline-start: 0.6em;
   /* Make sure long spans wrap at the same horizontal position they start. */
   display: block;
 }
 
-:-webkit-any(.checkbox, .radio) label:hover {
+:is(.checkbox, .radio) label:hover {
   color: black;
 }
 
-label > input:disabled:-webkit-any([type='checkbox'], [type='radio']) ~ span {
+label > input:disabled:is([type='checkbox'], [type='radio']) ~ span {
   color: #999;
 }
