@@ -37,3 +37,8 @@
     margin-top: 54px;
   }
 }
+
+/* Fix for https://iavm.xyz/b/twpowertools/118 */
+.aplos-hovercard {
+  z-index: 3;
+}
