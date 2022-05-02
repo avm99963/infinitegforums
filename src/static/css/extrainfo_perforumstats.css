@@ -21,3 +21,19 @@
 .TWPT-scTailwindSharedActivitychartroot .TWPT-select-container select {
   max-width: 300px;
 }
+
+@media (max-width: 37.5rem) {
+  .TWPT-scTailwindSharedActivitychartroot .TWPT-select-container {
+    top: 46px;
+  }
+
+  .TWPT-scTailwindSharedActivitychartroot .scTailwindSharedActivitychartchart {
+    margin-top: 50px;
+  }
+}
+
+@media (min-width: 37.5rem) and (max-width: 900px) {
+  .TWPT-scTailwindSharedActivitychartroot .scTailwindSharedActivitychartchart {
+    margin-top: 54px;
+  }
+}
