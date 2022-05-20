@@ -525,6 +525,10 @@
     "message": "Automaticamente desmarcado como abuso",
     "description": "Thread/message state AUTOMATED_ABUSE_REINSTATE (it is thought that messages in this state have been automatically unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
   },
+  "inject_extrainfo_message_state_clear_off_topic2": {
+    "message": "Tópico analisado e limpo",
+    "description": "Thread/message state CLEAR_OFF_TOPIC (the message has been confirmed to NOT be off-topic)."
+  },
   "inject_extrainfo_message_state_confirm_off_topic2": {
     "message": "Fora do tópico confirmado",
     "description": "Thread/message state CONFIRM_OFF_TOPIC (the message has been confirmed to be off-topic)."
