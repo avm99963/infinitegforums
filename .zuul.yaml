@@ -33,6 +33,7 @@
         clientId: "testClientId"
         refreshToken: "testRefreshToken"
     files:
+      - ".zuul.yaml"
       - "roles/cws-publish/*"
       - "roles/fetch-cws-log/*"
       - "playbooks/nightly-build/*"
@@ -47,7 +48,7 @@
       - zuul: zuul/jobs
     secrets:
       - name: credentials
-        secret: credentials
+        secret: credentials_twpt
 
 - project:
     check:
@@ -59,27 +60,27 @@
         - infinitegforums-nightly-build
 
 - secret:
-    name: credentials
+    name: credentials_twpt
     data:
       clientId: !encrypted/pkcs1-oaep
-        - BtqF9JhXwLcyBhV5HV3MUllsAnZIrURsinAtYOADVGZ/YvYUZZsIPz3+2fFjdXCf7N1my
-          McgklSVMCQ7R/qTtb+oogs9vJ4XUNIJ/QWRKzKb/M3v5VgJpbQXiEgVjMl+a4bntfQuB2
-          nnBJacg63yp1VQDVbJRh1acb9BJB2zsxKHusJZnSZtrdZCXxUqCzVRYkJxtVfhVJpGJjo
-          WqOCUZFc4ibFHbcI5ZOpyaxUqBMHhL33blopuwL3TVw2CLD3YZrg2V/c8NcBItX8m1aTh
-          d3jM73uKc/DP4+xk2OUfH5Mld/UcIUiolvHo5/Fm+6tNhXCZE7tm84A6FQKMQOKrYkzWN
-          4BWJS/Aoiu1JJVawu5j1yuWzm+ZSmgGaRblsXSJeIq9YgYF1Fe8TdxP7pmp+OzgedJPIX
-          KHWqH8BVyocx5wEy6cMH69IgheTt4NcWvPP1IiLNGC7w6x9RYHKTPOYDzOhy1wRPH6sKh
-          Oop5IiUPiiHSntbrGTh6gdsNXEkx7+QVh8FBo6958JSzb1DwexGMitfDarRcKLg2OKuAf
-          zgS1V6Nv63JsPY070p5rYhG1zl9Fh83a7nfhLB36aQhKi0DxOtOYRjKIzLsv1nWs7we1A
-          GQT8VFNW/KZrSM8XsvqCO6IwVP5mOIT/4PWYdCXUsUUU4Sa+Fo/pmyvITuI0E8=
+        - IwVBqQ6KQ5mnoc3vS5Ksip3s0RyrQob5gU8oMNIO7vh7wWQiR0LZiiHEkiZ/LKRAzw5CG
+          fI63YpqEtX5n2UWQ3b4H340g+r0rgNcyCGs9vG3AUlIj3977NysQFkJL1Vz+O9yuyhIr4
+          inDDjzQvlNyUBLL1BNk+uWgwJFI8D821couOtHy0Ky4S3EyvVFYys1IhLQIp3eBW5fX5G
+          /glIddp+2wDNxShPfrJkI3O8v3mxjHBQn6WtzYXKNPZo41KnHGo/RSjONGA4RkW70su+L
+          xbm6dgOBqWa3puWkcJhoUPeqbBf/ImnNSfEfq5m3cSHWZ4VDCMi0oDJJQYQlYkJqH1nFK
+          xz4i+L02GuVWFRozzS84wii8wG1PDs1MzpGSIYtSrcfVgoBtGZpbo9gSrYQ7PQCKS/a/r
+          CUMweQ+udTinjrXPDfmCMsMq7GrwoDqxD+PEx76Cf9mx3Z/iPEw8HR+RSEEYQCKg+cLfl
+          DoetOmLny3wm2mJrNY2Nl9wYLI9EYX9VQXB0bfJQ2fns77yQdAGezNsxKLol9NfiPfBF6
+          K4gKcLW7rK+IdXKxta9lTVoljiwGfi9nC7I5qXstuxkZuLQk+zhfBpCm8cuUIkiO/ugjw
+          bxGdisI2hFqhvwoCPxKx4LlJgL15yDmna1eCvkiTBfGdUXHNUm2zad/C2P/c7w=
       refreshToken: !encrypted/pkcs1-oaep
-        - RknxT9FyVpZAdWhmUS7NBdhIljU6KjjbchJvwFHPfJQEgRxakX+q2/KDPnDOc7eZ8kzQD
-          Hmow1OLLBWOeRhODe2ngeQWoVvHEBuSU5AaFP9UWG1hLnsT9JrGF8qc3fFBDwy5NVNvkR
-          h6fgw9hlRgfeVVBtYZ0c+BQNflKepYupXlpE26KrzlJudxgaXhVC7vze73aQ9PMNfDF9J
-          aUrPNyZ4k04DfPHOTq4hzDLko24rgNvWYUMI79wWI3dD/QMgCd2M2V2PxxPtEzY6WnV7N
-          ILbTHv6783MioDy+19/Om5ClhNDe35v/Mlh6JOYGAdE2MuP6bG5oPbc/FBcWna6sOI79n
-          L4UCqN6LDKs5floMJ8vUafAr7dEEOxHWcbe8rcaRf2ESJBUxLDvrUYk6+lIWwhxj3ASeL
-          dmYSPKjw55knzDYiL0AYeSTM2SM3Tsu1N3pE7U2ugmxRpt3tl32BUNuRZrd2FMdRRVCLa
-          K2JV0q7qQgx3w0lNSSqu+m5KVpeCWk6RVwG9NNzNEHFWN5U7x32K1y8bvFC2Uhzx1ZfT1
-          4k2r9cE/Y1aSQCWvpnlqYRqzn9S7s9YLXTlyXovAPfBnw/ff395qF0eappfFcqVNq8gqV
-          4FjvCYgmfIJsBVgeDCkjZQ1brwwK/5isYYvhOPUojS9iqfRvltFgeyRgY9ZSnE=
+        - LYjGAWkAoUz/r/w44yWrpxnl3boCZg+XFEVFnHTOkRqhzxH/eg6MHIRo4DsR5rwJrrVKe
+          02/i/PiLM96W8JtFzMii0WGwsyuhbkd5Jz2GhxjM9Sl6AJ+EL+lAg1CGwXeleNlNyZma8
+          Ptwwd+4gF6IVYS4qf2Hjh/S9JgSTeKlenZzFYBb/uNApcRiqUW5isTlzvD3R47DEdFBGV
+          iOIS6lO4uujw3ioTbL278xZetq0MX3fIhnvSZgjk3gqBta/Rwj+PdC9i+6EhSf7gjqGGL
+          phmq4BnuunGqeH3KL2R9jp26v9YVNKABliPNb+HUm1TgkztKoWVVbKorZaxmMjQ/Hy/lK
+          HCGVnER2D0XpZeItZa7f30UBVd7arATvKzRkbfkoLOWESfrEMpW2/dt8OQjlCNVZB+om+
+          R5WAtMpjshXTzLJ0aP2GgHzw52eLHBHmMq6XRJ7tpF9dkl8f/WRfpWKq3/aHEoTJTZRYt
+          CBAkAq6PLMILsYe/dSuF/OpsQ3GV7O7g75n6lqgkVMAazeKZD68PpOnhMY6bOnMoKpjZi
+          dQsynUpRVGqRipigZc0McdnT7YtVPcINqDEEa357tqIpP7RoJlJA/z7gIaFjs7X9czh1R
+          DFBPud6vdkZ4QlyqSFxqpWToMi0e/24RwuGvSGvLx2Vxt4gl//SCW5KdI4AtRg=
