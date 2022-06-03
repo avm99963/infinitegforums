@@ -1,10 +1,3 @@
-- name: Check extension_id, credentials.clientId, credentials.refreshToken are set
-  when: >
-    extension_id is not defined or credentials.clientId is not defined or
-    credentials.refreshToken is not defined
-  fail:
-    msg: "extension_id, credentials.clientId and credentials.refreshToken must be set"
-
 - name: Build extension
   include_role:
     name: build-extension
@@ -27,31 +20,15 @@
   debug:
     msg: "zip_file.stdout is \"{{ zip_file.stdout }}\""
 
-- name: Upload and publish the ZIP file to the Chrome Web Store
-  when: not (dry_run|bool)
-  ansible.builtin.shell:
-    cmd: |
-      set -o pipefail
-      chrome-webstore-upload upload --auto-publish --extension-id {{ extension_id }} \
-          --trusted-testers --source {{ zip_file.stdout|quote }} \
-          --client-id {{ credentials.clientId|quote }} \
-          --refresh-token {{ credentials.refreshToken|quote }} \
-          2>&1 | tee cws-log.txt
-    chdir: "{{ zuul.project.src_dir }}/out"
-    executable: /bin/bash
-  no_log: True
-  register: uploadcmd
-  failed_when: false
-
-- name: Read upload log
-  when: not (dry_run|bool)
-  ansible.builtin.shell:
-    cmd: cat cws-log.txt
-    chdir: "{{ zuul.project.src_dir }}/out"
-    executable: /bin/bash
-  register: uploadlog
-
-- name: Check whether the upload was successful
-  when: "not (dry_run|bool) and not (uploadcmd.rc == 0 or ('ITEM_NOT_UPDATABLE' in uploadlog.stdout) or ('PKG_INVALID_VERSION_NUMBER') in uploadlog.stdout)"
-  fail:
-    msg: "{{ uploadlog.stdout }}"
+- when: not (dryRun|bool)
+  include_role:
+    name: cws-upload
+  vars:
+    extensionId: "{{ canaryTwptExtensionId }}"
+    clientId: "{{ credentials.clientId }}"
+    clientSecret: "{{ credentials.clientSecret }}"
+    refreshToken: "{{ credentials.refreshToken }}"
+    workingDirectory: "{{ zuul.project.src_dir }}/out"
+    zipFile: "{{ zip_file.stdout|quote }}"
+    autopublish: true
+    trustedTesters: true

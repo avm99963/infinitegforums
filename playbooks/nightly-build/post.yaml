@@ -1,4 +1,6 @@
 - name: Get CWS upload/publish log
   hosts: all
   roles:
-    - fetch-cws-log
+    - fetch-cws-upload-log
+  vars:
+    workingDirectory: "{{ zuul.project.src_dir }}/out"

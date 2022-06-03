@@ -2,5 +2,5 @@
   roles:
     - role: cws-publish
       vars:
-        extension_id: "phefpbdhiknkamngjffpnebaemanmihf"
-        dry_run: false
+        canaryTwptExtensionId: "phefpbdhiknkamngjffpnebaemanmihf"
+        dryRun: false
