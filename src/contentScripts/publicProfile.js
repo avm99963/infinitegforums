@@ -6,11 +6,11 @@ import {injectPreviousPostsLinksUnifiedProfile} from './utilsCommon/unifiedProfi
 
 const profileViewRegex = /var view ?= ?(.+\]);/;
 
-getOptions(['history', 'extrainfo']).then(options => {
+getOptions(['history', 'perforumstats']).then(options => {
   if (options?.history)
     injectPreviousPostsLinksUnifiedProfile(/* isCommunityConsole = */ false);
 
-  if (options?.extrainfo) {
+  if (options?.perforumstats) {
     try {
       // Find chart
       const chart = document.querySelector(
