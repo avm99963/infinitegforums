@@ -14,6 +14,7 @@
   --TWPT-thread-read-background: var(--TWPT-highlighted-item-background);
   --TWPT-drawer-background: #2d2e30;
   --TWPT-button-background: #3c3e42;
+  --TWPT-subtle-button-background: rgba(255, 255, 255, .54);
   --TWPT-input-underline: rgba(255, 255, 255, .28);
   --TWPT-blue-100: #BBDEFB;
   --TWPT-blue-A100: #82B1FF;
@@ -25,6 +26,7 @@
   --TWPT-interop-secondary-text: #c4c7c5;
   --TWPT-interop-subtle-border: #474747;
   --TWPT-interop-success: #37be5f;
+  --TWPT-interop-blue: #7cacf8;
 }
 
 body {
@@ -50,9 +52,10 @@ body.ec a:not(.mdc-list-item) {
   color: var(--TWPT-secondary-text)!important;
 }
 
-.material-content > header material-button,
-    .material-content > header material-button material-icon,
-    .material-content > header notification-bell material-icon {
+.material-content > header :is(material-button,
+    material-button material-icon,
+    .mdc-button.mdc-icon-button,
+    notification-bell material-icon) {
   color: rgba(255, 255, 255, .87)!important;
 }
 
@@ -100,6 +103,19 @@ material-drawer ec-forum-drawer-item material-checkbox material-icon {
   filter: brightness(1.5);
 }
 
+/* Tabs */
+material-tab-strip tab-button {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+material-tab-strip tab-button.active {
+  color: var(--TWPT-blue-A100)!important;
+}
+
+material-tab-strip .tab-indicator {
+  border-top-color: var(--TWPT-blue-A100)!important;
+}
+
 /* Header menus */
 .popup material-list-item {
   color: #d2cecb!important;
@@ -110,9 +126,19 @@ material-condition-builder .compound-condition-operator {
   color: var(--TWPT-secondary-text)!important;
 }
 
-material-condition-builder .compound-condition-operator::before,
-    material-condition-builder .compound-condition-operator::after {
+material-condition-builder .compound-condition-operator:is(::before, ::after) {
   border-left-color: rgba(255, 255, 255, .20)!important;
+}
+
+material-condition-builder .add-button,
+    ec-query-builder .save-filter-button:not([disabled]) {
+  color: var(--TWPT-blue-A100)!important;
+}
+
+material-condition-builder .add-condition,
+    ec-query-builder .close-button {
+  background-color: var(--TWPT-interop-blue)!important;
+  color: #1f1f1f!important;
 }
 
 /* Selector */
@@ -206,7 +232,7 @@ main .title-bar .title, main .page-header h1, main .header h1 {
     ec-bulk-actions material-button,
     ec-back-button material-button,
     .sort-options material-button {
-  color: rgba(255, 255, 255, .54)!important;
+  color: var(--TWPT-subtle-button-background)!important;
 }
 
 .material-content .action-bar .review-button.reviewing {
@@ -237,6 +263,10 @@ ec-thread-list ul.thread-group {
 
 ec-thread-list ec-bulk-actions, ec-thread-list ec-thread-summary material-expansionpanel {
   border-bottom-color: var(--TWPT-subtle-border)!important;
+}
+
+ec-thread-list .no-results {
+  color: var(--TWPT-primary-text-alt)!important;
 }
 
 ec-thread-summary material-expansionpanel.read:not(.checked) {
@@ -502,7 +532,7 @@ ec-thread .finished-question .next-question {
 }
 
 .material-content .action-bar material-button.has-activity {
-  color: #1a73e8!important;
+  color: var(--TWPT-blue-A100)!important;
 }
 
 .material-content .action-bar material-button.showing-sidebar {
@@ -511,6 +541,10 @@ ec-thread .finished-question .next-question {
 
 ec-activity-panel .title-bar h3 {
   color: #e8eaf2!important;
+}
+
+ec-activity-panel .title-bar material-button {
+  color: var(--TWPT-subtle-button-background)!important;
 }
 
 ec-activity-panel ec-activity {
@@ -538,7 +572,7 @@ ec-activity-panel ec-activity .thread-title {
 
 /* Help button (shown in the suggested answers header) */
 .explanation-icon material-icon {
-  color: rgba(255, 255, 255, .54)!important;
+  color: var(--TWPT-subtle-button-background)!important;
 }
 
 /* Help button tooltip */
@@ -617,7 +651,7 @@ ec-thread-composer material-drawer material-radio .radio-description,
 /* Chart in the profile view */
 ec-user bar-chart .axis text,
     ec-unified-user .scTailwindSharedActivitychartchart .axis text {
-  fill: rgba(255, 255, 255, .54)!important;
+  fill: var(--TWPT-subtle-button-background)!important;
 }
 
 ec-user bar-chart .axis path,
@@ -708,7 +742,7 @@ ec-user bar-chart .aplos-legend-entry,
 }
 
 .scSharedCalloutinformational>.scSharedCalloutsecondary-button button {
-  color: #7cacf8!important;
+  color: var(--TWPT-interop-blue)!important;
 }
 
 .scSharedCalloutsuccess {
@@ -724,12 +758,20 @@ ec-user bar-chart .aplos-legend-entry,
   color: var(--TWPT-interop-success)!important;
 }
 
+.scSharedMaterialbuttonroot {
+  --m-btn-text-color: var(--TWPT-interop-blue);
+  --m-btn-background-color: transparent;
+  --m-btn-outline-color: var(--TWPT-interop-blue);
+  background: var(--m-btn-background-color)!important;
+  color: var(--m-btn-text-color)!important;
+}
+
 .scSharedMaterialbuttonroot:disabled {
   color: rgba(227, 227, 227, 0.369)!important;
 }
 
 .scSharedMaterialbuttontext {
-  color: #7cacf8!important;
+  color: var(--TWPT-interop-blue)!important;
 }
 
 .scSharedMaterialbuttoncolor-label {
@@ -748,26 +790,28 @@ ec-user bar-chart .aplos-legend-entry,
   color: var(--TWPT-interop-secondary-text)!important;
 }
 
+.scSharedMaterialbuttonhairline, .scSharedMaterialbuttonpill {
+  outline: 1px solid var(--m-btn-outline-color)!important;
+}
+
+.scSharedMaterialbuttonhairline:hover, .scSharedMaterialbuttonhairline:focus, .scSharedMaterialbuttonpill:hover, .scSharedMaterialbuttonpill:focus {
+  --m-btn-outline-color: currentColor!important;
+}
+
 .scSharedMaterialbuttonhairline {
-  border-color: var(--TWPT-interop-subtle-border)!important;
-  color: #7cacf8!important;
+  --m-btn-outline-color: var(--TWPT-interop-subtle-border)!important;
 }
 
 .scSharedMaterialbuttonhairline:disabled {
-  border-color: rgba(227, 227, 227, 0.369)!important;
-}
-
-.scSharedMaterialbuttonhairline:hover,
-    .scSharedMaterialbuttonhairline:focus {
-  border-color: rgba(124, 172, 248, 0.239)!important;
+  --m-btn-outline-color: rgba(227, 227, 227, 0.369)!important;
 }
 
 .scSharedMaterialbuttonhairline:active {
-  box-shadow: 0 1px 2px 0 rgba(124, 172, 248, 0.302), 0 1px 3px 1px rgba(124, 172, 248, 0.149)!important;
+  box-shadow: 0 1px 2px 0 rgba(227, 227, 227, 0.302), 0 1px 3px 1px rgba(227, 227, 227, 0.149)!important;
 }
 
 .scSharedMaterialbuttontonal {
-  color: #7cacf8!important;
+  color: var(--TWPT-interop-blue)!important;
   background: #394457!important;
 }
 
@@ -784,7 +828,7 @@ ec-user bar-chart .aplos-legend-entry,
 }
 
 .scSharedMaterialbuttonfilled {
-  background: #7cacf8!important;
+  background: var(--TWPT-interop-blue)!important;
   color: #1f1f1f!important;
 }
 
@@ -804,7 +848,7 @@ ec-user bar-chart .aplos-legend-entry,
 .scSharedMaterialbuttonprotected {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.302), 0 1px 3px 1px rgba(0, 0, 0, 0.149)!important;
   background: #1f1f1f!important;
-  color: #7cacf8!important;
+  color: var(--TWPT-interop-blue)!important;
 }
 
 .scSharedMaterialbuttonprotected:disabled {
@@ -824,13 +868,13 @@ ec-user bar-chart .aplos-legend-entry,
 }
 
 .scSharedMaterialbuttonsuccess {
-  --m-btn-text-color: var(--TWPT-interop-success);
-  --m-btn-outline-color: var(--TWPT-interop-success);
+  --m-btn-text-color: var(--TWPT-interop-success)!important;
+  --m-btn-outline-color: var(--TWPT-interop-success)!important;
 }
 
 .scSharedMaterialbuttonsuccess.scSharedMaterialbuttonfilled {
-  --m-btn-text-color: #1f1f1f;
-  --m-btn-background-color: var(--TWPT-interop-success);
+  --m-btn-text-color: #1f1f1f!important;
+  --m-btn-background-color: var(--TWPT-interop-success)!important;
 }
 
 .scSharedMaterialbuttonsuccess.scSharedMaterialbuttontonal {
@@ -850,7 +894,7 @@ ec-user bar-chart .aplos-legend-entry,
 }
 
 .scSharedExpandabletextexpander {
-  color: #7cacf8!important;
+  color: var(--TWPT-interop-blue)!important;
 }
 
 .scSharedMaterialborderfilled {
@@ -863,7 +907,7 @@ ec-user bar-chart .aplos-legend-entry,
 }
 
 .scSharedMaterialborderfilled-bottom {
-  background-color: #7cacf8!important;
+  background-color: var(--TWPT-interop-blue)!important;
 }
 
 .scSharedMaterialborderfilled-label {
@@ -871,7 +915,7 @@ ec-user bar-chart .aplos-legend-entry,
 }
 
 .scSharedMaterialborderfilled-label-focused {
-  color: #7cacf8!important;
+  color: var(--TWPT-interop-blue)!important;
 }
 
 .scSharedMaterialborderlabel {
@@ -913,7 +957,7 @@ ec-user bar-chart .aplos-legend-entry,
 }
 
 .scSharedMaterialborderfocused {
-  border-color: #7cacf8!important;
+  border-color: var(--TWPT-interop-blue)!important;
 }
 
 .scSharedMaterialborderdisabled {
@@ -921,7 +965,7 @@ ec-user bar-chart .aplos-legend-entry,
 }
 
 .scSharedMaterialborderlabel-focused {
-  color: #7cacf8!important;
+  color: var(--TWPT-interop-blue)!important;
 }
 
 .scSharedMaterialborderlabel-disabled {
@@ -975,7 +1019,7 @@ ec-user bar-chart .aplos-legend-entry,
 }
 
 .scSharedMaterialcheckboxcheckbox {
-  color: #7cacf8!important;
+  color: var(--TWPT-interop-blue)!important;
 }
 
 .scSharedMaterialcheckboxbox {
@@ -1003,12 +1047,12 @@ ec-user bar-chart .aplos-legend-entry,
 .scSharedMaterialfabroot {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.302), 0 4px 8px 3px rgba(0, 0, 0, 0.149);
   background: #303135;
-  color: #7cacf8;
+  color: var(--TWPT-interop-blue);
 }
 
 @media (forced-colors:active) {
   .scSharedMaterialfabroot {
-    outline: 3px solid #7cacf8;
+    outline: 3px solid var(--TWPT-interop-blue);
   }
 }
 
@@ -1041,8 +1085,8 @@ ec-user bar-chart .aplos-legend-entry,
 }
 
 .scSharedMaterialfabfilled {
-  background: #7cacf8;
-  color: #1f1f1f;
+  background: rgba(124,172,248,0.239);
+  color: var(--TWPT-interop-blue);
 }
 
 .scSharedMaterialfabfilled.scSharedMaterialfabgrey {
@@ -1095,7 +1139,7 @@ ec-user bar-chart .aplos-legend-entry,
 }
 
 .scSharedMaterialmenuhighlight:focus {
-  outline: auto #7cacf8 1px!important;
+  outline: auto var(--TWPT-interop-blue) 1px!important;
 }
 
 .scSharedMaterialtooltipcontainer {
@@ -1104,7 +1148,7 @@ ec-user bar-chart .aplos-legend-entry,
 }
 
 .scSharedMaterialradioradio {
-  color: #7cacf8;
+  color: var(--TWPT-interop-blue);
 }
 
 .scSharedMaterialradioring {
@@ -1128,7 +1172,7 @@ ec-user bar-chart .aplos-legend-entry,
 }
 
 .scSharedMaterialrichtooltiproot.scSharedMaterialrichtooltipstyle-accented .scSharedMaterialrichtooltipcontainer {
-  background: #7cacf8;
+  background: var(--TWPT-interop-blue);
   color: #1f1f1f;
 }
 
@@ -1142,7 +1186,7 @@ ec-user bar-chart .aplos-legend-entry,
 }
 
 .scSharedMaterialrichtooltiproot.scSharedMaterialrichtooltipstyle-accented .scSharedMaterialrichtooltipcaret {
-  background: #7cacf8;
+  background: var(--TWPT-interop-blue);
 }
 
 .scSharedMaterialselectlabel {
@@ -1154,7 +1198,7 @@ ec-user bar-chart .aplos-legend-entry,
 }
 
 .scSharedMaterialselectactive .scSharedMaterialselectarrow {
-  color: #7cacf8;
+  color: var(--TWPT-interop-blue);
 }
 
 .scSharedMaterialselectdisabled .scSharedMaterialselectselection,
@@ -1181,8 +1225,8 @@ ec-user bar-chart .aplos-legend-entry,
 }
 
 .scSharedMaterialtabbarselected {
-  border-bottom-color: #7cacf8!important;
-  color: #7cacf8!important;
+  border-bottom-color: var(--TWPT-interop-blue)!important;
+  color: var(--TWPT-interop-blue)!important;
 }
 
 .scSharedMaterialtextfieldlabel {
@@ -1190,7 +1234,7 @@ ec-user bar-chart .aplos-legend-entry,
 }
 
 .scSharedMaterialtextfieldnative-control {
-  caret-color: #7cacf8!important;
+  caret-color: var(--TWPT-interop-blue)!important;
   color: var(--TWPT-interop-primary-text)!important;
 }
 
@@ -1203,7 +1247,7 @@ ec-user bar-chart .aplos-legend-entry,
 }
 
 .scSharedMaterialtextfieldfocused .scSharedMaterialtextfieldlabel {
-  color: #7cacf8!important;
+  color: var(--TWPT-interop-blue)!important;
 }
 
 .scSharedMaterialtextfieldinvalid .scSharedMaterialtextfieldlabel {
@@ -1268,7 +1312,7 @@ ec-user bar-chart .aplos-legend-entry,
 }
 
 .scTailwindSharedReportabusedialogcontent .abuse-link {
-  color: #7cacf8!important;
+  color: var(--TWPT-interop-blue)!important;
 }
 
 .scTailwindSharedRich_text_editorAttachmentFailedoverlayroot {
@@ -1305,7 +1349,7 @@ ec-user bar-chart .aplos-legend-entry,
 }
 
 .scTailwindSharedRich_text_editorLinktooltiproot button {
-  color: #7cacf8;
+  color: var(--TWPT-interop-blue);
 }
 
 .scTailwindSharedRichtexteditoreditor {
@@ -1334,7 +1378,7 @@ ec-user bar-chart .aplos-legend-entry,
 }
 
 .scTailwindSharedRich_text_editorToolbarcontrolroot:focus {
-  border: .125rem solid #7cacf8;
+  border: .125rem solid var(--TWPT-interop-blue);
 }
 
 .scTailwindSharedRich_text_editorToolbarcontrolactive {
@@ -1390,7 +1434,7 @@ ec-user bar-chart .aplos-legend-entry,
 .scTailwindUser_profileAchievementsempty a,
     .scTailwindUser_profileAchievementsempty a:visited,
     sc-tailwind-user_profile-user-profile .link-icon {
-  color: #7cacf8!important;
+  color: var(--TWPT-interop-blue)!important;
 }
 
 .scTailwindUser_profileBiosectionsection-heading {
@@ -1403,7 +1447,7 @@ ec-user bar-chart .aplos-legend-entry,
 
 .scTailwindUser_profileBiosectionlinks,
     .scTailwindUser_profileBiosectionlink {
-  color: #7cacf8!important;
+  color: var(--TWPT-interop-blue)!important;
 }
 
 .scTailwindUser_profileBiosectioninput-label {
@@ -1415,7 +1459,7 @@ ec-user bar-chart .aplos-legend-entry,
 }
 
 .scTailwindUser_profileEmaildisplayshow-email {
-  color: #7cacf8!important;
+  color: var(--TWPT-interop-blue)!important;
 }
 
 .scTailwindUser_profileMessagecardthread-link {
@@ -1511,7 +1555,7 @@ sc-tailwind-user_profile-user-profile .deleteIcon,
 
 .scTailwindUser_profileUsercardlinks,
     .scTailwindUser_profileUsercardlink {
-  color: #7cacf8!important;
+  color: var(--TWPT-interop-blue)!important;
 }
 
 .scTailwindUser_profileUsercardhorizontal-separator {
@@ -1551,7 +1595,7 @@ h4.scTailwindThreadMessageHelpfulnessbuttonslabel {
 }
 
 .scTailwindThreadMessageMessagecardtargeted {
-  border-left: .125rem solid #7cacf8;
+  border-left: .125rem solid var(--TWPT-interop-blue);
 }
 
 .scTailwindThreadMessageMessagecardcalloutroot.scTailwindThreadMessageMessagecardcalloutrecommended {
@@ -1561,7 +1605,7 @@ h4.scTailwindThreadMessageHelpfulnessbuttonslabel {
 
 .scTailwindThreadMessageMessagecardcalloutroot.scTailwindThreadMessageMessagecardcalloutrelevant {
   background: #394457;
-  border-color: #7cacf8;
+  border-color: var(--TWPT-interop-blue);
 }
 
 .scTailwindThreadMessageMessagetagrecommended.scTailwindThreadMessageMessagetagnormal {
@@ -1573,11 +1617,11 @@ h4.scTailwindThreadMessageHelpfulnessbuttonslabel {
 }
 
 .scTailwindThreadMessageMessagetagrelevant.scTailwindThreadMessageMessagetagnormal {
-  color: #7cacf8;
+  color: var(--TWPT-interop-blue);
 }
 
 .scTailwindThreadMessageMessagetagrelevant.scTailwindThreadMessageMessagetagstrong {
-  color: #7cacf8;
+  color: var(--TWPT-interop-blue);
 }
 
 .scTailwindThreadMessageMessageinteractionsinteraction {
@@ -1597,7 +1641,7 @@ p.scTailwindThreadMessageMessagetombstoneroot .scTailwindThreadMessageMessagetom
 }
 
 .scTailwindThreadPostcontentroot a {
-  color: #7cacf8;
+  color: var(--TWPT-interop-blue);
 }
 
 .scTailwindThreadPost_headerOverflowmenuicon {
@@ -1609,7 +1653,7 @@ p.scTailwindThreadMessageMessagetombstoneroot .scTailwindThreadMessageMessagetom
 }
 
 .scTailwindThreadPost_headerUserinfoname a {
-  color: #7cacf8;
+  color: var(--TWPT-interop-blue);
 }
 
 .scTailwindThreadPost_headerUserinfotag {
@@ -1625,7 +1669,7 @@ p.scTailwindThreadMessageMessagetombstoneroot .scTailwindThreadMessageMessagetom
 }
 
 .scTailwindThreadReplydialogheader {
-  background: #7cacf8;
+  background: var(--TWPT-interop-blue);
 }
 
 .scTailwindThreadReplydialogheader h1.scTailwindThreadReplydialogheading {
@@ -1645,7 +1689,7 @@ p.scTailwindThreadMessageMessagetombstoneroot .scTailwindThreadMessageMessagetom
 }
 
 .scTailwindThreadReplydialogfooter a {
-  color: #7cacf8;
+  color: var(--TWPT-interop-blue);
 }
 
 .scTailwindThreadReplydialogminimized .scTailwindThreadReplydialogheader {
@@ -1672,7 +1716,7 @@ p.scTailwindThreadMessageMessagetombstoneroot .scTailwindThreadMessageMessagetom
 }
 
 .scTailwindThreadMessageMessagelistrelevant-icon {
-  color: #7cacf8;
+  color: var(--TWPT-interop-blue);
 }
 
 .scTailwindThreadMorebuttondivider {
@@ -1727,7 +1771,7 @@ p.scTailwindThreadMessageMessagetombstoneroot .scTailwindThreadMessageMessagetom
 }
 
 .scTailwindThreadQuestionQuestioncardbody a {
-  color: #7cacf8;
+  color: var(--TWPT-interop-blue);
 }
 
 .scTailwindThreadQuestionQuestioncarddisclaimer,
@@ -1737,16 +1781,16 @@ p.scTailwindThreadMessageMessagetombstoneroot .scTailwindThreadMessageMessagetom
 
 .scTailwindThreadQuestionQuestioncarddisclaimer a,
 .scTailwindThreadQuestionQuestioncardedited a {
-  color: #7cacf8;
+  color: var(--TWPT-interop-blue);
 }
 
 .scTailwindThreadQuestionQuestiondetailsdetail-link {
-  color: #7cacf8;
+  color: var(--TWPT-interop-blue);
 }
 
 .scTailwindThreadQuestionQuestionpurposetag {
   background: #394457;
-  color: #7cacf8;
+  color: var(--TWPT-interop-blue);
 }
 
 .scTailwindThreadQuestionStatechipschip {
@@ -1756,6 +1800,37 @@ p.scTailwindThreadMessageMessagetombstoneroot .scTailwindThreadMessageMessagetom
 
 .scTailwindThreadThreaddeleted-icon {
   color: var(--TWPT-interop-secondary-text);
+}
+
+/* Some fixes for the interop components in the Community Console */
+/* Alumnus */
+.scTailwindThreadPost_headerUserinfotag[style*="--color:#0F9D58"] {
+  --color: #C4EED0!important;
+}
+
+/* Bronze */
+.scTailwindThreadPost_headerUserinfotag[style*="--color:#896E63"] {
+  --color: #B9ABA3!important;
+}
+
+/* Silver */
+.scTailwindThreadPost_headerUserinfotag[style*="--color:#5F6368"] {
+  --color: #C4C7C5!important;
+}
+
+/* Gold */
+.scTailwindThreadPost_headerUserinfotag[style*="--color:#E37400"] {
+  --color: #F09D00!important;
+}
+
+/* Platinum */
+.scTailwindThreadPost_headerUserinfotag[style*="--color:#455A64"] {
+  --color: #E3E3E3!important;
+}
+
+/* Diamond, Community Specialist, Community Manager and Google Employee */
+.scTailwindThreadPost_headerUserinfotag[style*="--color:#1A73E8"] {
+  --color: #A8C7FA!important;
 }
 
 /* Duplicate thread feature */
@@ -1896,7 +1971,7 @@ ec-rich-text-editor .input {
 }
 
 ec-rich-text-editor .hint {
-  color: rgba(255, 255, 255, .54)!important;
+  color: var(--TWPT-subtle-button-background)!important;
 }
 
 material-select-searchbox + material-list material-list-item {
@@ -1915,7 +1990,7 @@ ec-thread-insert .title {
 ec-thread-insert ec-thread-counts,
     ec-thread-insert .details,
     ec-thread-insert ec-relative-time {
-  color: rgba(255, 255, 255, .54)!important;
+  color: var(--TWPT-subtle-button-background)!important;
 }
 
 /* Text input */
@@ -1926,7 +2001,7 @@ material-input input {
 material-input .label-text,
     material-input .hint-text,
     material-input .counter {
-  color: rgba(255, 255, 255, .54)!important;
+  color: var(--TWPT-subtle-button-background)!important;
 }
 
 material-input .underline .unfocused-underline {
@@ -2081,11 +2156,11 @@ ec-announcements-content ::-webkit-scrollbar-thumb:hover {
 
 /* Account selector */
 .popup-wrapper .profile .email {
-  color: rgba(255, 255, 255, .54)!important;
+  color: var(--TWPT-subtle-button-background)!important;
 }
 
 material-gaia-picker-footer {
-  color: rgba(255, 255, 255, .54)!important;
+  color: var(--TWPT-subtle-button-background)!important;
   background-color: var(--TWPT-active-background)!important;
 }
 
