@@ -1664,6 +1664,28 @@ p.scTailwindThreadMessageMessagetombstoneroot .scTailwindThreadMessageMessagetom
   color: var(--TWPT-interop-secondary-text);
 }
 
+.scTailwindThreadReplyeditorroot {
+  background: #2a2b2f;
+  border-color: var(--TWPT-interop-subtle-border);
+}
+
+.scTailwindThreadReplyeditortop-row {
+  border-bottom-color: 1px solid rgba(255, 255, 255, 0.239);
+}
+
+.scTailwindThreadReplyeditorfooter {
+  background: #36373a;
+  border-top-color: rgba(255, 255, 255, 0.239);
+}
+
+.scTailwindThreadReplyeditorfooter a {
+  color: var(--TWPT-interop-blue);
+}
+
+.scTailwindThreadReplyeditorroot .scTailwindThreadReplyeditorerror {
+  color: #ec928e;
+}
+
 .scTailwindThreadReplydialogroot {
   background: #2a2b2f;
 }
@@ -1804,33 +1826,45 @@ p.scTailwindThreadMessageMessagetombstoneroot .scTailwindThreadMessageMessagetom
 
 /* Some fixes for the interop components in the Community Console */
 /* Alumnus */
-.scTailwindThreadPost_headerUserinfotag[style*="--color:#0F9D58"] {
+.scTailwindThreadPost_headerUserinfotag[style*="--color:#0F9D58"],
+    .scTailwindThreadMessageMessageinteractionsuser-label[style*="--userLabelColor:#0F9D58"] {
   --color: #C4EED0!important;
+  --userLabelColor: #C4EED0!important;
 }
 
 /* Bronze */
-.scTailwindThreadPost_headerUserinfotag[style*="--color:#896E63"] {
+.scTailwindThreadPost_headerUserinfotag[style*="--color:#896E63"],
+    .scTailwindThreadMessageMessageinteractionsuser-label[style*="--userLabelColor:#896E63"] {
   --color: #B9ABA3!important;
+  --userLabelColor: #B9ABA3!important;
 }
 
 /* Silver */
-.scTailwindThreadPost_headerUserinfotag[style*="--color:#5F6368"] {
+.scTailwindThreadPost_headerUserinfotag[style*="--color:#5F6368"],
+    .scTailwindThreadMessageMessageinteractionsuser-label[style*="--userLabelColor:#5F6368"] {
   --color: #C4C7C5!important;
+  --userLabelColor: #C4C7C5!important;
 }
 
 /* Gold */
-.scTailwindThreadPost_headerUserinfotag[style*="--color:#E37400"] {
+.scTailwindThreadPost_headerUserinfotag[style*="--color:#E37400"],
+    .scTailwindThreadMessageMessageinteractionsuser-label[style*="--userLabelColor:#E37400"] {
   --color: #F09D00!important;
+  --userLabelColor: #F09D00!important;
 }
 
 /* Platinum */
-.scTailwindThreadPost_headerUserinfotag[style*="--color:#455A64"] {
+.scTailwindThreadPost_headerUserinfotag[style*="--color:#455A64"],
+    .scTailwindThreadMessageMessageinteractionsuser-label[style*="--userLabelColor:#455A64"] {
   --color: #E3E3E3!important;
+  --userLabelColor: #E3E3E3!important;
 }
 
 /* Diamond, Community Specialist, Community Manager and Google Employee */
-.scTailwindThreadPost_headerUserinfotag[style*="--color:#1A73E8"] {
+.scTailwindThreadPost_headerUserinfotag[style*="--color:#1A73E8"],
+    .scTailwindThreadMessageMessageinteractionsuser-label[style*="--userLabelColor:#1A73E8"] {
   --color: #A8C7FA!important;
+  --userLabelColor: #A8C7FA!important;
 }
 
 /* Duplicate thread feature */
@@ -1842,6 +1876,14 @@ p.scTailwindThreadMessageMessagetombstoneroot .scTailwindThreadMessageMessagetom
     .search-results ec-thread-option material-expansionpanel .panel > .main-header > .header.closed:hover,
     .search-results ec-thread-option material-expansionpanel .panel > .main-header > .header.closed:focus {
   background-color: #17191c!important;
+}
+
+.search-results .results-title {
+  color: var(--TWPT-primary-text-alt)!important;
+}
+
+.search-results ec-thread-option material-expansionpanel .panel > .main > .main-content .snippet {
+  color: var(--TWPT-secondary-text)!important;
 }
 
 /* Disabled buttons */
@@ -1919,6 +1961,11 @@ ec-movable-dialog[showminimize] material-dialog footer > [footer] > .footer > [f
 
 ec-movable-dialog[showminimize] material-dialog footer > [footer] > .footer > [footer] > simple-html a {
   color: var(--TWPT-link)!important;
+}
+
+material-dialog .footer material-button[raised]:not([disabled]) {
+  background-color: var(--TWPT-blue-A100)!important;
+  color: #1f1f1f!important;
 }
 
 /* Keyboard shortcuts dialog */
@@ -2000,7 +2047,9 @@ material-input input {
 
 material-input .label-text,
     material-input .hint-text,
-    material-input .counter {
+    material-input .counter,
+    material-input .leading-text,
+    material-input .leading-text material-icon {
   color: var(--TWPT-subtle-button-background)!important;
 }
 
@@ -2020,6 +2069,11 @@ label .label {
 material-input .underline .unfocused-underline,
     material-dropdown-select dropdown-button [buttondecorator] {
   border-color: var(--TWPT-input-underline)!important;
+}
+
+/* Material yes/no buttons */
+material-yes-no-buttons material-button:not([disabled]).highlighted:not([raised]) {
+  color: var(--TWPT-blue-A100)!important;
 }
 
 /* Checkbox input (except for forum checkboxes in the drawer) */
