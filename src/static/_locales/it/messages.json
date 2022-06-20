@@ -1,0 +1,54 @@
+{
+  "appName": {
+    "message": "Strumenti PRO per Tailwind",
+    "description": "The extension's name"
+  },
+  "appNameBeta": {
+    "message": "Strumenti PRO per Tailwind (beta)",
+    "description": "The extension's name for the beta version"
+  },
+  "appNameCanary": {
+    "message": "Strumenti PRO per Tailwind (canary)",
+    "description": "The extension's name for the beta version"
+  },
+  "appNameGecko": {
+    "message": "Strumenti PRO per Tailwind",
+    "description": "The extension's name (with a 50 character limit for Gecko)"
+  },
+  "appDescription": {
+    "message": "Scorrimento infinito e altri miglioramenti nei Forum e nella Community Console",
+    "description": "The extension's description"
+  },
+  "options_killswitchwarning": {
+    "message": "Una o più opzioni sono state forzatamente disabilitate perché potrebbero non funzionare correttamente. Vai sul <a href='https://groups.google.com/g/twpowertools-discuss' rel='noreferrer noopener' target='_blank'>gruppo Google twpowertools-discuss</a> per sapere di più sul perché alcune opzioni sono state disabilitate.",
+    "description": "Warning shown in the options page if a feature has been remotely force disabled via the kill switch mechanism. This happens when a feature doesn't work properly and might be doing dangerous things, and the maintainer or an authorized user remotely force disables the feature."
+  },
+  "options_killswitchenabled": {
+    "message": "L'opzione precedente è stata interrotta a causa di un problema.",
+    "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
+  },
+  "options_optionalpermissionswarning_header": {
+    "message": "Alcune funzionalità richiedono autorizzazioni aggiuntive per funzionare. Sono stati evidenziati di seguito, fai clic sulle loro caselle di controllo per concedere le autorizzazioni appropriate.",
+    "description": "Warning shown at the top of the options page if a feature cannot be used because one or more required permissions haven't been granted to the extension."
+  },
+  "options_optionalpermissionswarning_label": {
+    "message": "Questa operazione necessita di autorizzazioni aggiuntive per poter essere effettuata.",
+    "description": "Warning shown in the options page below an option, when a feature needs more permissions to work."
+  },
+  "options_featuredoptions": {
+    "message": "Opzioni in primo piano",
+    "description": "Heading for several options that can be enabled in the options page."
+  },
+  "options_minorenhancements": {
+    "message": "Miglioramenti minori",
+    "description": "Heading for several options that can be enabled in the options page."
+  },
+  "options_thread": {
+    "message": "Carica automaticamente batch di messaggi all'interno dei thread durante lo scorrimento verso il basso.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_threadall": {
+    "message": "Carica tutti i messaggi all'interno dei thread contemporaneamente durante lo scorrimento verso il basso.",
+    "description": "Feature checkbox in the options page"
+  }
+}
