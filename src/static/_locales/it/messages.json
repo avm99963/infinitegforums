@@ -43,6 +43,10 @@
     "message": "Miglioramenti minori",
     "description": "Heading for several options that can be enabled in the options page."
   },
+  "options_list": {
+    "message": "Abilita lo scorrimento infinito nella lista thread.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_thread": {
     "message": "Carica automaticamente batch di messaggi all'interno dei thread durante lo scorrimento verso il basso.",
     "description": "Feature checkbox in the options page"
@@ -126,6 +130,10 @@
   "options_profileindicator_moreinfo": {
     "message": "+info sulle 2 opzioni precedenti",
     "description": "Link to learn more about the profile indicator feature"
+  },
+  "options_profileindicator": {
+    "message": "Mostra <span class=\"help\" title=\"lo storico delle richieste e dei messaggi dell'OP nelle community, verrà mostrato un punto rosso accanto al nome dell'utente. Se hai letto i post più recenti dell'OP, verrà invece visualizzato un punto arancione. Puoi passare sul punto colorato con il mouse per mostrare il significato del suo colore.\">se l'OP ha preso parte ad altri thread</span>.",
+    "description": "Feature checkbox in the options page"
   },
   "options_profileindicatoralt": {
     "message": "Mostra il numero di domande e risposte dell'utente entro gli ultimi <span id='profileindicatoralt_months--container'></span> mesi dopo il nome utente dell'OP.",
@@ -416,5 +424,9 @@
   "inject_extrainfo_profile_abuse_account": {
     "message": "Violazione della politica account: $1",
     "description": "Message shown in profiles when there is an account policy violation."
+  },
+  "inject_extrainfo_profile_abuse_displayname": {
+    "message": "Violazione delle norme per il nome visualizzato: $1",
+    "description": "Message shown in profiles when the display name is violating a policy."
   }
 }
