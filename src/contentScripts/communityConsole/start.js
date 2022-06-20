@@ -4,14 +4,36 @@ import {getOptions} from '../../common/optionsUtils.js';
 import AutoRefresh from './autoRefresh.js';
 import ExtraInfo from './extraInfo.js';
 
+const SMEI_NESTED_REPLIES = 15;
+const SMEI_RCE_THREAD_INTEROP = 22;
+
 getOptions(null).then(options => {
   /* IMPORTANT NOTE: Remember to change this when changing the "ifs" below!! */
-  if (options.loaddrafts) {
+  if (options.loaddrafts || options.interopthreadpage) {
     var startup =
         JSON.parse(document.querySelector('html').getAttribute('data-startup'));
 
     if (options.loaddrafts) {
       startup[4][13] = true;
+    }
+
+    if (options.interopthreadpage) {
+      var index = startup[1][6].indexOf(SMEI_RCE_THREAD_INTEROP);
+
+      switch (options.interopthreadpage_mode) {
+        case 'previous':
+          if (index > -1) startup[1][6].splice(index, 1);
+          break;
+
+        case 'next':
+          if (index == -1) startup[1][6].push(SMEI_RCE_THREAD_INTEROP);
+          break;
+      }
+    }
+
+    if (options.nestedreplies) {
+      if (!startup[1][6].includes(SMEI_NESTED_REPLIES))
+        startup[1][6].push(SMEI_NESTED_REPLIES);
     }
 
     document.querySelector('html').setAttribute(

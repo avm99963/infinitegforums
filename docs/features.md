@@ -217,6 +217,14 @@ An image is worth a thousand words:
 
 ![Animated GIF showing the feature](resources/per_forum_activity_chart.gif)
 
+### Thread page design in the Community Console
+> **Option name:** _Show the old/new thread page design in the Community
+Console._
+
+This option lets you force the old or new thread page design in the Community
+Console. The old thread page design was exclusive to the Console, while the new
+one has the same design of the public TW thread pages.
+
 ## Indicator dot
 > **Option names:** _Show whether the OP has participated in other threads_,
 _Show the number of questions and replies written by the OP within the last `n`

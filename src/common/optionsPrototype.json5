@@ -124,6 +124,16 @@
     context: 'options',
     killSwitchType: 'option',
   },
+  'interopthreadpage': {
+    defaultValue: false,
+    context: 'options',
+    killSwitchType: 'option',
+  },
+  'interopthreadpage_mode': {
+    defaultValue: 'previous',
+    context: 'options',
+    killSwitchType: 'ignore',
+  },
 
   // Experiments:
   'workflows': {
@@ -132,6 +142,11 @@
     killSwitchType: 'experiment',
   },
   'extrainfo': {
+    defaultValue: false,
+    context: 'experiments',
+    killSwitchType: 'experiment',
+  },
+  'nestedreplies': {
     defaultValue: false,
     context: 'experiments',
     killSwitchType: 'experiment',

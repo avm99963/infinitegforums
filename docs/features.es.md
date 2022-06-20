@@ -230,6 +230,15 @@ Una imagen vale más que mil palabras:
 
 ![Animated GIF showing the feature](resources/per_forum_activity_chart.gif)
 
+### Diseño de los hilos en la Consola de la Comnuidad
+> **Option name:** _Muestra el diseño viejo/nuevo de los hilos en la Consola de
+la Comunidad._
+
+Esta opción te permite forzar el diseño viejo o nuevo de las páginas de los
+hilos en la Consola de la Comunidad. El diseño viejo de estas páginas era
+exclusivo a la Consola, mientras que el nuevo tiene el mismo diseño que las
+páginas públicas de los hilos (en TW).
+
 ## Punto indicador
 > **Opciones:** _Muestra si el autor del hilo ha participado en otros hilos_,
 _Muestra el número de preguntas y respuestas escritas por el autor del hilo
