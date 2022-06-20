@@ -61,18 +61,6 @@ export function addButtonToThreadListActions(
   return clone;
 }
 
-// Returns true if |node| is the "mark as read/unread" button, the parent of the
-// parent of |node| is the actions bar of the thread list, and the button with
-// debugid |debugid| is NOT part of the actions bar.
-export function shouldAddBtnToActionBar(debugid, node) {
-  return node?.tagName == 'MATERIAL-BUTTON' &&
-      (node.getAttribute?.('debugid') == 'mark-read-button' ||
-       node.getAttribute?.('debugid') == 'mark-unread-button') &&
-      node.getAttribute?.('debugid') !== null &&
-      node.parentNode?.querySelector('[debugid="' + debugid + '"]') === null &&
-      node.parentNode?.parentNode?.tagName == 'EC-BULK-ACTIONS';
-}
-
 // Returns the display language set by the user.
 export function getDisplayLanguage() {
   var startup =

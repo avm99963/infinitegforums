@@ -10,9 +10,8 @@ import {applyDragAndDropFixIfEnabled} from './dragAndDropFix.js';
 // #!endif
 import InfiniteScroll from './infiniteScroll.js';
 import {unifiedProfilesFix} from './unifiedProfiles.js';
-import Workflows from './workflows/workflows.js';
 
-var mutationObserver, options, avatars, infiniteScroll, workflows;
+var mutationObserver, options, avatars, infiniteScroll;
 
 const watchedNodesSelectors = [
   // App container (used to set up the intersection observer and inject the dark
@@ -124,13 +123,11 @@ function handleCandidateNode(node) {
     }
     // #!endif
 
-    // Inject the batch lock and workflow buttons in the thread list if the
-    // corresponding options are currently enabled.
-    // The order is the inverse because the first one will be shown last.
-    if (batchLock.shouldAddButton(node)) batchLock.addButtonIfEnabled(node);
-
-    if (workflows.shouldAddThreadListBtn(node))
-      workflows.addThreadListBtnIfEnabled(node);
+    // Inject the batch lock button in the thread list if the option is
+    // currently enabled.
+    if (batchLock.nodeIsReadToggleBtn(node)) {
+      batchLock.addButtonIfEnabled(node);
+    }
 
     // Inject avatar links to threads in the thread list. injectIfEnabled is
     // responsible of determining whether it should run or not depending on its
@@ -220,7 +217,6 @@ getOptions(null).then(items => {
   // Initialize classes needed by the mutation observer
   avatars = new AvatarsHandler();
   infiniteScroll = new InfiniteScroll();
-  workflows = new Workflows();
 
   // autoRefresh and extraInfo are initialized in start.js
 

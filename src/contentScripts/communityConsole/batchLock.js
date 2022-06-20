@@ -1,12 +1,19 @@
 import {isOptionEnabled} from '../../common/optionsUtils.js';
 
-import {addButtonToThreadListActions, removeChildNodes, shouldAddBtnToActionBar} from './utils/common.js';
-
-const lockDebugId = 'twpt-batch-lock';
+import {addButtonToThreadListActions, removeChildNodes} from './utils/common.js';
 
 export var batchLock = {
-  shouldAddButton(node) {
-    return shouldAddBtnToActionBar(lockDebugId, node);
+  nodeIsReadToggleBtn(node) {
+    return ('tagName' in node) && node.tagName == 'MATERIAL-BUTTON' &&
+        node.getAttribute('debugid') !== null &&
+        (node.getAttribute('debugid') == 'mark-read-button' ||
+         node.getAttribute('debugid') == 'mark-unread-button') &&
+        ('parentNode' in node) && node.parentNode !== null &&
+        ('parentNode' in node.parentNode) &&
+        node.parentNode.querySelector('[debugid="twpt-lock"]') === null &&
+        node.parentNode.parentNode !== null &&
+        ('tagName' in node.parentNode.parentNode) &&
+        node.parentNode.parentNode.tagName == 'EC-BULK-ACTIONS';
   },
   createDialog() {
     var modal = document.querySelector('.pane[pane-id="default-1"]');
@@ -112,7 +119,7 @@ export var batchLock = {
       if (isEnabled) {
         let tooltip = chrome.i18n.getMessage('inject_lockbtn');
         let btn = addButtonToThreadListActions(
-            readToggle, 'lock', lockDebugId, tooltip);
+            readToggle, 'lock', 'twpt-lock', tooltip);
         btn.addEventListener('click', () => {
           this.createDialog();
         });
