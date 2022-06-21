@@ -1,10 +1,8 @@
-.PHONY: node_deps clean_dist deps clean_deps serve_chromium serve_chromium_mv3 serve_gecko release release_chromium_stable release_chromium_beta release_chromium_canary release_gecko_stable build_test_extension clean_releases clean
+.PHONY: node_deps clean_dist deps clean_deps serve_chromium serve_chromium_mv3 serve_gecko release release_chromium_stable release_chromium_beta release_chromium_canary release_gecko_stable build_test_extension clean_releases clean trigger_nightly_build
 
 WEBPACK := ./node_modules/webpack-cli/bin/cli.js
 RELEASE_SCRIPT := bash tools/release.bash
 
-# The sed command and the third_party/google-protobuf-commonjs_strict folder are
-# needed because of https://github.com/protocolbuffers/protobuf/issues/7778.
 grpc_proto_gen:
 	(cd src/killSwitch && \
 		protoc -I=. --js_out=import_style=commonjs_strict:. api_proto/*.proto && \
@@ -64,3 +62,8 @@ clean_releases:
 	rm -rf out
 
 clean: clean_deps clean_dist clean_releases
+
+# Manually trigger the nightly build. It also makes sure the tracked master branch is up to update
+trigger_nightly_build:
+	git fetch
+	zuul-client enqueue-ref --tenant gerrit --pipeline nightly-build --project infinitegforums --ref refs/heads/master --newrev $$(git rev-parse gerrit/master)
