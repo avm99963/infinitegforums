@@ -171,6 +171,10 @@
     "message": "il nuovo design della pagina dei thread",
     "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
   },
+  "options_nestedreplies": {
+    "message": "Attiva la funzione per le risposte nidificate nella Console della community.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Salva",
     "description": "Button in the options page to save the settings"
@@ -440,5 +444,145 @@
   "inject_extrainfo_profile_abuse_displayname": {
     "message": "Violazione delle norme per il nome visualizzato: $1",
     "description": "Message shown in profiles when the display name is violating a policy."
+  },
+  "inject_extrainfo_profile_abuse_avatar": {
+    "message": "Avatar della violazione: $1",
+    "description": "Message shown in profiles when the avatar is violating a policy."
+  },
+  "inject_extrainfo_profile_appealsnum": {
+    "message": "Numero di ricorsi: $1",
+    "description": "Message shown in profiles which states how many times the account has appealed the decision to ban their profile."
+  },
+  "inject_extrainfo_crs_used_singular": {
+    "message": "Usato 1 volta",
+    "description": "Shown alongside a canned response to state how many times it has been used."
+  },
+  "inject_extrainfo_crs_used_plural": {
+    "message": "Usato $1 volte",
+    "description": "Shown alongside a canned response to state how many times it has been used."
+  },
+  "inject_extrainfo_crs_lastused": {
+    "message": "Ultimo impiego: $1",
+    "description": "Tooltip which states when a canned response was last used."
+  },
+  "inject_extrainfo_message_pendingstate": {
+    "message": "Visibile soltanto agli user dotati di badge",
+    "description": "Label used in a thread or message when it is in the pending state (only visible to badged users)."
+  },
+  "inject_extrainfo_message_pendingstate_tooltip": {
+    "message": "Visibile dopo $1",
+    "description": "Tooltip used for the label \"Only visible to badged users\" to state when the thread will become visible publicly."
+  },
+  "inject_extrainfo_message_state": {
+    "message": "Stato: $1",
+    "description": "Label used in a thread or message to show its state."
+  },
+  "inject_extrainfo_message_state_published": {
+    "message": "Pubblicato",
+    "description": "Thread/message state PUBLISHED (the normal state of a message: it is published and visible to everyone)."
+  },
+  "inject_extrainfo_message_state_draft": {
+    "message": "Bozza",
+    "description": "Thread/message state DRAFT (when a message is saved as a draft and not yet published)."
+  },
+  "inject_extrainfo_message_state_owner_deleted": {
+    "message": "Cancellata dal proprietario",
+    "description": "Thread/message state OWNER_DELETED (the owner deleted the message)."
+  },
+  "inject_extrainfo_message_state_automated_abuse_take_down_hide2": {
+    "message": "Nascosto (automaticamente riconosciuto come abuso)",
+    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_HIDE (the message is hidden because the AI classified it as \"abuse\")."
+  },
+  "inject_extrainfo_message_state_automated_abuse_take_down_delete2": {
+    "message": "Eliminato (automaticamente riconosciuto come abuso)",
+    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_DELETE (the message is deleted because the AI classified it as \"abuse\")."
+  },
+  "inject_extrainfo_message_state_automated_off_topic_hide2": {
+    "message": "Nascosto (automaticamente riconosciuto come fuori tema)",
+    "description": "Thread/message state AUTOMATED_OFF_TOPIC_HIDE (the message is hidden because the AI classified it as \"off topic\")."
+  },
+  "inject_extrainfo_message_state_automated_flagged_pending_manual_review2": {
+    "message": "Segnalato automaticamente (in attesa di revisione)",
+    "description": "Thread/message state AUTOMATED_FLAGGED_PENDING_MANUAL_REVIEW (the message has been flagged by the AI and needs manual review)."
+  },
+  "inject_extrainfo_message_state_user_flagged_pending_manual_review": {
+    "message": "Segnalato dall'utente (in attesa di revisione)",
+    "description": "Thread/message state USER_FLAGGED_PENDING_MANUAL_REVIEW (a user flagged the message and needs manual review)."
+  },
+  "inject_extrainfo_message_state_expert_flagged_pending_manual_review": {
+    "message": "Segnalato da un esperto (in attesa di revisione)",
+    "description": "Thread/message state EXPERT_FLAGGED_PENDING_MANUAL_REVIEW (a PE flagged the message and needs manual review)."
+  },
+  "inject_extrainfo_message_state_manual_take_down_hide2": {
+    "message": "Nascosto dopo revisione manuale",
+    "description": "Thread/message state MANUAL_TAKE_DOWN_HIDE (the message has been manually hidden by a Googler)."
+  },
+  "inject_extrainfo_message_state_manual_take_down_delete2": {
+    "message": "Eliminato dopo revisione manuale",
+    "description": "Thread/message state MANUAL_TAKE_DOWN_DELETE (the message has been manually deleted by a Googler)."
+  },
+  "inject_extrainfo_message_state_googler_off_topic_hide2": {
+    "message": "Contrassegnato come fuori tema da un Googler",
+    "description": "Thread/message state GOOGLER_OFF_TOPIC_HIDE (the message has been hidden by a Googler because it is off-topic)."
+  },
+  "inject_extrainfo_message_state_manual_profile_take_down_suspend2": {
+    "message": "Nascosto (profilo bannato manualmente)",
+    "description": "Thread/message state MANUAL_PROFILE_TAKE_DOWN_SUSPEND (due to the fact that the profile has been manually suspended by a Googler, messages written by that account are in this state —and hidden from the public)."
+  },
+  "inject_extrainfo_message_state_reinstate_profile_takedown2": {
+    "message": "Riabilitato (ban del profilo revocato)",
+    "description": "Thread/message state REINSTATE_PROFILE_TAKEDOWN (after a profile suspension has been reverted, messages which were previously in the \"MANUAL_PROFILE_TAKE_DOWN_SUSPEND\" state have this state (and are visible to the public again))."
+  },
+  "inject_extrainfo_message_state_reinstate_abuse_takedown2": {
+    "message": "Contrassegnato manualmente come NON abuso",
+    "description": "Thread/message state REINSTATE_ABUSE_TAKEDOWN (it is thought that messages in this state have been manually unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
+  },
+  "inject_extrainfo_message_state_automated_abuse_reinstate2": {
+    "message": "Contrassegnato automaticamente come NON abuso",
+    "description": "Thread/message state AUTOMATED_ABUSE_REINSTATE (it is thought that messages in this state have been automatically unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
+  },
+  "inject_extrainfo_message_state_clear_off_topic2": {
+    "message": "Segnalazione fuori tema rimossa",
+    "description": "Thread/message state CLEAR_OFF_TOPIC (the message has been confirmed to NOT be off-topic)."
+  },
+  "inject_extrainfo_message_state_confirm_off_topic2": {
+    "message": "Segnalazione fuori tema confermata",
+    "description": "Thread/message state CONFIRM_OFF_TOPIC (the message has been confirmed to be off-topic)."
+  },
+  "inject_extrainfo_message_shadowblockactive": {
+    "message": "Shadow block attivo",
+    "description": "Label used in a thread or message when it has been shadow blocked and is thus hidden from view."
+  },
+  "inject_extrainfo_message_shadowblocknotactive": {
+    "message": "Shadow block disattivato",
+    "description": "Label used in a thread or message when it had been shadow blocked but it isn't active anymore."
+  },
+  "inject_extrainfo_message_livereviewverdict": {
+    "message": "Risultato della revisione manuale: $1",
+    "description": "Label used in a thread or message to show what was the action taken when live reviewing it."
+  },
+  "inject_extrainfo_message_livereviewverdict_relevant": {
+    "message": "Rilevante",
+    "description": "One of the actions of a live review."
+  },
+  "inject_extrainfo_message_livereviewverdict_offtopic": {
+    "message": "Fuori tema",
+    "description": "One of the actions of a live review."
+  },
+  "inject_extrainfo_message_livereviewverdict_abuse": {
+    "message": "Abuso",
+    "description": "One of the actions of a live review."
+  },
+  "inject_extrainfo_thread_autotrending": {
+    "message": "Automaticamente contrassegnato come di tendenza",
+    "description": "Label used in a thread to show it has been automatically marked as trending."
+  },
+  "inject_extrainfo_thread_trending": {
+    "message": "Di tendenza",
+    "description": "Label used in a thread to show it has been manually marked as trending."
+  },
+  "actionbadge_permissions_requested": {
+    "message": "Alcune funzioni necessitano di permessi aggiuntivi. Clicca per risolvere.",
+    "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."
   }
 }
