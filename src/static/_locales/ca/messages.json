@@ -159,6 +159,22 @@
     "message": "Mostra la activitat separada per fòrums als perfils de la Consola de la Comunitat.",
     "description": "Feature checkbox in the options page"
   },
+  "options_interopthreadpage": {
+    "message": "Mostra <span id='interopthreadpage_mode--container'></span> a la Consola de la Comunitat.",
+    "description": "Feature checkbox in the options page. \"<span id='interopthreadpage_mode--container'></span>\" will be substituted with a selector which allows users to select whether they want the new thread page design or the old one."
+  },
+  "options_interopthreadpage_mode_previous": {
+    "message": "el disseny vell dels fils",
+    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
+  },
+  "options_interopthreadpage_mode_next": {
+    "message": "el disseny nou dels fils",
+    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
+  },
+  "options_nestedreplies": {
+    "message": "Activa la funció de respostes anidades a la Consola de la Comunitat.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Desa",
     "description": "Button in the options page to save the settings"
