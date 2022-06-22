@@ -92,7 +92,7 @@
     "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
   },
   "options_ccdarktheme_mode_system": {
-    "message": "dalle impostazioni del tuo sistema operativo",
+    "message": "in base alle impostazioni del tuo sistema operativo",
     "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
   },
   "options_ccforcehidedrawer": {
@@ -104,7 +104,7 @@
     "description": "Feature checkbox in the options page"
   },
   "options_batchlock": {
-    "message": "Aggiungi l'opzione per bloccare più thread insieme nella home della Community Console.",
+    "message": "Aggiungi l'opzione per chiudere più thread insieme nella home della Community Console.",
     "description": "Feature checkbox in the options page"
   },
   "options_enhancedannouncementsdot": {
@@ -562,7 +562,7 @@
     "description": "Label used in a thread or message to show what was the action taken when live reviewing it."
   },
   "inject_extrainfo_message_livereviewverdict_relevant": {
-    "message": "Rilevante",
+    "message": "Idoneo",
     "description": "One of the actions of a live review."
   },
   "inject_extrainfo_message_livereviewverdict_offtopic": {
