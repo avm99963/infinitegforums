@@ -1,7 +1,7 @@
 import {getOptions} from '../common/optionsUtils.js';
+import {correctArrayKeys} from '../common/protojs.js';
 
 import PerForumStatsSection from './communityConsole/utils/PerForumStatsSection.js';
-import {correctArrayKeys} from './utilsCommon/protojs.js';
 import {injectPreviousPostsLinksUnifiedProfile} from './utilsCommon/unifiedProfiles.js';
 
 const profileViewRegex = /var view ?= ?(.+\]);/;

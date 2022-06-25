@@ -7,6 +7,9 @@ import ExtraInfo from './extraInfo.js';
 const SMEI_NESTED_REPLIES = 15;
 const SMEI_RCE_THREAD_INTEROP = 22;
 
+injectScript(chrome.runtime.getURL('xhrInterceptorInject.bundle.js'));
+injectScript(chrome.runtime.getURL('extraInfoInject.bundle.js'));
+
 getOptions(null).then(options => {
   /* IMPORTANT NOTE: Remember to change this when changing the "ifs" below!! */
   if (options.loaddrafts || options.interopthreadpage) {
@@ -59,7 +62,4 @@ getOptions(null).then(options => {
         break;
     }
   }
-
-  injectScript(chrome.runtime.getURL('xhrInterceptorInject.bundle.js'));
-  injectScript(chrome.runtime.getURL('extraInfoInject.bundle.js'));
 });

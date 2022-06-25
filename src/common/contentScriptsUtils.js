@@ -13,5 +13,5 @@ export function injectStyles(css) {
 export function injectScript(scriptName) {
   var script = document.createElement('script');
   script.src = scriptName;
-  document.head.appendChild(script);
+  (document.head || document.documentElement).append(script);
 }
