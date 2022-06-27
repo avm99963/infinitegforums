@@ -12,7 +12,8 @@ injectScript(chrome.runtime.getURL('extraInfoInject.bundle.js'));
 
 getOptions(null).then(options => {
   /* IMPORTANT NOTE: Remember to change this when changing the "ifs" below!! */
-  if (options.loaddrafts || options.interopthreadpage) {
+  if (options.loaddrafts || options.interopthreadpage ||
+      options.nestedreplies) {
     var startup =
         JSON.parse(document.querySelector('html').getAttribute('data-startup'));
 
