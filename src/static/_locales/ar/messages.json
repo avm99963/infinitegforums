@@ -159,6 +159,22 @@
     "message": "إظهار النشاط حسب كل منتدى في الملفات الشّخصية في وحدة التحكم في المجتمع.",
     "description": "Feature checkbox in the options page"
   },
+  "options_interopthreadpage": {
+    "message": "إظهار <span id='interopthreadpage_mode--container'></span> في وحدة التّحكّم.",
+    "description": "Feature checkbox in the options page. \"<span id='interopthreadpage_mode--container'></span>\" will be substituted with a selector which allows users to select whether they want the new thread page design or the old one."
+  },
+  "options_interopthreadpage_mode_previous": {
+    "message": "التّصميم القديم لصفحة الملصق",
+    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
+  },
+  "options_interopthreadpage_mode_next": {
+    "message": "التّصميم الجديد لصفحة الملصق",
+    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
+  },
+  "options_nestedreplies": {
+    "message": "تشغيل ميزة الرّدود المتداخلة في وحدة التّحكّم.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "حفظ",
     "description": "Button in the options page to save the settings"
