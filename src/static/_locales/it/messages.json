@@ -284,7 +284,7 @@
     "description": "Message shown in a snackbar when new threads are found in a thread list. Another button asks the user to refresh the list."
   },
   "inject_autorefresh_list_snackbar_action": {
-    "message": "Ricarica",
+    "message": "Aggiorna",
     "description": "Button shown in a snackbar asking users to refresh/reload the list to show the new threads."
   },
   "inject_autorefresh_list_status_indicator_label_active": {
