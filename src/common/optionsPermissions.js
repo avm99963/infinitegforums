@@ -1,18 +1,32 @@
+import actionApi from './actionApi.js';
 import optionsPrototype from './optionsPrototype.json5';
 import {getOptions} from './optionsUtils.js';
-import actionApi from './actionApi.js';
 
 // Required permissions, including host permissions.
 //
-// IMPORTANT: This should be kept in sync with the "permissions" key in
-// //templates/manifest.gjson.
-const requiredPermissions = new Set([
-  'storage',
-  'alarms',
-// #!if ['chromium', 'chromium_mv3'].includes(browser_target)
-  'declarativeNetRequestWithHostAccess',
-// #!endif
-]);
+// IMPORTANT: This should be kept in sync with the "permissions",
+// "host_permissions" and "content_scripts" keys in //templates/manifest.gjson.
+const requiredPermissions = {
+  permissions: new Set([
+    'storage', 'alarms',
+    // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
+    'declarativeNetRequestWithHostAccess',
+    // #!endif
+  ]),
+  origins: new Set([
+    // Host permissions:
+    'https://support.google.com/*',
+
+    // Content scripts matches:
+    'https://support.google.com/s/community*',
+    'https://support.google.com/*/threads*',
+    'https://support.google.com/*/thread/*',
+    'https://support.google.com/*/profile/*',
+    'https://support.google.com/profile/*',
+  ]),
+};
+
+const permissionTypes = ['origins', 'permissions'];
 
 // Returns an array of optional permissions needed by |feature|.
 export function requiredOptPermissions(feature) {
@@ -24,19 +38,24 @@ export function requiredOptPermissions(feature) {
   return optionsPrototype[feature]?.requiredOptPermissions ?? [];
 }
 
-// Returns a promise resolving to an array of optional permissions needed by all
-// the current enabled features.
+// Returns a promise resolving to the optional permissions needed by all the
+// current enabled features.
 export function currentRequiredOptPermissions() {
   return getOptions(null, /* requireOptionalPermissions = */ false)
       .then(options => {
-        let permissions = [];
+        let permissions = {
+          origins: [],
+          permissions: [],
+        };
 
         // For each option
         for (const [opt, optMeta] of Object.entries(optionsPrototype))
           // If the option is enabled
           if (options[opt])
             // Add its required optional permissions to the list
-            permissions.push(...(optMeta.requiredOptPermissions ?? []));
+            for (const type of permissionTypes)
+              permissions[type].push(
+                  ...(optMeta.requiredOptPermissions?.[type] ?? []));
 
         return permissions;
       });
@@ -49,10 +68,10 @@ export function ensureOptPermissions(feature) {
   return new Promise((resolve, reject) => {
     let permissions = requiredOptPermissions(feature);
 
-    chrome.permissions.contains({permissions}, isAlreadyGranted => {
+    chrome.permissions.contains(permissions, isAlreadyGranted => {
       if (isAlreadyGranted) return resolve(true);
 
-      chrome.permissions.request({permissions}, granted => {
+      chrome.permissions.request(permissions, granted => {
         // If there was an error, reject the promise.
         if (granted === undefined)
           return reject(new Error(
@@ -69,8 +88,8 @@ export function ensureOptPermissions(feature) {
   });
 }
 
-// Returns a promise resolving to the list of currently granted optional
-// permissions (i.e. excluding required permissions).
+// Returns a promise resolving to the currently granted optional permissions
+// (i.e. excluding required permissions).
 export function grantedOptPermissions() {
   return new Promise((resolve, reject) => {
     chrome.permissions.getAll(response => {
@@ -79,18 +98,20 @@ export function grantedOptPermissions() {
             chrome.runtime.lastError.message ??
             'An unknown error occurred while calling chrome.permissions.getAll()'));
 
-      let optPermissions =
-          response.permissions.filter(p => !requiredPermissions.has(p));
+      let optPermissions = {};
+      for (const type of permissionTypes)
+        optPermissions[type] =
+            response[type].filter(p => !requiredPermissions[type].has(p));
       resolve(optPermissions);
     });
   });
 }
 
 // Returns a promise resolving to an object with 2 properties:
-//   - missingPermissions: an array of optional permissions which are required
-//     by enabled features and haven't been granted yet.
-//   - leftoverPermissions: an array of optional permissions which are granted
-//     but are no longer needed.
+//   - missingPermissions: optional permissions which are required by enabled
+//     features and haven't been granted yet.
+//   - leftoverPermissions: optional permissions which are granted but are no
+//     longer needed.
 export function diffPermissions() {
   return Promise
       .all([
@@ -98,10 +119,17 @@ export function diffPermissions() {
         currentRequiredOptPermissions(),
       ])
       .then(perms => {
-        return {
-          missingPermissions: perms[1].filter(p => !perms[0].includes(p)),
-          leftoverPermissions: perms[0].filter(p => !perms[1].includes(p)),
+        let diff = {
+          missingPermissions: {},
+          leftoverPermissions: {},
         };
+        for (const type of permissionTypes) {
+          diff.missingPermissions[type] =
+              perms[1][type].filter(p => !perms[0][type].includes(p));
+          diff.leftoverPermissions[type] =
+              perms[0][type].filter(p => !perms[1][type].includes(p));
+        }
+        return diff;
       })
       .catch(cause => {
         throw new Error(
@@ -109,13 +137,12 @@ export function diffPermissions() {
       });
 }
 
-// Returns a promise which resolves to the array of required optional
-// permissions of |feature| which are missing.
+// Returns a promise which resolves to the required optional permissions of
+// |feature| which are missing.
 //
-// Accepts an argument |grantedPermissions| with the array of granted
-// permissions, otherwise the function will call grantedOptPermissions() to
-// retrieve them. This can be used to prevent calling
-// chrome.permissions.getAll() repeteadly.
+// Accepts an argument |grantedPermissions| with the granted permissions,
+// otherwise the function will call grantedOptPermissions() to retrieve them.
+// This can be used to prevent calling chrome.permissions.getAll() repeteadly.
 export function missingPermissions(feature, grantedPermissions = null) {
   let grantedOptPermissionsPromise;
   if (grantedPermissions !== null)
@@ -131,13 +158,26 @@ export function missingPermissions(feature, grantedPermissions = null) {
         requiredOptPermissions(feature),
       ])
       .then(perms => {
-        return perms[1].filter(p => !perms[0].includes(p));
+        let missingPerms = {};
+        for (const type of permissionTypes)
+          missingPerms[type] =
+              perms[1][type].filter(p => !perms[0][type].includes(p))
+          return missingPerms;
       })
       .catch(cause => {
         throw new Error(
             'Couldn\'t compute the missing permissions for "' + feature + '",',
             {cause});
       });
+}
+
+// Returns true if permissions (a chrome.permissions.Permissions object) is
+// empty (that is, if their properties have empty arrays).
+export function isPermissionsObjectEmpty(permissions) {
+  for (const type of permissionTypes) {
+    if ((permissions[type]?.length ?? 0) > 0) return false;
+  }
+  return true;
 }
 
 // Deletes optional permissions which are no longer needed by the current
@@ -148,25 +188,19 @@ export function cleanUpOptPermissions(removeLeftoverPerms = true) {
       .then(perms => {
         let {missingPermissions, leftoverPermissions} = perms;
 
-        if (missingPermissions.length > 0) {
+        if (!isPermissionsObjectEmpty(missingPermissions)) {
           actionApi.setBadgeBackgroundColor({color: '#B71C1C'});
           actionApi.setBadgeText({text: '!'});
-          // This is to work around https://crbug.com/1268098.
-          // TODO(avm99963): Remove when the bug is fixed.
-          // #!if browser_target !== 'chromium_mv3'
           actionApi.setTitle({
             title: chrome.i18n.getMessage('actionbadge_permissions_requested')
           });
-          // #!endif
         } else {
           actionApi.setBadgeText({text: ''});
           actionApi.setTitle({title: ''});
         }
 
         if (removeLeftoverPerms) {
-          chrome.permissions.remove({
-            permissions: leftoverPermissions,
-          });
+          chrome.permissions.remove(leftoverPermissions);
         }
       })
       .catch(err => {

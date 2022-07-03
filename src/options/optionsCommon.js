@@ -1,5 +1,5 @@
 import {getExtVersion, isProdVersion} from '../common/extUtils.js';
-import {ensureOptPermissions, grantedOptPermissions, missingPermissions} from '../common/optionsPermissions.js';
+import {ensureOptPermissions, grantedOptPermissions, isPermissionsObjectEmpty, missingPermissions} from '../common/optionsPermissions.js';
 import {cleanUpOptions, optionsPrototype, specialOptions} from '../common/optionsUtils.js';
 
 import optionsPage from './optionsPage.json5';
@@ -250,9 +250,10 @@ window.addEventListener('load', function() {
             for (const mode of threadPageModes) {
               let modeOption = document.createElement('option');
               modeOption.value = mode;
-              modeOption.textContent =
-                  chrome.i18n.getMessage('options_interopthreadpage_mode_' + mode);
-              if (items.interopthreadpage_mode == mode) modeOption.selected = true;
+              modeOption.textContent = chrome.i18n.getMessage(
+                  'options_interopthreadpage_mode_' + mode);
+              if (items.interopthreadpage_mode == mode)
+                modeOption.selected = true;
               select.appendChild(modeOption);
             }
 
@@ -293,7 +294,7 @@ window.addEventListener('load', function() {
     grantedOptPermissions()
         .then(grantedPerms => {
           for (const [opt, optMeta] of Object.entries(optionsPrototype)) {
-            if (!optMeta.requiredOptPermissions?.length || !isOptionShown(opt))
+            if (!optMeta.requiredOptPermissions || !isOptionShown(opt))
               continue;
 
             let warningLabel = document.querySelector(
@@ -346,8 +347,7 @@ window.addEventListener('load', function() {
               let shownHeaderMessage = false;
               missingPermissions(opt, grantedPerms)
                   .then(missingPerms => {
-                    console.log(missingPerms);
-                    if (missingPerms.length > 0) {
+                    if (!isPermissionsObjectEmpty(missingPerms)) {
                       checkbox.indeterminate = true;
                       checkbox.setAttribute(kClickShouldEnableFeat, '');
 

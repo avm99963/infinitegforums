@@ -1,4 +1,4 @@
-import {grantedOptPermissions, missingPermissions} from './optionsPermissions.js';
+import {grantedOptPermissions, isPermissionsObjectEmpty, missingPermissions} from './optionsPermissions.js';
 import optionsPrototype from './optionsPrototype.json5';
 import specialOptions from './specialOptions.json5';
 
@@ -45,7 +45,7 @@ export function disableItemsWithMissingPermissions(
 
     Promise.all(permissionChecksPromises).then(missingPerms => {
       for (let i = 0; i < permissionChecksFeatures.length; i++)
-        if (missingPerms[i].length > 0)
+        if (!isPermissionsObjectEmpty(missingPerms[i]))
           items[permissionChecksFeatures[i]] = false;
 
       return items;
@@ -112,10 +112,12 @@ export function getOptions(options, requireOptionalPermissions = true) {
              // If we don't have access to the chrome.permissions API (content
              // scripts don't have access to it[1]), do the final piece of
              // computation in the service worker/background script.
-             // [1]: https://developer.chrome.com/docs/extensions/mv3/content_scripts/
+             // [1]:
+             // https://developer.chrome.com/docs/extensions/mv3/content_scripts/
 
              // #!if !production
-             console.debug('We are about to start checking granted permissions');
+             console.debug(
+                 'We are about to start checking granted permissions');
              console.timeLog(timeLabel);
              // #!endif
              if (!chrome.permissions) {
