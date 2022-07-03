@@ -541,9 +541,21 @@
     "message": "تمّ إزالة علامة إساءة الاستخدام تلقائيّا",
     "description": "Thread/message state AUTOMATED_ABUSE_REINSTATE (it is thought that messages in this state have been automatically unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
   },
+  "inject_extrainfo_message_state_clear_off_topic2": {
+    "message": "تمّ إزالة علامة خارج الموضوع",
+    "description": "Thread/message state CLEAR_OFF_TOPIC (the message has been confirmed to NOT be off-topic)."
+  },
   "inject_extrainfo_message_state_confirm_off_topic2": {
     "message": "تمّ تأكيدُ خارجَ الموضوعِ",
     "description": "Thread/message state CONFIRM_OFF_TOPIC (the message has been confirmed to be off-topic)."
+  },
+  "inject_extrainfo_message_shadowblockactive": {
+    "message": "منع الظّلّ مفعَّل",
+    "description": "Label used in a thread or message when it has been shadow blocked and is thus hidden from view."
+  },
+  "inject_extrainfo_message_shadowblocknotactive": {
+    "message": "منع الظّلّ لم يعد مفعّلا",
+    "description": "Label used in a thread or message when it had been shadow blocked but it isn't active anymore."
   },
   "inject_extrainfo_message_livereviewverdict": {
     "message": "حكم المراجعة المباشِرة: $1",
