@@ -9,4 +9,4 @@ The extension also requests every 30 minutes the current kill switch status to a
 You can contact us here:
 
 * **Name:** Adrià Vilanova Martínez
-* **E-mail address:** me+privacypolicy _[at]_ avm99963.com
+* **E-mail address:** [privacy-requests@avm99963.com](mailto:privacy-requests@avm99963.com?subject=TW+Power+Tools+privacy+request)
