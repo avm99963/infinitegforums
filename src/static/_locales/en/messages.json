@@ -175,6 +175,10 @@
     "message": "Turn on the nested replies feature in the Community Console.",
     "description": "Feature checkbox in the options page"
   },
+  "options_uispacing": {
+    "message": "Reduce the whitespace in the Community Console and TW.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Save",
     "description": "Button in the options page to save the settings"

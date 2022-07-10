@@ -1,0 +1,52 @@
+.scTailwindThreadQuestionQuestioncardtitle-container {
+  gap: 0 1rem!important;
+  margin: 1rem 0!important;
+}
+
+.scTailwindThreadQuestionQuestioncardcontent {
+  padding: 1.5rem 1rem 1rem 1rem!important;
+}
+
+.scTailwindThreadQuestionQuestioncardsub-content {
+  padding: 0 1rem 1rem!important;
+}
+
+.scTailwindThreadMessageMessagecardcontent,
+    .scTailwindThreadMessageMessagecardnested-reply {
+  padding: 1rem!important;
+}
+
+.scTailwindThreadMessagegapmore-nested-replies {
+  padding: 0.25rem 1rem!important;
+}
+
+sc-tailwind-thread-post-header {
+  margin-bottom: 0!important;
+}
+
+.scTailwindThreadMessageMessagelistmessage-card {
+  padding-bottom: 0.75rem!important;
+}
+
+h3.scTailwindThreadMessageMessagelistheading {
+  margin: 1rem 0!important;
+}
+
+.scTailwindThreadMorebuttonroot {
+  margin: 0 0 0.75rem 0!important;
+}
+
+@media (min-width: 37.5rem) {
+  .scTailwindThreadMessageMessagecardcontent,
+      .scTailwindThreadMessageMessagecardnested-reply {
+    padding: 1rem 3rem!important;
+  }
+
+  .scTailwindThreadMessagegapmore-nested-replies {
+    padding: 0.25rem 3rem!important;
+  }
+
+  .scTailwindThreadQuestionQuestioncardsub-content {
+    padding: 0 3rem 1rem!important;
+  }
+}

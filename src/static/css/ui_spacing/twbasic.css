@@ -1,0 +1,9 @@
+.page {
+  margin: 0!important;
+}
+
+@media (min-width: 37.5rem) {
+  .scTailwindThreadQuestionQuestioncardcontent {
+    padding: 2rem 3rem!important;
+  }
+}

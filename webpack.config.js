@@ -42,6 +42,7 @@ module.exports = (env, args) => {
     communityConsoleStart: './src/contentScripts/communityConsole/start.js',
     publicForum: './src/contentScripts/publicForum.js',
     publicThread: './src/contentScripts/publicThread.js',
+    publicThreadStart: './src/contentScripts/publicThreadStart.js',
     publicProfile: './src/contentScripts/publicProfile.js',
     publicProfileStart: './src/contentScripts/publicProfileStart.js',
     profileIndicator: './src/contentScripts/profileIndicator.js',

@@ -63,4 +63,9 @@ getOptions(null).then(options => {
         break;
     }
   }
+
+  if (options.uispacing) {
+    injectStylesheet(chrome.runtime.getURL('css/ui_spacing/shared.css'));
+    injectStylesheet(chrome.runtime.getURL('css/ui_spacing/console.css'));
+  }
 });

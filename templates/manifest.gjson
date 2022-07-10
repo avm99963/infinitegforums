@@ -33,6 +33,12 @@
     {
       "matches": ["https://support.google.com/*/thread/*"],
       "exclude_matches": ["https://support.google.com/s/community*", "https://support.google.com/*/thread/new*"],
+      "js": ["publicThreadStart.bundle.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://support.google.com/*/thread/*"],
+      "exclude_matches": ["https://support.google.com/s/community*", "https://support.google.com/*/thread/new*"],
       "js": ["publicThread.bundle.js", "mdcStyles.bundle.js"],
       "run_at": "document_end"
     },
@@ -89,11 +95,15 @@
         "css/image_max_height.css",
         "css/extrainfo.css",
         "css/extrainfo_perforumstats.css",
+        "css/ui_spacing/shared.css",
+        "css/ui_spacing/console.css",
+        "css/ui_spacing/twbasic.css",
 
         "communityConsoleMain.bundle.js.map",
         "communityConsoleStart.bundle.js.map",
         "publicForum.bundle.js.map",
         "publicThread.bundle.js.map",
+        "publicThreadStart.bundle.js.map",
         "profile.bundle.js.map",
         "profileIndicator.bundle.js.map",
         "profileIndicatorInject.bundle.js.map",
