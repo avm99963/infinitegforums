@@ -175,6 +175,10 @@
     "message": "تشغيل ميزة الرّدود المتداخلة في وحدة التّحكّم.",
     "description": "Feature checkbox in the options page"
   },
+  "options_uispacing": {
+    "message": "تقليل المساحة البيضاء في وحدة التّحكّم و TW.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "حفظ",
     "description": "Button in the options page to save the settings"
