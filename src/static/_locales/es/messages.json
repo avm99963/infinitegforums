@@ -175,6 +175,10 @@
     "message": "Activa la función de respuestas anidadas en la Consola de la Comunidad.",
     "description": "Feature checkbox in the options page"
   },
+  "options_uispacing": {
+    "message": "Reduce el espacio en blanco en la Consola de la Comunidad y TW.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Guardar",
     "description": "Button in the options page to save the settings"
