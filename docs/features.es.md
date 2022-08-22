@@ -223,7 +223,7 @@ Esta opción bloquea todas estas peticiones de red para guardar, eliminar y
 recuperar borradores para que la función esté efectivamente desactivada.
 
 ### Actividad separada por foros en perfiles
-> **Option name:** _Muestra la actividad separada por foros en los perfiles de
+> **Opción:** _Muestra la actividad separada por foros en los perfiles de
 la Consola de la Comunidad._
 
 Una imagen vale más que mil palabras:
@@ -231,13 +231,26 @@ Una imagen vale más que mil palabras:
 ![Animated GIF showing the feature](resources/per_forum_activity_chart.gif)
 
 ### Diseño de los hilos en la Consola de la Comnuidad
-> **Option name:** _Muestra el diseño viejo/nuevo de los hilos en la Consola de
+> **Opción:** _Muestra el diseño viejo/nuevo de los hilos en la Consola de
 la Comunidad._
 
 Esta opción te permite forzar el diseño viejo o nuevo de las páginas de los
 hilos en la Consola de la Comunidad. El diseño viejo de estas páginas era
 exclusivo a la Consola, mientras que el nuevo tiene el mismo diseño que las
 páginas públicas de los hilos (en TW).
+
+### Reduce espacio en blanco
+> **Opción:** _Reduce el espacio en blanco en la Consola de la Comunidad y TW._
+
+Esta opción reduce el espacio en blanco excesivo en la Consola de la Comunidad y
+TW, como se muestra en la siguientes capturas:
+
+![Imagen mostrando la diferencia entre la función activada o desactivada cuando se ve un hilo](resources/ui_spacing.png)
+
+También reduce el espacio en blanco en las listas de hilos en pantallas pequeñas
+para que los títulos quepan mejor y se puedan leer:
+
+![Imagen mostrando cómo se reduce el espacio en blanco en la página de la lista de hilos en móvil](resources/ui_spacing_2.png)
 
 ## Punto indicador
 > **Opciones:** _Muestra si el autor del hilo ha participado en otros hilos_,

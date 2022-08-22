@@ -44,6 +44,7 @@
         {codename: 'repositionexpandthread', experimental: true},
         {codename: 'imagemaxheight'},
         {codename: 'interopthreadpage'},
+        {codename: 'uispacing'},
       ],
     },
   ],

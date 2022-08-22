@@ -225,6 +225,19 @@ This option lets you force the old or new thread page design in the Community
 Console. The old thread page design was exclusive to the Console, while the new
 one has the same design of the public TW thread pages.
 
+### Reduce whitespace
+> **Option name:** _Reduce the whitespace in the Community Console and TW._
+
+This option reduces excessive whitespace throughout the Community Console and TW
+Basic, as shown in the screenshots below:
+
+![Picture showing the difference between the feature enabled or disabled when viewing a thread](resources/ui_spacing.png)
+
+It also reduces whitespace in thread lists in small screens so the titles fit
+better and can be read:
+
+![Picture showing how whitespace is reduced in the thread list page in mobile](resources/ui_spacing_2.png)
+
 ## Indicator dot
 > **Option names:** _Show whether the OP has participated in other threads_,
 _Show the number of questions and replies written by the OP within the last `n`

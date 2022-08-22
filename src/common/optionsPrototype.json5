@@ -134,6 +134,11 @@
     context: 'options',
     killSwitchType: 'ignore',
   },
+  'uispacing': {
+    defaultValue: false,
+    context: 'options',
+    killSwitchType: 'option',
+  },
 
   // Experiments:
   'workflows': {
@@ -147,11 +152,6 @@
     killSwitchType: 'experiment',
   },
   'nestedreplies': {
-    defaultValue: false,
-    context: 'experiments',
-    killSwitchType: 'experiment',
-  },
-  'uispacing': {
     defaultValue: false,
     context: 'experiments',
     killSwitchType: 'experiment',
