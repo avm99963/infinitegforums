@@ -113,4 +113,24 @@
   .scTailwindThreadQuestionQuestioncardcontent {
     padding: 2rem 3rem 1.5rem 3rem!important;
   }
+
+  /*
+   * == SIDEBAR ==
+   * Make the items more compact, like before, but only in large screens.
+   */
+  :is(ec-forum-drawer-item, ec-filter-drawer-item) > material-list-item {
+    height: 40px!important;
+  }
+
+  ec-filter-drawer-item > material-list-item {
+    line-height: 32px!important;
+  }
+
+  ec-forum-drawer-item > material-list-item > material-menu > material-button > .content {
+    padding: 8px!important;
+  }
+
+  ec-filter-drawer-item > material-menu {
+    top: 0!important;
+  }
 }
