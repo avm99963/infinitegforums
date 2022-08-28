@@ -9,6 +9,7 @@ const kLoadMoreButtons = [
     buttonSelectors: [
       '.thread-all-replies__load-more-button',
       '.scTailwindThreadMorebuttonload-more .scTailwindThreadMorebuttonbutton',
+      '.scTailwindThreadMessagegapload-more .scTailwindThreadMessagegapbutton',
     ],
   },
   {
@@ -16,6 +17,7 @@ const kLoadMoreButtons = [
     buttonSelectors: [
       '.thread-all-replies__load-all-button',
       '.scTailwindThreadMorebuttonload-all .scTailwindThreadMorebuttonbutton',
+      '.scTailwindThreadMessagegapload-all .scTailwindThreadMessagegapbutton',
     ],
   }
 ];

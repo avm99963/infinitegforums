@@ -1751,6 +1751,16 @@ p.scTailwindThreadMessageMessagetombstoneroot .scTailwindThreadMessageMessagetom
   color: var(--TWPT-interop-secondary-text);
 }
 
+.scTailwindThreadMessagegapdivider {
+  background: var(--TWPT-interop-subtle-border);
+}
+
+.scTailwindThreadMessagegapbutton {
+  background: #1f1f1f;
+  border: 1px solid var(--TWPT-interop-subtle-border);
+  color: var(--TWPT-interop-secondary-text);
+}
+
 .scTailwindThreadPesignupdialogclose-button-row button {
   color: #fff;
 }

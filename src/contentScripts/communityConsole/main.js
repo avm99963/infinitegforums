@@ -24,6 +24,7 @@ const watchedNodesSelectors = [
   // Load more bar and buttons
   '.load-more-bar',
   '.scTailwindThreadMorebuttonbutton',
+  '.scTailwindThreadMessagegapbutton',
 
   // User profile card inside ec-unified-user
   'ec-unified-user .scTailwindUser_profileUsercardmain',
@@ -90,7 +91,8 @@ function handleCandidateNode(node) {
     if (node.classList.contains('load-more-bar')) {
       infiniteScroll.observeLoadMoreBar(node);
     }
-    if (node.classList.contains('scTailwindThreadMorebuttonbutton')) {
+    if (node.classList.contains('scTailwindThreadMorebuttonbutton') ||
+        node.classList.contains('scTailwindThreadMessagegapbutton')) {
       infiniteScroll.observeLoadMoreInteropBtn(node);
     }
 

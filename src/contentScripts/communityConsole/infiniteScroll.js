@@ -1,8 +1,13 @@
 import {getOptions, isOptionEnabled} from '../../common/optionsUtils.js';
 
 const kInteropLoadMoreClasses = {
+  // New (interop) UI without nested replies
   'scTailwindThreadMorebuttonload-all': 'threadall',
   'scTailwindThreadMorebuttonload-more': 'thread',
+
+  // New (interop) UI with nested replies
+  'scTailwindThreadMessagegapload-all': 'threadall',
+  'scTailwindThreadMessagegapload-more': 'thread',
 };
 
 export default class InfiniteScroll {
