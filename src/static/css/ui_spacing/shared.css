@@ -1,3 +1,6 @@
+/*
+ * == THREAD VIEW ==
+ **/
 .scTailwindThreadQuestionQuestioncardtitle-container {
   gap: 0 1rem!important;
   margin: 1rem 0!important;
@@ -50,4 +53,25 @@ h3.scTailwindThreadMessageMessagelistheading {
   .scTailwindThreadQuestionQuestioncardsub-content {
     padding: 0 3rem 1rem!important;
   }
+}
+
+/*
+ * == REPLY DIALOG ==
+ **/
+.scTailwindThreadReplydialogtop-row {
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+}
+
+.scTailwindSharedRichtexteditortoolbar {
+  margin-top: 1rem!important;
+}
+
+.scSharedSearchablemenusearch {
+  padding-top: 0.75rem!important;
+  padding-bottom: 0.75rem!important;
+}
+
+.scSharedSearchablemenuitem {
+  min-height: 2.5rem!important;
 }
