@@ -50,7 +50,10 @@ html[dir="rtl"] .TWPT-avatars .TWPT-avatar:not(:first-child) {
 
 /*
  * Changing styles of existing elements so the avatars fit.
+ *
+ * NOTE: The first px value is the pixels already removed by the default CSS
+ * styles. The second px value is the value substracted due to the avatars.
  */
-body.TWPT-threadlistavatars-enabled ec-thread-summary .main-header .panel-description a.header .header-content {
-  width: calc(100% - 194px);
+body.TWPT-threadlistavatars-enabled ec-thread-summary .main-header .action .header .header-content {
+  width: calc(100% - 160px - 98px);
 }

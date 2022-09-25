@@ -323,15 +323,22 @@ export default class AvatarsHandler {
 
   // Inject avatars for thread summary (thread item) |node| in a thread list.
   inject(node) {
-    var header = node.querySelector(
-        'ec-thread-summary .main-header .panel-description a.header');
-    if (header === null) {
+    var header =
+        node.querySelector('ec-thread-summary .main-header .action .header');
+    var headerContent = header.querySelector(':scope > .header-content');
+    var expandBtn = header.querySelector(':scope > .expand-button');
+    if (headerContent === null) {
       console.error(
           '[threadListAvatars] Header is not present in the thread item\'s DOM.');
       return;
     }
+    if (expandBtn === null) {
+      console.error(
+          '[threadListAvatars] Expand button is not present in the thread item\'s DOM.');
+      return;
+    }
 
-    var thread = parseUrl(header.href);
+    var thread = parseUrl(headerContent.href);
     if (thread === false) {
       console.error('[threadListAvatars] Thread\'s link cannot be parsed.');
       return;
@@ -360,7 +367,7 @@ export default class AvatarsHandler {
             }
           }
 
-          header.appendChild(avatarsContainer);
+          header.insertBefore(avatarsContainer, expandBtn);
 
           if (res.state == 'private') {
             var label = chrome.i18n.getMessage(

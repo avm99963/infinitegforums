@@ -1,23 +1,21 @@
-ec-thread-summary .panel > .main-header {
-  flex-direction: row-reverse;
+ec-thread-summary .panel > .main-header > .action > .header > .expand-button {
+  order: -99963; /* This will position the button in the beginning. */
 }
 
-ec-thread-summary .panel > .main-header .expand-container {
-  padding-inline: 8px 0;
-}
-
-ec-thread-summary .panel > .main-header > .header {
+ec-thread-summary .panel > .main-header > .action > .header {
   padding-inline: 0px 19px!important;
 }
 
+/* Adjusting padding for the bulk action checkbox */
 ec-thread-list ec-bulk-actions .selection {
-  padding-inline-start: 29px;
+  padding-inline-start: 41px;
 }
 
+/* Adjusting padding for the info in the expanded thread */
 ec-thread-summary .panel .main .content-wrapper > .content > .content {
-  padding-inline: 121px 8px;
+  padding-inline: 136px 8px;
 }
 
 ec-thread-summary .main .toolbelt .TWPT-extrainfo-container {
-  margin-inline-start: 145px!important;
+  margin-inline-start: 156px!important;
 }

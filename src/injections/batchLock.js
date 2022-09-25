@@ -109,17 +109,21 @@ function lockThreads(action) {
   var authuser = getAuthUser();
 
   checkboxes.forEach(checkbox => {
-    var url = recursiveParentElement(checkbox, 'A').href;
+    var url = recursiveParentElement(checkbox, 'EC-THREAD-SUMMARY')
+                  .querySelector('a.header-content')
+                  .href;
     var thread = parseUrl(url);
     if (thread === false) {
       console.error('Fatal error: thread URL ' + url + ' could not be parsed.');
       return;
     }
-    CCApi('SetThreadAttribute', {
-      1: thread.forum,
-      2: thread.thread,
-      3: (action == 'lock' ? 1 : 2),
-    }, /* authenticated = */ true, authuser)
+    CCApi(
+        'SetThreadAttribute', {
+          1: thread.forum,
+          2: thread.thread,
+          3: (action == 'lock' ? 1 : 2),
+        },
+        /* authenticated = */ true, authuser)
         .then(() => {
           addLogEntry(true, action, url, thread.thread);
         })

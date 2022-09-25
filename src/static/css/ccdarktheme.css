@@ -55,6 +55,7 @@ body.ec a {
 .material-content > header :is(material-button,
     material-button material-icon,
     .mdc-button.mdc-icon-button,
+    .mdc-button.mdc-icon-button material-icon,
     notification-bell material-icon) {
   color: rgba(255, 255, 255, .87)!important;
 }
@@ -311,7 +312,8 @@ ec-thread-summary material-expansionpanel ec-safe-html.body,
  **/
 ec-thread-summary material-expansionpanel .action material-button,
     ec-thread-list material-checkbox material-icon,
-    ec-thread-summary material-expansionpanel .star-button:not(.starred) {
+    ec-thread-summary material-expansionpanel .star-button:not(.starred),
+    ec-thread-summary material-expansionpanel .mdc-button.mdc-icon-button material-icon {
   color: #696867!important; /* Custom value to match previous behavior */
   opacity: 1!important;
 }

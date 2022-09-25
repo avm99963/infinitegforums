@@ -828,26 +828,24 @@ export default class ExtraInfo {
   injectAtThreadList(li) {
     waitFor(
         () => {
-          const header = li.querySelector(
-              'ec-thread-summary .main-header .panel-description a.header');
-          if (header === null) {
-            console.error(
-                'extraInfo: Header is not present in the thread item\'s DOM.');
-            return;
+          const headerContent = li.querySelector(
+              'ec-thread-summary .main-header .header a.header-content');
+          if (headerContent === null) {
+            return Promise.reject(new Error(
+                'extraInfo: Header is not present in the thread item\'s DOM.'));
           }
 
-          const threadInfo = parseUrl(header.href);
+          const threadInfo = parseUrl(headerContent.href);
           if (threadInfo === false) {
-            console.error('extraInfo: Thread\'s link cannot be parsed.');
-            return;
+            return Promise.reject(
+                new Error('extraInfo: Thread\'s link cannot be parsed.'));
           }
 
           let authorLine = li.querySelector(
               'ec-thread-summary .header-content .top-row .author-line');
           if (!authorLine) {
-            console.error(
-                'extraInfo: Author line is not present in the thread item\'s DOM.');
-            return;
+            return Promise.reject(new Error(
+                'extraInfo: Author line is not present in the thread item\'s DOM.'));
           }
 
           let thread = this.lastThreadListThreads?.find?.(t => {
@@ -896,16 +894,16 @@ export default class ExtraInfo {
   }
 
   injectAtExpandedThreadList(toolbelt) {
-    const header =
+    const headerContent =
         toolbelt?.parentNode?.parentNode?.parentNode?.querySelector?.(
-            '.main-header .panel-description a.header');
-    if (header === null) {
+            '.main-header .header a.header-content');
+    if (headerContent === null) {
       console.error(
           'extraInfo: Header is not present in the thread item\'s DOM.');
       return;
     }
 
-    const threadInfo = parseUrl(header.href);
+    const threadInfo = parseUrl(headerContent.href);
     if (threadInfo === false) {
       console.error('extraInfo: Thread\'s link cannot be parsed.');
       return;
