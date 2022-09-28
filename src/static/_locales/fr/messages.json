@@ -1,0 +1,186 @@
+{
+  "appName": {
+    "message": "TW Power Tools",
+    "description": "The extension's name"
+  },
+  "appNameBeta": {
+    "message": "TW Power Tools (beta)",
+    "description": "The extension's name for the beta version"
+  },
+  "appNameCanary": {
+    "message": "TW Power Tools (canary)",
+    "description": "The extension's name for the beta version"
+  },
+  "appNameGecko": {
+    "message": "TW Power Tools",
+    "description": "The extension's name (with a 50 character limit for Gecko)"
+  },
+  "appDescription": {
+    "message": "Profitez du défilement infini et d'autres améliorations dans les forums Google et la Community Console",
+    "description": "The extension's description"
+  },
+  "options_killswitchwarning": {
+    "message": "Une ou plusieurs options ont été désactivées de force car elles pourraient ne pas fonctionner correctement. Veuillez vous rendre sur le <a href='https://groups.google.com/g/twpowertools-discuss' rel='noreferrer noopener' target='_blank'>twpowertools-discuss Google Group</a> pour en savoir plus sur les raisons pour lesquelles certaines options ont été désactivées de force.",
+    "description": "Warning shown in the options page if a feature has been remotely force disabled via the kill switch mechanism. This happens when a feature doesn't work properly and might be doing dangerous things, and the maintainer or an authorized user remotely force disables the feature."
+  },
+  "options_killswitchenabled": {
+    "message": "L'option précédente a été désactivée de force en raison d'un problème.",
+    "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
+  },
+  "options_optionalpermissionswarning_header": {
+    "message": "Certaines fonctionnalités nécessitent des autorisations supplémentaires pour fonctionner. Elles ont été mises en évidence ci-dessous, cliquez sur leurs cases à cocher pour accorder les autorisations appropriées.",
+    "description": "Warning shown at the top of the options page if a feature cannot be used because one or more required permissions haven't been granted to the extension."
+  },
+  "options_optionalpermissionswarning_label": {
+    "message": "La fonction précédente nécessite des autorisations supplémentaires pour fonctionner.",
+    "description": "Warning shown in the options page below an option, when a feature needs more permissions to work."
+  },
+  "options_featuredoptions": {
+    "message": "Options en vedette",
+    "description": "Heading for several options that can be enabled in the options page."
+  },
+  "options_minorenhancements": {
+    "message": "Améliorations mineures",
+    "description": "Heading for several options that can be enabled in the options page."
+  },
+  "options_list": {
+    "message": "Activer le défilement infini dans les listes de fils.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_thread": {
+    "message": "Chargement automatique des lots de messages dans les fils de discussion lors du défilement vers le bas.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_threadall": {
+    "message": "Chargement automatique de tous les messages à la fois dans les fils de discussion lors du défilement vers le bas.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_redirect": {
+    "message": "Rediriger tous les fils de discussion ouverts dans TW vers la Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_loaddrafts": {
+    "message": "Activez l'indicateur <code class=\"help\" title=\"Cet indicateur permet à la Community Console de charger une réponse précédemment mise en mémoire automatique lorsque vous chargez un fil de discussion et cliquez sur le bouton de réponse.\">enableLoadingDraftMessages</code> de la Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_experimental_label": {
+    "message": "(expérimental)",
+    "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
+  },
+  "options_history": {
+    "message": "Afficher un lien « messages précédents » dans les profils des utilisateurs.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_stickysidebarheaders": {
+    "message": "Faire en sorte que les en-têtes de la barre latérale de la Community Console restent en haut (+info à <code>pekb/thread/60784834</code>).",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_increasecontrast": {
+    "message": "Augmentation du contraste entre les fils lus et non lus dans la Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_ccdarktheme": {
+    "message": "Activez le thème sombre dans la Community Console, contrôlée <span id='ccdarktheme_mode--container'></span>.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_ccdarktheme_mode_switch": {
+    "message": "avec un interrupteur dans le CC",
+    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
+  },
+  "options_ccdarktheme_mode_system": {
+    "message": "par le réglage du mode sombre de l'OS",
+    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
+  },
+  "options_ccforcehidedrawer": {
+    "message": "Cachez toujours le tiroir (colonne de gauche) dans la Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_ccdragndropfix": {
+    "message": "Permet de glisser et déposer des liens dans l'éditeur de texte de la Community Console tout en préservant le texte.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_batchlock": {
+    "message": "Ajout de l'option permettant de verrouiller plusieurs fils de discussion à partir de la liste des fils de discussion de la Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_enhancedannouncementsdot": {
+    "message": "Afficher le point de notification des annonces de manière plus visible dans la Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_repositionexpandthread": {
+    "message": "Placez le bouton « développer le fil » tout à fait à gauche dans les listes de fils de la Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_threadlistavatars": {
+    "message": "Afficher les avatars dans les listes de discussion de la Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_autorefreshlist": {
+    "message": "Afficher une notification dans la Community Console lorsqu'une liste de fils de discussion a de nouvelles mises à jour.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_imagemaxheight": {
+    "message": "Empêche les images en ligne dans les messages d'être plus grandes que la fenêtre actuelle.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_profileindicator_moreinfo": {
+    "message": "+info sur les 2 options précédentes",
+    "description": "Link to learn more about the profile indicator feature"
+  },
+  "options_profileindicator": {
+    "message": "Afficher <span class=\"help\" title=\"Si le PO a participé à d'autres fils de discussion, un point rouge sera affiché à côté de son nom d'utilisateur. Si les messages les plus récents du PO ont été lus, un point orange sera affiché à la place. Vous pouvez survoler le point avec votre souris afin d'afficher la signification de sa couleur.\">si le PO a participé à d'autres discussions</span>.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_profileindicatoralt": {
+    "message": "Affiche le nombre de questions et de réponses écrites par le PO au cours des derniers <span id='profileindicatoralt_months--container'></span> mois à côté de son nom d'utilisateur.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_blockdrafts": {
+    "message": "Bloquez l'envoi de vos réponses au fur et à mesure de leur saisie aux serveurs de Google dans la Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_workflows": {
+    "message": "Activez la fonctionnalité des flux de travail.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_workflows_manage": {
+    "message": "Gérer les flux de travail",
+    "description": "Button in the options page which opens the workflow management page."
+  },
+  "options_extrainfo": {
+    "message": "Afficher des informations supplémentaires dans les fils de discussion, les profils et la liste des réponses automatiques.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_perforumstats": {
+    "message": "Afficher l'activité par forum dans les profils.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_interopthreadpage": {
+    "message": "Afficher <span id='interopthreadpage_mode--container'></span> dans la console communautaire.",
+    "description": "Feature checkbox in the options page. \"<span id='interopthreadpage_mode--container'></span>\" will be substituted with a selector which allows users to select whether they want the new thread page design or the old one."
+  },
+  "options_interopthreadpage_mode_previous": {
+    "message": "l'ancien design de la page des fils",
+    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
+  },
+  "options_interopthreadpage_mode_next": {
+    "message": "le nouveau design de la page des fils",
+    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
+  },
+  "options_nestedreplies": {
+    "message": "Activez la fonction de réponses imbriquées dans la Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_uispacing": {
+    "message": "Réduisez les espaces blancs dans la Community Console et TW.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_save": {
+    "message": "Sauvegarder",
+    "description": "Button in the options page to save the settings"
+  },
+  "options_saved": {
+    "message": "Sauvegardé",
+    "description": "Message which appears in the options page when the settings are saved"
+  }
+}
