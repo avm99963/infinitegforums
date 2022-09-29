@@ -83,6 +83,10 @@
     "message": "Добавить опцию одновременной блокировки нескольких веток в спике тем КС.",
     "description": "Feature checkbox in the options page"
   },
+  "options_enhancedannouncementsdot": {
+    "message": "Показывать уведомление об объявлениях более заметно в Консоли Сообщества.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_profileindicator_moreinfo": {
     "message": "+инфо о двух предыдущих вариантах",
     "description": "Link to learn more about the profile indicator feature"
@@ -102,6 +106,10 @@
   "options_saved": {
     "message": "Сохранено",
     "description": "Message which appears in the options page when the settings are saved"
+  },
+  "options_experiments_title": {
+    "message": "Эксперименты",
+    "description": "Title of the experiments page: a page where highly experimental options can be set."
   },
   "inject_links": {
     "message": "Ссылки",
@@ -190,5 +198,61 @@
   "inject_lockdialog_log_entry_error_unlock": {
     "message": "An error occurred while unlocking ($1).",
     "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *not* *un*locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_autorefresh_list_snackbar_action": {
+    "message": "Обновить",
+    "description": "Button shown in a snackbar asking users to refresh/reload the list to show the new threads."
+  },
+  "inject_perforumstats_nummessages_singular": {
+    "message": "1 сообщение",
+    "description": "Annotation shown in the forum selector which states how many messages have been published by a user in a forum (singular variant)."
+  },
+  "inject_perforumstats_role_bronze": {
+    "message": "Бронзовый",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_silver": {
+    "message": "серебряный",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_gold": {
+    "message": "золотой",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_platinum": {
+    "message": "платиновый",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_diamond": {
+    "message": "Бриллиантовый",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_community_manager": {
+    "message": "КМ",
+    "description": "Role that a user can have in the forums (short for community manager)."
+  },
+  "inject_perforumstats_role_community_specialist": {
+    "message": "специалист",
+    "description": "Role that a user can have in the forums (short for community specialist)."
+  },
+  "inject_perforumstats_role_google_employee": {
+    "message": "Гуглер",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_alumnus": {
+    "message": "почётный",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_extrainfo_message_livereviewverdict_abuse": {
+    "message": "Нарушение",
+    "description": "One of the actions of a live review."
+  },
+  "inject_extrainfo_thread_autotrending": {
+    "message": "Автоматически помечается как популярная",
+    "description": "Label used in a thread to show it has been automatically marked as trending."
+  },
+  "inject_extrainfo_thread_trending": {
+    "message": "Популярная",
+    "description": "Label used in a thread to show it has been manually marked as trending."
   }
 }
