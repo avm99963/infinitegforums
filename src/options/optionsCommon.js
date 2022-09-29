@@ -1,4 +1,4 @@
-import {getExtVersion, isProdVersion} from '../common/extUtils.js';
+import {getDocURL, getDocURLWithRef, getExtVersion, isProdVersion} from '../common/extUtils.js';
 import {ensureOptPermissions, grantedOptPermissions, isPermissionsObjectEmpty, missingPermissions} from '../common/optionsPermissions.js';
 import {cleanUpOptions, optionsPrototype, specialOptions} from '../common/optionsUtils.js';
 
@@ -8,22 +8,6 @@ var savedSuccessfullyTimeout = null;
 
 const exclusiveOptions = [['thread', 'threadall']];
 const kClickShouldEnableFeat = 'data-click-should-enable-feature';
-
-// Get a URL to a document which is part of the extension documentation (using
-// |ref| as the Git ref).
-function getDocURLWithRef(doc, ref) {
-  return 'https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+/' +
-      ref + '/docs/' + doc;
-}
-
-// Get a URL to a document which is part of the extension documentation
-// (autodetect the appropriate Git ref)
-function getDocURL(doc) {
-  if (!isProdVersion()) return getDocURLWithRef(doc, 'HEAD');
-
-  var version = getExtVersion();
-  return getDocURLWithRef(doc, 'refs/tags/v' + version);
-}
 
 // Get the value of the option set in the options/experiments page
 function getOptionValue(opt) {

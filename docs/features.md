@@ -225,6 +225,20 @@ This option lets you force the old or new thread page design in the Community
 Console. The old thread page design was exclusive to the Console, while the new
 one has the same design of the public TW thread pages.
 
+#### Known issues
+The TW team is currently testing the new nested replies feature in some
+threads/forums. However, the way how threads with nested replies are represented
+internally is different than before, and this causes the old design to not load
+these type of threads correctly.
+
+This is why when the user chooses the old UI, the extension now shows a warning
+banner in these threads to make them aware of why the thread doesn't look right.
+
+A possible way to work around this is to load these affected threads via TW
+Basic instead of the Community Console. Otherwise, you might have to disable the
+old UI temporarily from the options page and reload the Community Console to
+view them via the new UI.
+
 ### Reduce whitespace
 > **Option name:** _Reduce the whitespace in the Community Console and TW._
 

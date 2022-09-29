@@ -585,6 +585,14 @@
     "message": "Trending",
     "description": "Label used in a thread to show it has been manually marked as trending."
   },
+  "inject_threadpagedesign_warning": {
+    "message": "This thread might not work properly. This is because it uses the nested replies feature, and you've enabled the old thread design in the TW Power Tools options, which doesn't support nested replies.",
+    "description": "Message showed above threads which might not work properly because of the fact that the old thread design is not compatible with nested replies."
+  },
+  "btn_learnmore": {
+    "message": "Learn more",
+    "description": "Text shown besides a warning message which the user can click to learn more about the message itself."
+  },
   "actionbadge_permissions_requested": {
     "message": "Some features need additional permissions to work. Click to fix it.",
     "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."

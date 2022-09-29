@@ -9,9 +9,10 @@ import {injectDarkModeButton, isDarkThemeOn} from './darkMode.js';
 import {applyDragAndDropFixIfEnabled} from './dragAndDropFix.js';
 // #!endif
 import InfiniteScroll from './infiniteScroll.js';
+import ThreadPageDesignWarning from './threadPageDesignWarning.js';
 import {unifiedProfilesFix} from './unifiedProfiles.js';
 
-var mutationObserver, options, avatars, infiniteScroll;
+var mutationObserver, options, avatars, infiniteScroll, threadPageDesignWarning;
 
 const watchedNodesSelectors = [
   // App container (used to set up the intersection observer and inject the dark
@@ -65,6 +66,9 @@ const watchedNodesSelectors = [
   // User activity chart (for the per-forum stats feature)
   'ec-unified-user .scTailwindUser_profileUserprofilesection ' +
       'sc-tailwind-shared-activity-chart',
+
+  // Thread page main content
+  'ec-thread > .page > .material-content > div[role="list"]',
 ];
 
 function handleCandidateNode(node) {
@@ -184,6 +188,10 @@ function handleCandidateNode(node) {
             'sc-tailwind-shared-activity-chart')) {
       window.TWPTExtraInfo.injectPerForumStatsIfEnabled(node);
     }
+
+    if (node.matches('ec-thread > .page > .material-content > div[role="list"]')) {
+      threadPageDesignWarning.injectWarningIfApplicable(node);
+    }
   }
 }
 
@@ -219,6 +227,7 @@ getOptions(null).then(items => {
   // Initialize classes needed by the mutation observer
   avatars = new AvatarsHandler();
   infiniteScroll = new InfiniteScroll();
+  threadPageDesignWarning = new ThreadPageDesignWarning();
 
   // autoRefresh and extraInfo are initialized in start.js
 

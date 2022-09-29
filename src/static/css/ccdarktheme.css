@@ -2289,3 +2289,7 @@ material-spinner {
 .TWPT-log-entry.TWPT-log-entry--error {
   color: #ff8A80!important;
 }
+
+.TWPT-warning {
+  background-color: #670505!important;
+}

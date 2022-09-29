@@ -98,6 +98,7 @@
         "css/ui_spacing/shared.css",
         "css/ui_spacing/console.css",
         "css/ui_spacing/twbasic.css",
+        "css/thread_page_design_warning.css",
 
         "communityConsoleMain.bundle.js.map",
         "communityConsoleStart.bundle.js.map",
