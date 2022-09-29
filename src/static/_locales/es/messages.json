@@ -585,6 +585,14 @@
     "message": "Tendencia",
     "description": "Label used in a thread to show it has been manually marked as trending."
   },
+  "inject_threadpagedesign_warning": {
+    "message": "Este hilo podría no funcionar correctamente. Esto es porque usa la función de respuestas anidadas, y has activado el diseño antiguo de los hilos en la configuración de Herramientas avanzadas para TW, que no soporta las respuestas anidadas.",
+    "description": "Message showed above threads which might not work properly because of the fact that the old thread design is not compatible with nested replies."
+  },
+  "btn_learnmore": {
+    "message": "Más información",
+    "description": "Text shown besides a warning message which the user can click to learn more about the message itself."
+  },
   "actionbadge_permissions_requested": {
     "message": "Algunas funciones necesitan permisos adicionales para funcionar. Haz clic para arreglarlo.",
     "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."
