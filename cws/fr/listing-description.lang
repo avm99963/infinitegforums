@@ -1,14 +1,14 @@
 ;After installing the extension, adjust it to your needs by clicking its icon in the extensions menu to access the options page. This is because features other than infinite scroll are disabled by default.
-After installing the extension, adjust it to your needs by clicking its icon in the extensions menu to access the options page. This is because features other than infinite scroll are disabled by default.
+Après avoir installé l'extension, ajustez-la à vos besoins en cliquant sur son icône dans le menu des extensions pour accéder à la page des options. En effet, les fonctionnalités autres que le défilement infini sont désactivées par défaut.
 
 ;You can see a list of all the enhancements here: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+/HEAD/docs/features.md
-You can see a list of all the enhancements here: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+/HEAD/docs/features.md
+Vous pouvez consulter la liste de toutes les améliorations ici : https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+/HEAD/docs/features.md
 
 ;New additions in future updates will be disabled by default, and can be manually enabled in the options page. Join https://groups.google.com/g/twpowertools-discuss to receive updates about new functionality.
-New additions in future updates will be disabled by default, and can be manually enabled in the options page. Join https://groups.google.com/g/twpowertools-discuss to receive updates about new functionality.
+Les nouveaux ajouts dans les futures mises à jour seront désactivés par défaut, et pourront être activés manuellement dans la page des options. Rejoignez https://groups.google.com/g/twpowertools-discuss pour recevoir des mises à jour sur les nouvelles fonctionnalités.
 
 ;The source code is available here: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums. Contributions are welcome!
-The source code is available here: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums. Contributions are welcome!
+Le code source est disponible ici : https://gerrit.avm99963.com/plugins/gitiles/infinitegforums. Les contributions sont les bienvenues !
 
 ;Help translate the extension to your native language! Visit https://avm99963-pontoon.herokuapp.com/projects/tw-power-tools/
-Help translate the extension to your native language! Visit https://avm99963-pontoon.herokuapp.com/projects/tw-power-tools/
+Aidez à traduire l'extension dans votre langue maternelle ! Visitez https://avm99963-pontoon.herokuapp.com/projects/tw-power-tools/
