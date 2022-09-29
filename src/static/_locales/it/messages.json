@@ -175,6 +175,10 @@
     "message": "Attiva la funzione per le risposte nidificate nella Console della community.",
     "description": "Feature checkbox in the options page"
   },
+  "options_uispacing": {
+    "message": "Riduci lo spazio bianco nella Community Console e TW.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Salva",
     "description": "Button in the options page to save the settings"
