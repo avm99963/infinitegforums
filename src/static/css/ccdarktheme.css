@@ -16,6 +16,7 @@
   --TWPT-button-background: #3c3e42;
   --TWPT-subtle-button-background: rgba(255, 255, 255, .54);
   --TWPT-input-underline: rgba(255, 255, 255, .28);
+  --TWPT-starred: #fbbc04;
   --TWPT-blue-100: #BBDEFB;
   --TWPT-blue-A100: #82B1FF;
   --TWPT-bad-text: #f6aea9;
@@ -242,7 +243,7 @@ main .title-bar .title, main .page-header h1, main .header h1 {
 }
 
 .material-content .action-bar material-button.starred {
-  color: #fbbc04!important;
+  color: var(--TWPT-starred)!important;
 }
 
 /* ec-work-state-picker and ec-symptom-picker */
@@ -310,12 +311,16 @@ ec-thread-summary material-expansionpanel ec-safe-html.body,
  * The following section changes the styles of the checkboxes in thread lists,
  * based in the styles defined in the "Checkbox input" section.
  **/
-ec-thread-summary material-expansionpanel .action material-button,
+ec-thread-summary material-expansionpanel .action material-button:not(.starred),
     ec-thread-list material-checkbox material-icon,
     ec-thread-summary material-expansionpanel .star-button:not(.starred),
     ec-thread-summary material-expansionpanel .mdc-button.mdc-icon-button material-icon {
   color: #696867!important; /* Custom value to match previous behavior */
   opacity: 1!important;
+}
+
+ec-thread-summary material-expansionpanel .action material-button.starred {
+  color: var(--TWPT-starred)!important;
 }
 
 ec-thread-list material-checkbox material-icon.filled {
@@ -345,6 +350,20 @@ ec-question, .heading + .group, ec-message {
 ec-thread .no-review-needed {
   background-color: #155829!important;
   border-color: var(--TWPT-subtle-border)!important;
+}
+
+/* "Original thread" box inside escalations */
+sc-tailwind-thread-question-thread-summary .scTailwindThreadQuestionThreadsummarythread-summary {
+  background: var(--TWPT-active-background)!important;
+  border-color: var(--TWPT-card-border)!important;
+}
+
+sc-tailwind-thread-question-thread-summary .scTailwindThreadQuestionThreadsummarydetails {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+sc-tailwind-thread-question-thread-summary .scTailwindThreadQuestionThreadsummarytitle {
+  color: var(--TWPT-primary-text)!important;
 }
 
 /* Review bar shown above the main message or replies */
@@ -2258,6 +2277,15 @@ ec-canned-responses .filter-row,
     ec-canned-responses .label-row,
     ec-canned-responses ec-canned-response-row material-expansionpanel {
   border-bottom-color: var(--TWPT-subtle-border)!important;
+}
+
+/* Bug/case links dialog */
+.bug-case-links-dialog material-button.add-button {
+  color: var(--TWPT-blue-A100)!important;
+}
+
+ec-bug-case-link material-button {
+  color: var(--TWPT-secondary-text)!important;
 }
 
 /* Reply button */
