@@ -102,6 +102,7 @@ export default class AvatarsHandler {
                    10: false,  // withPromotedMessages
                    16: false,  // withThreadNotes
                    18: true,   // sendNewThreadIfMoved
+                   23: true,   // withFlattenedMessages
                  }
                },
                // |authentication| is false because otherwise this would mark
@@ -178,13 +179,40 @@ export default class AvatarsHandler {
       var author = result.author;
       var lastMessageId = result.lastMessageId;
 
-      var avatarUrls = [];
+      var avatars = [];
 
       var authorUrl = author?.['1']?.['2'];
-      if (authorUrl !== undefined) avatarUrls.push(authorUrl);
+      if (authorUrl !== undefined) avatars.push({url: authorUrl, timestamp: 0});
 
       for (var m of messages) {
         var url = m?.['3']?.['1']?.['2'];
+        if (url === undefined) continue;
+
+        var timestamp = m?.['1']?.['1']?.['2'];
+        avatars.push({url, timestamp});
+
+        m?.[12]?.forEach?.(messageOrGap => {
+          if (!messageOrGap[1]) return;
+
+          var url = messageOrGap[1]?.[3]?.[1]?.[2];
+          if (url === undefined) return;
+
+          var timestamp = messageOrGap[1]?.[1]?.[1]?.[2];
+          avatars.push({url, timestamp});
+        });
+      }
+      avatars.sort((a, b) => {
+        // If a timestamp is undefined, we'll push it to the end of the list
+        if (a === undefined && b === undefined) return 0;  // both are equal
+        if (a === undefined) return 1;                     // b goes first
+        if (b === undefined) return -1;                    // a goes first
+        return a.timestamp - b.timestamp;  // Old avatars go first
+      });
+
+      var avatarUrls = [];
+
+      for (var a of avatars) {
+        var url = a.url;
 
         if (url === undefined) continue;
         if (!avatarUrls.includes(url)) avatarUrls.push(url);
