@@ -55,6 +55,10 @@
     "message": "Chargement automatique de tous les messages à la fois dans les fils de discussion lors du défilement vers le bas.",
     "description": "Feature checkbox in the options page"
   },
+  "options_fixedtoolbar": {
+    "message": "Fixer la toolbar dans les listes de fils dans la Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_redirect": {
     "message": "Rediriger tous les fils de discussion ouverts dans TW vers la Community Console.",
     "description": "Feature checkbox in the options page"
@@ -541,6 +545,10 @@
     "message": "Automatiquement démarqué comme abus",
     "description": "Thread/message state AUTOMATED_ABUSE_REINSTATE (it is thought that messages in this state have been automatically unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
   },
+  "inject_extrainfo_message_state_clear_off_topic2": {
+    "message": "Annuler le hors sujet",
+    "description": "Thread/message state CLEAR_OFF_TOPIC (the message has been confirmed to NOT be off-topic)."
+  },
   "inject_extrainfo_message_state_confirm_off_topic2": {
     "message": "Confirmé hors sujet",
     "description": "Thread/message state CONFIRM_OFF_TOPIC (the message has been confirmed to be off-topic)."
@@ -552,6 +560,10 @@
   "inject_extrainfo_message_shadowblocknotactive": {
     "message": "Le bloc de l'ombre n'est plus actif",
     "description": "Label used in a thread or message when it had been shadow blocked but it isn't active anymore."
+  },
+  "inject_extrainfo_message_livereviewverdict": {
+    "message": "Revue en direct de la décision : $1",
+    "description": "Label used in a thread or message to show what was the action taken when live reviewing it."
   },
   "inject_extrainfo_message_livereviewverdict_relevant": {
     "message": "Pertinent",
@@ -572,5 +584,17 @@
   "inject_extrainfo_thread_trending": {
     "message": "Tendance",
     "description": "Label used in a thread to show it has been manually marked as trending."
+  },
+  "inject_threadpagedesign_warning": {
+    "message": "Ce fil de discussion risque de ne pas fonctionner correctement. Cela est dû au fait qu'il utilise la fonction de réponses imbriquées et que vous avez activé l'ancien modèle de fil dans les options TW Power Tools, qui ne prend pas en charge les réponses imbriquées.",
+    "description": "Message showed above threads which might not work properly because of the fact that the old thread design is not compatible with nested replies."
+  },
+  "btn_learnmore": {
+    "message": "En savoir plus",
+    "description": "Text shown besides a warning message which the user can click to learn more about the message itself."
+  },
+  "actionbadge_permissions_requested": {
+    "message": "Certaines fonctionnalités nécessitent des autorisations supplémentaires pour fonctionner. Cliquez pour y remédier.",
+    "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."
   }
 }
