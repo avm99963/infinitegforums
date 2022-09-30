@@ -8,11 +8,18 @@ import {getOptions} from '../../common/optionsUtils.js';
 
 import {createExtBadge} from './utils/common.js';
 
-// Forums where Nested Replies have been enabled
-const NRS_ENABLED_FORUM_IDS = [51488989];
+const kSMEINestedReplies = 15;
+const kViewThreadResponse = 'TWPT_ViewThreadResponse';
 
 export default class ThreadPageDesignWarning {
   constructor() {
+    this.lastThread = {
+      body: {},
+      id: -1,
+      timestamp: 0,
+    };
+    this.setUpHandler();
+
     // We have to save whether the old UI was enabled at startup, since that's
     // the moment when it takes effect. If the option changes while the tab is
     // open, it won't take effect.
@@ -25,8 +32,39 @@ export default class ThreadPageDesignWarning {
       if (this.shouldShowWarning) {
         injectStylesheet(
             chrome.runtime.getURL('css/thread_page_design_warning.css'));
+      } else {
+        this.removeHandler();
       }
     });
+
+    this.isExperimentEnabled = this.isNestedRepliesExperimentEnabled();
+  }
+
+  isNestedRepliesExperimentEnabled() {
+    if (!document.documentElement.hasAttribute('data-startup')) return false;
+
+    let startup =
+        JSON.parse(document.documentElement.getAttribute('data-startup'));
+    return startup?.[1]?.[6]?.includes?.(kSMEINestedReplies);
+  }
+
+  eventHandler(e) {
+    if (e.detail.id < this.lastThread.id) return;
+
+    this.lastThread = {
+      body: e.detail.body,
+      id: e.detail.id,
+      timestamp: Date.now(),
+    };
+  }
+
+  setUpHandler() {
+    window.addEventListener(kViewThreadResponse, this.eventHandler.bind(this));
+  }
+
+  removeHandler() {
+    window.removeEventListener(
+        kViewThreadResponse, this.eventHandler.bind(this));
   }
 
   injectWarning(content) {
@@ -76,21 +114,44 @@ export default class ThreadPageDesignWarning {
                    return Promise.reject(
                        new Error('shouldShowWarning is not defined.'));
 
-                 return Promise.resolve(this.shouldShowWarning);
+                 return Promise.resolve({result: this.shouldShowWarning});
                },
                {
                  interval: 500,
                  timeout: 10 * 1000,
                })
+        .then(preShouldShowWarning => {
+          if (!preShouldShowWarning.result) return;
+
+          // If the global SMEI experiment is enabled, all threads use nested
+          // replies, so we'll skip the per-thread check and always show the
+          // warning banner.
+          if (this.isExperimentEnabled) return Promise.resolve(true);
+
+          let currentThread = parseUrl(location.href);
+          if (currentThread === false)
+            throw new Error('current thread id cannot be parsed.');
+
+          return waitFor(() => {
+            let now = Date.now();
+            let lastThreadInfo = this.lastThread.body['1']?.['2']?.['1'];
+            if (now - this.lastThread.timestamp > 30 * 1000 ||
+                lastThreadInfo?.['1'] != currentThread.thread ||
+                lastThreadInfo?.['3'] != currentThread.forum)
+              throw new Error(
+                  'cannot obtain information about current thread.');
+
+            // If the messageOrGap field contains any items, the thread is using
+            // nested replies. Otherwise, it probably isn't using them.
+            return Promise.resolve(
+                {result: this.lastThread.body['1']?.['40']?.length > 0});
+          }, {
+            interval: 500,
+            timeout: 10 * 1000,
+          });
+        })
         .then(shouldShowWarning => {
-          if (!shouldShowWarning) return;
-
-          let thread = parseUrl(location.href);
-          if (thread === false)
-            throw new Error('current thread cannot be parsed.');
-
-          if (NRS_ENABLED_FORUM_IDS.includes(parseInt(thread.forum)))
-            this.injectWarning(content);
+          if (shouldShowWarning.result) this.injectWarning(content);
         })
         .catch(err => {
           console.error(

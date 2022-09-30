@@ -9,10 +9,9 @@ import {injectDarkModeButton, isDarkThemeOn} from './darkMode.js';
 import {applyDragAndDropFixIfEnabled} from './dragAndDropFix.js';
 // #!endif
 import InfiniteScroll from './infiniteScroll.js';
-import ThreadPageDesignWarning from './threadPageDesignWarning.js';
 import {unifiedProfilesFix} from './unifiedProfiles.js';
 
-var mutationObserver, options, avatars, infiniteScroll, threadPageDesignWarning;
+var mutationObserver, options, avatars, infiniteScroll;
 
 const watchedNodesSelectors = [
   // App container (used to set up the intersection observer and inject the dark
@@ -189,8 +188,9 @@ function handleCandidateNode(node) {
       window.TWPTExtraInfo.injectPerForumStatsIfEnabled(node);
     }
 
-    if (node.matches('ec-thread > .page > .material-content > div[role="list"]')) {
-      threadPageDesignWarning.injectWarningIfApplicable(node);
+    if (node.matches(
+            'ec-thread > .page > .material-content > div[role="list"]')) {
+      window.TWPTThreadPageDesignWarning.injectWarningIfApplicable(node);
     }
   }
 }
@@ -227,9 +227,9 @@ getOptions(null).then(items => {
   // Initialize classes needed by the mutation observer
   avatars = new AvatarsHandler();
   infiniteScroll = new InfiniteScroll();
-  threadPageDesignWarning = new ThreadPageDesignWarning();
 
-  // autoRefresh and extraInfo are initialized in start.js
+  // autoRefresh, extraInfo and threadPageDesignWarning are initialized in
+  // start.js
 
   // Before starting the mutation Observer, check whether we missed any
   // mutations by manually checking whether some watched nodes already

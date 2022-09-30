@@ -3,6 +3,7 @@ import {getOptions} from '../../common/optionsUtils.js';
 
 import AutoRefresh from './autoRefresh.js';
 import ExtraInfo from './extraInfo.js';
+import ThreadPageDesignWarning from './threadPageDesignWarning.js';
 
 const SMEI_NESTED_REPLIES = 15;
 const SMEI_RCE_THREAD_INTEROP = 22;
@@ -48,6 +49,7 @@ getOptions(null).then(options => {
   // happens when the page loads.
   window.TWPTAutoRefresh = new AutoRefresh();
   window.TWPTExtraInfo = new ExtraInfo();
+  window.TWPTThreadPageDesignWarning = new ThreadPageDesignWarning();
 
   if (options.ccdarktheme) {
     switch (options.ccdarktheme_mode) {
