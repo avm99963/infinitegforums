@@ -9,6 +9,7 @@ const kInteropLoadMoreClasses = {
   'scTailwindThreadMessagegapload-all': 'threadall',
   'scTailwindThreadMessagegapload-more': 'thread',
 };
+const kArtificialScrollingDelay = 3500;
 
 export default class InfiniteScroll {
   constructor() {
@@ -41,7 +42,11 @@ export default class InfiniteScroll {
     });
   }
 
-  observeLoadMoreBar(bar) {
+  isPotentiallyArtificialScroll() {
+    return window.location.href.includes('/message/');
+  }
+
+  observeWithPotentialDelay(node) {
     if (this.intersectionObserver === null) {
       console.warn(
           '[infinitescroll] ' +
@@ -49,24 +54,25 @@ export default class InfiniteScroll {
       return;
     }
 
+    if (this.isPotentiallyArtificialScroll()) {
+      window.setTimeout(
+          () => {this.intersectionObserver.observe(node)},
+          kArtificialScrollingDelay);
+    } else {
+      this.intersectionObserver.observe(node);
+    }
+  }
+
+  observeLoadMoreBar(bar) {
     getOptions(['thread', 'threadall']).then(threadOptions => {
       if (threadOptions.thread)
-        this.intersectionObserver.observe(
-            bar.querySelector('.load-more-button'));
+        this.observeWithPotentialDelay(bar.querySelector('.load-more-button'));
       if (threadOptions.threadall)
-        this.intersectionObserver.observe(
-            bar.querySelector('.load-all-button'));
+        this.observeWithPotentialDelay(bar.querySelector('.load-all-button'));
     });
   }
 
   observeLoadMoreInteropBtn(btn) {
-    if (this.intersectionObserver === null) {
-      console.warn(
-          '[infinitescroll] ' +
-          'The intersectionObserver is not ready yet.');
-      return;
-    }
-
     let parentClasses = btn.parentNode?.classList;
     let feature = null;
     for (const [c, f] of Object.entries(kInteropLoadMoreClasses)) {
@@ -77,7 +83,7 @@ export default class InfiniteScroll {
     }
     if (feature === null) return;
     isOptionEnabled(feature).then(isEnabled => {
-      if (isEnabled) this.intersectionObserver.observe(btn);
+      if (isEnabled) this.observeWithPotentialDelay(btn);
     });
   }
 };

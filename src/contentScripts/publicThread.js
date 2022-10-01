@@ -21,6 +21,7 @@ const kLoadMoreButtons = [
     ],
   }
 ];
+const kMsgidDelay = 3500;
 
 var intersectionObserver;
 
@@ -36,6 +37,34 @@ var intersectionOptions = {
   threshold: 1.0,
 };
 
+function setUpInfiniteScroll(options) {
+  for (const entry of kLoadMoreButtons) {
+    if (options[entry.feature]) {
+      for (const selector of entry.buttonSelectors) {
+        let buttons = document.querySelectorAll(selector);
+        buttons.forEach(button => {
+          intersectionObserver = new IntersectionObserver(
+              intersectionCallback, intersectionOptions);
+          intersectionObserver.observe(button);
+        });
+      }
+    }
+  }
+}
+
+function setUpInfiniteScrollWithPotentialDelay(options) {
+  // If the msgid query parameter is set, the page will scroll to that message,
+  // which will show the "load more" button.
+  const params = new URLSearchParams(window.location.search);
+  if (params.has('msgid')) {
+    window.setTimeout(() => {
+      setUpInfiniteScroll(options);
+    }, kMsgidDelay);
+  } else {
+    setUpInfiniteScroll(options);
+  }
+}
+
 getOptions(null).then(options => {
   var redirectLink = document.querySelector('.community-console');
   if (options.redirect && redirectLink !== null) {
@@ -49,16 +78,7 @@ getOptions(null).then(options => {
 
     window.location = redirectUrl;
   } else {
-    for (const entry of kLoadMoreButtons)
-      if (options[entry.feature])
-        for (const selector of entry.buttonSelectors) {
-          let button = document.querySelector(selector);
-          if (button !== null) {
-            intersectionObserver = new IntersectionObserver(
-                intersectionCallback, intersectionOptions);
-            intersectionObserver.observe(button);
-          }
-        }
+    setUpInfiniteScrollWithPotentialDelay(options);
 
     if (options.imagemaxheight)
       injectStylesheet(chrome.runtime.getURL('css/image_max_height.css'));
