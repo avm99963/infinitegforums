@@ -130,7 +130,7 @@ function handleCandidateNode(node) {
 
     // Inject the batch lock button in the thread list if the option is
     // currently enabled.
-    if (batchLock.nodeIsReadToggleBtn(node)) {
+    if (batchLock.shouldAddButton(node)) {
       batchLock.addButtonIfEnabled(node);
     }
 
