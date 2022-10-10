@@ -27,6 +27,12 @@ message Action {
 
   message UnmarkDuplicateAction {}
 
+  message ReplyWithCRAction {
+    int64 canned_response_id = 1;
+    bool subscribe = 2;
+    bool mark_as_answer = 3;
+  }
+
   message StarAction {
     bool star = 1; // true stars, and false unstars.
   }
@@ -77,6 +83,7 @@ message Action {
     MarkDuplicateAction mark_duplicate_action = 3;
     UnmarkDuplicateAction unmark_duplicate_action = 4;
     AttributeAction attribute_action = 5;
+    ReplyWithCRAction reply_with_cr_action = 6;
     StarAction star_action = 16;
     SubscribeAction subscribe_action = 17;
     VoteAction vote_action = 18;
