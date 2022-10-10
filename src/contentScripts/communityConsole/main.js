@@ -10,8 +10,9 @@ import {applyDragAndDropFixIfEnabled} from './dragAndDropFix.js';
 // #!endif
 import InfiniteScroll from './infiniteScroll.js';
 import {unifiedProfilesFix} from './unifiedProfiles.js';
+import Workflows from './workflows/workflows.js';
 
-var mutationObserver, options, avatars, infiniteScroll;
+var mutationObserver, options, avatars, infiniteScroll, workflows;
 
 const watchedNodesSelectors = [
   // App container (used to set up the intersection observer and inject the dark
@@ -128,6 +129,12 @@ function handleCandidateNode(node) {
     }
     // #!endif
 
+    // Inject the worflows menu in the thread list if the option is currently
+    // enabled.
+    if (workflows.shouldAddThreadListBtn(node)) {
+      workflows.addThreadListBtnIfEnabled(node);
+    }
+
     // Inject the batch lock button in the thread list if the option is
     // currently enabled.
     if (batchLock.shouldAddButton(node)) {
@@ -227,6 +234,7 @@ getOptions(null).then(items => {
   // Initialize classes needed by the mutation observer
   avatars = new AvatarsHandler();
   infiniteScroll = new InfiniteScroll();
+  workflows = new Workflows();
 
   // autoRefresh, extraInfo and threadPageDesignWarning are initialized in
   // start.js
@@ -287,4 +295,6 @@ getOptions(null).then(items => {
   // Extra info
   injectStylesheet(chrome.runtime.getURL('css/extrainfo.css'));
   injectStylesheet(chrome.runtime.getURL('css/extrainfo_perforumstats.css'));
+  // Workflows
+  injectScript(chrome.runtime.getURL('workflowComponentsInject.bundle.js'));
 });

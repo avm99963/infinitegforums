@@ -52,6 +52,7 @@ module.exports = (env, args) => {
     batchLockInject: './src/injections/batchLock.js',
     xhrInterceptorInject: './src/injections/xhrInterceptor.js',
     extraInfoInject: './src/injections/extraInfo.js',
+    workflowComponentsInject: './src/injections/workflowComponentsInject.js',
 
     // Options page
     optionsCommon: './src/options/optionsCommon.js',

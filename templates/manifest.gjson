@@ -84,6 +84,7 @@
         "batchLockInject.bundle.js",
         "xhrInterceptorInject.bundle.js",
         "extraInfoInject.bundle.js",
+        "workflowComponentsInject.bundle.js",
 
         "css/profileindicator_inject.css",
         "css/ccdarktheme.css",

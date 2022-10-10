@@ -31,6 +31,19 @@ export function createExtBadge() {
   return [badge, badgeTooltip];
 }
 
+// Adds an element to the thread list actions bar next to the button given by
+// |originalBtn|.
+export function addElementToThreadListActions(originalBtn, element) {
+  var duplicateBtn =
+      originalBtn.parentNode.querySelector('[debugid="mark-duplicate-button"]');
+  if (duplicateBtn)
+    duplicateBtn.parentNode.insertBefore(
+        element, (duplicateBtn.nextSibling || duplicateBtn));
+  else
+    originalBtn.parentNode.insertBefore(
+        element, (originalBtn.nextSibling || originalBtn));
+}
+
 // Adds a button to the thread list actions bar next to the button given by
 // |originalBtn|. The button will have icon |icon|, when hovered it will display
 // |tooltip|, and will have a debugid attribute with value |debugId|.
@@ -46,14 +59,7 @@ export function addButtonToThreadListActions(
   [badge, badgeTooltip] = createExtBadge();
   clone.append(badge);
 
-  var duplicateBtn =
-      originalBtn.parentNode.querySelector('[debugid="mark-duplicate-button"]');
-  if (duplicateBtn)
-    duplicateBtn.parentNode.insertBefore(
-        clone, (duplicateBtn.nextSibling || duplicateBtn));
-  else
-    originalBtn.parentNode.insertBefore(
-        clone, (originalBtn.nextSibling || originalBtn));
+  addElementToThreadListActions(originalBtn, clone);
 
   createPlainTooltip(clone, tooltip);
   new MDCTooltip(badgeTooltip);
