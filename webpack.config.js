@@ -57,6 +57,9 @@ module.exports = (env, args) => {
     // Options page
     optionsCommon: './src/options/optionsCommon.js',
 
+    // Workflow manager
+    workflowManager: './src/workflows/manager/index.js',
+
     // Common CSS
     mdcStyles: './src/mdc/index.js',
   };
