@@ -1,7 +1,9 @@
 import '@material/web/button/outlined-button.js';
+import '@material/web/textfield/filled-text-field.js';
 import './ActionEditor.js';
 
-import {html, LitElement, nothing} from 'lit';
+import {css, html, LitElement, nothing} from 'lit';
+import {createRef, ref} from 'lit/directives/ref.js';
 import {repeat} from 'lit/directives/repeat.js';
 
 import * as pb from '../../proto/main_pb.js';
@@ -12,10 +14,31 @@ export default class WFWorkflowEditor extends LitElement {
     readOnly: {type: Boolean},
   };
 
+  static styles = css`
+    .name {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  `;
+
+  nameRef = createRef();
+
   constructor() {
     super();
     this.workflow = new pb.workflows.Workflow();
     this.readOnly = false;
+  }
+
+  renderName() {
+    return html`
+      <md-filled-text-field ${ref(this.nameRef)}
+          class="name"
+          placeholder="Untitled workflow"
+          value=${this.workflow.getName()}
+          required
+          @input=${this._nameChanged}>
+      </md-filled-text-field>
+    `;
   }
 
   renderActions() {
@@ -43,6 +66,7 @@ export default class WFWorkflowEditor extends LitElement {
 
   render() {
     return [
+      this.renderName(),
       this.renderActions(),
       this.renderAddActionBtn(),
     ];
@@ -50,17 +74,26 @@ export default class WFWorkflowEditor extends LitElement {
 
   save() {
     let allValid = true;
+
+    // Check the workflow name is set
+    allValid &&= this.nameRef.value.reportValidity();
+
+    // Check all the actions are well-formed
     const actionEditors = this.renderRoot.querySelectorAll('wf-action-editor');
-    for (const editor of actionEditors) {
-      const isValid = editor.checkValidity();
-      if (!isValid) allValid = false;
-    }
+    for (const editor of actionEditors) allValid &&= editor.checkValidity();
+
     // @TODO: Save if allValid === true
+
     return allValid;
   }
 
   _actions() {
     return this.workflow.getActionsList();
+  }
+
+  _nameChanged() {
+    this.workflow.setName(this.nameRef.value.value);
+    this._dispatchUpdateEvent();
   }
 
   _addAction() {

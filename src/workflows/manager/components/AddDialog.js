@@ -29,7 +29,6 @@ export default class WFAddDialog extends LitElement {
   render() {
     return html`
       <mwc-dialog
-          heading="New workflow"
           ?open=${this.open}
           @opening=${this._openingDialog}
           @closing=${this._closingDialog}
