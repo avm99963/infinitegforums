@@ -6,6 +6,7 @@ import {css, html, LitElement} from 'lit';
 import {createRef, ref} from 'lit/directives/ref.js';
 
 import {SHARED_MD3_STYLES} from '../../common/styles/md3.js';
+import {default as WorkflowsStorage, kWorkflowsDataKey} from '../workflowsStorage.js';
 
 export default class WFApp extends LitElement {
   static styles = [
@@ -32,16 +33,34 @@ export default class WFApp extends LitElement {
 
   addFabRef = createRef();
 
+  constructor() {
+    super();
+    this._workflows = undefined;
+    this._updateWorkflows();
+    chrome.storage.onChanged.addListener((changes, areaName) => {
+      if (areaName == 'local' && changes[kWorkflowsDataKey])
+        this._updateWorkflows();
+    });
+  }
+
   render() {
     return html`
       <h1>Workflows</h1>
-      <wf-list></wf-list>
+      <p>Workflows allow you to run a customized list of actions on a thread easily.</p>
+      <wf-list .workflows=${this._workflows}></wf-list>
       <md-fab ${ref(this.addFabRef)}
           icon="add"
           @click=${this._showAddDialog}>
       </md-fab>
       <wf-add-dialog></wf-add-dialog>
     `;
+  }
+
+  _updateWorkflows() {
+    WorkflowsStorage.getAll(/* asProtobuf = */ true).then(workflows => {
+      this._workflows = workflows;
+      this.requestUpdate();
+    });
   }
 
   _showAddDialog() {

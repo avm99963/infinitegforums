@@ -7,6 +7,7 @@ import {createRef, ref} from 'lit/directives/ref.js';
 import {repeat} from 'lit/directives/repeat.js';
 
 import * as pb from '../../proto/main_pb.js';
+import WorkflowsStorage from '../../workflowsStorage.js';
 
 export default class WFWorkflowEditor extends LitElement {
   static properties = {
@@ -82,7 +83,8 @@ export default class WFWorkflowEditor extends LitElement {
     const actionEditors = this.renderRoot.querySelectorAll('wf-action-editor');
     for (const editor of actionEditors) allValid &&= editor.checkValidity();
 
-    // @TODO: Save if allValid === true
+    // Save the workflow if the validation checks passed
+    if (allValid) WorkflowsStorage.add(this.workflow);
 
     return allValid;
   }

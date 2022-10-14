@@ -1,6 +1,6 @@
 import '@material/mwc-dialog/mwc-dialog.js';
 import '@material/web/button/text-button.js';
-import '@material/web/button/tonal-button.js';
+import '@material/web/button/filled-button.js';
 import './WorkflowEditor.js';
 
 import {css, html, LitElement} from 'lit';
@@ -35,11 +35,11 @@ export default class WFAddDialog extends LitElement {
           @closed=${this._closedDialog}>
         <wf-workflow-editor ${ref(this.workflowEditorRef)}>
         </wf-workflow-editor>
-        <md-tonal-button
+        <md-filled-button
             slot="primaryAction"
             label="Add"
             @click=${this._save}>
-        </md-tonal-button>
+        </md-filled-button>
         <md-text-button
             slot="secondaryAction"
             dialogAction="cancel"
