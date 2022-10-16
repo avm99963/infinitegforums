@@ -92,7 +92,7 @@ export default class WFActionEditor extends LitElement {
           class="select"
           @change=${this._actionCaseChanged}>
         ${map(actionCases, ([actionName, num]) => {
-      if (num == 0) return nothing;
+      if (!kSupportedActions.has(num)) return nothing;
       return html`
           <option value=${num} ?selected=${selectedActionCase == num}>
             ${kActionHeadings[num] ?? actionName}
