@@ -73,7 +73,7 @@ export default class WFWorkflowEditor extends LitElement {
     ];
   }
 
-  save() {
+  checkValidity() {
     let allValid = true;
 
     // Check the workflow name is set
@@ -83,8 +83,19 @@ export default class WFWorkflowEditor extends LitElement {
     const actionEditors = this.renderRoot.querySelectorAll('wf-action-editor');
     for (const editor of actionEditors) allValid &&= editor.checkValidity();
 
+    return allValid;
+  }
+
+  save(uuid) {
+    const allValid = this.checkValidity();
+
     // Save the workflow if the validation checks passed
-    if (allValid) WorkflowsStorage.add(this.workflow);
+    if (allValid) {
+      if (!uuid)
+        WorkflowsStorage.add(this.workflow);
+      else
+        WorkflowsStorage.update(uuid, this.workflow);
+    }
 
     return allValid;
   }

@@ -47,9 +47,27 @@ export default class WorkflowsStorage {
   }
 
   static add(workflow) {
-    const binaryWorkflow = workflow.serializeBinary();
-    return arrayBufferToBase64(binaryWorkflow).then(data => {
+    return this._proto2Base64(workflow).then(data => {
       return this.addRaw(data);
+    });
+  }
+
+  static updateRaw(uuid, base64Workflow) {
+    return this.getAll().then(workflows => {
+      workflows.map(w => {
+        if (w.uuid !== uuid) return w;
+        w.data = base64Workflow;
+        return w;
+      });
+      const items = {};
+      items[kWorkflowsDataKey] = workflows;
+      chrome.storage.local.set(items);
+    });
+  }
+
+  static update(uuid, workflow) {
+    return this._proto2Base64(workflow).then(data => {
+      return this.updateRaw(uuid, data);
     });
   }
 
@@ -59,5 +77,10 @@ export default class WorkflowsStorage {
       items[kWorkflowsDataKey] = workflows.filter(w => w.uuid != uuid);
       chrome.storage.local.set(items);
     });
+  }
+
+  static _proto2Base64(workflow) {
+    const binaryWorkflow = workflow.serializeBinary();
+    return arrayBufferToBase64(binaryWorkflow);
   }
 }

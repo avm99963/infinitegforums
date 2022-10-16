@@ -1,9 +1,13 @@
 import '@material/web/list/list.js';
 import '@material/web/list/list-item.js';
 import '@material/web/iconbutton/standard-icon-button.js';
+import './WorkflowDialog.js';
 
 import {css, html, LitElement, nothing} from 'lit';
 import {map} from 'lit/directives/map.js';
+import {createRef, ref} from 'lit/directives/ref.js';
+
+import WorkflowsStorage from '../../workflowsStorage.js';
 
 export default class WFList extends LitElement {
   static properties = {
@@ -28,16 +32,14 @@ export default class WFList extends LitElement {
     }
   `;
 
+  dialogRef = createRef();
+
   renderListItems() {
     return map(this.workflows, w => html`
       <md-list-item
           headline=${w.proto?.getName?.()}
-          @click=${() => this._show(w.uuid)}>
+          @click=${() => this._show(w)}>
         <div slot="end" class="end">
-          <md-standard-icon-button
-              icon="edit"
-              @click=${e => this._showEdit(w.uuid, e)}>
-          </md-standard-icon-button>
           <md-standard-icon-button
               icon="delete"
               @click=${e => this._showDelete(w.uuid, e)}>
@@ -47,7 +49,7 @@ export default class WFList extends LitElement {
     `);
   }
 
-  render() {
+  renderList() {
     if (!this.workflows) return nothing;
     if (this.workflows?.length === 0)
       return html`
@@ -64,14 +66,30 @@ export default class WFList extends LitElement {
     `;
   }
 
-  _show(uuid) {}
+  renderDialog() {
+    return html`
+      <wf-workflow-dialog ${ref(this.dialogRef)}></wf-workflow-dialog>
+    `;
+  }
 
-  _showEdit(uuid, e) {
-    e.stopPropagation();
+  render() {
+    return [
+      this.renderList(),
+      this.renderDialog(),
+    ];
+  }
+
+  _show(fullWorkflow) {
+    this.dialogRef.value.uuid = fullWorkflow.uuid;
+    this.dialogRef.value.workflow = fullWorkflow.proto.cloneMessage();
+    this.dialogRef.value.open = true;
   }
 
   _showDelete(uuid, e) {
     e.stopPropagation();
+    const proceed = window.confirm(
+        'Do you really want to remove this workflow? This action is irreversible.');
+    if (proceed) WorkflowsStorage.remove(uuid);
   }
 }
 window.customElements.define('wf-list', WFList);

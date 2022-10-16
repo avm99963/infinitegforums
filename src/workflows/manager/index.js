@@ -1,6 +1,7 @@
 import '@material/web/fab/fab.js';
 import './components/List.js';
 import './components/AddDialog.js';
+import './components/WorkflowDialog.js';
 
 import {css, html, LitElement} from 'lit';
 import {createRef, ref} from 'lit/directives/ref.js';
@@ -32,6 +33,7 @@ export default class WFApp extends LitElement {
   ];
 
   addFabRef = createRef();
+  addDialog = createRef();
 
   constructor() {
     super();
@@ -52,7 +54,8 @@ export default class WFApp extends LitElement {
           icon="add"
           @click=${this._showAddDialog}>
       </md-fab>
-      <wf-add-dialog></wf-add-dialog>
+      <wf-add-dialog ${ref(this.addDialog)}>
+      </wf-add-dialog>
     `;
   }
 
@@ -64,7 +67,7 @@ export default class WFApp extends LitElement {
   }
 
   _showAddDialog() {
-    this.renderRoot.querySelector('wf-add-dialog').open = true;
+    this.addDialog.value.open = true;
   }
 }
 window.customElements.define('wf-app', WFApp);

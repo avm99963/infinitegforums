@@ -8,9 +8,11 @@ import {createRef, ref} from 'lit/directives/ref.js';
 
 import * as pb from '../../proto/main_pb.js';
 
-export default class WFAddDialog extends LitElement {
+export default class WFWorkflowDialog extends LitElement {
   static properties = {
     open: {type: Boolean},
+    uuid: {type: String},
+    workflow: {type: Object},
   };
 
   static styles = css`
@@ -24,6 +26,7 @@ export default class WFAddDialog extends LitElement {
   constructor() {
     super();
     this.open = false;
+    this.workflow = new pb.workflows.Workflow();
   }
 
   render() {
@@ -31,13 +34,13 @@ export default class WFAddDialog extends LitElement {
       <mwc-dialog
           ?open=${this.open}
           @opening=${this._openingDialog}
-          @closing=${this._closingDialog}
-          @closed=${this._closedDialog}>
-        <wf-workflow-editor ${ref(this.workflowEditorRef)}>
+          @closing=${this._closingDialog}>
+        <wf-workflow-editor ${ref(this.workflowEditorRef)}
+            .workflow=${this.workflow}>
         </wf-workflow-editor>
         <md-filled-button
             slot="primaryAction"
-            label="Add"
+            label="Save"
             @click=${this._save}>
         </md-filled-button>
         <md-text-button
@@ -49,27 +52,6 @@ export default class WFAddDialog extends LitElement {
     `;
   }
 
-  firstUpdated() {
-    this._resetWorkflow();
-  }
-
-  _resetWorkflow() {
-    this.workflowEditorRef.value.workflow = this._defaultWorkflow();
-  }
-
-  _getWorkflow() {
-    return this.workflowEditorRef.value.workflow;
-  }
-
-  _defaultWorkflow() {
-    let wf = new pb.workflows.Workflow();
-    let action = new pb.workflows.Action();
-    let rAction = new pb.workflows.Action.ReplyWithCRAction();
-    action.setReplyWithCrAction(rAction);
-    wf.addActions(action);
-    return wf;
-  }
-
   _openingDialog() {
     this.open = true;
   }
@@ -78,16 +60,9 @@ export default class WFAddDialog extends LitElement {
     this.open = false;
   }
 
-  _closedDialog(e) {
-    if (e.detail?.action === 'cancel') this._resetWorkflow();
-  }
-
   _save() {
-    const success = this.workflowEditorRef.value.save();
-    if (success) {
-      this.open = false;
-      this._resetWorkflow();
-    }
+    const success = this.workflowEditorRef.value.save(this.uuid);
+    if (success) this.open = false;
   }
 }
-window.customElements.define('wf-add-dialog', WFAddDialog);
+window.customElements.define('wf-workflow-dialog', WFWorkflowDialog);
