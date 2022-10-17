@@ -4,6 +4,20 @@ import * as pb from './proto/main_pb.js';
 export const kWorkflowsDataKey = 'workflowsData';
 
 export default class WorkflowsStorage {
+  static watch(callback, asProtobuf = false) {
+    // Function which will be called when the watcher is initialized and every
+    // time the workflows storage changes.
+    const callOnChanged = () => {
+      this.getAll(asProtobuf).then(workflows => callback(workflows));
+    };
+
+    chrome.storage.onChanged.addListener((changes, areaName) => {
+      if (areaName == 'local' && changes[kWorkflowsDataKey]) callOnChanged();
+    });
+
+    callOnChanged();
+  }
+
   static getAll(asProtobuf = false) {
     return new Promise(res => {
       chrome.storage.local.get(kWorkflowsDataKey, items => {

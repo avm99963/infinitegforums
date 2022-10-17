@@ -38,11 +38,10 @@ export default class WFApp extends LitElement {
   constructor() {
     super();
     this._workflows = undefined;
-    this._updateWorkflows();
-    chrome.storage.onChanged.addListener((changes, areaName) => {
-      if (areaName == 'local' && changes[kWorkflowsDataKey])
-        this._updateWorkflows();
-    });
+    WorkflowsStorage.watch(workflows => {
+      this._workflows = workflows;
+      this.requestUpdate();
+    }, /* asProtobuf = */ true);
   }
 
   render() {
@@ -57,13 +56,6 @@ export default class WFApp extends LitElement {
       <wf-add-dialog ${ref(this.addDialog)}>
       </wf-add-dialog>
     `;
-  }
-
-  _updateWorkflows() {
-    WorkflowsStorage.getAll(/* asProtobuf = */ true).then(workflows => {
-      this._workflows = workflows;
-      this.requestUpdate();
-    });
   }
 
   _showAddDialog() {
