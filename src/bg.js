@@ -102,6 +102,11 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
           .catch(error => sendResponse({status: 'rejected', error}));
       break;
 
+    case 'openWorkflowsManager':
+      chrome.tabs.create({
+        url: chrome.runtime.getURL('options/workflows.html'),
+      });
+
     default:
       console.warn('Unknown message "' + msg.message + '".');
   }

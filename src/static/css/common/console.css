@@ -17,7 +17,7 @@
   user-select: none;
 }
 
-.TWPT-badge .material-icon-i {
+.TWPT-badge :is(.material-icon-i, md-icon) {
   font-size: var(--icon-size, 16px);
 }
 

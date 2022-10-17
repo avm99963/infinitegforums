@@ -29,6 +29,7 @@
     "css-loader": "^6.2.0",
     "json5": "^2.2.0",
     "path": "^0.12.7",
+    "raw-loader": "^4.0.2",
     "sass": "^1.38.1",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.2.1",

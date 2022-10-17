@@ -2,7 +2,7 @@
 // This is done by injecting this javascript file instead of placing this code
 // directly in the content script because `window.customElements` doesn't exist
 // in content scripts.
-import '../contentScripts/communityConsole/workflows/components/TwptWorkflowsMenu.js';
+import '../contentScripts/communityConsole/workflows/components/index.js';
 
 import {injectStylesheet} from '../common/contentScriptsUtils.js';
 

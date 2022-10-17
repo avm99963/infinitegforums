@@ -18,6 +18,13 @@ export default class WorkflowsStorage {
     callOnChanged();
   }
 
+  static convertRawListToProtobuf(workflows) {
+    workflows.forEach(w => {
+      w.proto = pb.workflows.Workflow.deserializeBinary(w?.data);
+      delete w.data;
+    });
+  }
+
   static getAll(asProtobuf = false) {
     return new Promise(res => {
       chrome.storage.local.get(kWorkflowsDataKey, items => {
@@ -25,10 +32,7 @@ export default class WorkflowsStorage {
         if (!Array.isArray(workflows)) return res([]);
         if (!asProtobuf) return res(workflows);
 
-        workflows.map(w => {
-          w.proto = pb.workflows.Workflow.deserializeBinary(w?.data);
-          delete w.data;
-        });
+        this.convertRawListToProtobuf(workflows);
         return res(workflows);
       });
     });
