@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const json5 = require('json5');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const WebpackShellPluginNext = require('webpack-shell-plugin-next');
 
 // Pontoon uses their own locale set. This array lets us convert those locales
@@ -158,6 +159,17 @@ module.exports = (env, args) => {
           ],
         },
       ]
+    },
+    optimization: {
+      minimizer: [
+        new TerserPlugin({
+          terserOptions: {
+            format: {
+              ascii_only: true, // Due to https://iavm.xyz/b/twpowertools/145#c1
+            },
+          },
+        }),
+      ],
     },
   };
 };
