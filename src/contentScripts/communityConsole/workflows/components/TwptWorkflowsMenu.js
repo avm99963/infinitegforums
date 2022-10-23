@@ -9,6 +9,7 @@ import consoleCommonStyles from '!!raw-loader!../../../../static/css/common/cons
 
 import {css, html, LitElement, nothing, unsafeCSS} from 'lit';
 import {map} from 'lit/directives/map.js';
+import {createRef, ref} from 'lit/directives/ref.js';
 
 import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
 
@@ -36,6 +37,8 @@ export default class TwptWorkflowsMenu extends LitElement {
     `,
   ];
 
+  menuRef = createRef();
+
   renderWorkflowItems() {
     if (!this.workflows) return nothing;
     if (this.workflows?.length == 0)
@@ -48,7 +51,7 @@ export default class TwptWorkflowsMenu extends LitElement {
       `;
     return map(this.workflows, w => html`
       <md-menu-item
-          @click="${() => this._showWorkflow(w.uuid)}">
+          @click="${() => this._dispatchSelectEvent(w.uuid)}">
         <span class="workflow-item" slot="start">
           ${w.proto.getName()}
         </span>
@@ -87,15 +90,21 @@ export default class TwptWorkflowsMenu extends LitElement {
           <md-standard-icon-button icon="more_vert"></md-standard-icon-button>
           ${this.renderBadge()}
         </div>
-        <md-menu slot="menu">
+        <md-menu ${ref(this.menuRef)} slot="menu">
           ${this.renderMenuItems()}
         </md-menu>
       </md-menu-button>
     `;
   }
 
-  _showWorkflow(uuid) {
-    console.log(`Clicked workflow ${uuid}.`);
+  _dispatchSelectEvent(uuid) {
+    const e = new CustomEvent('select', {
+      detail: {
+        selectedWorkflowUuid: uuid,
+      },
+    });
+    this.dispatchEvent(e);
+    this.menuRef.value.open = false;
   }
 
   _openWorkflowManager() {
