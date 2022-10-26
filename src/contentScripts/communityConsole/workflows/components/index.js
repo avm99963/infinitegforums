@@ -1,5 +1,6 @@
-import './TwptWorkflowsMenu.js';
 import './TwptConfirmDialog.js';
+import './TwptWorkflowDialog.js';
+import './TwptWorkflowsMenu.js';
 
 import {css, html, LitElement} from 'lit';
 import {createRef, ref} from 'lit/directives/ref.js';
@@ -52,14 +53,13 @@ export default class TwptWorkflowsInject extends LitElement {
   }
 
   _startWorkflow() {
-    // @TODO
-    console.log(`Start workflow ${this._selectedWorkflowUuid}!`);
+    this.workflowDialogRef.value.workflow = this._selectedWorkflow.cloneMessage();
+    this.workflowDialogRef.value.start();
   }
 
   get _selectedWorkflow() {
     for (const w of this._workflows) {
-      if (w.uuid == this._selectedWorkflowUuid)
-        return w.proto;
+      if (w.uuid == this._selectedWorkflowUuid) return w.proto;
     }
 
     return null;

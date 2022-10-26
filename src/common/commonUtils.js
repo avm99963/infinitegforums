@@ -24,3 +24,11 @@ export function createImmuneLink() {
   a.addEventListener('click', e => e.stopPropagation(), false);
   return a;
 }
+
+export function recursiveParentElement(el, tag) {
+  while (el !== document.documentElement) {
+    el = el.parentNode;
+    if (el.tagName == tag) return el;
+  }
+  return undefined;
+}

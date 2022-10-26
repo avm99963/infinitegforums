@@ -1,14 +1,6 @@
 import {CCApi} from '../common/api.js';
-import {parseUrl} from '../common/commonUtils.js';
+import {parseUrl, recursiveParentElement} from '../common/commonUtils.js';
 import {getAuthUser} from '../common/communityConsoleUtils.js';
-
-function recursiveParentElement(el, tag) {
-  while (el !== document.documentElement) {
-    el = el.parentNode;
-    if (el.tagName == tag) return el;
-  }
-  return undefined;
-}
 
 // Source:
 // https://stackoverflow.com/questions/33063774/communication-from-an-injected-script-to-the-content-script-with-a-response

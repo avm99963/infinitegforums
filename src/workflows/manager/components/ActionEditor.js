@@ -1,26 +1,14 @@
 import './actions/ReplyWithCR.js';
 
-import {css, html, LitElement, nothing} from 'lit';
+import '@material/mwc-circular-progress/mwc-circular-progress.js';
+
+import {html, LitElement, nothing} from 'lit';
 import {map} from 'lit/directives/map.js';
 import {createRef, ref} from 'lit/directives/ref.js';
 
 import * as pb from '../../proto/main_pb.js';
+import {kActionHeadings, kActionStyles, kSupportedActions} from '../shared/actions.js';
 
-// TODO: remove this and substitute it with proper localization.
-const kActionHeadings = {
-  0: 'Unknown action',
-  1: 'Reply',
-  2: 'Move to a forum',
-  3: 'Mark as duplicate of a thread',
-  4: 'Unmark duplicate',
-  5: 'Change thread attributes',
-  6: 'Reply with canned response',
-  16: 'Star/unstar thread',
-  17: 'Subscribe/unsubscribe to thread',
-  18: 'Vote thread',
-  19: 'Report thread',
-};
-const kSupportedActions = new Set([6]);
 const actionCases = Object.entries(pb.workflows.Action.ActionCase);
 
 export default class WFActionEditor extends LitElement {
@@ -29,50 +17,10 @@ export default class WFActionEditor extends LitElement {
     readOnly: {type: Boolean},
     disableRemoveButton: {type: Boolean},
     step: {type: Number},
+    status: {type: String},
   };
 
-  static styles = css`
-    .action {
-      margin-bottom: 20px;
-    }
-
-    .header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-
-    .step {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      min-height: 30px;
-      min-width: 30px;
-      margin-inline-end: 8px;
-
-      font-weight: 500;
-      font-size: 18px;
-
-      border-radius: 50%;
-      color: white;
-      background-color: #018786;
-    }
-
-    .title {
-      font-weight: 500;
-      margin: 0;
-      flex-grow: 1;
-    }
-
-    .header .select {
-      flex-grow: 1;
-      width: 300px;
-      padding: 4px;
-      margin-inline-end: 8px;
-      font-size: 16px;
-    }
-  `;
+  static styles = kActionStyles;
 
   selectRef = createRef();
 
@@ -119,27 +67,32 @@ export default class WFActionEditor extends LitElement {
   }
 
   render() {
-    return [
-      html`
-        <div class="action">
-          <div class="header">
-            <div class="step">${this.step}</div>
-            ${this.renderActionTitle()}
+    let actionClass = '';
+    if (this.readOnly && this.status) actionClass = 'action--' + this.status;
+    return html`
+      <div class="action ${actionClass}">
+        <div class="header">
+          <div class="step">
+            ${this.step}
             ${
-          !this.readOnly ?
-              html`
-                <button
-                    ?disabled=${this.disableRemoveButton}
-                    @click=${this._remove}>
-                  Remove
-                </button>
-              ` :
-              nothing}
+        this.status == 'running' ?
+            html`<mwc-circular-progress indeterminate density="-1"></mwc-circular-progress>` :
+            ''}
           </div>
-          ${this.renderSpecificActionEditor()}
+          ${this.renderActionTitle()}
+          ${
+    !this.readOnly ? html`
+              <button
+                  ?disabled=${this.disableRemoveButton}
+                  @click=${this._remove}>
+                Remove
+              </button>
+            ` :
+                     nothing}
         </div>
-      `,
-    ];
+        ${this.renderSpecificActionEditor()}
+      </div>
+    `;
   }
 
   checkValidity() {
