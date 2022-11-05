@@ -5,22 +5,27 @@ import '@material/web/button/text-button.js';
 import {css, html, LitElement} from 'lit';
 import {createRef, ref} from 'lit/directives/ref.js';
 
+import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
+
 export default class TwptConfirmDialog extends LitElement {
   static properties = {
     open: {type: Boolean},
     workflow: {type: Object},
   };
 
-  static styles = css`
-    :host {
-      --mdc-dialog-content-ink-color: var(--mdc-theme-on-surface, #000);
-      --mdc-dialog-z-index: 200;
-    }
+  static styles = [
+    SHARED_MD3_STYLES,
+    css`
+      :host {
+        --mdc-dialog-content-ink-color: var(--mdc-theme-on-surface, #000);
+        --mdc-dialog-z-index: 200;
+      }
 
-    .workflow {
-      font-weight: 500;
-    }
-  `;
+      .workflow {
+        font-weight: 500;
+      }
+    `,
+  ];
 
   constructor() {
     super();

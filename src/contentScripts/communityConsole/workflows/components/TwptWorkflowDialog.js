@@ -1,11 +1,11 @@
 import '@material/mwc-dialog/mwc-dialog.js';
 import '@material/web/button/text-button.js';
-
 import './TwptWorkflowProgress.js';
 
 import {css, html, LitElement} from 'lit';
 import {createRef, ref} from 'lit/directives/ref.js';
 
+import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
 import WorkflowRunner from '../runner.js';
 
 export default class TwptWorkflowDialog extends LitElement {
@@ -15,16 +15,19 @@ export default class TwptWorkflowDialog extends LitElement {
     _runner: {type: Object, state: true},
   };
 
-  static styles = css`
-    :host {
-      --mdc-dialog-content-ink-color: var(--mdc-theme-on-surface, #000);
-      --mdc-dialog-z-index: 200;
-    }
+  static styles = [
+    SHARED_MD3_STYLES,
+    css`
+      :host {
+        --mdc-dialog-content-ink-color: var(--mdc-theme-on-surface, #000);
+        --mdc-dialog-z-index: 200;
+      }
 
-    .workflow-name {
-      font-weight: 500;
-    }
-  `;
+      .workflow-name {
+        font-weight: 500;
+      }
+    `,
+  ];
 
   progressRef = createRef();
 

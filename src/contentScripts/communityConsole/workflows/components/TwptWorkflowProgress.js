@@ -7,6 +7,8 @@ import '../../../../workflows/manager/components/ActionEditor.js';
 import {css, html, LitElement} from 'lit';
 import {map} from 'lit/directives/map.js';
 
+import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
+
 export default class TwptWorkflowProgress extends LitElement {
   static properties = {
     workflow: {type: Object},
@@ -16,13 +18,16 @@ export default class TwptWorkflowProgress extends LitElement {
     status: {type: String},
   };
 
-  static styles = css`
-    .progressbar-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  `;
+  static styles = [
+    SHARED_MD3_STYLES,
+    css`
+      .progressbar-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    `,
+  ];
 
   renderThreadProgress() {
     // @TODO: Improve this UI when the actions section is complete

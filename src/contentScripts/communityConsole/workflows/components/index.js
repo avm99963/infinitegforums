@@ -58,6 +58,8 @@ export default class TwptWorkflowsInject extends LitElement {
   }
 
   get _selectedWorkflow() {
+    if (!this._workflows) return null;
+
     for (const w of this._workflows) {
       if (w.uuid == this._selectedWorkflowUuid) return w.proto;
     }
