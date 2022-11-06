@@ -2,6 +2,7 @@ import {parseUrl, recursiveParentElement} from '../../../common/commonUtils.js';
 import * as pb from '../../../workflows/proto/main_pb.js';
 
 import CRRunner from './actionRunners/replyWithCR.js';
+import Thread from './models/thread.js';
 
 export default class WorkflowRunner {
   constructor(workflow, updateCallback) {
@@ -32,7 +33,7 @@ export default class WorkflowRunner {
       const url = recursiveParentElement(checkbox, 'EC-THREAD-SUMMARY')
                       .querySelector('a.header-content')
                       .href;
-      const thread = parseUrl(url);
+      const thread = Thread.fromUrl(url);
       if (!thread) {
         console.error('Couldn\'t parse URL ' + url);
         continue;

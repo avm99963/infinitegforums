@@ -2,7 +2,7 @@ import '@material/web/formfield/formfield.js';
 import '@material/web/switch/switch.js';
 import '@material/web/textfield/outlined-text-field.js';
 
-import {css, html, LitElement} from 'lit';
+import {css, html, LitElement, nothing} from 'lit';
 import {createRef, ref} from 'lit/directives/ref.js';
 
 import {CCApi} from '../../../../common/api.js';
@@ -54,11 +54,13 @@ export default class WFActionReplyWithCR extends LitElement {
             ?readonly=${this.readOnly}
             @input=${this._cannedResponseIdChanged}>
         </md-outlined-text-field>
-        <md-outlined-button
-            icon="more"
-            label="Select CR"
-            @click=${this._openCRImporter}>
-        </md-outlined-button>
+        ${this.readOnly ? nothing : html`
+          <md-outlined-button
+              icon="more"
+              label="Select CR"
+              @click=${this._openCRImporter}>
+          </md-outlined-button>
+        `}
       </div>
       <div class="form-line">
         <md-formfield label="Subscribe to thread">
