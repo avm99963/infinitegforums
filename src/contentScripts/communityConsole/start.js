@@ -4,6 +4,7 @@ import {getOptions} from '../../common/optionsUtils.js';
 import AutoRefresh from './autoRefresh.js';
 import ExtraInfo from './extraInfo.js';
 import ThreadPageDesignWarning from './threadPageDesignWarning.js';
+import WorkflowsImport from './workflows/import.js';
 
 const SMEI_NESTED_REPLIES = 15;
 const SMEI_RCE_THREAD_INTEROP = 22;
@@ -50,6 +51,7 @@ getOptions(null).then(options => {
   window.TWPTAutoRefresh = new AutoRefresh();
   window.TWPTExtraInfo = new ExtraInfo();
   window.TWPTThreadPageDesignWarning = new ThreadPageDesignWarning();
+  window.TWPTWorkflowsImport = new WorkflowsImport();
 
   if (options.ccdarktheme) {
     switch (options.ccdarktheme_mode) {

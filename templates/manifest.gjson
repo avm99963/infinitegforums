@@ -96,6 +96,7 @@
         "css/image_max_height.css",
         "css/extrainfo.css",
         "css/extrainfo_perforumstats.css",
+        "css/workflow_import.css",
         "css/ui_spacing/shared.css",
         "css/ui_spacing/console.css",
         "css/ui_spacing/twbasic.css",

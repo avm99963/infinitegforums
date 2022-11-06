@@ -1,4 +1,5 @@
 import './TwptConfirmDialog.js';
+import './TwptCRImportButton.js';
 import './TwptWorkflowDialog.js';
 import './TwptWorkflowsMenu.js';
 
@@ -53,7 +54,8 @@ export default class TwptWorkflowsInject extends LitElement {
   }
 
   _startWorkflow() {
-    this.workflowDialogRef.value.workflow = this._selectedWorkflow.cloneMessage();
+    this.workflowDialogRef.value.workflow =
+        this._selectedWorkflow.cloneMessage();
     this.workflowDialogRef.value.start();
   }
 

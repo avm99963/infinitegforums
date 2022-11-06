@@ -1,8 +1,8 @@
-import '@material/web/textfield/outlined-text-field.js';
-import '@material/web/switch/switch.js';
 import '@material/web/formfield/formfield.js';
+import '@material/web/switch/switch.js';
+import '@material/web/textfield/outlined-text-field.js';
 
-import {html, LitElement} from 'lit';
+import {css, html, LitElement} from 'lit';
 import {createRef, ref} from 'lit/directives/ref.js';
 
 import {CCApi} from '../../../../common/api.js';
@@ -12,7 +12,18 @@ export default class WFActionReplyWithCR extends LitElement {
   static properties = {
     action: {type: Object},
     readOnly: {type: Boolean},
+    _importerWindow: {type: Object, state: true},
   };
+
+  static styles = css`
+    .form-line {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-block: 1em;
+      gap: .5rem;
+    }
+  `;
 
   cannedResponseRef = createRef();
   subscribeRef = createRef();
@@ -21,12 +32,20 @@ export default class WFActionReplyWithCR extends LitElement {
   constructor() {
     super();
     this.action = new pb.workflows.Action.ReplyWithCRAction;
-    // this._loadUserCannedResponses();
+    this._importerWindow = undefined;
+
+    window.addEventListener('message', e => {
+      if (e.source === this._importerWindow &&
+          e.data?.action === 'importCannedResponse') {
+        this._cannedResponseIdString = e.data?.cannedResponseId;
+        this._importerWindow?.close?.();
+      }
+    });
   }
 
   render() {
     return html`
-      <p>
+      <div class="form-line">
         <md-outlined-text-field ${ref(this.cannedResponseRef)}
             type="number"
             label="Canned response ID"
@@ -35,42 +54,38 @@ export default class WFActionReplyWithCR extends LitElement {
             ?readonly=${this.readOnly}
             @input=${this._cannedResponseIdChanged}>
         </md-outlined-text-field>
-      </p>
-      <p>
+        <md-outlined-button
+            icon="more"
+            label="Select CR"
+            @click=${this._openCRImporter}>
+        </md-outlined-button>
+      </div>
+      <div class="form-line">
         <md-formfield label="Subscribe to thread">
           <md-switch ${ref(this.subscribeRef)}
               ?selected=${this.subscribe}
               ?disabled=${this.readOnly}
               @click=${this._subscribeChanged}/>
         </md-formfield>
-      </p>
-      <p>
+      </div>
+      <div class="form-line">
         <md-formfield label="Mark as answer">
           <md-switch ${ref(this.markAsAnswerRef)}
               ?selected=${this.markAsAnswer}
               ?disabled=${this.readOnly}
               @click=${this._markAsAnswerChanged}/>
         </md-formfield>
-      </p>
+      </div>
     `;
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    this._importerWindow?.close?.();
   }
 
   checkValidity() {
     return this.cannedResponseRef.value.reportValidity();
-  }
-
-  _loadUserCannedResponses() {
-    if (window.USER_CANNED_RESPONSES_STARTED_TO_LOAD) return;
-
-    window.USER_CANNED_RESPONSES_STARTED_TO_LOAD = true;
-    let searchParams = new URLSearchParams(document.location.search);
-    let authuser = searchParams.get('authuser') ?? 0;
-
-    // @TODO: This isn't as simple as doing this because the request contains
-    // the wrong origin and fails.
-    CCApi('ListCannedResponses', {}, true, authuser).then(res => {
-      console.log(res);
-    });
   }
 
   _dispatchUpdateEvent() {
@@ -93,6 +108,16 @@ export default class WFActionReplyWithCR extends LitElement {
 
   _markAsAnswerChanged() {
     this.markAsAnswer = this.markAsAnswerRef.value.selected;
+  }
+
+  _openCRImporter() {
+    if (!(this._importerWindow?.closed ?? true))
+      this._importerWindow?.close?.();
+
+    this._importerWindow = window.open(
+        'https://support.google.com/s/community/cannedresponses?TWPTImportToWorkflow&TWPTSelectedId=' +
+            encodeURIComponent(this._cannedResponseIdString),
+        '', 'popup,width=720,height=540');
   }
 
   get cannedResponseId() {

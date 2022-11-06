@@ -1,0 +1,41 @@
+/**
+ * Styles used to hide some UI components in order to adapt the Community
+ * Console to be shown like an importer popup for the workflow manager.
+ */
+header.material-header {
+  visibility: hidden;
+}
+
+.material-content {
+  margin-top: 0!important;
+}
+
+.material-content > .scrollable-content {
+  height: 100vh!important;
+}
+
+material-drawer {
+  visibility: hidden;
+}
+
+.material-content > .scrollable-content > main.shifted-right {
+  margin-left: 32px!important;
+}
+
+ec-back-button {
+  visibility: hidden;
+}
+
+/**
+ * Don't allow creating/modifying/deleting CRs because this breaks the logic
+ * which adds the "Select" buttons.
+ */
+ec-canned-response-row .action .toolbar :is(
+    [debugid="edit-button"],
+    [debugid="delete-button"]) {
+  display: none;
+}
+
+material-fab.create-button {
+  display: none;
+}
