@@ -97,6 +97,10 @@ export default class Thread {
     return this._details?.['2']?.['9'];
   }
 
+  get lastMessageId() {
+    return this._details?.['2']?.['10'];
+  }
+
   get payload() {
     return this._details?.['2']?.['13'];
   }

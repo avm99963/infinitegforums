@@ -77,6 +77,10 @@ message Action {
     ReportType report_type = 1;
   }
 
+  message MarkAsReadAction {}
+
+  message MarkAsUnreadAction {}
+
   oneof action {
     ReplyAction reply_action = 1;
     MoveAction move_action = 2;
@@ -88,6 +92,8 @@ message Action {
     SubscribeAction subscribe_action = 17;
     VoteAction vote_action = 18;
     ReportAction report_action = 19;
+    MarkAsReadAction mark_as_read_action = 20;
+    MarkAsUnreadAction mark_as_unread_action = 21;
   }
 }
 

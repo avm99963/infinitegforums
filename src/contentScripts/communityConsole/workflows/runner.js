@@ -2,6 +2,7 @@ import {parseUrl, recursiveParentElement} from '../../../common/commonUtils.js';
 import * as pb from '../../../workflows/proto/main_pb.js';
 
 import CRRunner from './actionRunners/replyWithCR.js';
+import ReadStateRunner from './actionRunners/readState.js';
 import Thread from './models/thread.js';
 
 export default class WorkflowRunner {
@@ -16,6 +17,7 @@ export default class WorkflowRunner {
 
     // Initialize action runners:
     this._CRRunner = new CRRunner();
+    this._ReadStateRunner = new ReadStateRunner();
   }
 
   start() {
@@ -56,6 +58,12 @@ export default class WorkflowRunner {
       case pb.workflows.Action.ActionCase.REPLY_WITH_CR_ACTION:
         return this._CRRunner.execute(
             this._currentAction?.getReplyWithCrAction?.(), this._currentThread);
+
+      case pb.workflows.Action.ActionCase.MARK_AS_READ_ACTION:
+        return this._ReadStateRunner.execute(true, this._currentThread);
+
+      case pb.workflows.Action.ActionCase.MARK_AS_UNREAD_ACTION:
+        return this._ReadStateRunner.execute(false, this._currentThread);
 
       default:
         return Promise.reject(new Error('This action isn\'t supported yet.'));

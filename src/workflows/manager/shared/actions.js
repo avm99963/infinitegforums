@@ -13,9 +13,11 @@ export const kActionHeadings = {
   17: 'Subscribe/unsubscribe to thread',
   18: 'Vote thread',
   19: 'Report thread',
+  20: 'Mark as read',
+  21: 'Mark as unread',
 };
 
-export const kSupportedActions = new Set([6]);
+export const kSupportedActions = new Set([6, 20, 21]);
 
 export const kActionStyles = css`
   .action {

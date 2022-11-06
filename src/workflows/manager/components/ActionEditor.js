@@ -61,6 +61,10 @@ export default class WFActionEditor extends LitElement {
           </wf-action-reply-with-cr>
         `;
 
+      case pb.workflows.Action.ActionCase.MARK_AS_READ_ACTION:
+      case pb.workflows.Action.ActionCase.MARK_AS_UNREAD_ACTION:
+        return nothing;
+
       default:
         return html`<p>This action has not yet been implemented.</p>`;
     }
@@ -97,6 +101,10 @@ export default class WFActionEditor extends LitElement {
 
   checkValidity() {
     if (this.readOnly || !kSupportedActions.has(this._actionCase)) return true;
+
+    const s = this._specificActionEditor();
+    if (!s) return true;
+
     return this._specificActionEditor().checkValidity();
   }
 
@@ -167,6 +175,14 @@ export default class WFActionEditor extends LitElement {
         value = new pb.workflows.Action.ReportAction;
         this.action.setReportAction(value);
         break;
+      case pb.workflows.Action.ActionCase.MARK_AS_READ_ACTION:
+        value = new pb.workflows.Action.MarkAsReadAction;
+        this.action.setMarkAsReadAction(value);
+        break;
+      case pb.workflows.Action.ActionCase.MARK_AS_UNREAD_ACTION:
+        value = new pb.workflows.Action.MarkAsUnreadAction;
+        this.action.setMarkAsUnreadAction(value);
+        break;
       default:
         this.action.clearReplyAction();
         this.action.clearMoveAction();
@@ -178,6 +194,8 @@ export default class WFActionEditor extends LitElement {
         this.action.clearSubscribeAction();
         this.action.clearVoteAction();
         this.action.clearReportAction();
+        this.action.clearMarkAsReadAction();
+        this.action.clearMarkAsUnreadAction();
     }
 
     this.requestUpdate();
