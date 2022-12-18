@@ -1,6 +1,6 @@
 import {correctArrayKeys} from '../common/protojs';
 
-import xhrInterceptors from './xhrInterceptors.json5';
+import xhrInterceptors from './interceptors.json5';
 
 export {xhrInterceptors};
 
@@ -9,6 +9,34 @@ export function matchInterceptors(interceptFilter, url) {
     var regex = new RegExp(interceptor.urlRegex);
     return interceptor.intercepts == interceptFilter && regex.test(url);
   });
+}
+
+export function getResponseText(xhr, transformArrayPb = true) {
+  let response;
+  if (xhr.responseType === 'arraybuffer') {
+    var arrBuffer = xhr.response;
+    if (!arrBuffer) {
+      console.error('No array buffer.');
+      return undefined;
+    }
+    let byteArray = new Uint8Array(arrBuffer);
+    let dec = new TextDecoder('utf-8');
+    response = dec.decode(byteArray);
+  } else if (xhr.responseType === 'text' || xhr.responseType === '') {
+    response = xhr.responseText;
+  } else if (xhr.responseType === 'json') {
+    response = JSON.stringify(xhr.response);
+  } else {
+    console.error(
+        'Unexpected responseType ' + xhr.responseType + '. Request url: ',
+        xhr.$TWPTRequestURL);
+    return undefined;
+  }
+
+  if (xhr.$isArrayProto && transformArrayPb)
+    response = correctArrayKeys(response);
+
+  return response;
 }
 
 export function getResponseJSON(xhr) {

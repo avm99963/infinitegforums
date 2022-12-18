@@ -10,8 +10,12 @@ export function injectStyles(css) {
   injectStylesheet('data:text/css;charset=UTF-8,' + encodeURIComponent(css));
 }
 
-export function injectScript(scriptName) {
+export function injectScript(scriptName, prepend = false) {
   var script = document.createElement('script');
   script.src = scriptName;
-  (document.head || document.documentElement).append(script);
+  const root = (document.head || document.documentElement);
+  if (prepend)
+    root.prepend(script);
+  else
+    root.append(script);
 }

@@ -9,7 +9,9 @@ import WorkflowsImport from './workflows/import.js';
 const SMEI_NESTED_REPLIES = 15;
 const SMEI_RCE_THREAD_INTEROP = 22;
 
-injectScript(chrome.runtime.getURL('xhrInterceptorInject.bundle.js'));
+injectScript(
+    chrome.runtime.getURL('xhrInterceptorInject.bundle.js'),
+    /* prepend = */ true);
 injectScript(chrome.runtime.getURL('extraInfoInject.bundle.js'));
 
 getOptions(null).then(options => {
