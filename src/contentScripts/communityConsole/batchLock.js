@@ -1,6 +1,6 @@
 import {isOptionEnabled} from '../../common/optionsUtils.js';
 
-import {addButtonToThreadListActions, removeChildNodes, shouldAddBtnToActionBar} from './utils/common.js';
+import {addButtonToThreadListActions, removeChildNodes, shouldAddBtnToActionBar, softRefreshView} from './utils/common.js';
 
 const kLockDebugId = 'twpt-lock';
 
@@ -71,13 +71,7 @@ export var batchLock = {
             btn.addEventListener('click', _ => {
               if (btn.classList.contains('is-disabled')) return;
 
-              if (action == 'close') {
-                var refreshButton = document.querySelector('.app-title-button');
-                if (refreshButton == null)
-                  window.location.reload();
-                else
-                  refreshButton.click();
-              }
+              if (action == 'close') softRefreshView();
 
               modal.classList.remove('visible');
               modal.style.display = 'none';

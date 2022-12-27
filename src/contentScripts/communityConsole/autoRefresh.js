@@ -5,7 +5,7 @@ import {getAuthUser} from '../../common/communityConsoleUtils.js';
 import {isOptionEnabled} from '../../common/optionsUtils.js';
 import {createPlainTooltip} from '../../common/tooltip.js';
 
-import {createExtBadge} from './utils/common.js';
+import {createExtBadge, softRefreshView} from './utils/common.js';
 
 var authuser = getAuthUser();
 
@@ -135,7 +135,7 @@ export default class AutoRefresh {
 
     action.addEventListener('click', e => {
       this.hideUpdatePrompt();
-      document.querySelector('.app-title-button').click();
+      softRefreshView();
     });
 
     content.append(badge, message, action);

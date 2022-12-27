@@ -84,3 +84,13 @@ export function getDisplayLanguage() {
       JSON.parse(document.querySelector('html').getAttribute('data-startup'));
   return startup?.[1]?.[1]?.[3]?.[6] ?? 'en';
 }
+
+// Refreshes the current view in the Community Console without reloading the
+// whole page if possible.
+export function softRefreshView() {
+  const refreshButton = document.querySelector('.app-title-button');
+  if (refreshButton == null)
+    window.location.reload();
+  else
+    refreshButton.click();
+}
