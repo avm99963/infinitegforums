@@ -1,4 +1,4 @@
-import {correctArrayKeys} from '../common/protojs';
+import {correctArrayKeys, inverseCorrectArrayKeys} from '../common/protojs';
 
 import xhrInterceptors from './interceptors.json5';
 
@@ -52,7 +52,7 @@ export function getResponseJSON(xhr) {
     let rawResponse = dec.decode(byteArray);
     response = JSON.parse(rawResponse);
   } else if (xhr.responseType === 'text' || xhr.responseType === '') {
-    response = JSON.parse(xhr.responseText);
+    response = JSON.parse(xhr.response);
   } else if (xhr.responseType === 'json') {
     response = xhr.response;
   } else {
@@ -64,6 +64,29 @@ export function getResponseJSON(xhr) {
 
   if (xhr.$isArrayProto) response = correctArrayKeys(response);
   return response;
+}
+
+export function convertJSONToResponse(xhr, json) {
+  if (xhr.$isArrayProto) json = inverseCorrectArrayKeys(json);
+
+  switch (xhr.responseType) {
+    case 'json':
+      return json;
+
+    case 'text':
+    case '':
+      return JSON.stringify(json);
+
+    case 'arraybuffer':
+      const encoder = new TextEncoder();
+      return encoder.encode(JSON.stringify(json)).buffer;
+
+    default:
+      console.error(
+          'Unexpected responseType ' + xhr.responseType + '. Request url: ',
+          xhr.$TWPTRequestURL || xhr.responseURL);
+      return undefined;
+  }
 }
 
 export function triggerEvent(eventName, body, id) {

@@ -1,5 +1,7 @@
 import {injectScript, injectStylesheet} from '../../common/contentScriptsUtils.js';
+import MWOptionsWatcherServer from '../../common/mainWorldOptionsWatcher/Server.js';
 import {getOptions} from '../../common/optionsUtils.js';
+import {kCSTarget, kMWTarget} from '../../xhrInterceptor/responseModifiers/index.js';
 
 import AutoRefresh from './autoRefresh.js';
 import ExtraInfo from './extraInfo.js';
@@ -74,4 +76,6 @@ getOptions(null).then(options => {
     injectStylesheet(chrome.runtime.getURL('css/ui_spacing/shared.css'));
     injectStylesheet(chrome.runtime.getURL('css/ui_spacing/console.css'));
   }
+
+  new MWOptionsWatcherServer(kCSTarget, kMWTarget);
 });

@@ -1,29 +1,74 @@
+import {waitFor} from 'poll-until-promise';
+
 import {correctArrayKeys} from '../common/protojs';
+import ResponseModifier from '../xhrInterceptor/responseModifiers/index.js';
 import * as utils from '../xhrInterceptor/utils.js';
 
-const originalOpen = window.XMLHttpRequest.prototype.open;
-const originalSetRequestHeader =
-    window.XMLHttpRequest.prototype.setRequestHeader;
-const originalSend = window.XMLHttpRequest.prototype.send;
+const kSpecialEvents = ['load', 'loadend'];
+const kErrorEvents = ['error', 'timeout', 'abort'];
 
-let messageID = 0;
+const kCheckInterceptionOptions = {
+  interval: 50,
+  timeout: 100 * 1000,
+};
 
+function flattenOptions(options) {
+  if (typeof options === 'boolean') return options;
+  if (options) return options['capture'];
+  return undefined;
+}
+
+// Slightly based in https://stackoverflow.com/a/24561614.
 class XHRProxy {
   constructor() {
     this.originalXMLHttpRequest = window.XMLHttpRequest;
-    const originalXMLHttpRequest = this.originalXMLHttpRequest;
+    const classThis = this;
 
     this.messageID = 0;
+    this.responseModifier = new ResponseModifier();
 
     window.XMLHttpRequest = function() {
-      this.xhr = new originalXMLHttpRequest();
-      this.$TWPTID = messageID++;
+      this.xhr = new classThis.originalXMLHttpRequest();
+      this.$TWPTID = classThis.messageID++;
+      this.$responseModified = false;
+      this.$responseIntercepted = false;
+      this.specialHandlers = {
+        load: new Set(),
+        loadend: new Set(),
+      };
+
+      const proxyThis = this;
+      kSpecialEvents.forEach(eventName => {
+        this.xhr.addEventListener(eventName, function() {
+          let p;
+          if (eventName === 'load') {
+            p = classThis.responseModifier.intercept(proxyThis, this.response).then(() => {
+              proxyThis.$responseIntercepted = true;
+            });
+          } else {
+            p = waitFor(() => {
+              if (proxyThis.$responseIntercepted) return Promise.resolve();
+              return Promise.reject();
+            }, kCheckInterceptionOptions);
+          }
+
+          p.then(() => {
+            for (const e of proxyThis.specialHandlers[eventName]) {
+              e[1](arguments);
+            }
+          });
+        });
+      });
+      kErrorEvents.forEach(eventName => {
+        this.xhr.addEventListener(eventName, function() {
+          proxyThis.$responseIntercepted = true;
+        });
+      });
     };
 
     const methods = [
-      'open', 'abort', 'setRequestHeader', 'send', 'addEventListener',
-      'removeEventListener', 'getResponseHeader', 'getAllResponseHeaders',
-      'dispatchEvent', 'overrideMimeType'
+      'open', 'abort', 'setRequestHeader', 'send', 'getResponseHeader',
+      'getAllResponseHeaders', 'dispatchEvent', 'overrideMimeType'
     ];
     methods.forEach(method => {
       window.XMLHttpRequest.prototype[method] = function() {
@@ -87,6 +132,26 @@ class XHRProxy {
       };
     });
 
+    window.XMLHttpRequest.prototype.addEventListener = function() {
+      if (!kSpecialEvents.includes(arguments[0]))
+        return this.xhr.addEventListener.apply(this.xhr, arguments);
+
+      this.specialHandlers[arguments[0]].add(arguments);
+    };
+
+    window.XMLHttpRequest.prototype.removeEventListener = function(
+        type, callback, options) {
+      if (!kSpecialEvents.includes(type))
+        return this.xhr.removeEventListener.apply(this.xhr, arguments);
+
+      const flattenedOptions = flattenOptions(options);
+      for (const e of this.specialHandlers[type]) {
+        if (callback === e[1] && flattenOptions(e[2]) === flattenedOptions) {
+          return this.specialHandlers[type].delete(e);
+        }
+      }
+    };
+
     const scalars = [
       'onabort',
       'onerror',
@@ -96,7 +161,6 @@ class XHRProxy {
       'onprogress',
       'onreadystatechange',
       'readyState',
-      'response',
       'responseText',
       'responseType',
       'responseXML',
@@ -119,6 +183,19 @@ class XHRProxy {
           this.xhr[scalar] = val;
         },
       });
+    });
+
+    Object.defineProperty(window.XMLHttpRequest.prototype, 'response', {
+      get: function() {
+        if (!this.$responseIntercepted) return undefined;
+        if (this.$responseModified) return this.$newResponse;
+        return this.xhr.response;
+      },
+    });
+    Object.defineProperty(window.XMLHttpRequest.prototype, 'originalResponse', {
+      get: function() {
+        return this.xhr.response;
+      },
     });
 
     return this;
