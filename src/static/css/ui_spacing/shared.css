@@ -27,7 +27,14 @@ sc-tailwind-thread-post-header {
   margin-bottom: 0!important;
 }
 
-.scTailwindThreadMessageMessagelistmessage-card {
+/**
+ * When flattening threads, we hide the reply button (in fact the entire blue
+ * footer), so we will reduce the padding moderately.
+ */
+body.TWPT-flattenthreads-enabled .scTailwindThreadMessageMessagelistmessage-card {
+  padding-bottom: 1rem!important;
+}
+body:not(.TWPT-flattenthreads-enabled) .scTailwindThreadMessageMessagelistmessage-card {
   padding-bottom: 0.75rem!important;
 }
 

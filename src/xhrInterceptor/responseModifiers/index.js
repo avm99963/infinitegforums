@@ -1,10 +1,12 @@
 import MWOptionsWatcherClient from '../../common/mainWorldOptionsWatcher/Client.js';
 import {convertJSONToResponse, getResponseJSON} from '../utils.js';
 
-import demo from './demo.js';
+import loadMoreThread from './loadMoreThread.js';
+import flattenThread from './flattenThread.js';
 
 export const responseModifiers = [
-  demo,
+  loadMoreThread,
+  flattenThread,
 ];
 
 // Content script target

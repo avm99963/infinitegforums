@@ -1,0 +1,9 @@
+/* Small adjustement to reduce spacing, since it's excessive when adding the toolbar. */
+body.TWPT-threadtoolbar-shown ec-thread .scTailwindThreadThreadcontentreplies-section {
+  padding-top: 0.5rem;
+}
+
+/* Hide reply button when a thread is flattened, since it might not work correctly */
+body.TWPT-flattenthreads-enabled ec-thread sc-tailwind-thread-message-message-list:last-child .scTailwindThreadMessageMessagecardsub-content {
+  display: none;
+}

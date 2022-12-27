@@ -156,9 +156,19 @@
     context: 'experiments',
     killSwitchType: 'experiment',
   },
+  'flattenthreads': {
+    defaultVale: false,
+    context: 'experiments',
+    killSwitchType: 'experiment',
+  },
 
   // Internal options:
   'ccdarktheme_switch_enabled': {
+    defaultValue: true,
+    context: 'internal',
+    killSwitchType: 'ignore',
+  },
+  'flattenthreads_switch_enabled': {
     defaultValue: true,
     context: 'internal',
     killSwitchType: 'ignore',

@@ -9,10 +9,13 @@ import {injectDarkModeButton, isDarkThemeOn} from './darkMode.js';
 import {applyDragAndDropFixIfEnabled} from './dragAndDropFix.js';
 // #!endif
 import InfiniteScroll from './infiniteScroll.js';
+import {kRepliesSectionSelector} from './threadToolbar/constants.js';
+import ThreadToolbar from './threadToolbar/threadToolbar.js';
 import {unifiedProfilesFix} from './unifiedProfiles.js';
 import Workflows from './workflows/workflows.js';
 
-var mutationObserver, options, avatars, infiniteScroll, workflows;
+var mutationObserver, options, avatars, infiniteScroll, workflows,
+    threadToolbar;
 
 const watchedNodesSelectors = [
   // App container (used to set up the intersection observer and inject the dark
@@ -70,6 +73,9 @@ const watchedNodesSelectors = [
 
   // Thread page main content
   'ec-thread > .page > .material-content > div[role="list"]',
+
+  // Thread page reply section (for the thread page toolbar)
+  kRepliesSectionSelector,
 ];
 
 function handleCandidateNode(node) {
@@ -198,9 +204,15 @@ function handleCandidateNode(node) {
       window.TWPTExtraInfo.injectPerForumStatsIfEnabled(node);
     }
 
+    // Inject old thread page design warning if applicable
     if (node.matches(
             'ec-thread > .page > .material-content > div[role="list"]')) {
       window.TWPTThreadPageDesignWarning.injectWarningIfApplicable(node);
+    }
+
+    // Inject thread toolbar
+    if (threadToolbar.shouldInject(node)) {
+      threadToolbar.injectIfApplicable(node);
     }
   }
 }
@@ -238,6 +250,7 @@ getOptions(null).then(items => {
   avatars = new AvatarsHandler();
   infiniteScroll = new InfiniteScroll();
   workflows = new Workflows();
+  threadToolbar = new ThreadToolbar();
 
   // autoRefresh, extraInfo, threadPageDesignWarning and workflowsImport are
   // initialized in start.js
@@ -298,6 +311,8 @@ getOptions(null).then(items => {
   // Extra info
   injectStylesheet(chrome.runtime.getURL('css/extrainfo.css'));
   injectStylesheet(chrome.runtime.getURL('css/extrainfo_perforumstats.css'));
-  // Workflows
-  injectScript(chrome.runtime.getURL('workflowComponentsInject.bundle.js'));
+  // Workflows, Thread toolbar
+  injectScript(chrome.runtime.getURL('litComponentsInject.bundle.js'));
+  // Thread toolbar
+  injectStylesheet(chrome.runtime.getURL('css/thread_toolbar.css'));
 });

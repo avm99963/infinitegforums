@@ -84,7 +84,7 @@
         "batchLockInject.bundle.js",
         "xhrInterceptorInject.bundle.js",
         "extraInfoInject.bundle.js",
-        "workflowComponentsInject.bundle.js",
+        "litComponentsInject.bundle.js",
 
         "css/profileindicator_inject.css",
         "css/ccdarktheme.css",
@@ -101,6 +101,7 @@
         "css/ui_spacing/console.css",
         "css/ui_spacing/twbasic.css",
         "css/thread_page_design_warning.css",
+        "css/thread_toolbar.css",
 
         "communityConsoleMain.bundle.js.map",
         "communityConsoleStart.bundle.js.map",
