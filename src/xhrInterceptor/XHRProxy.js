@@ -19,7 +19,7 @@ function flattenOptions(options) {
 }
 
 // Slightly based in https://stackoverflow.com/a/24561614.
-class XHRProxy {
+export default class XHRProxy {
   constructor() {
     this.originalXMLHttpRequest = window.XMLHttpRequest;
     const classThis = this;
@@ -201,5 +201,3 @@ class XHRProxy {
     return this;
   }
 }
-
-new XHRProxy();
