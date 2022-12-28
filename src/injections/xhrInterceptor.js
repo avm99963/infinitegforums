@@ -82,7 +82,7 @@ class XHRProxy {
                 utils.matchInterceptors('response', this.$TWPTRequestURL);
             if (interceptors.length > 0) {
               this.xhr.addEventListener('load', function() {
-                var body = utils.getResponseJSON(this);
+                var body = utils.getResponseJSON(proxyThis);
                 if (body !== undefined)
                   interceptors.forEach(i => {
                     utils.triggerEvent(i.eventName, body, proxyThis.$TWPTID);
