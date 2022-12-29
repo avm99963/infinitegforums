@@ -22,7 +22,7 @@ function isExtensionStartup() {
   // don't know whether it's the extension startup.
   if (!chrome.storage.session) return Promise.resolve(true);
 
-  return new Promise((resolve, reject) => {
+  return new Promise(resolve => {
     return chrome.storage.session.get('hasAlreadyStarted', v => {
       resolve(v.hasAlreadyStarted !== true);
     });
@@ -79,7 +79,7 @@ chrome.storage.onChanged.addListener((changes, areaName) => {
   if (areaName !== 'sync') return;
   cleanUpOptPermissions();
 
-  for (let [key, {oldValue, newValue}] of Object.entries(changes)) {
+  for (let [key] of Object.entries(changes)) {
     handleBgOptionChange(key);
   }
 });
@@ -106,6 +106,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
       chrome.tabs.create({
         url: chrome.runtime.getURL('options/workflows.html'),
       });
+      break;
 
     default:
       console.warn('Unknown message "' + msg.message + '".');
