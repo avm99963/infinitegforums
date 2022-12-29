@@ -27,6 +27,7 @@
   "devDependencies": {
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.2.0",
+    "eslint": "^8.30.0",
     "json5": "^2.2.0",
     "path": "^0.12.7",
     "raw-loader": "^4.0.2",
