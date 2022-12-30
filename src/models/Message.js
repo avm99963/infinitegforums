@@ -12,7 +12,7 @@ export default class MessageModel {
   }
 
   getCreatedMicroseconds() {
-    const a = this.getCreatedTimestamp();
+    let a = this.getCreatedTimestamp();
     if (a === null) a = '0';
     return BigInt(a);
   }
@@ -31,6 +31,31 @@ export default class MessageModel {
   clearCommentsAndGaps() {
     this.commentsAndGaps = [];
     this.data[12] = [];
+  }
+
+  getPayload() {
+    return this.data[1]?.[4] ?? null;
+  }
+
+  setPayload(value) {
+    if (!this.data[1]) this.data[1] = [];
+    this.data[1][4] = value;
+  }
+
+  getId() {
+    return this.data[1]?.[1]?.[1] ?? null;
+  }
+
+  getAuthor() {
+    return this.data[3] ?? null;
+  }
+
+  getParentMessageId() {
+    return this.data[1]?.[37] ?? null;
+  }
+
+  isComment() {
+    return !!this.getParentMessageId;
   }
 
   toRawMessageOrGap() {

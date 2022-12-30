@@ -21,7 +21,7 @@ export default class GapModel {
   }
 
   getStartTimestamp() {
-    const a = this.getStartMicroseconds();
+    let a = this.getStartMicroseconds();
     if (a == null) a = '0';
     return BigInt(a);
   }
@@ -35,7 +35,7 @@ export default class GapModel {
   }
 
   getEndTimestamp() {
-    const a = this.getEndMicroseconds();
+    let a = this.getEndMicroseconds();
     if (a == null) a = '0';
     return BigInt(a);
   }

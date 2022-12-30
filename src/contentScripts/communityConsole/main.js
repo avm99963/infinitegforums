@@ -8,6 +8,7 @@ import {injectDarkModeButton, isDarkThemeOn} from './darkMode.js';
 // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
 import {applyDragAndDropFixIfEnabled} from './dragAndDropFix.js';
 // #!endif
+import {default as FlattenThreads, kReplyPayloadSelector} from './flattenThreads/flattenThreads.js';
 import InfiniteScroll from './infiniteScroll.js';
 import {kRepliesSectionSelector} from './threadToolbar/constants.js';
 import ThreadToolbar from './threadToolbar/threadToolbar.js';
@@ -15,7 +16,7 @@ import {unifiedProfilesFix} from './unifiedProfiles.js';
 import Workflows from './workflows/workflows.js';
 
 var mutationObserver, options, avatars, infiniteScroll, workflows,
-    threadToolbar;
+    threadToolbar, flattenThreads;
 
 const watchedNodesSelectors = [
   // App container (used to set up the intersection observer and inject the dark
@@ -76,6 +77,9 @@ const watchedNodesSelectors = [
 
   // Thread page reply section (for the thread page toolbar)
   kRepliesSectionSelector,
+
+  // Reply payload (for the flatten threads UI)
+  kReplyPayloadSelector,
 ];
 
 function handleCandidateNode(node) {
@@ -214,6 +218,11 @@ function handleCandidateNode(node) {
     if (threadToolbar.shouldInject(node)) {
       threadToolbar.injectIfApplicable(node);
     }
+
+    // Inject parent reply quote
+    if (flattenThreads.shouldInject(node)) {
+      flattenThreads.injectIfApplicable(node);
+    }
   }
 }
 
@@ -251,6 +260,7 @@ getOptions(null).then(items => {
   infiniteScroll = new InfiniteScroll();
   workflows = new Workflows();
   threadToolbar = new ThreadToolbar();
+  flattenThreads = new FlattenThreads();
 
   // autoRefresh, extraInfo, threadPageDesignWarning and workflowsImport are
   // initialized in start.js
