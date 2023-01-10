@@ -40,6 +40,9 @@
   --TWPT-md-ripple-hover-state-layer-color: white;
   --TWPT-md-ripple-pressed-state-layer-color: white;
   --TWPT-custom-md-icon-color: var(--TWPT-subtle-button-background);
+
+  /* TWPT features variables */
+  --TWPT-dark-flatten-replies-more-bg: rgba(89, 89, 89, 0.9);
 }
 
 body {

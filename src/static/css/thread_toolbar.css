@@ -4,6 +4,28 @@ body.TWPT-threadtoolbar-shown ec-thread .scTailwindThreadThreadcontentreplies-se
 }
 
 /* Hide reply button when a thread is flattened, since it might not work correctly */
-body.TWPT-flattenthreads-enabled ec-thread sc-tailwind-thread-message-message-list:last-child .scTailwindThreadMessageMessagecardsub-content {
-  display: none;
+@supports selector(:has(div)) {
+  body.TWPT-flattenthreads-enabled ec-thread sc-tailwind-thread-message-message-list:last-child .scTailwindThreadMessageMessagecardsub-content:not(:has(.scTailwindThreadMessageMessagecardreply-editor)) {
+    display: none;
+  }
+}
+/* Fallback support for browsers which do not support :has(...) */
+@supports not selector(:has(div)) {
+  body.TWPT-flattenthreads-enabled ec-thread sc-tailwind-thread-message-message-list:last-child .scTailwindThreadMessageMessagecardsub-content .scTailwindThreadMessageMessagecardaction {
+    padding: 0;
+  }
+
+  body.TWPT-flattenthreads-enabled ec-thread sc-tailwind-thread-message-message-list:last-child .scTailwindThreadMessageMessagecardsub-content .scTailwindThreadMessageMessagecardaction .scTailwindThreadMessageMessagecardadd-comment {
+    display: none;
+  }
+
+  body.TWPT-flattenthreads-enabled ec-thread sc-tailwind-thread-message-message-list:last-child .scTailwindThreadMessageMessagecardsub-content .scTailwindThreadMessageMessagecardaction .scTailwindThreadMessageMessagecardreply-editor {
+    margin: 0.5rem;
+  }
+
+  @media (min-width: 37.5rem) {
+    body.TWPT-flattenthreads-enabled ec-thread sc-tailwind-thread-message-message-list:last-child .scTailwindThreadMessageMessagecardsub-content .scTailwindThreadMessageMessagecardaction .scTailwindThreadMessageMessagecardreply-editor {
+      margin: 0.5rem 3.5rem;
+    }
+  }
 }

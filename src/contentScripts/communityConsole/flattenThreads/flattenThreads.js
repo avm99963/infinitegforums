@@ -4,6 +4,24 @@ export const kAdditionalInfoRegex =
 
 export const kReplyPayloadSelector =
     '.scTailwindThreadMessageMessagecardcontent:not(.scTailwindThreadMessageMessagecardpromoted) .scTailwindThreadPostcontentroot html-blob';
+export const kReplyActionButtonsSelector =
+    '.scTailwindThreadMessageMessagecardcontent:not(.scTailwindThreadMessageMessagecardpromoted) sc-tailwind-thread-message-message-actions';
+export const kMatchingSelectors = [
+  kReplyPayloadSelector,
+  kReplyActionButtonsSelector,
+];
+
+export function getExtraInfoNodes(node) {
+  const confirmedNodes = [];
+  const possibleExtraInfoNodes =
+      node.querySelectorAll('span[style*=\'display\'][style*=\'none\']');
+  for (const candidate of possibleExtraInfoNodes) {
+    const content = candidate.textContent;
+    const matches = content.match(kAdditionalInfoRegex);
+    if (matches) confirmedNodes.push(candidate);
+  }
+  return confirmedNodes;
+}
 
 export default class FlattenThreads {
   construct() {}
@@ -33,13 +51,18 @@ export default class FlattenThreads {
 
   injectQuote(node, extraInfo) {
     const content = node.closest('.scTailwindThreadPostcontentroot');
-    // @TODO: Change this by the actual quote component
-    const quote = document.createElement('div');
-    quote.textContent = 'QUOTE(' + extraInfo.parentMessage.id + ')';
+    const quote = document.createElement('twpt-flatten-thread-quote');
+    quote.setAttribute('prevMessage', JSON.stringify(extraInfo.prevMessage));
     content.prepend(quote);
   }
 
-  injectIfApplicable(node) {
+  injectReplyBtn(node, extraInfo) {
+    const btn = document.createElement('twpt-flatten-thread-reply-button');
+    btn.setAttribute('extraInfo', JSON.stringify(extraInfo));
+    node.prepend(btn);
+  }
+
+  injectQuoteIfApplicable(node) {
     // If we injected the additional information, it means the flatten threads
     // feature is enabled and in actual use, so we should inject the quote.
     const extraInfo = this.getExtraInfo(node);
@@ -49,7 +72,24 @@ export default class FlattenThreads {
     if (extraInfo.isComment) this.injectQuote(node, extraInfo);
   }
 
-  shouldInject(node) {
+  shouldInjectQuote(node) {
     return node.matches(kReplyPayloadSelector);
+  }
+
+  injectReplyBtnIfApplicable(node) {
+    // If we injected the additional information, it means the flatten threads
+    // feature is enabled and in actual use, so we should inject the reply
+    // button.
+    const root =
+        node.closest('.scTailwindThreadMessageMessagecardcontent')
+            .querySelector('.scTailwindThreadMessageMessagecardbody html-blob');
+    const extraInfo = this.getExtraInfo(root);
+    if (!extraInfo) return;
+
+    this.injectReplyBtn(node, extraInfo);
+  }
+
+  shouldInjectReplyBtn(node) {
+    return node.matches(kReplyActionButtonsSelector);
   }
 }

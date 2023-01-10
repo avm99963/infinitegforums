@@ -27,8 +27,14 @@ const loadMoreThread = {
 
     // Add some message data to the payload so the extension can show the parent
     // comment/reply in the case of comments.
+    let prevReplyId;
+    let prevReplyParentId;
     mogs.forEach(m => {
-      const info = this.getAdditionalInformation(m, mogs);
+      const info = this.getAdditionalInformation(
+          m, mogs, prevReplyId, prevReplyParentId);
+      prevReplyId = m.getId();
+      prevReplyParentId = info.parentId;
+
       const span = document.createElement('span');
       span.textContent = kAdditionalInfoPrefix + JSON.stringify(info);
       span.setAttribute('style', 'display: none');
@@ -52,25 +58,36 @@ const loadMoreThread = {
     response[1][8] = response[1][40].length;
     return response;
   },
-  getAdditionalInformation(message, mogs) {
+  getAdditionalInformation(message, mogs, prevReplyId, prevReplyParentId) {
     const id = message.getId();
     const parentId = message.getParentMessageId();
-    const parentMessage =
-        parentId ? mogs.find(m => m.getId() === parentId) : null;
-    if (!parentMessage) {
+    const authorName = message.getAuthor()?.[1]?.[1];
+    if (!parentId) {
       return {
         isComment: false,
         id,
+        authorName,
       };
     }
+
+    let prevId;
+    if (parentId === prevReplyParentId && prevReplyParentId)
+      prevId = prevReplyId;
+    else
+      prevId = parentId;
+
+    const prevMessage =
+        prevId ? mogs.find(m => m.getId() === prevId) : null;
 
     return {
       isComment: true,
       id,
-      parentMessage: {
-        id: parentId,
-        payload: parentMessage.getPayload(),
-        author: parentMessage.getAuthor(),
+      authorName,
+      parentId,
+      prevMessage: {
+        id: prevId,
+        payload: prevMessage.getPayload(),
+        author: prevMessage.getAuthor(),
       },
     };
   }

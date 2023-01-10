@@ -8,7 +8,7 @@ import {injectDarkModeButton, isDarkThemeOn} from './darkMode.js';
 // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
 import {applyDragAndDropFixIfEnabled} from './dragAndDropFix.js';
 // #!endif
-import {default as FlattenThreads, kReplyPayloadSelector} from './flattenThreads/flattenThreads.js';
+import {default as FlattenThreads, kMatchingSelectors as kFlattenThreadMatchingSelectors} from './flattenThreads/flattenThreads.js';
 import InfiniteScroll from './infiniteScroll.js';
 import {kRepliesSectionSelector} from './threadToolbar/constants.js';
 import ThreadToolbar from './threadToolbar/threadToolbar.js';
@@ -79,7 +79,7 @@ const watchedNodesSelectors = [
   kRepliesSectionSelector,
 
   // Reply payload (for the flatten threads UI)
-  kReplyPayloadSelector,
+  ...kFlattenThreadMatchingSelectors,
 ];
 
 function handleCandidateNode(node) {
@@ -220,20 +220,33 @@ function handleCandidateNode(node) {
     }
 
     // Inject parent reply quote
-    if (flattenThreads.shouldInject(node)) {
-      flattenThreads.injectIfApplicable(node);
+    if (flattenThreads.shouldInjectQuote(node)) {
+      flattenThreads.injectQuoteIfApplicable(node);
+    }
+
+    // Inject reply button in non-nested view
+    if (flattenThreads.shouldInjectReplyBtn(node)) {
+      flattenThreads.injectReplyBtnIfApplicable(node);
     }
   }
 }
 
-function handleRemovedNode(node) {
+function handleRemovedNode(mutation, node) {
+  if (!('tagName' in node)) return;
+
   // Remove snackbar when exiting thread list view
-  if ('tagName' in node && node.tagName == 'EC-THREAD-LIST') {
+  if (node.tagName == 'EC-THREAD-LIST') {
     window.TWPTAutoRefresh.hideUpdatePrompt();
+  }
+
+  // Readd reply button when the Community Console removes it
+  if (node.tagName == 'TWPT-FLATTEN-THREAD-REPLY-BUTTON') {
+    flattenThreads.injectReplyBtn(
+        mutation.target, JSON.parse(node.getAttribute('extraInfo')));
   }
 }
 
-function mutationCallback(mutationList, observer) {
+function mutationCallback(mutationList) {
   mutationList.forEach((mutation) => {
     if (mutation.type == 'childList') {
       mutation.addedNodes.forEach(function(node) {
@@ -241,7 +254,7 @@ function mutationCallback(mutationList, observer) {
       });
 
       mutation.removedNodes.forEach(function(node) {
-        handleRemovedNode(node);
+        handleRemovedNode(mutation, node);
       });
     }
   });
@@ -325,4 +338,6 @@ getOptions(null).then(items => {
   injectScript(chrome.runtime.getURL('litComponentsInject.bundle.js'));
   // Thread toolbar
   injectStylesheet(chrome.runtime.getURL('css/thread_toolbar.css'));
+  // Flatten threads
+  injectStylesheet(chrome.runtime.getURL('css/flatten_threads.css'));
 });

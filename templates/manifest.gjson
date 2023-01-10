@@ -102,6 +102,7 @@
         "css/ui_spacing/twbasic.css",
         "css/thread_page_design_warning.css",
         "css/thread_toolbar.css",
+        "css/flatten_threads.css",
 
         "communityConsoleMain.bundle.js.map",
         "communityConsoleStart.bundle.js.map",
