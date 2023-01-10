@@ -92,6 +92,7 @@ export default class TwptFlattenThreadReplyButton extends LitElement {
           editor?.querySelector('.scTailwindSharedRichtexteditoreditor');
 
       payload.prepend(...this.#defaultReply(messagePayload.innerHTML));
+      payload.scrollTop = payload.scrollHeight;
     });
   }
 }
