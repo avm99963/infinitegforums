@@ -20,15 +20,22 @@ export function inverseCorrectArrayKeys(input) {
       input = Array.from(input);
       input.shift();
     }
+
+    let object = [];
     for (let i = 0; i < input.length; ++i) {
-      input[i] = inverseCorrectArrayKeys(input[i]);
+      object[i] = inverseCorrectArrayKeys(input[i]);
     }
-    return input;
+    return object;
   }
 
   if (typeof input !== 'object' || input === null) return input;
 
-  let array = [];
+  const keys = Object.keys(input);
+  if (keys.length === 0) return [];
+
+  const maxItem = Math.max(...keys);
+  let array = Array(maxItem).fill(undefined);
+
   Object.entries(input).forEach(entry => {
     array[entry[0] - 1] = inverseCorrectArrayKeys(entry[1]);
   });

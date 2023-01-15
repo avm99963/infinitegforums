@@ -54,11 +54,11 @@ export default class ResponseModifier {
     });
   }
 
-  async intercept(request, response) {
+  async intercept(request) {
     const matchingModifiers = await this.#getMatchingModifiers(request);
 
     // If we didn't find any matching modifiers, return the response right away.
-    if (matchingModifiers.length === 0) return response;
+    if (matchingModifiers.length === 0) return request.xhr.response;
 
     // Otherwise, apply the modifiers sequentially and set the new response.
     let json = getResponseJSON({
@@ -70,7 +70,7 @@ export default class ResponseModifier {
     for (const modifier of matchingModifiers) {
       json = await modifier.interceptor(request, json);
     }
-    response = convertJSONToResponse(request, json);
+    const response = convertJSONToResponse(request, json);
     request.$newResponse = response;
     request.$responseModified = true;
   }

@@ -38,8 +38,9 @@ const loadMoreThread = {
     }
 
     const messageOrGapPromises = [];
-    messageOrGapPromises.push(Promise.resolve(mogs));
-    for (const mog of mogs) {
+    messageOrGapPromises.push(
+        Promise.resolve(mogs.filter(mog => mog !== undefined)));
+    mogs.forEach(mog => {
       if (mog instanceof GapModel) {
         messageOrGapPromises.push(this.loadGap(forumId, threadId, mog));
       }
@@ -50,7 +51,7 @@ const loadMoreThread = {
           }
         });
       }
-    }
+    });
 
     return Promise.all(messageOrGapPromises).then(res => {
       // #!if !production
@@ -60,6 +61,7 @@ const loadMoreThread = {
       // #!if !production
       console.timeEnd('mergeMessages');
       // #!endif
+
       if (mogs.some(mog => {
             return mog instanceof GapModel ||
                 mog.getCommentsAndGaps().some(cog => cog instanceof GapModel);

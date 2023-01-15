@@ -71,13 +71,13 @@ const loadMoreThread = {
     }
 
     let prevId;
-    if (parentId === prevReplyParentId && prevReplyParentId)
+    if (parentId == prevReplyParentId && prevReplyParentId)
       prevId = prevReplyId;
     else
       prevId = parentId;
 
     const prevMessage =
-        prevId ? mogs.find(m => m.getId() === prevId) : null;
+        prevId ? mogs.find(m => m.getId() == prevId) : null;
 
     return {
       isComment: true,
@@ -86,8 +86,8 @@ const loadMoreThread = {
       parentId,
       prevMessage: {
         id: prevId,
-        payload: prevMessage.getPayload(),
-        author: prevMessage.getAuthor(),
+        payload: prevMessage?.getPayload(),
+        author: prevMessage?.getAuthor(),
       },
     };
   }

@@ -42,7 +42,7 @@ export default class XHRProxy {
         this.xhr.addEventListener(eventName, function() {
           let p;
           if (eventName === 'load') {
-            p = classThis.responseModifier.intercept(proxyThis, this.response).then(() => {
+            p = classThis.responseModifier.intercept(proxyThis).then(() => {
               proxyThis.$responseIntercepted = true;
             });
           } else {
@@ -82,7 +82,12 @@ export default class XHRProxy {
                 utils.matchInterceptors('response', this.$TWPTRequestURL);
             if (interceptors.length > 0) {
               this.xhr.addEventListener('load', function() {
-                var body = utils.getResponseJSON(proxyThis);
+                var body = utils.getResponseJSON({
+                  responseType: proxyThis.xhr.responseType,
+                  response: proxyThis.xhr.response,
+                  $TWPTRequestURL: proxyThis.$TWPTRequestURL,
+                  $isArrayProto: proxyThis.$isArrayProto,
+                });
                 if (body !== undefined)
                   interceptors.forEach(i => {
                     utils.triggerEvent(i.eventName, body, proxyThis.$TWPTID);

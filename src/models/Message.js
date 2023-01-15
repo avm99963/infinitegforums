@@ -63,7 +63,7 @@ export default class MessageModel {
   }
 
   static mapToMessageOrGapModels(rawArray) {
-    return rawArray.map(mog => {
+    return rawArray.filter(mog => mog !== undefined).map(mog => {
       if (mog[1]) return new MessageModel(mog[1]);
       if (mog[2]) return new GapModel(mog[2]);
     });
