@@ -22,7 +22,7 @@ const loadMoreThread = {
     if (!forumId || !threadId) {
       console.error(
           '[loadMoreThread] Couldn\'t find forum id and thread id for:',
-          request.$TWPTRequestUrl);
+          request.$TWPTRequestURL);
       return response;
     }
 
