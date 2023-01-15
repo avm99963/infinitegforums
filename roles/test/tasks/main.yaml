@@ -1,0 +1,8 @@
+- name: Run tests
+  shell:
+    cmd: |
+      set -euxo pipefail
+      node --experimental-vm-modules ./node_modules/jest/bin/jest.js --ci |& tee out/jest-log.txt
+    chdir: "{{ zuul.project.src_dir }}"
+    executable: /bin/bash
+  changed_when: false

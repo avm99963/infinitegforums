@@ -11,6 +11,7 @@
     parent: web-ext-lint
     pre-run: playbooks/lint/pre.yaml
     run: playbooks/lint/run.yaml
+    post-run: playbooks/lint/post.yaml
     irrelevant-files:
       - ".github/.*"
       - "docs/.*"

@@ -1,0 +1,7 @@
+- name: Get Jest log
+  hosts: all
+  roles:
+    - fetch-log-file
+  vars:
+    sourceFile: "{{ zuul.project.src_dir }}/out/jest-log.txt"
+    logFileName: "jest-log.txt"
