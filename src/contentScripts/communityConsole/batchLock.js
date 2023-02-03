@@ -3,13 +3,14 @@ import {isOptionEnabled} from '../../common/optionsUtils.js';
 import {addButtonToThreadListActions, removeChildNodes, shouldAddBtnToActionBar, softRefreshView} from './utils/common.js';
 
 const kLockDebugId = 'twpt-lock';
+export const kModalPaneSelector = '.pane[pane-id="default--1"]';
 
 export var batchLock = {
   shouldAddButton(node) {
     return shouldAddBtnToActionBar(kLockDebugId, node);
   },
   createDialog() {
-    var modal = document.querySelector('.pane[pane-id="default-1"]');
+    var modal = document.querySelector(kModalPaneSelector);
 
     var dialog = document.createElement('material-dialog');
     dialog.setAttribute('role', 'dialog');

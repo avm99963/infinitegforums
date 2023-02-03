@@ -3,7 +3,7 @@ import {MDCTooltip} from '@material/tooltip';
 import {createPlainTooltip} from '../../../common/tooltip.js';
 
 export function removeChildNodes(node) {
-  while (node.firstChild) {
+  while (node?.firstChild) {
     node.removeChild(node.firstChild);
   }
 }

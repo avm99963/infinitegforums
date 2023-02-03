@@ -1,6 +1,7 @@
 import {CCApi} from '../common/api.js';
 import {parseUrl, recursiveParentElement} from '../common/commonUtils.js';
 import {getAuthUser} from '../common/communityConsoleUtils.js';
+import {kModalPaneSelector} from '../contentScripts/communityConsole/batchLock.js';
 
 // Source:
 // https://stackoverflow.com/questions/33063774/communication-from-an-injected-script-to-the-content-script-with-a-response
@@ -34,8 +35,9 @@ var contentScriptRequest = (function() {
 })();
 
 function enableEndButtons() {
-  var buttons = document.querySelectorAll(
-      '.pane[pane-id="default-1"] footer[data-footer-id="1"] material-button');
+  var buttons =
+      document.querySelector(kModalPaneSelector)
+          .querySelectorAll('footer[data-footer-id="1"] material-button');
   buttons.forEach(btn => {
     btn.classList.remove('is-disabled');
   });
@@ -74,7 +76,7 @@ function addLogEntry(success, action, url, threadId, errDetails = null) {
 }
 
 function lockThreads(action) {
-  var modal = document.querySelector('.pane[pane-id="default-1"]');
+  var modal = document.querySelector(kModalPaneSelector);
   modal.querySelector('footer[data-footer-id="0"]').classList.add('is-hidden');
   modal.querySelector('footer[data-footer-id="1"]')
       .classList.remove('is-hidden');
