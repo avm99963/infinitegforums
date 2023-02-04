@@ -1,5 +1,5 @@
 import {injectScript, injectStyles, injectStylesheet} from '../../common/contentScriptsUtils.js';
-import {getOptions, isOptionEnabled} from '../../common/optionsUtils.js';
+import {getOptions} from '../../common/optionsUtils.js';
 import {injectPreviousPostsLinksUnifiedProfileIfEnabled} from '../utilsCommon/unifiedProfiles.js';
 
 import AvatarsHandler from './avatars.js';
@@ -227,6 +227,11 @@ function handleCandidateNode(node) {
     // Inject reply button in non-nested view
     if (flattenThreads.shouldInjectReplyBtn(node)) {
       flattenThreads.injectReplyBtnIfApplicable(node);
+    }
+
+    // Delete additional info in the edit message box
+    if (flattenThreads.isAdditionalInfoElement(node)) {
+      flattenThreads.deleteAdditionalInfoElementIfApplicable(node);
     }
   }
 }

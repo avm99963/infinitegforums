@@ -74,4 +74,13 @@ export default class FlattenThreads {
   shouldInjectReplyBtn(node) {
     return node.matches(kReplyActionButtonsSelector);
   }
+
+  deleteAdditionalInfoElementIfApplicable(node) {
+    if (!node.closest('sc-tailwind-shared-rich-text-editor')) return;
+    node.remove();
+  }
+
+  isAdditionalInfoElement(node) {
+    return node.matches(kAdditionalInfoSelector);
+  }
 }
