@@ -166,7 +166,6 @@ export default class XHRProxy {
       'onprogress',
       'onreadystatechange',
       'readyState',
-      'responseText',
       'responseType',
       'responseXML',
       'status',
@@ -200,6 +199,13 @@ export default class XHRProxy {
     Object.defineProperty(window.XMLHttpRequest.prototype, 'originalResponse', {
       get: function() {
         return this.xhr.response;
+      },
+    });
+    Object.defineProperty(window.XMLHttpRequest.prototype, 'responseText', {
+      get: function() {
+        if (!this.$responseIntercepted) return undefined;
+        if (this.$responseModified) return this.$newResponseText;
+        return this.xhr.responseText;
       },
     });
 

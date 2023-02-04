@@ -78,7 +78,7 @@ export function convertJSONToResponse(xhr, json) {
       return JSON.stringify(json);
 
     case 'arraybuffer':
-      const encoder = new TextEncoder();
+      var encoder = new TextEncoder();
       return encoder.encode(JSON.stringify(json)).buffer;
 
     default:
@@ -87,6 +87,13 @@ export function convertJSONToResponse(xhr, json) {
           xhr.$TWPTRequestURL || xhr.responseURL);
       return undefined;
   }
+}
+
+export function convertJSONToResponseText(xhr, json) {
+  return convertJSONToResponse({
+    $isArrayProto: xhr.$isArrayProto,
+    responseType: 'text',
+  }, json);
 }
 
 export function triggerEvent(eventName, body, id) {

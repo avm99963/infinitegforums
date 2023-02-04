@@ -1,9 +1,9 @@
 import MWOptionsWatcherClient from '../../common/mainWorldOptionsWatcher/Client.js';
-import {convertJSONToResponse, getResponseJSON} from '../utils.js';
+import {convertJSONToResponse, convertJSONToResponseText, getResponseJSON} from '../utils.js';
 
-import loadMoreThread from './loadMoreThread.js';
-import flattenThread from './flattenThread.js';
 import createMessageRemoveParentRef from './createMessageRemoveParentRef.js';
+import flattenThread from './flattenThread.js';
+import loadMoreThread from './loadMoreThread.js';
 
 export const responseModifiers = [
   loadMoreThread,
@@ -72,8 +72,8 @@ export default class ResponseModifier {
     for (const modifier of matchingModifiers) {
       json = await modifier.interceptor(request, json);
     }
-    const response = convertJSONToResponse(request, json);
-    request.$newResponse = response;
+    request.$newResponse = convertJSONToResponse(request, json);
+    request.$newResponseText = convertJSONToResponseText(request, json);
     request.$responseModified = true;
   }
 }
