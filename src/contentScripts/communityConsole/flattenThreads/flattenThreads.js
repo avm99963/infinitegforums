@@ -1,45 +1,27 @@
-export const kAdditionalInfoPrefix = '__TWPT_FLATTENTHREADS_ADDITIONALINFO__';
-export const kAdditionalInfoRegex =
-    /^__TWPT_FLATTENTHREADS_ADDITIONALINFO__(.*)/;
+export const kAdditionalInfoClass = 'ck-indent-9996300035194';
 
 export const kReplyPayloadSelector =
     '.scTailwindThreadMessageMessagecardcontent:not(.scTailwindThreadMessageMessagecardpromoted) .scTailwindThreadPostcontentroot html-blob';
 export const kReplyActionButtonsSelector =
-    '.scTailwindThreadMessageMessagecardcontent:not(.scTailwindThreadMessageMessagecardpromoted) sc-tailwind-thread-message-message-actions';
+  '.scTailwindThreadMessageMessagecardcontent:not(.scTailwindThreadMessageMessagecardpromoted) sc-tailwind-thread-message-message-actions';
+export const kAdditionalInfoSelector = '.ck-indent-9996300035194';
 export const kMatchingSelectors = [
   kReplyPayloadSelector,
   kReplyActionButtonsSelector,
+  kAdditionalInfoSelector,
 ];
 
 export function getExtraInfoNodes(node) {
-  const confirmedNodes = [];
-  const possibleExtraInfoNodes =
-      node.querySelectorAll('span[style*=\'display\'][style*=\'none\']');
-  for (const candidate of possibleExtraInfoNodes) {
-    const content = candidate.textContent;
-    const matches = content.match(kAdditionalInfoRegex);
-    if (matches) confirmedNodes.push(candidate);
-  }
-  return confirmedNodes;
+  return node.querySelectorAll(kAdditionalInfoSelector);
 }
 
 export default class FlattenThreads {
   construct() {}
 
   getExtraInfo(node) {
-    let rawExtraInfo = null;
-    const possibleExtraInfoNodes =
-        node.querySelectorAll('span[style*=\'display\'][style*=\'none\']');
-    for (const candidate of possibleExtraInfoNodes) {
-      const content = candidate.textContent;
-      const matches = content.match(kAdditionalInfoRegex);
-      if (matches) {
-        rawExtraInfo = matches?.[1] ?? null;
-        break;
-      }
-    }
-    if (!rawExtraInfo) return null;
-    return JSON.parse(rawExtraInfo);
+    const extraInfoNode = node.querySelector(kAdditionalInfoSelector);
+    if (!extraInfoNode) return null;
+    return JSON.parse(extraInfoNode.textContent);
   }
 
   injectId(node, extraInfo) {

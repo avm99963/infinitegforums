@@ -1,4 +1,4 @@
-import {kAdditionalInfoPrefix} from '../../contentScripts/communityConsole/flattenThreads/flattenThreads.js';
+import {kAdditionalInfoClass} from '../../contentScripts/communityConsole/flattenThreads/flattenThreads.js';
 import GapModel from '../../models/Gap.js';
 import MessageModel from '../../models/Message.js';
 
@@ -35,10 +35,11 @@ const flattenThread = {
       prevReplyId = m.getId();
       prevReplyParentId = info.parentId;
 
-      const span = document.createElement('span');
-      span.textContent = kAdditionalInfoPrefix + JSON.stringify(info);
-      span.setAttribute('style', 'display: none');
-      m.newPayload = m.getPayload() + span.outerHTML;
+      const extraInfoEl = document.createElement('code');
+      extraInfoEl.textContent = JSON.stringify(info);
+      extraInfoEl.setAttribute('style', 'display: none');
+      extraInfoEl.classList.add(kAdditionalInfoClass);
+      m.newPayload = m.getPayload() + extraInfoEl.outerHTML;
     });
     mogs.forEach(m => m.setPayload(m.newPayload));
 
