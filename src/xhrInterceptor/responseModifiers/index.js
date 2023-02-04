@@ -3,10 +3,12 @@ import {convertJSONToResponse, getResponseJSON} from '../utils.js';
 
 import loadMoreThread from './loadMoreThread.js';
 import flattenThread from './flattenThread.js';
+import createMessageRemoveParentRef from './createMessageRemoveParentRef.js';
 
 export const responseModifiers = [
   loadMoreThread,
   flattenThread,
+  createMessageRemoveParentRef,
 ];
 
 // Content script target

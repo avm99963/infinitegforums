@@ -2,7 +2,7 @@ import {kAdditionalInfoPrefix} from '../../contentScripts/communityConsole/flatt
 import GapModel from '../../models/Gap.js';
 import MessageModel from '../../models/Message.js';
 
-const loadMoreThread = {
+const flattenThread = {
   urlRegex: /api\/ViewThread/i,
   featureGated: true,
   features: ['flattenthreads', 'flattenthreads_switch_enabled'],
@@ -42,6 +42,9 @@ const loadMoreThread = {
     });
     mogs.forEach(m => m.setPayload(m.newPayload));
 
+    // Clear parent_message_id fields
+    mogs.forEach(m => m.clearParentMessageId());
+
     // Sort the messages by date
     mogs.sort((a, b) => {
       const c = a instanceof MessageModel ? a.getCreatedMicroseconds() :
@@ -53,6 +56,10 @@ const loadMoreThread = {
     });
 
     response[1][40] = mogs.map(mog => mog.toRawMessageOrGap());
+
+    // Set last_message to the last message after sorting
+    if (response[1]?.[17]?.[3])
+      response[1][17][3] = response[1][40].slice(-1)?.[1];
 
     // Set num_messages to the updated value, since we've flattened the replies.
     response[1][8] = response[1][40].length;
@@ -76,8 +83,7 @@ const loadMoreThread = {
     else
       prevId = parentId;
 
-    const prevMessage =
-        prevId ? mogs.find(m => m.getId() == prevId) : null;
+    const prevMessage = prevId ? mogs.find(m => m.getId() == prevId) : null;
 
     return {
       isComment: true,
@@ -93,4 +99,4 @@ const loadMoreThread = {
   }
 };
 
-export default loadMoreThread;
+export default flattenThread;

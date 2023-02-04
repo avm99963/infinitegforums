@@ -54,6 +54,11 @@ export default class MessageModel {
     return this.data[1]?.[37] ?? null;
   }
 
+  clearParentMessageId() {
+    if (!this.data[1]) return;
+    delete this.data[1][37];
+  }
+
   isComment() {
     return !!this.getParentMessageId;
   }
