@@ -24,7 +24,7 @@ If you speak a language other than English, you can help translate the UI to
 your language! Just go to the following website and select your language to
 start translating:
 
-- https://avm99963-pontoon.herokuapp.com/projects/tw-power-tools/
+- https://i18n.avm99963.com/projects/tw-power-tools/
 
 ## Beta test the extension
 Releasing an update to the stable channel isn't always an easy task, because
