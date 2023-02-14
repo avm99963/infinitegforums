@@ -38,8 +38,10 @@ export default class TwptFlattenThreadQuote extends LitElement {
     }
 
     .quote-container:not(.quote-container--expanded) .payload-container {
-      max-height: 4rem;
+      max-height: 2.8rem;
       overflow: hidden;
+      mask-image: linear-gradient(rgb(0, 0, 0) 76%, transparent);
+      -webkit-mask-image: linear-gradient(rgb(0, 0, 0) 76%, transparent);
     }
 
     .payload-container twpt-flatten-thread-quote-author {
