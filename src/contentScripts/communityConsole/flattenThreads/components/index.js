@@ -78,7 +78,7 @@ export default class TwptFlattenThreadQuote extends LitElement {
 
     @media (hover: hover) {
       @supports selector(:has(div)) {
-        .quote-container:not(:hover) .buttons-row:not(:has(md-tonal-button:focus)) {
+        .quote-container:not(:hover) .buttons-row:not(:focus-within) {
           opacity: 0;
         }
       }

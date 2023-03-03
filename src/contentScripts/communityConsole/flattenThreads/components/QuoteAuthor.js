@@ -25,10 +25,15 @@ export default class TwptFlattenThreadQuoteAuthor extends LitElement {
       margin-right: 4px;
     }
 
+    .reply-icon {
+      font-size: 20px;
+    }
+
     .name {
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+      font-size: 15px;
     }
     `,
   ];
@@ -40,7 +45,7 @@ export default class TwptFlattenThreadQuoteAuthor extends LitElement {
 
   render() {
     return html`
-      <md-icon>reply</md-icon>
+      <md-icon class="reply-icon">reply</md-icon>
       <span class="name">${this.prevMessage?.author?.[1]?.[1]}</span>
       <md-standard-icon-button
           icon="arrow_upward"
