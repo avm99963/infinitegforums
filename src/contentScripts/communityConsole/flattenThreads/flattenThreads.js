@@ -3,7 +3,7 @@ export const kAdditionalInfoClass = 'ck-indent-9996300035194';
 export const kReplyPayloadSelector =
     '.scTailwindThreadMessageMessagecardcontent:not(.scTailwindThreadMessageMessagecardpromoted) .scTailwindThreadPostcontentroot html-blob';
 export const kReplyActionButtonsSelector =
-  '.scTailwindThreadMessageMessagecardcontent:not(.scTailwindThreadMessageMessagecardpromoted) sc-tailwind-thread-message-message-actions';
+    '.scTailwindThreadMessageMessagecardcontent:not(.scTailwindThreadMessageMessagecardpromoted) sc-tailwind-thread-message-message-actions';
 export const kAdditionalInfoSelector = '.ck-indent-9996300035194';
 export const kMatchingSelectors = [
   kReplyPayloadSelector,
@@ -66,7 +66,7 @@ export default class FlattenThreads {
         node.closest('.scTailwindThreadMessageMessagecardcontent')
             .querySelector('.scTailwindThreadMessageMessagecardbody html-blob');
     const extraInfo = this.getExtraInfo(root);
-    if (!extraInfo) return;
+    if (!extraInfo || !extraInfo.canComment) return;
 
     this.injectReplyBtn(node, extraInfo);
   }

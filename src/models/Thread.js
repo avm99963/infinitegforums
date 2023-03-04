@@ -2,6 +2,60 @@ import GapModel from './Gap.js';
 import MessageModel from './Message.js';
 
 export default class ThreadModel {
+  constructor(data) {
+    this.data = data ?? {};
+  }
+
+  getId() {
+    return this.data[2]?.[1]?.[1] ?? null;
+  }
+
+  getForumId() {
+    return this.data[2]?.[1]?.[3] ?? null;
+  }
+
+  getRawCommentsAndGaps() {
+    return this.data[40] ?? [];
+  }
+
+  setRawCommentsAndGaps(cogs) {
+    this.data[40] = cogs;
+  }
+
+  getMessageOrGapModels() {
+    const rawMogs = this.getRawCommentsAndGaps();
+    return rawMogs.filter(mog => mog !== undefined).map(mog => {
+      if (mog[1]) return new MessageModel(mog[1], this);
+      if (mog[2]) return new GapModel(mog[2], this);
+    });
+  }
+
+  setLastMessage(message) {
+    if (!this.data[17]) this.data[17] = [];
+    this.data[17][3] = message;
+  }
+
+  setNumMessages(num) {
+    this.data[8] = num;
+  }
+
+  isLocked() {
+    // TODO: When a forum is read-only, this should also return true.
+    return this.data[2]?.[5] == true;
+  }
+
+  isSoftLocked() {
+    return this.data[2]?.[51] == true;
+  }
+
+  isAuthoredByUser() {
+    return this.data[9] == true;
+  }
+
+  toRawThread() {
+    return this.data;
+  }
+
   /**
    * The following code is based on logic written by Googlers in the TW frontend
    * and thus is not included as part of the MIT license.

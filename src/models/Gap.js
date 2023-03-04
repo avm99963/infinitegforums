@@ -1,6 +1,9 @@
+import ThreadModel from './Thread.js';
+
 export default class GapModel {
-  constructor(data) {
+  constructor(data, thread) {
     this.data = data ?? {};
+    this.thread = thread ?? new ThreadModel();
   }
 
   getCount() {

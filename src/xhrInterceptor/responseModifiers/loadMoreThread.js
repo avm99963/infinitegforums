@@ -17,17 +17,20 @@ const loadMoreThread = {
   async interceptor(request, response) {
     if (!response[1]?.[40]) return response;
 
-    const forumId = response[1]?.[2]?.[1]?.[3];
-    const threadId = response[1]?.[2]?.[1]?.[1];
-    if (!forumId || !threadId) {
+    const thread = new ThreadModel(response[1]);
+
+    if (!thread.getForumId() || !thread.getId()) {
       console.error(
           '[loadMoreThread] Couldn\'t find forum id and thread id for:',
           request.$TWPTRequestURL);
       return response;
     }
 
-    const mogs = MessageModel.mapToMessageOrGapModels(response[1]?.[40] ?? []);
-    response[1][40] = await this.loadGaps(forumId, threadId, mogs, 0);
+    const mogs = thread.getMessageOrGapModels();
+    thread.setRawCommentsAndGaps(
+        await this.loadGaps(thread.getForumId(), thread.getId(), mogs, 0));
+
+    response[1] = thread.toRawThread();
     return response;
   },
   loadGaps(forumId, threadId, mogs, it) {
@@ -94,7 +97,8 @@ const loadMoreThread = {
                },
                /* authenticated = */ true, authuser)
         .then(res => {
-          return MessageModel.mapToMessageOrGapModels(res[1]?.[40] ?? []);
+          const thread = new ThreadModel(res[1]);
+          return thread.getMessageOrGapModels();
         });
   }
 };

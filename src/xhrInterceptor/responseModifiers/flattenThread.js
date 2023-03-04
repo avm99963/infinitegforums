@@ -1,6 +1,10 @@
 import {kAdditionalInfoClass} from '../../contentScripts/communityConsole/flattenThreads/flattenThreads.js';
 import GapModel from '../../models/Gap.js';
 import MessageModel from '../../models/Message.js';
+import StartupDataModel from '../../models/StartupData.js';
+import ThreadModel from '../../models/Thread.js';
+
+const currentUser = StartupDataModel.buildFromCCDOM().getCurrentUserModel();
 
 const flattenThread = {
   urlRegex: /api\/ViewThread/i,
@@ -13,9 +17,10 @@ const flattenThread = {
   async interceptor(_request, response) {
     if (!response[1]?.[40]) return response;
 
+    const thread = new ThreadModel(response[1]);
+
     // Do the actual flattening
-    const originalMogs =
-        MessageModel.mapToMessageOrGapModels(response[1][40] ?? []);
+    const originalMogs = thread.getMessageOrGapModels();
     let extraMogs = [];
     originalMogs.forEach(mog => {
       if (mog instanceof GapModel) return;
@@ -56,25 +61,28 @@ const flattenThread = {
       return diff > 0 ? 1 : diff < 0 ? -1 : 0;
     });
 
-    response[1][40] = mogs.map(mog => mog.toRawMessageOrGap());
+    thread.setRawCommentsAndGaps(mogs.map(mog => mog.toRawMessageOrGap()));
 
     // Set last_message to the last message after sorting
-    if (response[1]?.[17]?.[3])
-      response[1][17][3] = response[1][40].slice(-1)?.[1];
+    thread.setLastMessage(thread.getRawCommentsAndGaps().slice(-1)?.[1]);
 
     // Set num_messages to the updated value, since we've flattened the replies.
-    response[1][8] = response[1][40].length;
+    thread.setNumMessages(thread.getRawCommentsAndGaps().length);
+
+    response[1] = thread.toRawThread();
     return response;
   },
   getAdditionalInformation(message, mogs, prevReplyId, prevReplyParentId) {
     const id = message.getId();
     const parentId = message.getParentMessageId();
     const authorName = message.getAuthor()?.[1]?.[1];
+    const canComment = message.canComment(currentUser);
     if (!parentId) {
       return {
         isComment: false,
         id,
         authorName,
+        canComment,
       };
     }
 
@@ -96,8 +104,9 @@ const flattenThread = {
         payload: prevMessage?.getPayload(),
         author: prevMessage?.getAuthor(),
       },
+      canComment,
     };
-  }
+  },
 };
 
 export default flattenThread;
