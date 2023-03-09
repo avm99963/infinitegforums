@@ -1,4 +1,5 @@
 import {injectScript, injectStylesheet} from '../../common/contentScriptsUtils.js';
+import MWI18nServer from '../../common/mainWorldI18n/Server.js';
 import MWOptionsWatcherServer from '../../common/mainWorldOptionsWatcher/Server.js';
 import {getOptions} from '../../common/optionsUtils.js';
 import {kCSTarget, kMWTarget} from '../../xhrInterceptor/responseModifiers/index.js';
@@ -78,4 +79,5 @@ getOptions(null).then(options => {
   }
 
   new MWOptionsWatcherServer(kCSTarget, kMWTarget);
+  new MWI18nServer();
 });
