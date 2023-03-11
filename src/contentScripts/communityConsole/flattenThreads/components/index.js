@@ -5,14 +5,16 @@ import './QuoteAuthor.js';
 // Other components imported so they are also injected:
 import './ReplyButton.js';
 
+import {msg} from '@lit/localize';
 import * as DOMPurify from 'dompurify';
-import {css, html, LitElement} from 'lit';
+import {css, html} from 'lit';
 import {classMap} from 'lit/directives/class-map.js';
 import {unsafeHTML} from 'lit/directives/unsafe-html.js';
 
+import {I18nLitElement} from '../../../../common/litI18nUtils.js';
 import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
 
-export default class TwptFlattenThreadQuote extends LitElement {
+export default class TwptFlattenThreadQuote extends I18nLitElement {
   static properties = {
     prevMessage: {type: Object},
     _expanded: {type: Boolean},
@@ -113,6 +115,12 @@ export default class TwptFlattenThreadQuote extends LitElement {
       'quote-container': true,
       'quote-container--expanded': this._expanded,
     });
+    const lessMsg = msg('Less', {
+      desc: 'Button to collapse the quote message (used in the flatten threads feature).',
+    });
+    const moreMsg = msg('More', {
+      desc: 'Button to expand the quote message (used in the flatten threads feature).',
+    });
     return html`
       <div class=${containerClasses}>
         <div class="payload-container">
@@ -126,7 +134,7 @@ export default class TwptFlattenThreadQuote extends LitElement {
         <div class="buttons-row">
           <md-tonal-button
               icon="${this._expanded ? 'expand_less' : 'expand_more'}"
-              label="${this._expanded ? 'Less' : 'More'}"
+              label="${this._expanded ? lessMsg : moreMsg}"
               @click=${this.toggleExpanded}>
           </md-tonal-button>
         </div>

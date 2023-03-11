@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+<file target-language="ru" source-language="en" original="lit-localize-inputs" datatype="plaintext">
+<body>
+<trans-unit id="s0b7ae9543c001867">
+  <source>Reply</source>
+  <note from="lit-localize">Button which is used to open the reply box.</note>
+</trans-unit>
+<trans-unit id="sa5ef80b4bb9b39f8">
+  <source>Less</source>
+  <note from="lit-localize">Button to collapse the quote message (used in the flatten threads feature).</note>
+</trans-unit>
+<trans-unit id="s37a9e8aec5713460">
+  <source>More</source>
+  <note from="lit-localize">Button to expand the quote message (used in the flatten threads feature).</note>
+</trans-unit>
+</body>
+</file>
+</xliff>

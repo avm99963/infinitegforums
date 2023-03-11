@@ -1,12 +1,14 @@
 import '@material/web/button/outlined-button.js';
 
-import {css, html, LitElement} from 'lit';
+import {msg} from '@lit/localize';
+import {css, html} from 'lit';
 import {waitFor} from 'poll-until-promise';
 
+import {I18nLitElement} from '../../../../common/litI18nUtils.js';
 import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
 import {getExtraInfoNodes} from '../flattenThreads.js';
 
-export default class TwptFlattenThreadReplyButton extends LitElement {
+export default class TwptFlattenThreadReplyButton extends I18nLitElement {
   static properties = {
     extraInfo: {type: Object},
   };
@@ -29,7 +31,9 @@ export default class TwptFlattenThreadReplyButton extends LitElement {
   render() {
     return html`
       <md-outlined-button
-          label="Reply"
+          label="${msg('Reply', {
+            desc: 'Button which is used to open the reply box.',
+          })}"
           @click=${this.openReplyEditor}>
       </md-outlined-button>
     `;

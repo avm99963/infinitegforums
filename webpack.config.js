@@ -93,6 +93,10 @@ module.exports = (env, args) => {
     },
     plugins: [
       new WebpackShellPluginNext({
+        onBuildStart: {
+          scripts: ['make lit_localize_build'],
+          blocking: true,
+        },
         onBuildEnd: {
           scripts:
               ['genmanifest -template templates/manifest.gjson -dest ' +
@@ -165,7 +169,8 @@ module.exports = (env, args) => {
         new TerserPlugin({
           terserOptions: {
             format: {
-              ascii_only: true, // Due to https://iavm.xyz/b/twpowertools/145#c1
+              ascii_only:
+                  true,  // Due to https://iavm.xyz/b/twpowertools/145#c1
             },
           },
         }),

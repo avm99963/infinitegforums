@@ -26,6 +26,7 @@
   ],
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.20.11",
+    "@lit/localize-tools": "^0.6.7",
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.2.0",
     "eslint": "^8.30.0",
@@ -44,6 +45,7 @@
   },
   "private": true,
   "dependencies": {
+    "@lit/localize": "^0.11.4",
     "@material/mwc-circular-progress": "^0.27.0",
     "@material/mwc-dialog": "^0.27.0",
     "@material/tooltip": "^12.0.0",

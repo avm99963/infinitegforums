@@ -1,0 +1,36 @@
+{
+  "$schema": "https://raw.githubusercontent.com/lit/lit/main/packages/localize-tools/config.schema.json",
+  "sourceLocale": "en",
+  "targetLocales": [
+    "ar",
+    "ca",
+    "de",
+    "es",
+    "fr",
+    "id",
+    "it",
+    "ja",
+    "ko",
+    "pl",
+    "pt_BR",
+    "ru",
+    "th",
+    "tr",
+    "vi"
+  ],
+  "inputFiles": [
+    "src/contentScripts/communityConsole/flattenThreads/components/**/*.js",
+    "src/contentScripts/communityConsole/workflows/components/**/*.js",
+    "src/contentScripts/communityConsole/threadToolbar/components/**/*.js",
+    "src/workflows/manager/components/**/*.js"
+  ],
+  "output": {
+    "mode": "runtime",
+    "outputDir": "./src/lit-locales/generated",
+    "localeCodesModule": "./src/lit-locales/generated/locales.js"
+  },
+  "interchange": {
+    "format": "xliff",
+    "xliffDir": "./src/lit-locales/source"
+  }
+}
