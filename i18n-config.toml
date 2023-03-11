@@ -32,4 +32,5 @@ branches = [
   l10n = "cws/{android_locale}/listing-description.lang"
 
 [[paths]]
+  reference = "src/lit-locales/source/es.xlf"
   l10n = "src/lit-locales/source/{android_locale}.xlf"
