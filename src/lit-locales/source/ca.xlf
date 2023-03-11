@@ -17,6 +17,9 @@
         <target>Més</target>
         <note from="lit-localize">Button to expand the quote message (used in the flatten threads feature).</note>
       </trans-unit>
+<trans-unit id="s6b0ed0c74667d28c">
+  <source><x id="0" equiv-text="${authorName}"/> said:</source>
+</trans-unit>
     </body>
   </file>
 </xliff>

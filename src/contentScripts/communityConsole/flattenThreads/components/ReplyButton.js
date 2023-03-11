@@ -1,6 +1,6 @@
 import '@material/web/button/outlined-button.js';
 
-import {msg} from '@lit/localize';
+import {msg, str} from '@lit/localize';
 import {css, html} from 'lit';
 import {waitFor} from 'poll-until-promise';
 
@@ -32,8 +32,8 @@ export default class TwptFlattenThreadReplyButton extends I18nLitElement {
     return html`
       <md-outlined-button
           label="${msg('Reply', {
-            desc: 'Button which is used to open the reply box.',
-          })}"
+      desc: 'Button which is used to open the reply box.',
+    })}"
           @click=${this.openReplyEditor}>
       </md-outlined-button>
     `;
@@ -42,7 +42,8 @@ export default class TwptFlattenThreadReplyButton extends I18nLitElement {
   #defaultReply(messagePayload) {
     const quoteHeader = document.createElement('div');
     const italics = document.createElement('i');
-    italics.textContent = this.extraInfo?.authorName + ' said:';
+    const authorName = this.extraInfo?.authorName;
+    italics.textContent = msg(str`${authorName} said:`);
     quoteHeader.append(italics);
 
     const quote = document.createElement('blockquote');
