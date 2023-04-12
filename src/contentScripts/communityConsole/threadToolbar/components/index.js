@@ -19,11 +19,16 @@ export default class TwptThreadToolbarInject extends LitElement {
     css`${unsafeCSS(consoleCommonStyles)}`,
     css`
       :host {
+        display: block;
+        padding-top: 1rem;
+      }
+
+      .toolbar {
         display: flex;
         flex-flow: row wrap;
         align-items: center;
         row-gap: 0.5rem;
-        padding-top: 1.5rem;
+        padding-top: 0.5rem;
         padding-left: 0.25rem;
         padding-right: 0.25rem;
         padding-bottom: 0.5rem;
@@ -71,9 +76,14 @@ export default class TwptThreadToolbarInject extends LitElement {
   }
 
   render() {
+    // NOTE: Keep this in sync!
+    if (!this.options.flattenthreads) return nothing;
+
     return html`
-      ${this.renderBadge()}
-      ${this.renderFlattenRepliesSwitch()}
+      <div class="toolbar">
+        ${this.renderBadge()}
+        ${this.renderFlattenRepliesSwitch()}
+      </div>
     `;
   }
 
