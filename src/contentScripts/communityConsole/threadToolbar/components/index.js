@@ -1,7 +1,9 @@
 import '@material/web/formfield/formfield.js';
+import '@material/web/icon/icon.js';
 import '@material/web/switch/switch.js';
 
-import {css, html, LitElement, nothing} from 'lit';
+import consoleCommonStyles from '!!raw-loader!../../../../static/css/common/console.css';
+import {css, html, LitElement, nothing, unsafeCSS} from 'lit';
 import {createRef, ref} from 'lit/directives/ref.js';
 
 import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
@@ -14,14 +16,27 @@ export default class TwptThreadToolbarInject extends LitElement {
 
   static styles = [
     SHARED_MD3_STYLES,
+    css`${unsafeCSS(consoleCommonStyles)}`,
     css`
       :host {
         display: flex;
-        flex-direction: row;
+        flex-flow: row wrap;
+        align-items: center;
+        row-gap: 0.5rem;
         padding-top: 1.5rem;
         padding-left: 0.25rem;
         padding-right: 0.25rem;
         padding-bottom: 0.5rem;
+      }
+
+      .badge-container {
+        padding-right: 0.5rem;
+        border-right: solid gray 1px;
+        margin-right: 0.5rem;
+      }
+
+      .TWPT-badge {
+        --icon-size: 17px;
       }
     `,
   ];
@@ -31,6 +46,16 @@ export default class TwptThreadToolbarInject extends LitElement {
   constructor() {
     super();
     this.options = {};
+  }
+
+  renderBadge() {
+    return html`
+      <div class="badge-container">
+        <div class="TWPT-badge">
+          <md-icon>repeat</md-icon>
+        </div>
+      </div>
+    `;
   }
 
   renderFlattenRepliesSwitch() {
@@ -47,6 +72,7 @@ export default class TwptThreadToolbarInject extends LitElement {
 
   render() {
     return html`
+      ${this.renderBadge()}
       ${this.renderFlattenRepliesSwitch()}
     `;
   }
