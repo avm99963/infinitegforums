@@ -139,6 +139,11 @@
     context: 'options',
     killSwitchType: 'option',
   },
+  'flattenthreads': {
+    defaultVale: false,
+    context: 'options',
+    killSwitchType: 'option',
+  },
 
   // Experiments:
   'workflows': {
@@ -153,11 +158,6 @@
   },
   'nestedreplies': {
     defaultValue: false,
-    context: 'experiments',
-    killSwitchType: 'experiment',
-  },
-  'flattenthreads': {
-    defaultVale: false,
     context: 'experiments',
     killSwitchType: 'experiment',
   },

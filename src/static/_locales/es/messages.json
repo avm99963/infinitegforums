@@ -179,6 +179,10 @@
     "message": "Reduce el espacio en blanco en la Consola de la Comunidad y TW.",
     "description": "Feature checkbox in the options page"
   },
+  "options_flattenthreads": {
+    "message": "Muestra un selector para activar/desactivar la vista anidada en los hilos.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Guardar",
     "description": "Button in the options page to save the settings"

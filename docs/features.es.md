@@ -228,7 +228,7 @@ la Consola de la Comunidad._
 
 Una imagen vale más que mil palabras:
 
-![Animated GIF showing the feature](resources/per_forum_activity_chart.gif)
+![GIF animado que muestra la función](resources/per_forum_activity_chart.gif)
 
 ### Diseño de los hilos en la Consola de la Comnuidad
 > **Opción:** _Muestra el diseño viejo/nuevo de los hilos en la Consola de
@@ -251,6 +251,17 @@ También reduce el espacio en blanco en las listas de hilos en pantallas pequeñ
 para que los títulos quepan mejor y se puedan leer:
 
 ![Imagen mostrando cómo se reduce el espacio en blanco en la página de la lista de hilos en móvil](resources/ui_spacing_2.png)
+
+### Allana los hilos
+> **Opción:** _Muestra un selector para activar/desactivar la vista anidada en
+los hilos._
+
+Esta opción añade un selector en los hilos justo debajo del post principal que
+te permite cambiar entre la vista anidada que hay por defecto y una nueva vista
+que muestra todas las respuestas en una vista lineal y no anidada, como
+anteriormente.
+
+![GIF animado que muestra cómo se usa la función](resources/flatten_threads.gif)
 
 ## Punto indicador
 > **Opciones:** _Muestra si el autor del hilo ha participado en otros hilos_,

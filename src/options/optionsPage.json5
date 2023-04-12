@@ -11,6 +11,7 @@
         {codename: 'threadall'},
         {codename: 'ccdarktheme'},
         {codename: 'threadlistavatars'},
+        {codename: 'flattenthreads'},
         {codename: 'history'},
         {codename: 'perforumstats'},
         {codename: 'batchlock'},

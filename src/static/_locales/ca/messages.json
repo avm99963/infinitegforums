@@ -179,6 +179,10 @@
     "message": "Redueix l'espai en blanc a la Consola de la Comunitat i TW.",
     "description": "Feature checkbox in the options page"
   },
+  "options_flattenthreads": {
+    "message": "Mostra un selector per activar/desactivar la vista anidada als fils.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Desa",
     "description": "Button in the options page to save the settings"

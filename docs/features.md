@@ -252,6 +252,15 @@ better and can be read:
 
 ![Picture showing how whitespace is reduced in the thread list page in mobile](resources/ui_spacing_2.png)
 
+### Flatten threads
+> **Option name:** _Show a toggle to enable/disable nested view in threads._
+
+This option shows a toggle in threads just below the main post which lets you
+switch between the vanilla nested view and a new view which shows all replies
+in a linear non-nested view, just like before.
+
+![Animated GIF showing how the feature is used](resources/flatten_threads.gif)
+
 ## Indicator dot
 > **Option names:** _Show whether the OP has participated in other threads_,
 _Show the number of questions and replies written by the OP within the last `n`
