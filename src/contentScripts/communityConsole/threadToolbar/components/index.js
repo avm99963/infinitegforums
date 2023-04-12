@@ -3,13 +3,15 @@ import '@material/web/icon/icon.js';
 import '@material/web/switch/switch.js';
 
 import consoleCommonStyles from '!!raw-loader!../../../../static/css/common/console.css';
-import {css, html, LitElement, nothing, unsafeCSS} from 'lit';
+import {msg} from '@lit/localize';
+import {css, html, nothing, unsafeCSS} from 'lit';
 import {createRef, ref} from 'lit/directives/ref.js';
 
+import {I18nLitElement} from '../../../../common/litI18nUtils.js';
 import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
 import {kEventFlattenThreadsUpdated} from '../constants.js';
 
-export default class TwptThreadToolbarInject extends LitElement {
+export default class TwptThreadToolbarInject extends I18nLitElement {
   static properties = {
     options: {type: Object},
   };
@@ -66,8 +68,12 @@ export default class TwptThreadToolbarInject extends LitElement {
   renderFlattenRepliesSwitch() {
     if (!this.options.flattenthreads) return nothing;
 
+    const nestedViewMsg = msg('Nested view', {
+      desc:
+          'Label for the switch which lets users enable/disable the nested view in a thread.',
+    });
     return html`
-      <md-formfield label="Nested view">
+      <md-formfield label="${nestedViewMsg}">
         <md-switch ${ref(this.nestedViewRef)}
             ?selected=${!this.options?.flattenthreads_switch_enabled}
             @click=${this._flattenThreadsChanged}>

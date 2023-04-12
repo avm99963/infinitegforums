@@ -21,6 +21,11 @@
   <source><x id="0" equiv-text="${authorName}"/> said:</source>
         <target><x id="0" equiv-text="${authorName}"/> va dir:</target>
       </trans-unit>
+<trans-unit id="s98a0ccd6f423421f">
+  <source>Nested view</source>
+  <target>Vista anidada</target>
+  <note from="lit-localize">Label for the switch which lets users enable/disable the nested view in a thread.</note>
+</trans-unit>
     </body>
   </file>
 </xliff>
