@@ -19,12 +19,13 @@
       </trans-unit>
       <trans-unit id="s6b0ed0c74667d28c" xml:space="preserve">
   <source><x id="0" equiv-text="${authorName}"/> said:</source>
-      <target><x id="0" equiv-text="${authorName}"/> قال:</target>
+        <target><x id="0" equiv-text="${authorName}"/> قال:</target>
       </trans-unit>
-<trans-unit id="s98a0ccd6f423421f">
+      <trans-unit id="s98a0ccd6f423421f" xml:space="preserve">
   <source>Nested view</source>
-  <note from="lit-localize">Label for the switch which lets users enable/disable the nested view in a thread.</note>
-</trans-unit>
+        <target>عَرض متداخِل</target>
+        <note from="lit-localize">Label for the switch which lets users enable/disable the nested view in a thread.</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>
