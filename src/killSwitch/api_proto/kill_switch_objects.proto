@@ -12,6 +12,7 @@ message Feature {
     TYPE_UNKNOWN = 0;
     TYPE_EXPERIMENT = 1;
     TYPE_OPTION = 2;
+    TYPE_INTERNAL_KILL_SWITCH = 3;
     TYPE_DEPRECATED = 10;
   }
   Type type = 3;

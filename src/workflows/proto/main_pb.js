@@ -1223,7 +1223,8 @@ proto.workflows.Action.MoveAction.prototype.getPropertyMap = function(opt_noLazy
  */
 proto.workflows.Action.MoveAction.prototype.clearPropertyMap = function() {
   this.getPropertyMap().clear();
-  return this;};
+  return this;
+};
 
 
 
