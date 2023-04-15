@@ -12,6 +12,12 @@ import WorkflowsImport from './workflows/import.js';
 const SMEI_NESTED_REPLIES = 15;
 const SMEI_RCE_THREAD_INTEROP = 22;
 
+// The servers should be available as soon as possible, since e.g. the XHRProxy
+// already sends a request to the optionsWatcher server as soon as it is
+// constructed.
+new MWOptionsWatcherServer(kCSTarget, kMWTarget);
+new MWI18nServer();
+
 injectScript(
     chrome.runtime.getURL('xhrInterceptorInject.bundle.js'),
     /* prepend = */ true);
@@ -77,7 +83,4 @@ getOptions(null).then(options => {
     injectStylesheet(chrome.runtime.getURL('css/ui_spacing/shared.css'));
     injectStylesheet(chrome.runtime.getURL('css/ui_spacing/console.css'));
   }
-
-  new MWOptionsWatcherServer(kCSTarget, kMWTarget);
-  new MWI18nServer();
 });
