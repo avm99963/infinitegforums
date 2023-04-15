@@ -140,7 +140,7 @@
     killSwitchType: 'option',
   },
   'flattenthreads': {
-    defaultVale: false,
+    defaultValue: false,
     context: 'options',
     killSwitchType: 'option',
   },
