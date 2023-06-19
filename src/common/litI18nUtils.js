@@ -16,7 +16,7 @@ export class I18nLitElement extends LitElement {
 
   #setUpLitL10n() {
     let pLocale;
-    if (chrome.i18n) {
+    if (typeof chrome !== 'undefined' && chrome.i18n) {
       pLocale = Promise.resolve(chrome.i18n.getUILanguage());
     } else {
       pLocale = this.#MWI18nClient.getUILanguage();

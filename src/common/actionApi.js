@@ -1,5 +1,5 @@
 // #!if browser_target == 'chromium_mv3'
-export default chrome.action;
+export default typeof chrome !== 'undefined' ? chrome.action : undefined;
 // #!else
-export default chrome.browserAction;
+export default typeof chrome !== 'undefined' ? chrome.browserAction : undefined;
 // #!endif
