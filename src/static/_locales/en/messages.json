@@ -56,7 +56,7 @@
     "description": "Feature checkbox in the options page"
   },
   "options_fixedtoolbar": {
-    "message": "Fix the toolbar in thread lists in the Community Console.",
+    "message": "Make the toolbar stick at the top of thread lists in the Community Console.",
     "description": "Feature checkbox in the options page"
   },
   "options_redirect": {
