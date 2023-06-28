@@ -104,7 +104,7 @@
     "description": "Feature checkbox in the options page"
   },
   "options_batchlock": {
-    "message": "Добавить возможность закрытия нескольких тем из списка тем Консоли сообщества.",
+    "message": "Добавить возможность блокировки нескольких тем из списка тем Консоли сообщества.",
     "description": "Feature checkbox in the options page"
   },
   "options_enhancedannouncementsdot": {
@@ -132,11 +132,55 @@
     "description": "Link to learn more about the profile indicator feature"
   },
   "options_profileindicator": {
-    "message": "Показать, <span class=\"help\" title=\"Если автор темы участвовал в других обсуждениях рядом с его именем будет отображаться красная точка. Если были прочитаны самые последние сообщения автора темы, будет показана оранжевая точка. Вы можете навести курсор мыши на точку, чтобы показать значение ее цвета.\"> участвовал ли автор темы в других обсуждениях</span>.",
+    "message": "Показать, <span class=\"help\" title=\"Если автор темы участвовал в других записях, рядом с его именем пользователя будет показана красная точка. Если последние сообщения автора темы были прочитаны, вместо неё будет показана оранжевая точка. Вы можете навести курсор мыши на точку, чтобы показать значение её цвета.\">участвовал ли автор темы в других темах</span>.",
     "description": "Feature checkbox in the options page"
   },
   "options_profileindicatoralt": {
-    "message": "Показывать количество вопросов и ответов, написанных автором темы за последние <span id='profileindicatoralt_months--container'></span> месяцев рядом с их именем пользователя.",
+    "message": "Показывать количество вопросов и ответов, написанных автором темы за последние <span id='profileindicatoralt_months--container'></span> месяцев, рядом с его именем пользователя.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_blockdrafts": {
+    "message": "Заблокировать отправку ваших ответов, которые вы пишите, на серверы Google в Консоли сообщества.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_workflows": {
+    "message": "Включить функцию рабочих сценариев.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_workflows_manage": {
+    "message": "Управлять рабочими сценариями",
+    "description": "Button in the options page which opens the workflow management page."
+  },
+  "options_extrainfo": {
+    "message": "Показывать дополнительную информацию в темах, профилях и списке шаблонных ответов.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_perforumstats": {
+    "message": "Показывать активность на форуме в профилях.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_interopthreadpage": {
+    "message": "Показать <span id='interopthreadpage_mode--container'></span> в Консоли сообщества.",
+    "description": "Feature checkbox in the options page. \"<span id='interopthreadpage_mode--container'></span>\" will be substituted with a selector which allows users to select whether they want the new thread page design or the old one."
+  },
+  "options_interopthreadpage_mode_previous": {
+    "message": "старый дизайн страниц тем",
+    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
+  },
+  "options_interopthreadpage_mode_next": {
+    "message": "новый дизайн страниц тем",
+    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
+  },
+  "options_nestedreplies": {
+    "message": "Включить функцию вложенных ответов в Консоли сообщества.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_uispacing": {
+    "message": "Уменьшить незаполненное пространство в Консоли сообщества и TW.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_flattenthreads": {
+    "message": "Показать переключатель для включения/выключения вложенного отображения в темах.",
     "description": "Feature checkbox in the options page"
   },
   "options_save": {
@@ -151,20 +195,24 @@
     "message": "Эксперименты",
     "description": "Title of the experiments page: a page where highly experimental options can be set."
   },
+  "options_experiments_description": {
+    "message": "Добро пожаловать! Ниже вы найдете список экспериментов: функции, которые находятся в разработке и ещё не готовы к запуску. Они являются экспериментальными и поэтому могут сломаться и/или вызвать проблемы, но если вы смелый, пожалуйста, включите те, которые вам наиболее интересны, и <a href='https://github.com/avm99963/infinitegforums/discussions/categories/feedback'>оставьте отзыв</a>!",
+    "description": "Description shown in the beginning of the experiments page, below the title."
+  },
   "inject_links": {
     "message": "Ссылки",
     "description": "Heading which we use before the 'previous post' link in a user profile in TW"
   },
   "inject_previousposts": {
-    "message": "Сообщения пользователя",
+    "message": "Предыдущие записи",
     "description": "Link shown in a user profile (in TW) which points to a search showing the user's posts and messages"
   },
   "inject_previousposts_forum": {
-    "message": "Предыдущие темы (на этом форуме)",
+    "message": "Предыдущие записи (на этом форуме)",
     "description": "Link shown in a user profile (in the Community Console) which points to a search showing the user's posts and messages in the current forum"
   },
   "inject_previousposts_all": {
-    "message": "Предыдущие темы (на всех форумах)",
+    "message": "Предыдущие записи (на всех форумах)",
     "description": "Link shown in a user profile (in the Community Console) which points to a search showing the user's posts and messages in all forums"
   },
   "inject_profileindicator_loading": {
@@ -172,19 +220,19 @@
     "description": "Tooltip for the profile indicator dot."
   },
   "inject_profileindicator_first_post": {
-    "message": "Это первая ветка, созданная автором темы на этом форуме.",
+    "message": "Это первая запись, созданная автором темы на этом форуме.",
     "description": "Tooltip for the profile indicator dot."
   },
   "inject_profileindicator_other_posts_read": {
-    "message": "Автор темы участвовал в других обсуждениях этого форума, вы прочитали 5 самых последних.",
+    "message": "Автор темы участвовал в других обсуждениях на этом форуме, но вы прочитали 5 самых последних.",
     "description": "Tooltip for the profile indicator dot."
   },
   "inject_profileindicator_other_posts_unread": {
-    "message": "Автор темы участвовал в других обсуждениях этого форума, вы читали не все эти темы.",
+    "message": "Автор темы участвовал в других обсуждениях на этом форуме, некоторые из которых вы не читали.",
     "description": "Tooltip for the profile indicator dot."
   },
   "inject_profileindicatoralt_numposts": {
-    "message": "Количество вопросов и ответов за последнее время в месяцах: $1.",
+    "message": "Количество вопросов и ответов за последние $1 месяцев.",
     "description": "Tooltip for the profile indicator dot."
   },
   "inject_ccdarktheme_helper": {
