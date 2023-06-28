@@ -19,6 +19,30 @@
     "message": "Получите бесконечную прокрутку и другие улучшения на Форумах Google и в Консоли сообщества",
     "description": "The extension's description"
   },
+  "options_killswitchwarning": {
+    "message": "Один или несколько параметров были принудительно отключены, поскольку они могут работать неправильно. Пожалуйста, перейдите на <a href='https://groups.google.com/g/twpowertools-discuss' rel='noreferrer noopener' target='_blank'>twpowertools-discuss Google Group</a> чтобы узнать больше о том, почему некоторые параметры были отключены принудительно.",
+    "description": "Warning shown in the options page if a feature has been remotely force disabled via the kill switch mechanism. This happens when a feature doesn't work properly and might be doing dangerous things, and the maintainer or an authorized user remotely force disables the feature."
+  },
+  "options_killswitchenabled": {
+    "message": "Предыдущая функция была принудительно отключена в связи с возникшей проблемой.",
+    "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
+  },
+  "options_optionalpermissionswarning_header": {
+    "message": "Для работы некоторых функций необходимы дополнительные разрешения. Они выделены ниже, щёлкните их флажки, чтобы предоставить соответствующие разрешения.",
+    "description": "Warning shown at the top of the options page if a feature cannot be used because one or more required permissions haven't been granted to the extension."
+  },
+  "options_optionalpermissionswarning_label": {
+    "message": "Предыдущая функция требует дополнительных разрешений для работы.",
+    "description": "Warning shown in the options page below an option, when a feature needs more permissions to work."
+  },
+  "options_featuredoptions": {
+    "message": "Основные возможности",
+    "description": "Heading for several options that can be enabled in the options page."
+  },
+  "options_minorenhancements": {
+    "message": "Незначительные улучшения",
+    "description": "Heading for several options that can be enabled in the options page."
+  },
   "options_list": {
     "message": "Включить бесконечную прокрутку в списках тем.",
     "description": "Feature checkbox in the options page"
@@ -32,63 +56,79 @@
     "description": "Feature checkbox in the options page"
   },
   "options_fixedtoolbar": {
-    "message": "Закрепить панель инструментов в списках тем в КС [Консоли сообщества].",
+    "message": "Закрепить панель инструментов в верхней части списков тем в Консоли сообщества.",
     "description": "Feature checkbox in the options page"
   },
   "options_redirect": {
-    "message": "Перенаправлять все темы, открытые в TW, в КС.",
+    "message": "Перенаправлять все темы, открытые в TW, в Консоль сообщества.",
     "description": "Feature checkbox in the options page"
   },
   "options_loaddrafts": {
-    "message": "Активировать <code class=\"help\" title=\"Этот флаг позволяет КС загружать ранее сохраненный ответ при загрузке цепочки и нажатии кнопки ответа.\">enableLoadingDraftMessages</code> флаг КС.",
+    "message": "Активировать <code class=\"help\" title=\"Этот флаг позволяет Консоли Сообщества загружать ранее автосохранённый ответ при загрузке темы и нажатии кнопки ответа.\">enableLoadingDraftMessages</code> флаг Консоли сообщества.",
     "description": "Feature checkbox in the options page"
   },
   "options_experimental_label": {
-    "message": "(эксперимент)",
+    "message": "(экспериментально)",
     "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
   },
   "options_history": {
-    "message": "Показывать ссылку \"Сообщения пользователя\" в профилях пользователей.",
+    "message": "Показывать ссылку на \"предыдущие записи\" в профилях пользователей.",
     "description": "Feature checkbox in the options page"
   },
   "options_stickysidebarheaders": {
-    "message": "Сделайте так, чтобы заголовки на боковой панели КС прилипали к верху при прокрутке (+info at <code>pekb/thread/60784834</code>).",
+    "message": "Заставить заголовки в боковой панели Консоли сообщества прилипать к верху (+инфо на <code>pekb/thread/60784834</code>).",
     "description": "Feature checkbox in the options page"
   },
   "options_increasecontrast": {
-    "message": "Увеличить контраст между прочитанными и непрочитанными цепочками в списке тем КС.",
+    "message": "Увеличить контраст между прочитанными и непрочитанными темами в Консоли сообщества.",
     "description": "Feature checkbox in the options page"
   },
   "options_ccdarktheme": {
-    "message": "Разрешить темную тему в КС, используя <span id='ccdarktheme_mode--container'></span>.",
+    "message": "Включить тёмную тему в Консоли сообщества, управляемую <span id='ccdarktheme_mode--container'></span>.",
     "description": "Feature checkbox in the options page"
   },
   "options_ccdarktheme_mode_switch": {
-    "message": "переключатель в КС",
+    "message": "с помощью переключателя в КС",
     "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
   },
   "options_ccdarktheme_mode_system": {
-    "message": "темная тема режима настроек ОС",
+    "message": "настройкой темного режима ОС",
     "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
   },
   "options_ccforcehidedrawer": {
-    "message": "Всегда скрывать дрор-панель (левую колонку) в КС.",
+    "message": "Всегда скрывать ящик (левая колонка) в Консоли сообщества.",
     "description": "Feature checkbox in the options page"
   },
   "options_ccdragndropfix": {
-    "message": "Разрешить перетаскивать закладки в текстовый редактор КС.",
+    "message": "Позволяет перетаскивать ссылки в текстовый редактор Консоли сообщества с сохранением текста.",
     "description": "Feature checkbox in the options page"
   },
   "options_batchlock": {
-    "message": "Добавить опцию одновременной блокировки нескольких веток в спике тем КС.",
+    "message": "Добавить возможность закрытия нескольких тем из списка тем Консоли сообщества.",
     "description": "Feature checkbox in the options page"
   },
   "options_enhancedannouncementsdot": {
     "message": "Показывать уведомление об объявлениях более заметно в Консоли Сообщества.",
     "description": "Feature checkbox in the options page"
   },
+  "options_repositionexpandthread": {
+    "message": "Поместить кнопку \"развернуть тему\" до упора влево в списках тем Консоли сообщества.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_threadlistavatars": {
+    "message": "Показывать аватары в списках тем в Консоли сообщества.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_autorefreshlist": {
+    "message": "Показывать уведомление в Консоли сообщества, когда в списке тем появляются новые обновления.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_imagemaxheight": {
+    "message": "Предотвратить, чтобы встроенные изображения в сообщениях были выше, чем текущее окно.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_profileindicator_moreinfo": {
-    "message": "+инфо о двух предыдущих вариантах",
+    "message": "+инфо о 2 предыдущих возможностях",
     "description": "Link to learn more about the profile indicator feature"
   },
   "options_profileindicator": {
