@@ -1,9 +1,9 @@
-After installing the extension, adjust it to your needs by clicking its icon in the extensions menu to access the options page. This is because features other than infinite scroll are disabled by default.
+Setelah menginstal ekstensi, sesuaikan dengan kebutuhan Anda dengan mengklik ikonnya di menu ekstensi dengan mengakses halaman opsi. Ini karena fitur selain Infinite Scroll (Gulir tanpa batas) dinonaktifkan secara default.
 
-You can see a list of all the enhancements here: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+/HEAD/docs/features.md
+Anda dapat melihat daftar semua peningkatan di sini: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+/HEAD/docs/features.md
 
-New additions in future updates will be disabled by default, and can be manually enabled in the options page. Join https://groups.google.com/g/twpowertools-discuss to receive updates about new functionality.
+Penambahan baru di pembaruan mendatang akan dinonaktifkan secara default dan dapat diaktifkan secara manual melalui halaman opsi. Bergabunglah dengan https://groups.google.com/g/twpowertools-discuss untuk menerima informasi pembaruan serta fungsi baru.
 
-The source code is available here: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums. Contributions are welcome!
+Source Code tersedia di sini: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums. Kontribusi dipersilakan!
 
-Help translate the extension to your native language! Visit https://i18n.avm99963.com/projects/tw-power-tools/
+Bantu terjemahkan ekstensi ke bahasa Anda! Silahkan Kunjungi https://i18n.avm99963.com/projects/tw-power-tools/
