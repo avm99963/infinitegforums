@@ -19,7 +19,7 @@
       </trans-unit>
       <trans-unit id="s6b0ed0c74667d28c" xml:space="preserve">
   <source><x id="0" equiv-text="${authorName}"/> said:</source>
-        <target>сказал:</target>
+        <target><x id="0" equiv-text="${authorName}"/> сказал:</target>
       </trans-unit>
       <trans-unit id="s98a0ccd6f423421f" xml:space="preserve">
   <source>Nested view</source>
