@@ -4,4 +4,4 @@ this extension.
 The source of truth is the [English version][1], with text in other languages
 being a translation.
 
-[1]: en/listing-description.lang
+[1]: en/listing-description.txt
