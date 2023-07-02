@@ -1,604 +1,604 @@
 {
-  "appName": {
-    "message": "Eines avançades per TW",
-    "description": "The extension's name"
-  },
-  "appNameBeta": {
-    "message": "Eines avançades per TW (beta)",
-    "description": "The extension's name for the beta version"
-  },
-  "appNameCanary": {
-    "message": "Eines avançades per TW (canary)",
-    "description": "The extension's name for the beta version"
-  },
-  "appNameGecko": {
-    "message": "Eines avançades per TW",
-    "description": "The extension's name (with a 50 character limit for Gecko)"
-  },
-  "appDescription": {
-    "message": "Fes scroll infinit i obtén altres millores als Fòrums de Google i la Consola de la Comunitat",
-    "description": "The extension's description"
-  },
-  "options_killswitchwarning": {
-    "message": "Una o més opcions han sigut desactivades forçosament perquè podrien no estar funcionant correctament. Sisplau ves al <a href='https://groups.google.com/g/twpowertools-discuss' rel='noreferrer noopener' target='_blank'>grup twpowertools-discuss</a> per obtenir més informació sobre per què algunes opcions s'han desactivat forçosament.",
-    "description": "Warning shown in the options page if a feature has been remotely force disabled via the kill switch mechanism. This happens when a feature doesn't work properly and might be doing dangerous things, and the maintainer or an authorized user remotely force disables the feature."
-  },
-  "options_killswitchenabled": {
-    "message": "L'opció anterior està desactivada forçosament degut a un problema.",
-    "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
-  },
-  "options_optionalpermissionswarning_header": {
-    "message": "Algunes funcions necessiten permisos addicionals per funcionar. Estan destacades aquí sota, fes clic a les seves caselles de selecció per donar-lis els permisos adequats.",
-    "description": "Warning shown at the top of the options page if a feature cannot be used because one or more required permissions haven't been granted to the extension."
-  },
-  "options_optionalpermissionswarning_label": {
-    "message": "La funció anterior necessita permisos addicionals per funcionar.",
-    "description": "Warning shown in the options page below an option, when a feature needs more permissions to work."
-  },
-  "options_featuredoptions": {
-    "message": "Funcions destacades",
-    "description": "Heading for several options that can be enabled in the options page."
-  },
-  "options_minorenhancements": {
-    "message": "Millores menors",
-    "description": "Heading for several options that can be enabled in the options page."
-  },
-  "options_list": {
-    "message": "Activa el scroll infinit a les llistes de fils.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_thread": {
-    "message": "Carrega automàticament missatges en grups petits quan facis scroll per un fil.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_threadall": {
-    "message": "Carrega automàticament tots els missatges de cop quan facis scroll per un fil.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_fixedtoolbar": {
-    "message": "Mantén visible la barra d'eines de la llista de fils a la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_redirect": {
-    "message": "Redirigeix tots els fils oberts a TW a la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_loaddrafts": {
-    "message": "Activa la <i>flag</i> <code class=\"help\" title=\"Aquesta flag permet a la Consola de la Comunitat carregar una resposta automàticament desada anteriorment quan obres un fil i fas clic al botó de respondre.\">enableLoadingDraftMessages</code> de la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_experimental_label": {
-    "message": "(experimental)",
-    "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
-  },
-  "options_history": {
-    "message": "Mostra un enllaç \"historial de publicacions\" als perfils d'usuari.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_stickysidebarheaders": {
-    "message": "Fes que les capçaleres de la barra lateral de la Consola de la Comunitat es quedin enganxades a dalt (+info a <code>pekb/thread/60784834</code>).",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_increasecontrast": {
-    "message": "Incrementa el contrast entre els fils llegits i no llegits a la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccdarktheme": {
-    "message": "Activa el tema fosc a la Consola de la Comunitat, controlat per <span id='ccdarktheme_mode--container'></span>.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccdarktheme_mode_switch": {
-    "message": "un botó a la consola",
-    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
-  },
-  "options_ccdarktheme_mode_system": {
-    "message": "la configuració del mode fosc del SO",
-    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
-  },
-  "options_ccforcehidedrawer": {
-    "message": "Amaga sempre la barra lateral de l'esquerra a la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccdragndropfix": {
-    "message": "Permet arrossegar enllaços a l'editor de text de la Consola de la Comunitat preservant el seu text.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_batchlock": {
-    "message": "Afegeix l'opció per bloquejar diversos fils a la llista de fils de la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_enhancedannouncementsdot": {
-    "message": "Mostra el punt que notifica que hi ha anuncis sense llegir d'una manera més prominent a la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_repositionexpandthread": {
-    "message": "Posa el botó \"expandir fil\" a l'esquerra del tot en les llistes de fils de la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_threadlistavatars": {
-    "message": "Mostra fotos de perfil a les llistes de fils de la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_autorefreshlist": {
-    "message": "Mostra una notificació a la Consola de la Comunitat quan una llista de fils rep actualitzacions.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_imagemaxheight": {
-    "message": "Limita l'altura de les imatges dels missatges a l'altura de la finestra.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_profileindicator_moreinfo": {
-    "message": "+info sobre les 2 darreres opcions",
-    "description": "Link to learn more about the profile indicator feature"
-  },
-  "options_profileindicator": {
-    "message": "Mostra <span class=\"help\" title=\"Si l'autor ha participat a altres fils, es mostrarà un punt vermell al costat del seu nom d'usuari. Si les publicacions més recents han estat llegides, es mostrarà un punt taronja. Pots posar el teu ratolí a sobre del punt per mostrar què vol dir el seu color.\">si l'autor del fil ha participat a altres fils</span>.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_profileindicatoralt": {
-    "message": "Mostra el nombre de preguntes i respostes escrites per l'autor del fil durant els últims <span id='profileindicatoralt_months--container'></span> mesos al costat del seu nom d'usuari.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_blockdrafts": {
-    "message": "Bloqueja l'enviament de les teves respostes mentre les escrius als servidors de Google a la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_workflows": {
-    "message": "Activar la funció de fluxes de treball.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_workflows_manage": {
-    "message": "Configurar els fluxes de treball",
-    "description": "Button in the options page which opens the workflow management page."
-  },
-  "options_extrainfo": {
-    "message": "Mostra informació addicional als fils, perfils i la llista de respostes estàndard.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_perforumstats": {
-    "message": "Mostra la activitat separada per fòrums als perfils de la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_interopthreadpage": {
-    "message": "Mostra <span id='interopthreadpage_mode--container'></span> a la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page. \"<span id='interopthreadpage_mode--container'></span>\" will be substituted with a selector which allows users to select whether they want the new thread page design or the old one."
-  },
-  "options_interopthreadpage_mode_previous": {
-    "message": "el disseny vell dels fils",
-    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
-  },
-  "options_interopthreadpage_mode_next": {
-    "message": "el disseny nou dels fils",
-    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
-  },
-  "options_nestedreplies": {
-    "message": "Activa la funció de respostes anidades a la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_uispacing": {
-    "message": "Redueix l'espai en blanc a la Consola de la Comunitat i TW.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_flattenthreads": {
-    "message": "Mostra un selector per activar/desactivar la vista anidada als fils.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_save": {
-    "message": "Desa",
-    "description": "Button in the options page to save the settings"
-  },
-  "options_saved": {
-    "message": "Desat",
-    "description": "Message which appears in the options page when the settings are saved"
-  },
-  "options_experiments_title": {
-    "message": "Experiments",
-    "description": "Title of the experiments page: a page where highly experimental options can be set."
-  },
-  "options_experiments_description": {
-    "message": "<i>Welchrome!</i> Aquí a sota trobaràs una llista d'experiments: funcions que estan en desenvolupament i que encara no estan llestes del tot per ser llençades. Són altament experimentals i podrien trencar-se i/o causar problemes, però si ets valent/a, sisplau activa les que més t'interessin i <a href='https://github.com/avm99963/infinitegforums/discussions/categories/feedback'>envia feedback</a>!",
-    "description": "Description shown in the beginning of the experiments page, below the title."
-  },
-  "inject_links": {
-    "message": "Enllaços",
-    "description": "Heading which we use before the 'previous post' link in a user profile in TW"
-  },
-  "inject_previousposts": {
-    "message": "Historial de publicacions",
-    "description": "Link shown in a user profile (in TW) which points to a search showing the user's posts and messages"
-  },
-  "inject_previousposts_forum": {
-    "message": "Historial de publicacions (en aquest fòrum)",
-    "description": "Link shown in a user profile (in the Community Console) which points to a search showing the user's posts and messages in the current forum"
-  },
-  "inject_previousposts_all": {
-    "message": "Historial de publicacions (en tots els fòrums)",
-    "description": "Link shown in a user profile (in the Community Console) which points to a search showing the user's posts and messages in all forums"
-  },
-  "inject_profileindicator_loading": {
-    "message": "Carregant...",
-    "description": "Tooltip for the profile indicator dot."
-  },
-  "inject_profileindicator_first_post": {
-    "message": "Aquest és el primer fil d'aquest fòrum creat per aquest usuari.",
-    "description": "Tooltip for the profile indicator dot."
-  },
-  "inject_profileindicator_other_posts_read": {
-    "message": "Aquest usuari ha participat en altres fils d'aquest fòrum, però ja has llegit els 5 darrers on ha participat.",
-    "description": "Tooltip for the profile indicator dot."
-  },
-  "inject_profileindicator_other_posts_unread": {
-    "message": "Aquest usuari ha participat en altres fils d'aquest fòrum, alguns dels quals no has llegit.",
-    "description": "Tooltip for the profile indicator dot."
-  },
-  "inject_profileindicatoralt_numposts": {
-    "message": "Nombre de preguntes i respostes en els $1 darrers mesos.",
-    "description": "Tooltip for the profile indicator dot."
-  },
-  "inject_ccdarktheme_helper": {
-    "message": "Canviar tema",
-    "description": "Tooltip for the dark mode switch."
-  },
-  "inject_extension_badge_helper": {
-    "message": "Afegit per $1",
-    "description": "Tooltip for the extension badge, which appears next to components injected by the extension."
-  },
-  "inject_lockbtn": {
-    "message": "Bloquejar/desbloquejar fils",
-    "description": "Tooltip of the 'lock/unlock threads' icon shown when selecting multiple threads in the Community Console. Also the title for the dialog shown after clicking this icon."
-  },
-  "inject_lockdialog_desc": {
-    "message": "Sisplau, confirma l'acció que volies prendre fent clic al botó corresponent d'aquí avall. Tingues en compte que aquesta acció es prendrà sobre tots els fils que hagis seleccionat.",
-    "description": "Text in the 'lock/unlock threads' dialog, which asks the user for confirmation."
-  },
-  "inject_lockdialog_btn_lock": {
-    "message": "Bloqueja",
-    "description": "Button in the 'lock/unlock threads' dialog."
-  },
-  "inject_lockdialog_btn_unlock": {
-    "message": "Desbloqueja",
-    "description": "Button in the 'lock/unlock threads' dialog."
-  },
-  "inject_lockdialog_btn_cancel": {
-    "message": "Cancel·la",
-    "description": "Button in the 'lock/unlock threads' dialog."
-  },
-  "inject_lockdialog_btn_close": {
-    "message": "Tanca",
-    "description": "Button in the 'lock/unlock threads' dialog."
-  },
-  "inject_lockdialog_log_entry_beginning": {
-    "message": "Fil $1",
-    "description": "First part of the entry in the log of the 'lock/unlock threads' dialog. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
-  },
-  "inject_lockdialog_log_entry_success_lock": {
-    "message": "Bloquejat correctament.",
-    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
-  },
-  "inject_lockdialog_log_entry_error_lock": {
-    "message": "Hi ha hagut un error bloquejant-lo ($1).",
-    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *not* locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
-  },
-  "inject_lockdialog_log_entry_success_unlock": {
-    "message": "Desbloquejat correctament.",
-    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *un*locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
-  },
-  "inject_lockdialog_log_entry_error_unlock": {
-    "message": "Hi ha hagut un error desbloquejant-lo ($1).",
-    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *not* *un*locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
-  },
-  "inject_autorefresh_list_snackbar_message": {
-    "message": "Hi ha nous fils.",
-    "description": "Message shown in a snackbar when new threads are found in a thread list. Another button asks the user to refresh the list."
-  },
-  "inject_autorefresh_list_snackbar_action": {
-    "message": "Actualitza",
-    "description": "Button shown in a snackbar asking users to refresh/reload the list to show the new threads."
-  },
-  "inject_autorefresh_list_status_indicator_label_active": {
-    "message": "Observant canvis a la llista de fils...",
-    "description": "Helper text which appears when hovering the status indicator of the 'autorefresh list' feature to indicate that the feature is active and watching for updates in the current thread list."
-  },
-  "inject_autorefresh_list_status_indicator_label_disabled": {
-    "message": "No es poden observar canvis a la llista de fils. Sisplau canvia les opcions d'ordre a 'Ordena per: Darrera actualització' i ordre descendent.",
-    "description": "Helper text which appears when hovering the status indicator of the 'autorefresh list' feature to indicate that the feature is disabled in the current thread list because the sort options are incompatible with the feature."
-  },
-  "inject_threadlistavatars_private_thread_indicator_label": {
-    "message": "Degut a raons tècniques, no es poden carregar les fotos de perfil de fils publicats a fòrums privats.",
-    "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
-  },
-  "inject_threadlistavatars_invisible_thread_indicator_label": {
-    "message": "Degut a raons tècniques, no es poden carregar les fotos de perfil de fils que no són visibles a usuaris anònims.",
-    "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
-  },
-  "inject_workflows_menubtn": {
-    "message": "Executa un flux de treball...",
-    "description": "Tooltip of the icon shown above a thread or in thread lists when selecting multiple threads in the Community Console which lets the user show a menu with the worklofws they can run."
-  },
-  "inject_perforumstats_heading": {
-    "message": "Activitat per fòrum",
-    "description": "Heading of the section with the per-forum activity stacked bars graph showing the number of questions, replies and recommended answers each month."
-  },
-  "inject_perforumstats_forumoption_1helper": {
-    "message": "$forumName$ ($helper1$)",
-    "description": "In the selector where the user can select the forum shown in the graph, one such option. $HELPER1$ will usually be the number of messages posted by the user in that forum.",
-    "placeholders": {
-      "forumName": {
-        "content": "$1",
-        "example": "Google Chrome"
-      },
-      "helper1": {
-        "content": "$2",
-        "example": "963 messages"
-      }
+    "appName": {
+        "message": "Eines avançades per TW",
+        "description": "The extension's name"
+    },
+    "appNameBeta": {
+        "message": "Eines avançades per TW (beta)",
+        "description": "The extension's name for the beta version"
+    },
+    "appNameCanary": {
+        "message": "Eines avançades per TW (canary)",
+        "description": "The extension's name for the beta version"
+    },
+    "appNameGecko": {
+        "message": "Eines avançades per TW",
+        "description": "The extension's name (with a 50 character limit for Gecko)"
+    },
+    "appDescription": {
+        "message": "Fes scroll infinit i obtén altres millores als Fòrums de Google i la Consola de la Comunitat",
+        "description": "The extension's description"
+    },
+    "options_killswitchwarning": {
+        "message": "Una o més opcions han sigut desactivades forçosament perquè podrien no estar funcionant correctament. Sisplau ves al <a href='https://groups.google.com/g/twpowertools-discuss' rel='noreferrer noopener' target='_blank'>grup twpowertools-discuss</a> per obtenir més informació sobre per què algunes opcions s'han desactivat forçosament.",
+        "description": "Warning shown in the options page if a feature has been remotely force disabled via the kill switch mechanism. This happens when a feature doesn't work properly and might be doing dangerous things, and the maintainer or an authorized user remotely force disables the feature."
+    },
+    "options_killswitchenabled": {
+        "message": "L'opció anterior està desactivada forçosament degut a un problema.",
+        "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
+    },
+    "options_optionalpermissionswarning_header": {
+        "message": "Algunes funcions necessiten permisos addicionals per funcionar. Estan destacades aquí sota, fes clic a les seves caselles de selecció per donar-lis els permisos adequats.",
+        "description": "Warning shown at the top of the options page if a feature cannot be used because one or more required permissions haven't been granted to the extension."
+    },
+    "options_optionalpermissionswarning_label": {
+        "message": "La funció anterior necessita permisos addicionals per funcionar.",
+        "description": "Warning shown in the options page below an option, when a feature needs more permissions to work."
+    },
+    "options_featuredoptions": {
+        "message": "Funcions destacades",
+        "description": "Heading for several options that can be enabled in the options page."
+    },
+    "options_minorenhancements": {
+        "message": "Millores menors",
+        "description": "Heading for several options that can be enabled in the options page."
+    },
+    "options_list": {
+        "message": "Activa el scroll infinit a les llistes de fils.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_thread": {
+        "message": "Carrega automàticament missatges en grups petits quan facis scroll per un fil.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_threadall": {
+        "message": "Carrega automàticament tots els missatges de cop quan facis scroll per un fil.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_fixedtoolbar": {
+        "message": "Mantén visible la barra d'eines de la llista de fils a la Consola de la Comunitat.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_redirect": {
+        "message": "Redirigeix tots els fils oberts a TW a la Consola de la Comunitat.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_loaddrafts": {
+        "message": "Activa la <i>flag</i> <code class=\"help\" title=\"Aquesta flag permet a la Consola de la Comunitat carregar una resposta automàticament desada anteriorment quan obres un fil i fas clic al botó de respondre.\">enableLoadingDraftMessages</code> de la Consola de la Comunitat.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_experimental_label": {
+        "message": "(experimental)",
+        "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
+    },
+    "options_history": {
+        "message": "Mostra un enllaç \"historial de publicacions\" als perfils d'usuari.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_stickysidebarheaders": {
+        "message": "Fes que les capçaleres de la barra lateral de la Consola de la Comunitat es quedin enganxades a dalt (+info a <code>pekb/thread/60784834</code>).",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_increasecontrast": {
+        "message": "Incrementa el contrast entre els fils llegits i no llegits a la Consola de la Comunitat.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_ccdarktheme": {
+        "message": "Activa el tema fosc a la Consola de la Comunitat, controlat per <span id='ccdarktheme_mode--container'></span>.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_ccdarktheme_mode_switch": {
+        "message": "un botó a la consola",
+        "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
+    },
+    "options_ccdarktheme_mode_system": {
+        "message": "la configuració del mode fosc del SO",
+        "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
+    },
+    "options_ccforcehidedrawer": {
+        "message": "Amaga sempre la barra lateral de l'esquerra a la Consola de la Comunitat.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_ccdragndropfix": {
+        "message": "Permet arrossegar enllaços a l'editor de text de la Consola de la Comunitat preservant el seu text.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_batchlock": {
+        "message": "Afegeix l'opció per bloquejar diversos fils a la llista de fils de la Consola de la Comunitat.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_enhancedannouncementsdot": {
+        "message": "Mostra el punt que notifica que hi ha anuncis sense llegir d'una manera més prominent a la Consola de la Comunitat.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_repositionexpandthread": {
+        "message": "Posa el botó \"expandir fil\" a l'esquerra del tot en les llistes de fils de la Consola de la Comunitat.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_threadlistavatars": {
+        "message": "Mostra fotos de perfil a les llistes de fils de la Consola de la Comunitat.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_autorefreshlist": {
+        "message": "Mostra una notificació a la Consola de la Comunitat quan una llista de fils rep actualitzacions.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_imagemaxheight": {
+        "message": "Limita l'altura de les imatges dels missatges a l'altura de la finestra.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_profileindicator_moreinfo": {
+        "message": "+info sobre les 2 darreres opcions",
+        "description": "Link to learn more about the profile indicator feature"
+    },
+    "options_profileindicator": {
+        "message": "Mostra <span class=\"help\" title=\"Si l'autor ha participat a altres fils, es mostrarà un punt vermell al costat del seu nom d'usuari. Si les publicacions més recents han estat llegides, es mostrarà un punt taronja. Pots posar el teu ratolí a sobre del punt per mostrar què vol dir el seu color.\">si l'autor del fil ha participat a altres fils</span>.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_profileindicatoralt": {
+        "message": "Mostra el nombre de preguntes i respostes escrites per l'autor del fil durant els últims <span id='profileindicatoralt_months--container'></span> mesos al costat del seu nom d'usuari.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_blockdrafts": {
+        "message": "Bloqueja l'enviament de les teves respostes mentre les escrius als servidors de Google a la Consola de la Comunitat.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_workflows": {
+        "message": "Activar la funció de fluxes de treball.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_workflows_manage": {
+        "message": "Configurar els fluxes de treball",
+        "description": "Button in the options page which opens the workflow management page."
+    },
+    "options_extrainfo": {
+        "message": "Mostra informació addicional als fils, perfils i la llista de respostes estàndard.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_perforumstats": {
+        "message": "Mostra la activitat separada per fòrums als perfils de la Consola de la Comunitat.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_interopthreadpage": {
+        "message": "Mostra <span id='interopthreadpage_mode--container'></span> a la Consola de la Comunitat.",
+        "description": "Feature checkbox in the options page. \"<span id='interopthreadpage_mode--container'></span>\" will be substituted with a selector which allows users to select whether they want the new thread page design or the old one."
+    },
+    "options_interopthreadpage_mode_previous": {
+        "message": "el disseny vell dels fils",
+        "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
+    },
+    "options_interopthreadpage_mode_next": {
+        "message": "el disseny nou dels fils",
+        "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
+    },
+    "options_nestedreplies": {
+        "message": "Activa la funció de respostes anidades a la Consola de la Comunitat.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_uispacing": {
+        "message": "Redueix l'espai en blanc a la Consola de la Comunitat i TW.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_flattenthreads": {
+        "message": "Mostra un selector per activar/desactivar la vista anidada als fils.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_save": {
+        "message": "Desa",
+        "description": "Button in the options page to save the settings"
+    },
+    "options_saved": {
+        "message": "Desat",
+        "description": "Message which appears in the options page when the settings are saved"
+    },
+    "options_experiments_title": {
+        "message": "Experiments",
+        "description": "Title of the experiments page: a page where highly experimental options can be set."
+    },
+    "options_experiments_description": {
+        "message": "<i>Welchrome!</i> Aquí a sota trobaràs una llista d'experiments: funcions que estan en desenvolupament i que encara no estan llestes del tot per ser llençades. Són altament experimentals i podrien trencar-se i/o causar problemes, però si ets valent/a, sisplau activa les que més t'interessin i <a href='https://github.com/avm99963/infinitegforums/discussions/categories/feedback'>envia feedback</a>!",
+        "description": "Description shown in the beginning of the experiments page, below the title."
+    },
+    "inject_links": {
+        "message": "Enllaços",
+        "description": "Heading which we use before the 'previous post' link in a user profile in TW"
+    },
+    "inject_previousposts": {
+        "message": "Historial de publicacions",
+        "description": "Link shown in a user profile (in TW) which points to a search showing the user's posts and messages"
+    },
+    "inject_previousposts_forum": {
+        "message": "Historial de publicacions (en aquest fòrum)",
+        "description": "Link shown in a user profile (in the Community Console) which points to a search showing the user's posts and messages in the current forum"
+    },
+    "inject_previousposts_all": {
+        "message": "Historial de publicacions (en tots els fòrums)",
+        "description": "Link shown in a user profile (in the Community Console) which points to a search showing the user's posts and messages in all forums"
+    },
+    "inject_profileindicator_loading": {
+        "message": "Carregant...",
+        "description": "Tooltip for the profile indicator dot."
+    },
+    "inject_profileindicator_first_post": {
+        "message": "Aquest és el primer fil d'aquest fòrum creat per aquest usuari.",
+        "description": "Tooltip for the profile indicator dot."
+    },
+    "inject_profileindicator_other_posts_read": {
+        "message": "Aquest usuari ha participat en altres fils d'aquest fòrum, però ja has llegit els 5 darrers on ha participat.",
+        "description": "Tooltip for the profile indicator dot."
+    },
+    "inject_profileindicator_other_posts_unread": {
+        "message": "Aquest usuari ha participat en altres fils d'aquest fòrum, alguns dels quals no has llegit.",
+        "description": "Tooltip for the profile indicator dot."
+    },
+    "inject_profileindicatoralt_numposts": {
+        "message": "Nombre de preguntes i respostes en els $1 darrers mesos.",
+        "description": "Tooltip for the profile indicator dot."
+    },
+    "inject_ccdarktheme_helper": {
+        "message": "Canviar tema",
+        "description": "Tooltip for the dark mode switch."
+    },
+    "inject_extension_badge_helper": {
+        "message": "Afegit per $1",
+        "description": "Tooltip for the extension badge, which appears next to components injected by the extension."
+    },
+    "inject_lockbtn": {
+        "message": "Bloquejar/desbloquejar fils",
+        "description": "Tooltip of the 'lock/unlock threads' icon shown when selecting multiple threads in the Community Console. Also the title for the dialog shown after clicking this icon."
+    },
+    "inject_lockdialog_desc": {
+        "message": "Sisplau, confirma l'acció que volies prendre fent clic al botó corresponent d'aquí avall. Tingues en compte que aquesta acció es prendrà sobre tots els fils que hagis seleccionat.",
+        "description": "Text in the 'lock/unlock threads' dialog, which asks the user for confirmation."
+    },
+    "inject_lockdialog_btn_lock": {
+        "message": "Bloqueja",
+        "description": "Button in the 'lock/unlock threads' dialog."
+    },
+    "inject_lockdialog_btn_unlock": {
+        "message": "Desbloqueja",
+        "description": "Button in the 'lock/unlock threads' dialog."
+    },
+    "inject_lockdialog_btn_cancel": {
+        "message": "Cancel·la",
+        "description": "Button in the 'lock/unlock threads' dialog."
+    },
+    "inject_lockdialog_btn_close": {
+        "message": "Tanca",
+        "description": "Button in the 'lock/unlock threads' dialog."
+    },
+    "inject_lockdialog_log_entry_beginning": {
+        "message": "Fil $1",
+        "description": "First part of the entry in the log of the 'lock/unlock threads' dialog. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+    },
+    "inject_lockdialog_log_entry_success_lock": {
+        "message": "Bloquejat correctament.",
+        "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+    },
+    "inject_lockdialog_log_entry_error_lock": {
+        "message": "Hi ha hagut un error bloquejant-lo ($1).",
+        "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *not* locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+    },
+    "inject_lockdialog_log_entry_success_unlock": {
+        "message": "Desbloquejat correctament.",
+        "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *un*locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+    },
+    "inject_lockdialog_log_entry_error_unlock": {
+        "message": "Hi ha hagut un error desbloquejant-lo ($1).",
+        "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *not* *un*locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+    },
+    "inject_autorefresh_list_snackbar_message": {
+        "message": "Hi ha nous fils.",
+        "description": "Message shown in a snackbar when new threads are found in a thread list. Another button asks the user to refresh the list."
+    },
+    "inject_autorefresh_list_snackbar_action": {
+        "message": "Actualitza",
+        "description": "Button shown in a snackbar asking users to refresh/reload the list to show the new threads."
+    },
+    "inject_autorefresh_list_status_indicator_label_active": {
+        "message": "Observant canvis a la llista de fils...",
+        "description": "Helper text which appears when hovering the status indicator of the 'autorefresh list' feature to indicate that the feature is active and watching for updates in the current thread list."
+    },
+    "inject_autorefresh_list_status_indicator_label_disabled": {
+        "message": "No es poden observar canvis a la llista de fils. Sisplau canvia les opcions d'ordre a 'Ordena per: Darrera actualització' i ordre descendent.",
+        "description": "Helper text which appears when hovering the status indicator of the 'autorefresh list' feature to indicate that the feature is disabled in the current thread list because the sort options are incompatible with the feature."
+    },
+    "inject_threadlistavatars_private_thread_indicator_label": {
+        "message": "Degut a raons tècniques, no es poden carregar les fotos de perfil de fils publicats a fòrums privats.",
+        "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
+    },
+    "inject_threadlistavatars_invisible_thread_indicator_label": {
+        "message": "Degut a raons tècniques, no es poden carregar les fotos de perfil de fils que no són visibles a usuaris anònims.",
+        "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
+    },
+    "inject_workflows_menubtn": {
+        "message": "Executa un flux de treball...",
+        "description": "Tooltip of the icon shown above a thread or in thread lists when selecting multiple threads in the Community Console which lets the user show a menu with the worklofws they can run."
+    },
+    "inject_perforumstats_heading": {
+        "message": "Activitat per fòrum",
+        "description": "Heading of the section with the per-forum activity stacked bars graph showing the number of questions, replies and recommended answers each month."
+    },
+    "inject_perforumstats_forumoption_1helper": {
+        "message": "$forumName$ ($helper1$)",
+        "description": "In the selector where the user can select the forum shown in the graph, one such option. $HELPER1$ will usually be the number of messages posted by the user in that forum.",
+        "placeholders": {
+            "forumName": {
+                "content": "$1",
+                "example": "Google Chrome"
+            },
+            "helper1": {
+                "content": "$2",
+                "example": "963 messages"
+            }
+        }
+    },
+    "inject_perforumstats_forumoption_2helpers": {
+        "message": "$forumName$ ($helper1$, $helper2$)",
+        "description": "In the selector where the user can select the forum shown in the graph, one such option. $HELPER1$ will be the number of messages posted by the user in that forum, and $HELPER2$ will be the badge awarded to the user in that forum.",
+        "placeholders": {
+            "forumName": {
+                "content": "$1",
+                "example": "Google Chrome"
+            },
+            "helper1": {
+                "content": "$2",
+                "example": "963 messages"
+            },
+            "helper2": {
+                "content": "$3",
+                "example": "gold"
+            }
+        }
+    },
+    "inject_perforumstats_nummessages_singular": {
+        "message": "1 missatge",
+        "description": "Annotation shown in the forum selector which states how many messages have been published by a user in a forum (singular variant)."
+    },
+    "inject_perforumstats_nummessages_plural": {
+        "message": "$num$ missatges",
+        "description": "Annotation shown in the forum selector which states how many messages have been published by a user in a forum (plural variant).",
+        "placeholders": {
+            "num": {
+                "content": "$1",
+                "example": "963"
+            }
+        }
+    },
+    "inject_perforumstats_role_bronze": {
+        "message": "bronze",
+        "description": "Role that a user can have in the forums."
+    },
+    "inject_perforumstats_role_silver": {
+        "message": "plata",
+        "description": "Role that a user can have in the forums."
+    },
+    "inject_perforumstats_role_gold": {
+        "message": "or",
+        "description": "Role that a user can have in the forums."
+    },
+    "inject_perforumstats_role_platinum": {
+        "message": "platí",
+        "description": "Role that a user can have in the forums."
+    },
+    "inject_perforumstats_role_diamond": {
+        "message": "diamant",
+        "description": "Role that a user can have in the forums."
+    },
+    "inject_perforumstats_role_community_manager": {
+        "message": "CM",
+        "description": "Role that a user can have in the forums (short for community manager)."
+    },
+    "inject_perforumstats_role_community_specialist": {
+        "message": "especialista",
+        "description": "Role that a user can have in the forums (short for community specialist)."
+    },
+    "inject_perforumstats_role_google_employee": {
+        "message": "Googler",
+        "description": "Role that a user can have in the forums."
+    },
+    "inject_perforumstats_role_alumnus": {
+        "message": "antic EP",
+        "description": "Role that a user can have in the forums."
+    },
+    "inject_perforumstats_optgroup_notposted": {
+        "message": "No ha publicat durant els darrers 12 mesos",
+        "description": "Label showed above the forums for which the user hasn't posted in the last 12 months, in the forum selector list."
+    },
+    "inject_perforumstats_chart_label": {
+        "message": "Gràfic d'activitat de l'usuari",
+        "description": "Label for the chart for accessibility purposes (e.g. users with screen-readers)."
+    },
+    "inject_perforumstats_chart_recommended": {
+        "message": "Recomanades",
+        "description": "Label shown in the legend of the per-forum activity chart."
+    },
+    "inject_perforumstats_chart_replies": {
+        "message": "Respostes (no recomanades)",
+        "description": "Label shown in the legend of the per-forum activity chart."
+    },
+    "inject_perforumstats_chart_questions": {
+        "message": "Preguntes",
+        "description": "Label shown in the legend of the per-forum activity chart."
+    },
+    "inject_extrainfo_profile_abusecategory": {
+        "message": "Categoria d'abús: $1",
+        "description": "Message shown in profiles when there is a policy violation."
+    },
+    "inject_extrainfo_profile_abusecategory_noviolation": {
+        "message": "Cap violació",
+        "description": "Abuse category"
+    },
+    "inject_extrainfo_profile_abusecategory_communitypolicy": {
+        "message": "Violació de la política de la comunitat",
+        "description": "Abuse category (when a community policy is violated)"
+    },
+    "inject_extrainfo_profile_abusecategory_legal": {
+        "message": "Violació legal",
+        "description": "Abuse category (when the violation is related to legal)"
+    },
+    "inject_extrainfo_profile_abusecategory_csai": {
+        "message": "Violació CSAI",
+        "description": "Abuse category (when the violation is related to CSAI)"
+    },
+    "inject_extrainfo_profile_abusecategory_other": {
+        "message": "Una altra violació",
+        "description": "Abuse category"
+    },
+    "inject_extrainfo_profile_abuse_account": {
+        "message": "Violació de la política de comptes: $1",
+        "description": "Message shown in profiles when there is an account policy violation."
+    },
+    "inject_extrainfo_profile_abuse_displayname": {
+        "message": "Violació de la política de noms d'usuari: $1",
+        "description": "Message shown in profiles when the display name is violating a policy."
+    },
+    "inject_extrainfo_profile_abuse_avatar": {
+        "message": "Violació de la política d'avatars: $1",
+        "description": "Message shown in profiles when the avatar is violating a policy."
+    },
+    "inject_extrainfo_profile_appealsnum": {
+        "message": "Nombre d'apel·lacions: $1",
+        "description": "Message shown in profiles which states how many times the account has appealed the decision to ban their profile."
+    },
+    "inject_extrainfo_crs_used_singular": {
+        "message": "Usada 1 cop",
+        "description": "Shown alongside a canned response to state how many times it has been used."
+    },
+    "inject_extrainfo_crs_used_plural": {
+        "message": "Usada $1 cops",
+        "description": "Shown alongside a canned response to state how many times it has been used."
+    },
+    "inject_extrainfo_crs_lastused": {
+        "message": "Últim us: $1",
+        "description": "Tooltip which states when a canned response was last used."
+    },
+    "inject_extrainfo_message_pendingstate": {
+        "message": "Només visible a usuaris amb insígnia",
+        "description": "Label used in a thread or message when it is in the pending state (only visible to badged users)."
+    },
+    "inject_extrainfo_message_pendingstate_tooltip": {
+        "message": "Visible a partir del $1",
+        "description": "Tooltip used for the label \"Only visible to badged users\" to state when the thread will become visible publicly."
+    },
+    "inject_extrainfo_message_state": {
+        "message": "Estat: $1",
+        "description": "Label used in a thread or message to show its state."
+    },
+    "inject_extrainfo_message_state_published": {
+        "message": "Publicat",
+        "description": "Thread/message state PUBLISHED (the normal state of a message: it is published and visible to everyone)."
+    },
+    "inject_extrainfo_message_state_draft": {
+        "message": "Esborrany",
+        "description": "Thread/message state DRAFT (when a message is saved as a draft and not yet published)."
+    },
+    "inject_extrainfo_message_state_owner_deleted": {
+        "message": "Eliminat pel propietari",
+        "description": "Thread/message state OWNER_DELETED (the owner deleted the message)."
+    },
+    "inject_extrainfo_message_state_automated_abuse_take_down_hide2": {
+        "message": "Ocult (automàticament marcat com abús)",
+        "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_HIDE (the message is hidden because the AI classified it as \"abuse\")."
+    },
+    "inject_extrainfo_message_state_automated_abuse_take_down_delete2": {
+        "message": "Eliminat (automàticament marcat com abús)",
+        "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_DELETE (the message is deleted because the AI classified it as \"abuse\")."
+    },
+    "inject_extrainfo_message_state_automated_off_topic_hide2": {
+        "message": "Ocult (automàticament marcat com off-topic)",
+        "description": "Thread/message state AUTOMATED_OFF_TOPIC_HIDE (the message is hidden because the AI classified it as \"off topic\")."
+    },
+    "inject_extrainfo_message_state_automated_flagged_pending_manual_review2": {
+        "message": "Automàticament marcat (pendent revisió manual)",
+        "description": "Thread/message state AUTOMATED_FLAGGED_PENDING_MANUAL_REVIEW (the message has been flagged by the AI and needs manual review)."
+    },
+    "inject_extrainfo_message_state_user_flagged_pending_manual_review": {
+        "message": "Marcat per usuari (pendent revisió manual)",
+        "description": "Thread/message state USER_FLAGGED_PENDING_MANUAL_REVIEW (a user flagged the message and needs manual review)."
+    },
+    "inject_extrainfo_message_state_expert_flagged_pending_manual_review": {
+        "message": "Marcat per expert (pendent revisió manual)",
+        "description": "Thread/message state EXPERT_FLAGGED_PENDING_MANUAL_REVIEW (a PE flagged the message and needs manual review)."
+    },
+    "inject_extrainfo_message_state_manual_take_down_hide2": {
+        "message": "Ocultat manualment",
+        "description": "Thread/message state MANUAL_TAKE_DOWN_HIDE (the message has been manually hidden by a Googler)."
+    },
+    "inject_extrainfo_message_state_manual_take_down_delete2": {
+        "message": "Eliminat manualment",
+        "description": "Thread/message state MANUAL_TAKE_DOWN_DELETE (the message has been manually deleted by a Googler)."
+    },
+    "inject_extrainfo_message_state_googler_off_topic_hide2": {
+        "message": "Ocultat com off-topic per Googler",
+        "description": "Thread/message state GOOGLER_OFF_TOPIC_HIDE (the message has been hidden by a Googler because it is off-topic)."
+    },
+    "inject_extrainfo_message_state_manual_profile_take_down_suspend2": {
+        "message": "Ocultat (perfil suspès)",
+        "description": "Thread/message state MANUAL_PROFILE_TAKE_DOWN_SUSPEND (due to the fact that the profile has been manually suspended by a Googler, messages written by that account are in this state —and hidden from the public)."
+    },
+    "inject_extrainfo_message_state_reinstate_profile_takedown2": {
+        "message": "Revertit (baneig del perfil revertit)",
+        "description": "Thread/message state REINSTATE_PROFILE_TAKEDOWN (after a profile suspension has been reverted, messages which were previously in the \"MANUAL_PROFILE_TAKE_DOWN_SUSPEND\" state have this state (and are visible to the public again))."
+    },
+    "inject_extrainfo_message_state_reinstate_abuse_takedown2": {
+        "message": "Desmarcat manualment abús",
+        "description": "Thread/message state REINSTATE_ABUSE_TAKEDOWN (it is thought that messages in this state have been manually unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
+    },
+    "inject_extrainfo_message_state_automated_abuse_reinstate2": {
+        "message": "Desmarcat automàticament abús",
+        "description": "Thread/message state AUTOMATED_ABUSE_REINSTATE (it is thought that messages in this state have been automatically unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
+    },
+    "inject_extrainfo_message_state_clear_off_topic2": {
+        "message": "Desmarcat off topic",
+        "description": "Thread/message state CLEAR_OFF_TOPIC (the message has been confirmed to NOT be off-topic)."
+    },
+    "inject_extrainfo_message_state_confirm_off_topic2": {
+        "message": "Confirmat off topic",
+        "description": "Thread/message state CONFIRM_OFF_TOPIC (the message has been confirmed to be off-topic)."
+    },
+    "inject_extrainfo_message_shadowblockactive": {
+        "message": "Baneig a l'ombra actiu",
+        "description": "Label used in a thread or message when it has been shadow blocked and is thus hidden from view."
+    },
+    "inject_extrainfo_message_shadowblocknotactive": {
+        "message": "Baneig a l'ombra ja no actiu",
+        "description": "Label used in a thread or message when it had been shadow blocked but it isn't active anymore."
+    },
+    "inject_extrainfo_message_livereviewverdict": {
+        "message": "Veredicte de la revisió en viu: $1",
+        "description": "Label used in a thread or message to show what was the action taken when live reviewing it."
+    },
+    "inject_extrainfo_message_livereviewverdict_relevant": {
+        "message": "Rellevant",
+        "description": "One of the actions of a live review."
+    },
+    "inject_extrainfo_message_livereviewverdict_offtopic": {
+        "message": "Off-topic",
+        "description": "One of the actions of a live review."
+    },
+    "inject_extrainfo_message_livereviewverdict_abuse": {
+        "message": "Abús",
+        "description": "One of the actions of a live review."
+    },
+    "inject_extrainfo_thread_autotrending": {
+        "message": "Marcat automàticament com tendència",
+        "description": "Label used in a thread to show it has been automatically marked as trending."
+    },
+    "inject_extrainfo_thread_trending": {
+        "message": "Tendència",
+        "description": "Label used in a thread to show it has been manually marked as trending."
+    },
+    "inject_threadpagedesign_warning": {
+        "message": "Aquest fil podria no funcionar correctament. Això és perquè usa la funció de respostes anidades, i has activat l'antic disseny dels fils a les opcions d'Eines avançades per TW, que no suporta les respostes anidades.",
+        "description": "Message showed above threads which might not work properly because of the fact that the old thread design is not compatible with nested replies."
+    },
+    "btn_learnmore": {
+        "message": "Més informació",
+        "description": "Text shown besides a warning message which the user can click to learn more about the message itself."
+    },
+    "actionbadge_permissions_requested": {
+        "message": "Algunes funcions necessiten permisos addicionals per funcionar. Fes clic per arreglar-lo.",
+        "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."
     }
-  },
-  "inject_perforumstats_forumoption_2helpers": {
-    "message": "$forumName$ ($helper1$, $helper2$)",
-    "description": "In the selector where the user can select the forum shown in the graph, one such option. $HELPER1$ will be the number of messages posted by the user in that forum, and $HELPER2$ will be the badge awarded to the user in that forum.",
-    "placeholders": {
-      "forumName": {
-        "content": "$1",
-        "example": "Google Chrome"
-      },
-      "helper1": {
-        "content": "$2",
-        "example": "963 messages"
-      },
-      "helper2": {
-        "content": "$3",
-        "example": "gold"
-      }
-    }
-  },
-  "inject_perforumstats_nummessages_singular": {
-    "message": "1 missatge",
-    "description": "Annotation shown in the forum selector which states how many messages have been published by a user in a forum (singular variant)."
-  },
-  "inject_perforumstats_nummessages_plural": {
-    "message": "$num$ missatges",
-    "description": "Annotation shown in the forum selector which states how many messages have been published by a user in a forum (plural variant).",
-    "placeholders": {
-      "num": {
-        "content": "$1",
-        "example": "963"
-      }
-    }
-  },
-  "inject_perforumstats_role_bronze": {
-    "message": "bronze",
-    "description": "Role that a user can have in the forums."
-  },
-  "inject_perforumstats_role_silver": {
-    "message": "plata",
-    "description": "Role that a user can have in the forums."
-  },
-  "inject_perforumstats_role_gold": {
-    "message": "or",
-    "description": "Role that a user can have in the forums."
-  },
-  "inject_perforumstats_role_platinum": {
-    "message": "platí",
-    "description": "Role that a user can have in the forums."
-  },
-  "inject_perforumstats_role_diamond": {
-    "message": "diamant",
-    "description": "Role that a user can have in the forums."
-  },
-  "inject_perforumstats_role_community_manager": {
-    "message": "CM",
-    "description": "Role that a user can have in the forums (short for community manager)."
-  },
-  "inject_perforumstats_role_community_specialist": {
-    "message": "especialista",
-    "description": "Role that a user can have in the forums (short for community specialist)."
-  },
-  "inject_perforumstats_role_google_employee": {
-    "message": "Googler",
-    "description": "Role that a user can have in the forums."
-  },
-  "inject_perforumstats_role_alumnus": {
-    "message": "antic EP",
-    "description": "Role that a user can have in the forums."
-  },
-  "inject_perforumstats_optgroup_notposted": {
-    "message": "No ha publicat durant els darrers 12 mesos",
-    "description": "Label showed above the forums for which the user hasn't posted in the last 12 months, in the forum selector list."
-  },
-  "inject_perforumstats_chart_label": {
-    "message": "Gràfic d'activitat de l'usuari",
-    "description": "Label for the chart for accessibility purposes (e.g. users with screen-readers)."
-  },
-  "inject_perforumstats_chart_recommended": {
-    "message": "Recomanades",
-    "description": "Label shown in the legend of the per-forum activity chart."
-  },
-  "inject_perforumstats_chart_replies": {
-    "message": "Respostes (no recomanades)",
-    "description": "Label shown in the legend of the per-forum activity chart."
-  },
-  "inject_perforumstats_chart_questions": {
-    "message": "Preguntes",
-    "description": "Label shown in the legend of the per-forum activity chart."
-  },
-  "inject_extrainfo_profile_abusecategory": {
-    "message": "Categoria d'abús: $1",
-    "description": "Message shown in profiles when there is a policy violation."
-  },
-  "inject_extrainfo_profile_abusecategory_noviolation": {
-    "message": "Cap violació",
-    "description": "Abuse category"
-  },
-  "inject_extrainfo_profile_abusecategory_communitypolicy": {
-    "message": "Violació de la política de la comunitat",
-    "description": "Abuse category (when a community policy is violated)"
-  },
-  "inject_extrainfo_profile_abusecategory_legal": {
-    "message": "Violació legal",
-    "description": "Abuse category (when the violation is related to legal)"
-  },
-  "inject_extrainfo_profile_abusecategory_csai": {
-    "message": "Violació CSAI",
-    "description": "Abuse category (when the violation is related to CSAI)"
-  },
-  "inject_extrainfo_profile_abusecategory_other": {
-    "message": "Una altra violació",
-    "description": "Abuse category"
-  },
-  "inject_extrainfo_profile_abuse_account": {
-    "message": "Violació de la política de comptes: $1",
-    "description": "Message shown in profiles when there is an account policy violation."
-  },
-  "inject_extrainfo_profile_abuse_displayname": {
-    "message": "Violació de la política de noms d'usuari: $1",
-    "description": "Message shown in profiles when the display name is violating a policy."
-  },
-  "inject_extrainfo_profile_abuse_avatar": {
-    "message": "Violació de la política d'avatars: $1",
-    "description": "Message shown in profiles when the avatar is violating a policy."
-  },
-  "inject_extrainfo_profile_appealsnum": {
-    "message": "Nombre d'apel·lacions: $1",
-    "description": "Message shown in profiles which states how many times the account has appealed the decision to ban their profile."
-  },
-  "inject_extrainfo_crs_used_singular": {
-    "message": "Usada 1 cop",
-    "description": "Shown alongside a canned response to state how many times it has been used."
-  },
-  "inject_extrainfo_crs_used_plural": {
-    "message": "Usada $1 cops",
-    "description": "Shown alongside a canned response to state how many times it has been used."
-  },
-  "inject_extrainfo_crs_lastused": {
-    "message": "Últim us: $1",
-    "description": "Tooltip which states when a canned response was last used."
-  },
-  "inject_extrainfo_message_pendingstate": {
-    "message": "Només visible a usuaris amb insígnia",
-    "description": "Label used in a thread or message when it is in the pending state (only visible to badged users)."
-  },
-  "inject_extrainfo_message_pendingstate_tooltip": {
-    "message": "Visible a partir del $1",
-    "description": "Tooltip used for the label \"Only visible to badged users\" to state when the thread will become visible publicly."
-  },
-  "inject_extrainfo_message_state": {
-    "message": "Estat: $1",
-    "description": "Label used in a thread or message to show its state."
-  },
-  "inject_extrainfo_message_state_published": {
-    "message": "Publicat",
-    "description": "Thread/message state PUBLISHED (the normal state of a message: it is published and visible to everyone)."
-  },
-  "inject_extrainfo_message_state_draft": {
-    "message": "Esborrany",
-    "description": "Thread/message state DRAFT (when a message is saved as a draft and not yet published)."
-  },
-  "inject_extrainfo_message_state_owner_deleted": {
-    "message": "Eliminat pel propietari",
-    "description": "Thread/message state OWNER_DELETED (the owner deleted the message)."
-  },
-  "inject_extrainfo_message_state_automated_abuse_take_down_hide2": {
-    "message": "Ocult (automàticament marcat com abús)",
-    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_HIDE (the message is hidden because the AI classified it as \"abuse\")."
-  },
-  "inject_extrainfo_message_state_automated_abuse_take_down_delete2": {
-    "message": "Eliminat (automàticament marcat com abús)",
-    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_DELETE (the message is deleted because the AI classified it as \"abuse\")."
-  },
-  "inject_extrainfo_message_state_automated_off_topic_hide2": {
-    "message": "Ocult (automàticament marcat com off-topic)",
-    "description": "Thread/message state AUTOMATED_OFF_TOPIC_HIDE (the message is hidden because the AI classified it as \"off topic\")."
-  },
-  "inject_extrainfo_message_state_automated_flagged_pending_manual_review2": {
-    "message": "Automàticament marcat (pendent revisió manual)",
-    "description": "Thread/message state AUTOMATED_FLAGGED_PENDING_MANUAL_REVIEW (the message has been flagged by the AI and needs manual review)."
-  },
-  "inject_extrainfo_message_state_user_flagged_pending_manual_review": {
-    "message": "Marcat per usuari (pendent revisió manual)",
-    "description": "Thread/message state USER_FLAGGED_PENDING_MANUAL_REVIEW (a user flagged the message and needs manual review)."
-  },
-  "inject_extrainfo_message_state_expert_flagged_pending_manual_review": {
-    "message": "Marcat per expert (pendent revisió manual)",
-    "description": "Thread/message state EXPERT_FLAGGED_PENDING_MANUAL_REVIEW (a PE flagged the message and needs manual review)."
-  },
-  "inject_extrainfo_message_state_manual_take_down_hide2": {
-    "message": "Ocultat manualment",
-    "description": "Thread/message state MANUAL_TAKE_DOWN_HIDE (the message has been manually hidden by a Googler)."
-  },
-  "inject_extrainfo_message_state_manual_take_down_delete2": {
-    "message": "Eliminat manualment",
-    "description": "Thread/message state MANUAL_TAKE_DOWN_DELETE (the message has been manually deleted by a Googler)."
-  },
-  "inject_extrainfo_message_state_googler_off_topic_hide2": {
-    "message": "Ocultat com off-topic per Googler",
-    "description": "Thread/message state GOOGLER_OFF_TOPIC_HIDE (the message has been hidden by a Googler because it is off-topic)."
-  },
-  "inject_extrainfo_message_state_manual_profile_take_down_suspend2": {
-    "message": "Ocultat (perfil suspès)",
-    "description": "Thread/message state MANUAL_PROFILE_TAKE_DOWN_SUSPEND (due to the fact that the profile has been manually suspended by a Googler, messages written by that account are in this state —and hidden from the public)."
-  },
-  "inject_extrainfo_message_state_reinstate_profile_takedown2": {
-    "message": "Revertit (baneig del perfil revertit)",
-    "description": "Thread/message state REINSTATE_PROFILE_TAKEDOWN (after a profile suspension has been reverted, messages which were previously in the \"MANUAL_PROFILE_TAKE_DOWN_SUSPEND\" state have this state (and are visible to the public again))."
-  },
-  "inject_extrainfo_message_state_reinstate_abuse_takedown2": {
-    "message": "Desmarcat manualment abús",
-    "description": "Thread/message state REINSTATE_ABUSE_TAKEDOWN (it is thought that messages in this state have been manually unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
-  },
-  "inject_extrainfo_message_state_automated_abuse_reinstate2": {
-    "message": "Desmarcat automàticament abús",
-    "description": "Thread/message state AUTOMATED_ABUSE_REINSTATE (it is thought that messages in this state have been automatically unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
-  },
-  "inject_extrainfo_message_state_clear_off_topic2": {
-    "message": "Desmarcat off topic",
-    "description": "Thread/message state CLEAR_OFF_TOPIC (the message has been confirmed to NOT be off-topic)."
-  },
-  "inject_extrainfo_message_state_confirm_off_topic2": {
-    "message": "Confirmat off topic",
-    "description": "Thread/message state CONFIRM_OFF_TOPIC (the message has been confirmed to be off-topic)."
-  },
-  "inject_extrainfo_message_shadowblockactive": {
-    "message": "Baneig a l'ombra actiu",
-    "description": "Label used in a thread or message when it has been shadow blocked and is thus hidden from view."
-  },
-  "inject_extrainfo_message_shadowblocknotactive": {
-    "message": "Baneig a l'ombra ja no actiu",
-    "description": "Label used in a thread or message when it had been shadow blocked but it isn't active anymore."
-  },
-  "inject_extrainfo_message_livereviewverdict": {
-    "message": "Veredicte de la revisió en viu: $1",
-    "description": "Label used in a thread or message to show what was the action taken when live reviewing it."
-  },
-  "inject_extrainfo_message_livereviewverdict_relevant": {
-    "message": "Relevant",
-    "description": "One of the actions of a live review."
-  },
-  "inject_extrainfo_message_livereviewverdict_offtopic": {
-    "message": "Off-topic",
-    "description": "One of the actions of a live review."
-  },
-  "inject_extrainfo_message_livereviewverdict_abuse": {
-    "message": "Abús",
-    "description": "One of the actions of a live review."
-  },
-  "inject_extrainfo_thread_autotrending": {
-    "message": "Marcat automàticament com tendència",
-    "description": "Label used in a thread to show it has been automatically marked as trending."
-  },
-  "inject_extrainfo_thread_trending": {
-    "message": "Tendència",
-    "description": "Label used in a thread to show it has been manually marked as trending."
-  },
-  "inject_threadpagedesign_warning": {
-    "message": "Aquest fil podria no funcionar correctament. Això és perquè usa la funció de respostes anidades, i has activat l'antic disseny dels fils a les opcions d'Eines avançades per TW, que no suporta les respostes anidades.",
-    "description": "Message showed above threads which might not work properly because of the fact that the old thread design is not compatible with nested replies."
-  },
-  "btn_learnmore": {
-    "message": "Més informació",
-    "description": "Text shown besides a warning message which the user can click to learn more about the message itself."
-  },
-  "actionbadge_permissions_requested": {
-    "message": "Algunes funcions necessiten permisos addicionals per funcionar. Fes clic per arreglar-lo.",
-    "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."
-  }
 }
