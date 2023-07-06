@@ -28,8 +28,6 @@ const UI_TW_LEGACY = 1;
 const UI_TW_INTEROP = 2;
 const UI_COMMUNITY_CONSOLE_INTEROP = 3;
 
-const indicatorTypes = ['numPosts', 'indicatorDot'];
-
 // Filter used as a workaround to speed up the ViewForum request.
 const FILTER_ALL_LANGUAGES =
     'lang:(ar | bg | ca | "zh-hk" | "zh-cn" | "zh-tw" | hr | cs | da | nl | en | "en-au" | "en-gb" | et | fil | fi | fr | de | el | iw | hi | hu | id | it | ja | ko | lv | lt | ms | no | pl | "pt-br" | "pt-pt" | ro | ru | sr | sk | sl | es | "es-419" | sv | th | tr | uk | vi)';
@@ -46,14 +44,6 @@ function isInterop(ui) {
   return ui === UI_TW_INTEROP || ui === UI_COMMUNITY_CONSOLE_INTEROP;
 }
 
-function isElementInside(element, outerTag) {
-  while (element !== null && ('tagName' in element)) {
-    if (element.tagName == outerTag) return true;
-    element = element.parentNode;
-  }
-
-  return false;
-}
 
 function getPosts(query, forumId) {
   return CCApi(
@@ -95,7 +85,7 @@ var contentScriptRequest = (function() {
   function sendRequest(data) {
     var id = requestId++;
 
-    return new Promise(function(resolve, reject) {
+    return new Promise(function(resolve) {
       var listener = function(evt) {
         if (evt.source === window && evt.data && evt.data.prefix === prefix &&
             evt.data.requestId == id) {
@@ -192,8 +182,9 @@ function handleIndicators(sourceNode, ui, options) {
   if (isInterop(ui)) nameEl = sourceNode;
   var escapedUsername = escapeUsername(nameEl.textContent);
 
+  var threadLink;
   if (isCommunityConsole(ui)) {
-    var threadLink = document.location.href;
+    threadLink = document.location.href;
   } else {
     var CCLink = document.getElementById('onebar-community-console');
     if (CCLink === null) {
@@ -201,7 +192,7 @@ function handleIndicators(sourceNode, ui, options) {
           '[opindicator] The user is not a PE so the dot indicator cannot be shown in TW.');
       return;
     }
-    var threadLink = CCLink.href;
+    threadLink = CCLink.href;
   }
 
   var forumUrlSplit = threadLink.split('/forum/');
@@ -233,7 +224,6 @@ function handleIndicators(sourceNode, ui, options) {
         .then(res => {
           if (!('1' in res) || !('2' in res[1])) {
             throw new Error('Unexpected profile response.');
-            return;
           }
 
           contentScriptRequest.sendRequest({'action': 'getNumPostMonths'})
@@ -254,7 +244,6 @@ function handleIndicators(sourceNode, ui, options) {
                 for (const index of numPostsForumArraysToSum) {
                   if (!(index in res[1][2])) {
                     throw new Error('Unexpected profile response.');
-                    return;
                   }
 
                   var i = 0;
@@ -296,7 +285,6 @@ function handleIndicators(sourceNode, ui, options) {
                   'so it shouldn\'t be empty).');
 
             throw new Error('Unexpected thread list response.');
-            return;
           }
 
           // Current thread ID
@@ -348,7 +336,7 @@ if (CCRegex.test(location.href)) {
   authuser = startup[2][1] || '0';
 
   // When the OP's username is found, call getOptionsAndHandleIndicators
-  function mutationCallback(mutationList, observer) {
+  var mutationCallback = function(mutationList) {
     mutationList.forEach((mutation) => {
       if (mutation.type == 'childList') {
         mutation.addedNodes.forEach(function(node) {
@@ -370,7 +358,7 @@ if (CCRegex.test(location.href)) {
         });
       }
     });
-  };
+  }
 
   var observerOptions = {
     childList: true,
@@ -379,13 +367,13 @@ if (CCRegex.test(location.href)) {
 
   // Before starting the mutation Observer, check if the OP's username link is
   // already part of the page
-  var node = document.querySelector(
+  let node = document.querySelector(
       'ec-question ec-message-header .name-section ec-user-link a');
   if (node !== null) {
     console.info('Handling profile indicator via first check.');
     getOptionsAndHandleIndicators(node, UI_COMMUNITY_CONSOLE);
   } else {
-    var node = document.querySelector(
+    node = document.querySelector(
         'sc-tailwind-thread-question-question-card ' +
         'sc-tailwind-thread-post_header-user-info ' +
         '.scTailwindThreadPost_headerUserinfoname a');
@@ -401,13 +389,13 @@ if (CCRegex.test(location.href)) {
   // We are in TW
   authuser = (new URL(location.href)).searchParams.get('authuser') || '0';
 
-  var node =
+  let node =
       document.querySelector('.thread-question a.user-info-display-name');
   if (node !== null)
     getOptionsAndHandleIndicators(node, UI_TW_LEGACY);
   else {
     // The user might be using the redesigned thread page.
-    var node = document.querySelector(
+    let node = document.querySelector(
         'sc-tailwind-thread-question-question-card ' +
         'sc-tailwind-thread-post_header-user-info ' +
         '.scTailwindThreadPost_headerUserinfoname a');
