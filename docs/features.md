@@ -30,7 +30,8 @@ messages will be loaded at once.
 
 ## Additional enhancements
 ### Community Console toolbar
-> **Option name:** _Fix the toolbar in thread lists in the Community Console_.
+> **Option name:** _Make the toolbar stick at the top of thread lists in the
+Community Console_.
 
 Fixes the toolbar of thread lists in the Community Console so it doesn't
 disappear when scrolling down.
