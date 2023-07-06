@@ -27,6 +27,8 @@ const UI_COMMUNITY_CONSOLE = 0;
 const UI_TW_LEGACY = 1;
 const UI_TW_INTEROP = 2;
 const UI_COMMUNITY_CONSOLE_INTEROP = 3;
+const UI_TW_INTEROP_V2 = 4;
+const UI_COMMUNITY_CONSOLE_INTEROP_V2 = 5;
 
 // Filter used as a workaround to speed up the ViewForum request.
 const FILTER_ALL_LANGUAGES =
@@ -34,16 +36,64 @@ const FILTER_ALL_LANGUAGES =
 
 const numPostsForumArraysToSum = [3, 4];
 
+const CC_PROFILE_LINK_TYPES = [
+  {
+    // Legacy
+    ui: UI_COMMUNITY_CONSOLE,
+    nodeSelector: 'ec-question ec-message-header .name-section ec-user-link a',
+  },
+  {
+    // Interop (legacy)
+    ui: UI_COMMUNITY_CONSOLE_INTEROP,
+    nodeSelector: 'sc-tailwind-thread-question-question-card ' +
+        'sc-tailwind-thread-post_header-user-info ' +
+        '.scTailwindThreadPost_headerUserinfoname a',
+  },
+  {
+    // Interop v2
+    ui: UI_COMMUNITY_CONSOLE_INTEROP_V2,
+    nodeSelector: 'sc-tailwind-thread-question-question-card ' +
+        'sc-tailwind-thread-post_header-user-info > ' +
+        '.scTailwindThreadPost_headerUserinforoot > a',
+  },
+];
+
+const TW_PROFILE_LINK_TYPES = [
+  {
+    // Legacy
+    ui: UI_TW_LEGACY,
+    nodeSelector: '.thread-question a.user-info-display-name',
+  },
+  {
+    // Interop (legacy)
+    ui: UI_TW_INTEROP,
+    nodeSelector: 'sc-tailwind-thread-question-question-card ' +
+        'sc-tailwind-thread-post_header-user-info ' +
+        '.scTailwindThreadPost_headerUserinfoname a',
+  },
+  {
+    // Interop v2
+    ui: UI_TW_INTEROP_V2,
+    nodeSelector: 'sc-tailwind-thread-question-question-card ' +
+        'sc-tailwind-thread-post_header-user-info > ' +
+        '.scTailwindThreadPost_headerUserinforoot > a',
+  },
+];
+
 var authuser = null;
 
 function isCommunityConsole(ui) {
-  return ui === UI_COMMUNITY_CONSOLE || ui === UI_COMMUNITY_CONSOLE_INTEROP;
+  return ui === UI_COMMUNITY_CONSOLE || ui === UI_COMMUNITY_CONSOLE_INTEROP ||
+      ui === UI_COMMUNITY_CONSOLE_INTEROP_V2;
 }
 
-function isInterop(ui) {
+function isInteropV1(ui) {
   return ui === UI_TW_INTEROP || ui === UI_COMMUNITY_CONSOLE_INTEROP;
 }
 
+function isInteropV2(ui) {
+  return ui === UI_TW_INTEROP_V2 || ui === UI_COMMUNITY_CONSOLE_INTEROP_V2;
+}
 
 function getPosts(query, forumId) {
   return CCApi(
@@ -107,6 +157,18 @@ var contentScriptRequest = (function() {
   return {sendRequest: sendRequest};
 })();
 
+// Inject the indicator dot/badge to the appropriate position.
+function injectIndicator(sourceNode, indicatorEl, ui) {
+  if (!isInteropV2(ui)) {
+    sourceNode.parentNode.appendChild(indicatorEl);
+    return;
+  }
+
+  let username =
+      sourceNode.querySelector('.scTailwindThreadPost_headerUserinfoname');
+  username.append(indicatorEl);
+}
+
 // Create profile indicator dot with a loading state, or return the numPosts
 // badge if it is already created.
 function createIndicatorDot(sourceNode, searchURL, options, ui) {
@@ -116,11 +178,13 @@ function createIndicatorDot(sourceNode, searchURL, options, ui) {
 
   var dotLink = (isCommunityConsole(ui)) ? createImmuneLink() :
                                            document.createElement('a');
+  dotLink.classList.add(
+      'profile-indicator-link', 'profile-indicator-link--dot');
   dotLink.href = searchURL;
   dotLink.innerText = '●';
 
   dotContainer.appendChild(dotLink);
-  sourceNode.parentNode.appendChild(dotContainer);
+  injectIndicator(sourceNode, dotContainer, ui);
 
   contentScriptRequest
       .sendRequest({
@@ -136,6 +200,8 @@ function createIndicatorDot(sourceNode, searchURL, options, ui) {
 function createNumPostsBadge(sourceNode, searchURL, ui) {
   var link = (isCommunityConsole(ui)) ? createImmuneLink() :
                                         document.createElement('a');
+  link.classList.add(
+      'profile-indicator-link', 'profile-indicator-link--num-posts');
   link.href = searchURL;
 
   var numPostsContainer = document.createElement('div');
@@ -147,7 +213,7 @@ function createNumPostsBadge(sourceNode, searchURL, ui) {
 
   numPostsContainer.appendChild(numPostsSpan);
   link.appendChild(numPostsContainer);
-  sourceNode.parentNode.appendChild(link);
+  injectIndicator(sourceNode, link, ui);
 
   contentScriptRequest
       .sendRequest({
@@ -179,7 +245,10 @@ function handleIndicators(sourceNode, ui, options) {
   if (ui === UI_COMMUNITY_CONSOLE)
     nameEl = sourceNode.querySelector('.name-text');
   if (ui === UI_TW_LEGACY) nameEl = sourceNode.querySelector('span');
-  if (isInterop(ui)) nameEl = sourceNode;
+  if (isInteropV1(ui)) nameEl = sourceNode;
+  if (isInteropV2(ui))
+    nameEl =
+        sourceNode.querySelector('.scTailwindThreadPost_headerUserinfoname');
   var escapedUsername = escapeUsername(nameEl.textContent);
 
   var threadLink;
@@ -336,27 +405,24 @@ if (CCRegex.test(location.href)) {
   authuser = startup[2][1] || '0';
 
   // When the OP's username is found, call getOptionsAndHandleIndicators
-  var mutationCallback = function(mutationList) {
+  var mutationCallback =
+      function(mutationList) {
     mutationList.forEach((mutation) => {
-      if (mutation.type == 'childList') {
-        mutation.addedNodes.forEach(function(node) {
-          if (node.tagName == 'A' && ('href' in node) &&
-              CCProfileRegex.test(node.href)) {
-            if (node.matches(
-                    'ec-question ec-message-header .name-section ec-user-link a')) {
-              console.info('Handling profile indicator via mutation callback.');
-              getOptionsAndHandleIndicators(node, UI_COMMUNITY_CONSOLE);
-            } else if (node.matches(
-                           'sc-tailwind-thread-question-question-card ' +
-                           'sc-tailwind-thread-post_header-user-info ' +
-                           '.scTailwindThreadPost_headerUserinfoname a')) {
-              console.info(
-                  'Handling interop profile indicator via mutation callback.');
-              getOptionsAndHandleIndicators(node, UI_COMMUNITY_CONSOLE_INTEROP);
-            }
+      if (mutation.type !== 'childList') return;
+
+      mutation.addedNodes.forEach(function(node) {
+        let isProfileLink = node.tagName == 'A' && ('href' in node) &&
+            CCProfileRegex.test(node.href);
+        if (!isProfileLink) return;
+
+        for (const linkType of CC_PROFILE_LINK_TYPES) {
+          if (node.matches(linkType.nodeSelector)) {
+            console.info('Handling profile indicator via mutation callback.');
+            getOptionsAndHandleIndicators(node, linkType.ui);
+            break;
           }
-        });
-      }
+        }
+      });
     });
   }
 
@@ -367,19 +433,12 @@ if (CCRegex.test(location.href)) {
 
   // Before starting the mutation Observer, check if the OP's username link is
   // already part of the page
-  let node = document.querySelector(
-      'ec-question ec-message-header .name-section ec-user-link a');
-  if (node !== null) {
-    console.info('Handling profile indicator via first check.');
-    getOptionsAndHandleIndicators(node, UI_COMMUNITY_CONSOLE);
-  } else {
-    node = document.querySelector(
-        'sc-tailwind-thread-question-question-card ' +
-        'sc-tailwind-thread-post_header-user-info ' +
-        '.scTailwindThreadPost_headerUserinfoname a');
+  for (const linkType of CC_PROFILE_LINK_TYPES) {
+    let node = document.querySelector(linkType.nodeSelector);
     if (node !== null) {
-      console.info('Handling interop profile indicator via first check.');
-      getOptionsAndHandleIndicators(node, UI_COMMUNITY_CONSOLE_INTEROP);
+      console.info('Handling profile indicator via first check.');
+      getOptionsAndHandleIndicators(node, linkType.ui);
+      break;
     }
   }
 
@@ -389,19 +448,16 @@ if (CCRegex.test(location.href)) {
   // We are in TW
   authuser = (new URL(location.href)).searchParams.get('authuser') || '0';
 
-  let node =
-      document.querySelector('.thread-question a.user-info-display-name');
-  if (node !== null)
-    getOptionsAndHandleIndicators(node, UI_TW_LEGACY);
-  else {
-    // The user might be using the redesigned thread page.
-    let node = document.querySelector(
-        'sc-tailwind-thread-question-question-card ' +
-        'sc-tailwind-thread-post_header-user-info ' +
-        '.scTailwindThreadPost_headerUserinfoname a');
-    if (node !== null)
-      getOptionsAndHandleIndicators(node, UI_TW_INTEROP);
-    else
-      console.error('[opindicator] Couldn\'t find username.');
+  let foundProfileLink = false;
+  for (const linkType of TW_PROFILE_LINK_TYPES) {
+    let node = document.querySelector(linkType.nodeSelector);
+    if (node !== null) {
+      foundProfileLink = true;
+      getOptionsAndHandleIndicators(node, linkType.ui);
+      break;
+    }
   }
+
+  if (!foundProfileLink)
+    console.error('[opindicator] Couldn\'t find username.');
 }
