@@ -600,5 +600,9 @@
   "actionbadge_permissions_requested": {
     "message": "Some features need additional permissions to work. Click to fix it.",
     "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."
+  },
+  "actionbadge_killswitch_enabled": {
+    "message": "Some features have been force disabled. Click for more info.",
+    "description": "Tooltip for the extension icon shown when a kill switch has been enabled."
   }
 }

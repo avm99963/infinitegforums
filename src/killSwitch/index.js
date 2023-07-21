@@ -1,5 +1,6 @@
 import {compareLoose} from 'semver';
 
+import actionApi from '../common/actionApi.js';
 import {getExtVersion} from '../common/extUtils.js';
 
 import * as commonPb from './api_proto/common_pb.js';
@@ -10,9 +11,29 @@ const host =
     (PRODUCTION ? 'https://twpt-grpc-web.avm99963.com/' :
                   'http://localhost:8081');
 
+const KILLSWITCH_BADGE_OPTIONS = {
+  'iconTitleI18nKey': 'actionbadge_killswitch_enabled',
+  'badgeText': '!',
+  'bgColor': '#B71C1C',
+};
+
 export default class KillSwitchMechanism {
   constructor() {
     this.client = new KillSwitchServicePromiseClient(host, null, null);
+  }
+
+  setBadge(anyKillSwitchEnabled) {
+    if (anyKillSwitchEnabled) {
+      actionApi.setBadgeBackgroundColor(
+          {color: KILLSWITCH_BADGE_OPTIONS.bgColor});
+      actionApi.setBadgeText({text: KILLSWITCH_BADGE_OPTIONS.badgeText});
+      let title =
+          chrome.i18n.getMessage(KILLSWITCH_BADGE_OPTIONS.iconTitleI18nKey);
+      actionApi.setTitle({title});
+    } else {
+      actionApi.setBadgeText({text: ''});
+      actionApi.setTitle({title: ''});
+    }
   }
 
   getCurrentBrowser() {
@@ -68,10 +89,8 @@ export default class KillSwitchMechanism {
 
           chrome.storage.sync.set(
               {_forceDisabledFeatures: forceDisabledFeatures}, () => {
-                if (forceDisabledFeatures.length > 0) {
-                  // TODO(avm99963): show a badge to warn that some features
-                  // have been force disabled.
-                }
+                let anyKillSwitchEnabled = forceDisabledFeatures.length > 0;
+                this.setBadge(anyKillSwitchEnabled);
               });
         })
         .catch(err => {
@@ -79,4 +98,4 @@ export default class KillSwitchMechanism {
               '[killSwitch] Can\'t retrieve kill switch status: ', err);
         });
   }
-};
+}
