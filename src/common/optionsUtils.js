@@ -176,3 +176,12 @@ export function isOptionEnabled(option, requireOptionalPermissions = true) {
     return options?.[option] === true;
   });
 }
+
+export function getForceDisabledFeatures() {
+  return new Promise((res, rej) => {
+    chrome.storage.sync.get('_forceDisabledFeatures', items => {
+      if (chrome.runtime.lastError) return rej(chrome.runtime.lastError);
+      res(items?.['_forceDisabledFeatures'] ?? []);
+    });
+  });
+}
