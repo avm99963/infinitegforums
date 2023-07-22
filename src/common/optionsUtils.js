@@ -13,7 +13,8 @@ export function cleanUpOptions(options, dryRun = false) {
 
   var ok = true;
   for (const [opt, optMeta] of Object.entries(optionsPrototype)) {
-    if (!(opt in options)) {
+    if (!(opt in options) &&
+        optMeta['killSwitchType'] !== 'internalKillSwitch') {
       ok = false;
       options[opt] = optMeta['defaultValue'];
     }
