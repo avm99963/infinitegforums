@@ -421,6 +421,10 @@
     "message": "Questions",
     "description": "Label shown in the legend of the per-forum activity chart."
   },
+  "inject_perforumstats_chart_communityvideos": {
+    "message": "Community videos",
+    "description": "Label shown in the legend of the per-forum activity chart."
+  },
   "inject_extrainfo_profile_abusecategory": {
     "message": "Abuse category: $1",
     "description": "Message shown in profiles when there is a policy violation."

@@ -10,6 +10,7 @@ const kDataKeys = [
   [4, 'recommended', '#34A853'],
   [6, 'replies', '#DADCE0'],
   [5, 'questions', '#77909D'],
+  [7, 'communityvideos', '#F4511E'],
 ];
 const kRoles = {
   1: 'bronze',
