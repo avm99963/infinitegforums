@@ -604,5 +604,9 @@
     "actionbadge_killswitch_enabled": {
         "message": "Algunes funcions s'han desactivat forçosament. Feu clic per obtenir més informació.",
         "description": "Tooltip for the extension icon shown when a kill switch has been enabled."
+    },
+    "inject_perforumstats_chart_communityvideos": {
+        "message": "Vídeos de la comunitat",
+        "description": "Label shown in the legend of the per-forum activity chart."
     }
 }
