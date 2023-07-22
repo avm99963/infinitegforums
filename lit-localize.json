@@ -22,6 +22,7 @@
     "src/contentScripts/communityConsole/flattenThreads/components/**/*.js",
     "src/contentScripts/communityConsole/workflows/components/**/*.js",
     "src/contentScripts/communityConsole/threadToolbar/components/**/*.js",
+    "src/contentScripts/communityConsole/updateHandler/banner/components/**/*.js",
     "src/workflows/manager/components/**/*.js"
   ],
   "output": {

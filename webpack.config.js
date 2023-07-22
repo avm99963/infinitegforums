@@ -48,12 +48,18 @@ module.exports = (env, args) => {
     publicProfileStart: './src/contentScripts/publicProfileStart.js',
     profileIndicator: './src/contentScripts/profileIndicator.js',
 
+    // Programatically injected content scripts
+    handleInstall: './src/contentScripts/communityConsole/handleInstall.js',
+    handleUpdate: './src/contentScripts/communityConsole/handleUpdate.js',
+
     // Injected JS
     profileIndicatorInject: './src/injections/profileIndicator.js',
     batchLockInject: './src/injections/batchLock.js',
     xhrInterceptorInject: './src/injections/xhrProxy.js',
     extraInfoInject: './src/injections/extraInfo.js',
     litComponentsInject: './src/injections/litComponentsInject.js',
+    updateHandlerLitComponents:
+        './src/injections/updateHandlerLitComponents.js',
 
     // Options page
     optionsCommon: './src/options/optionsCommon.js',
@@ -144,15 +150,32 @@ module.exports = (env, args) => {
         },
         {
           test: /\.s[ac]ss$/i,
-          use: [
-            'style-loader',
-            'css-loader',
+          oneOf: [
             {
-              loader: 'sass-loader',
-              options: {
-                // Prefer `dart-sass`
-                implementation: require('sass'),
-              },
+              resourceQuery: /string/,
+              use: [
+                'css-loader',
+                {
+                  loader: 'sass-loader',
+                  options: {
+                    // Prefer `dart-sass`
+                    implementation: require('sass'),
+                  },
+                },
+              ],
+            },
+            {
+              use: [
+                'style-loader',
+                'css-loader',
+                {
+                  loader: 'sass-loader',
+                  options: {
+                    // Prefer `dart-sass`
+                    implementation: require('sass'),
+                  },
+                },
+              ],
             },
           ],
         },

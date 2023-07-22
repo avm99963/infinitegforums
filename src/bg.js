@@ -7,6 +7,7 @@ import {cleanUpOptPermissions} from './common/optionsPermissions.js';
 import {cleanUpOptions, disableItemsWithMissingPermissions} from './common/optionsUtils.js';
 import KillSwitchMechanism from './killSwitch/index.js';
 import {handleBgOptionChange, handleBgOptionsOnStart} from './options/bgHandler.js';
+import UpdateNotifier from './updateNotifier/index.js';
 
 // #!if browser_target == 'chromium_mv3'
 // XMLHttpRequest is not present in service workers (MV3) and is required by the
@@ -61,7 +62,8 @@ chrome.runtime.onStartup.addListener(() => {
 });
 
 // When the extension is first installed or gets updated, set new options to
-// their default value and update the kill switch status.
+// their default value, update the kill switch status and prompt the user to
+// refresh the Community Console page.
 chrome.runtime.onInstalled.addListener(details => {
   if (details.reason == 'install' || details.reason == 'update') {
     chrome.storage.sync.get(null, options => {
@@ -69,6 +71,9 @@ chrome.runtime.onInstalled.addListener(details => {
     });
 
     killSwitchMechanism.updateKillSwitchStatus();
+
+    const updateNotifier = new UpdateNotifier();
+    updateNotifier.notify(details.reason);
   }
 });
 

@@ -67,6 +67,9 @@
 #if defined(CHROMIUM || CHROMIUM_MV3)
     "declarativeNetRequestWithHostAccess",
 #endif
+#if defined(CHROMIUM_MV3)
+    "scripting",
+#endif
     "storage",
     "alarms"
   ],
@@ -85,6 +88,7 @@
         "xhrInterceptorInject.bundle.js",
         "extraInfoInject.bundle.js",
         "litComponentsInject.bundle.js",
+        "updateHandlerLitComponents.bundle.js",
 
         "css/profileindicator_inject.css",
         "css/ccdarktheme.css",

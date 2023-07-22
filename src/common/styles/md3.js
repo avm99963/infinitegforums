@@ -17,8 +17,10 @@ export const SHARED_MD3_STYLES = css`
     --md-icon-button-unselected-hover-icon-color: var(--TWPT-custom-md-icon-color);
     --md-icon-button-unselected-focus-icon-color: var(--TWPT-custom-md-icon-color);
     --md-icon-button-unselected-pressed-icon-color: var(--TWPT-custom-md-icon-color);
-    --mdc-theme-on-surface: var(--TWPT-primary-text, #000);
-    --mdc-dialog-heading-ink-color: var(--TWPT-primary-text);
     --mdc-theme-surface: var(--TWPT-primary-background, #fff);
+    --mdc-theme-on-surface: var(--TWPT-primary-text, #000);
+    --mdc-theme-primary: var(--TWPT-md-sys-color-primary, #6750a4);
+    --mdc-theme-on-primary: var(--TWPT-md-sys-color-on-primary, #fff);
+    --mdc-dialog-heading-ink-color: var(--TWPT-primary-text);
   }
 `;

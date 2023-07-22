@@ -12,6 +12,9 @@ const requiredPermissions = {
     // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
     'declarativeNetRequestWithHostAccess',
     // #!endif
+    // #!if browser_target == 'chromium_mv3'
+    'scripting',
+    // #!endif
   ]),
   origins: new Set([
     // Host permissions:

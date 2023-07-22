@@ -26,6 +26,18 @@
         <target>Вложенный вид</target>
         <note from="lit-localize">Label for the switch which lets users enable/disable the nested view in a thread.</note>
       </trans-unit>
+<trans-unit id="s0f92c01a67197f53">
+  <source>The TW Power Tools extension has been installed. Please reload this page so that it is activated.</source>
+  <note from="lit-localize">Message shown as a banner when the extension has been installed, to let the user know that they should reload the page.</note>
+</trans-unit>
+<trans-unit id="sb2c523c904424868">
+  <source>The TW Power Tools extension has been updated. Please reload this page so that it continues to work properly.</source>
+  <note from="lit-localize">Message shown as a banner when the extension has been updated, to let the user know that they should reload the page.</note>
+</trans-unit>
+<trans-unit id="sd5b6130b4937488c">
+  <source>Reload</source>
+  <note from="lit-localize">Button which reloads the current page.</note>
+</trans-unit>
     </body>
   </file>
 </xliff>

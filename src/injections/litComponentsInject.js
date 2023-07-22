@@ -5,6 +5,7 @@
 import '../contentScripts/communityConsole/workflows/components/index.js';
 import '../contentScripts/communityConsole/threadToolbar/components/index.js';
 import '../contentScripts/communityConsole/flattenThreads/components/index.js';
+import '../contentScripts/communityConsole/updateHandler/banner/components/index.js';
 
 import {injectStylesheet} from '../common/contentScriptsUtils.js';
 
