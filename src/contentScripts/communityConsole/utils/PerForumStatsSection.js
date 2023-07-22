@@ -115,7 +115,7 @@ export default class PerForumStatsSection {
   getAplosData(forumId) {
     let aplosData = [];
     for (const [key, name, color] of kDataKeys) {
-      let rawData = this.data.find(f => f.id === forumId)?.forumUserInfo?.[key];
+      let rawData = this.data.find(f => f.id == forumId)?.forumUserInfo?.[key];
       let data;
       if (!rawData) {
         data = [];
