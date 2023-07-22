@@ -1,5 +1,6 @@
 import {injectScript, injectStyles, injectStylesheet} from '../../common/contentScriptsUtils.js';
 import {getOptions} from '../../common/optionsUtils.js';
+import XHRProxyKillSwitchHandler from '../../xhrInterceptor/killSwitchHandler.js';
 import {injectPreviousPostsLinksUnifiedProfileIfEnabled} from '../utilsCommon/unifiedProfiles.js';
 
 import AvatarsHandler from './avatars.js';
@@ -346,3 +347,5 @@ getOptions(null).then(items => {
   // Flatten threads
   injectStylesheet(chrome.runtime.getURL('css/flatten_threads.css'));
 });
+
+new XHRProxyKillSwitchHandler();
