@@ -600,5 +600,9 @@
     "actionbadge_permissions_requested": {
         "message": "Algunes funcions necessiten permisos addicionals per funcionar. Fes clic per arreglar-lo.",
         "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."
+    },
+    "actionbadge_killswitch_enabled": {
+        "message": "Algunes funcions s'han desactivat forçosament. Feu clic per obtenir més informació.",
+        "description": "Tooltip for the extension icon shown when a kill switch has been enabled."
     }
 }
