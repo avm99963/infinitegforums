@@ -21,6 +21,14 @@ export default class MainWorldContentScriptBridgeServer {
     if (e.source !== window || e.data?.target !== this.CSTarget || !uuid)
       return;
 
+    // If chrome.runtime.id is undefined, then this content script belongs to a
+    // dead extension (see https://stackoverflow.com/a/69603416).
+    if (typeof chrome.runtime.id === 'undefined') {
+      console.debug(
+          '[MainWorldContentScriptBridgeServer] Not handling message because this is a dead server.');
+      return;
+    }
+
     const action = e.data?.action;
     const request = e.data?.request;
     return this.handler(uuid, action, request);
