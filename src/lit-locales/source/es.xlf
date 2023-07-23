@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
   <file target-language="es" source-language="en" original="lit-localize-inputs" datatype="plaintext">
     <body>
@@ -21,23 +21,26 @@
   <source><x id="0" equiv-text="${authorName}"/> said:</source>
         <target><x id="0" equiv-text="${authorName}"/> dijo:</target>
       </trans-unit>
-<trans-unit id="s98a0ccd6f423421f">
-  <source>Nested view</source>
-  <target>Vista anidada</target>
-  <note from="lit-localize">Label for the switch which lets users enable/disable the nested view in a thread.</note>
-</trans-unit>
-<trans-unit id="s0f92c01a67197f53">
-  <source>The TW Power Tools extension has been installed. Please reload this page so that it is activated.</source>
-  <note from="lit-localize">Message shown as a banner when the extension has been installed, to let the user know that they should reload the page.</note>
-</trans-unit>
-<trans-unit id="sb2c523c904424868">
-  <source>The TW Power Tools extension has been updated. Please reload this page so that it continues to work properly.</source>
-  <note from="lit-localize">Message shown as a banner when the extension has been updated, to let the user know that they should reload the page.</note>
-</trans-unit>
-<trans-unit id="sd5b6130b4937488c">
-  <source>Reload</source>
-  <note from="lit-localize">Button which reloads the current page.</note>
-</trans-unit>
+      <trans-unit id="s98a0ccd6f423421f">
+        <source>Nested view</source>
+        <target>Vista anidada</target>
+        <note from="lit-localize">Label for the switch which lets users enable/disable the nested view in a thread.</note>
+      </trans-unit>
+      <trans-unit id="s0f92c01a67197f53">
+        <source>The TW Power Tools extension has been installed. Please reload this page so that it is activated.</source>
+        <target state="translated">La extensión Herramientas avanzadas para TW ha sido instalada. Por favor recargue la página para que se active.</target>
+        <note from="lit-localize">Message shown as a banner when the extension has been installed, to let the user know that they should reload the page.</note>
+      </trans-unit>
+      <trans-unit id="sb2c523c904424868">
+        <source>The TW Power Tools extension has been updated. Please reload this page so that it continues to work properly.</source>
+        <target state="translated">La extensión Herramientas avanzadas para TW ha sido actualizada. Por favor recargue la página para que continue funcionando correctamente.</target>
+        <note from="lit-localize">Message shown as a banner when the extension has been updated, to let the user know that they should reload the page.</note>
+      </trans-unit>
+      <trans-unit id="sd5b6130b4937488c">
+        <source>Reload</source>
+        <target state="translated">Recargar</target>
+        <note from="lit-localize">Button which reloads the current page.</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>
