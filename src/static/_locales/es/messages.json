@@ -608,5 +608,9 @@
     "actionbadge_killswitch_enabled": {
         "message": "Algunas funciones se han desactivado forzosamente. Haz clic para más info.",
         "description": "Tooltip for the extension icon shown when a kill switch has been enabled."
+    },
+    "inject_perforumstats_chart_communityguides": {
+        "message": "Guías de la comunidad",
+        "description": "Label shown in the legend of the per-forum activity chart."
     }
 }
