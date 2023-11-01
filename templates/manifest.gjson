@@ -89,9 +89,9 @@
         "extraInfoInject.bundle.js",
         "litComponentsInject.bundle.js",
         "updateHandlerLitComponents.bundle.js",
+        "ccDarkTheme.bundle.css",
 
         "css/profileindicator_inject.css",
-        "css/ccdarktheme.css",
         "css/batchlock_inject.css",
         "css/enhanced_announcements_dot.css",
         "css/reposition_expand_thread.css",

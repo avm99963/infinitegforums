@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const json5 = require('json5');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const WebpackShellPluginNext = require('webpack-shell-plugin-next');
 
@@ -69,6 +70,9 @@ module.exports = (env, args) => {
 
     // Common CSS
     mdcStyles: './src/mdc/index.js',
+
+    // Compiled Sass
+    ccDarkTheme: './src/ccDarkTheme/main.scss?asCSSFile',
   };
 
   // Background script (or service worker for MV3)
@@ -98,6 +102,9 @@ module.exports = (env, args) => {
       clean: true,
     },
     plugins: [
+      new MiniCssExtractPlugin({
+        filename: '[name].bundle.css',
+      }),
       new WebpackShellPluginNext({
         onBuildStart: {
           scripts: ['make lit_localize_build'],
@@ -154,6 +161,20 @@ module.exports = (env, args) => {
             {
               resourceQuery: /string/,
               use: [
+                'css-loader',
+                {
+                  loader: 'sass-loader',
+                  options: {
+                    // Prefer `dart-sass`
+                    implementation: require('sass'),
+                  },
+                },
+              ],
+            },
+            {
+              resourceQuery: /asCSSFile/,
+              use: [
+                MiniCssExtractPlugin.loader,
                 'css-loader',
                 {
                   loader: 'sass-loader',

@@ -68,11 +68,11 @@ getOptions(null).then(options => {
     switch (options.ccdarktheme_mode) {
       case 'switch':
         if (options.ccdarktheme_switch_status == true)
-          injectStylesheet(chrome.runtime.getURL('css/ccdarktheme.css'));
+          injectStylesheet(chrome.runtime.getURL('ccDarkTheme.bundle.css'));
         break;
 
       case 'system':
-        injectStylesheet(chrome.runtime.getURL('css/ccdarktheme.css'), {
+        injectStylesheet(chrome.runtime.getURL('ccDarkTheme.bundle.css'), {
           'media': '(prefers-color-scheme: dark)',
         });
         break;
