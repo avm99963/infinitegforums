@@ -3,7 +3,7 @@
 
   --TWPT-primary-text: #e8eaed;
   --TWPT-primary-text-alt: var(--TWPT-primary-text);
-  --TWPT-secondary-text: #9aa0a6;
+  --TWPT-secondary-text: #bfbfbf;
   --TWPT-primary-background: #202124;
   --TWPT-secondary-background: #28292c;
   --TWPT-active-background: #3c4043;
@@ -40,6 +40,16 @@
   --TWPT-md-ripple-hover-state-layer-color: white;
   --TWPT-md-ripple-pressed-state-layer-color: white;
   --TWPT-custom-md-icon-color: var(--TWPT-subtle-button-background);
+
+  /* Overrides for variables used by the Community Console styles */
+  --gm-outlinedtextfield-outline-color: var(--TWPT-card-border);
+  --gm-outlinedtextfield-label-color: var(--TWPT-subtle-button-background);
+  --gm-outlinedtextfield-caret-color: var(--TWPT-blue-A100);
+  --gm-outlinedtextfield-outline-color--stateful: var(--TWPT-blue-A100);
+  --gm-outlinedtextfield-label-color--stateful: var(--TWPT-blue-A100);
+  --gm-outlinedtextfield-outline-color--error: var(--TWPT-bad-text);
+  --gm-outlinedtextfield-label-color--error: var(--TWPT-bad-text);
+  --gm-outlinedtextfield-helper-text-color--error: var(--TWPT-bad-text);
 
   /* TWPT features variables */
   --TWPT-dark-flatten-replies-more-bg: rgba(89, 89, 89, 0.9);
@@ -95,12 +105,21 @@ notification-bell:focus {
 }
 
 /* Drawer */
-material-drawer, material-drawer .panel, material-list-item {
+material-drawer, material-drawer .panel, ec-filter-drawer-item > .root, ec-forum-drawer-item material-list-item {
   background-color: var(--TWPT-drawer-background)!important;
 }
 
-material-list-item:hover, material-list-item:focus, material-list-item.item--active {
+material-drawer material-expansionpanel .main-header > .header:is(:hover, :focus) {
   background-color: var(--TWPT-active-background)!important;
+}
+
+:is(
+      ec-filter-drawer-item > .root,
+      ec-forum-drawer-item > material-list-item,
+      material-list material-list-item,
+      .drawer-section .drawer-item:not([separator=present])
+    ):is(:hover, :focus, :focus-within, .active, .drawer-item--active) {
+  background: var(--TWPT-active-background)!important;
 }
 
 material-drawer .panel {
@@ -282,8 +301,9 @@ ec-thread-list ec-bulk-actions, ec-thread-list ec-thread-summary material-expans
   border-bottom-color: var(--TWPT-subtle-border)!important;
 }
 
-ec-thread-list .no-results {
-  color: var(--TWPT-primary-text-alt)!important;
+ec-thread-list .no-results,
+    ec-thread-list .finished-results {
+  color: var(--TWPT-secondary-text)!important;
 }
 
 ec-thread-summary material-expansionpanel.read:not(.checked) {
@@ -320,6 +340,20 @@ material-expansionpanel .removed-label {
 ec-thread-summary material-expansionpanel ec-safe-html.body,
     material-expansionpanel .issue-tracking-work-state {
   color: var(--TWPT-primary-text)!important;
+}
+
+ec-thread-list material-fab.trigger {
+  background: rgba(124, 172, 248, 0.239)!important;
+  color: var(--TWPT-interop-blue)!important;
+}
+
+.popup-wrapper:has(.actions > .action-wrapper > material-fab.themeable) {
+  background-color: unset!important;
+}
+
+.popup-wrapper .actions > .action-wrapper > material-fab.themeable {
+  background-color: var(--TWPT-button-background)!important;
+  color: var(--TWPT-interop-blue)!important;
 }
 
 /*
@@ -596,6 +630,10 @@ ec-activity-panel ec-activity .thread-title {
   color: #c3bfbc!important;
 }
 
+ec-activity-panel ec-activity .thread-body {
+  color: var(--TWPT-secondary-text)!important;
+}
+
 /* Recommended answers - show in green where we've overwritten the colors */
 .recommended-answers {
   color: #34a853!important;
@@ -651,8 +689,32 @@ ec-thread-composer .main-content .title-input,
   border-color: var(--TWPT-card-border)!important;
 }
 
-ec-thread-composer .main-content .title-alert {
+ec-thread-composer .main-content .title-alert,
+    ec-thread-composer .main-content .footer-disclaimer-error {
   color: var(--TWPT-bad-text)!important;
+}
+
+ec-thread-composer .main-content .hero-button-container material-button {
+  border-color: var(--TWPT-input-underline);
+}
+
+ec-thread-composer .main-content .hero-button-container material-button .content {
+  color: var(--TWPT-blue-A100)!important;
+}
+
+ec-thread-composer .main-content .draft-button {
+  background: revert!important;
+  color: var(--TWPT-interop-blue);
+  border-color: var(--TWPT-card-border)!important;
+}
+
+ec-thread-composer .main-content .post-button {
+  background: var(--TWPT-interop-blue)!important;
+  color: #1f1f1f!important;
+}
+
+ec-thread-composer .main-content .post-button[disabled] {
+  background: rgba(227, 227, 227, 0.122)!important;
 }
 
 ec-thread-composer material-drawer {
@@ -678,6 +740,15 @@ ec-thread-composer material-drawer material-radio .radio-label {
 ec-thread-composer material-drawer material-radio .radio-description,
     ec-thread-composer material-drawer .settings-section .panel-section-item .select-label {
   color: var(--TWPT-secondary-text)!important;
+}
+
+material-dialog.community-video-dialog .footer material-button.cancel {
+  color: var(--TWPT-interop-blue)!important;
+}
+
+material-dialog.community-video-dialog .footer material-button.update:not([disabled]) {
+  background: var(--TWPT-interop-blue)!important;
+  color: #1f1f1f!important;
 }
 
 /* Note: see thread view section. There is a rule for the thread creation
@@ -849,6 +920,7 @@ ec-user bar-chart .aplos-legend-entry,
 .scSharedMaterialbuttontonal {
   color: var(--TWPT-interop-blue)!important;
   background: #394457!important;
+  outline: 1px solid #474747!important;
 }
 
 .scSharedMaterialbuttontonal:hover {
@@ -1018,28 +1090,28 @@ ec-user bar-chart .aplos-legend-entry,
 }
 
 .scSharedMaterialcardelevation-1 {
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.302), 0 1px 3px 1px rgba(0, 0, 0, 0.149);
-  background: #2a2b2f;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.302), 0 1px 3px 1px rgba(0, 0, 0, 0.149)!important;
+  background: #2a2b2f!important;
 }
 
 .scSharedMaterialcardelevation-2 {
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.302), 0 2px 6px 2px rgba(0, 0, 0, 0.149);
-  background: #303135;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.302), 0 2px 6px 2px rgba(0, 0, 0, 0.149)!important;
+  background: #303135!important;
 }
 
 .scSharedMaterialcardelevation-3 {
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.302), 0 4px 8px 3px rgba(0, 0, 0, 0.149);
-  background: #36383a;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.302), 0 4px 8px 3px rgba(0, 0, 0, 0.149)!important;
+  background: #36383a!important;
 }
 
 .scSharedMaterialcardelevation-4 {
-  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.302), 0 6px 10px 4px rgba(0, 0, 0, 0.149);
-  background: #39393c;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.302), 0 6px 10px 4px rgba(0, 0, 0, 0.149)!important;
+  background: #39393c!important;
 }
 
 .scSharedMaterialcardelevation-5 {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.302), 0 8px 12px 6px rgba(0, 0, 0, 0.149);
-  background: #3c3e40;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.302), 0 8px 12px 6px rgba(0, 0, 0, 0.149)!important;
+  background: #3c3e40!important;
 }
 
 @media (forced-colors:active) {
@@ -1617,7 +1689,7 @@ sc-tailwind-user_profile-user-profile .deleteIcon,
   border-bottom: 2px solid #a8c7fa;
 }
 
-h4.scTailwindThreadMessageHelpfulnessbuttonslabel {
+.scTailwindThreadMessageHelpfulnessbuttonslabel {
   color: #e3e3e3;
 }
 
@@ -1632,6 +1704,10 @@ h4.scTailwindThreadMessageHelpfulnessbuttonslabel {
 
 .scTailwindThreadMessageMessagecardtargeted {
   border-left: .125rem solid var(--TWPT-interop-blue);
+}
+
+.scTailwindThreadMessageMessagecardcallouthelp-icon {
+  color: #c4c7c5;
 }
 
 .scTailwindThreadMessageMessagecardcalloutroot.scTailwindThreadMessageMessagecardcalloutrecommended {
@@ -1680,6 +1756,10 @@ p.scTailwindThreadMessageMessagetombstoneroot .scTailwindThreadMessageMessagetom
   color: var(--TWPT-interop-blue);
 }
 
+.scTailwindThreadPostcontentedited {
+  color: var(--TWPT-interop-secondary-text);
+}
+
 .scTailwindThreadPost_headerOverflowmenuicon {
   color: var(--TWPT-interop-secondary-text);
 }
@@ -1688,7 +1768,11 @@ p.scTailwindThreadMessageMessagetombstoneroot .scTailwindThreadMessageMessagetom
   color: var(--TWPT-interop-secondary-text);
 }
 
-.scTailwindThreadPost_headerUserinfoname a {
+.scTailwindThreadPostheaderunread {
+  color: #ec928e;
+}
+
+a .scTailwindThreadPost_headerUserinfoname {
   color: var(--TWPT-interop-blue);
 }
 
@@ -1866,49 +1950,65 @@ p.scTailwindThreadMessageMessagetombstoneroot .scTailwindThreadMessageMessagetom
   color: var(--TWPT-interop-secondary-text);
 }
 
+.scTailwindThreadQuestionUgcvideodetailsyoutube-label {
+  color: #c4c7c5!important;
+}
+
 .scTailwindThreadThreaddeleted-icon {
   color: var(--TWPT-interop-secondary-text);
 }
 
-/* Some fixes for the interop components in the Community Console */
+/**
+ * Some fixes for the interop components in the Community Console.
+ *
+ * The |.scTailwindThreadPost_headerUserinfotag| elements have a
+ * |style="--color:#aaaaaa"| attribute which indicates the color of the badge,
+ * and we are transforming it to the dark mode color accordingly.
+ *
+ * The | .scTailwindThreadMessageMessageinteractionsuser-label| elements have a
+ * |style="--userLabelColor: #aaaaaa"| attribute, so we do the same there.
+ *
+ * We match only the hex color instead of the whole attribute because over time
+ * the attributes have changed (spaces have been removed, for instance).
+ */
 /* Alumnus */
-.scTailwindThreadPost_headerUserinfotag[style*="--color:#0F9D58"],
-    .scTailwindThreadMessageMessageinteractionsuser-label[style*="--userLabelColor:#0F9D58"] {
+.scTailwindThreadPost_headerUserinfotag[style*="#0F9D58" i],
+    .scTailwindThreadMessageMessageinteractionsuser-label[style*="#0F9D58" i] {
   --color: #C4EED0!important;
   --userLabelColor: #C4EED0!important;
 }
 
 /* Bronze */
-.scTailwindThreadPost_headerUserinfotag[style*="--color:#896E63"],
-    .scTailwindThreadMessageMessageinteractionsuser-label[style*="--userLabelColor:#896E63"] {
+.scTailwindThreadPost_headerUserinfotag[style*="#896E63" i],
+    .scTailwindThreadMessageMessageinteractionsuser-label[style*="#896E63" i] {
   --color: #B9ABA3!important;
   --userLabelColor: #B9ABA3!important;
 }
 
 /* Silver */
-.scTailwindThreadPost_headerUserinfotag[style*="--color:#5F6368"],
-    .scTailwindThreadMessageMessageinteractionsuser-label[style*="--userLabelColor:#5F6368"] {
+.scTailwindThreadPost_headerUserinfotag[style*="#5F6368" i],
+    .scTailwindThreadMessageMessageinteractionsuser-label[style*="#5F6368" i] {
   --color: #C4C7C5!important;
   --userLabelColor: #C4C7C5!important;
 }
 
 /* Gold */
-.scTailwindThreadPost_headerUserinfotag[style*="--color:#E37400"],
-    .scTailwindThreadMessageMessageinteractionsuser-label[style*="--userLabelColor:#E37400"] {
+.scTailwindThreadPost_headerUserinfotag[style*="#E37400" i],
+    .scTailwindThreadMessageMessageinteractionsuser-label[style*="#E37400" i] {
   --color: #F09D00!important;
   --userLabelColor: #F09D00!important;
 }
 
 /* Platinum */
-.scTailwindThreadPost_headerUserinfotag[style*="--color:#455A64"],
-    .scTailwindThreadMessageMessageinteractionsuser-label[style*="--userLabelColor:#455A64"] {
+.scTailwindThreadPost_headerUserinfotag[style*="#455A64" i],
+    .scTailwindThreadMessageMessageinteractionsuser-label[style*="#455A64" i] {
   --color: #E3E3E3!important;
   --userLabelColor: #E3E3E3!important;
 }
 
 /* Diamond, Community Specialist, Community Manager and Google Employee */
-.scTailwindThreadPost_headerUserinfotag[style*="--color:#1A73E8"],
-    .scTailwindThreadMessageMessageinteractionsuser-label[style*="--userLabelColor:#1A73E8"] {
+.scTailwindThreadPost_headerUserinfotag[style*="#1A73E8" i],
+    .scTailwindThreadMessageMessageinteractionsuser-label[style*="#1A73E8" i] {
   --color: #A8C7FA!important;
   --userLabelColor: #A8C7FA!important;
 }
@@ -1982,11 +2082,11 @@ ec-movable-dialog[showminimize] material-dialog .dialog-header .title, ec-movabl
   color: var(--TWPT-primary-background)!important;
 }
 
-ec-movable-dialog[showminimize] material-dialog .header-notice, material-dialog .legal-prompt {
-  background-color: #170f01!important;
+ec-movable-dialog material-dialog :is(.header-notice, .notice), material-dialog .legal-prompt {
+  background-color: #394457!important;
 }
 
-ec-movable-dialog[showminimize] material-dialog .main .header-notice material-icon[icon="info_outline"] {
+ec-movable-dialog material-dialog .main :is(.header-notice, .notice) material-icon[icon="info_outline"] {
   color: var(--TWPT-blue-A100)!important;
 }
 
@@ -2017,6 +2117,15 @@ material-dialog .footer material-button[raised]:not([disabled]),
     material-dialog .footer .mdc-button.submit:not(:disabled){
   background-color: var(--TWPT-blue-A100)!important;
   color: #1f1f1f!important;
+}
+
+/* Private message dialog */
+ec-movable-dialog .wrapper > .main > main > .top-row > div { /* Note: this is too generic so it might match other things */
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-movable-dialog .wrapper > .main > main > .top-row .recipient-container .recipient {
+  color: var(--TWPT-secondary-text)!important;
 }
 
 /* Keyboard shortcuts dialog */
@@ -2112,8 +2221,49 @@ material-input .underline .focused-underline {
   background-color: var(--TWPT-blue-A100)!important;
 }
 
-label .label {
+:is(material-input.gm-input, .gm-input material-input) .baseline {
+  border-color: var(--gm-outlinedtextfield-outline-color)!important;
+}
+
+:is(material-input.gm-input, .gm-input material-input) .baseline:hover {
+  border-color: var(--gm-outlinedtextfield-outline-color)!important;
+}
+
+:is(material-input.gm-input, .gm-input material-input) .baseline.focused {
+  border-color: var(--gm-outlinedtextfield-outline-color--stateful)!important;
+}
+
+:is(material-input.gm-input, .gm-input material-input).invalid .baseline {
+  border-color: var(--gm-outlinedtextfield-outline-color--error)!important;
+}
+
+:is(material-input.gm-input, .gm-input material-input).invalid .error-text {
+  color: var(--gm-outlinedtextfield-helper-text-color--error)!important;
+}
+
+label .label,
+    .input-field > .label {
   color: var(--TWPT-primary-text)!important;
+}
+
+.mdc-text-field--outlined:hover:not(.mdc-text-field--disabled):not(.mdc-text-field--focused) .mdc-floating-label {
+  color: var(--gm-outlinedtextfield-label-color)!important;
+}
+
+.mdc-text-field--outlined:hover:not(.mdc-text-field--disabled):not(.mdc-text-field--focused) .mdc-notched-outline :is(.mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing) {
+  border-color: var(--gm-outlinedtextfield-outline-color)!important;
+}
+
+.mdc-text-field--outlined.mdc-text-field--invalid:hover:not(.mdc-text-field--focused):not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: var(--gm-outlinedtextfield-label-color--error)!important;
+}
+
+.mdc-text-field--outlined.mdc-text-field--invalid:hover:not(.mdc-text-field--disabled):not(.mdc-text-field--focused) .mdc-notched-outline :is(.mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing) {
+  border-color: var(--gm-outlinedtextfield-outline-color--error)!important;
+}
+
+.mdc-text-field--outlined.mdc-text-field--invalid:hover:not(.mdc-text-field--focused):not(.mdc-text-field--disabled) + .mdc-text-field-helper-line .mdc-text-field-helper-text {
+  color: var(--gm-outlinedtextfield-helper-text-color--error)!important;
 }
 
 /* Input underline */
@@ -2127,13 +2277,35 @@ material-yes-no-buttons material-button:not([disabled]).highlighted:not([raised]
   color: var(--TWPT-blue-A100)!important;
 }
 
+material-yes-no-buttons material-button:not([disabled]).highlighted:not([raised]):is(:hover, :focus) {
+  background-color: revert!important;
+}
+
+material-yes-no-buttons material-button:not([disabled]).highlighted:not([raised]):is(:hover, :focus):after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: currentColor;
+  opacity: .12;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
 /* Checkbox input (except for forum checkboxes in the drawer) */
 material-checkbox material-icon:not(ec-forum-drawer-item material-icon, ec-thread-list material-icon) {
   color: var(--TWPT-secondary-text)!important;
 }
 
 material-checkbox .content:not(ec-forum-drawer-item material-icon, ec-thread-list material-icon) {
-  color: var(--TWPT-primary-text);
+  color: var(--TWPT-primary-text)!important;
+}
+
+material-checkbox.disabled .content:not(ec-forum-drawer-item material-icon, ec-thread-list material-icon) {
+  color: rgba(255, 255, 255, .54)!important;
 }
 
 /* .gm-icons is added by the SMEI_GOOGLE_MATERIAL_ICONS experiment. */
@@ -2262,6 +2434,10 @@ ec-announcements-content ::-webkit-scrollbar-thumb:hover {
   color: var(--TWPT-primary-text)!important;
 }
 
+.notification-panel .cards-container ec-notification-card-content .text a {
+  color: var(--TWPT-link)!important;
+}
+
 .notification-panel .cards-container ec-notification-card-content .time,
     .notification-panel .cards-container ec-notification-card-content .close material-button {
   color: var(--TWPT-secondary-text)!important;
@@ -2309,6 +2485,11 @@ ec-canned-responses .filter-row,
   border-bottom-color: var(--TWPT-subtle-border)!important;
 }
 
+ec-canned-responses .create-button {
+  background: #0842a0!important;
+  color: #d3e3fd!important;
+}
+
 /* Bug/case links dialog */
 .bug-case-links-dialog material-button.add-button {
   color: var(--TWPT-blue-A100)!important;
@@ -2337,6 +2518,11 @@ ec-settings .forum-language-container :is(material-button, button) {
 /* Loading spinner */
 material-spinner {
   border-color: var(--TWPT-blue-A100)!important;
+}
+
+/* "Skip to main" button */
+.skip-to-main:focus {
+  background: revert!important;
 }
 
 /* Custom injected components */
