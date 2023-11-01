@@ -608,5 +608,9 @@
     "inject_perforumstats_chart_communityvideos": {
         "message": "Vídeos de la comunitat",
         "description": "Label shown in the legend of the per-forum activity chart."
+    },
+    "inject_perforumstats_chart_communityguides": {
+        "message": "Guies de la comunitat",
+        "description": "Label shown in the legend of the per-forum activity chart."
     }
 }
