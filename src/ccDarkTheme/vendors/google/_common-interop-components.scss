@@ -461,6 +461,10 @@
   border-color: rgba(0, 0, 0, .26);
 }
 
+.scSharedMaterialradiodot {
+  border-color: var(--TWPT-interop-blue);
+}
+
 .scSharedMaterialradionative-control:disabled~.scSharedMaterialradiodot {
   background: rgba(0, 0, 0, .26);
 }
@@ -730,4 +734,37 @@
 .sc-select .sc-select-highlight {
   background-color: #5ab3f0;
   color: #1f1f1f;
+}
+
+.scRecommended_resourcesVideo_carouselVideocardroot {
+  background: #1f1f1f!important;
+  border: 1px solid var(--TWPT-interop-subtle-border)!important;
+}
+
+// The Community Console doesn't support the dark theme, so we need to style the
+// light components as if they were dark.
+.scRecommended_resourcesVideo_carouselVideocardlight:hover,.scRecommended_resourcesVideo_carouselVideocardlight:focus, .scRecommended_resourcesVideo_carouselVideocarddark:hover,.scRecommended_resourcesVideo_carouselVideocarddark:focus {
+  background: linear-gradient(0deg,rgba(168,199,250,.05),rgba(168,199,250,.05)),linear-gradient(0deg,rgba(199,199,199,.02),rgba(199,199,199,.02)),linear-gradient(0deg,#1f1f1f,#1f1f1f)!important;
+  border-color: transparent!important;
+}
+
+.scRecommended_resourcesVideo_carouselVideocardlight:focus, .scRecommended_resourcesVideo_carouselVideocarddark:focus {
+  outline: .125rem #fff solid!important;
+}
+
+.scRecommended_resourcesVideo_carouselVideocardtitle {
+  color: #e3e3e3!important;
+}
+
+.scRecommended_resourcesVideo_carouselVideocardicon {
+  filter: drop-shadow(0 0 24px rgba(0,0,0,.35))!important;
+}
+
+.scRecommended_resourcesVideo_carouselVideocardicon svg {
+  fill: #fff!important;
+}
+
+.scRecommended_resourcesVideo_carouselVideocardduration {
+  background-color: var(--TWPT-interop-secondary-text)!important;
+  color: #1f1f1f!important;
 }

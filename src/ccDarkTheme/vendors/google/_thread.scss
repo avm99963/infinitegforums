@@ -278,6 +278,18 @@ a .scTailwindThreadPost_headerUserinfoname {
   color: var(--TWPT-interop-secondary-text);
 }
 
+.scTailwindThreadQuestionThreadcountsrecommended-answers {
+  color: #6dd58c!important;
+}
+
+.scTailwindThreadQuestionThreadcountssuggested-answers {
+  color: var(--TWPT-interop-blue)!important;
+}
+
+.scTailwindThreadQuestionThreadcountssuggested-icon {
+  background: #394457!important;
+}
+
 .scTailwindThreadQuestionUgcvideodetailsyoutube-label {
   color: #c4c7c5!important;
 }

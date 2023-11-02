@@ -110,6 +110,27 @@ sc-tailwind-user_profile-user-profile .deleteIcon,
   color: #1f1f1f!important;
 }
 
+.scTailwindUserprofileUgcsectionroot {
+  border: 1px solid var(--TWPT-interop-subtle-border);
+}
+
+.scTailwindUserprofileUgcsectioncard-ugc-guide {
+  background-color: #1e1f20;
+}
+
+.scTailwindUserprofileUgcsectionthread-title {
+  color: #e3e3e3;
+}
+
+.scTailwindUserprofileUgcsectiondraft-tag {
+  background-color: #0f5223;
+  color: #6dd58c;
+}
+
+.scTailwindUserprofileUgcsectionthread-body {
+  color: #e3e3e3;
+}
+
 .scTailwindUser_profileUsercardroot {
   border: 1px solid var(--TWPT-interop-subtle-border)!important;
 }

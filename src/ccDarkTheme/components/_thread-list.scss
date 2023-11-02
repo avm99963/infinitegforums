@@ -31,6 +31,16 @@ ec-thread-summary material-expansionpanel .title {
   color: var(--TWPT-primary-text)!important;
 }
 
+ec-thread-summary material-expansionpanel .title .purpose-tag {
+  background-color: rgba(255, 255, 255, .06)!important;
+  color: #a8c7fa!important;
+}
+
+ec-thread-summary material-expansionpanel .title .draft-tag {
+  background-color: #0f5223!important;
+  color: #6dd58c!important;
+}
+
 ec-thread-summary material-expansionpanel ec-second-summary-line,
     material-expansionpanel .header-content,
     material-expansionpanel ec-thread-counts > span:not(.recommended-answers),
