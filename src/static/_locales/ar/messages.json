@@ -608,5 +608,9 @@
     "actionbadge_killswitch_enabled": {
         "message": "تم تعطيل بعض الميزات قسرا. النّقر للحصول على مزيد من المعلومات.",
         "description": "Tooltip for the extension icon shown when a kill switch has been enabled."
+    },
+    "inject_perforumstats_chart_communityguides": {
+        "message": "أدلّة المنتدى",
+        "description": "Label shown in the legend of the per-forum activity chart."
     }
 }
