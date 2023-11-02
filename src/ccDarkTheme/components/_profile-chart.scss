@@ -1,0 +1,44 @@
+ec-user bar-chart .axis text,
+    ec-unified-user .scTailwindSharedActivitychartchart .axis text {
+  fill: var(--TWPT-subtle-button-background)!important;
+}
+
+ec-user bar-chart .axis path,
+    ec-user bar-chart .axis .gridline,
+    ec-user bar-chart .axis line,
+    ec-unified-user .scTailwindSharedActivitychartchart .axis path,
+    ec-unified-user .scTailwindSharedActivitychartchart .axis .gridline,
+    ec-unified-user .scTailwindSharedActivitychartchart .axis line {
+  stroke: rgba(255, 255, 255, .12)!important;
+}
+
+ec-user bar-chart .axis line.axis-zero-tick,
+    ec-user bar-chart .axis.x .tick-mark,
+    ec-unified-user .scTailwindSharedActivitychartchart .axis line.axis-zero-tick,
+    ec-unified-user .scTailwindSharedActivitychartchart .axis.x .tick-mark {
+  stroke: rgba(255, 255, 255, .38)!important;
+}
+
+ec-user bar-chart .aplos-legend-entry,
+    ec-unified-user .scTailwindSharedActivitychartchart .aplos-legend-entry {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+.aplos-hovercard {
+  color: var(--TWPT-interop-secondary-text)!important;
+  background: var(--TWPT-secondary-background)!important;
+  border: none!important;
+}
+
+.aplos-hovercard .title {
+  color: var(--TWPT-primary-text)!important;
+}
+
+.aplos-hovercard .subtitle,
+    .aplos-donut-center .subtitle,
+    .aplos-hovercard .series,
+    .aplos-donut-center .series,
+    .aplos-hovercard .value,
+    .aplos-donut-center .value {
+  color: var(--TWPT-secondary-text)!important;
+}

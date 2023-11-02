@@ -1,0 +1,192 @@
+ec-question, .heading + .group, ec-message {
+  background-color: var(--TWPT-secondary-background)!important;
+}
+
+ec-thread .no-review-needed {
+  background-color: #155829!important;
+  border-color: var(--TWPT-subtle-border)!important;
+}
+
+// "Original thread" box inside escalations
+sc-tailwind-thread-question-thread-summary .scTailwindThreadQuestionThreadsummarythread-summary {
+  background: var(--TWPT-active-background)!important;
+  border-color: var(--TWPT-card-border)!important;
+}
+
+sc-tailwind-thread-question-thread-summary .scTailwindThreadQuestionThreadsummarydetails {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+sc-tailwind-thread-question-thread-summary .scTailwindThreadQuestionThreadsummarytitle {
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-message-header .header, ec-question .state, ec-question ec-thread-counts > span, ec-message ec-thread-counts > span {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+ec-question .alert, ec-message .alert {
+  background-color: var(--TWPT-active-background)!important;
+}
+
+ec-question .alert material-icon, ec-message .alert material-icon {
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-question .alert ec-icon, ec-message .alert ec-icon {
+  color: var(--TWPT-primary-text)!important;
+  fill: var(--TWPT-primary-text)!important;
+}
+
+ec-question .alert material-button {
+  color: var(--TWPT-link)!important;
+}
+
+ec-question .title {
+  color: var(--TWPT-primary-text-alt)!important;
+}
+
+ec-user-link .name-text {
+  color: var(--TWPT-link)!important;
+}
+
+ec-message-header ec-avatar svg, ec-message-header .role,
+    ec-message .footer .role {
+  filter: brightness(1.5);
+}
+
+ec-question .body, ec-message .body {
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-question .thread-insert {
+  background: none!important;
+}
+
+ec-question .details-heading {
+  color: var(--TWPT-primary-text-alt) !important;
+}
+
+ec-question .state-chips material-chip,
+    .TWPT-extrainfo-chip {
+  background-color: var(--TWPT-button-background)!important;
+  border: none!important;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2),
+      0 1px 1px 0 rgba(0, 0, 0, 0.14),
+      0 1px 3px 0 rgba(0, 0, 0, 0.12)!important;
+}
+
+ec-question .state-chips material-chip .content,
+    .TWPT-extrainfo-chip .TWPT-content {
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-question .footer,
+    ec-ask-flow .content-disclaimer {
+  color: var(--TWPT-primary-text)!important;
+  background-color: var(--TWPT-active-background)!important;
+  border-top-color: var(--TWPT-card-border)!important;
+}
+
+.heading {
+  color: var(--TWPT-primary-text)!important;
+}
+
+.heading + .group,
+    .load-more-bar,
+    ec-message:not(:first-child),
+    .load-more-bar .load-more-button,
+    .load-more-bar .load-all-button {
+  border-color: var(--TWPT-card-border)!important;
+}
+
+ec-message .type {
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-message .footer ec-relative-time,
+    ec-message .footer ec-safe-html {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+ec-message .helpful-prompt {
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-question .me-too-button,
+    ec-question .subscribe-button,
+    ec-message .upvote-button,
+    ec-message .downvote-button {
+  color: var(--TWPT-secondary-text)!important;
+  background-color: var(--TWPT-button-background)!important;
+}
+
+ec-message .alert {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+ec-question .me-too-button.selected,
+    ec-question .subscribe-button.selected,
+    ec-message .upvote-button.selected,
+    ec-message .downvote-button.selected {
+  color: #4285f4!important;
+}
+
+.load-more-bar .load-more-button, .load-more-bar .load-all-button {
+  background-color: var(--TWPT-secondary-background)!important;
+}
+
+.locked-alert {
+  background-color: var(--TWPT-active-background)!important;
+  border: var(--TWPT-card-border)!important;
+}
+
+.locked-alert material-icon {
+  color: rgba(255, 255, 255, .38)!important;
+}
+
+ec-thread button.reply.collapsed {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+ec-thread .finished-question {
+  background-color: var(--TWPT-active-background)!important;
+  border: var(--TWPT-card-border)!important;
+}
+
+ec-thread .finished-question .next-question {
+  color: var(--TWPT-link)!important;
+  border-color: var(--TWPT-link)!important;
+}
+
+.material-content .action-bar material-button.has-activity {
+  color: var(--TWPT-blue-A100)!important;
+}
+
+.material-content .action-bar material-button.showing-sidebar {
+  background-color: var(--TWPT-active-background)!important;
+}
+
+// Recommended answers - show in green where we've overwritten the colors
+.recommended-answers {
+  color: #34a853!important;
+}
+
+// Suggested answers - show brighter blue
+.suggested-icon {
+  color: var(--TWPT-blue-A100)!important;
+}
+
+// Help button (shown in the suggested answers header)
+.explanation-icon material-icon {
+  color: var(--TWPT-subtle-button-background)!important;
+}
+
+// Help button tooltip
+.popup .paper-container {
+  background: var(--TWPT-drawer-background)!important;
+}
+
+.explanation-icon material-icon:hover {
+  color: var(--TWPT-blue-A100)!important;
+}

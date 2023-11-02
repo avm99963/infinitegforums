@@ -1,0 +1,31 @@
+ec-canned-responses .filter-label,
+    ec-canned-responses ec-canned-response-row .name {
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-canned-responses .label-row,
+    ec-canned-responses ec-canned-response-row .snippet,
+    ec-canned-responses ec-canned-response-row .tag .content,
+    ec-canned-responses ec-canned-response-row .TWPT-tag .TWPT-content {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+ec-canned-responses ec-canned-response-row .header.closed:hover,
+    ec-canned-responses ec-canned-response-row .header.closed:focus,
+    ec-canned-responses ec-canned-response-row .header.closed:hover .toolbar,
+    ec-canned-responses ec-canned-response-row .header.closed:focus .toolbar,
+    ec-canned-responses ec-canned-response-row material-expansionpanel:not(.expanded) .main-header:focus-within,
+    ec-canned-responses ec-canned-response-row material-expansionpanel:not(.expanded) .main-header:hover {
+  background-color: var(--TWPT-active-background)!important;
+}
+
+ec-canned-responses .filter-row,
+    ec-canned-responses .label-row,
+    ec-canned-responses ec-canned-response-row material-expansionpanel {
+  border-bottom-color: var(--TWPT-subtle-border)!important;
+}
+
+ec-canned-responses .create-button {
+  background: #0842a0!important;
+  color: #d3e3fd!important;
+}

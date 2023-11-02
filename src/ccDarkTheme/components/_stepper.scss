@@ -1,0 +1,19 @@
+// The stepper is shown in the "new thread" and "edit message" views
+material-stepper {
+  border-top-color: var(--TWPT-card-border)!important;
+}
+
+material-stepper .stepper-step-name,
+    material-stepper .purpose-title {
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-ask-flow .display-name-label,
+    material-stepper .additional-details-label,
+    material-stepper .detail-label {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+material-stepper .stepper-step[selectable=true]:focus {
+  background-color: rgba(60, 64, 67, .24)!important;
+}

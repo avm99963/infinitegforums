@@ -1,0 +1,20 @@
+material-dialog .main.with-scroll-strokes table th {
+  color: var(--TWPT-primary-text)!important;
+}
+
+material-dialog .main.with-scroll-strokes table td {
+  color: var(--TWPT-primary-text-alt)!important;
+}
+
+material-dialog .main.with-scroll-strokes table tr,
+    material-dialog .main.with-scroll-strokes .shortcut {
+  border-color: var(--TWPT-card-border)!important;
+}
+
+material-dialog .main.with-scroll-strokes.bottom-scroll-stroke {
+  border-bottom-color: var(--TWPT-card-border)!important;
+}
+
+material-dialog .main.with-scroll-strokes.top-scroll-stroke {
+  border-top-color: var(--TWPT-card-border)!important;
+}

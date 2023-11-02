@@ -1,0 +1,12 @@
+material-radio .icon-container:not(.checked) material-icon {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+material-radio .icon-container.checked material-icon {
+  color: var(--TWPT-blue-A100)!important;
+}
+
+material-radio {
+  --gm-radio-stroke-color--checked: var(--TWPT-blue-A100);
+  --gm-radio-ink-color: var(--TWPT-blue-A100);
+}

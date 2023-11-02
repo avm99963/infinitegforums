@@ -1,0 +1,8 @@
+// Generic popup (for notification bell, account selector, etc.)
+.popup-wrapper {
+  background-color: var(--TWPT-drawer-background)!important;
+
+  .header-text {
+    color: var(--TWPT-primary-text)!important;
+  }
+}

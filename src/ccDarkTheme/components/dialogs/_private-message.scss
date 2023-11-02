@@ -1,0 +1,7 @@
+ec-movable-dialog .wrapper > .main > main > .top-row > div { // Note: this is too generic so it might match other things
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-movable-dialog .wrapper > .main > main > .top-row .recipient-container .recipient {
+  color: var(--TWPT-secondary-text)!important;
+}

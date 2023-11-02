@@ -1,0 +1,21 @@
+material-yes-no-buttons material-button:not([disabled]).highlighted:not([raised]) {
+  color: var(--TWPT-blue-A100)!important;
+}
+
+material-yes-no-buttons material-button:not([disabled]).highlighted:not([raised]):is(:hover, :focus) {
+  background-color: revert!important;
+}
+
+material-yes-no-buttons material-button:not([disabled]).highlighted:not([raised]):is(:hover, :focus):after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: currentColor;
+  opacity: .12;
+  border-radius: inherit;
+  pointer-events: none;
+}

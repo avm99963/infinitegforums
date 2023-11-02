@@ -1,0 +1,15 @@
+.mdc-switch:not(.mdc-switch--checked) .mdc-switch__track {
+  background-color: #7d7d7d!important; /* custom value */
+}
+
+.mdc-switch:not(.mdc-switch--checked) .mdc-switch__thumb {
+  border-color: #fff!important; /* custom value */
+}
+
+.mdc-switch.mdc-switch--checked .mdc-switch__track {
+  background-color: var(--TWPT-blue-A100)!important;
+}
+
+.mdc-switch.mdc-switch--checked .mdc-switch__thumb {
+  border-color: var(--TWPT-blue-A100)!important;
+}

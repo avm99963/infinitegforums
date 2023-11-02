@@ -1,0 +1,16 @@
+:root {
+  color-scheme: dark;
+}
+
+body {
+  color: var(--TWPT-primary-text);
+  background-color: var(--TWPT-primary-background)!important;
+}
+
+p {
+  color: var(--TWPT-primary-text);
+}
+
+body.ec a {
+  color: var(--TWPT-link);
+}

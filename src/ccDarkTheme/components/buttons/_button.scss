@@ -1,0 +1,7 @@
+material-button[disabled] {
+  color: rgba(255, 255, 255, .26)!important;
+}
+
+.mdc-button {
+  --gm-colortextbutton-disabled-ink-color: rgba(255, 255, 255, .26);
+}

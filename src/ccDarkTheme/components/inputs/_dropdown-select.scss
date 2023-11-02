@@ -1,0 +1,8 @@
+material-dropdown-select dropdown-button {
+  color: var(--TWPT-primary-text)!important;
+}
+
+material-dropdown-select dropdown-button .button.is-disabled .button-text,
+    material-dropdown-select dropdown-button .button.is-disabled material-icon {
+  color: rgba(255, 255, 255, .32)!important;
+}

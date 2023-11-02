@@ -1,0 +1,33 @@
+material-drawer, material-drawer .panel, ec-filter-drawer-item > .root, ec-forum-drawer-item material-list-item {
+  background-color: var(--TWPT-drawer-background)!important;
+}
+
+material-drawer material-expansionpanel .main-header > .header:is(:hover, :focus) {
+  background-color: var(--TWPT-active-background)!important;
+}
+
+:is(
+      ec-filter-drawer-item > .root,
+      ec-forum-drawer-item > material-list-item,
+      material-list material-list-item,
+      .drawer-section .drawer-item:not([separator=present])
+    ):is(:hover, :focus, :focus-within, .active, .drawer-item--active) {
+  background: var(--TWPT-active-background)!important;
+}
+
+material-drawer .panel {
+  border-bottom-color: #25231f!important;
+}
+
+material-drawer .drawer-section-title, material-drawer .header > material-icon {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+material-drawer material-list-item,
+    material-drawer material-list-item .title {
+  color: #d2cecb!important;
+}
+
+material-drawer ec-forum-drawer-item material-checkbox material-icon {
+  filter: brightness(1.5);
+}

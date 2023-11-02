@@ -1,0 +1,32 @@
+.notification-panel .header {
+  border-bottom-color: var(--TWPT-card-border)!important;
+}
+
+.notification-panel .header material-button {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+.notification-panel .cards-container .promo-message {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+.notification-panel .cards-container .promo-message .header-text {
+  color: var(--TWPT-primary-text)!important;
+}
+
+.notification-panel .cards-container ec-notification-card-content {
+  border-bottom-color: var(--TWPT-card-border)!important;
+}
+
+.notification-panel .cards-container ec-notification-card-content .text {
+  color: var(--TWPT-primary-text)!important;
+}
+
+.notification-panel .cards-container ec-notification-card-content .text a {
+  color: var(--TWPT-link)!important;
+}
+
+.notification-panel .cards-container ec-notification-card-content .time,
+    .notification-panel .cards-container ec-notification-card-content .close material-button {
+  color: var(--TWPT-secondary-text)!important;
+}

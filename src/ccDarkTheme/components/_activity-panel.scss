@@ -1,0 +1,24 @@
+ec-activity-panel .title-bar h3 {
+  color: #e8eaf2!important;
+}
+
+ec-activity-panel .title-bar material-button {
+  color: var(--TWPT-subtle-button-background)!important;
+}
+
+ec-activity-panel ec-activity {
+  color: var(--TWPT-secondary-text)!important;
+  border-color: var(--TWPT-card-border)!important;
+}
+
+ec-activity-panel ec-activity .message {
+  color: var(--TWPT-primary-text-alt)!important;
+}
+
+ec-activity-panel ec-activity .thread-title {
+  color: #c3bfbc!important;
+}
+
+ec-activity-panel ec-activity .thread-body {
+  color: var(--TWPT-secondary-text)!important;
+}

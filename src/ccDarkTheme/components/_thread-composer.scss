@@ -1,0 +1,73 @@
+ec-thread-composer .main-content .title-label,
+    ec-thread-composer .main-content .post-label {
+  color: var(--TWPT-primary-text-alt)!important;
+}
+
+ec-thread-composer .main-content .title-input,
+    ec-thread-composer .main-content ec-rich-text-editor {
+  border-color: var(--TWPT-card-border)!important;
+}
+
+ec-thread-composer .main-content .title-alert,
+    ec-thread-composer .main-content .footer-disclaimer-error {
+  color: var(--TWPT-bad-text)!important;
+}
+
+ec-thread-composer .main-content .hero-button-container material-button {
+  border-color: var(--TWPT-input-underline);
+}
+
+ec-thread-composer .main-content .hero-button-container material-button .content {
+  color: var(--TWPT-blue-A100)!important;
+}
+
+ec-thread-composer .main-content .draft-button {
+  background: revert!important;
+  color: var(--TWPT-interop-blue);
+  border-color: var(--TWPT-card-border)!important;
+}
+
+ec-thread-composer .main-content .post-button {
+  background: var(--TWPT-interop-blue)!important;
+  color: #1f1f1f!important;
+}
+
+ec-thread-composer .main-content .post-button[disabled] {
+  background: rgba(227, 227, 227, 0.122)!important;
+}
+
+ec-thread-composer material-drawer {
+  background-color: inherit!important;
+}
+
+ec-thread-composer material-drawer .right-panel {
+  border-left-color: var(--TWPT-card-border)!important;
+}
+
+ec-thread-composer material-drawer .panel-section-title {
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-thread-composer material-drawer .panel-section-divider {
+  border-color: var(--TWPT-card-border)!important;
+}
+
+ec-thread-composer material-drawer material-radio .radio-label {
+  color: var(--TWPT-primary-text-alt)!important;
+}
+
+ec-thread-composer material-drawer material-radio .radio-description,
+    ec-thread-composer material-drawer .settings-section .panel-section-item .select-label {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+material-dialog.community-video-dialog .footer material-button.cancel {
+  color: var(--TWPT-interop-blue)!important;
+}
+
+material-dialog.community-video-dialog .footer material-button.update:not([disabled]) {
+  background: var(--TWPT-interop-blue)!important;
+  color: #1f1f1f!important;
+}
+
+// Note: see _thread-view.scss. There is a rule for the thread creation footer.

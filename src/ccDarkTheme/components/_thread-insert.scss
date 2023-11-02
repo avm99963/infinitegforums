@@ -1,0 +1,10 @@
+// ec-thread-insert is a card with a summary of a thread when escalating it.
+ec-thread-insert .title {
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-thread-insert ec-thread-counts,
+    ec-thread-insert .details,
+    ec-thread-insert ec-relative-time {
+  color: var(--TWPT-subtle-button-background)!important;
+}

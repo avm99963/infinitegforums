@@ -1,0 +1,17 @@
+.search-results ec-thread-option material-expansionpanel .panel {
+  background-color: var(--TWPT-primary-background)!important;
+}
+
+.search-results ec-thread-option material-expansionpanel.selected .panel,
+    .search-results ec-thread-option material-expansionpanel .panel > .main-header > .header.closed:hover,
+    .search-results ec-thread-option material-expansionpanel .panel > .main-header > .header.closed:focus {
+  background-color: #17191c!important;
+}
+
+.search-results .results-title {
+  color: var(--TWPT-primary-text-alt)!important;
+}
+
+.search-results ec-thread-option material-expansionpanel .panel > .main > .main-content .snippet {
+  color: var(--TWPT-secondary-text)!important;
+}

@@ -1,0 +1,34 @@
+.material-content > header {
+  background-color: var(--TWPT-primary-background)!important;
+}
+
+.material-content > header .app-title-button,
+    .material-content > header .app-title-text {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+.material-content > header :is(material-button,
+    material-button material-icon,
+    .mdc-button.mdc-icon-button,
+    .mdc-button.mdc-icon-button material-icon,
+    notification-bell material-icon) {
+  color: rgba(255, 255, 255, .87)!important;
+}
+
+.search-box {
+  background-color: #313235!important;
+}
+
+.search-box .clear-icon {
+  opacity: 0.8;
+  color: rgba(255, 255, 255, .87)!important;
+}
+
+.material-content > header .bell.mixin {
+  fill: rgba(255, 255, 255, .87)!important;
+}
+
+// Header menus
+.popup material-list-item {
+  color: #d2cecb!important;
+}

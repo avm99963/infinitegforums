@@ -1,0 +1,27 @@
+.main {
+  color: var(--TWPT-primary-text)!important;
+}
+
+// Border color for the page title bar (most pages use .title-bar although
+// some use .page-header).
+main .title-bar, main .page-header {
+  border-bottom-color: var(--TWPT-subtle-border)!important;
+}
+
+main .title-bar .title, main .page-header h1, main .header h1 {
+  color: var(--TWPT-primary-text)!important;
+}
+
+.card {
+  background-color: var(--TWPT-secondary-background)!important;
+  color: var(--TWPT-primary-text)!important;
+  border-color: var(--TWPT-card-border)!important;
+}
+
+.card .card-title, .card, .card-section-title {
+  color: var(--TWPT-primary-text)!important;
+}
+
+.card .card-section-hint, .card .card-section-checkbox-hint {
+  color: var(--TWPT-secondary-text)!important;
+}

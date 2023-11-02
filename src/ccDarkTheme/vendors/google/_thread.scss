@@ -1,0 +1,287 @@
+/*
+ * IMPORTANT NOTICE:
+ * Note: the following styles have been written by Googlers and thus are not
+ * included as part of the MIT license.
+ **/
+
+.scTailwindThreadEditquestiondialogroot.scTailwindThreadEditquestiondialogscrollable {
+  -webkit-box-shadow: inset 0 -11px 5px -11px #000;
+  box-shadow: inset 0 -11px 5px -11px #000;
+}
+
+.scTailwindThreadEditquestiondialogerror {
+  color: #ec928e;
+}
+
+.scTailwindThreadGetlinkdialoglink-container {
+  border-bottom: 2px solid #a8c7fa;
+}
+
+.scTailwindThreadMessageHelpfulnessbuttonslabel {
+  color: #e3e3e3;
+}
+
+.scTailwindThreadMessageMessagecardsub-content {
+  background: #3c4043;
+  border-top: 1px solid var(--TWPT-interop-subtle-border);
+}
+
+.scTailwindThreadMessageMessagecardnested-reply:not(:first-child) {
+  border-top: 1px solid var(--TWPT-interop-subtle-border);
+}
+
+.scTailwindThreadMessageMessagecardtargeted {
+  border-left: .125rem solid var(--TWPT-interop-blue);
+}
+
+.scTailwindThreadMessageMessagecardcallouthelp-icon {
+  color: #c4c7c5;
+}
+
+.scTailwindThreadMessageMessagecardcalloutroot.scTailwindThreadMessageMessagecardcalloutrecommended {
+  background: #0f5223;
+  border-color: #6dd58c;
+}
+
+.scTailwindThreadMessageMessagecardcalloutroot.scTailwindThreadMessageMessagecardcalloutrelevant {
+  background: #394457;
+  border-color: var(--TWPT-interop-blue);
+}
+
+.scTailwindThreadMessageMessagetagrecommended.scTailwindThreadMessageMessagetagnormal {
+  color: #6dd58c;
+}
+
+.scTailwindThreadMessageMessagetagrecommended.scTailwindThreadMessageMessagetagstrong {
+  color: #6dd58c;
+}
+
+.scTailwindThreadMessageMessagetagrelevant.scTailwindThreadMessageMessagetagnormal {
+  color: var(--TWPT-interop-blue);
+}
+
+.scTailwindThreadMessageMessagetagrelevant.scTailwindThreadMessageMessagetagstrong {
+  color: var(--TWPT-interop-blue);
+}
+
+.scTailwindThreadMessageMessageinteractionsinteraction {
+  color: var(--TWPT-interop-secondary-text);
+}
+
+p.scTailwindThreadMessageMessagetombstoneroot {
+  color: var(--TWPT-interop-secondary-text);
+}
+
+p.scTailwindThreadMessageMessagetombstoneroot .scTailwindThreadMessageMessagetombstoneclickable {
+  color: var(--TWPT-interop-secondary-text);
+}
+
+.scTailwindThreadPostcontentroot {
+  color: #e3e3e3;
+}
+
+.scTailwindThreadPostcontentroot a {
+  color: var(--TWPT-interop-blue);
+}
+
+.scTailwindThreadPostcontentedited {
+  color: var(--TWPT-interop-secondary-text);
+}
+
+.scTailwindThreadPost_headerOverflowmenuicon {
+  color: var(--TWPT-interop-secondary-text);
+}
+
+.scTailwindThreadPost_headerPostdateroot {
+  color: var(--TWPT-interop-secondary-text);
+}
+
+.scTailwindThreadPostheaderunread {
+  color: #ec928e;
+}
+
+a .scTailwindThreadPost_headerUserinfoname {
+  color: var(--TWPT-interop-blue);
+}
+
+.scTailwindThreadPost_headerUserinfotag {
+  color: var(--color, #e3e3e3);
+}
+
+.scTailwindThreadPost_headerUserinfoheadline {
+  color: var(--TWPT-interop-secondary-text);
+}
+
+.scTailwindThreadReplyeditorroot {
+  background: #2a2b2f;
+  border-color: var(--TWPT-interop-subtle-border);
+}
+
+.scTailwindThreadReplyeditortop-row {
+  border-bottom-color: 1px solid rgba(255, 255, 255, 0.239);
+}
+
+.scTailwindThreadReplyeditorfooter {
+  background: #36373a;
+  border-top-color: rgba(255, 255, 255, 0.239);
+}
+
+.scTailwindThreadReplyeditorfooter a {
+  color: var(--TWPT-interop-blue);
+}
+
+.scTailwindThreadReplyeditorroot .scTailwindThreadReplyeditorerror {
+  color: #ec928e;
+}
+
+.scTailwindThreadReplydialogroot {
+  background: #2a2b2f;
+}
+
+.scTailwindThreadReplydialogheader {
+  background: var(--TWPT-interop-blue);
+}
+
+.scTailwindThreadReplydialogheader h1.scTailwindThreadReplydialogheading {
+  color: #1f1f1f;
+}
+
+.scTailwindThreadReplydialogheading-button {
+  color: #1f1f1f;
+}
+
+.scTailwindThreadReplydialogtop-row {
+  border-bottom: 1px solid var(--TWPT-interop-subtle-border);
+}
+
+.scTailwindThreadReplydialogfooter {
+  background: #36373a;
+}
+
+.scTailwindThreadReplydialogfooter a {
+  color: var(--TWPT-interop-blue);
+}
+
+.scTailwindThreadReplydialogminimized .scTailwindThreadReplydialogheader {
+  background: #e3e3e3;
+  color: #1f1f1f;
+}
+
+.scTailwindThreadReplydialogroot .scTailwindThreadReplydialogerror {
+  color: #ec928e;
+}
+
+@media (min-width:48.125rem) {
+  .scTailwindThreadReplydialogroot {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.302), 0 2px 6px 2px rgba(0, 0, 0, 0.149);
+  }
+}
+
+.scTailwindThreadMessageMessagelisthelp-icon {
+  color: var(--TWPT-interop-secondary-text);
+}
+
+.scTailwindThreadMessageMessagelistrecommended-icon {
+  color: #c4eed0;
+}
+
+.scTailwindThreadMessageMessagelistrelevant-icon {
+  color: var(--TWPT-interop-blue);
+}
+
+.scTailwindThreadMorebuttondivider {
+  background: var(--TWPT-interop-subtle-border);
+}
+
+.scTailwindThreadMorebuttonbutton {
+  background: #1f1f1f;
+  border: 1px solid var(--TWPT-interop-subtle-border);
+  color: var(--TWPT-interop-secondary-text);
+}
+
+.scTailwindThreadMessagegapdivider {
+  background: var(--TWPT-interop-subtle-border);
+}
+
+.scTailwindThreadMessagegapbutton {
+  background: #1f1f1f;
+  border: 1px solid var(--TWPT-interop-subtle-border);
+  color: var(--TWPT-interop-secondary-text);
+}
+
+.scTailwindThreadPesignupdialogclose-button-row button {
+  color: #fff;
+}
+
+.scTailwindThreadPesignupdialogdialog-body p {
+  color: #e3e3e3;
+}
+
+.scTailwindThreadPesignupdialogpe-dialog-container {
+  background-color: #1f1f1f;
+  -webkit-box-shadow: 0 .063rem .188rem rgba(60, 64, 67, 0.3), 0 .25rem .5rem rgba(60, 64, 67, 0.15);
+  box-shadow: 0 .063rem .188rem rgba(60, 64, 67, 0.3), 0 .25rem .5rem rgba(60, 64, 67, 0.15);
+}
+
+.scTailwindThreadPostconfirmationdialogclose-button-row button {
+  color: #e3e3e3;
+}
+
+.scTailwindThreadPostconfirmationdialogdialog-body p {
+  color: #e3e3e3;
+}
+
+.scTailwindThreadPostconfirmationdialogdialog-container {
+  background-color: #1f1f1f;
+  -webkit-box-shadow: 0 .063rem .188rem rgba(60, 64, 67, 0.3), 0 .25rem .5rem rgba(60, 64, 67, 0.15);
+  box-shadow: 0 .063rem .188rem rgba(60, 64, 67, 0.3), 0 .25rem .5rem rgba(60, 64, 67, 0.15);
+}
+
+.scTailwindThreadQuestionQuestioncardsub-content {
+  background: #3c4043;
+  border-top: 1px solid var(--TWPT-interop-subtle-border);
+}
+
+.scTailwindThreadQuestionQuestioncardtitle {
+  color: #e3e3e3;
+}
+
+.scTailwindThreadQuestionQuestioncardbody {
+  color: #e3e3e3;
+}
+
+.scTailwindThreadQuestionQuestioncardbody a {
+  color: var(--TWPT-interop-blue);
+}
+
+.scTailwindThreadQuestionQuestioncarddisclaimer,
+.scTailwindThreadQuestionQuestioncardedited {
+  color: var(--TWPT-interop-secondary-text);
+}
+
+.scTailwindThreadQuestionQuestioncarddisclaimer a,
+.scTailwindThreadQuestionQuestioncardedited a {
+  color: var(--TWPT-interop-blue);
+}
+
+.scTailwindThreadQuestionQuestiondetailsdetail-link {
+  color: var(--TWPT-interop-blue);
+}
+
+.scTailwindThreadQuestionQuestionpurposetag {
+  background: #394457;
+  color: var(--TWPT-interop-blue);
+}
+
+.scTailwindThreadQuestionStatechipschip {
+  border: 1px solid var(--TWPT-interop-subtle-border);
+  color: var(--TWPT-interop-secondary-text);
+}
+
+.scTailwindThreadQuestionUgcvideodetailsyoutube-label {
+  color: #c4c7c5!important;
+}
+
+.scTailwindThreadThreaddeleted-icon {
+  color: var(--TWPT-interop-secondary-text);
+}

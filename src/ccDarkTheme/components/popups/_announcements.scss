@@ -1,0 +1,30 @@
+ec-announcements-content .header,
+    ec-announcements-content .no-announcements,
+    ec-announcements-content .announcement {
+  border-bottom-color: var(--TWPT-card-border)!important;
+}
+
+ec-announcements-content .header .title, ec-announcements-content .announcement-title {
+  color: var(--TWPT-primary-text-alt)!important;
+}
+
+ec-announcements-content .announcement-date {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+ec-announcements-content .no-announcements-message {
+  color: #c3bfbc!important;
+}
+
+ec-announcements-content .view-all-link,
+    ec-announcements-content .read-more-button {
+  color: var(--TWPT-link)!important;
+}
+
+ec-announcements-content ::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, .26)!important;
+}
+
+ec-announcements-content ::-webkit-scrollbar-thumb:hover {
+  background-color: #4285f4!important;
+}

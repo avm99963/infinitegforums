@@ -1,0 +1,19 @@
+// Filters (ec-query-builder)
+material-condition-builder .compound-condition-operator {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+material-condition-builder .compound-condition-operator:is(::before, ::after) {
+  border-left-color: rgba(255, 255, 255, .20)!important;
+}
+
+material-condition-builder .add-button,
+    ec-query-builder .save-filter-button:not([disabled]) {
+  color: var(--TWPT-blue-A100)!important;
+}
+
+material-condition-builder .add-condition,
+    ec-query-builder .close-button {
+  background-color: var(--TWPT-interop-blue)!important;
+  color: #1f1f1f!important;
+}

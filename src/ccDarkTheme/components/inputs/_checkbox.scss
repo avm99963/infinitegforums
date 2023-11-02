@@ -1,0 +1,35 @@
+// This doesn't apply to checkboxes in the drawer
+material-checkbox material-icon:not(ec-forum-drawer-item material-icon, ec-thread-list material-icon) {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+material-checkbox .content:not(ec-forum-drawer-item material-icon, ec-thread-list material-icon) {
+  color: var(--TWPT-primary-text)!important;
+}
+
+material-checkbox.disabled .content:not(ec-forum-drawer-item material-icon, ec-thread-list material-icon) {
+  color: rgba(255, 255, 255, .54)!important;
+}
+
+/* .gm-icons is added by the SMEI_GOOGLE_MATERIAL_ICONS experiment. */
+material-checkbox material-icon.filled:not(ec-forum-drawer-item material-icon, ec-thread-list material-icon) {
+  color: var(--TWPT-blue-A100)!important;
+}
+
+material-checkbox:focus:not(.disabled).gm-icons .icon,
+    .gm-icons material-checkbox:focus:not(.disabled) .icon,
+    material-checkbox:hover:not(.disabled).gm-icons .icon,
+    .gm-icons material-checkbox:hover:not(.disabled) .icon {
+  color: #cfd2d8!important; /* custom value */
+}
+
+material-checkbox:focus:not(.disabled).gm-icons .icon.filled,
+    .gm-icons material-checkbox:focus:not(.disabled) .icon.filled,
+    material-checkbox:hover:not(.disabled).gm-icons .icon.filled,
+    .gm-icons material-checkbox:hover:not(.disabled) .icon.filled {
+  color: var(--TWPT-blue-100)!important;
+}
+
+.gm-icons material-checkbox .icon-container::before{
+  background-color: #dfdedb!important; /* custom value */
+}

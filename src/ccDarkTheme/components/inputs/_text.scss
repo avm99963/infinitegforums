@@ -1,0 +1,70 @@
+material-input input {
+  color: var(--TWPT-primary-text)!important;
+}
+
+material-input .label-text,
+    material-input .hint-text,
+    material-input .counter,
+    material-input .leading-text,
+    material-input .leading-text material-icon {
+  color: var(--TWPT-subtle-button-background)!important;
+}
+
+material-input .underline .unfocused-underline {
+  background-color: var(--TWPT-input-underline)!important;
+}
+
+material-input .underline .focused-underline {
+  background-color: var(--TWPT-blue-A100)!important;
+}
+
+:is(material-input.gm-input, .gm-input material-input) .baseline {
+  border-color: var(--gm-outlinedtextfield-outline-color)!important;
+}
+
+:is(material-input.gm-input, .gm-input material-input) .baseline:hover {
+  border-color: var(--gm-outlinedtextfield-outline-color)!important;
+}
+
+:is(material-input.gm-input, .gm-input material-input) .baseline.focused {
+  border-color: var(--gm-outlinedtextfield-outline-color--stateful)!important;
+}
+
+:is(material-input.gm-input, .gm-input material-input).invalid .baseline {
+  border-color: var(--gm-outlinedtextfield-outline-color--error)!important;
+}
+
+:is(material-input.gm-input, .gm-input material-input).invalid .error-text {
+  color: var(--gm-outlinedtextfield-helper-text-color--error)!important;
+}
+
+label .label,
+    .input-field > .label {
+  color: var(--TWPT-primary-text)!important;
+}
+
+.mdc-text-field--outlined:hover:not(.mdc-text-field--disabled):not(.mdc-text-field--focused) .mdc-floating-label {
+  color: var(--gm-outlinedtextfield-label-color)!important;
+}
+
+.mdc-text-field--outlined:hover:not(.mdc-text-field--disabled):not(.mdc-text-field--focused) .mdc-notched-outline :is(.mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing) {
+  border-color: var(--gm-outlinedtextfield-outline-color)!important;
+}
+
+.mdc-text-field--outlined.mdc-text-field--invalid:hover:not(.mdc-text-field--focused):not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: var(--gm-outlinedtextfield-label-color--error)!important;
+}
+
+.mdc-text-field--outlined.mdc-text-field--invalid:hover:not(.mdc-text-field--disabled):not(.mdc-text-field--focused) .mdc-notched-outline :is(.mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing) {
+  border-color: var(--gm-outlinedtextfield-outline-color--error)!important;
+}
+
+.mdc-text-field--outlined.mdc-text-field--invalid:hover:not(.mdc-text-field--focused):not(.mdc-text-field--disabled) + .mdc-text-field-helper-line .mdc-text-field-helper-text {
+  color: var(--gm-outlinedtextfield-helper-text-color--error)!important;
+}
+
+// Input underline
+material-input .underline .unfocused-underline,
+    material-dropdown-select dropdown-button [buttondecorator] {
+  border-color: var(--TWPT-input-underline)!important;
+}

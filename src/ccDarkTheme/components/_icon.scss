@@ -1,0 +1,22 @@
+ec-filter-drawer-item material-icon,
+    ec-filter-drawer-item ec-icon,
+    material-drawer .drawer-section material-icon,
+    material-drawer .drawer-section ec-icon,
+    material-list material-icon,
+    ec-query-builder material-icon,
+    ec-thread-summary material-expansionpanel .title material-icon,
+    .search-results ec-thread-option material-icon,
+    .search-results ec-thread-option ec-icon,
+    ec-rich-text-editor material-icon,
+    ec-editor-command material-icon,
+    ec-canned-responses ec-canned-response-row material-icon,
+    ec-ask-flow > .header material-button {
+  color: rgba(255, 255, 255, .87)!important;
+}
+
+material-drawer ec-icon,
+  .search-results ec-thread-option ec-icon,
+  ec-thread-summary material-expansionpanel .title ec-icon,
+  ec-announcements-menu-item ec-icon {
+  fill: rgba(255, 255, 255, .87)!important;
+}

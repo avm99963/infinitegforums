@@ -1,0 +1,15 @@
+.material-content .action-bar material-button,
+    ec-bulk-actions material-button,
+    ec-back-button material-button,
+    .sort-options material-button {
+  color: var(--TWPT-subtle-button-background)!important;
+}
+
+.material-content .action-bar .review-button.reviewing {
+  color: #1a73e8!important;
+  background: #dae7ff!important;
+}
+
+.material-content .action-bar material-button.starred {
+  color: var(--TWPT-starred)!important;
+}

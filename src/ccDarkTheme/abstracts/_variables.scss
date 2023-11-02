@@ -1,0 +1,54 @@
+:root {
+  --TWPT-primary-text: #e8eaed;
+  --TWPT-primary-text-alt: var(--TWPT-primary-text);
+  --TWPT-secondary-text: #bfbfbf;
+  --TWPT-primary-background: #202124;
+  --TWPT-secondary-background: #28292c;
+  --TWPT-active-background: #3c4043;
+  --TWPT-card-border: #5f6368;
+  --TWPT-subtle-border: #383735;
+  --TWPT-link: #8ab4f8;
+  --TWPT-highlighted-item-background: rgba(255, 255, 255, .08);
+  --TWPT-thread-read-background: var(--TWPT-highlighted-item-background);
+  --TWPT-drawer-background: #2d2e30;
+  --TWPT-button-background: #3c3e42;
+  --TWPT-subtle-button-background: rgba(255, 255, 255, .54);
+  --TWPT-input-underline: rgba(255, 255, 255, .28);
+  --TWPT-starred: #fbbc04;
+  --TWPT-blue-100: #BBDEFB;
+  --TWPT-blue-A100: #82B1FF;
+  --TWPT-bad-text: #f6aea9;
+  --TWPT-bad-text-lightbg: #ffc4c0;
+  --TWPT-good-text: #34a853;
+  --TWPT-good-text-lightbg: #3cc160;
+  --TWPT-interop-primary-text: var(--TWPT-primary-text);
+  --TWPT-interop-secondary-text: #c4c7c5;
+  --TWPT-interop-subtle-border: #474747;
+  --TWPT-interop-success: #37be5f;
+  --TWPT-interop-blue: #7cacf8;
+
+  /* MD3 dark theme variables */
+  --TWPT-md-sys-color-primary: #bda5ff;
+  --TWPT-md-sys-color-on-primary: #000;
+  --TWPT-md-sys-color-surface: var(--TWPT-drawer-background);
+  --TWPT-md-sys-color-on-surface: var(--TWPT-primary-text);
+  --TWPT-md-sys-color-on-surface-rgb: 154, 160, 166;
+  --TWPT-md-sys-color-on-surface-variant: var(--TWPT-secondary-text);
+  --TWPT-md-list-list-divider-color: var(--TWPT-subtle-border);
+  --TWPT-md-ripple-hover-state-layer-color: white;
+  --TWPT-md-ripple-pressed-state-layer-color: white;
+  --TWPT-custom-md-icon-color: var(--TWPT-subtle-button-background);
+
+  /* Overrides for variables used by the Community Console styles */
+  --gm-outlinedtextfield-outline-color: var(--TWPT-card-border);
+  --gm-outlinedtextfield-label-color: var(--TWPT-subtle-button-background);
+  --gm-outlinedtextfield-caret-color: var(--TWPT-blue-A100);
+  --gm-outlinedtextfield-outline-color--stateful: var(--TWPT-blue-A100);
+  --gm-outlinedtextfield-label-color--stateful: var(--TWPT-blue-A100);
+  --gm-outlinedtextfield-outline-color--error: var(--TWPT-bad-text);
+  --gm-outlinedtextfield-label-color--error: var(--TWPT-bad-text);
+  --gm-outlinedtextfield-helper-text-color--error: var(--TWPT-bad-text);
+
+  /* TWPT features variables */
+  --TWPT-dark-flatten-replies-more-bg: rgba(89, 89, 89, 0.9);
+}

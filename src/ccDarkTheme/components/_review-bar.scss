@@ -1,0 +1,47 @@
+// Review bar shown above the main message or replies
+ec-review-bar {
+  background-color: var(--TWPT-active-background)!important;
+}
+
+ec-review-bar material-chip {
+  background-color: var(--TWPT-button-background)!important;
+}
+
+ec-review-bar material-chip:not(.relevant-active):not(.active) {
+  border-color: var(--TWPT-card-border)!important;
+}
+
+ec-review-bar material-chip:not(.relevant-active):not(.active) material-icon {
+  color: var(--TWPT-primary-text)!important;
+  fill: var(--TWPT-primary-text)!important;
+}
+
+ec-review-bar material-chip:not(.relevant-active):not(.active) .content {
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-review-bar material-chip.relevant-active {
+  border-color: var(--TWPT-good-text)!important;
+}
+
+ec-review-bar material-chip.relevant-active material-icon {
+  color: var(--TWPT-good-text)!important;
+  fill: var(--TWPT-good-text)!important;
+}
+
+ec-review-bar material-chip.relevant-active .content {
+  color: var(--TWPT-good-text)!important;
+}
+
+ec-review-bar material-chip.active {
+  border-color: var(--TWPT-bad-text)!important;
+}
+
+ec-review-bar material-chip.active material-icon {
+  color: var(--TWPT-bad-text)!important;
+  fill: var(--TWPT-bad-text)!important;
+}
+
+ec-review-bar material-chip.active .content {
+  color: var(--TWPT-bad-text)!important;
+}

@@ -1,0 +1,95 @@
+ec-thread-list ul.thread-group {
+  background-color: var(--TWPT-primary-background)!important;
+}
+
+ec-thread-list ec-bulk-actions, ec-thread-list ec-thread-summary material-expansionpanel {
+  border-bottom-color: var(--TWPT-subtle-border)!important;
+}
+
+ec-thread-list .no-results,
+    ec-thread-list .finished-results {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+ec-thread-summary material-expansionpanel.read:not(.checked) {
+  background-color: var(--TWPT-thread-read-background)!important;
+}
+
+ec-thread-summary material-expansionpanel.read .title span:not(.icon) {
+  opacity: 0.8;
+}
+
+ec-thread-summary material-expansionpanel.read .title .icon {
+  opacity: 0.48!important;
+}
+
+ec-thread-summary material-expansionpanel.checked {
+  background-color: #2c4b77!important;
+}
+
+ec-thread-summary material-expansionpanel .title {
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-thread-summary material-expansionpanel ec-second-summary-line,
+    material-expansionpanel .header-content,
+    material-expansionpanel ec-thread-counts > span:not(.recommended-answers),
+    material-expansionpanel .duplicate-label {
+  color: #928e89!important;
+}
+
+material-expansionpanel .removed-label {
+  color: var(--TWPT-bad-text)!important;
+}
+
+ec-thread-summary material-expansionpanel ec-safe-html.body,
+    material-expansionpanel .issue-tracking-work-state {
+  color: var(--TWPT-primary-text)!important;
+}
+
+ec-thread-list material-fab.trigger {
+  background: rgba(124, 172, 248, 0.239)!important;
+  color: var(--TWPT-interop-blue)!important;
+}
+
+.popup-wrapper:has(.actions > .action-wrapper > material-fab.themeable) {
+  background-color: unset!important;
+}
+
+.popup-wrapper .actions > .action-wrapper > material-fab.themeable {
+  background-color: var(--TWPT-button-background)!important;
+  color: var(--TWPT-interop-blue)!important;
+}
+
+// The following section changes the styles of the checkboxes in thread lists,
+// based in the styles defined in the "Checkbox input" section.
+ec-thread-summary material-expansionpanel .action material-button:not(.starred),
+    ec-thread-list material-checkbox material-icon,
+    ec-thread-summary material-expansionpanel .star-button:not(.starred),
+    ec-thread-summary material-expansionpanel .mdc-button.mdc-icon-button material-icon {
+  color: #696867!important; // Custom value to match previous behavior
+  opacity: 1!important;
+}
+
+ec-thread-summary material-expansionpanel .action material-button.starred {
+  color: var(--TWPT-starred)!important;
+}
+
+ec-thread-list material-checkbox material-icon.filled {
+  color: #62a5ff!important; // Custom value to contrast well with the background
+}
+
+// .gm-icons is added by the SMEI_GOOGLE_MATERIAL_ICONS experiment.
+ec-thread-list material-checkbox:focus:not(.disabled).gm-icons .icon,
+    .gm-icons ec-thread-list material-checkbox:focus:not(.disabled) .icon,
+    ec-thread-list material-checkbox:hover:not(.disabled).gm-icons .icon,
+    .gm-icons ec-thread-list material-checkbox:hover:not(.disabled) .icon {
+  color: #807d7c!important; // custom value
+}
+
+ec-thread-list material-checkbox:focus:not(.disabled).gm-icons .icon.filled,
+    .gm-icons ec-thread-list material-checkbox:focus:not(.disabled) .icon.filled,
+    ec-thread-list material-checkbox:hover:not(.disabled).gm-icons .icon.filled,
+    .gm-icons ec-thread-list material-checkbox:hover:not(.disabled) .icon.filled {
+  color: #92c1ff!important; // custom value
+}

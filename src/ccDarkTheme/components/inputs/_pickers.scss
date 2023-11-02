@@ -1,0 +1,10 @@
+ec-work-state-picker > button,
+    ec-symptom-picker > button {
+  color: var(--TWPT-secondary-text)!important;
+  background-color: var(--TWPT-button-background)!important;
+  border-color: var(--TWPT-subtle-border)!important;
+}
+
+.material-popup-content .popup-content .title {
+  color: var(--TWPT-primary-text)!important;
+}

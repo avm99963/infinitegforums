@@ -1,0 +1,52 @@
+material-dialog, material-dialog .dialog-header {
+  background-color: var(--TWPT-primary-background)!important;
+}
+
+ec-movable-dialog[showminimize] material-dialog .dialog-header {
+  background-color: #d2e3fc!important;
+}
+
+material-dialog .title {
+  color: var(--TWPT-primary-text-alt)!important;
+}
+
+ec-movable-dialog[showminimize] material-dialog .dialog-header .title, ec-movable-dialog[showminimize] material-dialog header material-icon {
+  color: var(--TWPT-primary-background)!important;
+}
+
+ec-movable-dialog material-dialog :is(.header-notice, .notice), material-dialog .legal-prompt {
+  background-color: #394457!important;
+}
+
+ec-movable-dialog material-dialog .main :is(.header-notice, .notice) material-icon[icon="info_outline"] {
+  color: var(--TWPT-blue-A100)!important;
+}
+
+material-dialog .section-title,
+    material-dialog .select-label,
+    material-dialog .input-label,
+    material-dialog .btn-no,
+    ec-display-name-editor,
+    .forum-selection-label {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+material-dialog main > .user {
+  border-bottom-color: var(--TWPT-card-border)!important;
+}
+
+ec-movable-dialog[showminimize] material-dialog footer > [footer] > .footer > [footer] > simple-html {
+  color: var(--TWPT-secondary-text)!important;
+  background-color: var(--TWPT-active-background)!important;
+  border-top-color: #25231f!important;
+}
+
+ec-movable-dialog[showminimize] material-dialog footer > [footer] > .footer > [footer] > simple-html a {
+  color: var(--TWPT-link)!important;
+}
+
+material-dialog .footer material-button[raised]:not([disabled]),
+    material-dialog .footer .mdc-button.submit:not(:disabled){
+  background-color: var(--TWPT-blue-A100)!important;
+  color: #1f1f1f!important;
+}

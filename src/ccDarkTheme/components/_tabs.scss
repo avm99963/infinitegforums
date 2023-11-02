@@ -1,0 +1,11 @@
+material-tab-strip tab-button {
+  color: var(--TWPT-secondary-text)!important;
+}
+
+material-tab-strip tab-button.active {
+  color: var(--TWPT-blue-A100)!important;
+}
+
+material-tab-strip .tab-indicator {
+  border-top-color: var(--TWPT-blue-A100)!important;
+}

@@ -1,0 +1,7 @@
+ec-settings .forum-language-container {
+  border-bottom-color: var(--TWPT-subtle-border)!important;
+}
+
+ec-settings .forum-language-container :is(material-button, button) {
+  color: var(--TWPT-secondary-text)!important;
+}
