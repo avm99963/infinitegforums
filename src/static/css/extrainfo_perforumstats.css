@@ -32,7 +32,7 @@
   }
 }
 
-@media (min-width: 37.5rem) and (max-width: 900px) {
+@media (min-width: 37.5rem) and (max-width: 1250px) {
   .TWPT-scTailwindSharedActivitychartroot .scTailwindSharedActivitychartchart {
     margin-top: 54px;
   }
