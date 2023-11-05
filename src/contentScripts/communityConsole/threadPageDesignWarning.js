@@ -126,7 +126,7 @@ export default class ThreadPageDesignWarning {
           // If the global SMEI experiment is enabled, all threads use nested
           // replies, so we'll skip the per-thread check and always show the
           // warning banner.
-          if (this.isExperimentEnabled) return Promise.resolve(true);
+          if (this.isExperimentEnabled) return Promise.resolve({result: true});
 
           let currentThread = parseUrl(location.href);
           if (currentThread === false)
