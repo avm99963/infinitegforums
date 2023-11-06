@@ -114,7 +114,7 @@ function handleCandidateNode(node) {
 
     // Show additional details in the profile view.
     if (node.matches('ec-unified-user .scTailwindUser_profileUsercardmain')) {
-      window.TWPTExtraInfo.injectAtProfileIfEnabled(node);
+      window.TWPTExtraInfo.injectAbuseChipsAtProfileIfEnabled(node);
     }
 
     // Show the "previous posts" links if the option is currently enabled.

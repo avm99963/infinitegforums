@@ -5,7 +5,7 @@ import {getOptions} from '../../common/optionsUtils.js';
 import {kCSTarget, kMWTarget} from '../../xhrInterceptor/responseModifiers/index.js';
 
 import AutoRefresh from './autoRefresh.js';
-import ExtraInfo from './extraInfo.js';
+import ExtraInfo from './extraInfo/index.js';
 import ThreadPageDesignWarning from './threadPageDesignWarning.js';
 import WorkflowsImport from './workflows/import.js';
 

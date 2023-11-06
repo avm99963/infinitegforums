@@ -32,3 +32,12 @@ export function recursiveParentElement(el, tag) {
   }
   return undefined;
 }
+
+/**
+ * Utility to indicate that a class method should be implemented (similarly to
+ * abstract methods in Java).
+ */
+export function shouldImplement(name) {
+  throw new Error(
+      `The ${name} method should be implemented by the extending class.`);
+}
