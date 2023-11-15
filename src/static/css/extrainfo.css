@@ -2,52 +2,33 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-}
-
-.TWPT-extrainfo-chip,
-    ec-canned-response-row .TWPT-tag {
-  background-color: transparent;
-  color: #474747;
-  border: 1px solid #ababab;
-  display: flex;
-  align-items: center;
-  border-radius: 16px;
-  height: 32px;
-  overflow: hidden;
+  gap: 0.25rem;
 }
 
 .TWPT-extrainfo-chip {
-  margin: 4px;
-}
+  color: #444746;
+  font-family: "Google Sans Text", "Roboto", "Arial", sans-serif;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  letter-spacing: .018em;
 
-ec-canned-response-row .TWPT-tag {
-  margin: 0 0 0 4px;
-}
+  height: 2rem;
+  border: 1px solid #ababab;
+  border-radius: 8rem;
+  padding-inline-start: 0.5rem;
+  padding-inline-end: 0.75rem;
 
-.TWPT-extrainfo-chip .TWPT-chip-content-container,
-    ec-canned-response-row .TWPT-chip-content-container {
-  margin: 0 12px;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.TWPT-extrainfo-chip .TWPT-content,
-    ec-canned-response-row .TWPT-content {
-  overflow: hidden;
-  text-overflow: ellipsis;
   display: flex;
+  justify-content: flex-start;
   align-items: center;
-  color: var(--TWPT-interop-secondary-text, #444746);
+  gap: 0.375rem;
 }
 
-.TWPT-extrainfo-chip .TWPT-content .TWPT-badge,
-    ec-canned-response-row .TWPT-content .TWPT-badge {
+.TWPT-extrainfo-chip .TWPT-badge {
   --icon-size: 14px;
-  margin-inline-end: 6px;
 }
 
-.TWPT-extrainfo-chip .TWPT-content span[aria-describedby],
-    ec-canned-response-row .TWPT-content span[aria-describedby] {
+.TWPT-extrainfo-chip span[aria-describedby] {
   cursor: help;
 }
 
@@ -64,29 +45,21 @@ ec-unified-user .TWPT-extrainfo-container {
   align-self: end;
 }
 
-/* This modifies the CC styles */
-ec-question .state-chips {
+/* This overrides the CC styles */
+sc-tailwind-thread-question-state-chips .scTailwindThreadQuestionStatechipsroot {
   align-items: center;
   flex-wrap: wrap;
 }
 
-ec-question .TWPT-extrainfo-chip,
-    ec-message .footer .TWPT-extrainfo-chip,
+sc-tailwind-thread-question-state-chips .TWPT-extrainfo-chip {
+  font-weight: 500;
+}
+
+sc-tailwind-thread-message-message-card .TWPT-extrainfo-chip,
     ec-thread-summary .main .toolbelt .TWPT-extrainfo-chip {
   height: 30px;
   font-size: 12px;
   color: var(--TWPT-secondary-text, #6c6c6c);
-}
-
-ec-question .TWPT-extrainfo-chip .TWPT-chip-content-container,
-    ec-message .footer .TWPT-extrainfo-chip .TWPT-chip-content-container,
-    ec-thread-summary .main .toolbelt .TWPT-extrainfo-chip .TWPT-chip-content-container {
-  margin-block: 0;
-  margin-inline: 6px 10px;
-}
-
-ec-message .footer .TWPT-extrainfo-container {
-  margin-top: 8px;
 }
 
 ec-thread-summary .main .toolbelt .TWPT-extrainfo-container {
@@ -94,7 +67,7 @@ ec-thread-summary .main .toolbelt .TWPT-extrainfo-container {
   margin-bottom: 16px;
 }
 
-/* This modifies the CC styles */
+/* This overrides the CC styles */
 ec-thread-summary .author-line .removed-label {
   width: auto!important;
   min-width: 72px!important;

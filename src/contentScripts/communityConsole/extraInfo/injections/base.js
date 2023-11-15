@@ -84,23 +84,15 @@ export default class BaseExtraInfoInjection {
    * instantiated.
    */
   addChipToContainer(chipContent, container) {
-    let chip = document.createElement('material-chip');
+    let chip = document.createElement('div');
     chip.classList.add('TWPT-extrainfo-chip');
-
-    let chipContentContainer = document.createElement('div');
-    chipContentContainer.classList.add('TWPT-chip-content-container');
-
-    let content = document.createElement('div');
-    content.classList.add('TWPT-content');
 
     const [badge, badgeTooltip] = createExtBadge();
 
     let span = document.createElement('span');
     span.append(chipContent);
 
-    content.append(badge, span);
-    chipContentContainer.append(content);
-    chip.append(chipContentContainer);
+    chip.append(badge, span);
     container.append(chip);
 
     return badgeTooltip;

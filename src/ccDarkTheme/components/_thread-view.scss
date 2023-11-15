@@ -67,8 +67,7 @@ ec-question .details-heading {
   color: var(--TWPT-primary-text-alt) !important;
 }
 
-ec-question .state-chips material-chip,
-    .TWPT-extrainfo-chip {
+ec-question .state-chips material-chip {
   background-color: var(--TWPT-button-background)!important;
   border: none!important;
   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2),
@@ -76,8 +75,7 @@ ec-question .state-chips material-chip,
       0 1px 3px 0 rgba(0, 0, 0, 0.12)!important;
 }
 
-ec-question .state-chips material-chip .content,
-    .TWPT-extrainfo-chip .TWPT-content {
+ec-question .state-chips material-chip .content {
   color: var(--TWPT-primary-text)!important;
 }
 
