@@ -4,9 +4,13 @@ import StatesExtraInfoService from './states.js';
 
 export default class MessageExtraInfoService {
   static getMessageIdFromNode(messageNode) {
-    const id =
-        messageNode.querySelector('.scTailwindThreadMessageMessagecardcontent')
-            ?.getAttribute?.('data-stats-id');
+    const isMainReply =
+        messageNode.tagName == 'SC-TAILWIND-THREAD-MESSAGE-MESSAGE-CARD';
+    const cardContentClass = isMainReply ?
+        '.scTailwindThreadMessageMessagecardcontent' :
+        '.scTailwindThreadMessageCommentcardnested-reply';
+    const id = messageNode.querySelector(cardContentClass)
+                   ?.getAttribute?.('data-stats-id');
     if (id === undefined)
       throw new Error(`Couldn't retrieve message id from node.`);
     return id;

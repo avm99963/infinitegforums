@@ -69,6 +69,9 @@ const watchedNodesSelectors = [
   // Replies (for the extra info feature)
   'sc-tailwind-thread-message-message-list sc-tailwind-thread-message-message-card',
 
+  // Comments (for the extra info feature)
+  'sc-tailwind-thread-message-message-list sc-tailwind-thread-message-comment-card',
+
   // User activity chart (for the per-forum stats feature)
   'ec-unified-user .scTailwindUser_profileUserprofilesection ' +
       'sc-tailwind-shared-activity-chart',
@@ -201,7 +204,12 @@ function handleCandidateNode(node) {
     }
     if (node.matches(
             'sc-tailwind-thread-message-message-list sc-tailwind-thread-message-message-card')) {
-      window.TWPTExtraInfo.injectAtMessageIfEnabled(node);
+      window.TWPTExtraInfo.injectAtReplyIfEnabled(node);
+    }
+
+    if (node.matches(
+            'sc-tailwind-thread-message-message-list sc-tailwind-thread-message-comment-card')) {
+      window.TWPTExtraInfo.injectAtCommentIfEnabled(node);
     }
 
     // Inject per-forum stats section in the user profile

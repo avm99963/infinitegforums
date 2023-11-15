@@ -56,6 +56,7 @@ sc-tailwind-thread-question-state-chips .TWPT-extrainfo-chip {
 }
 
 sc-tailwind-thread-message-message-card .TWPT-extrainfo-chip,
+    sc-tailwind-thread-message-comment-card .TWPT-extrainfo-chip,
     ec-thread-summary .main .toolbelt .TWPT-extrainfo-chip {
   height: 30px;
   font-size: 12px;

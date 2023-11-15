@@ -1,12 +1,28 @@
 import {MDCTooltip} from '@material/tooltip';
 
+import {shouldImplement} from '../../../../common/commonUtils.js';
 import ThreadModel from '../../../../models/Thread.js';
 import MessageExtraInfoService from '../services/message.js';
 
 import BaseExtraInfoInjection from './base.js';
 
-export default class ThreadMessageExtraInfoInjection extends
+export default class BaseThreadMessageExtraInfoInjection extends
     BaseExtraInfoInjection {
+  /**
+   * The class of the interactions root element.
+   */
+  getInteractionsRootClass() {
+    shouldImplement('getInteractionsRootClass');
+  }
+
+  /**
+   * The class of the interactions root element which signifies that it is
+   * non-empty.
+   */
+  getInteractionsRootNonEmptyClass() {
+    shouldImplement('getInteractionsRootNonEmptyClass');
+  }
+
   inject(threadInfo, injectionDetails) {
     const messageNode = injectionDetails.messageNode;
     const message = this.#getMessage(threadInfo, messageNode);
@@ -22,8 +38,8 @@ export default class ThreadMessageExtraInfoInjection extends
   }
 
   #injectChips(chips, messageNode) {
-    const interactionsElement = messageNode.querySelector(
-        '.scTailwindThreadMessageMessageinteractionsroot');
+    const interactionsElement =
+        messageNode.querySelector('.' + this.getInteractionsRootClass());
     if (interactionsElement === null)
       throw new Error(`Couldn't find interactions element.`);
 
@@ -34,7 +50,6 @@ export default class ThreadMessageExtraInfoInjection extends
   }
 
   #indicateInteractionsElementIsNonEmpty(interactionsElement) {
-    interactionsElement.classList.add(
-        'scTailwindThreadMessageMessageinteractionsinteractions');
+    interactionsElement.classList.add(this.getInteractionsRootNonEmptyClass());
   }
 }

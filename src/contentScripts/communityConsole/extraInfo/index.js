@@ -6,9 +6,10 @@ import ThreadListInfoHandler from './handlers/threadList.js';
 import ExpandedThreadListExtraInfoInjection from './injections/expandedThreadList.js';
 import ProfileAbuseExtraInfoInjection from './injections/profileAbuse.js';
 import ProfilePerForumStatsExtraInfoInjection from './injections/profilePerForumStats.js';
+import ThreadCommentExtraInfoInjection from './injections/threadComment.js';
 import ThreadListExtraInfoInjection from './injections/threadList.js';
-import ThreadMessageExtraInfoInjection from './injections/threadMessage.js';
 import ThreadQuestionExtraInfoInjection from './injections/threadQuestion.js';
+import ThreadReplyExtraInfoInjection from './injections/threadReply.js';
 
 export default class ExtraInfo {
   constructor() {
@@ -24,8 +25,10 @@ export default class ExtraInfo {
         profileInfoHandler, optionsWatcher);
     this.threadQuestion =
         new ThreadQuestionExtraInfoInjection(threadInfoHandler, optionsWatcher);
-    this.threadMessage =
-        new ThreadMessageExtraInfoInjection(threadInfoHandler, optionsWatcher);
+    this.threadReply =
+        new ThreadReplyExtraInfoInjection(threadInfoHandler, optionsWatcher);
+    this.threadComment =
+        new ThreadCommentExtraInfoInjection(threadInfoHandler, optionsWatcher);
     this.expandedThreadList = new ExpandedThreadListExtraInfoInjection(
         threadListInfoHandler, optionsWatcher);
     this.threadList =
@@ -55,7 +58,11 @@ export default class ExtraInfo {
     this.threadQuestion.injectIfEnabled({stateChips, isMessageNode: false});
   }
 
-  injectAtMessageIfEnabled(messageNode) {
-    this.threadMessage.injectIfEnabled({messageNode, isMessageNode: true});
+  injectAtReplyIfEnabled(messageNode) {
+    this.threadReply.injectIfEnabled({messageNode, isMessageNode: true});
+  }
+
+  injectAtCommentIfEnabled(messageNode) {
+    this.threadComment.injectIfEnabled({messageNode, isMessageNode: true});
   }
 }
