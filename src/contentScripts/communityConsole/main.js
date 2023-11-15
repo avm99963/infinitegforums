@@ -64,10 +64,10 @@ const watchedNodesSelectors = [
   'ec-canned-response-row .main .toolbelt',
 
   // Question state chips container (for the extra info feature)
-  'ec-question .state-chips',
+  'sc-tailwind-thread-question-question-card sc-tailwind-thread-question-state-chips',
 
   // Replies (for the extra info feature)
-  'ec-thread ec-message',
+  'sc-tailwind-thread-message-message-list sc-tailwind-thread-message-message-card',
 
   // User activity chart (for the per-forum stats feature)
   'ec-unified-user .scTailwindUser_profileUserprofilesection ' +
@@ -195,10 +195,12 @@ function handleCandidateNode(node) {
     }
 
     // Show additional details in the thread view.
-    if (node.matches('ec-question .state-chips')) {
+    if (node.matches(
+            'sc-tailwind-thread-question-question-card sc-tailwind-thread-question-state-chips')) {
       window.TWPTExtraInfo.injectAtQuestionIfEnabled(node);
     }
-    if (node.matches('ec-thread ec-message')) {
+    if (node.matches(
+            'sc-tailwind-thread-message-message-list sc-tailwind-thread-message-message-card')) {
       window.TWPTExtraInfo.injectAtMessageIfEnabled(node);
     }
 

@@ -76,6 +76,10 @@ export default class MessageModel {
     return this.data[5]?.[1] ?? null;
   }
 
+  getEndPendingStateTimestampMicros() {
+    return this.data[1]?.[17] ?? null;
+  }
+
   isTakenDown() {
     return [
       ItemMetadataState.AUTOMATED_ABUSE_TAKE_DOWN_DELETE,
