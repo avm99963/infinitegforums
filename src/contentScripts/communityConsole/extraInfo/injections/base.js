@@ -21,6 +21,13 @@ export default class BaseExtraInfoInjection {
     shouldImplement('inject');
   }
 
+  /**
+   * Overridable method which is called when an error ocurred while retrieving
+   * the info needed to inject the extra information. This is useful to show an
+   * error component in the screen.
+   */
+  injectOnInfoRetrievalError() {}
+
   async isEnabled() {
     return await this.optionsWatcher.isEnabled('extrainfo');
   }
@@ -33,6 +40,10 @@ export default class BaseExtraInfoInjection {
     if (!isEnabled) return;
 
     return this.infoHandler.getCurrentInfo(injectionDetails)
+        .catch(err => {
+          this.injectOnInfoRetrievalError();
+          throw err;
+        })
         .then(info => this.inject(info, injectionDetails))
         .catch(err => {
           console.error(
