@@ -1,8 +1,8 @@
 import OptionsWatcher from '../../../common/optionsWatcher.js';
 
-import ProfileInfoHandler from './handlers/profile.js';
-import ThreadInfoHandler from './handlers/thread.js';
-import ThreadListInfoHandler from './handlers/threadList.js';
+import ProfileInfoHandler from './infoHandlers/profile.js';
+import ThreadInfoHandler from './infoHandlers/thread.js';
+import ThreadListInfoHandler from './infoHandlers/threadList.js';
 import ExpandedThreadListExtraInfoInjection from './injections/expandedThreadList.js';
 import ProfileAbuseExtraInfoInjection from './injections/profileAbuse.js';
 import ProfilePerForumStatsExtraInfoInjection from './injections/profilePerForumStats.js';
