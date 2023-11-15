@@ -221,10 +221,10 @@ export default class XHRProxy {
       var interceptors =
           utils.matchInterceptors('response', this.$TWPTRequestURL);
       if (interceptors.length > 0) {
-        this.xhr.addEventListener('load', function() {
+        this.addEventListener('load', function() {
           var body = utils.getResponseJSON({
-            responseType: proxyInstance.xhr.responseType,
-            response: proxyInstance.xhr.response,
+            responseType: proxyInstance.responseType,
+            response: proxyInstance.response,
             $TWPTRequestURL: proxyInstance.$TWPTRequestURL,
             $isArrayProto: proxyInstance.$isArrayProto,
           });
