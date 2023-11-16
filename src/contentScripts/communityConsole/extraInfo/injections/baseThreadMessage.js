@@ -25,16 +25,15 @@ export default class BaseThreadMessageExtraInfoInjection extends
 
   inject(threadInfo, injectionDetails) {
     const messageNode = injectionDetails.messageNode;
-    const message = this.#getMessage(threadInfo, messageNode);
+    const message = this.#getMessage(threadInfo.messages, messageNode);
     const [chips, tooltips] = MessageExtraInfoService.getMessageChips(message);
     this.#injectChips(chips, messageNode);
     for (const tooltip of tooltips) new MDCTooltip(tooltip);
   }
 
-  #getMessage(threadInfo, messageNode) {
-    const thread = new ThreadModel(threadInfo.body?.[1]);
+  #getMessage(messagesList, messageNode) {
     const messageId = MessageExtraInfoService.getMessageIdFromNode(messageNode);
-    return MessageExtraInfoService.getMessageFromThreadModel(messageId, thread);
+    return MessageExtraInfoService.getMessageFromList(messageId, messagesList);
   }
 
   #injectChips(chips, messageNode) {

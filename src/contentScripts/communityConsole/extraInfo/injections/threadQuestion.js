@@ -9,7 +9,7 @@ export default class ThreadQuestionExtraInfoInjection extends
     BaseExtraInfoInjection {
   inject(threadInfo, injectionDetails) {
     const [chips, tooltips] =
-        ThreadExtraInfoService.getThreadChips(threadInfo.body?.['1']);
+        ThreadExtraInfoService.getThreadChips(threadInfo.thread.data);
     this.#injectChips(chips, injectionDetails.stateChips);
     for (const tooltip of tooltips) new MDCTooltip(tooltip);
   }

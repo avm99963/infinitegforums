@@ -1,5 +1,3 @@
-import MessageModel from '../../../../models/Message.js';
-
 import StatesExtraInfoService from './states.js';
 
 export default class MessageExtraInfoService {
@@ -16,22 +14,11 @@ export default class MessageExtraInfoService {
     return id;
   }
 
-  static getMessageFromThreadModel(messageId, threadModel) {
-    for (const messageOrGap of threadModel.getMessageOrGapModels()) {
-      if (!(messageOrGap instanceof MessageModel)) continue;
-      if (messageOrGap.getId() == messageId) {
-        return messageOrGap;
-      } else {
-        for (const subMessageOrGap of messageOrGap.getCommentsAndGaps()) {
-          if (!(subMessageOrGap instanceof MessageModel)) continue;
-          if (subMessageOrGap.getId() == messageId) {
-            return subMessageOrGap;
-          }
-        }
-      }
+  static getMessageFromList(messageId, messagesList) {
+    for (const message of messagesList) {
+      if (message.getId() == messageId) return message;
     }
-
-    throw new Error(`Couldn't find message ${messageId} in thread.`);
+    throw new Error(`Couldn't find message ${messageId} in the message list.`);
   }
 
   static getMessageChips(messageModel) {

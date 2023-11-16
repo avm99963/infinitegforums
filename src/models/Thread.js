@@ -1,6 +1,10 @@
 import GapModel from './Gap.js';
 import MessageModel from './Message.js';
 
+// Keys of the PromotedMessages protobuf message which contain lists of promoted
+// messages.
+const kPromotedMessagesKeys = [1, 2, 3, 4, 5, 6];
+
 export default class ThreadModel {
   constructor(data) {
     this.data = data ?? {};
@@ -54,6 +58,51 @@ export default class ThreadModel {
 
   toRawThread() {
     return this.data;
+  }
+
+  getPromotedMessagesList() {
+    const promotedMessages = [];
+    for (const key of kPromotedMessagesKeys) {
+      const messagesList = this.data[17][key] ?? [];
+      for (const rawMessage of messagesList) {
+        const message = new MessageModel(rawMessage);
+        if (message.getId() === null) continue;
+
+        const isMessageAlreadyIncluded = promotedMessages.some(
+            existingMessage => existingMessage.getId() == message.getId());
+        if (isMessageAlreadyIncluded) continue;
+
+        promotedMessages.push(message);
+      }
+    }
+    return promotedMessages;
+  }
+
+  /**
+   * Get a list with all the messages contained in the model.
+   */
+  getAllMessagesList() {
+    const messages = [];
+
+    for (const messageOrGap of this.getMessageOrGapModels()) {
+      if (!(messageOrGap instanceof MessageModel)) continue;
+      messages.push(messageOrGap);
+      for (const subMessageOrGap of messageOrGap.getCommentsAndGaps()) {
+        if (!(subMessageOrGap instanceof MessageModel)) continue;
+        messages.push(subMessageOrGap);
+      }
+    }
+
+    const promotedMessages = this.getPromotedMessagesList();
+    for (const message of promotedMessages) {
+      const isMessageAlreadyIncluded = messages.some(
+          existingMessage => existingMessage.getId() == message.getId());
+      if (isMessageAlreadyIncluded) continue;
+
+      messages.push(message);
+    }
+
+    return messages;
   }
 
   /**

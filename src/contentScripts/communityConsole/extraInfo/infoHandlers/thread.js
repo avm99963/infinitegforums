@@ -10,12 +10,6 @@ const kTimeoutInMs = 10 * 1000;
 const kCurrentInfoExpiresInMs = kTimeoutInMs * 1.5;
 
 export default class ThreadInfoHandler extends ResponseEventBasedInfoHandler {
-  constructor() {
-    super();
-
-    this.thread = undefined;
-  }
-
   getEvent() {
     return kViewThreadResponse;
   }
@@ -27,14 +21,44 @@ export default class ThreadInfoHandler extends ResponseEventBasedInfoHandler {
     };
   }
 
-  async isInfoCurrent(injectionDetails) {
-    this.thread = new ThreadModel(this.info.body?.[1]);
+  setUpDefaultInfoValue() {
+    this.info = {
+      thread: new ThreadModel(),
+      messages: [],
+      id: -1,
+      timestamp: 0,
+    };
+  }
 
+  updateInfoWithNewValue(e) {
+    const newThread = new ThreadModel(e.detail.body?.[1]);
+    if (newThread.getId() != this.info.thread.getId()) {
+      this.info.messages = [];
+    }
+
+    const newMessages = newThread.getAllMessagesList();
+    this.updateRecordedMessages(newMessages);
+
+    this.info.thread = newThread;
+    this.info.id = e.detail.id;
+    this.info.timestamp = Date.now();
+  }
+
+  updateRecordedMessages(newMessages) {
+    const nonUpdatedMessages = this.info.messages.filter(message => {
+      return !newMessages.some(newMessage => {
+        return message.getId() == newMessage.getId();
+      });
+    });
+    this.info.messages = nonUpdatedMessages.concat(newMessages);
+  }
+
+  async isInfoCurrent(injectionDetails) {
     const currentPage = this.parseThreadUrl();
     const isCurrentThread =
         Date.now() - this.info.timestamp < kCurrentInfoExpiresInMs &&
-        this.thread.getId() == currentPage.thread &&
-        this.thread.getForumId() == currentPage.forum;
+        this.info.thread.getId() == currentPage.thread &&
+        this.info.thread.getForumId() == currentPage.forum;
 
     const isMessageNode = injectionDetails.isMessageNode;
     const messageNode = injectionDetails.messageNode;
@@ -53,8 +77,8 @@ export default class ThreadInfoHandler extends ResponseEventBasedInfoHandler {
 
   currentThreadContainsMessage(messageNode) {
     const messageId = MessageExtraInfoService.getMessageIdFromNode(messageNode);
-    const message = MessageExtraInfoService.getMessageFromThreadModel(
-        messageId, this.thread);
+    const message = MessageExtraInfoService.getMessageFromList(
+        messageId, this.info.messages);
     return message !== undefined;
   }
 }

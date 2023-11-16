@@ -53,12 +53,22 @@ export default class ResponseEventBasedInfoHandler extends BaseInfoHandler {
     window.addEventListener(this.getEvent(), e => {
       if (e.detail.id < this.info.id) return;
 
-      this.info = {
-        body: e.detail.body,
-        id: e.detail.id,
-        timestamp: Date.now(),
-      };
+      this.updateInfoWithNewValue(e);
     });
+  }
+
+  /**
+   * Updates the info value with the information obtained from an event.
+   * Can be overriden to implement more advanced logic.
+   *
+   * @param {Event} e
+   */
+  updateInfoWithNewValue(e) {
+    this.info = {
+      body: e.detail.body,
+      id: e.detail.id,
+      timestamp: Date.now(),
+    };
   }
 
   async getCurrentInfo(injectionDetails) {
