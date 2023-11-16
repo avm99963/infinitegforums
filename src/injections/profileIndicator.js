@@ -417,7 +417,7 @@ if (CCRegex.test(location.href)) {
 
         for (const linkType of CC_PROFILE_LINK_TYPES) {
           if (node.matches(linkType.nodeSelector)) {
-            console.info('Handling profile indicator via mutation callback.');
+            console.debug('Handling profile indicator via mutation callback.');
             getOptionsAndHandleIndicators(node, linkType.ui);
             break;
           }
@@ -436,7 +436,7 @@ if (CCRegex.test(location.href)) {
   for (const linkType of CC_PROFILE_LINK_TYPES) {
     let node = document.querySelector(linkType.nodeSelector);
     if (node !== null) {
-      console.info('Handling profile indicator via first check.');
+      console.debug('Handling profile indicator via first check.');
       getOptionsAndHandleIndicators(node, linkType.ui);
       break;
     }

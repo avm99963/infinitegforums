@@ -76,7 +76,7 @@ export default class WorkflowsImport {
       // If another CR has the same name, there's no easy way to distinguish
       // them, so don't inject the button.
       if (crs.duplicateNames.has(name)) {
-        console.info(
+        console.warning(
             'CR "' + name +
             '" is duplicate, so skipping the injection of the button.');
         return;

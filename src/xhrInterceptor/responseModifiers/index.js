@@ -45,7 +45,7 @@ export default class ResponseModifier {
 
     // #!if !production
     if (Object.keys(featuresAreEnabled).length > 0) {
-      console.info(
+      console.debug(
           '[XHR Interceptor - Response Modifier] Requested features',
           featuresAreEnabled, 'for request', request.$TWPTRequestURL);
     }
