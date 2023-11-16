@@ -30,16 +30,13 @@ export default class TwptThreadToolbarInject extends I18nLitElement {
         flex-flow: row wrap;
         align-items: center;
         row-gap: 0.5rem;
-        padding-top: 0.5rem;
-        padding-left: 0.25rem;
-        padding-right: 0.25rem;
-        padding-bottom: 0.5rem;
+        padding: 0.5rem 0.25rem;
       }
 
       .badge-container {
-        padding-right: 0.5rem;
-        border-right: solid gray 1px;
-        margin-right: 0.5rem;
+        padding-inline-end: 0.5rem;
+        border-inline-end: solid gray 1px;
+        margin-inline-end: 0.5rem;
       }
 
       .TWPT-badge {
