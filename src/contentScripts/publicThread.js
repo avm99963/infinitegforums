@@ -1,7 +1,6 @@
 import {injectStylesheet} from '../common/contentScriptsUtils.js';
 import {getOptions} from '../common/optionsUtils.js';
-
-var CCThreadWithoutMessage = /forum\/[0-9]*\/thread\/[0-9]*$/;
+import {redirectIfApplicable} from '../redirect/index.js';
 
 const kLoadMoreButtons = [
   {
@@ -23,15 +22,27 @@ const kLoadMoreButtons = [
 ];
 const kMsgidDelay = 3500;
 
+function main() {
+  const ok = redirectIfApplicable();
+  if (ok) return;
+
+  getOptions(null).then(options => {
+    setUpInfiniteScrollWithPotentialDelay(options);
+
+    if (options.imagemaxheight)
+      injectStylesheet(chrome.runtime.getURL('css/image_max_height.css'));
+  });
+}
+
 var intersectionObserver;
 
-function intersectionCallback(entries, observer) {
+function intersectionCallback(entries) {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.click();
     }
   });
-};
+}
 
 var intersectionOptions = {
   threshold: 1.0,
@@ -65,22 +76,4 @@ function setUpInfiniteScrollWithPotentialDelay(options) {
   }
 }
 
-getOptions(null).then(options => {
-  var redirectLink = document.querySelector('.community-console');
-  if (options.redirect && redirectLink !== null) {
-    var redirectUrl = redirectLink.href;
-
-    var searchParams = new URLSearchParams(location.search);
-    if (searchParams.has('msgid') && searchParams.get('msgid') !== '' &&
-        CCThreadWithoutMessage.test(redirectUrl))
-      redirectUrl +=
-          '/message/' + encodeURIComponent(searchParams.get('msgid'));
-
-    window.location = redirectUrl;
-  } else {
-    setUpInfiniteScrollWithPotentialDelay(options);
-
-    if (options.imagemaxheight)
-      injectStylesheet(chrome.runtime.getURL('css/image_max_height.css'));
-  }
-});
+main();

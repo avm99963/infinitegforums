@@ -1,10 +1,10 @@
 import {getOptions} from '../common/optionsUtils.js';
-import {correctArrayKeys} from '../common/protojs.js';
+import {parseView} from '../common/TWBasicUtils.js';
 
 import PerForumStatsSection from './communityConsole/utils/PerForumStatsSection.js';
 import {injectPreviousPostsLinksUnifiedProfile} from './utilsCommon/unifiedProfiles.js';
 
-const profileViewRegex = /var view ?= ?'([^']+)';/;
+const kProfileViewVar = 'view';
 
 getOptions(['history', 'perforumstats']).then(options => {
   if (options?.history)
@@ -20,27 +20,8 @@ getOptions(['history', 'perforumstats']).then(options => {
       if (!chart) throw new Error('Couldn\'t find existing chart.');
 
       // Extract profile JSON information
-      const scripts = document.querySelectorAll('script');
-      let profileView = null;
-      for (let i = 0; i < scripts.length; ++i) {
-        const matches = scripts[i].textContent.match(profileViewRegex);
-        if (matches?.[1]) {
-          let rawJsonStringContents =
-              matches[1]
-                  .replace(
-                      /\\x([0-9a-f]{2})/ig,
-                      (_, pair) => {
-                        return String.fromCharCode(parseInt(pair, 16));
-                      })
-                  .replace(/\\'/g, `'`)
-                  .replace(/"/g, `\\"`);
-          let rawJsonString = `"${rawJsonStringContents}"`;
-          let rawJson = JSON.parse(rawJsonString);
-          profileView = JSON.parse(rawJson);
-          break;
-        }
-      }
-      const profileViewC = {'1': correctArrayKeys(profileView)};
+      const profileView = parseView(kProfileViewVar);
+      const profileViewC = {'1': profileView};
       if (!profileView) throw new Error('Could not find user view data.');
       new PerForumStatsSection(
           chart?.parentNode, profileViewC,
