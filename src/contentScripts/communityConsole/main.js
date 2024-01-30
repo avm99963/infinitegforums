@@ -58,10 +58,8 @@ const watchedNodesSelectors = [
   // Unified profile iframe
   'iframe',
 
-  // Canned response tags or toolbelt (for the extra info feature and the
-  // "import CR" popup for the workflows feature)
+  // Canned response tags (for the "import CR" popup for the workflows feature)
   'ec-canned-response-row .tags',
-  'ec-canned-response-row .main .toolbelt',
 
   // Question state chips container (for the extra info feature)
   'sc-tailwind-thread-question-question-card sc-tailwind-thread-question-state-chips',
@@ -185,16 +183,10 @@ function handleCandidateNode(node) {
       unifiedProfilesFix.fixIframe(node);
     }
 
-    // Show additional details in the canned responses view (and add the
-    // "import" button if applicable for the workflows feature).
+    // Add the "import" button in the canned responses view for the workflows
+    // feature if applicable.
     if (node.matches('ec-canned-response-row .tags')) {
-      window.TWPTExtraInfo.injectAtCRIfEnabled(node, /* isExpanded = */ false);
       window.TWPTWorkflowsImport.addButtonIfEnabled(node);
-    }
-    if (node.matches('ec-canned-response-row .main .toolbelt')) {
-      const tags = node.parentNode?.querySelector?.('.tags');
-      if (tags)
-        window.TWPTExtraInfo.injectAtCRIfEnabled(tags, /* isExpanded = */ true);
     }
 
     // Show additional details in the thread view.
