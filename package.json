@@ -28,7 +28,7 @@
     "@babel/plugin-transform-modules-commonjs": "7.23.3",
     "@lit/localize-tools": "0.6.7",
     "copy-webpack-plugin": "9.1.0",
-    "css-loader": "6.2.0",
+    "css-loader": "6.10.0",
     "eslint": "8.56.0",
     "jest": "29.3.1",
     "jest-environment-jsdom": "29.3.1",
