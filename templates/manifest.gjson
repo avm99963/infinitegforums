@@ -43,6 +43,18 @@
       "run_at": "document_end"
     },
     {
+      "matches": ["https://support.google.com/*/community-guide/*", "https://support.google.com/*/community-video/*"],
+      "exclude_matches": ["https://support.google.com/s/community*"],
+      "js": ["publicGuideStart.bundle.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://support.google.com/*/community-guide/*", "https://support.google.com/*/community-video/*"],
+      "exclude_matches": ["https://support.google.com/s/community*"],
+      "js": ["publicGuide.bundle.js"],
+      "run_at": "document_end"
+    },
+    {
       "matches": ["https://support.google.com/s/community*", "https://support.google.com/*/thread/*"],
       "exclude_matches": ["https://support.google.com/*/thread/new*"],
       "js": ["profileIndicator.bundle.js"]

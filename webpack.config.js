@@ -45,6 +45,8 @@ module.exports = (env, args) => {
     publicForum: './src/contentScripts/publicForum.js',
     publicThread: './src/contentScripts/publicThread.js',
     publicThreadStart: './src/contentScripts/publicThreadStart.js',
+    publicGuide: './src/contentScripts/publicGuide.js',
+    publicGuideStart: './src/contentScripts/publicGuideStart.js',
     publicProfile: './src/contentScripts/publicProfile.js',
     publicProfileStart: './src/contentScripts/publicProfileStart.js',
     profileIndicator: './src/contentScripts/profileIndicator.js',
