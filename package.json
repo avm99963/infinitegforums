@@ -57,7 +57,7 @@
     "dompurify": "^3.0.0",
     "google-protobuf": "^3.19.3",
     "grpc-web": "^1.2.1",
-    "idb": "^6.1.2",
+    "idb": "^8.0.0",
     "lit": "^2.3.1",
     "poll-until-promise": "^3.6.1",
     "semver": "^7.3.5",
