@@ -54,7 +54,7 @@
     "@material/web": "^0.1.0-alpha.0",
     "@stdlib/utils-escape-regexp-string": "^0.1.1",
     "async-mutex": "^0.4.0",
-    "dompurify": "^2.4.1",
+    "dompurify": "^3.0.0",
     "google-protobuf": "^3.19.3",
     "grpc-web": "^1.2.1",
     "idb": "^6.1.2",
