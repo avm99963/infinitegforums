@@ -2,10 +2,10 @@ import '@material/web/button/outlined-button.js';
 
 import {msg, str} from '@lit/localize';
 import {css, html} from 'lit';
-import {waitFor} from 'poll-until-promise';
 
 import {I18nLitElement} from '../../../../common/litI18nUtils.js';
 import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
+import {openReplyEditor} from '../../utils/common.js';
 import {getExtraInfoNodes} from '../flattenThreads.js';
 
 export default class TwptFlattenThreadReplyButton extends I18nLitElement {
@@ -26,6 +26,7 @@ export default class TwptFlattenThreadReplyButton extends I18nLitElement {
   constructor() {
     super();
     this.extraInfo = {};
+    this.addEventListener('twpt-click', this.openReplyEditor);
   }
 
   render() {
@@ -69,30 +70,7 @@ export default class TwptFlattenThreadReplyButton extends I18nLitElement {
     }
 
     const parentId = this.extraInfo?.parentId ?? this.extraInfo?.id;
-    const parentNodeReply =
-        document.querySelector('[data-twpt-message-id="' + parentId + '"]')
-            ?.closest?.('sc-tailwind-thread-message-message-card');
-    const parentNodeReplyButton = parentNodeReply?.querySelector?.(
-        '.scTailwindThreadMessageMessagecardadd-comment button');
-    if (!parentNodeReplyButton) {
-      // This is not critical: the reply button might already have been clicked
-      // (so it no longer exists), or the thread might be locked so replying is
-      // disabled and the button does'nt exist.
-      console.debug('[flattenThreads] Reply button not found.');
-      return;
-    }
-
-    // Click the reply button.
-    parentNodeReplyButton.click();
-
-    // Fill in the default reply text (it includes a quote of the message the
-    // user wishes to reply to).
-    waitFor(() => {
-      const editor =
-          parentNodeReply?.querySelector('sc-tailwind-thread-reply-editor');
-      if (editor) return Promise.resolve(editor);
-      return Promise.reject(new Error('Editor not found.'));
-    }, {interval: 75, timeout: 10 * 1000}).then(editor => {
+    openReplyEditor(parentId).then(editor => {
       const payload =
           editor?.querySelector('.scTailwindSharedRichtexteditoreditor');
 

@@ -6,6 +6,7 @@ import {kCSTarget, kMWTarget} from '../../xhrInterceptor/responseModifiers/index
 
 import AutoRefresh from './autoRefresh.js';
 import ExtraInfo from './extraInfo/index.js';
+import FlattenThreadsReplyActionHandler from './flattenThreads/replyActionHandler.js';
 import ThreadPageDesignWarning from './threadPageDesignWarning.js';
 import WorkflowsImport from './workflows/import.js';
 
@@ -83,4 +84,7 @@ getOptions(null).then(options => {
     injectStylesheet(chrome.runtime.getURL('css/ui_spacing/shared.css'));
     injectStylesheet(chrome.runtime.getURL('css/ui_spacing/console.css'));
   }
+
+  const flattenThreadsReplyActionHandler = new FlattenThreadsReplyActionHandler(options);
+  flattenThreadsReplyActionHandler.handleIfApplicable();
 });

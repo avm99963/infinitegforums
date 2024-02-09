@@ -1,6 +1,7 @@
 export function parseUrl(url) {
   var forum_a = url.match(/forum\/([0-9]+)/i);
   var thread_a = url.match(/thread\/([0-9]+)/i);
+  var message_a = url.match(/message\/([0-9]+)/i);
 
   if (forum_a === null || thread_a === null) {
     return false;
@@ -9,6 +10,7 @@ export function parseUrl(url) {
   return {
     'forum': forum_a[1],
     'thread': thread_a[1],
+    'message': message_a !== null ? message_a[1] : null,
   };
 }
 
