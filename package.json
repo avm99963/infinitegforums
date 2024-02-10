@@ -59,7 +59,7 @@
     "grpc-web": "^1.2.1",
     "idb": "^8.0.0",
     "lit": "^2.3.1",
-    "poll-until-promise": "^3.6.1",
+    "poll-until-promise": "^4.0.0",
     "semver": "^7.3.5",
     "sw-xhr": "^0.0.3"
   }
