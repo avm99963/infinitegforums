@@ -15,7 +15,7 @@
     irrelevant-files:
       - ".github/.*"
       - "docs/.*"
-      - "OWNERS"
+      - ".*/?OWNERS"
       - "README.md"
       - "cws/.*"
       - "roles/cws-publish/*"
