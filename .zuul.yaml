@@ -17,7 +17,6 @@
       - "docs/.*"
       - "OWNERS"
       - "README.md"
-      - "i18n-config.toml"
       - "cws/.*"
       - "roles/cws-publish/*"
       - "roles/fetch-cws-log/*"
