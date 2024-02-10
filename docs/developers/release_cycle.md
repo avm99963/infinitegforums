@@ -39,8 +39,8 @@ addons.mozilla.org.
 
 - **Introduce lollipops**
 
-  ***Note: This feature is not yet ready for launch and is only available as an
-  experiment in the [Canary channel][canary].***
+  *Note: This feature is not yet ready for launch and is only available as an
+  experiment in the [Canary channel][canary].*
 
 - **Updated French translation**, thanks to @medelinor-1!
 
