@@ -1,4 +1,10 @@
 # Release cycle
+
+*** aside
+See more information at
+[shortn/twpt-internal-release-cycle](http://shortn/twpt-internal-release-cycle).
+***
+
 When the code in the `master` branch is considered to be stable, a release can
 be made. This is the procedure:
 
@@ -12,8 +18,9 @@ tag must be pushed to Gerrit after being created.
 will output a ZIP file for each release channel and each supported browser.
 
 Afterwards, the release should be published in GitHub along with a changelog,
-a notice should be published in the private extension Google Group, and the
-release/build files must be submitted to the Chrome Web Store and
+a notice should be published in the
+[private extension Google Group](https://groups.google.com/g/twpowertools-discuss/),
+and the release/build files must be submitted to the Chrome Web Store and
 addons.mozilla.org.
 
 ## Create release at GitHub
@@ -23,22 +30,26 @@ addons.mozilla.org.
 ``` md
 ## Changes
 
-**Complete git changelog:**
-https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+log/refs/tags/{previous_version}..refs/tags/{new_version}?pretty=full
+- **More Dark theme improvements**
 
-### Summary of changes:
+  As in the previous release, [please keep the reports coming][new-dark-theme-issue]
+  if you find something which is not styled correctly! :)
 
-- abcdef0 Commit example 1
+- **Convert dark mode to green mode**
 
-  This is a description of the commit, which explains more about what it does.
+- **Introduce lollipops**
 
-  Fixes: #42
+  ***Note: This feature is not yet ready for launch and is only available as an
+  experiment in the [Canary channel][canary].
 
-- 41d1aff Convert dark mode to green mode
-- 52dbca8 Introduce lollipops
+- **Updated French translation**, thanks to @medelinor-1!
 
-  **Note:** This feature is not yet ready for launch and not available yet
-  inside the options section.
+And many other minor/under-the-hood improvements that you can check out in the
+complete changelog:
+https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+log/refs/tags/{previous_version}..refs/tags/{new_version}
+
+[new-dark-theme-issue]: https://bugs.avm99963.com/p/twpowertools/issues/entry?template=Feature+Request&components=Features%3EDarkTheme&summary=Dark%20theme%20issue&description=Please%20describe%20the%20dark%20theme%20issue:
+[canary]: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+/HEAD/docs/contributing.md#canary-channel
 ```
 4. Upload the Chromium stable and Gecko stable release files (alternatively
 upload the Chromium beta and Gecko stable packages and mark the release as a
