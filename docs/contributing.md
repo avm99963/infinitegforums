@@ -38,14 +38,31 @@ are usually minor, and you have the opportunity of using newer features before
 everyone else!
 
 *** note
-**Note:** It isn't recommended to install the stable and beta version of the
-extension at the same time, as you might end up with duplicate injected
-components or weird results.
+**Note:** It isn't recommended to install two versions of the extension at the
+same time, as you might end up with duplicate injected components or weird
+results.
 ***
 
 You can install the beta channel here:
 
 - https://chrome.google.com/webstore/detail/infinite-scroll-in-tw-bet/memmklnkkhifmflmidnflfcdepamljef
+
+### Canary channel
+If you're brave and want to try the latest of the latest, each night a new
+version is automatically uploaded to the Chrome Web Store with the latest
+changes which have been uploaded to the codebase. Be warned that it might not
+work correctly!
+
+- https://chromewebstore.google.com/detail/tw-power-tools-canary/phefpbdhiknkamngjffpnebaemanmihf
+
+To be able to install the Canary channel, you have to
+[join the Google Group](https://groups.google.com/g/twpowertools-discuss)
+first (feel free to send a request to join!).
+
+This channel is special because it is the only one where experiments (features
+which are currently under development and not yet ready to launch) are
+available. To see a list of experiments and enable them, go to the options page
+and click the flask icon button.
 
 ## Contribute code changes
 If you're a developer and you'd like to contribute code changes, please feel
