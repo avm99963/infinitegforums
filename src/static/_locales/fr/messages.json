@@ -608,5 +608,9 @@
     "inject_perforumstats_chart_communityguides": {
         "message": "Guides de la communauté",
         "description": "Label shown in the legend of the per-forum activity chart."
+    },
+    "options_flattenthreads": {
+        "message": "Afficher un switch toggle pour activer/désactiver la vue imbriquée dans les fils.",
+        "description": "Feature checkbox in the options page"
     }
 }
