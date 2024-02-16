@@ -336,7 +336,7 @@
         "description": "One of the actions of a live review."
     },
     "inject_extrainfo_thread_autotrending": {
-        "message": "Автоматически помечается как популярная",
+        "message": "Автоматически помечена как популярная",
         "description": "Label used in a thread to show it has been automatically marked as trending."
     },
     "inject_extrainfo_thread_trending": {
@@ -406,7 +406,7 @@
         "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
     },
     "inject_workflows_menubtn": {
-        "message": "Запустить рабочий процесс...",
+        "message": "Запустить рабочий сценарий...",
         "description": "Tooltip of the icon shown above a thread or in thread lists when selecting multiple threads in the Community Console which lets the user show a menu with the worklofws they can run."
     },
     "inject_perforumstats_heading": {
@@ -496,5 +496,121 @@
     "inject_extrainfo_profile_abuse_account": {
         "message": "Нарушение политики учетной записи: $1",
         "description": "Message shown in profiles when there is an account policy violation."
+    },
+    "actionbadge_killswitch_enabled": {
+        "message": "Некоторые функции были отключены принудительно. Нажмите, чтобы получить дополнительную информацию.",
+        "description": "Tooltip for the extension icon shown when a kill switch has been enabled."
+    },
+    "inject_threadpagedesign_warning": {
+        "message": "Эта тема может работать некорректно. Это связано с тем, что она использует функцию вложенных ответов, а вы включили старый дизайн тем в настройках TW Power Tools, который не поддерживает вложенные ответы.",
+        "description": "Message showed above threads which might not work properly because of the fact that the old thread design is not compatible with nested replies."
+    },
+    "inject_extrainfo_message_state_reinstate_abuse_takedown2": {
+        "message": "Пометка о нарушении снята вручную",
+        "description": "Thread/message state REINSTATE_ABUSE_TAKEDOWN (it is thought that messages in this state have been manually unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
+    },
+    "inject_extrainfo_message_pendingstate_tooltip": {
+        "message": "Видимо после $1",
+        "description": "Tooltip used for the label \"Only visible to badged users\" to state when the thread will become visible publicly."
+    },
+    "inject_extrainfo_message_state": {
+        "message": "Состояние: $1",
+        "description": "Label used in a thread or message to show its state."
+    },
+    "inject_extrainfo_message_state_published": {
+        "message": "Опубликовано",
+        "description": "Thread/message state PUBLISHED (the normal state of a message: it is published and visible to everyone)."
+    },
+    "inject_extrainfo_message_state_draft": {
+        "message": "Черновик",
+        "description": "Thread/message state DRAFT (when a message is saved as a draft and not yet published)."
+    },
+    "inject_extrainfo_message_state_owner_deleted": {
+        "message": "Удалено владельцем",
+        "description": "Thread/message state OWNER_DELETED (the owner deleted the message)."
+    },
+    "inject_extrainfo_message_state_automated_abuse_take_down_hide2": {
+        "message": "Скрыто (автоматически помечено как нарушение)",
+        "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_HIDE (the message is hidden because the AI classified it as \"abuse\")."
+    },
+    "inject_extrainfo_message_state_automated_abuse_take_down_delete2": {
+        "message": "Удалено (автоматически помечено как нарушение)",
+        "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_DELETE (the message is deleted because the AI classified it as \"abuse\")."
+    },
+    "inject_extrainfo_message_state_automated_off_topic_hide2": {
+        "message": "Скрыто (автоматически помечено как не по теме)",
+        "description": "Thread/message state AUTOMATED_OFF_TOPIC_HIDE (the message is hidden because the AI classified it as \"off topic\")."
+    },
+    "inject_extrainfo_message_state_automated_flagged_pending_manual_review2": {
+        "message": "Помечено автоматически (ожидает проверки вручную)",
+        "description": "Thread/message state AUTOMATED_FLAGGED_PENDING_MANUAL_REVIEW (the message has been flagged by the AI and needs manual review)."
+    },
+    "inject_extrainfo_message_state_user_flagged_pending_manual_review": {
+        "message": "Помечено пользователем (ожидает проверки вручную)",
+        "description": "Thread/message state USER_FLAGGED_PENDING_MANUAL_REVIEW (a user flagged the message and needs manual review)."
+    },
+    "inject_extrainfo_message_state_expert_flagged_pending_manual_review": {
+        "message": "Помечено экспертом (ожидает проверки вручную)",
+        "description": "Thread/message state EXPERT_FLAGGED_PENDING_MANUAL_REVIEW (a PE flagged the message and needs manual review)."
+    },
+    "inject_extrainfo_message_state_manual_take_down_hide2": {
+        "message": "Скрыто вручную",
+        "description": "Thread/message state MANUAL_TAKE_DOWN_HIDE (the message has been manually hidden by a Googler)."
+    },
+    "inject_extrainfo_message_state_manual_take_down_delete2": {
+        "message": "Удалено вручную",
+        "description": "Thread/message state MANUAL_TAKE_DOWN_DELETE (the message has been manually deleted by a Googler)."
+    },
+    "inject_extrainfo_message_state_googler_off_topic_hide2": {
+        "message": "Скрыто Гуглером как не по теме",
+        "description": "Thread/message state GOOGLER_OFF_TOPIC_HIDE (the message has been hidden by a Googler because it is off-topic)."
+    },
+    "inject_extrainfo_message_state_automated_abuse_reinstate2": {
+        "message": "Пометка о нарушении снята автоматически",
+        "description": "Thread/message state AUTOMATED_ABUSE_REINSTATE (it is thought that messages in this state have been automatically unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
+    },
+    "inject_extrainfo_message_state_manual_profile_take_down_suspend2": {
+        "message": "Скрыто (профиль заблокирован)",
+        "description": "Thread/message state MANUAL_PROFILE_TAKE_DOWN_SUSPEND (due to the fact that the profile has been manually suspended by a Googler, messages written by that account are in this state —and hidden from the public)."
+    },
+    "inject_extrainfo_message_state_reinstate_profile_takedown2": {
+        "message": "Восстановлено (блокировка профиля отменена)",
+        "description": "Thread/message state REINSTATE_PROFILE_TAKEDOWN (after a profile suspension has been reverted, messages which were previously in the \"MANUAL_PROFILE_TAKE_DOWN_SUSPEND\" state have this state (and are visible to the public again))."
+    },
+    "inject_extrainfo_message_state_clear_off_topic2": {
+        "message": "Очищено не по теме",
+        "description": "Thread/message state CLEAR_OFF_TOPIC (the message has been confirmed to NOT be off-topic)."
+    },
+    "actionbadge_permissions_requested": {
+        "message": "Для работы некоторых функций требуются дополнительные разрешения. Нажмите, чтобы исправить это.",
+        "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."
+    },
+    "btn_learnmore": {
+        "message": "Узнать больше",
+        "description": "Text shown besides a warning message which the user can click to learn more about the message itself."
+    },
+    "inject_extrainfo_message_state_confirm_off_topic2": {
+        "message": "Подтверждено не по теме",
+        "description": "Thread/message state CONFIRM_OFF_TOPIC (the message has been confirmed to be off-topic)."
+    },
+    "inject_extrainfo_message_shadowblockactive": {
+        "message": "Теневая блокировка активна",
+        "description": "Label used in a thread or message when it has been shadow blocked and is thus hidden from view."
+    },
+    "inject_extrainfo_message_shadowblocknotactive": {
+        "message": "Теневая блокировка более неактивна",
+        "description": "Label used in a thread or message when it had been shadow blocked but it isn't active anymore."
+    },
+    "inject_extrainfo_message_livereviewverdict": {
+        "message": "Решение по проверке: $1",
+        "description": "Label used in a thread or message to show what was the action taken when live reviewing it."
+    },
+    "inject_extrainfo_message_livereviewverdict_relevant": {
+        "message": "Актуально",
+        "description": "One of the actions of a live review."
+    },
+    "inject_extrainfo_message_livereviewverdict_offtopic": {
+        "message": "Не по теме",
+        "description": "One of the actions of a live review."
     }
 }
