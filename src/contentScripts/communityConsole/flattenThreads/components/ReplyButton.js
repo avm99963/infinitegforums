@@ -32,10 +32,10 @@ export default class TwptFlattenThreadReplyButton extends I18nLitElement {
   render() {
     return html`
       <md-outlined-button
-          label="${msg('Reply', {
-      desc: 'Button which is used to open the reply box.',
-    })}"
           @click=${this.openReplyEditor}>
+        ${msg('Reply', {
+      desc: 'Button which is used to open the reply box.',
+    })}
       </md-outlined-button>
     `;
   }

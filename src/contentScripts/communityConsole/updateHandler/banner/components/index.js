@@ -94,8 +94,8 @@ export default class TwptUpdateBanner extends I18nLitElement {
           <div class="mdc-banner__actions">
             <md-text-button
                 class="mdc-banner__primary-action"
-                label="${reloadMsg}"
                 @click=${this._reloadPage}>
+              ${reloadMsg}
             </md-text-button>
           </div>
         </div>

@@ -1,5 +1,5 @@
-import '@material/web/button/tonal-button.js';
-
+import '@material/web/button/filled-tonal-button.js';
+import '@material/web/icon/icon.js';
 import './QuoteAuthor.js';
 
 // Other components imported so they are also injected:
@@ -49,8 +49,7 @@ export default class TwptFlattenThreadQuote extends I18nLitElement {
     .payload-container twpt-flatten-thread-quote-author {
       float: right;
       margin-left: 12px;
-      margin-top: -12px;
-      shape-outside: inset(0 10px 10px 0);
+      margin-top: -8px;
     }
 
     .payload {
@@ -86,16 +85,16 @@ export default class TwptFlattenThreadQuote extends I18nLitElement {
       }
     }
 
-    .buttons-row md-tonal-button {
-      --md-tonal-button-container-color: var(--TWPT-dark-flatten-replies-more-bg, rgba(222, 222, 222, 0.9));
-      --md-tonal-button-label-text-color: var(--TWPT-md-sys-color-on-surface);
-      --md-tonal-button-hover-label-text-color: var(--TWPT-md-sys-color-on-surface);
-      --md-tonal-button-focus-label-text-color: var(--TWPT-md-sys-color-on-surface);
-      --md-tonal-button-pressed-label-text-color: var(--TWPT-md-sys-color-on-surface);
-      --md-tonal-button-with-icon-icon-color: var(--TWPT-md-sys-color-on-surface);
-      --md-tonal-button-with-icon-hover-icon-color: var(--TWPT-md-sys-color-on-surface);
-      --md-tonal-button-with-icon-focus-icon-color: var(--TWPT-md-sys-color-on-surface);
-      --md-tonal-button-with-icon-pressed-icon-color: var(--TWPT-md-sys-color-on-surface);
+    .buttons-row md-filled-tonal-button {
+      --md-filled-tonal-button-container-color: var(--TWPT-dark-flatten-replies-more-bg, rgba(222, 222, 222, 0.9));
+      --md-filled-tonal-button-label-text-color: var(--TWPT-md-sys-color-on-surface);
+      --md-filled-tonal-button-hover-label-text-color: var(--TWPT-md-sys-color-on-surface);
+      --md-filled-tonal-button-focus-label-text-color: var(--TWPT-md-sys-color-on-surface);
+      --md-filled-tonal-button-pressed-label-text-color: var(--TWPT-md-sys-color-on-surface);
+      --md-filled-tonal-button-icon-color: var(--TWPT-md-sys-color-on-surface);
+      --md-filled-tonal-button-hover-icon-color: var(--TWPT-md-sys-color-on-surface);
+      --md-filled-tonal-button-focus-icon-color: var(--TWPT-md-sys-color-on-surface);
+      --md-filled-tonal-button-pressed-icon-color: var(--TWPT-md-sys-color-on-surface);
     }
     `,
   ];
@@ -116,10 +115,12 @@ export default class TwptFlattenThreadQuote extends I18nLitElement {
       'quote-container--expanded': this._expanded,
     });
     const lessMsg = msg('Less', {
-      desc: 'Button to collapse the quote message (used in the flatten threads feature).',
+      desc:
+          'Button to collapse the quote message (used in the flatten threads feature).',
     });
     const moreMsg = msg('More', {
-      desc: 'Button to expand the quote message (used in the flatten threads feature).',
+      desc:
+          'Button to expand the quote message (used in the flatten threads feature).',
     });
     return html`
       <div class=${containerClasses}>
@@ -132,11 +133,13 @@ export default class TwptFlattenThreadQuote extends I18nLitElement {
           </div>
         </div>
         <div class="buttons-row">
-          <md-tonal-button
-              icon="${this._expanded ? 'expand_less' : 'expand_more'}"
-              label="${this._expanded ? lessMsg : moreMsg}"
+          <md-filled-tonal-button
               @click=${this.toggleExpanded}>
-          </md-tonal-button>
+            <md-icon slot="icon">
+              ${this._expanded ? 'expand_less' : 'expand_more'}
+            </md-icon>
+            ${this._expanded ? lessMsg : moreMsg}
+          </md-filled-tonal-button>
         </div>
       </div>
     `;

@@ -1,11 +1,12 @@
-import '@material/web/formfield/formfield.js';
+import '@material/web/icon/icon.js';
 import '@material/web/switch/switch.js';
 import '@material/web/textfield/outlined-text-field.js';
+import '../../../../common/components/FormField.js';
 
 import {css, html, LitElement, nothing} from 'lit';
 import {createRef, ref} from 'lit/directives/ref.js';
 
-import {CCApi} from '../../../../common/api.js';
+import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
 import * as pb from '../../../proto/main_pb.js';
 
 export default class WFActionReplyWithCR extends LitElement {
@@ -15,15 +16,22 @@ export default class WFActionReplyWithCR extends LitElement {
     _importerWindow: {type: Object, state: true},
   };
 
-  static styles = css`
-    .form-line {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      margin-block: 1em;
-      gap: .5rem;
-    }
-  `;
+  static styles = [
+    SHARED_MD3_STYLES,
+    css`
+      .form-line {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-block: 1em;
+        gap: .5rem;
+      }
+
+      .select-cr-btn {
+        --md-outlined-button-icon-size: 24px;
+      }
+    `,
+  ];
 
   cannedResponseRef = createRef();
   subscribeRef = createRef();
@@ -56,27 +64,36 @@ export default class WFActionReplyWithCR extends LitElement {
         </md-outlined-text-field>
         ${this.readOnly ? nothing : html`
           <md-outlined-button
-              icon="more"
-              label="Select CR"
+              class="select-cr-btn"
               @click=${this._openCRImporter}>
+            <md-icon slot="icon" filled>more</md-icon>
+            Select CR
           </md-outlined-button>
         `}
       </div>
       <div class="form-line">
-        <md-formfield label="Subscribe to thread">
+        <twpt-form-field>
           <md-switch ${ref(this.subscribeRef)}
               ?selected=${this.subscribe}
               ?disabled=${this.readOnly}
-              @click=${this._subscribeChanged}/>
-        </md-formfield>
+              @change=${this._subscribeChanged}/>
+          </md-switch>
+          <span slot="label">
+            Subscribe to thread
+          </span>
+        </twpt-form-field>
       </div>
       <div class="form-line">
-        <md-formfield label="Mark as answer">
+        <twpt-form-field>
           <md-switch ${ref(this.markAsAnswerRef)}
               ?selected=${this.markAsAnswer}
               ?disabled=${this.readOnly}
-              @click=${this._markAsAnswerChanged}/>
-        </md-formfield>
+              @change=${this._markAsAnswerChanged}/>
+          </md-switch>
+          <span slot="label">
+            Mark as answer
+          </span>
+        </twpt-form-field>
       </div>
     `;
   }

@@ -9,7 +9,6 @@ import '../contentScripts/communityConsole/updateHandler/banner/components/index
 
 import {injectStylesheet} from '../common/contentScriptsUtils.js';
 
-// Also, we import Material Icons since the Community Console uses "Google
-// Material Icons" instead of "Material Icons". This is necessary for the MD3
-// components.
-injectStylesheet('https://fonts.googleapis.com/icon?family=Material+Icons');
+// Also, we import Material Symbols Outlined since the Community Console uses
+// "Google Material Icons" instead. This is necessary for the MD3 components.
+injectStylesheet('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@0..1');

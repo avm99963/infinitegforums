@@ -25,7 +25,7 @@ material-drawer .drawer-section-title, material-drawer .header > material-icon {
 
 material-drawer material-list-item,
     material-drawer material-list-item .title {
-  color: #d2cecb!important;
+  color: var(--TWPT-drawer-text)!important;
 }
 
 material-drawer ec-forum-drawer-item material-checkbox material-icon {

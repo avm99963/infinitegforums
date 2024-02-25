@@ -54,8 +54,8 @@ export default class TwptWorkflowDialog extends LitElement {
         <md-text-button
             ?disabled=${this._runner?.status !== 'finished'}
             slot="primaryAction"
-            dialogAction="cancel"
-            label="Close">
+            dialogAction="cancel">
+          Close
         </md-text-button>
       </mwc-dialog>
     `;

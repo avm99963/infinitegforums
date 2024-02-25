@@ -1,4 +1,5 @@
 import '@material/web/button/outlined-button.js';
+import '@material/web/icon/icon.js';
 
 import {html, LitElement} from 'lit';
 
@@ -20,10 +21,10 @@ export default class TwptCRImportButton extends LitElement {
 
     return html`
       <md-outlined-button
-          icon=${icon}
-          label=${label}
           ?disabled=${this.selected}
           @click=${this._importCR}>
+        <md-icon slot="icon">${icon}</md-icon>
+        ${label}
       </md-outlined-button>
     `;
   }

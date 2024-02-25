@@ -1,6 +1,7 @@
 import '@material/web/list/list.js';
 import '@material/web/list/list-item.js';
-import '@material/web/iconbutton/standard-icon-button.js';
+import '@material/web/icon/icon.js';
+import '@material/web/iconbutton/icon-button.js';
 import './WorkflowDialog.js';
 
 import {css, html, LitElement, nothing} from 'lit';
@@ -37,13 +38,14 @@ export default class WFList extends LitElement {
   renderListItems() {
     return map(this.workflows, w => html`
       <md-list-item
-          headline=${w.proto?.getName?.()}
+          type="button"
           @click=${() => this._show(w)}>
+        <div slot="headline">${w.proto?.getName?.()}</div>
         <div slot="end" class="end">
-          <md-standard-icon-button
-              icon="delete"
+          <md-icon-button
               @click=${e => this._showDelete(w.uuid, e)}>
-          </md-standard-icon-button>
+            <md-icon>delete</md-icon>
+          </md-icon-button>
         </div>
       </md-list-item>
     `);

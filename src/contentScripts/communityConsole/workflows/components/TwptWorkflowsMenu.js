@@ -1,8 +1,7 @@
+import '@material/web/divider/divider.js';
 import '@material/web/icon/icon.js';
-import '@material/web/iconbutton/standard-icon-button.js';
-import '@material/web/list/list-divider.js';
+import '@material/web/iconbutton/icon-button.js';
 import '@material/web/menu/menu.js';
-import '@material/web/menu/menu-button.js';
 import '@material/web/menu/menu-item.js';
 
 import consoleCommonStyles from '!!raw-loader!../../../../static/css/common/console.css';
@@ -22,17 +21,24 @@ export default class TwptWorkflowsMenu extends LitElement {
     SHARED_MD3_STYLES,
     css`${unsafeCSS(consoleCommonStyles)}`,
     css`
+      .workflows-menu {
+        --md-menu-item-label-text-size: 14px;
+      }
+
       .workflow-item {
-        padding-inline: 1em;
+        --md-menu-item-one-line-container-height: 48px;
+
+        min-width: 250px;
       }
 
       /* Custom styles to override the common button with badge styles */
       .TWPT-btn--with-badge {
-        padding-bottom: 0!important;
+        padding-bottom: 0;
       }
 
       .TWPT-btn--with-badge .TWPT-badge {
-        bottom: 8px!important;
+        bottom: 4px;
+        right: 2px;
       }
     `,
   ];
@@ -51,8 +57,9 @@ export default class TwptWorkflowsMenu extends LitElement {
       `;
     return map(this.workflows, w => html`
       <md-menu-item
+          class="workflow-item"
           @click="${() => this._dispatchSelectEvent(w.uuid)}">
-        <span class="workflow-item" slot="start">
+        <span slot="start">
           ${w.proto.getName()}
         </span>
       </md-menu-item>
@@ -63,10 +70,11 @@ export default class TwptWorkflowsMenu extends LitElement {
     return [
       this.renderWorkflowItems(),
       html`
-        <md-list-divider></md-list-divider>
+        <md-divider></md-divider>
         <md-menu-item
+            class="workflow-item"
             @click="${() => this._openWorkflowManager()}">
-          <span class="workflow-item" slot="start">
+          <span slot="start">
             Manage workflows...
           </span>
         </md-menu-item>
@@ -85,15 +93,22 @@ export default class TwptWorkflowsMenu extends LitElement {
 
   render() {
     return html`
-      <md-menu-button>
-        <div slot="button" class="TWPT-btn--with-badge">
-          <md-standard-icon-button icon="more_vert"></md-standard-icon-button>
+      <span style="position: relative;">
+        <div
+            id="workflows-menu-anchor"
+            class="TWPT-btn--with-badge"
+            @click="${this._toggleMenu}">
+          <md-icon-button>
+            <md-icon>more_vert</md-icon>
+          </md-icon-button>
           ${this.renderBadge()}
         </div>
-        <md-menu ${ref(this.menuRef)} slot="menu">
+        <md-menu ${ref(this.menuRef)}
+            class="workflows-menu"
+            anchor="workflows-menu-anchor">
           ${this.renderMenuItems()}
         </md-menu>
-      </md-menu-button>
+      </span>
     `;
   }
 
@@ -105,6 +120,10 @@ export default class TwptWorkflowsMenu extends LitElement {
     });
     this.dispatchEvent(e);
     this.menuRef.value.open = false;
+  }
+
+  _toggleMenu() {
+    this.menuRef.value.open = !this.menuRef.value.open;
   }
 
   _openWorkflowManager() {

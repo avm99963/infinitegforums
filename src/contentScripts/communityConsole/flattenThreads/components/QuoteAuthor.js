@@ -1,5 +1,5 @@
 import '@material/web/icon/icon.js';
-import '@material/web/iconbutton/standard-icon-button.js';
+import '@material/web/iconbutton/icon-button.js';
 
 import {css, html, LitElement} from 'lit';
 
@@ -47,10 +47,10 @@ export default class TwptFlattenThreadQuoteAuthor extends LitElement {
     return html`
       <md-icon class="reply-icon">reply</md-icon>
       <span class="name">${this.prevMessage?.author?.[1]?.[1]}</span>
-      <md-standard-icon-button
-          icon="arrow_upward"
+      <md-icon-button
           @click=${this.focusParent}>
-      </md-standard-icon-button>
+        <md-icon>arrow_upward</md-icon>
+      </md-icon-button>
     `;
   }
 

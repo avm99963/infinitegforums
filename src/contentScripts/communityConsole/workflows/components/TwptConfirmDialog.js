@@ -45,13 +45,13 @@ export default class TwptConfirmDialog extends LitElement {
         </p>
         <md-filled-button
             slot="primaryAction"
-            label="Run workflow"
             @click=${this._dispatchConfirmEvent}>
+          Run workflow
         </md-filled-button>
         <md-text-button
             slot="secondaryAction"
-            dialogAction="cancel"
-            label="Cancel">
+            dialogAction="cancel">
+          Cancel
         </md-text-button>
       </mwc-dialog>
     `;

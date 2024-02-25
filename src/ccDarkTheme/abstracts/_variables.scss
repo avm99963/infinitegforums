@@ -1,3 +1,5 @@
+@use '../../md3/theme' as md3-theme;
+
 :root {
   --TWPT-primary-text: #e8eaed;
   --TWPT-primary-text-alt: var(--TWPT-primary-text);
@@ -11,6 +13,7 @@
   --TWPT-highlighted-item-background: rgba(255, 255, 255, .08);
   --TWPT-thread-read-background: var(--TWPT-highlighted-item-background);
   --TWPT-drawer-background: #2d2e30;
+  --TWPT-drawer-text: #d2cecb;
   --TWPT-button-background: #3c3e42;
   --TWPT-subtle-button-background: rgba(255, 255, 255, .54);
   --TWPT-input-underline: rgba(255, 255, 255, .28);
@@ -27,17 +30,7 @@
   --TWPT-interop-success: #37be5f;
   --TWPT-interop-blue: #7cacf8;
 
-  /* MD3 dark theme variables */
-  --TWPT-md-sys-color-primary: #bda5ff;
-  --TWPT-md-sys-color-on-primary: #000;
-  --TWPT-md-sys-color-surface: var(--TWPT-drawer-background);
-  --TWPT-md-sys-color-on-surface: var(--TWPT-primary-text);
-  --TWPT-md-sys-color-on-surface-rgb: 154, 160, 166;
-  --TWPT-md-sys-color-on-surface-variant: var(--TWPT-secondary-text);
-  --TWPT-md-list-list-divider-color: var(--TWPT-subtle-border);
-  --TWPT-md-ripple-hover-state-layer-color: white;
-  --TWPT-md-ripple-pressed-state-layer-color: white;
-  --TWPT-custom-md-icon-color: var(--TWPT-subtle-button-background);
+  @include md3-theme.dark-theme('TWPT-');
 
   /* Overrides for variables used by the Community Console styles */
   --gm-outlinedtextfield-outline-color: var(--TWPT-card-border);

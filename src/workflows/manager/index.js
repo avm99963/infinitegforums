@@ -1,4 +1,5 @@
 import '@material/web/fab/fab.js';
+import '@material/web/icon/icon.js';
 import './components/List.js';
 import './components/AddDialog.js';
 import './components/WorkflowDialog.js';
@@ -50,8 +51,8 @@ export default class WFApp extends LitElement {
       <p>Workflows allow you to run a customized list of actions on a thread easily.</p>
       <wf-list .workflows=${this._workflows}></wf-list>
       <md-fab ${ref(this.addFabRef)}
-          icon="add"
           @click=${this._showAddDialog}>
+        <md-icon slot="icon">add</md-icon>
       </md-fab>
       <wf-add-dialog ${ref(this.addDialog)}>
       </wf-add-dialog>

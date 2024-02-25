@@ -37,13 +37,13 @@ export default class WFAddDialog extends LitElement {
         </wf-workflow-editor>
         <md-filled-button
             slot="primaryAction"
-            label="Add"
             @click=${this._save}>
+          Add
         </md-filled-button>
         <md-text-button
             slot="secondaryAction"
-            dialogAction="cancel"
-            label="Cancel">
+            dialogAction="cancel">
+          Cancel
         </md-text-button>
       </mwc-dialog>
     `;

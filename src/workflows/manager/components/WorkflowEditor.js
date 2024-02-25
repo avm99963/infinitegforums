@@ -1,4 +1,5 @@
 import '@material/web/button/outlined-button.js';
+import '@material/web/icon/icon.js';
 import '@material/web/textfield/filled-text-field.js';
 import './ActionEditor.js';
 
@@ -58,9 +59,9 @@ export default class WFWorkflowEditor extends LitElement {
     if (this.readOnly) return nothing;
     return html`
       <md-outlined-button
-          icon="add"
-          label="Add another action"
           @click=${this._addAction}>
+        <md-icon slot="icon">add</md-icon>
+        Add another action
       </md-outlined-button>
     `;
   }

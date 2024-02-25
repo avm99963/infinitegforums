@@ -1,6 +1,6 @@
-import '@material/web/formfield/formfield.js';
 import '@material/web/icon/icon.js';
 import '@material/web/switch/switch.js';
+import '../../../../common/components/FormField.js';
 
 import consoleCommonStyles from '!!raw-loader!../../../../static/css/common/console.css';
 import {msg} from '@lit/localize';
@@ -70,11 +70,15 @@ export default class TwptThreadToolbarInject extends I18nLitElement {
           'Label for the switch which lets users enable/disable the nested view in a thread.',
     });
     return html`
-      <md-formfield label="${nestedViewMsg}">
+      <twpt-form-field>
         <md-switch ${ref(this.nestedViewRef)}
             ?selected=${!this.options?.flattenthreads_switch_enabled}
-            @click=${this._flattenThreadsChanged}>
-      </md-formfield>
+            @change=${this._flattenThreadsChanged}>
+        </md-switch>
+        <span slot="label">
+          ${nestedViewMsg}
+        </span>
+      </twpt-form-field>
     `;
   }
 
