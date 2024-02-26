@@ -12,10 +12,26 @@ const kStandardMethods = [
   'getAllResponseHeaders', 'dispatchEvent', 'overrideMimeType'
 ];
 const kStandardScalars = [
-  'onabort', 'onerror', 'onload', 'onloadstart', 'onloadend', 'onprogress',
-  'onreadystatechange', 'readyState', 'responseType', 'responseXML', 'status',
-  'statusText', 'upload', 'withCredentials', 'DONE', 'UNSENT',
-  'HEADERS_RECEIVED', 'LOADING', 'OPENED'
+  'onabort',
+  'onerror',
+  'onload',
+  'onloadstart',
+  'onloadend',
+  'onprogress',
+  'onreadystatechange',
+  'readyState',
+  'responseType',
+  'responseURL',
+  'responseXML',
+  'status',
+  'statusText',
+  'upload',
+  'withCredentials',
+  'DONE',
+  'UNSENT',
+  'HEADERS_RECEIVED',
+  'LOADING',
+  'OPENED',
 ];
 
 const kCheckInterceptionOptions = {
