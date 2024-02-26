@@ -44,14 +44,14 @@ export default class TwptConfirmDialog extends LitElement {
           the selected threads?
         </div>
         <div slot="actions">
-          <md-filled-button
-              @click=${this._dispatchConfirmEvent}>
-            Run workflow
-          </md-filled-button>
           <md-text-button
               @click=${() => this.open = false}>
             Cancel
           </md-text-button>
+          <md-filled-button
+              @click=${this._dispatchConfirmEvent}>
+            Run workflow
+          </md-filled-button>
         </div>
       </md-dialog>
     `;
