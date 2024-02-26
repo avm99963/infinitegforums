@@ -1,4 +1,4 @@
-import '@material/mwc-dialog/mwc-dialog.js';
+import '@material/web/dialog/dialog.js';
 import '@material/web/button/text-button.js';
 import './TwptWorkflowProgress.js';
 
@@ -38,26 +38,32 @@ export default class TwptWorkflowDialog extends LitElement {
 
   render() {
     return html`
-      <mwc-dialog
+      <md-dialog
           ?open=${this.open}
-          @opening=${this._openingDialog}
-          @closing=${this._closingDialog}
-          heading=${'Running ' + this.workflow?.getName?.() + '...'}>
-        <twpt-workflow-progress ${ref(this.progressRef)}
-            .workflow=${this.workflow}
-            currentThread=${this._runner?.currentThreadIndex}
-            numThreads=${this._runner?.numThreads}
-            currentAction=${this._runner?.currentActionIndex}
-            status=${this._runner?.status}>
-        </twpt-workflow-progress>
+          @open=${this._openingDialog}
+          @close=${this._closingDialog}>
+        <div slot="headline">
+          ${'Running ' + this.workflow?.getName?.() + '...'}
+        </div>
+        <div slot="content">
+          <twpt-workflow-progress ${ref(this.progressRef)}
+              .workflow=${this.workflow}
+              currentThread=${this._runner?.currentThreadIndex}
+              numThreads=${this._runner?.numThreads}
+              currentAction=${this._runner?.currentActionIndex}
+              status=${this._runner?.status}>
+          </twpt-workflow-progress>
+        </div>
 
-        <md-text-button
-            ?disabled=${this._runner?.status !== 'finished'}
-            slot="primaryAction"
-            dialogAction="cancel">
-          Close
-        </md-text-button>
-      </mwc-dialog>
+        <div slot="actions">
+          <md-text-button
+              ?disabled=${this._runner?.status !== 'finished'}
+              slot="primaryAction"
+              @click=${() => this.open = false}>
+            Close
+          </md-text-button>
+        </div>
+      </md-dialog>
     `;
   }
 

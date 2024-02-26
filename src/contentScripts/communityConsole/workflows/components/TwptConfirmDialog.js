@@ -1,4 +1,4 @@
-import '@material/mwc-dialog/mwc-dialog.js';
+import '@material/web/dialog/dialog.js';
 import '@material/web/button/filled-button.js';
 import '@material/web/button/text-button.js';
 
@@ -34,26 +34,26 @@ export default class TwptConfirmDialog extends LitElement {
 
   render() {
     return html`
-      <mwc-dialog
+      <md-dialog
           ?open=${this.open}
-          @opening=${this._openingDialog}
-          @closing=${this._closingDialog}>
-        <p>
+          @open=${this._openingDialog}
+          @close=${this._closingDialog}>
+        <div slot="content">
           Are you sure you want to run workflow
           <span class="workflow">${this.workflow?.getName?.()}</span> for all
           the selected threads?
-        </p>
-        <md-filled-button
-            slot="primaryAction"
-            @click=${this._dispatchConfirmEvent}>
-          Run workflow
-        </md-filled-button>
-        <md-text-button
-            slot="secondaryAction"
-            dialogAction="cancel">
-          Cancel
-        </md-text-button>
-      </mwc-dialog>
+        </div>
+        <div slot="actions">
+          <md-filled-button
+              @click=${this._dispatchConfirmEvent}>
+            Run workflow
+          </md-filled-button>
+          <md-text-button
+              @click=${() => this.open = false}>
+            Cancel
+          </md-text-button>
+        </div>
+      </md-dialog>
     `;
   }
 
