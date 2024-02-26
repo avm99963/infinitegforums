@@ -8,6 +8,7 @@ import {createRef, ref} from 'lit/directives/ref.js';
 
 import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
 import * as pb from '../../../proto/main_pb.js';
+import { FORM_STYLES } from './common.js';
 
 export default class WFActionReplyWithCR extends LitElement {
   static properties = {
@@ -18,15 +19,8 @@ export default class WFActionReplyWithCR extends LitElement {
 
   static styles = [
     SHARED_MD3_STYLES,
+    FORM_STYLES,
     css`
-      .form-line {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin-block: 1em;
-        gap: .5rem;
-      }
-
       .select-cr-btn {
         --md-outlined-button-icon-size: 24px;
       }

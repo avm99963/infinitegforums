@@ -1,5 +1,5 @@
+import './actions/Attribute.js';
 import './actions/ReplyWithCR.js';
-
 import '@material/mwc-circular-progress/mwc-circular-progress.js';
 
 import {html, LitElement, nothing} from 'lit';
@@ -59,6 +59,14 @@ export default class WFActionEditor extends LitElement {
               ?readOnly=${this.readOnly}
               .action=${this.action.getReplyWithCrAction()}>
           </wf-action-reply-with-cr>
+        `;
+
+      case pb.workflows.Action.ActionCase.ATTRIBUTE_ACTION:
+        return html`
+          <wf-action-attribute
+              ?readOnly=${this.readOnly}
+              .action=${this.action.getAttributeAction()}>
+          </wf-action-attribute>
         `;
 
       case pb.workflows.Action.ActionCase.MARK_AS_READ_ACTION:
@@ -215,6 +223,9 @@ export default class WFActionEditor extends LitElement {
     switch (this._actionCase) {
       case pb.workflows.Action.ActionCase.REPLY_WITH_CR_ACTION:
         return this.renderRoot.querySelector('wf-action-reply-with-cr');
+
+      case pb.workflows.Action.ActionCase.ATTRIBUTE_ACTION:
+        return this.renderRoot.querySelector('wf-action-attribute');
 
       default:
         return null;

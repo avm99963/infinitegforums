@@ -1,8 +1,9 @@
-import {parseUrl, recursiveParentElement} from '../../../common/commonUtils.js';
+import {recursiveParentElement} from '../../../common/commonUtils.js';
 import * as pb from '../../../workflows/proto/main_pb.js';
 
-import CRRunner from './actionRunners/replyWithCR.js';
+import AttributeRunner from './actionRunners/attribute.js';
 import ReadStateRunner from './actionRunners/readState.js';
+import CRRunner from './actionRunners/replyWithCR.js';
 import Thread from './models/thread.js';
 
 export default class WorkflowRunner {
@@ -16,6 +17,7 @@ export default class WorkflowRunner {
     this._updateCallback = updateCallback;
 
     // Initialize action runners:
+    this._AttributeRunner = new AttributeRunner();
     this._CRRunner = new CRRunner();
     this._ReadStateRunner = new ReadStateRunner();
   }
@@ -55,6 +57,10 @@ export default class WorkflowRunner {
 
   _runAction() {
     switch (this._currentAction?.getActionCase?.()) {
+      case pb.workflows.Action.ActionCase.ATTRIBUTE_ACTION:
+        return this._AttributeRunner.execute(
+            this._currentAction?.getAttributeAction?.(), this._currentThread);
+
       case pb.workflows.Action.ActionCase.REPLY_WITH_CR_ACTION:
         return this._CRRunner.execute(
             this._currentAction?.getReplyWithCrAction?.(), this._currentThread);

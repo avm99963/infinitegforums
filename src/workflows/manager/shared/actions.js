@@ -1,5 +1,7 @@
 import {css} from 'lit';
 
+import * as pb from '../../proto/main_pb.js';
+
 // TODO: remove this and substitute it with proper localization.
 export const kActionHeadings = {
   0: 'Unknown action',
@@ -7,7 +9,7 @@ export const kActionHeadings = {
   2: 'Move to a forum',
   3: 'Mark as duplicate of a thread',
   4: 'Unmark duplicate',
-  5: 'Change thread attributes',
+  5: 'Change thread attribute',
   6: 'Reply with canned response',
   16: 'Star/unstar thread',
   17: 'Subscribe/unsubscribe to thread',
@@ -17,7 +19,12 @@ export const kActionHeadings = {
   21: 'Mark as unread',
 };
 
-export const kSupportedActions = new Set([6, 20, 21]);
+export const kSupportedActions = new Set([
+  pb.workflows.Action.ActionCase.ATTRIBUTE_ACTION,
+  pb.workflows.Action.ActionCase.REPLY_WITH_CR_ACTION,
+  pb.workflows.Action.ActionCase.MARK_AS_READ_ACTION,
+  pb.workflows.Action.ActionCase.MARK_AS_UNREAD_ACTION,
+]);
 
 export const kActionStyles = css`
   .action {
