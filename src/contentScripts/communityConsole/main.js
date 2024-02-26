@@ -299,7 +299,7 @@ getOptions(null).then(items => {
   // TODO(avm99963): The following features are not dynamic. Make them be.
   if (options.fixedtoolbar) {
     injectStyles(
-        'ec-bulk-actions{position: sticky; top: 0; background: var(--TWPT-primary-background, #fff); z-index: 96;}');
+        'ec-bulk-actions{position: sticky; top: 0; background: var(--TWPT-primary-background, #fff); z-index: 99;}');
   }
 
   if (options.increasecontrast) {
