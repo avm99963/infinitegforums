@@ -49,9 +49,15 @@ export default class ThreadListExtraInfoInjection extends
     const [badge, badgeTooltip] = createExtBadge();
 
     let span = document.createElement('span');
-    const stateI18nKey =
-        'inject_extrainfo_message_state_' + kItemMetadataStateI18n[state];
-    span.textContent = chrome.i18n.getMessage(stateI18nKey) ?? state;
+    let stateLocalized;
+    if (kItemMetadataStateI18n[state]) {
+      const stateI18nKey =
+          'inject_extrainfo_message_state_' + kItemMetadataStateI18n[state];
+      stateLocalized = chrome.i18n.getMessage(stateI18nKey) ?? state;
+    } else {
+      stateLocalized = kItemMetadataState[state] ?? state;
+    }
+    span.textContent = stateLocalized;
     span.title = kItemMetadataState[state] ?? state;
 
     label.append(badge, span);

@@ -154,6 +154,8 @@ export const kItemMetadataStateI18n = {
   3: 'automated_abuse_take_down_hide2',
   4: 'automated_abuse_take_down_delete2',
   13: 'automated_abuse_reinstate2',
+  // TODO: Add the following line and its corresponding translation once we know
+  // what the state means: `21: 'automated_abuse_manual_review',`
   10: 'automated_off_topic_hide2',
   14: 'automated_flagged_pending_manual_review2',
   5: 'user_flagged_pending_manual_review',
@@ -167,6 +169,8 @@ export const kItemMetadataStateI18n = {
   12: 'confirm_off_topic2',
   15: 'googler_off_topic_hide2',
   16: 'expert_flagged_pending_manual_review',
+  19: 'awaiting_classification',
+  20: 'generated_answer_adopted',
 };
 export const kItemMetadataState = {
   0: 'UNDEFINED',
@@ -175,6 +179,7 @@ export const kItemMetadataState = {
   3: 'AUTOMATED_ABUSE_TAKE_DOWN_HIDE',
   4: 'AUTOMATED_ABUSE_TAKE_DOWN_DELETE',
   13: 'AUTOMATED_ABUSE_REINSTATE',
+  21: 'AUTOMATED_ABUSE_MANUAL_REVIEW',
   10: 'AUTOMATED_OFF_TOPIC_HIDE',
   14: 'AUTOMATED_FLAGGED_PENDING_MANUAL_REVIEW',
   5: 'USER_FLAGGED_PENDING_MANUAL_REVIEW',
@@ -188,5 +193,6 @@ export const kItemMetadataState = {
   12: 'CONFIRM_OFF_TOPIC',
   15: 'GOOGLER_OFF_TOPIC_HIDE',
   16: 'EXPERT_FLAGGED_PENDING_MANUAL_REVIEW',
+  19: 'AWAITING_CLASSIFICATION',
+  20: 'GENERATED_ANSWER_ADOPTED',
 };
-

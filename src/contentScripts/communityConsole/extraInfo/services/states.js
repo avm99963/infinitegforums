@@ -79,9 +79,14 @@ export default class StatesExtraInfoService {
     const state = itemMetadata?.['1'];
     if (!state || state == 1) return null;
 
-    const stateI18nKey =
-        'inject_extrainfo_message_state_' + kItemMetadataStateI18n[state];
-    const stateLocalized = chrome.i18n.getMessage(stateI18nKey) ?? state;
+    let stateLocalized;
+    if (kItemMetadataStateI18n[state]) {
+      const stateI18nKey =
+          'inject_extrainfo_message_state_' + kItemMetadataStateI18n[state];
+      stateLocalized = chrome.i18n.getMessage(stateI18nKey) ?? state;
+    } else {
+      stateLocalized = kItemMetadataState[state] ?? state;
+    }
 
     const span = document.createElement('span');
     span.textContent = chrome.i18n.getMessage(

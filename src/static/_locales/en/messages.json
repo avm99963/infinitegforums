@@ -529,6 +529,14 @@
     "message": "Expert flagged (pending manual review)",
     "description": "Thread/message state EXPERT_FLAGGED_PENDING_MANUAL_REVIEW (a PE flagged the message and needs manual review)."
   },
+  "inject_extrainfo_message_state_awaiting_classification": {
+    "message": "Awaiting classification",
+    "description": "Thread/message state AWAITING_CLASSIFICATION."
+  },
+  "inject_extrainfo_message_state_generated_answer_adopted": {
+    "message": "Generated answer adopted",
+    "description": "Thread/message state GENERATED_ANSWER_ADOPTED."
+  },
   "inject_extrainfo_message_state_manual_take_down_hide2": {
     "message": "Hidden manually",
     "description": "Thread/message state MANUAL_TAKE_DOWN_HIDE (the message has been manually hidden by a Googler)."
