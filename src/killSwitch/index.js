@@ -1,7 +1,7 @@
 import {compareLoose} from 'semver';
 
 import actionApi from '../common/actionApi.js';
-import {getExtVersion} from '../common/extUtils.js';
+import {getSemVerExtVersion} from '../common/extUtils.js';
 
 import * as commonPb from './api_proto/common_pb.js';
 import {KillSwitchServicePromiseClient} from './api_proto/kill_switch_grpc_web_pb.js';
@@ -51,8 +51,10 @@ export default class KillSwitchMechanism {
     this.client.getKillSwitchOverview(request)
         .then(res => {
           let killSwitches = res.getKillSwitchesList();
-          let currentVersion = getExtVersion();
-          if (currentVersion === '0') currentVersion = '0.0.0';
+          let currentVersion = getSemVerExtVersion();
+          if (currentVersion === '0' || currentVersion === null) {
+            currentVersion = '0.0.0';
+          }
 
           let forceDisabledFeaturesSet = new Set();
           for (let killSwitch of killSwitches) {

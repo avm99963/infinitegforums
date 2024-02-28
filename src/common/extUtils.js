@@ -14,6 +14,13 @@ export function getExtVersion() {
   return manifest?.version;
 }
 
+// Returns a semver-compatible extension version
+export function getSemVerExtVersion() {
+  const version = getExtVersion();
+  if (!(typeof version === 'string')) return null;
+  return version.match(/^[^.]*(?:\.[^.]*){0,2}/)?.[0] ?? null;
+}
+
 // Get a URL to a document which is part of the extension documentation (using
 // |ref| as the Git ref).
 export function getDocURLWithRef(doc, ref) {
