@@ -24,6 +24,8 @@ const requiredPermissions = {
     'https://support.google.com/s/community*',
     'https://support.google.com/*/threads*',
     'https://support.google.com/*/thread/*',
+    'https://support.google.com/*/community-guide/*',
+    'https://support.google.com/*/community-video/*',
     'https://support.google.com/*/profile/*',
     'https://support.google.com/profile/*',
   ]),
