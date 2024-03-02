@@ -612,5 +612,13 @@
     "inject_perforumstats_chart_communityguides": {
         "message": "Guies de la comunitat",
         "description": "Label shown in the legend of the per-forum activity chart."
+    },
+    "inject_extrainfo_message_state_awaiting_classification": {
+        "message": "Esperant classificació",
+        "description": "Thread/message state AWAITING_CLASSIFICATION."
+    },
+    "inject_extrainfo_message_state_generated_answer_adopted": {
+        "message": "Adoptada la resposta generada",
+        "description": "Thread/message state GENERATED_ANSWER_ADOPTED."
     }
 }
