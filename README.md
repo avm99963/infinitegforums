@@ -1,5 +1,5 @@
 # TW Power Tools
-[![Available in the Chrome Web Store](docs/resources/ChromeWebStore_Badge_v2_206x58.png)](https://chrome.google.com/webstore/detail/infinite-scroll-in-tw/hpgakoecmgibigdbnljgecablpipbajb)
+[![Available in the Chrome Web Store](docs/resources/ChromeWebStore_Badge_v2_206x58.png)][chrome-download] [![Get the add-on for Firefox](docs/resources/get-the-addon-178x60px.dad84b42.png)][firefox-download]
 
 [![Build status](https://zuul.corp.avm99963.com/api/tenant/gerrit/badge?project=infinitegforums&pipeline=nightly-build)](https://zuul.corp.avm99963.com/t/gerrit/buildsets?project=infinitegforums&pipeline=nightly-build) [![Translation status](https://i18n.avm99963.com/widgets/tw-power-tools/-/svg-badge.svg)](https://i18n.avm99963.com/engage/tw-power-tools/)
 
@@ -34,3 +34,6 @@ notice bugs before they reach the stable channel.
 
 The beta channel for Chrome is available
 [here](https://chrome.google.com/webstore/detail/infinite-scroll-in-tw-bet/memmklnkkhifmflmidnflfcdepamljef).
+
+[chrome-download]: https://chrome.google.com/webstore/detail/infinite-scroll-in-tw/hpgakoecmgibigdbnljgecablpipbajb
+[firefox-download]: https://addons.mozilla.org/addon/tw-power-tools/
