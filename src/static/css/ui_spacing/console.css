@@ -19,13 +19,7 @@
     display: none!important;
   }
 
-  /*
-   * IMPORTANT: Disabled temporarily since this breaks the interface in mobile
-   * and the fix will take a lot of time.
-   *
-   * This was broken by the recent update to the thtead list HTML.
-   **/
-  /*ec-thread-summary .title,
+  ec-thread-summary .title,
       ec-thread-summary ec-second-summary-line .properties,
       ec-thread-summary ec-second-summary-line ec-relative-time {
     margin-inline-start: 0!important;
@@ -37,25 +31,32 @@
     width: auto!important;
   }
 
+  ec-thread-summary .TWPT-label > span {
+    max-width: 95px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
   ec-thread-list ec-bulk-actions {
-    padding-inline-start: 4px!important;
+    padding-inline-start: 1px!important;
     padding-inline-end: 0!important;
   }
 
-  ec-thread-summary .panel {
-    padding-inline: 4px!important;
+  ec-thread-list ec-bulk-actions ec-work-state-picker {
+    display: none!important;
   }
 
-  ec-thread-summary .panel > .main-header > .header.header {
+  ec-thread-summary .panel > .main-header > .action > .header.header {
     padding-inline: 0!important;
   }
 
   body:not(.TWPT-threadlistavatars-enabled) ec-thread-summary div.header a.header-content {
-    width: calc(100% - 68px)!important;
+    width: calc(100% - 112px)!important;
   }
 
   body.TWPT-threadlistavatars-enabled ec-thread-summary div.header a.header-content {
-    width: calc(100% - 134px)!important;
+    width: calc(100% - 146px)!important;
   }
 
   .TWPT-avatars {
@@ -71,35 +72,39 @@
       .TWPT-avatars .TWPT-avatar-private-placeholder {
     height: 22px!important;
     width: 22px!important;
+    line-height: 22px!important;
+    font-size: 18px!important;
   }
 
   ec-thread-summary .header.header .checkbox {
-    min-width: 32px!important;
+    min-width: 40px!important;
   }
 
   ec-thread-summary .header.header .checkbox material-checkbox {
-    margin: 8px 4px!important;
+    width: 40px!important;
+    margin: 0!important;
   }
 
   ec-thread-summary .header.header .star-button {
-    margin-inline-start: 0!important;
-    margin-inline-end: 4px!important;
+    display: none;
   }
 
-  ec-thread-summary .header.header .star-button .content {
-    padding: 8px 4px!important;
+  ec-thread-summary .action .expand-button {
+    min-width: 40px;
+    width: 40px;
+    margin-inline-start: 0;
+    padding: 0;
   }
 
-  ec-thread-summary .action .expand-container {
-    padding-inline: 0!important;
+  ec-thread-summary .action .expand-button > .mdc-icon-button__touch {
+    width: 40px;
+    height: 40px;
   }
 
-  ec-thread-summary .action .expand-container .expand-button {
-    width: 32px;
-  }
-
-  ec-thread-summary .action .expand-container .expand-button > .content {
-    padding: 8px 4px!important;
+  ec-thread-summary .action .expand-button > material-ripple,
+      ec-thread-summary .action .expand-button::after {
+    top: 4px;
+    height: Calc(100% - 8px);
   }
 
   ec-thread-summary .thread-summary.expanded .main.main .content-wrapper {
@@ -107,10 +112,13 @@
   }
 
   ec-thread-summary .thread-summary.expanded .main.main .content-wrapper > .content > .content {
-    padding-inline: 56px 30px!important;
+    padding-inline: 28px 30px!important;
     padding-block: 0!important;
   }
-  */
+
+  ec-thread-summary .thread-summary.expanded .main.main .toolbelt .TWPT-extrainfo-container {
+    margin-inline-start: 40px!important;
+  }
 }
 
 @media (min-width: 37.5rem) {
