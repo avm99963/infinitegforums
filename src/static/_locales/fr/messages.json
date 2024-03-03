@@ -612,5 +612,13 @@
     "options_flattenthreads": {
         "message": "Afficher un switch toggle pour activer/désactiver la vue imbriquée dans les fils.",
         "description": "Feature checkbox in the options page"
+    },
+    "inject_extrainfo_message_state_generated_answer_adopted": {
+        "message": "Réponse générée adoptée",
+        "description": "Thread/message state GENERATED_ANSWER_ADOPTED."
+    },
+    "inject_extrainfo_message_state_awaiting_classification": {
+        "message": "En attente de classement",
+        "description": "Thread/message state AWAITING_CLASSIFICATION."
     }
 }
