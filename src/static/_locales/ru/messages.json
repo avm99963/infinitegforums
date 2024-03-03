@@ -612,5 +612,13 @@
     "inject_extrainfo_message_livereviewverdict_offtopic": {
         "message": "Не по теме",
         "description": "One of the actions of a live review."
+    },
+    "inject_extrainfo_message_state_awaiting_classification": {
+        "message": "Ожидает классификации",
+        "description": "Thread/message state AWAITING_CLASSIFICATION."
+    },
+    "inject_extrainfo_message_state_generated_answer_adopted": {
+        "message": "Сгенерированный ответ принят",
+        "description": "Thread/message state GENERATED_ANSWER_ADOPTED."
     }
 }
