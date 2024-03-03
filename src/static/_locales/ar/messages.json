@@ -612,5 +612,13 @@
     "inject_perforumstats_chart_communityguides": {
         "message": "أدلّة المنتدى",
         "description": "Label shown in the legend of the per-forum activity chart."
+    },
+    "inject_extrainfo_message_state_awaiting_classification": {
+        "message": "بانتظار التّصنيف",
+        "description": "Thread/message state AWAITING_CLASSIFICATION."
+    },
+    "inject_extrainfo_message_state_generated_answer_adopted": {
+        "message": "تمّ اعتماد الإجابة المُولَّدة",
+        "description": "Thread/message state GENERATED_ANSWER_ADOPTED."
     }
 }
