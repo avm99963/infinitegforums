@@ -1,0 +1,624 @@
+{
+    "appName": {
+        "message": "TW Power Tools",
+        "description": "The extension's name"
+    },
+    "appNameBeta": {
+        "message": "TW Power Tools (베타)",
+        "description": "The extension's name for the beta version"
+    },
+    "appNameCanary": {
+        "message": "TW Power Tools (카나리아)",
+        "description": "The extension's name for the beta version"
+    },
+    "appNameGecko": {
+        "message": "TW Power Tools",
+        "description": "The extension's name (with a 50 character limit for Gecko)"
+    },
+    "appDescription": {
+        "message": "Google 도움말 커뮤니티와 커뮤니티 콘솔에서 마음껏 스크롤하고 여러 기능들을 사용하세요",
+        "description": "The extension's description"
+    },
+    "options_killswitchwarning": {
+        "message": "한 개 이상의 옵션이 예상대로 동작하지 않아 사용 중지되었습니다. <a href='https://groups.google.com/g/twpowertools-discuss' rel='noreferrer noopener' target='_blank'>twpowertools-discuss Google Group</a>에 방문하여 기능이 사용 중지된 사유를 확인해 주세요.",
+        "description": "Warning shown in the options page if a feature has been remotely force disabled via the kill switch mechanism. This happens when a feature doesn't work properly and might be doing dangerous things, and the maintainer or an authorized user remotely force disables the feature."
+    },
+    "options_killswitchenabled": {
+        "message": "이전 옵션에서 문제가 발생하여 사용 중지되었습니다.",
+        "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
+    },
+    "options_optionalpermissionswarning_header": {
+        "message": "일부 기능은 제대로 동작하기 위해 추가 권한이 필요합니다. 해당되는 기능이 하이라이트되었으며, 체크박스를 클릭하여 적절한 권한을 부여해 주세요.",
+        "description": "Warning shown at the top of the options page if a feature cannot be used because one or more required permissions haven't been granted to the extension."
+    },
+    "options_optionalpermissionswarning_label": {
+        "message": "이전 기능이 제대로 동작하려면 추가 권한이 필요합니다.",
+        "description": "Warning shown in the options page below an option, when a feature needs more permissions to work."
+    },
+    "options_featuredoptions": {
+        "message": "주요 기능",
+        "description": "Heading for several options that can be enabled in the options page."
+    },
+    "options_minorenhancements": {
+        "message": "사소한 개선",
+        "description": "Heading for several options that can be enabled in the options page."
+    },
+    "options_list": {
+        "message": "게시글 목록에서 무한 스크롤 활성화.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_thread": {
+        "message": "스크롤할 때 게시글 내 메시지의 배치를 자동으로 불러오기.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_threadall": {
+        "message": "스크롤할 때 게시글 내 모든 메시지를 즉시 불러오기.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_fixedtoolbar": {
+        "message": "툴바를 커뮤니티 콘솔 상단에 고정하기.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_redirect": {
+        "message": "도움말 커뮤니티에서 열린 게시글을 커뮤니티 콘솔로 리디렉션하기.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_loaddrafts": {
+        "message": "커뮤니티 콘솔 기능, <code class=\"help\" title=\"이 기능을 활성화하면, 게시글의 댓글 버튼을 눌렀을 때 이전에 자동 저장된 답변을 불러옵니다.\">enableLoadingDraftMessages</code> 활성화.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_experimental_label": {
+        "message": "(실험적 기능)",
+        "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
+    },
+    "options_history": {
+        "message": "사용자 프로필에서 “이전 활동” 링크 표시하기.",
+        "description": "Feature checkbox in the options page"
+    },
+    "inject_extrainfo_message_livereviewverdict_abuse": {
+        "message": "악용",
+        "description": "One of the actions of a live review."
+    },
+    "inject_extrainfo_message_livereviewverdict_offtopic": {
+        "message": "주제에서 벗어남",
+        "description": "One of the actions of a live review."
+    },
+    "btn_learnmore": {
+        "message": "자세히 알아보기",
+        "description": "Text shown besides a warning message which the user can click to learn more about the message itself."
+    },
+    "inject_extrainfo_thread_autotrending": {
+        "message": "자동으로 트랜딩 이슈로 표시됨",
+        "description": "Label used in a thread to show it has been automatically marked as trending."
+    },
+    "actionbadge_killswitch_enabled": {
+        "message": "일부 기능이 사용 중지되었습니다. 클릭하여 자세한 정보를 확인하세요.",
+        "description": "Tooltip for the extension icon shown when a kill switch has been enabled."
+    },
+    "actionbadge_permissions_requested": {
+        "message": "특정 기능은 제대로 작동하기 위해 추가 권한이 필요합니다. 클릭하여 문제를 해결하세요.",
+        "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."
+    },
+    "options_perforumstats": {
+        "message": "사용자 프로필에서 각 포럼별 활동 표시하기.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_interopthreadpage_mode_previous": {
+        "message": "구 버전 페이지 디자인",
+        "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
+    },
+    "options_interopthreadpage_mode_next": {
+        "message": "신 버전 페이지 디자인",
+        "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
+    },
+    "options_uispacing": {
+        "message": "커뮤니티 콘솔과 도움말 커뮤니티의 빈 여백 줄이기.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_save": {
+        "message": "저장하기",
+        "description": "Button in the options page to save the settings"
+    },
+    "options_saved": {
+        "message": "저장됨",
+        "description": "Message which appears in the options page when the settings are saved"
+    },
+    "inject_links": {
+        "message": "링크",
+        "description": "Heading which we use before the 'previous post' link in a user profile in TW"
+    },
+    "inject_previousposts": {
+        "message": "이전 활동",
+        "description": "Link shown in a user profile (in TW) which points to a search showing the user's posts and messages"
+    },
+    "inject_previousposts_forum": {
+        "message": "(이 포럼에서의) 이전 활동",
+        "description": "Link shown in a user profile (in the Community Console) which points to a search showing the user's posts and messages in the current forum"
+    },
+    "inject_previousposts_all": {
+        "message": "(모든 포럼에서의) 이전 활동",
+        "description": "Link shown in a user profile (in the Community Console) which points to a search showing the user's posts and messages in all forums"
+    },
+    "inject_profileindicator_loading": {
+        "message": "불러오는 중...",
+        "description": "Tooltip for the profile indicator dot."
+    },
+    "inject_profileindicator_first_post": {
+        "message": "OP가 이 포럼에서 처음으로 생성한 게시글입니다.",
+        "description": "Tooltip for the profile indicator dot."
+    },
+    "options_extrainfo": {
+        "message": "게시글, 사용자 프로필, 그리고 미리 준비된 답변(CR) 목록에서 추가 정보 표시하기.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_interopthreadpage": {
+        "message": "커뮤니티 콘솔을 <span id='interopthreadpage_mode--container'></span>으로 보기.",
+        "description": "Feature checkbox in the options page. \"<span id='interopthreadpage_mode--container'></span>\" will be substituted with a selector which allows users to select whether they want the new thread page design or the old one."
+    },
+    "options_nestedreplies": {
+        "message": "커뮤니티 콘솔에서 대화형식으로 보기 기능을 활성화.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_flattenthreads": {
+        "message": "게시글에서 대화형식으로 보기 활성화/비활성화 버튼 표시하기.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_experiments_title": {
+        "message": "실험적 기능",
+        "description": "Title of the experiments page: a page where highly experimental options can be set."
+    },
+    "options_experiments_description": {
+        "message": "환영합니다! 여기에서 실험적 기능의 목록을 확인하실 수 있습니다. 실험적 기능은 현재 개발 중인 기능으로, 정식 출시될 준비가 되지 않았습니다. 매우 실험적인 기능이므로 충돌이 일어나거나 문제가 발생할 수 있습니다만, 자신이 용감하다고 자부하신다면 관심이 있는 기능을 사용해 보세요. 의견이 있으시다면 <a href='https://github.com/avm99963/infinitegforums/discussions/categories/feedback'>여기</a>에서 피드백을 보내주시기 바랍니다!",
+        "description": "Description shown in the beginning of the experiments page, below the title."
+    },
+    "inject_profileindicatoralt_numposts": {
+        "message": "지난 $1개월 간 질문과 답변의 총개수.",
+        "description": "Tooltip for the profile indicator dot."
+    },
+    "inject_ccdarktheme_helper": {
+        "message": "테마 변경하기",
+        "description": "Tooltip for the dark mode switch."
+    },
+    "inject_extension_badge_helper": {
+        "message": "$1(이)가 추가함",
+        "description": "Tooltip for the extension badge, which appears next to components injected by the extension."
+    },
+    "inject_lockbtn": {
+        "message": "게시글 잠금/잠금 해제",
+        "description": "Tooltip of the 'lock/unlock threads' icon shown when selecting multiple threads in the Community Console. Also the title for the dialog shown after clicking this icon."
+    },
+    "inject_lockdialog_btn_lock": {
+        "message": "잠그기",
+        "description": "Button in the 'lock/unlock threads' dialog."
+    },
+    "inject_lockdialog_btn_unlock": {
+        "message": "잠금 해제하기",
+        "description": "Button in the 'lock/unlock threads' dialog."
+    },
+    "inject_lockdialog_btn_cancel": {
+        "message": "취소",
+        "description": "Button in the 'lock/unlock threads' dialog."
+    },
+    "inject_lockdialog_btn_close": {
+        "message": "닫기",
+        "description": "Button in the 'lock/unlock threads' dialog."
+    },
+    "inject_lockdialog_log_entry_beginning": {
+        "message": "$1 게시글",
+        "description": "First part of the entry in the log of the 'lock/unlock threads' dialog. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+    },
+    "inject_lockdialog_log_entry_success_unlock": {
+        "message": "성공적으로 잠금 해제했습니다.",
+        "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *un*locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+    },
+    "inject_lockdialog_log_entry_error_unlock": {
+        "message": "($1)(을)를 잠금 해제하는 동안 문제가 발생했습니다.",
+        "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *not* *un*locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+    },
+    "inject_autorefresh_list_snackbar_message": {
+        "message": "새로운 게시글이 있습니다.",
+        "description": "Message shown in a snackbar when new threads are found in a thread list. Another button asks the user to refresh the list."
+    },
+    "inject_autorefresh_list_snackbar_action": {
+        "message": "새로고침",
+        "description": "Button shown in a snackbar asking users to refresh/reload the list to show the new threads."
+    },
+    "inject_autorefresh_list_status_indicator_label_active": {
+        "message": "게시글 목록의 업데이트를 확인하는 중...",
+        "description": "Helper text which appears when hovering the status indicator of the 'autorefresh list' feature to indicate that the feature is active and watching for updates in the current thread list."
+    },
+    "inject_threadlistavatars_private_thread_indicator_label": {
+        "message": "기술적인 문제로, 비공개 포럼 게시글의 아바타를 불러올 수 없습니다.",
+        "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
+    },
+    "inject_threadlistavatars_invisible_thread_indicator_label": {
+        "message": "기술적인 문제로, 공개적으로 표시되지 않는 게시글의 아바타를 불러올 수 없습니다.",
+        "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
+    },
+    "inject_workflows_menubtn": {
+        "message": "워크플로 실행하기...",
+        "description": "Tooltip of the icon shown above a thread or in thread lists when selecting multiple threads in the Community Console which lets the user show a menu with the worklofws they can run."
+    },
+    "inject_perforumstats_heading": {
+        "message": "각 포럼별 활동",
+        "description": "Heading of the section with the per-forum activity stacked bars graph showing the number of questions, replies and recommended answers each month."
+    },
+    "inject_perforumstats_forumoption_1helper": {
+        "message": "$FORUMNAME$ ($HELPER1$)",
+        "description": "In the selector where the user can select the forum shown in the graph, one such option. $HELPER1$ will usually be the number of messages posted by the user in that forum.",
+        "placeholders": {
+            "forumName": {
+                "content": "$1",
+                "example": "Google Chrome"
+            },
+            "helper1": {
+                "content": "$2",
+                "example": "963 messages"
+            }
+        }
+    },
+    "inject_perforumstats_nummessages_singular": {
+        "message": "메시지 1개",
+        "description": "Annotation shown in the forum selector which states how many messages have been published by a user in a forum (singular variant)."
+    },
+    "inject_perforumstats_nummessages_plural": {
+        "message": "메시지 $NUM$개",
+        "description": "Annotation shown in the forum selector which states how many messages have been published by a user in a forum (plural variant).",
+        "placeholders": {
+            "num": {
+                "content": "$1",
+                "example": "963"
+            }
+        }
+    },
+    "inject_perforumstats_role_bronze": {
+        "message": "브론즈",
+        "description": "Role that a user can have in the forums."
+    },
+    "inject_perforumstats_role_silver": {
+        "message": "실버",
+        "description": "Role that a user can have in the forums."
+    },
+    "inject_perforumstats_role_gold": {
+        "message": "골드",
+        "description": "Role that a user can have in the forums."
+    },
+    "inject_perforumstats_role_platinum": {
+        "message": "플레티넘",
+        "description": "Role that a user can have in the forums."
+    },
+    "inject_perforumstats_role_diamond": {
+        "message": "다이아몬드",
+        "description": "Role that a user can have in the forums."
+    },
+    "inject_perforumstats_role_community_manager": {
+        "message": "커뮤니티 매니저",
+        "description": "Role that a user can have in the forums (short for community manager)."
+    },
+    "inject_perforumstats_role_community_specialist": {
+        "message": "커뮤니티 전문가",
+        "description": "Role that a user can have in the forums (short for community specialist)."
+    },
+    "inject_perforumstats_role_google_employee": {
+        "message": "Google 직원",
+        "description": "Role that a user can have in the forums."
+    },
+    "inject_perforumstats_role_alumnus": {
+        "message": "명예 GPE",
+        "description": "Role that a user can have in the forums."
+    },
+    "inject_perforumstats_optgroup_notposted": {
+        "message": "지난 12개월 동안의 활동 내역이 없음",
+        "description": "Label showed above the forums for which the user hasn't posted in the last 12 months, in the forum selector list."
+    },
+    "inject_lockdialog_desc": {
+        "message": "아래 버튼을 눌러 실행하려는 동작을 확인해 주세요. 이 동작은 선택한 모든 게시글에 적용됩니다.",
+        "description": "Text in the 'lock/unlock threads' dialog, which asks the user for confirmation."
+    },
+    "inject_lockdialog_log_entry_success_lock": {
+        "message": "성공적으로 잠겼습니다.",
+        "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+    },
+    "inject_lockdialog_log_entry_error_lock": {
+        "message": "($1)(을)를 잠그는 동안 문제가 발생했습니다.",
+        "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *not* locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+    },
+    "inject_autorefresh_list_status_indicator_label_disabled": {
+        "message": "게시글 목록의 업데이트를 확인할 수 없습니다. 정렬 기준을 ‘정렬 기준: 최종 업데이트‘로 변경하고 내림차순으로 설정하시기 바랍니다.",
+        "description": "Helper text which appears when hovering the status indicator of the 'autorefresh list' feature to indicate that the feature is disabled in the current thread list because the sort options are incompatible with the feature."
+    },
+    "inject_perforumstats_forumoption_2helpers": {
+        "message": "$FORUMNAME$ ($HELPER1$, $HELPER2$)",
+        "description": "In the selector where the user can select the forum shown in the graph, one such option. $HELPER1$ will be the number of messages posted by the user in that forum, and $HELPER2$ will be the badge awarded to the user in that forum.",
+        "placeholders": {
+            "forumName": {
+                "content": "$1",
+                "example": "Google Chrome"
+            },
+            "helper1": {
+                "content": "$2",
+                "example": "963 messages"
+            },
+            "helper2": {
+                "content": "$3",
+                "example": "gold"
+            }
+        }
+    },
+    "inject_perforumstats_chart_recommended": {
+        "message": "추천 답변",
+        "description": "Label shown in the legend of the per-forum activity chart."
+    },
+    "inject_perforumstats_chart_communityvideos": {
+        "message": "커뮤니티 동영상",
+        "description": "Label shown in the legend of the per-forum activity chart."
+    },
+    "inject_perforumstats_chart_communityguides": {
+        "message": "커뮤니티 가이드",
+        "description": "Label shown in the legend of the per-forum activity chart."
+    },
+    "inject_extrainfo_profile_abuse_avatar": {
+        "message": "아바타 정책 위반: $1",
+        "description": "Message shown in profiles when the avatar is violating a policy."
+    },
+    "inject_perforumstats_chart_label": {
+        "message": "사용자 활동 차트",
+        "description": "Label for the chart for accessibility purposes (e.g. users with screen-readers)."
+    },
+    "inject_perforumstats_chart_questions": {
+        "message": "질문",
+        "description": "Label shown in the legend of the per-forum activity chart."
+    },
+    "inject_perforumstats_chart_replies": {
+        "message": "(추천되지 않은) 답변",
+        "description": "Label shown in the legend of the per-forum activity chart."
+    },
+    "inject_extrainfo_profile_abusecategory": {
+        "message": "위반 사항: $1",
+        "description": "Message shown in profiles when there is a policy violation."
+    },
+    "inject_extrainfo_profile_abusecategory_noviolation": {
+        "message": "위반 사항 없음",
+        "description": "Abuse category"
+    },
+    "inject_extrainfo_profile_abusecategory_communitypolicy": {
+        "message": "커뮤니티 정책 위반",
+        "description": "Abuse category (when a community policy is violated)"
+    },
+    "inject_extrainfo_profile_abusecategory_legal": {
+        "message": "법적 위반",
+        "description": "Abuse category (when the violation is related to legal)"
+    },
+    "inject_extrainfo_profile_abusecategory_csai": {
+        "message": "아동 성적 학대 이미지(CSAI) 위반",
+        "description": "Abuse category (when the violation is related to CSAI)"
+    },
+    "inject_extrainfo_profile_abusecategory_other": {
+        "message": "기타 항목 위반",
+        "description": "Abuse category"
+    },
+    "inject_extrainfo_profile_abuse_account": {
+        "message": "계정 정책 위반: $1",
+        "description": "Message shown in profiles when there is an account policy violation."
+    },
+    "inject_extrainfo_profile_appealsnum": {
+        "message": "이의신청한 수: $1",
+        "description": "Message shown in profiles which states how many times the account has appealed the decision to ban their profile."
+    },
+    "inject_extrainfo_crs_used_singular": {
+        "message": "1번 사용됨",
+        "description": "Shown alongside a canned response to state how many times it has been used."
+    },
+    "inject_extrainfo_crs_used_plural": {
+        "message": "$1번 사용됨",
+        "description": "Shown alongside a canned response to state how many times it has been used."
+    },
+    "inject_extrainfo_crs_lastused": {
+        "message": "마지막으로 사용됨: $1",
+        "description": "Tooltip which states when a canned response was last used."
+    },
+    "inject_extrainfo_message_pendingstate": {
+        "message": "배지가 부여된 사용자에게만 표시됨",
+        "description": "Label used in a thread or message when it is in the pending state (only visible to badged users)."
+    },
+    "inject_extrainfo_profile_abuse_displayname": {
+        "message": "사용자 이름 정책 위반: $1",
+        "description": "Message shown in profiles when the display name is violating a policy."
+    },
+    "inject_extrainfo_message_state": {
+        "message": "상태: $1",
+        "description": "Label used in a thread or message to show its state."
+    },
+    "inject_extrainfo_message_state_published": {
+        "message": "게시됨",
+        "description": "Thread/message state PUBLISHED (the normal state of a message: it is published and visible to everyone)."
+    },
+    "inject_extrainfo_message_pendingstate_tooltip": {
+        "message": "$1 후 공개적으로 표시됨",
+        "description": "Tooltip used for the label \"Only visible to badged users\" to state when the thread will become visible publicly."
+    },
+    "inject_extrainfo_message_state_owner_deleted": {
+        "message": "게시자가 삭제함",
+        "description": "Thread/message state OWNER_DELETED (the owner deleted the message)."
+    },
+    "inject_extrainfo_message_state_automated_abuse_take_down_delete2": {
+        "message": "삭제됨 (악용으로 자동 신고됨)",
+        "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_DELETE (the message is deleted because the AI classified it as \"abuse\")."
+    },
+    "inject_extrainfo_message_state_automated_off_topic_hide2": {
+        "message": "숨겨짐 (주제에서 벗어남으로 자동 신고됨)",
+        "description": "Thread/message state AUTOMATED_OFF_TOPIC_HIDE (the message is hidden because the AI classified it as \"off topic\")."
+    },
+    "inject_extrainfo_message_state_automated_flagged_pending_manual_review2": {
+        "message": "자동으로 신고됨 (수동 검토 대기 중)",
+        "description": "Thread/message state AUTOMATED_FLAGGED_PENDING_MANUAL_REVIEW (the message has been flagged by the AI and needs manual review)."
+    },
+    "inject_extrainfo_message_state_user_flagged_pending_manual_review": {
+        "message": "사용자가 신고함 (수동 검토 대기 중)",
+        "description": "Thread/message state USER_FLAGGED_PENDING_MANUAL_REVIEW (a user flagged the message and needs manual review)."
+    },
+    "inject_extrainfo_message_state_expert_flagged_pending_manual_review": {
+        "message": "제품 전문가가 신고함 (수동 검토 대기 중)",
+        "description": "Thread/message state EXPERT_FLAGGED_PENDING_MANUAL_REVIEW (a PE flagged the message and needs manual review)."
+    },
+    "inject_extrainfo_message_state_awaiting_classification": {
+        "message": "분류 대기 중",
+        "description": "Thread/message state AWAITING_CLASSIFICATION."
+    },
+    "inject_extrainfo_message_state_generated_answer_adopted": {
+        "message": "생성형 답변 채택됨",
+        "description": "Thread/message state GENERATED_ANSWER_ADOPTED."
+    },
+    "inject_extrainfo_message_state_manual_take_down_hide2": {
+        "message": "수동으로 숨겨짐",
+        "description": "Thread/message state MANUAL_TAKE_DOWN_HIDE (the message has been manually hidden by a Googler)."
+    },
+    "inject_extrainfo_message_state_manual_take_down_delete2": {
+        "message": "수동으로 삭제됨",
+        "description": "Thread/message state MANUAL_TAKE_DOWN_DELETE (the message has been manually deleted by a Googler)."
+    },
+    "inject_extrainfo_message_state_manual_profile_take_down_suspend2": {
+        "message": "숨겨짐 (사용자 프로필 사용 중지됨)",
+        "description": "Thread/message state MANUAL_PROFILE_TAKE_DOWN_SUSPEND (due to the fact that the profile has been manually suspended by a Googler, messages written by that account are in this state —and hidden from the public)."
+    },
+    "inject_extrainfo_message_state_reinstate_profile_takedown2": {
+        "message": "복구됨 (사용자 프로필이 복구됨)",
+        "description": "Thread/message state REINSTATE_PROFILE_TAKEDOWN (after a profile suspension has been reverted, messages which were previously in the \"MANUAL_PROFILE_TAKE_DOWN_SUSPEND\" state have this state (and are visible to the public again))."
+    },
+    "inject_extrainfo_message_state_clear_off_topic2": {
+        "message": "주제에서 벗어남 신고 반려됨",
+        "description": "Thread/message state CLEAR_OFF_TOPIC (the message has been confirmed to NOT be off-topic)."
+    },
+    "inject_extrainfo_message_state_confirm_off_topic2": {
+        "message": "주제에서 벗어난 것으로 확인됨",
+        "description": "Thread/message state CONFIRM_OFF_TOPIC (the message has been confirmed to be off-topic)."
+    },
+    "inject_extrainfo_message_shadowblockactive": {
+        "message": "섀도우 밴 활성화됨",
+        "description": "Label used in a thread or message when it has been shadow blocked and is thus hidden from view."
+    },
+    "inject_extrainfo_message_shadowblocknotactive": {
+        "message": "섀도우 밴이 비활성화됨",
+        "description": "Label used in a thread or message when it had been shadow blocked but it isn't active anymore."
+    },
+    "inject_extrainfo_message_state_draft": {
+        "message": "초안",
+        "description": "Thread/message state DRAFT (when a message is saved as a draft and not yet published)."
+    },
+    "inject_extrainfo_thread_trending": {
+        "message": "트랜딩 이슈",
+        "description": "Label used in a thread to show it has been manually marked as trending."
+    },
+    "inject_extrainfo_message_state_automated_abuse_take_down_hide2": {
+        "message": "숨겨짐 (악용으로 자동 신고됨)",
+        "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_HIDE (the message is hidden because the AI classified it as \"abuse\")."
+    },
+    "inject_extrainfo_message_state_googler_off_topic_hide2": {
+        "message": "Google 직원이 주제에서 벗어남으로 신고하여 숨겨짐",
+        "description": "Thread/message state GOOGLER_OFF_TOPIC_HIDE (the message has been hidden by a Googler because it is off-topic)."
+    },
+    "inject_extrainfo_message_state_reinstate_abuse_takedown2": {
+        "message": "악용 신고 반려됨 (수동 검토)",
+        "description": "Thread/message state REINSTATE_ABUSE_TAKEDOWN (it is thought that messages in this state have been manually unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
+    },
+    "inject_extrainfo_message_state_automated_abuse_reinstate2": {
+        "message": "자동으로 악용 신고 반려됨",
+        "description": "Thread/message state AUTOMATED_ABUSE_REINSTATE (it is thought that messages in this state have been automatically unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
+    },
+    "inject_extrainfo_message_livereviewverdict": {
+        "message": "실시간 검토 결과: $1",
+        "description": "Label used in a thread or message to show what was the action taken when live reviewing it."
+    },
+    "inject_extrainfo_message_livereviewverdict_relevant": {
+        "message": "관련성 있음",
+        "description": "One of the actions of a live review."
+    },
+    "inject_threadpagedesign_warning": {
+        "message": "대화형식으로 보기가 활성화되어 있고 구 버전 페이지 디자인을 사용하고 있기 때문에, 이 게시글은 정상적으로 작동하지 않을 수 있습니다. TW Power Tools 옵션을 검토하여 문제를 해결하실 수 있습니다.",
+        "description": "Message showed above threads which might not work properly because of the fact that the old thread design is not compatible with nested replies."
+    },
+    "options_stickysidebarheaders": {
+        "message": "커뮤니티 콘솔 사이드바의 카테고리를 상단에 고정하기 (+ <code>pekb/thread/60784834</code>에서 더 자세한 정보를 확인하세요).",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_increasecontrast": {
+        "message": "커뮤니티 콘솔에서 읽은 게시글과 읽지 않은 게시글의 구분을 더 명확하게 표시하기.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_ccdarktheme": {
+        "message": "<span id='ccdarktheme_mode--container'></span>, 커뮤니티 콘솔에 다크 모드 적용하기.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_ccdarktheme_mode_switch": {
+        "message": "콘솔의 설정을 변경하여",
+        "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
+    },
+    "options_ccforcehidedrawer": {
+        "message": "카뮤니티 콘솔에서 좌측 메뉴를 항상 숨기기.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_ccdarktheme_mode_system": {
+        "message": "OS의 다크 모드 설정에 따라",
+        "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
+    },
+    "options_ccdragndropfix": {
+        "message": "링크를 커뮤니티 콘솔로 드래그 앤 드롭할 때 텍스트 유지하기.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_batchlock": {
+        "message": "커뮤니티 콘솔 게시글 목록에 다수의 게시글을 한 번에 잠그는 옵션을 추가하기.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_repositionexpandthread": {
+        "message": "커뮤니티 콘솔 게시글 목록의 \"게시글 확장\" 버튼을 좌측으로 옮기기.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_threadlistavatars": {
+        "message": "커뮤니티 콘솔 게시글 목록에서 게시글의 아바타 표시하기.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_imagemaxheight": {
+        "message": "현재 창보다 크기가 큰 인라인 이미지를 작게 표시하기.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_profileindicator_moreinfo": {
+        "message": "+2개의 이전 옵션에 대한 정보",
+        "description": "Link to learn more about the profile indicator feature"
+    },
+    "options_profileindicatoralt": {
+        "message": "OP가 지난 <span id='profileindicatoralt_months--container'></span>개월 동안 포럼에 작성한 질문과 답변의 총개수를 사용자 이름 옆에 표시하기.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_blockdrafts": {
+        "message": "커뮤니티 콘솔에서 작성한 답변이 Google 서버로 전송되는 것을 차단하기.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_workflows": {
+        "message": "워크플로 기능 활성화.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_workflows_manage": {
+        "message": "워크플로 관리",
+        "description": "Button in the options page which opens the workflow management page."
+    },
+    "inject_profileindicator_other_posts_read": {
+        "message": "OP가 이 포럼의 다른 게시글에서 활동한 적이 있으며, 그중 가장 최근 5개의 게시글을 이미 읽었습니다.",
+        "description": "Tooltip for the profile indicator dot."
+    },
+    "inject_profileindicator_other_posts_unread": {
+        "message": "OP가 이 포럼의 다른 게시글에서 활동한 적이 있으며, 그중 몇 개의 게시글을 읽지 않았습니다.",
+        "description": "Tooltip for the profile indicator dot."
+    },
+    "options_enhancedannouncementsdot": {
+        "message": "커뮤니티 콘솔의 공지사항 알림 점을 더 명확하게 표시하기.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_autorefreshlist": {
+        "message": "커뮤니티 콘솔 게시글 목록에 업데이트가 있을 때 알림 표시하기.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_profileindicator": {
+        "message": "<span class=\"help\" title=\"OP가 다른 게시글에서 활동한 적이 있는 경우, 사용자 이름 옆에 빨간색 점이 표시됩니다. 만약 OP가 활동한 가장 최근의 게시글을 이미 읽은 경우, 주황색 점이 표시됩니다. 점 위에 마우스 커서를 올려놓으면 점의 색이 의미하는 내용을 확인하실 수 있습니다.\">OP가 포럼에서의 활동 내역이 있는지</span> 표시하기.",
+        "description": "Feature checkbox in the options page"
+    }
+}
