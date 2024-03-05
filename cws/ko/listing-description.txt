@@ -1,9 +1,9 @@
-After installing the extension, adjust it to your needs by clicking its icon in the extensions menu to access the options page. This is because features other than infinite scroll are disabled by default.
+이 확장 프로그램을 처음 설치했다면 무한 스크롤 기능을 제외한 다른 모든 기능이 사용 중지되어 있을 것입니다. 따라서 확장 프로그램을 설치한 다음, 확장 프로그램 관리 페이지에서 확장 프로그램 옵션을 알맞게 조정하셔야 합니다.
 
-You can see a list of all the enhancements here: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+/HEAD/docs/features.md
+여기에서 이 확장 프로그램의 모든 기능을 확인하실 수 있습니다: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+/HEAD/docs/features.md
 
-New additions in future updates will be disabled by default, and can be manually enabled in the options page. Join https://groups.google.com/g/twpowertools-discuss to receive updates about new functionality.
+업데이트로 추가될 새로운 기능들은 기본적으로 사용 중지 상태이며, 확장 프로그램 옵션에서 기능을 사용 설정할 수 있습니다. 새로운 기능에 대한 알림을 받으시려면 그룹에 가입해주세요: https://groups.google.com/g/twpowertools-discuss
 
-The source code is available here: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums. Contributions are welcome!
+소스 코드는 여기에서 확인하실 수 있습니다: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums. 기여는 언제나 환영합니다!
 
-Help translate the extension to your native language! Visit https://i18n.avm99963.com/projects/tw-power-tools/
+확장 프로그램의 번역에 참여하고 싶으시다면 여기를 방문해 주세요: https://i18n.avm99963.com/projects/tw-power-tools/
