@@ -3,6 +3,11 @@ import {MDCTooltip} from '@material/tooltip';
 import {createPlainTooltip} from '../../../common/tooltip.js';
 import {createExtBadge} from '../utils/common.js';
 
+export const kColorThemeMode = Object.freeze({
+  Auto: Symbol('auto'),
+  Light: Symbol('light'),
+  Dark: Symbol('dark'),
+});
 
 export function injectDarkThemeButton(rightControl, previousDarkThemeOption) {
   var darkThemeSwitch = document.createElement('material-button');
@@ -45,12 +50,31 @@ export function injectDarkThemeButton(rightControl, previousDarkThemeOption) {
   new MDCTooltip(badgeTooltip);
 }
 
+export function getCurrentColorTheme(options) {
+  if (!options.ccdarktheme) {
+    return kColorThemeMode.Light;
+  } else {
+    if (options.ccdarktheme_mode == 'switch') {
+      return options.ccdarktheme_switch_status ? kColorThemeMode.Dark :
+                                                 kColorThemeMode.Light;
+    } else {
+      return kColorThemeMode.Auto;
+    }
+  }
+}
+
 export function isDarkThemeOn(options) {
-  if (!options.ccdarktheme) return false;
+  const activeColorTheme = getCurrentColorTheme(options);
 
-  if (options.ccdarktheme_mode == 'switch')
-    return options.ccdarktheme_switch_status;
+  switch (activeColorTheme) {
+    case kColorThemeMode.Auto:
+      return window.matchMedia &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-  return window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches;
+    case kColorThemeMode.Light:
+      return false;
+
+    case kColorThemeMode.Dark:
+      return true;
+  }
 }

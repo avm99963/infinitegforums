@@ -6,6 +6,7 @@ import {injectPreviousPostsLinksUnifiedProfileIfEnabled} from '../utilsCommon/un
 import AvatarsHandler from './avatars.js';
 import {batchLock} from './batchLock.js';
 import {injectDarkThemeButton, isDarkThemeOn} from './darkTheme/darkTheme.js';
+import ReportDialogColorThemeFix from './darkTheme/reportDialog.js';
 import {unifiedProfilesFix} from './darkTheme/unifiedProfiles.js';
 // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
 import {applyDragAndDropFixIfEnabled} from './dragAndDropFix.js';
@@ -17,7 +18,7 @@ import ThreadToolbar from './threadToolbar/threadToolbar.js';
 import Workflows from './workflows/workflows.js';
 
 var mutationObserver, options, avatars, infiniteScroll, workflows,
-    threadToolbar, flattenThreads;
+    threadToolbar, flattenThreads, reportDialogColorThemeFix;
 
 const watchedNodesSelectors = [
   // App container (used to set up the intersection observer and inject the dark
@@ -55,7 +56,7 @@ const watchedNodesSelectors = [
   // Thread list (used for the autorefresh feature)
   'ec-thread-list',
 
-  // Unified profile iframe
+  // Unified profile iframe and report dialog iframe
   'iframe',
 
   // Canned response tags (for the "import CR" popup for the workflows feature)
@@ -178,10 +179,14 @@ function handleCandidateNode(node) {
       window.TWPTAutoRefresh.setUp();
     }
 
-    // Redirect unified profile iframe to dark version if applicable
-    if (node.tagName == 'IFRAME' && isDarkThemeOn(options) &&
-        unifiedProfilesFix.checkIframe(node)) {
-      unifiedProfilesFix.fixIframe(node);
+    if (node.tagName == 'IFRAME') {
+      // Redirect unified profile iframe to dark version if applicable
+      if (isDarkThemeOn(options) && unifiedProfilesFix.checkIframe(node)) {
+        unifiedProfilesFix.fixIframe(node);
+      }
+
+      // Set report dialog iframe's theme to the appropriate theme
+      reportDialogColorThemeFix.fixThemeIfReportDialogIframeAndApplicable(node);
     }
 
     // Add the "import" button in the canned responses view for the workflows
@@ -283,6 +288,7 @@ getOptions(null).then(items => {
   workflows = new Workflows();
   threadToolbar = new ThreadToolbar();
   flattenThreads = new FlattenThreads();
+  reportDialogColorThemeFix = new ReportDialogColorThemeFix(options);
 
   // autoRefresh, extraInfo, threadPageDesignWarning and workflowsImport are
   // initialized in start.js
