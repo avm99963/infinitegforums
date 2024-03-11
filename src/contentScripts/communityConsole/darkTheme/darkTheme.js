@@ -1,18 +1,18 @@
 import {MDCTooltip} from '@material/tooltip';
 
-import {createPlainTooltip} from '../../common/tooltip.js';
+import {createPlainTooltip} from '../../../common/tooltip.js';
+import {createExtBadge} from '../utils/common.js';
 
-import {createExtBadge} from './utils/common.js';
 
-export function injectDarkModeButton(rightControl, previousDarkModeOption) {
+export function injectDarkThemeButton(rightControl, previousDarkThemeOption) {
   var darkThemeSwitch = document.createElement('material-button');
   darkThemeSwitch.classList.add('TWPT-dark-theme', 'TWPT-btn--with-badge');
   darkThemeSwitch.setAttribute('button', '');
 
-  darkThemeSwitch.addEventListener('click', e => {
+  darkThemeSwitch.addEventListener('click', () => {
     chrome.storage.sync.get(null, currentOptions => {
-      currentOptions.ccdarktheme_switch_status = !previousDarkModeOption;
-      chrome.storage.sync.set(currentOptions, _ => {
+      currentOptions.ccdarktheme_switch_status = !previousDarkThemeOption;
+      chrome.storage.sync.set(currentOptions, () => {
         location.reload();
       });
     });

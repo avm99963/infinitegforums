@@ -5,7 +5,8 @@ import {injectPreviousPostsLinksUnifiedProfileIfEnabled} from '../utilsCommon/un
 
 import AvatarsHandler from './avatars.js';
 import {batchLock} from './batchLock.js';
-import {injectDarkModeButton, isDarkThemeOn} from './darkMode.js';
+import {injectDarkThemeButton, isDarkThemeOn} from './darkTheme/darkTheme.js';
+import {unifiedProfilesFix} from './darkTheme/unifiedProfiles.js';
 // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
 import {applyDragAndDropFixIfEnabled} from './dragAndDropFix.js';
 // #!endif
@@ -13,7 +14,6 @@ import {default as FlattenThreads, kMatchingSelectors as kFlattenThreadMatchingS
 import InfiniteScroll from './infiniteScroll.js';
 import {kRepliesSectionSelector} from './threadToolbar/constants.js';
 import ThreadToolbar from './threadToolbar/threadToolbar.js';
-import {unifiedProfilesFix} from './unifiedProfiles.js';
 import Workflows from './workflows/workflows.js';
 
 var mutationObserver, options, avatars, infiniteScroll, workflows,
@@ -94,7 +94,8 @@ function handleCandidateNode(node) {
       if (options.ccdarktheme && options.ccdarktheme_mode == 'switch') {
         var rightControl = node.querySelector('header .right-control');
         if (rightControl !== null)
-          injectDarkModeButton(rightControl, options.ccdarktheme_switch_status);
+          injectDarkThemeButton(
+              rightControl, options.ccdarktheme_switch_status);
       }
     }
 
