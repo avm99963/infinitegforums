@@ -55,6 +55,9 @@ export const SHARED_MD3_STYLES = css`
     --md-sys-color-surface-container-high: var(--TWPT-md-sys-color-surface-container-high, rgb(227 234 231));
     --md-sys-color-surface-container-highest: var(--TWPT-md-sys-color-surface-container-highest, rgb(221 228 225));
 
+    /* Custom colors */
+    --reply-button-color: var(--TWPT-reply-button-color, #65558f);
+
     /* Material Design 2 theme */
     --mdc-theme-surface: var(--TWPT-primary-background, #fff);
     --mdc-theme-on-surface: var(--TWPT-primary-text, #000);

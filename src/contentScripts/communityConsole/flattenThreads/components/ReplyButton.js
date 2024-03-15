@@ -19,6 +19,22 @@ export default class TwptFlattenThreadReplyButton extends I18nLitElement {
     md-outlined-button {
       --md-outlined-button-container-shape: 0.25rem;
       --md-outlined-button-container-height: 38px;
+
+      /**
+       * We change the color because otherwise it would have a very similar
+       * color to the "Recommend" button.
+       */
+      --md-outlined-button-label-text-color: var(--reply-button-color);
+      --md-outlined-button-focus-label-text-color: var(--reply-button-color);
+      --md-outlined-button-hover-label-text-color: var(--reply-button-color);
+      --md-outlined-button-hover-state-layer-color: var(--reply-button-color);
+      --md-outlined-button-label-text-color: var(--reply-button-color);
+      --md-outlined-button-pressed-label-text-color: var(--reply-button-color);
+      --md-outlined-button-pressed-state-layer-color: var(--reply-button-color);
+      --md-outlined-button-focus-icon-color: var(--reply-button-color);
+      --md-outlined-button-hover-icon-color: var(--reply-button-color);
+      --md-outlined-button-icon-color: var(--reply-button-color);
+      --md-outlined-button-pressed-icon-color: var(--reply-button-color);
     }
     `,
   ];
