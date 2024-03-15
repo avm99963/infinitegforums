@@ -10,6 +10,10 @@ material-dialog .title {
   color: var(--TWPT-primary-text-alt)!important;
 }
 
+material-dialog header material-button:is(.close-button, [debugid="close-button"]) material-icon {
+  color: var(--TWPT-subtle-button-background)!important;
+}
+
 ec-movable-dialog[showminimize] material-dialog .dialog-header .title, ec-movable-dialog[showminimize] material-dialog header material-icon {
   color: var(--TWPT-primary-background)!important;
 }

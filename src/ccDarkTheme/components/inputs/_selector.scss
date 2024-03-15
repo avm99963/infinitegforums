@@ -34,7 +34,7 @@ material-list .single-select-item,
     menu-item-groups .menu-item-label,
     menu-item-groups .label,
     menu-item-groups .text-segment {
-  color: rgba(255, 255, 255, .87)!important;
+  color: var(--TWPT-icon-color)!important;
 }
 
 .popup .item-group-list material-icon {

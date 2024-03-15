@@ -3,5 +3,7 @@ material-button[disabled] {
 }
 
 .mdc-button {
+  --gm-colortextbutton-ink-color: var(--TWPT-interop-blue);
+  --gm-colortextbutton-ink-color--stateful: var(--TWPT-interop-blue);
   --gm-colortextbutton-disabled-ink-color: rgba(255, 255, 255, .26);
 }

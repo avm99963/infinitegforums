@@ -12,7 +12,7 @@
     .mdc-button.mdc-icon-button,
     .mdc-button.mdc-icon-button material-icon,
     notification-bell material-icon) {
-  color: rgba(255, 255, 255, .87)!important;
+  color: var(--TWPT-icon-color)!important;
 }
 
 .search-box {
@@ -21,11 +21,11 @@
 
 .search-box .clear-icon {
   opacity: 0.8;
-  color: rgba(255, 255, 255, .87)!important;
+  color: var(--TWPT-icon-color)!important;
 }
 
 .material-content > header .bell.mixin {
-  fill: rgba(255, 255, 255, .87)!important;
+  fill: var(--TWPT-icon-color)!important;
 }
 
 // Header menus

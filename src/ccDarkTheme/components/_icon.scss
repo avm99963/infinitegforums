@@ -11,12 +11,12 @@ ec-filter-drawer-item material-icon,
     ec-editor-command material-icon,
     ec-canned-responses ec-canned-response-row material-icon,
     ec-ask-flow > .header material-button {
-  color: rgba(255, 255, 255, .87)!important;
+  color: var(--TWPT-icon-color)!important;
 }
 
 material-drawer ec-icon,
   .search-results ec-thread-option ec-icon,
   ec-thread-summary material-expansionpanel .title ec-icon,
   ec-announcements-menu-item ec-icon {
-  fill: rgba(255, 255, 255, .87)!important;
+  fill: var(--TWPT-icon-color)!important;
 }

@@ -5,6 +5,14 @@ ec-work-state-picker > button,
   border-color: var(--TWPT-subtle-border)!important;
 }
 
-.material-popup-content .popup-content .title {
-  color: var(--TWPT-primary-text)!important;
+.material-popup-content .popup-content {
+  header {
+    .title {
+      color: var(--TWPT-primary-text)!important;
+    }
+
+    material-button material-icon {
+      color: var(--TWPT-subtle-button-background)!important;
+    }
+  }
 }

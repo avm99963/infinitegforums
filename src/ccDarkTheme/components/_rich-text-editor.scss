@@ -29,7 +29,7 @@ ec-rich-text-editor .hint {
 }
 
 material-select-searchbox + material-list material-list-item {
-  color: rgba(255, 255, 255, .87)!important;
+  color: var(--TWPT-icon-color)!important;
 }
 
 ec-attachment .filename {

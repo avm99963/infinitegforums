@@ -188,3 +188,23 @@ ec-thread .finished-question .next-question {
 .explanation-icon material-icon:hover {
   color: var(--TWPT-blue-A100)!important;
 }
+
+// Notice used e.g. for deleted threads
+ec-thread .notice {
+  material-icon {
+    color: var(--TWPT-icon-color)!important;
+  }
+
+  .notice-heading {
+    color: var(--TWPT-primary-text)!important;
+  }
+
+  .notice-message {
+    color: var(--TWPT-secondary-text)!important;
+  }
+
+  material-button {
+    background: var(--TWPT-interop-blue)!important;
+    color: #1f1f1f!important;
+  }
+}
