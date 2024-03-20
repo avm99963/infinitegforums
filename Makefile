@@ -1,4 +1,4 @@
-.PHONY: node_deps clean_dist deps clean_deps lit_localize_extract lit_localize_build lit_localize_all serve_chromium serve_chromium_mv3 serve_gecko release release_chromium_stable release_chromium_beta release_chromium_canary release_gecko_stable build_test_extension clean_releases test clean trigger_nightly_build
+.PHONY: node_deps clean_dist deps clean_deps lit_localize_extract lit_localize_build lit_localize_all serve_chromium_mv3 serve_gecko release release_chromium_stable release_chromium_beta release_chromium_canary release_gecko_stable build_test_extension clean_releases test clean trigger_nightly_build
 
 WEBPACK := ./node_modules/webpack-cli/bin/cli.js
 JEST := node --experimental-vm-modules ./node_modules/jest/bin/jest.js
@@ -31,9 +31,6 @@ lit_localize_build:
 
 lit_localize_all: lit_localize_extract lit_localize_build
 
-serve_chromium: deps
-	$(WEBPACK) --mode development --env browser_target=chromium --watch
-
 serve_chromium_mv3: deps
 	$(WEBPACK) --mode development --env browser_target=chromium_mv3 --watch
 
@@ -43,9 +40,9 @@ serve_gecko: deps
 release: release_chromium_stable release_chromium_beta release_gecko_stable
 
 release_chromium_stable: deps
-	$(WEBPACK) --mode production --env browser_target=chromium
-	$(RELEASE_SCRIPT) -c stable -b chromium
-	rm -rf dist/chromium
+	$(WEBPACK) --mode production --env browser_target=chromium_mv3
+	$(RELEASE_SCRIPT) -c stable -b chromium_mv3
+	rm -rf dist/chromium_mv3
 
 release_chromium_beta: deps
 	$(WEBPACK) --mode production --env browser_target=chromium_mv3

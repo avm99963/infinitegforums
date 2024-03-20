@@ -21,9 +21,9 @@ interesting things (like `clean`, for instance).
 
 ## Build the extension continously with webpack development mode
 If you're developing the extension, you might want to load it into your browser
-without having to constantly build it manually after each change. In order to do
-that, you can run `make serve_chromium`, `make serve_chromium_mv3` or
-`make serve_gecko` depending on the type of continuous build you want.
+without having to constantly build it manually after each change. In order to
+do that, you can run `make serve_chromium_mv3` or `make serve_gecko` depending
+on the type of continuous build you want.
 
 This will run webpack with watch mode and continuously serve a fresh version of
 the compiled extension at `dist/{BROWSER}`, where `{BROWSER}` depends on the
@@ -33,14 +33,3 @@ target you selected for _make_. You can load this folder in Chrome by going to
 Keep in mind that while the extension is continuously built, it is not
 automatically being loaded into Chrome. You'll have to reload the extension
 manually in Chrome (but at least you won't have to both build and reload it).
-
-## About the _Chromium MV3_ target
-Chromium announced a while back a
-[new version of the manifest.json file](https://developer.chrome.com/docs/extensions/mv3/intro/),
-which also introduces some changes to the extension APIs. The _Chromium MV3_
-target builds the extension using this new version.
-
-[MV2 will phase out in January 2023](https://developer.chrome.com/docs/extensions/mv3/mv2-sunset/),
-so starting with version v2.1.2, the CWS beta channel will receive the MV3
-variant of the extension to begin testing it publicly. For now, the stable
-channel will continue to receive the MV2 variant of the extension.
