@@ -64,7 +64,7 @@
         "description": "Feature checkbox in the options page"
     },
     "options_loaddrafts": {
-        "message": "커뮤니티 콘솔 기능, <code class=\"help\" title=\"이 기능을 활성화하면, 게시글의 댓글 버튼을 눌렀을 때 이전에 자동 저장된 답변을 불러옵니다.\">enableLoadingDraftMessages</code> 활성화.",
+        "message": "커뮤니티 콘솔의 <code class=\"help\" title=\"이 기능을 활성화하면, 게시글의 댓글 버튼을 눌렀을 때 이전에 자동 저장된 답변을 불러옵니다.\">enableLoadingDraftMessages</code> 기능 활성화.",
         "description": "Feature checkbox in the options page"
     },
     "options_experimental_label": {
