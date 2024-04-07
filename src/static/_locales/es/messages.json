@@ -518,7 +518,7 @@
         "description": "Thread/message state USER_FLAGGED_PENDING_MANUAL_REVIEW (a user flagged the message and needs manual review)."
     },
     "inject_extrainfo_message_state_expert_flagged_pending_manual_review": {
-        "message": "Marcado por experto (pendiente revisión manual)",
+        "message": "Marcado por Experto (pendiente revisión manual)",
         "description": "Thread/message state EXPERT_FLAGGED_PENDING_MANUAL_REVIEW (a PE flagged the message and needs manual review)."
     },
     "inject_extrainfo_message_state_manual_take_down_hide2": {
