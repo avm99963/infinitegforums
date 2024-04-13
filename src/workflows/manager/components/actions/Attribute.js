@@ -11,8 +11,6 @@ import {FORM_STYLES} from './common.js';
 
 const kHiddenActions = [
   pb.workflows.Action.AttributeAction.AttributeAction.AA_NONE,
-  pb.workflows.Action.AttributeAction.AttributeAction.AA_SOFT_LOCK,
-  pb.workflows.Action.AttributeAction.AttributeAction.AA_UNSOFT_LOCK,
 ];
 
 export default class WFActionAttribute extends LitElement {
