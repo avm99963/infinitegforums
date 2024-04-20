@@ -156,7 +156,7 @@
         "description": "Feature checkbox in the options page. \"<span id='interopthreadpage_mode--container'></span>\" will be substituted with a selector which allows users to select whether they want the new thread page design or the old one."
     },
     "options_nestedreplies": {
-        "message": "커뮤니티 콘솔에서 대화형식으로 보기 기능을 활성화.",
+        "message": "커뮤니티 콘솔에서 대화형식으로 보기 기능 활성화.",
         "description": "Feature checkbox in the options page"
     },
     "options_flattenthreads": {
@@ -498,7 +498,7 @@
         "description": "Label used in a thread or message when it has been shadow blocked and is thus hidden from view."
     },
     "inject_extrainfo_message_shadowblocknotactive": {
-        "message": "섀도우 밴이 비활성화됨",
+        "message": "섀도우 밴 비활성화됨",
         "description": "Label used in a thread or message when it had been shadow blocked but it isn't active anymore."
     },
     "inject_extrainfo_message_state_draft": {
@@ -518,7 +518,7 @@
         "description": "Thread/message state GOOGLER_OFF_TOPIC_HIDE (the message has been hidden by a Googler because it is off-topic)."
     },
     "inject_extrainfo_message_state_reinstate_abuse_takedown2": {
-        "message": "악용 신고 반려됨 (수동 검토)",
+        "message": "검토자가 악용 신고 반려함",
         "description": "Thread/message state REINSTATE_ABUSE_TAKEDOWN (it is thought that messages in this state have been manually unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
     },
     "inject_extrainfo_message_state_automated_abuse_reinstate2": {
@@ -534,7 +534,7 @@
         "description": "One of the actions of a live review."
     },
     "inject_threadpagedesign_warning": {
-        "message": "대화형식으로 보기가 활성화되어 있고 구 버전 페이지 디자인을 사용하고 있기 때문에, 이 게시글은 정상적으로 작동하지 않을 수 있습니다. TW Power Tools 옵션을 검토하여 문제를 해결하실 수 있습니다.",
+        "message": "대화형식으로 보기가 활성화되어 있고 구 버전 페이지 디자인을 사용하고 있기 때문에, 이 게시글은 정상적으로 작동하지 않을 수 있습니다. TW Power Tools 옵션을 검토하여 문제를 해결할 수 있습니다.",
         "description": "Message showed above threads which might not work properly because of the fact that the old thread design is not compatible with nested replies."
     },
     "options_stickysidebarheaders": {
@@ -554,7 +554,7 @@
         "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
     },
     "options_ccforcehidedrawer": {
-        "message": "카뮤니티 콘솔에서 좌측 메뉴를 항상 숨기기.",
+        "message": "카뮤니티 콘솔에서 좌측 메뉴 항상 숨기기.",
         "description": "Feature checkbox in the options page"
     },
     "options_ccdarktheme_mode_system": {
@@ -566,7 +566,7 @@
         "description": "Feature checkbox in the options page"
     },
     "options_batchlock": {
-        "message": "커뮤니티 콘솔 게시글 목록에 다수의 게시글을 한 번에 잠그는 옵션을 추가하기.",
+        "message": "커뮤니티 콘솔 게시글 목록에 다수의 게시글을 한 번에 잠그는 옵션 추가하기.",
         "description": "Feature checkbox in the options page"
     },
     "options_repositionexpandthread": {
@@ -590,7 +590,7 @@
         "description": "Feature checkbox in the options page"
     },
     "options_blockdrafts": {
-        "message": "커뮤니티 콘솔에서 작성한 답변이 Google 서버로 전송되는 것을 차단하기.",
+        "message": "커뮤니티 콘솔에서 작성한 답변을 Google 서버로 전송하는 것을 차단하기.",
         "description": "Feature checkbox in the options page"
     },
     "options_workflows": {
