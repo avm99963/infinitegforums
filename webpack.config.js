@@ -145,8 +145,25 @@ module.exports = (env, args) => {
       ...getCopyPluginsForOverridenLocales(outputPath),
     ],
     devtool: (args.mode == 'production' ? 'source-map' : 'inline-source-map'),
+    resolve: {
+      extensions: ['.tsx', '.ts', '.js', '.json', '.wasm'],
+    },
     module: {
       rules: [
+        {
+          test: /\.js$/i,
+          use: [
+            preprocessorLoader,
+          ],
+        },
+        {
+          test: /\.tsx?$/,
+          use: [
+            'ts-loader',
+            preprocessorLoader,
+          ],
+          exclude: /node_modules/,
+        },
         {
           test: /\.json5$/i,
           type: 'json',
@@ -200,12 +217,6 @@ module.exports = (env, args) => {
                 },
               ],
             },
-          ],
-        },
-        {
-          test: /\.js$/i,
-          use: [
-            preprocessorLoader,
           ],
         },
       ]

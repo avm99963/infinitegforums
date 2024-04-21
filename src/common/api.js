@@ -28,13 +28,14 @@ export function CCApi(
   let authuserPart =
       authuser == '0' ? '' : '?authuser=' + encodeURIComponent(authuser);
 
+  let context;
   // #!if browser_target == 'gecko'
   // See
   // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#xhr_and_fetch
   // and https://developer.mozilla.org/en-US/docs/Web/API/Window/content.
-  const context = window.content || window;
+  context = window.content || window;
   // #!else
-  const context = window;
+  context = window;
   // #!endif
 
   return context
