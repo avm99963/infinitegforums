@@ -1,4 +1,4 @@
-import {getOptions, isOptionEnabled} from '../../common/optionsUtils.js';
+import {getOptions, isOptionEnabled} from '../../../common/optionsUtils.js';
 
 const kInteropLoadMoreClasses = {
   // New (interop) UI without nested replies
@@ -11,7 +11,7 @@ const kInteropLoadMoreClasses = {
 };
 const kArtificialScrollingDelay = 3500;
 
-export default class InfiniteScroll {
+export default class CCInfiniteScroll {
   constructor() {
     this.intersectionObserver = null;
   }

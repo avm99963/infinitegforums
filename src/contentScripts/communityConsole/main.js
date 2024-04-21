@@ -12,12 +12,11 @@ import {unifiedProfilesFix} from './darkTheme/unifiedProfiles.js';
 import {applyDragAndDropFixIfEnabled} from './dragAndDropFix.js';
 // #!endif
 import {default as FlattenThreads, kMatchingSelectors as kFlattenThreadMatchingSelectors} from './flattenThreads/flattenThreads.js';
-import InfiniteScroll from './infiniteScroll.js';
 import {kRepliesSectionSelector} from './threadToolbar/constants.js';
 import ThreadToolbar from './threadToolbar/threadToolbar.js';
 import Workflows from './workflows/workflows.js';
 
-var mutationObserver, options, avatars, infiniteScroll, workflows,
+var mutationObserver, options, avatars, workflows,
     threadToolbar, flattenThreads, reportDialogColorThemeFix;
 
 const watchedNodesSelectors = [
@@ -88,8 +87,6 @@ const watchedNodesSelectors = [
 function handleCandidateNode(node) {
   if (typeof node.classList !== 'undefined') {
     if (('tagName' in node) && node.tagName == 'EC-APP') {
-      infiniteScroll.setUpIntersectionObserver(node, false);
-
       // Inject the dark mode button
       // TODO(avm99963): make this feature dynamic.
       if (options.ccdarktheme && options.ccdarktheme_mode == 'switch') {
@@ -98,21 +95,6 @@ function handleCandidateNode(node) {
           injectDarkThemeButton(
               rightControl, options.ccdarktheme_switch_status);
       }
-    }
-
-    // To set up infinite scroll
-    if (node.classList.contains('scrollable-content')) {
-      infiniteScroll.setUpIntersectionObserver(node, true);
-    }
-
-    // Start the intersectionObserver for the "load more"/"load all" buttons
-    // inside a thread if the option is currently enabled.
-    if (node.classList.contains('load-more-bar')) {
-      infiniteScroll.observeLoadMoreBar(node);
-    }
-    if (node.classList.contains('scTailwindThreadMorebuttonbutton') ||
-        node.classList.contains('scTailwindThreadMessagegapbutton')) {
-      infiniteScroll.observeLoadMoreInteropBtn(node);
     }
 
     // Show additional details in the profile view.
@@ -284,7 +266,6 @@ getOptions(null).then(items => {
 
   // Initialize classes needed by the mutation observer
   avatars = new AvatarsHandler();
-  infiniteScroll = new InfiniteScroll();
   workflows = new Workflows();
   threadToolbar = new ThreadToolbar();
   flattenThreads = new FlattenThreads();

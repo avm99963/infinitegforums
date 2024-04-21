@@ -40,7 +40,7 @@ module.exports = (env, args) => {
   // web_accessible_resources in //templates/manifest.gjson.
   let entry = {
     // Content scripts
-    communityConsoleMain: './src/contentScripts/communityConsole/main.js',
+    communityConsoleMain: './src/platforms/communityConsole/entryPoints/main.ts',
     communityConsoleStart: './src/contentScripts/communityConsole/start.js',
     publicForum: './src/contentScripts/publicForum.js',
     publicThread: './src/contentScripts/publicThread.js',
