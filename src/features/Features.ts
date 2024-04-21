@@ -4,6 +4,7 @@ import {
   ScriptPage,
   ScriptRunPhase,
 } from '../common/architecture/scripts/Script';
+import AutoRefreshFeature from './autoRefresh/autoRefresh.feature';
 import InfiniteScrollFeature from './infiniteScroll/infiniteScroll.feature';
 
 export type ConcreteFeatureClass = { new (): Feature };
@@ -15,7 +16,10 @@ export interface Context {
 }
 
 export default class Features {
-  private features: ConcreteFeatureClass[] = [InfiniteScrollFeature];
+  private features: ConcreteFeatureClass[] = [
+    AutoRefreshFeature,
+    InfiniteScrollFeature,
+  ];
   private initializedFeatures: Feature[];
 
   runScripts(context: Context) {

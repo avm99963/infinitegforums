@@ -154,13 +154,6 @@ function handleCandidateNode(node) {
       window.TWPTExtraInfo.injectAtExpandedThreadListIfEnabled(node);
     }
 
-    // Set up the autorefresh list feature. The setUp function is responsible
-    // of determining whether it should run or not depending on the current
-    // setting.
-    if (('tagName' in node) && node.tagName == 'EC-THREAD-LIST') {
-      window.TWPTAutoRefresh.setUp();
-    }
-
     if (node.tagName == 'IFRAME') {
       // Redirect unified profile iframe to dark version if applicable
       if (isDarkThemeOn(options) && unifiedProfilesFix.checkIframe(node)) {
@@ -230,11 +223,6 @@ function handleCandidateNode(node) {
 function handleRemovedNode(mutation, node) {
   if (!('tagName' in node)) return;
 
-  // Remove snackbar when exiting thread list view
-  if (node.tagName == 'EC-THREAD-LIST') {
-    window.TWPTAutoRefresh.hideUpdatePrompt();
-  }
-
   // Readd reply button when the Community Console removes it
   if (node.tagName == 'TWPT-FLATTEN-THREAD-REPLY-BUTTON') {
     flattenThreads.injectReplyBtn(
@@ -271,7 +259,7 @@ getOptions(null).then(items => {
   flattenThreads = new FlattenThreads();
   reportDialogColorThemeFix = new ReportDialogColorThemeFix(options);
 
-  // autoRefresh, extraInfo, threadPageDesignWarning and workflowsImport are
+  // extraInfo, threadPageDesignWarning and workflowsImport are
   // initialized in start.js
 
   // Before starting the mutation Observer, check whether we missed any
@@ -325,8 +313,6 @@ getOptions(null).then(items => {
   injectStylesheet(chrome.runtime.getURL('css/batchlock_inject.css'));
   // Thread list avatars
   injectStylesheet(chrome.runtime.getURL('css/thread_list_avatars.css'));
-  // Auto refresh list
-  injectStylesheet(chrome.runtime.getURL('css/autorefresh_list.css'));
   // Extra info
   injectStylesheet(chrome.runtime.getURL('css/extrainfo.css'));
   injectStylesheet(chrome.runtime.getURL('css/extrainfo_perforumstats.css'));

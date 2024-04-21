@@ -4,7 +4,6 @@ import MWOptionsWatcherServer from '../../common/mainWorldOptionsWatcher/Server.
 import {getOptions} from '../../common/optionsUtils.js';
 import {kCSTarget, kMWTarget} from '../../xhrInterceptor/responseModifiers/index.js';
 
-import AutoRefresh from './autoRefresh.js';
 import ExtraInfo from './extraInfo/index.js';
 import FlattenThreadsReplyActionHandler from './flattenThreads/replyActionHandler.js';
 import ThreadPageDesignWarning from './threadPageDesignWarning.js';
@@ -60,7 +59,6 @@ getOptions(null).then(options => {
 
   // Initialized here instead of in main.js so the first event is received if it
   // happens when the page loads.
-  window.TWPTAutoRefresh = new AutoRefresh();
   window.TWPTExtraInfo = new ExtraInfo();
   window.TWPTThreadPageDesignWarning = new ThreadPageDesignWarning();
   window.TWPTWorkflowsImport = new WorkflowsImport();

@@ -41,7 +41,7 @@ module.exports = (env, args) => {
   let entry = {
     // Content scripts
     communityConsoleMain: './src/platforms/communityConsole/entryPoints/main.ts',
-    communityConsoleStart: './src/contentScripts/communityConsole/start.js',
+    communityConsoleStart: './src/platforms/communityConsole/entryPoints/start.ts',
     publicForum: './src/contentScripts/publicForum.js',
     publicThread: './src/contentScripts/publicThread.js',
     publicThreadStart: './src/contentScripts/publicThreadStart.js',
