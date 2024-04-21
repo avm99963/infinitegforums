@@ -1,5 +1,5 @@
 import {grantedOptPermissions, isPermissionsObjectEmpty, missingPermissions} from './optionsPermissions.js';
-import optionsPrototype from './optionsPrototype.json5';
+import {optionsPrototype} from './optionsPrototype.ts';
 import specialOptions from './specialOptions.json5';
 
 export {optionsPrototype, specialOptions};
