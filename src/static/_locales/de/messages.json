@@ -1,0 +1,66 @@
+{
+    "appName": {
+        "message": "TW Power Tools",
+        "description": "The extension's name"
+    },
+    "appNameGecko": {
+        "message": "TW Power Tools",
+        "description": "The extension's name (with a 50 character limit for Gecko)"
+    },
+    "appDescription": {
+        "message": "Erhalte unendliches Scrollen und andere Verbesserungen in den Google-Foren und der Community Console",
+        "description": "The extension's description"
+    },
+    "appNameBeta": {
+        "message": "TW Power Tools (beta)",
+        "description": "The extension's name for the beta version"
+    },
+    "appNameCanary": {
+        "message": "TW Power Tools (canary)",
+        "description": "The extension's name for the beta version"
+    },
+    "options_killswitchwarning": {
+        "message": "Eine oder mehrere Optionen wurden zwangsweise deaktiviert, da sie möglicherweise nicht ordnungsgemäß funktionieren. Bitte besuchen Sie die <a href='https://groups.google.com/g/twpowertools-discuss' rel='noreferrer noopener' target='_blank'>twpowertools-discuss Google-Gruppe</a>, um mehr darüber zu erfahren, warum einige Optionen zwangsweise deaktiviert wurden.",
+        "description": "Warning shown in the options page if a feature has been remotely force disabled via the kill switch mechanism. This happens when a feature doesn't work properly and might be doing dangerous things, and the maintainer or an authorized user remotely force disables the feature."
+    },
+    "options_optionalpermissionswarning_header": {
+        "message": "Für einige Funktionen sind zusätzliche Berechtigungen erforderlich. Sie wurden unten hervorgehoben. Klicken Sie auf ihre Kontrollkästchen, um die entsprechenden Berechtigungen zu erteilen.",
+        "description": "Warning shown at the top of the options page if a feature cannot be used because one or more required permissions haven't been granted to the extension."
+    },
+    "options_killswitchenabled": {
+        "message": "Die vorherige Option wurde aufgrund eines Problems zwangsweise deaktiviert.",
+        "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
+    },
+    "options_optionalpermissionswarning_label": {
+        "message": "Für die vorherige Funktion sind zusätzliche Berechtigungen erforderlich.",
+        "description": "Warning shown in the options page below an option, when a feature needs more permissions to work."
+    },
+    "options_featuredoptions": {
+        "message": "Empfohlene Optionen",
+        "description": "Heading for several options that can be enabled in the options page."
+    },
+    "options_minorenhancements": {
+        "message": "Kleinere Verbesserungen",
+        "description": "Heading for several options that can be enabled in the options page."
+    },
+    "options_list": {
+        "message": "Aktiviere unendliches Scrollen in Thread-Listen.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_thread": {
+        "message": "Laden Sie beim Herunterscrollen automatisch Nachrichtenstapel in Threads nach.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_threadall": {
+        "message": "Beim Herunterscrollen automatisch alle Nachrichten in Threads auf einmal laden.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_fixedtoolbar": {
+        "message": "Die Symbolleiste fest oberhalb der Thread-Listen in der Community Console anzeigen.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_redirect": {
+        "message": "Leite alle in TW geöffneten Threads zur Community Console um.",
+        "description": "Feature checkbox in the options page"
+    }
+}
