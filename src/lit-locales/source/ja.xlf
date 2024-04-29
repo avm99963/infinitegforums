@@ -12,16 +12,18 @@
         <target state="translated">少ない</target>
         <note from="lit-localize">Button to collapse the quote message (used in the flatten threads feature).</note>
       </trans-unit>
-      <trans-unit id="s37a9e8aec5713460">
+      <trans-unit id="s37a9e8aec5713460" xml:space="preserve">
         <source>More</source>
+        <target state="translated">もっと</target>
         <note from="lit-localize">Button to expand the quote message (used in the flatten threads feature).</note>
       </trans-unit>
       <trans-unit id="s6b0ed0c74667d28c" xml:space="preserve">
         <source><x id="0" equiv-text="${authorName}"/> said:</source>
         <target state="translated"><x id="0" equiv-text="${authorName}"/> さんの投稿:</target>
       </trans-unit>
-      <trans-unit id="s98a0ccd6f423421f">
+      <trans-unit id="s98a0ccd6f423421f" xml:space="preserve">
         <source>Nested view</source>
+        <target state="translated">ネストされたビュー</target>
         <note from="lit-localize">Label for the switch which lets users enable/disable the nested view in a thread.</note>
       </trans-unit>
       <trans-unit id="s0f92c01a67197f53" xml:space="preserve">
