@@ -1,34 +1,20 @@
 import Feature from '../common/architecture/features/Feature';
-import ScriptRunner from '../common/architecture/scripts/ScriptRunner';
 import AutoRefreshFeature from './autoRefresh/autoRefresh.feature';
 import InfiniteScrollFeature from './infiniteScroll/infiniteScroll.feature';
-import { Context } from '../common/architecture/entrypoint/Context';
+import ScriptFilterListProvider from '../common/architecture/scripts/ScriptFilterListProvider';
 
 export type ConcreteFeatureClass = { new (): Feature };
 
-export default class Features {
+export default class Features extends ScriptFilterListProvider {
   private features: ConcreteFeatureClass[] = [
     AutoRefreshFeature,
     InfiniteScrollFeature,
   ];
   private initializedFeatures: Feature[];
 
-  getScriptRunner(context: Context) {
-    const scripts = this.getScripts(context);
-    const scriptRunner = new ScriptRunner();
-    scriptRunner.add(...scripts);
-    return scriptRunner;
-  }
-
-  getScripts(context: Context) {
+  protected getUnfilteredScriptsList() {
     const features = this.getFeatures();
-    const allScripts = features.map((feature) => feature.getScripts()).flat(1);
-    return allScripts.filter(
-      (script) =>
-        script.page === context.page &&
-        script.environment === context.environment &&
-        script.runPhase === context.runPhase,
-    );
+    return features.map((feature) => feature.getScripts()).flat(1);
   }
 
   private getFeatures() {

@@ -1,8 +1,5 @@
 import {injectScript, injectStylesheet} from '../../common/contentScriptsUtils.js';
-import MWI18nServer from '../../common/mainWorldI18n/Server.js';
-import MWOptionsWatcherServer from '../../common/mainWorldOptionsWatcher/Server.js';
 import {getOptions} from '../../common/optionsUtils.js';
-import {kCSTarget, kMWTarget} from '../../xhrInterceptor/responseModifiers/index.js';
 
 import ExtraInfo from './extraInfo/index.js';
 import FlattenThreadsReplyActionHandler from './flattenThreads/replyActionHandler.js';
@@ -12,15 +9,6 @@ import WorkflowsImport from './workflows/import.js';
 const SMEI_NESTED_REPLIES = 15;
 const SMEI_RCE_THREAD_INTEROP = 22;
 
-// The servers should be available as soon as possible, since e.g. the XHRProxy
-// already sends a request to the optionsWatcher server as soon as it is
-// constructed.
-new MWOptionsWatcherServer(kCSTarget, kMWTarget);
-new MWI18nServer();
-
-injectScript(
-    chrome.runtime.getURL('xhrInterceptorInject.bundle.js'),
-    /* prepend = */ true);
 injectScript(chrome.runtime.getURL('extraInfoInject.bundle.js'));
 
 getOptions(null).then(options => {
