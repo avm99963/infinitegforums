@@ -4,6 +4,7 @@ import {
   ScriptPage,
   ScriptRunPhase,
 } from '../common/architecture/scripts/Script';
+import ScriptRunner from '../common/architecture/scripts/ScriptRunner';
 import AutoRefreshFeature from './autoRefresh/autoRefresh.feature';
 import InfiniteScrollFeature from './infiniteScroll/infiniteScroll.feature';
 
@@ -22,13 +23,11 @@ export default class Features {
   ];
   private initializedFeatures: Feature[];
 
-  runScripts(context: Context) {
-    const scripts = this.getScripts(context).sort((a, b) =>
-      a.priority < b.priority ? -1 : 1,
-    );
-    for (const script of scripts) {
-      script.execute();
-    }
+  getScriptRunner(context: Context) {
+    const scripts = this.getScripts(context);
+    const scriptRunner = new ScriptRunner();
+    scriptRunner.add(...scripts);
+    return scriptRunner;
   }
 
   getScripts(context: Context) {

@@ -7,6 +7,7 @@
     "module": "es6",
     "target": "es2019",
     "moduleResolution": "bundler",
+    "esModuleInterop": true,
     "allowJs": true
   },
   "ts-node": {
