@@ -1,20 +1,10 @@
 import Feature from '../common/architecture/features/Feature';
-import {
-  ScriptEnvironment,
-  ScriptPage,
-  ScriptRunPhase,
-} from '../common/architecture/scripts/Script';
 import ScriptRunner from '../common/architecture/scripts/ScriptRunner';
 import AutoRefreshFeature from './autoRefresh/autoRefresh.feature';
 import InfiniteScrollFeature from './infiniteScroll/infiniteScroll.feature';
+import { Context } from '../common/architecture/entrypoint/Context';
 
 export type ConcreteFeatureClass = { new (): Feature };
-
-export interface Context {
-  page: ScriptPage;
-  environment: ScriptEnvironment;
-  runPhase: ScriptRunPhase;
-}
 
 export default class Features {
   private features: ConcreteFeatureClass[] = [
