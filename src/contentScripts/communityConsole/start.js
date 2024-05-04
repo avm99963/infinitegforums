@@ -1,15 +1,12 @@
-import {injectScript, injectStylesheet} from '../../common/contentScriptsUtils.js';
+import {injectStylesheet} from '../../common/contentScriptsUtils.js';
 import {getOptions} from '../../common/optionsUtils.js';
 
-import ExtraInfo from './extraInfo/index.js';
 import FlattenThreadsReplyActionHandler from './flattenThreads/replyActionHandler.js';
 import ThreadPageDesignWarning from './threadPageDesignWarning.js';
 import WorkflowsImport from './workflows/import.js';
 
 const SMEI_NESTED_REPLIES = 15;
 const SMEI_RCE_THREAD_INTEROP = 22;
-
-injectScript(chrome.runtime.getURL('extraInfoInject.bundle.js'));
 
 getOptions(null).then(options => {
   /* IMPORTANT NOTE: Remember to change this when changing the "ifs" below!! */
@@ -47,7 +44,6 @@ getOptions(null).then(options => {
 
   // Initialized here instead of in main.js so the first event is received if it
   // happens when the page loads.
-  window.TWPTExtraInfo = new ExtraInfo();
   window.TWPTThreadPageDesignWarning = new ThreadPageDesignWarning();
   window.TWPTWorkflowsImport = new WorkflowsImport();
 
@@ -71,6 +67,7 @@ getOptions(null).then(options => {
     injectStylesheet(chrome.runtime.getURL('css/ui_spacing/console.css'));
   }
 
-  const flattenThreadsReplyActionHandler = new FlattenThreadsReplyActionHandler(options);
+  const flattenThreadsReplyActionHandler =
+      new FlattenThreadsReplyActionHandler(options);
   flattenThreadsReplyActionHandler.handleIfApplicable();
 });

@@ -1,7 +1,7 @@
 import {MDCTooltip} from '@material/tooltip';
 
 import {shouldImplement} from '../../../../common/commonUtils.js';
-import {createExtBadge} from '../../utils/common.js';
+import {createExtBadge} from '../../../../contentScripts/communityConsole/utils/common.js';
 
 export default class BaseExtraInfoInjection {
   constructor(infoHandler, optionsWatcher) {

@@ -2,12 +2,14 @@ import Feature from '../common/architecture/features/Feature';
 import AutoRefreshFeature from './autoRefresh/autoRefresh.feature';
 import InfiniteScrollFeature from './infiniteScroll/infiniteScroll.feature';
 import ScriptFilterListProvider from '../common/architecture/scripts/ScriptFilterListProvider';
+import ExtraInfoFeature from './extraInfo/extraInfo.feature';
 
 export type ConcreteFeatureClass = { new (): Feature };
 
 export default class Features extends ScriptFilterListProvider {
   private features: ConcreteFeatureClass[] = [
     AutoRefreshFeature,
+    ExtraInfoFeature,
     InfiniteScrollFeature,
   ];
   private initializedFeatures: Feature[];

@@ -1,16 +1,23 @@
+import ExtraInfo from '../../../features/extraInfo/core';
 import AutoRefresh from '../../../features/autoRefresh/core/autoRefresh';
 
 export const AutoRefreshDependency = 'autoRefresh';
+export const ExtraInfoDependency = 'extraInfo';
 export const DependenciesToClass = {
   [AutoRefreshDependency]: AutoRefresh,
+  [ExtraInfoDependency]: ExtraInfo,
 };
 
 interface OurWindow extends Window {
   TWPTDependencies?: Dependencies;
 }
 
+export type ClassFromDependency<T extends Dependency> = InstanceType<
+  (typeof DependenciesToClass)[T]
+>;
+
 type Dependencies = {
-  [K in Dependency]?: InstanceType<(typeof DependenciesToClass)[K]>;
+  [K in Dependency]?: ClassFromDependency<K>;
 };
 
 export type Dependency = keyof typeof DependenciesToClass;
@@ -26,14 +33,22 @@ class DependenciesProvider {
     this.dependencies = ourWindow.TWPTDependencies;
   }
 
-  getDependency(dependency: Dependency) {
+  /**
+   * Gets an instance of a dependency, and creates it beforehand if it doesn't exist yet.
+   */
+  getDependency<T extends Dependency>(dependency: T): ClassFromDependency<T> {
     this.setUpDependency(dependency);
-    return this.dependencies[dependency];
+    const dep = this.dependencies[dependency];
+    if (!dep) {
+      throw new Error(`Dependency ${dependency} not found.`);
+    }
+    return dep;
   }
 
-  setUpDependency(dependency: Dependency): void {
+  setUpDependency<T extends Dependency>(dependency: T): void {
     if (!this.dependencies[dependency]) {
-      this.dependencies[dependency] = new DependenciesToClass[dependency]();
+      const dependencyClass = DependenciesToClass[dependency];
+      this.dependencies[dependency] = new dependencyClass() as Dependencies[T];
     }
   }
 }

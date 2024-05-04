@@ -46,11 +46,8 @@ const watchedNodesSelectors = [
   'ec-bulk-actions material-button[debugid="mark-read-button"]',
   'ec-bulk-actions material-button[debugid="mark-unread-button"]',
 
-  // Thread list items (used to inject the avatars and extra info)
+  // Thread list items (used to inject the avatars)
   'li',
-
-  // Thread list item toolbelt (used for the extra info feature)
-  'ec-thread-summary .main .toolbelt',
 
   // Thread list (used for the autorefresh feature)
   'ec-thread-list',
@@ -60,19 +57,6 @@ const watchedNodesSelectors = [
 
   // Canned response tags (for the "import CR" popup for the workflows feature)
   'ec-canned-response-row .tags',
-
-  // Question state chips container (for the extra info feature)
-  'sc-tailwind-thread-question-question-card sc-tailwind-thread-question-state-chips',
-
-  // Replies (for the extra info feature)
-  'sc-tailwind-thread-message-message-list sc-tailwind-thread-message-message-card',
-
-  // Comments (for the extra info feature)
-  'sc-tailwind-thread-message-message-list sc-tailwind-thread-message-comment-card',
-
-  // User activity chart (for the per-forum stats feature)
-  'ec-unified-user .scTailwindUser_profileUserprofilesection ' +
-      'sc-tailwind-shared-activity-chart',
 
   // Thread page main content
   'ec-thread > .page > .material-content > div[role="list"]',
@@ -95,11 +79,6 @@ function handleCandidateNode(node) {
           injectDarkThemeButton(
               rightControl, options.ccdarktheme_switch_status);
       }
-    }
-
-    // Show additional details in the profile view.
-    if (node.matches('ec-unified-user .scTailwindUser_profileUsercardmain')) {
-      window.TWPTExtraInfo.injectAbuseChipsAtProfileIfEnabled(node);
     }
 
     // Show the "previous posts" links if the option is currently enabled.
@@ -141,17 +120,9 @@ function handleCandidateNode(node) {
     // Inject avatar links to threads in the thread list. injectIfEnabled is
     // responsible of determining whether it should run or not depending on its
     // current setting.
-    //
-    // Also, inject extra info in the thread list.
     if (('tagName' in node) && (node.tagName == 'LI') &&
         node.querySelector('ec-thread-summary') !== null) {
       avatars.injectIfEnabled(node);
-      window.TWPTExtraInfo.injectAtThreadListIfEnabled(node);
-    }
-
-    // Inject extra info in the toolbelt of an expanded thread list item.
-    if (node.matches('ec-thread-summary .main .toolbelt')) {
-      window.TWPTExtraInfo.injectAtExpandedThreadListIfEnabled(node);
     }
 
     if (node.tagName == 'IFRAME') {
@@ -168,28 +139,6 @@ function handleCandidateNode(node) {
     // feature if applicable.
     if (node.matches('ec-canned-response-row .tags')) {
       window.TWPTWorkflowsImport.addButtonIfEnabled(node);
-    }
-
-    // Show additional details in the thread view.
-    if (node.matches(
-            'sc-tailwind-thread-question-question-card sc-tailwind-thread-question-state-chips')) {
-      window.TWPTExtraInfo.injectAtQuestionIfEnabled(node);
-    }
-    if (node.matches(
-            'sc-tailwind-thread-message-message-list sc-tailwind-thread-message-message-card')) {
-      window.TWPTExtraInfo.injectAtReplyIfEnabled(node);
-    }
-
-    if (node.matches(
-            'sc-tailwind-thread-message-message-list sc-tailwind-thread-message-comment-card')) {
-      window.TWPTExtraInfo.injectAtCommentIfEnabled(node);
-    }
-
-    // Inject per-forum stats section in the user profile
-    if (node.matches(
-            'ec-unified-user .scTailwindUser_profileUserprofilesection ' +
-            'sc-tailwind-shared-activity-chart')) {
-      window.TWPTExtraInfo.injectPerForumStatsIfEnabled(node);
     }
 
     // Inject old thread page design warning if applicable
@@ -259,7 +208,7 @@ getOptions(null).then(items => {
   flattenThreads = new FlattenThreads();
   reportDialogColorThemeFix = new ReportDialogColorThemeFix(options);
 
-  // extraInfo, threadPageDesignWarning and workflowsImport are
+  // threadPageDesignWarning and workflowsImport are
   // initialized in start.js
 
   // Before starting the mutation Observer, check whether we missed any
@@ -313,9 +262,6 @@ getOptions(null).then(items => {
   injectStylesheet(chrome.runtime.getURL('css/batchlock_inject.css'));
   // Thread list avatars
   injectStylesheet(chrome.runtime.getURL('css/thread_list_avatars.css'));
-  // Extra info
-  injectStylesheet(chrome.runtime.getURL('css/extrainfo.css'));
-  injectStylesheet(chrome.runtime.getURL('css/extrainfo_perforumstats.css'));
   // Workflows, Thread toolbar
   injectScript(chrome.runtime.getURL('litComponentsInject.bundle.js'));
   // Thread toolbar

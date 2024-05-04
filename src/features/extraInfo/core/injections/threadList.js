@@ -1,7 +1,7 @@
 import {MDCTooltip} from '@material/tooltip';
 
 import {parseUrl} from '../../../../common/commonUtils.js';
-import {createExtBadge} from '../../utils/common.js';
+import {createExtBadge} from '../../../../contentScripts/communityConsole/utils/common.js';
 import {kItemMetadataState, kItemMetadataStateI18n} from '../consts.js';
 import ThreadExtraInfoService from '../services/thread.js';
 
