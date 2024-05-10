@@ -8,5 +8,10 @@
     "target": "es2019",
     "moduleResolution": "bundler",
     "allowJs": true
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
   }
 }
