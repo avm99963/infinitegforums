@@ -58,7 +58,7 @@
     "@material/tooltip": "^14.0.0",
     "@material/web": "^1.0.0",
     "@stdlib/utils-escape-regexp-string": "^0.2.0",
-    "@types/chrome": "^0.0.267",
+    "@types/chrome": "^0.0.268",
     "async-mutex": "^0.5.0",
     "dompurify": "^3.0.0",
     "google-protobuf": "^3.19.3",
