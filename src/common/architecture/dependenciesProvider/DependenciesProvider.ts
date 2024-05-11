@@ -1,11 +1,14 @@
 import ExtraInfo from '../../../features/extraInfo/core';
 import AutoRefresh from '../../../features/autoRefresh/core/autoRefresh';
+import OptionsProvider from '../../OptionsProvider';
 
 export const AutoRefreshDependency = 'autoRefresh';
 export const ExtraInfoDependency = 'extraInfo';
+export const OptionsProviderDependency = 'optionsProvider';
 export const DependenciesToClass = {
   [AutoRefreshDependency]: AutoRefresh,
   [ExtraInfoDependency]: ExtraInfo,
+  [OptionsProviderDependency]: OptionsProvider,
 };
 
 interface OurWindow extends Window {

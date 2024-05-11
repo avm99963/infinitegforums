@@ -2,6 +2,9 @@ import {Mutex, withTimeout} from 'async-mutex';
 
 import {getOptions} from './optionsUtils.js';
 
+/**
+ * @deprecated Use {@link OptionsProvider} instead.
+ */
 export default class PartialOptionsWatcher {
   constructor(options) {
     this.watchedOptions = options;
