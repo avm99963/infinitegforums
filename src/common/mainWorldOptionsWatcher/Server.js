@@ -1,4 +1,4 @@
-import OptionsWatcher from '../../common/optionsWatcher.js';
+import PartialOptionsWatcher from '../partialOptionsWatcher.js';
 import MainWorldContentScriptBridgeServer from '../mainWorldContentScriptBridge/Server.js';
 
 // Main World OptionsWatcher server (used in content scripts to be able to serve
@@ -13,7 +13,7 @@ export default class MWOptionsWatcherServer extends
 
   handleMessage(uuid, action, request) {
     if (action === 'setUp') {
-      this.optionsWatcher = new OptionsWatcher(request?.options);
+      this.optionsWatcher = new PartialOptionsWatcher(request?.options);
       return;
     }
 

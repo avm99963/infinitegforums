@@ -1,4 +1,4 @@
-import OptionsWatcher from '../../../common/optionsWatcher.js';
+import PartialOptionsWatcher from '../../../common/partialOptionsWatcher.js';
 
 import ProfileInfoHandler from './infoHandlers/profile.js';
 import ThreadInfoHandler from './infoHandlers/thread.js';
@@ -13,7 +13,7 @@ import ThreadReplyExtraInfoInjection from './injections/threadReply.js';
 
 export default class ExtraInfo {
   constructor() {
-    const optionsWatcher = new OptionsWatcher(['extrainfo', 'perforumstats']);
+    const optionsWatcher = new PartialOptionsWatcher(['extrainfo', 'perforumstats']);
 
     const profileInfoHandler = new ProfileInfoHandler();
     const threadInfoHandler = new ThreadInfoHandler();

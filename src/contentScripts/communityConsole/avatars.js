@@ -2,7 +2,7 @@ import {waitFor} from 'poll-until-promise';
 
 import {CCApi} from '../../common/api.js';
 import {parseUrl} from '../../common/commonUtils.js';
-import OptionsWatcher from '../../common/optionsWatcher.js';
+import PartialOptionsWatcher from '../../common/partialOptionsWatcher.js';
 import {createPlainTooltip} from '../../common/tooltip.js';
 
 import AvatarsDB from './utils/AvatarsDB.js'
@@ -12,7 +12,7 @@ export default class AvatarsHandler {
     this.isFilterSetUp = false;
     this.privateForums = [];
     this.db = new AvatarsDB();
-    this.optionsWatcher = new OptionsWatcher(['threadlistavatars']);
+    this.optionsWatcher = new PartialOptionsWatcher(['threadlistavatars']);
 
     // Preload whether the option is enabled or not. This is because in the case
     // avatars should be injected, if we don't preload this the layout will
