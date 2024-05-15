@@ -163,6 +163,11 @@ export const optionsPrototype: OptionsPrototype = {
     context: "options",
     killSwitchType: "option",
   },
+  fixpekb269560789: {
+    defaultValue: true,
+    context: "options",
+    killSwitchType: "option",
+  },
 
   // Experiments:
   workflows: {

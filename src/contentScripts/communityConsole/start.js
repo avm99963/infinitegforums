@@ -11,9 +11,15 @@ const SMEI_RCE_THREAD_INTEROP = 22;
 getOptions(null).then(options => {
   /* IMPORTANT NOTE: Remember to change this when changing the "ifs" below!! */
   if (options.loaddrafts || options.interopthreadpage ||
-      options.nestedreplies) {
+      options.nestedreplies || options.fixpekb269560789) {
     var startup =
-        JSON.parse(document.querySelector('html').getAttribute('data-startup'));
+      JSON.parse(document.querySelector('html').getAttribute('data-startup'));
+
+    if (options.fixpekb269560789) {
+      if (startup[1]?.[1]?.[8]?.[7]) {
+        delete startup[1]?.[1]?.[8]?.[7];
+      }
+    }
 
     if (options.loaddrafts) {
       startup[4][13] = true;
