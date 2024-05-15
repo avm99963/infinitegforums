@@ -620,5 +620,9 @@
     "inject_extrainfo_message_state_generated_answer_adopted": {
         "message": "Adoptada la respuesta generada",
         "description": "Thread/message state GENERATED_ANSWER_ADOPTED."
+    },
+    "options_fixpekb269560789": {
+        "message": "Posible solución para la lentitud de la CC y el alto consumo de memoria (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>).",
+        "description": "Feature checkbox in the options page"
     }
 }
