@@ -180,11 +180,6 @@ export const optionsPrototype: OptionsPrototype = {
     context: "experiments",
     killSwitchType: "experiment",
   },
-  nestedreplies: {
-    defaultValue: false,
-    context: "experiments",
-    killSwitchType: "experiment",
-  },
 
   // Internal options:
   ccdarktheme_switch_enabled: {
@@ -231,6 +226,11 @@ export const optionsPrototype: OptionsPrototype = {
     killSwitchType: "deprecated",
   },
   disableunifiedprofiles: {
+    defaultValue: false,
+    context: "deprecated",
+    killSwitchType: "deprecated",
+  },
+  nestedreplies: {
     defaultValue: false,
     context: "deprecated",
     killSwitchType: "deprecated",

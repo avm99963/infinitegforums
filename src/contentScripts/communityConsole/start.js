@@ -5,15 +5,14 @@ import FlattenThreadsReplyActionHandler from './flattenThreads/replyActionHandle
 import ThreadPageDesignWarning from './threadPageDesignWarning.js';
 import WorkflowsImport from './workflows/import.js';
 
-const SMEI_NESTED_REPLIES = 15;
 const SMEI_RCE_THREAD_INTEROP = 22;
 
 getOptions(null).then(options => {
   /* IMPORTANT NOTE: Remember to change this when changing the "ifs" below!! */
   if (options.loaddrafts || options.interopthreadpage ||
-      options.nestedreplies || options.fixpekb269560789) {
+      options.fixpekb269560789) {
     var startup =
-      JSON.parse(document.querySelector('html').getAttribute('data-startup'));
+        JSON.parse(document.querySelector('html').getAttribute('data-startup'));
 
     if (options.fixpekb269560789) {
       if (startup[1]?.[1]?.[8]?.[7]) {
@@ -37,11 +36,6 @@ getOptions(null).then(options => {
           if (index == -1) startup[1][6].push(SMEI_RCE_THREAD_INTEROP);
           break;
       }
-    }
-
-    if (options.nestedreplies) {
-      if (!startup[1][6].includes(SMEI_NESTED_REPLIES))
-        startup[1][6].push(SMEI_NESTED_REPLIES);
     }
 
     document.querySelector('html').setAttribute(
