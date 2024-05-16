@@ -620,5 +620,9 @@
     "options_profileindicator": {
         "message": "<span class=\"help\" title=\"OP가 다른 게시글에서 활동한 적이 있는 경우, 사용자 이름 옆에 빨간색 점이 표시됩니다. 만약 OP가 활동한 가장 최근의 게시글을 이미 읽은 경우, 주황색 점이 표시됩니다. 점 위에 마우스 커서를 올려놓으면 점의 색이 의미하는 내용을 확인하실 수 있습니다.\">OP가 포럼에서 활동한 적이 있는지</span> 표시하기.",
         "description": "Feature checkbox in the options page"
+    },
+    "options_fixpekb269560789": {
+        "message": "커뮤니티 콘솔의 메모리 사용량이 증가하며 페이지가 느려지는 문제에 대한 임시 수정사항 적용하기 (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>).",
+        "description": "Feature checkbox in the options page"
     }
 }
