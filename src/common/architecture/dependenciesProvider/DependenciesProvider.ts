@@ -3,16 +3,19 @@ import AutoRefresh from '../../../features/autoRefresh/core/autoRefresh';
 import OptionsProvider from '../../OptionsProvider';
 import WorkflowsImport from '../../../features/workflows/core/communityConsole/import';
 import Workflows from '../../../features/workflows/core/communityConsole/workflows';
+import StartupDataStorage from '../../../contentScripts/communityConsole/utils/StartupDataStorage';
 
 export const AutoRefreshDependency = 'autoRefresh';
 export const ExtraInfoDependency = 'extraInfo';
 export const OptionsProviderDependency = 'optionsProvider';
+export const StartupDataStorageDependency = 'startupDataStorage';
 export const WorkflowsDependency = 'workflows';
 export const WorkflowsImportDependency = 'workflowsImport';
 export const DependenciesToClass = {
   [AutoRefreshDependency]: AutoRefresh,
   [ExtraInfoDependency]: ExtraInfo,
   [OptionsProviderDependency]: OptionsProvider,
+  [StartupDataStorageDependency]: StartupDataStorage,
   [WorkflowsDependency]: Workflows,
   [WorkflowsImportDependency]: WorkflowsImport,
 };

@@ -4,10 +4,14 @@ import InjectLitComponentsScript from './litComponents/injectLitComponents.scrip
 import MWI18nServerScript from './mainWorldServers/MWI18nServerScript.script';
 import MWOptionsWatcherServerScript from './mainWorldServers/MWOptionsWatcherServerScript.script';
 import OptionsProviderSetUpScript from './optionsProvider/optionsProvider.script';
+import ApplyStartupDataModificationsOnMainScript from './startupDataStorage/applyStartupDataModificationsOnMain.script';
+import ApplyStartupDataModificationsOnStartScript from './startupDataStorage/applyStartupDataModificationsOnStart.script';
 import XHRInterceptorScript from './xhrInterceptor/xhrInterceptor.script';
 
 export default class StandaloneScripts extends ScriptFilterListProvider {
   private scripts: ConcreteScript[] = [
+    ApplyStartupDataModificationsOnMainScript,
+    ApplyStartupDataModificationsOnStartScript,
     InjectLitComponentsScript,
     MWI18nServerScript,
     MWOptionsWatcherServerScript,
