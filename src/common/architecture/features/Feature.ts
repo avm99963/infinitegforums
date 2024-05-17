@@ -1,3 +1,4 @@
+import { OptionCodename } from '../../optionsPrototype';
 import Script, { ConcreteScript } from '../scripts/Script';
 
 export default abstract class Feature {
@@ -11,7 +12,7 @@ export default abstract class Feature {
   /**
    * Options which control the behavior of this feature.
    */
-  abstract readonly relatedOptions: string[];
+  abstract readonly relatedOptions: OptionCodename[];
 
   /**
    * Uninitialized scripts which are associated with the feature.
