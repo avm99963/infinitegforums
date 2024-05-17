@@ -5,7 +5,7 @@ import './TwptWorkflowProgress.js';
 import {css, html, LitElement} from 'lit';
 import {createRef, ref} from 'lit/directives/ref.js';
 
-import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
+import {SHARED_MD3_STYLES} from '../../../../../common/styles/md3.js';
 import WorkflowRunner from '../runner.js';
 
 export default class TwptWorkflowDialog extends LitElement {

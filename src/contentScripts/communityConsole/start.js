@@ -2,7 +2,6 @@ import {injectStylesheet} from '../../common/contentScriptsUtils.js';
 import {getOptions} from '../../common/optionsUtils.js';
 
 import FlattenThreadsReplyActionHandler from './flattenThreads/replyActionHandler.js';
-import WorkflowsImport from './workflows/import.js';
 
 getOptions(null).then(options => {
   /* IMPORTANT NOTE: Remember to change this when changing the "ifs" below!! */
@@ -19,10 +18,6 @@ getOptions(null).then(options => {
     document.querySelector('html').setAttribute(
         'data-startup', JSON.stringify(startup));
   }
-
-  // Initialized here instead of in main.js so the first event is received if it
-  // happens when the page loads.
-  window.TWPTWorkflowsImport = new WorkflowsImport();
 
   if (options.ccdarktheme) {
     switch (options.ccdarktheme_mode) {

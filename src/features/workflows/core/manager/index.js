@@ -7,7 +7,7 @@ import './components/WorkflowDialog.js';
 import {css, html, LitElement} from 'lit';
 import {createRef, ref} from 'lit/directives/ref.js';
 
-import {SHARED_MD3_STYLES} from '../../common/styles/md3.js';
+import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
 import {default as WorkflowsStorage, kWorkflowsDataKey} from '../workflowsStorage.js';
 
 export default class WFApp extends LitElement {

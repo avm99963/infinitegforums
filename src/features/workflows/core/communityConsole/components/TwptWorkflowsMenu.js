@@ -4,13 +4,13 @@ import '@material/web/iconbutton/icon-button.js';
 import '@material/web/menu/menu.js';
 import '@material/web/menu/menu-item.js';
 
-import consoleCommonStyles from '!!raw-loader!../../../../static/css/common/console.css';
+import consoleCommonStyles from '!!raw-loader!../../../../../static/css/common/console.css';
 
 import {css, html, LitElement, nothing, unsafeCSS} from 'lit';
 import {map} from 'lit/directives/map.js';
 import {createRef, ref} from 'lit/directives/ref.js';
 
-import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
+import {SHARED_MD3_STYLES} from '../../../../../common/styles/md3.js';
 
 export default class TwptWorkflowsMenu extends LitElement {
   static properties = {

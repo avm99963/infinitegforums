@@ -1,5 +1,5 @@
-import {recursiveParentElement} from '../../../common/commonUtils.js';
-import * as pb from '../../../workflows/proto/main_pb.js';
+import {recursiveParentElement} from '../../../../common/commonUtils.js';
+import * as pb from '../proto/main_pb.js';
 
 import AttributeRunner from './actionRunners/attribute.js';
 import ReadStateRunner from './actionRunners/readState.js';

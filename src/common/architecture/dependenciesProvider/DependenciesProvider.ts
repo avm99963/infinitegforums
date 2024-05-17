@@ -1,14 +1,20 @@
 import ExtraInfo from '../../../features/extraInfo/core';
 import AutoRefresh from '../../../features/autoRefresh/core/autoRefresh';
 import OptionsProvider from '../../OptionsProvider';
+import WorkflowsImport from '../../../features/workflows/core/communityConsole/import';
+import Workflows from '../../../features/workflows/core/communityConsole/workflows';
 
 export const AutoRefreshDependency = 'autoRefresh';
 export const ExtraInfoDependency = 'extraInfo';
 export const OptionsProviderDependency = 'optionsProvider';
+export const WorkflowsDependency = 'workflows';
+export const WorkflowsImportDependency = 'workflowsImport';
 export const DependenciesToClass = {
   [AutoRefreshDependency]: AutoRefresh,
   [ExtraInfoDependency]: ExtraInfo,
   [OptionsProviderDependency]: OptionsProvider,
+  [WorkflowsDependency]: Workflows,
+  [WorkflowsImportDependency]: WorkflowsImport,
 };
 
 interface OurWindow extends Window {

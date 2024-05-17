@@ -4,7 +4,7 @@ import '@material/web/select/select-option.js';
 import {html, LitElement} from 'lit';
 import {createRef, ref} from 'lit/directives/ref.js';
 
-import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
+import {SHARED_MD3_STYLES} from '../../../../../../common/styles/md3.js';
 import * as pb from '../../../proto/main_pb.js';
 
 import {FORM_STYLES} from './common.js';

@@ -5,7 +5,7 @@ import '@material/web/button/text-button.js';
 import {css, html, LitElement} from 'lit';
 import {createRef, ref} from 'lit/directives/ref.js';
 
-import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
+import {SHARED_MD3_STYLES} from '../../../../../common/styles/md3.js';
 
 export default class TwptConfirmDialog extends LitElement {
   static properties = {

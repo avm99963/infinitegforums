@@ -1,5 +1,5 @@
-import {CCApi} from '../../../../common/api.js';
-import {getAuthUser} from '../../../../common/communityConsoleUtils.js';
+import {CCApi} from '../../../../../common/api.js';
+import {getAuthUser} from '../../../../../common/communityConsoleUtils.js';
 
 const kPiiScanType_ScanNone = 0;
 const kType_Reply = 1;

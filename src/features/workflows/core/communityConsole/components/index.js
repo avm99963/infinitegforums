@@ -6,7 +6,7 @@ import './TwptWorkflowsMenu.js';
 import {css, html, LitElement} from 'lit';
 import {createRef, ref} from 'lit/directives/ref.js';
 
-import WorkflowsStorage from '../../../../workflows/workflowsStorage.js';
+import WorkflowsStorage from '../../workflowsStorage.js';
 
 export default class TwptWorkflowsInject extends LitElement {
   static properties = {

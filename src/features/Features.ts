@@ -3,6 +3,7 @@ import AutoRefreshFeature from './autoRefresh/autoRefresh.feature';
 import InfiniteScrollFeature from './infiniteScroll/infiniteScroll.feature';
 import ScriptFilterListProvider from '../common/architecture/scripts/ScriptFilterListProvider';
 import ExtraInfoFeature from './extraInfo/extraInfo.feature';
+import WorkflowsFeature from './workflows/workflows.feature';
 
 export type ConcreteFeatureClass = { new (): Feature };
 
@@ -11,6 +12,7 @@ export default class Features extends ScriptFilterListProvider {
     AutoRefreshFeature,
     ExtraInfoFeature,
     InfiniteScrollFeature,
+    WorkflowsFeature,
   ];
   private initializedFeatures: Feature[];
 

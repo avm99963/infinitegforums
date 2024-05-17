@@ -1,5 +1,6 @@
 import Script, { ConcreteScript } from '../common/architecture/scripts/Script';
 import ScriptFilterListProvider from '../common/architecture/scripts/ScriptFilterListProvider';
+import InjectLitComponentsScript from './litComponents/injectLitComponents.script';
 import MWI18nServerScript from './mainWorldServers/MWI18nServerScript.script';
 import MWOptionsWatcherServerScript from './mainWorldServers/MWOptionsWatcherServerScript.script';
 import OptionsProviderSetUpScript from './optionsProvider/optionsProvider.script';
@@ -7,6 +8,7 @@ import XHRInterceptorScript from './xhrInterceptor/xhrInterceptor.script';
 
 export default class StandaloneScripts extends ScriptFilterListProvider {
   private scripts: ConcreteScript[] = [
+    InjectLitComponentsScript,
     MWI18nServerScript,
     MWOptionsWatcherServerScript,
     OptionsProviderSetUpScript,

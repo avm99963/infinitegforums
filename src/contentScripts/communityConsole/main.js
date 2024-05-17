@@ -14,10 +14,9 @@ import {applyDragAndDropFixIfEnabled} from './dragAndDropFix.js';
 import {default as FlattenThreads, kMatchingSelectors as kFlattenThreadMatchingSelectors} from './flattenThreads/flattenThreads.js';
 import {kRepliesSectionSelector} from './threadToolbar/constants.js';
 import ThreadToolbar from './threadToolbar/threadToolbar.js';
-import Workflows from './workflows/workflows.js';
 
-var mutationObserver, options, avatars, workflows,
-    threadToolbar, flattenThreads, reportDialogColorThemeFix;
+var mutationObserver, options, avatars, threadToolbar, flattenThreads,
+    reportDialogColorThemeFix;
 
 const watchedNodesSelectors = [
   // App container (used to set up the intersection observer and inject the dark
@@ -54,9 +53,6 @@ const watchedNodesSelectors = [
 
   // Unified profile iframe and report dialog iframe
   'iframe',
-
-  // Canned response tags (for the "import CR" popup for the workflows feature)
-  'ec-canned-response-row .tags',
 
   // Thread page reply section (for the thread page toolbar)
   kRepliesSectionSelector,
@@ -102,12 +98,6 @@ function handleCandidateNode(node) {
     }
     // #!endif
 
-    // Inject the worflows menu in the thread list if the option is currently
-    // enabled.
-    if (workflows.shouldAddThreadListBtn(node)) {
-      workflows.addThreadListBtnIfEnabled(node);
-    }
-
     // Inject the batch lock button in the thread list if the option is
     // currently enabled.
     if (batchLock.shouldAddButton(node)) {
@@ -130,12 +120,6 @@ function handleCandidateNode(node) {
 
       // Set report dialog iframe's theme to the appropriate theme
       reportDialogColorThemeFix.fixThemeIfReportDialogIframeAndApplicable(node);
-    }
-
-    // Add the "import" button in the canned responses view for the workflows
-    // feature if applicable.
-    if (node.matches('ec-canned-response-row .tags')) {
-      window.TWPTWorkflowsImport.addButtonIfEnabled(node);
     }
 
     // Inject thread toolbar
@@ -194,12 +178,9 @@ getOptions(null).then(items => {
 
   // Initialize classes needed by the mutation observer
   avatars = new AvatarsHandler();
-  workflows = new Workflows();
   threadToolbar = new ThreadToolbar();
   flattenThreads = new FlattenThreads();
   reportDialogColorThemeFix = new ReportDialogColorThemeFix(options);
-
-  // workflowsImport is initialized in start.js
 
   // Before starting the mutation Observer, check whether we missed any
   // mutations by manually checking whether some watched nodes already
@@ -252,8 +233,6 @@ getOptions(null).then(items => {
   injectStylesheet(chrome.runtime.getURL('css/batchlock_inject.css'));
   // Thread list avatars
   injectStylesheet(chrome.runtime.getURL('css/thread_list_avatars.css'));
-  // Workflows, Thread toolbar
-  injectScript(chrome.runtime.getURL('litComponentsInject.bundle.js'));
   // Thread toolbar
   injectStylesheet(chrome.runtime.getURL('css/thread_toolbar.css'));
   // Flatten threads

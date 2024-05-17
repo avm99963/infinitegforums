@@ -1,5 +1,5 @@
-import {CCApi} from '../../../../common/api.js';
-import {getAuthUser} from '../../../../common/communityConsoleUtils.js';
+import {CCApi} from '../../../../../common/api.js';
+import {getAuthUser} from '../../../../../common/communityConsoleUtils.js';
 
 export default class AttributeRunner {
   async execute(attributeAction, thread) {

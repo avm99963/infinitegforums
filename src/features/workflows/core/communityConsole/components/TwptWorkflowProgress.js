@@ -2,12 +2,12 @@ import '@material/mwc-dialog/mwc-dialog.js';
 import '@material/web/button/filled-button.js';
 import '@material/web/button/text-button.js';
 
-import '../../../../workflows/manager/components/ActionEditor.js';
+import '../../manager/components/ActionEditor.js';
 
 import {css, html, LitElement} from 'lit';
 import {map} from 'lit/directives/map.js';
 
-import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
+import {SHARED_MD3_STYLES} from '../../../../../common/styles/md3.js';
 
 export default class TwptWorkflowProgress extends LitElement {
   static properties = {

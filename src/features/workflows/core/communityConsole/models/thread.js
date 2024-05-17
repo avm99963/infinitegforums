@@ -1,8 +1,8 @@
 import {waitFor} from 'poll-until-promise';
 
-import {CCApi} from '../../../../common/api.js';
-import {parseUrl} from '../../../../common/commonUtils.js';
-import {getAuthUser} from '../../../../common/communityConsoleUtils.js';
+import {CCApi} from '../../../../../common/api.js';
+import {parseUrl} from '../../../../../common/commonUtils.js';
+import {getAuthUser} from '../../../../../common/communityConsoleUtils.js';
 
 export default class Thread {
   constructor(forumId, threadId) {
