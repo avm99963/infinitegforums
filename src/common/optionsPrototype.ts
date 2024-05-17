@@ -49,11 +49,6 @@ export const optionsPrototype: OptionsPrototype = {
     context: "options",
     killSwitchType: "option",
   },
-  loaddrafts: {
-    defaultValue: false,
-    context: "options",
-    killSwitchType: "option",
-  },
   increasecontrast: {
     defaultValue: false,
     context: "options",
@@ -131,27 +126,10 @@ export const optionsPrototype: OptionsPrototype = {
     context: "options",
     killSwitchType: "option",
   },
-  // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
-  blockdrafts: {
-    defaultValue: false,
-    context: "options",
-    killSwitchType: "option",
-  },
-  // #!endif
   perforumstats: {
     defaultValue: false,
     context: "options",
     killSwitchType: "option",
-  },
-  interopthreadpage: {
-    defaultValue: false,
-    context: "options",
-    killSwitchType: "option",
-  },
-  interopthreadpage_mode: {
-    defaultValue: "previous",
-    context: "options",
-    killSwitchType: "ignore",
   },
   uispacing: {
     defaultValue: false,
@@ -234,5 +212,27 @@ export const optionsPrototype: OptionsPrototype = {
     defaultValue: false,
     context: "deprecated",
     killSwitchType: "deprecated",
+  },
+  loaddrafts: {
+    defaultValue: false,
+    context: "deprecated",
+    killSwitchType: "deprecated",
+  },
+  // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
+  blockdrafts: {
+    defaultValue: false,
+    context: "deprecated",
+    killSwitchType: "deprecated",
+  },
+  // #!endif
+  interopthreadpage: {
+    defaultValue: false,
+    context: "deprecated",
+    killSwitchType: "deprecated",
+  },
+  interopthreadpage_mode: {
+    defaultValue: "previous",
+    context: "deprecated",
+    killSwitchType: "ignore",
   },
 };

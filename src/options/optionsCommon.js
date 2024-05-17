@@ -19,9 +19,6 @@ function getOptionValue(opt) {
       case 'ccdarktheme_mode':
         return document.getElementById(opt).value || 'switch';
 
-      case 'interopthreadpage_mode':
-        return document.getElementById(opt).value || 'previous';
-
       default:
         console.warn('Unrecognized option: ' + opt);
         return undefined;
@@ -223,25 +220,6 @@ window.addEventListener('load', function() {
             }
 
             document.getElementById('ccdarktheme_mode--container')
-                .appendChild(select);
-            break;
-
-          case 'interopthreadpage_mode':
-            var select = document.createElement('select');
-            select.id = 'interopthreadpage_mode';
-
-            const threadPageModes = ['previous', 'next'];
-            for (const mode of threadPageModes) {
-              let modeOption = document.createElement('option');
-              modeOption.value = mode;
-              modeOption.textContent = chrome.i18n.getMessage(
-                  'options_interopthreadpage_mode_' + mode);
-              if (items.interopthreadpage_mode == mode)
-                modeOption.selected = true;
-              select.appendChild(modeOption);
-            }
-
-            document.getElementById('interopthreadpage_mode--container')
                 .appendChild(select);
             break;
 

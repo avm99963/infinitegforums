@@ -3,42 +3,23 @@
 // content scripts or injected scripts but instead in the background
 // script/service worker.
 //
-// An example is the "blockdrafts" feature, which when enabled should enable the
+// An example was the "blockdrafts" feature, which when enabled enabled the
 // static ruleset blocking *DraftMessages requests.
+//
+// The "blockdrafts" feature was removed, but this logic has been kept in case
+// it is needed in the future.
 
 import {isOptionEnabled} from '../common/optionsUtils.js';
 
 // List of features controled in the background:
-export var bgFeatures = [
-  'blockdrafts',
-];
-
-const blockDraftsRuleset = 'blockDrafts';
+export var bgFeatures = [];
 
 export function handleBgOptionChange(feature) {
   isOptionEnabled(feature)
+      // eslint-disable-next-line no-unused-vars
       .then(enabled => {
-        switch (feature) {
-          // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
-          case 'blockdrafts':
-            chrome.declarativeNetRequest.getEnabledRulesets(rulesets => {
-              if (rulesets === undefined) {
-                throw new Error(
-                    chrome.runtime.lastError.message ??
-                    'Unknown error in chrome.declarativeNetRequest.getEnabledRulesets()');
-              }
-
-              let isRulesetEnabled = rulesets.includes(blockDraftsRuleset);
-              if (!isRulesetEnabled && enabled)
-                chrome.declarativeNetRequest.updateEnabledRulesets(
-                    {enableRulesetIds: [blockDraftsRuleset]});
-              if (isRulesetEnabled && !enabled)
-                chrome.declarativeNetRequest.updateEnabledRulesets(
-                    {disableRulesetIds: [blockDraftsRuleset]});
-            });
-            break;
-            // #!endif
-        }
+        // eslint-disable-next-line no-empty
+        switch (feature) {}
       })
       .catch(err => {
         console.error(

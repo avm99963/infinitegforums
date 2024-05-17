@@ -58,9 +58,6 @@ const watchedNodesSelectors = [
   // Canned response tags (for the "import CR" popup for the workflows feature)
   'ec-canned-response-row .tags',
 
-  // Thread page main content
-  'ec-thread > .page > .material-content > div[role="list"]',
-
   // Thread page reply section (for the thread page toolbar)
   kRepliesSectionSelector,
 
@@ -141,12 +138,6 @@ function handleCandidateNode(node) {
       window.TWPTWorkflowsImport.addButtonIfEnabled(node);
     }
 
-    // Inject old thread page design warning if applicable
-    if (node.matches(
-            'ec-thread > .page > .material-content > div[role="list"]')) {
-      window.TWPTThreadPageDesignWarning.injectWarningIfApplicable(node);
-    }
-
     // Inject thread toolbar
     if (threadToolbar.shouldInject(node)) {
       threadToolbar.injectIfApplicable(node);
@@ -208,8 +199,7 @@ getOptions(null).then(items => {
   flattenThreads = new FlattenThreads();
   reportDialogColorThemeFix = new ReportDialogColorThemeFix(options);
 
-  // threadPageDesignWarning and workflowsImport are
-  // initialized in start.js
+  // workflowsImport is initialized in start.js
 
   // Before starting the mutation Observer, check whether we missed any
   // mutations by manually checking whether some watched nodes already
