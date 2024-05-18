@@ -5,6 +5,8 @@ import UpdateBanner from './banner/index.js';
 
 export default class UpdateHandler {
   constructor() {
+    // The extension was just updated, so we need to start everything from
+    // scratch.
     new MWI18nServer();
     injectScript(chrome.runtime.getURL('updateHandlerLitComponents.bundle.js'));
     this.updateBanner = new UpdateBanner();
