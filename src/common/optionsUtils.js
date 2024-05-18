@@ -91,7 +91,7 @@ export function getOptions(options, requireOptionalPermissions = true) {
 
              // Handle applicable kill switches which force disable features
              if (items?._forceDisabledFeatures) {
-               for (let feature of items?._forceDisabledFeatures) {
+               for (let feature of items._forceDisabledFeatures) {
                  items[feature] = false;
                }
 
@@ -172,7 +172,7 @@ export function getOptions(options, requireOptionalPermissions = true) {
 // |requireOptionalPermissions| will determine whether to check if the required
 // optional permissions have been granted or not.
 export function isOptionEnabled(option, requireOptionalPermissions = true) {
-  return getOptions(option).then(options => {
+  return getOptions(option, requireOptionalPermissions).then(options => {
     return options?.[option] === true;
   });
 }
