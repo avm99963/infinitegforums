@@ -1,9 +1,4 @@
-import {
-  Option,
-  OptionContext,
-  KillSwitchType,
-  OptionConfig,
-} from './Option';
+import { Option, OptionContext, KillSwitchType, OptionConfig } from './Option';
 
 const rawOptionConfigs = {
   // Available options
@@ -148,7 +143,7 @@ const rawOptionConfigs = {
   },
 
   // Internal options
-  ccdarktheme_switch_enabled: {
+  ccdarktheme_switch_status: {
     defaultValue: true,
     context: OptionContext.Internal,
     killSwitchType: KillSwitchType.Ignore,
@@ -247,7 +242,9 @@ export const optionsMap = new Map(
   options.map((option) => [option.codename, option]),
 );
 
-export const optionCodenames = Object.keys(rawOptionConfigs) as OptionCodename[];
+export const optionCodenames = Object.keys(
+  rawOptionConfigs,
+) as OptionCodename[];
 
 export type OptionCodename = keyof typeof rawOptionConfigs;
 export type OptionsValues = {

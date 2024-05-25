@@ -40,7 +40,7 @@ OS's dark mode setting, or whether the user is the one in charge of switching
 between them by clicking a button/switch in the Community Console.
     - Note that this option is only applied when the feature switch is turned
     on.
-- The `ccdarktheme_switch_enabled` option is used to save whether the user
+- The `ccdarktheme_switch_status` option is used to save whether the user
 manually enabled the dark theme or not by using the switch/button in the
 Community Console.
     - It is only applied when `ccdarktheme_mode` is set to `switch` and the
