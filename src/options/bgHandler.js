@@ -9,7 +9,7 @@
 // The "blockdrafts" feature was removed, but this logic has been kept in case
 // it is needed in the future.
 
-import {isOptionEnabled} from '../common/optionsUtils.js';
+import {isOptionEnabled} from '../common/options/optionsUtils.js';
 
 // List of features controled in the background:
 export var bgFeatures = [];

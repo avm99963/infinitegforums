@@ -1,6 +1,6 @@
 import Feature from '../../common/architecture/features/Feature';
 import { ConcreteScript } from '../../common/architecture/scripts/Script';
-import { OptionCodename } from '../../common/optionsPrototype';
+import { OptionCodename } from '../../common/options/optionsPrototype';
 import CCInfiniteScrollScript from './scripts/ccInfiniteScroll.script';
 
 export default class InfiniteScrollFeature extends Feature {

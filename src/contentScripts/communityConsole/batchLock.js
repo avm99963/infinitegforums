@@ -1,4 +1,4 @@
-import {isOptionEnabled} from '../../common/optionsUtils.js';
+import {isOptionEnabled} from '../../common/options/optionsUtils.js';
 
 import {addButtonToThreadListActions, removeChildNodes, shouldAddBtnToActionBar, softRefreshView} from './utils/common.js';
 

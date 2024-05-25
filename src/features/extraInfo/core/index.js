@@ -1,4 +1,4 @@
-import PartialOptionsWatcher from '../../../common/partialOptionsWatcher.js';
+import PartialOptionsWatcher from '../../../common/options/partialOptionsWatcher.js';
 
 import ProfileInfoHandler from './infoHandlers/profile.js';
 import ThreadInfoHandler from './infoHandlers/thread.js';

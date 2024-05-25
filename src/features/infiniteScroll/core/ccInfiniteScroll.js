@@ -1,4 +1,4 @@
-import {getOptions, isOptionEnabled} from '../../../common/optionsUtils.js';
+import {getOptions, isOptionEnabled} from '../../../common/options/optionsUtils.js';
 
 const kInteropLoadMoreClasses = {
   // New (interop) UI without nested replies

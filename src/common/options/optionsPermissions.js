@@ -1,5 +1,5 @@
-import actionApi from './actionApi.js';
-import {optionsPrototype} from './optionsPrototype.ts';
+import actionApi from '../actionApi.js';
+import {optionsPrototype} from './optionsPrototype';
 import {getOptions} from './optionsUtils.js';
 
 // Required permissions, including host permissions.

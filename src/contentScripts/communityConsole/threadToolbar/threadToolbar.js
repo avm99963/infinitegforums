@@ -1,4 +1,4 @@
-import {getOptions} from '../../../common/optionsUtils.js';
+import {getOptions} from '../../../common/options/optionsUtils.js';
 import {softRefreshView} from '../utils/common.js';
 
 import * as consts from './constants.js';

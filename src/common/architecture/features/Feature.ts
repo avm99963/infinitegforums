@@ -1,4 +1,4 @@
-import { OptionCodename } from '../../optionsPrototype';
+import { OptionCodename } from '../../options/optionsPrototype';
 import Script, { ConcreteScript } from '../scripts/Script';
 
 export default abstract class Feature {

@@ -1,4 +1,4 @@
-import {getOptions} from '../common/optionsUtils.js';
+import {getOptions} from '../common/options/optionsUtils.js';
 import {parseView} from '../common/TWBasicUtils.js';
 
 import PerForumStatsSection from './communityConsole/utils/PerForumStatsSection.js';

@@ -1,5 +1,5 @@
 import {injectScript} from '../common/contentScriptsUtils.js';
-import {getOptions} from '../common/optionsUtils.js';
+import {getOptions} from '../common/options/optionsUtils.js';
 
 getOptions('perforumstats').then(options => {
   if (options?.perforumstats)

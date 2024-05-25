@@ -1,7 +1,7 @@
 // In order to pass i18n strings and settings values to the injected scripts,
 // which don't have access to the chrome.* APIs, we use event listeners.
 
-import {getOptions} from './optionsUtils.js';
+import {getOptions} from './options/optionsUtils.js';
 
 export function setUpListener() {
   window.addEventListener('TWPT_sendRequest', evt => {

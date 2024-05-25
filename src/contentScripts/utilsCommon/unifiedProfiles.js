@@ -2,7 +2,7 @@ import {MDCTooltip} from '@material/tooltip';
 
 import {createImmuneLink} from '../../common/commonUtils.js';
 import {escapeUsername} from '../../common/communityConsoleUtils.js';
-import {isOptionEnabled} from '../../common/optionsUtils.js';
+import {isOptionEnabled} from '../../common/options/optionsUtils.js';
 import {createPlainTooltip} from '../../common/tooltip.js';
 import {createExtBadge} from '../communityConsole/utils/common.js';
 

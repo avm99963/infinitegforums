@@ -1,4 +1,4 @@
-import {isOptionEnabled} from '../../../../common/optionsUtils.js';
+import {isOptionEnabled} from '../../../../common/options/optionsUtils.js';
 import WorkflowsStorage from '../workflowsStorage.js';
 import {addElementToThreadListActions, shouldAddBtnToActionBar} from '../../../../contentScripts/communityConsole/utils/common.js';
 

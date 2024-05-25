@@ -1,5 +1,5 @@
 import {injectStylesheet} from '../../common/contentScriptsUtils.js';
-import {getOptions} from '../../common/optionsUtils.js';
+import {getOptions} from '../../common/options/optionsUtils.js';
 
 import FlattenThreadsReplyActionHandler from './flattenThreads/replyActionHandler.js';
 

@@ -1,4 +1,4 @@
-import {getForceDisabledFeatures} from '../common/optionsUtils.js';
+import {getForceDisabledFeatures} from '../common/options/optionsUtils.js';
 
 /**
  * Watches for changes to an internal kill switch and calls a callback when a

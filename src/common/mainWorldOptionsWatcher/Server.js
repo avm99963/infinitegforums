@@ -1,4 +1,4 @@
-import PartialOptionsWatcher from '../partialOptionsWatcher.js';
+import PartialOptionsWatcher from '../options/partialOptionsWatcher.js';
 import MainWorldContentScriptBridgeServer from '../mainWorldContentScriptBridge/Server.js';
 
 // Main World OptionsWatcher server (used in content scripts to be able to serve

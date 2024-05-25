@@ -3,8 +3,8 @@ import XMLHttpRequest from 'sw-xhr';
 // #!endif
 
 import actionApi from './common/actionApi.js';
-import {cleanUpOptPermissions} from './common/optionsPermissions.js';
-import {cleanUpOptions, disableItemsWithMissingPermissions} from './common/optionsUtils.js';
+import {cleanUpOptPermissions} from './common/options/optionsPermissions.js';
+import {cleanUpOptions, disableItemsWithMissingPermissions} from './common/options/optionsUtils.js';
 import KillSwitchMechanism from './killSwitch/index.js';
 import {handleBgOptionChange, handleBgOptionsOnStart} from './options/bgHandler.js';
 import UpdateNotifier from './updateNotifier/index.js';

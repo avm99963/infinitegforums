@@ -1,5 +1,5 @@
 import {injectStylesheet} from '../common/contentScriptsUtils.js';
-import {getOptions} from '../common/optionsUtils.js';
+import {getOptions} from '../common/options/optionsUtils.js';
 import {setUpRedirectIfEnabled} from '../redirect/setup.js';
 
 getOptions(['uispacing', 'redirect']).then(options => {

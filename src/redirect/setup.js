@@ -1,4 +1,4 @@
-import {getOptions} from '../common/optionsUtils.js';
+import {getOptions} from '../common/options/optionsUtils.js';
 
 export async function setUpRedirectIfEnabled(options = null) {
   if (options === null) options = await getOptions(['redirect']);

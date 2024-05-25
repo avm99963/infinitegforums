@@ -1,4 +1,4 @@
-import {getOptions} from '../common/optionsUtils.js';
+import {getOptions} from '../common/options/optionsUtils.js';
 
 var intersectionObserver;
 

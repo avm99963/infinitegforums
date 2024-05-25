@@ -1,7 +1,7 @@
 import {waitFor} from 'poll-until-promise';
 
 import {parseUrl} from '../../../common/commonUtils';
-import {getOptions} from '../../../common/optionsUtils';
+import {getOptions} from '../../../common/options/optionsUtils';
 
 const kOpenReplyEditorIntervalInMs = 500;
 const kOpenReplyEditorTimeoutInMs = 10 * 1000;

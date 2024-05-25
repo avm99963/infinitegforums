@@ -1,4 +1,4 @@
-import {isOptionEnabled} from '../../common/optionsUtils.js';
+import {isOptionEnabled} from '../../common/options/optionsUtils.js';
 
 export function applyDragAndDropFix(node) {
   console.debug('Adding link drag&drop fix to ', node);

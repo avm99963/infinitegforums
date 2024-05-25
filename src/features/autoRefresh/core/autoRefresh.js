@@ -2,7 +2,7 @@ import {MDCTooltip} from '@material/tooltip';
 
 import {CCApi} from '../../../common/api.js';
 import {getAuthUser} from '../../../common/communityConsoleUtils.js';
-import {isOptionEnabled} from '../../../common/optionsUtils.js';
+import {isOptionEnabled} from '../../../common/options/optionsUtils.js';
 import {createPlainTooltip} from '../../../common/tooltip.js';
 
 import {createExtBadge, softRefreshView} from '../../../contentScripts/communityConsole/utils/common.js';

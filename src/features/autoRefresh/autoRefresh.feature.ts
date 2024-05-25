@@ -1,6 +1,6 @@
 import Feature from '../../common/architecture/features/Feature';
 import { ConcreteScript } from '../../common/architecture/scripts/Script';
-import { OptionCodename } from '../../common/optionsPrototype';
+import { OptionCodename } from '../../common/options/optionsPrototype';
 import AutoRefreshNodeWatcherScript from './scripts/nodeWatcher.script';
 import AutoRefreshSetUpScript from './scripts/setUp.script';
 import AutoRefreshStylesScript from './scripts/styles.script';

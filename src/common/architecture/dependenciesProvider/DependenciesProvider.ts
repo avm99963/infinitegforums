@@ -1,6 +1,6 @@
 import ExtraInfo from '../../../features/extraInfo/core';
 import AutoRefresh from '../../../features/autoRefresh/core/autoRefresh';
-import OptionsProvider from '../../OptionsProvider';
+import OptionsProvider from '../../options/OptionsProvider';
 import WorkflowsImport from '../../../features/workflows/core/communityConsole/import';
 import Workflows from '../../../features/workflows/core/communityConsole/workflows';
 import StartupDataStorage from '../../../contentScripts/communityConsole/utils/StartupDataStorage';
