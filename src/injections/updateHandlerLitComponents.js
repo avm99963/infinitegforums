@@ -1,6 +1,6 @@
 import '../contentScripts/communityConsole/updateHandler/banner/components/index.js';
 
-import {injectStylesheet} from '../common/contentScriptsUtils.js';
+import {injectStylesheet} from '../common/contentScriptsUtils';
 
 // This is necessary for the MD3 components. It is also done in
 // litComponentsInject.js, but when installing the extension

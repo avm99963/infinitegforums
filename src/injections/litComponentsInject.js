@@ -7,7 +7,7 @@ import '../contentScripts/communityConsole/threadToolbar/components/index.js';
 import '../contentScripts/communityConsole/flattenThreads/components/index.js';
 import '../contentScripts/communityConsole/updateHandler/banner/components/index.js';
 
-import {injectStylesheet} from '../common/contentScriptsUtils.js';
+import {injectStylesheet} from '../common/contentScriptsUtils';
 
 // Also, we import Material Symbols Outlined since the Community Console uses
 // "Google Material Icons" instead. This is necessary for the MD3 components.

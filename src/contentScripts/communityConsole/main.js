@@ -1,4 +1,4 @@
-import {injectScript, injectStyles, injectStylesheet} from '../../common/contentScriptsUtils.js';
+import {injectScript, injectStyles, injectStylesheet} from '../../common/contentScriptsUtils';
 import {getOptions} from '../../common/options/optionsUtils.js';
 import XHRProxyKillSwitchHandler from '../../xhrInterceptor/killSwitchHandler.js';
 import {injectPreviousPostsLinksUnifiedProfileIfEnabled} from '../utilsCommon/unifiedProfiles.js';

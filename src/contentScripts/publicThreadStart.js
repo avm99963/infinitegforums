@@ -1,4 +1,4 @@
-import {injectStylesheet} from '../common/contentScriptsUtils.js';
+import {injectStylesheet} from '../common/contentScriptsUtils';
 import {getOptions} from '../common/options/optionsUtils.js';
 import {setUpRedirectIfEnabled} from '../redirect/setup.js';
 

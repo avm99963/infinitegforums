@@ -1,4 +1,4 @@
-import {injectScript, injectStylesheet} from '../common/contentScriptsUtils.js';
+import {injectScript, injectStylesheet} from '../common/contentScriptsUtils';
 import {setUpListener} from '../common/csEventListener.js';
 
 setUpListener();

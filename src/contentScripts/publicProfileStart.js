@@ -1,4 +1,4 @@
-import {injectScript} from '../common/contentScriptsUtils.js';
+import {injectScript} from '../common/contentScriptsUtils';
 import {getOptions} from '../common/options/optionsUtils.js';
 
 getOptions('perforumstats').then(options => {
