@@ -74,7 +74,7 @@ module.exports = (env, args) => {
     mdcStyles: './src/mdc/index.js',
 
     // Compiled Sass
-    ccDarkTheme: './src/ccDarkTheme/main.scss?asCSSFile',
+    ccDarkTheme: './src/features/ccDarkTheme/core/styles/main.scss?asCSSFile',
   };
 
   // Background script (or service worker for MV3)

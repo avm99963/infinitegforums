@@ -7,14 +7,13 @@ const kReportingWidgetThemes = {
 };
 
 export default class ReportDialogColorThemeFix {
-  constructor(options) {
-    this.optionsAtPageLoad = options;
-  }
+  constructor() {}
 
-  fixThemeIfReportDialogIframeAndApplicable(iframe) {
+  async fixThemeIfReportDialogIframeAndApplicable(iframe, optionsProvider) {
     if (!this.isReportDialogIframe(iframe)) return;
 
-    const currentColorTheme = getCurrentColorTheme(this.optionsAtPageLoad);
+    const options = await optionsProvider.getOptionsValues();
+    const currentColorTheme = getCurrentColorTheme(options);
 
     // By default the report dialog is added with the light theme
     if (currentColorTheme === kColorThemeMode.Light) return;

@@ -4,10 +4,13 @@ import OptionsProvider from '../../options/OptionsProvider';
 import WorkflowsImport from '../../../features/workflows/core/communityConsole/import';
 import Workflows from '../../../features/workflows/core/communityConsole/workflows';
 import StartupDataStorage from '../../../contentScripts/communityConsole/utils/StartupDataStorage';
+import ReportDialogColorThemeFix from '../../../features/ccDarkTheme/core/logic/reportDialog';
 
 export const AutoRefreshDependency = 'autoRefresh';
 export const ExtraInfoDependency = 'extraInfo';
 export const OptionsProviderDependency = 'optionsProvider';
+export const ReportDialogColorThemeFixDependency =
+  'report-dialog-color-theme-fix';
 export const StartupDataStorageDependency = 'startupDataStorage';
 export const WorkflowsDependency = 'workflows';
 export const WorkflowsImportDependency = 'workflowsImport';
@@ -15,6 +18,7 @@ export const DependenciesToClass = {
   [AutoRefreshDependency]: AutoRefresh,
   [ExtraInfoDependency]: ExtraInfo,
   [OptionsProviderDependency]: OptionsProvider,
+  [ReportDialogColorThemeFixDependency]: ReportDialogColorThemeFix,
   [StartupDataStorageDependency]: StartupDataStorage,
   [WorkflowsDependency]: Workflows,
   [WorkflowsImportDependency]: WorkflowsImport,

@@ -4,12 +4,14 @@ import InfiniteScrollFeature from './infiniteScroll/infiniteScroll.feature';
 import ScriptFilterListProvider from '../common/architecture/scripts/ScriptFilterListProvider';
 import ExtraInfoFeature from './extraInfo/extraInfo.feature';
 import WorkflowsFeature from './workflows/workflows.feature';
+import CCDarkThemeFeature from './ccDarkTheme/ccDarkTheme.feature';
 
 export type ConcreteFeatureClass = { new (): Feature };
 
 export default class Features extends ScriptFilterListProvider {
   private features: ConcreteFeatureClass[] = [
     AutoRefreshFeature,
+    CCDarkThemeFeature,
     ExtraInfoFeature,
     InfiniteScrollFeature,
     WorkflowsFeature,

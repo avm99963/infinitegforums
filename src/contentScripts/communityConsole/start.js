@@ -19,21 +19,6 @@ getOptions(null).then(options => {
         'data-startup', JSON.stringify(startup));
   }
 
-  if (options.ccdarktheme) {
-    switch (options.ccdarktheme_mode) {
-      case 'switch':
-        if (options.ccdarktheme_switch_status == true)
-          injectStylesheet(chrome.runtime.getURL('ccDarkTheme.bundle.css'));
-        break;
-
-      case 'system':
-        injectStylesheet(chrome.runtime.getURL('ccDarkTheme.bundle.css'), {
-          'media': '(prefers-color-scheme: dark)',
-        });
-        break;
-    }
-  }
-
   if (options.uispacing) {
     injectStylesheet(chrome.runtime.getURL('css/ui_spacing/shared.css'));
     injectStylesheet(chrome.runtime.getURL('css/ui_spacing/console.css'));

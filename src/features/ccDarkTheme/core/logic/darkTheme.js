@@ -1,7 +1,7 @@
-import {MDCTooltip} from '@material/tooltip';
+import { MDCTooltip } from '@material/tooltip';
 
-import {createPlainTooltip} from '../../../common/tooltip.js';
-import {createExtBadge} from '../utils/common.js';
+import { createPlainTooltip } from '../../../../common/tooltip.js';
+import { createExtBadge } from '../../../../contentScripts/communityConsole/utils/common.js';
 
 export const kColorThemeMode = Object.freeze({
   Auto: Symbol('auto'),
@@ -9,17 +9,16 @@ export const kColorThemeMode = Object.freeze({
   Dark: Symbol('dark'),
 });
 
-export function injectDarkThemeButton(rightControl, previousDarkThemeOption) {
+export function injectDarkThemeButton(rightControl) {
   var darkThemeSwitch = document.createElement('material-button');
   darkThemeSwitch.classList.add('TWPT-dark-theme', 'TWPT-btn--with-badge');
   darkThemeSwitch.setAttribute('button', '');
 
   darkThemeSwitch.addEventListener('click', () => {
-    chrome.storage.sync.get(null, currentOptions => {
-      currentOptions.ccdarktheme_switch_status = !previousDarkThemeOption;
-      chrome.storage.sync.set(currentOptions, () => {
-        location.reload();
-      });
+    chrome.storage.sync.get(null, (currentOptions) => {
+      currentOptions.ccdarktheme_switch_status =
+        !currentOptions.ccdarktheme_switch_status;
+      chrome.storage.sync.set(currentOptions);
     });
   });
 
@@ -42,11 +41,13 @@ export function injectDarkThemeButton(rightControl, previousDarkThemeOption) {
   darkThemeSwitch.appendChild(badgeContent);
 
   rightControl.style.width =
-      (parseInt(window.getComputedStyle(rightControl).width) + 58) + 'px';
+    parseInt(window.getComputedStyle(rightControl).width) + 58 + 'px';
   rightControl.insertAdjacentElement('afterbegin', darkThemeSwitch);
 
   createPlainTooltip(
-      switchContent, chrome.i18n.getMessage('inject_ccdarktheme_helper'));
+    switchContent,
+    chrome.i18n.getMessage('inject_ccdarktheme_helper'),
+  );
   new MDCTooltip(badgeTooltip);
 }
 
@@ -55,8 +56,9 @@ export function getCurrentColorTheme(options) {
     return kColorThemeMode.Light;
   } else {
     if (options.ccdarktheme_mode == 'switch') {
-      return options.ccdarktheme_switch_status ? kColorThemeMode.Dark :
-                                                 kColorThemeMode.Light;
+      return options.ccdarktheme_switch_status
+        ? kColorThemeMode.Dark
+        : kColorThemeMode.Light;
     } else {
       return kColorThemeMode.Auto;
     }
@@ -68,8 +70,10 @@ export function isDarkThemeOn(options) {
 
   switch (activeColorTheme) {
     case kColorThemeMode.Auto:
-      return window.matchMedia &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches;
+      return (
+        window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+      );
 
     case kColorThemeMode.Light:
       return false;

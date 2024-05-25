@@ -5,9 +5,6 @@ import {injectPreviousPostsLinksUnifiedProfileIfEnabled} from '../utilsCommon/un
 
 import AvatarsHandler from './avatars.js';
 import {batchLock} from './batchLock.js';
-import {injectDarkThemeButton, isDarkThemeOn} from './darkTheme/darkTheme.js';
-import ReportDialogColorThemeFix from './darkTheme/reportDialog.js';
-import {unifiedProfilesFix} from './darkTheme/unifiedProfiles.js';
 // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
 import {applyDragAndDropFixIfEnabled} from './dragAndDropFix.js';
 // #!endif
@@ -15,14 +12,9 @@ import {default as FlattenThreads, kMatchingSelectors as kFlattenThreadMatchingS
 import {kRepliesSectionSelector} from './threadToolbar/constants.js';
 import ThreadToolbar from './threadToolbar/threadToolbar.js';
 
-var mutationObserver, options, avatars, threadToolbar, flattenThreads,
-    reportDialogColorThemeFix;
+var mutationObserver, options, avatars, threadToolbar, flattenThreads;
 
 const watchedNodesSelectors = [
-  // App container (used to set up the intersection observer and inject the dark
-  // mode button)
-  'ec-app',
-
   // Scrollable content (used for the intersection observer)
   '.scrollable-content',
 
@@ -51,9 +43,6 @@ const watchedNodesSelectors = [
   // Thread list (used for the autorefresh feature)
   'ec-thread-list',
 
-  // Unified profile iframe and report dialog iframe
-  'iframe',
-
   // Thread page reply section (for the thread page toolbar)
   kRepliesSectionSelector,
 
@@ -63,17 +52,6 @@ const watchedNodesSelectors = [
 
 function handleCandidateNode(node) {
   if (typeof node.classList !== 'undefined') {
-    if (('tagName' in node) && node.tagName == 'EC-APP') {
-      // Inject the dark mode button
-      // TODO(avm99963): make this feature dynamic.
-      if (options.ccdarktheme && options.ccdarktheme_mode == 'switch') {
-        var rightControl = node.querySelector('header .right-control');
-        if (rightControl !== null)
-          injectDarkThemeButton(
-              rightControl, options.ccdarktheme_switch_status);
-      }
-    }
-
     // Show the "previous posts" links if the option is currently enabled.
     //   Here we're selecting the 'ec-user > div' element (unique child)
     if (node.matches(
@@ -110,16 +88,6 @@ function handleCandidateNode(node) {
     if (('tagName' in node) && (node.tagName == 'LI') &&
         node.querySelector('ec-thread-summary') !== null) {
       avatars.injectIfEnabled(node);
-    }
-
-    if (node.tagName == 'IFRAME') {
-      // Redirect unified profile iframe to dark version if applicable
-      if (isDarkThemeOn(options) && unifiedProfilesFix.checkIframe(node)) {
-        unifiedProfilesFix.fixIframe(node);
-      }
-
-      // Set report dialog iframe's theme to the appropriate theme
-      reportDialogColorThemeFix.fixThemeIfReportDialogIframeAndApplicable(node);
     }
 
     // Inject thread toolbar
@@ -180,7 +148,6 @@ getOptions(null).then(items => {
   avatars = new AvatarsHandler();
   threadToolbar = new ThreadToolbar();
   flattenThreads = new FlattenThreads();
-  reportDialogColorThemeFix = new ReportDialogColorThemeFix(options);
 
   // Before starting the mutation Observer, check whether we missed any
   // mutations by manually checking whether some watched nodes already
