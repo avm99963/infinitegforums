@@ -5,6 +5,7 @@ import ScriptFilterListProvider from '../common/architecture/scripts/ScriptFilte
 import ExtraInfoFeature from './extraInfo/extraInfo.feature';
 import WorkflowsFeature from './workflows/workflows.feature';
 import CCDarkThemeFeature from './ccDarkTheme/ccDarkTheme.feature';
+import FixCCSlownessFeature from './fixCCSlowness/fixCCSlowness.feature';
 
 export type ConcreteFeatureClass = { new (): Feature };
 
@@ -13,6 +14,7 @@ export default class Features extends ScriptFilterListProvider {
     AutoRefreshFeature,
     CCDarkThemeFeature,
     ExtraInfoFeature,
+    FixCCSlownessFeature,
     InfiniteScrollFeature,
     WorkflowsFeature,
   ];
