@@ -1,43 +1,110 @@
 import { Mutex, MutexInterface, withTimeout } from 'async-mutex';
 
 import { getOptions } from './optionsUtils';
-import { OptionCodename, OptionValues } from './optionsPrototype';
+import { OptionCodename, OptionsValues } from './optionsPrototype';
+import { OptionsConfiguration } from './OptionsConfiguration';
 
+// Prioritize reads before writes.
+const kReadPriority = 10;
+const kWritePriority = 0;
+
+/**
+ * Class which provides option values and a way to listen to option changes.
+ */
 export default class OptionsProvider {
-  private optionValues: OptionValues;
-  private isStale = true;
+  private optionsConfiguration: OptionsConfiguration;
   private mutex: MutexInterface = withTimeout(new Mutex(), 60 * 1000);
+  private listeners: Set<OptionsChangeListener> = new Set();
 
   constructor() {
-    // If the extension settings change, set the current cached value as stale.
-    // We could try only doing this only when we're sure it has changed, but
-    // there are many factors (if the user has changed it manually, if a kill
-    // switch was activated, etc.) so we'll do it every time.
+    this.listenForStorageChanges();
+    this.updateValues();
+  }
+
+  /**
+   * Sets up a listener to update the current cached configuration when there
+   * are changes to the underlying storage where options are persisted.
+   *
+   * We could try only doing this only when we're sure it has changed, but
+   * there are many factors (if the user has changed it manually, if a kill
+   * switch was activated, etc.) so we do it every time there is any change in
+   * the underlying storage.
+   */
+  private listenForStorageChanges() {
     chrome.storage.onChanged.addListener((_, areaName) => {
       if (areaName !== 'sync') return;
-      console.debug('[optionsWatcher] Marking options as stale.');
-      this.isStale = true;
+      console.debug('[OptionsProvider] Retrieving updated options.');
+      this.updateValues();
     });
   }
 
-  // Returns a promise resolving to the value of option |option|.
-  getOption<O extends OptionCodename>(option: O): Promise<OptionValues[O]> {
-    // When the cached value is marked as stale, it might be possible that there
-    // is a flood of calls to isEnabled(), which in turn causes a flood of calls
-    // to getOptions() because it takes some time for it to be marked as not
-    // stale. Thus, hiding the logic behind a mutex fixes this.
-    return this.mutex.runExclusive(async () => {
-      if (!this.isStale) return Promise.resolve(this.optionValues[option]);
-
-      this.optionValues = await getOptions();
-      this.isStale = false;
-      return this.optionValues[option];
-    });
+  private async updateValues() {
+    await this.mutex.runExclusive(async () => {
+      await this.nonSafeUpdateValues();
+    }, kWritePriority);
   }
 
-  // Returns a promise resolving to whether the |feature| is enabled.
-  async isEnabled(option: OptionCodename) {
-    const value = await this.getOption(option);
-    return value === true;
+  private async nonSafeUpdateValues() {
+    const previousConfiguration = this.optionsConfiguration;
+    const currentOptionsValues = await getOptions(null);
+    this.optionsConfiguration = new OptionsConfiguration(currentOptionsValues);
+
+    this.notifyListenersIfApplicable(previousConfiguration);
+  }
+
+  private async notifyListenersIfApplicable(
+    previousOptionsConfiguration: OptionsConfiguration,
+  ) {
+    if (
+      !previousOptionsConfiguration ||
+      this.optionsConfiguration.isEqualTo(previousOptionsConfiguration)
+    ) {
+      return;
+    }
+
+    for (const listener of this.listeners) {
+      listener(previousOptionsConfiguration, this.optionsConfiguration);
+    }
+  }
+
+  /**
+   * Returns the value of option |option|.
+   */
+  async getOptionValue<O extends OptionCodename>(
+    option: O,
+  ): Promise<OptionsValues[O]> {
+    return this.mutex.runExclusive(
+      () => this.optionsConfiguration.getOptionValue(option),
+      kReadPriority,
+    );
+  }
+
+  /**
+   * Returns whether |feature| is enabled.
+   */
+  async isEnabled(option: OptionCodename): Promise<boolean> {
+    return this.mutex.runExclusive(
+      () => this.optionsConfiguration.isEnabled(option),
+      kReadPriority,
+    );
+  }
+
+  async getOptionsValues(): Promise<OptionsValues> {
+    return this.mutex.runExclusive(
+      () => this.optionsConfiguration.optionsValues,
+      kReadPriority,
+    );
+  }
+
+  /**
+   * Adds a listener for changes in the options configuration.
+   */
+  addListener(listener: OptionsChangeListener) {
+    this.listeners.add(listener);
   }
 }
+
+export type OptionsChangeListener = (
+  previousOptionValues: OptionsConfiguration,
+  currentOptionValues: OptionsConfiguration,
+) => void;

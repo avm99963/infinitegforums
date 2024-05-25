@@ -247,7 +247,9 @@ export const optionsMap = new Map(
   options.map((option) => [option.codename, option]),
 );
 
+export const optionCodenames = Object.keys(rawOptionConfigs) as OptionCodename[];
+
 export type OptionCodename = keyof typeof rawOptionConfigs;
-export type OptionValues = {
+export type OptionsValues = {
   [K in OptionCodename]: (typeof rawOptionConfigs)[K]['defaultValue'];
 };
