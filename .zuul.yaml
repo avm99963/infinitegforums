@@ -12,6 +12,9 @@
     pre-run: playbooks/lint/pre.yaml
     run: playbooks/lint/run.yaml
     post-run: playbooks/lint/post.yaml
+    vars:
+      use_standalone_web_ext: false
+      web_ext_command: "./node_modules/web-ext/bin/web-ext.js"
     irrelevant-files:
       - ".github/.*"
       - "docs/.*"
