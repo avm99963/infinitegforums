@@ -1,3 +1,11 @@
+- name: Install pnpm
+  ansible.builtin.command: npm install -g pnpm
+  args:
+    chdir: "{{ zuul.project.src_dir }}"
+
+- name: Ouptut pnpm version
+  ansible.builtin.command: pnpm --version
+
 - name: Build extension
   make:
     chdir: "{{ zuul.project.src_dir }}"

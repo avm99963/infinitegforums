@@ -5,7 +5,9 @@
   "directories": {
     "doc": "docs"
   },
-  "scripts": {},
+  "scripts": {
+    "preinstall": "npx only-allow pnpm"
+  },
   "repository": {
     "type": "git",
     "url": "https://gerrit.avm99963.com/infinitegforums"
@@ -41,6 +43,7 @@
     "sass": "1.77.4",
     "sass-loader": "14.2.1",
     "style-loader": "4.0.0",
+    "terser-webpack-plugin": "^5.3.10",
     "ts-jest": "29.1.4",
     "ts-loader": "9.5.1",
     "ts-node": "10.9.2",

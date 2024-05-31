@@ -12,7 +12,7 @@ grpc_proto_gen:
 		protoc -I=. --js_out=import_style=commonjs_strict:. proto/*.proto)
 
 node_deps:
-	npm ci --no-save
+	pnpm install --frozen-lockfile
 
 clean_dist:
 	rm -rf dist
