@@ -16,6 +16,9 @@
         {codename: 'perforumstats'},
         {codename: 'batchlock'},
         {codename: 'autorefreshlist'},
+        // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
+        {codename: 'blockdrafts'},
+        // #!endif
       ],
     },
     {
@@ -31,6 +34,7 @@
       options: [
         {codename: 'fixedtoolbar'},
         {codename: 'redirect'},
+        {codename: 'loaddrafts', experimental: true},
         {codename: 'increasecontrast'},
         {codename: 'stickysidebarheaders'},
         {codename: 'ccforcehidedrawer'},
@@ -40,6 +44,7 @@
         {codename: 'enhancedannouncementsdot'},
         {codename: 'repositionexpandthread', experimental: true},
         {codename: 'imagemaxheight'},
+        {codename: 'interopthreadpage'},
         {codename: 'uispacing'},
       ],
     },

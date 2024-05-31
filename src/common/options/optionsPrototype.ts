@@ -32,6 +32,11 @@ const rawOptionConfigs = {
     context: OptionContext.Options,
     killSwitchType: KillSwitchType.Option,
   },
+  loaddrafts: {
+    defaultValue: false,
+    context: OptionContext.Options,
+    killSwitchType: KillSwitchType.Option,
+  },
   increasecontrast: {
     defaultValue: false,
     context: OptionContext.Options,
@@ -109,10 +114,27 @@ const rawOptionConfigs = {
     context: OptionContext.Options,
     killSwitchType: KillSwitchType.Option,
   },
+  // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
+  blockdrafts: {
+    defaultValue: false,
+    context: OptionContext.Options,
+    killSwitchType: KillSwitchType.Option,
+  },
+  // #!endif
   perforumstats: {
     defaultValue: false,
     context: OptionContext.Options,
     killSwitchType: KillSwitchType.Option,
+  },
+  interopthreadpage: {
+    defaultValue: false,
+    context: OptionContext.Options,
+    killSwitchType: KillSwitchType.Option,
+  },
+  interopthreadpage_mode: {
+    defaultValue: 'previous',
+    context: OptionContext.Options,
+    killSwitchType: KillSwitchType.Ignore,
   },
   uispacing: {
     defaultValue: false,
@@ -191,28 +213,6 @@ const rawOptionConfigs = {
     defaultValue: false,
     context: OptionContext.Deprecated,
     killSwitchType: KillSwitchType.Deprecated,
-  },
-  loaddrafts: {
-    defaultValue: false,
-    context: OptionContext.Deprecated,
-    killSwitchType: KillSwitchType.Deprecated,
-  },
-  // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
-  blockdrafts: {
-    defaultValue: false,
-    context: OptionContext.Deprecated,
-    killSwitchType: KillSwitchType.Deprecated,
-  },
-  // #!endif
-  interopthreadpage: {
-    defaultValue: false,
-    context: OptionContext.Deprecated,
-    killSwitchType: KillSwitchType.Deprecated,
-  },
-  interopthreadpage_mode: {
-    defaultValue: 'previous',
-    context: OptionContext.Deprecated,
-    killSwitchType: KillSwitchType.Ignore,
   },
   fixpekb269560789: {
     defaultValue: false,

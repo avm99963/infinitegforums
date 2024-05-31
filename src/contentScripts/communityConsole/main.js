@@ -43,6 +43,9 @@ const watchedNodesSelectors = [
   // Thread list (used for the autorefresh feature)
   'ec-thread-list',
 
+  // Thread page main content
+  'ec-thread > .page > .material-content > div[role="list"]',
+
   // Thread page reply section (for the thread page toolbar)
   kRepliesSectionSelector,
 
@@ -88,6 +91,12 @@ function handleCandidateNode(node) {
     if (('tagName' in node) && (node.tagName == 'LI') &&
         node.querySelector('ec-thread-summary') !== null) {
       avatars.injectIfEnabled(node);
+    }
+
+    // Inject old thread page design warning if applicable
+    if (node.matches(
+            'ec-thread > .page > .material-content > div[role="list"]')) {
+      window.TWPTThreadPageDesignWarning.injectWarningIfApplicable(node);
     }
 
     // Inject thread toolbar

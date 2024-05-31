@@ -63,6 +63,10 @@
     "message": "Redirect all threads opened in TW to the Community Console.",
     "description": "Feature checkbox in the options page"
   },
+  "options_loaddrafts": {
+    "message": "Activate the <code class=\"help\" title=\"This flag allows the Community Console to load a previously autosaved reply when loading a thread and clicking the reply button.\">enableLoadingDraftMessages<\/code> Community Console flag.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_experimental_label": {
     "message": "(experimental)",
     "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
@@ -135,6 +139,10 @@
     "message": "Show the number of questions and replies written by the OP within the last <span id='profileindicatoralt_months--container'></span> months next to their username.",
     "description": "Feature checkbox in the options page"
   },
+  "options_blockdrafts": {
+    "message": "Block the sending of your replies as you type to Google servers in the Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_workflows": {
     "message": "Enable the workflows feature.",
     "description": "Feature checkbox in the options page"
@@ -150,6 +158,18 @@
   "options_perforumstats": {
     "message": "Show per-forum activity in profiles.",
     "description": "Feature checkbox in the options page"
+  },
+  "options_interopthreadpage": {
+    "message": "Show <span id='interopthreadpage_mode--container'></span> in the Community Console.",
+    "description": "Feature checkbox in the options page. \"<span id='interopthreadpage_mode--container'></span>\" will be substituted with a selector which allows users to select whether they want the new thread page design or the old one."
+  },
+  "options_interopthreadpage_mode_previous": {
+    "message": "the old thread page design",
+    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
+  },
+  "options_interopthreadpage_mode_next": {
+    "message": "the new thread page design",
+    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
   },
   "options_uispacing": {
     "message": "Reduce the whitespace in the Community Console and TW.",

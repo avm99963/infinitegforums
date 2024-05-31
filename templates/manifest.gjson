@@ -76,6 +76,9 @@
 #if defined(CHROMIUM || GECKO)
     "https://support.google.com/*",
 #endif
+#if defined(CHROMIUM || CHROMIUM_MV3)
+    "declarativeNetRequestWithHostAccess",
+#endif
 #if defined(CHROMIUM_MV3)
     "scripting",
 #endif
@@ -138,6 +141,15 @@
     }
 #endif
   ],
+#if defined(CHROMIUM || CHROMIUM_MV3)
+  "declarative_net_request": {
+    "rule_resources": [{
+      "id": "blockDrafts",
+      "enabled": false,
+      "path": "rulesets/blockDrafts.json"
+    }]
+  },
+#endif
 #if defined(CHROMIUM || GECKO)
   "browser_action": {},
 #endif
