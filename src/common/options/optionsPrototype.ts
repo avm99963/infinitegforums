@@ -151,7 +151,7 @@ const rawOptionConfigs = {
 
   // Internal kill switches
   killswitch_xhrproxy: {
-    defaultValue: undefined as any,
+    defaultValue: undefined as unknown,
     context: OptionContext.Internal,
     killSwitchType: KillSwitchType.InternalKillSwitch,
   },
@@ -227,7 +227,7 @@ export type OptionPrototype<T> = Omit<
 >;
 export const optionsPrototype: Record<
   string,
-  OptionPrototype<any>
+  OptionPrototype<unknown>
 > = rawOptionConfigs;
 
 export const options = Object.entries(optionsPrototype).map(

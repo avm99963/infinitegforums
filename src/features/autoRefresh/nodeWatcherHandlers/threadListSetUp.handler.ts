@@ -1,5 +1,4 @@
 import CssSelectorNodeWatcherScriptHandler from '../../../common/architecture/scripts/nodeWatcher/handlers/CssSelectorNodeWatcherScriptHandler';
-import { NodeMutation } from '../../../common/nodeWatcher/NodeWatcherHandler';
 import { AutoRefreshNodeWatcherDependencies } from '../scripts/nodeWatcher.script';
 
 /**
@@ -8,7 +7,7 @@ import { AutoRefreshNodeWatcherDependencies } from '../scripts/nodeWatcher.scrip
 export default class AutoRefreshThreadListSetUpHandler extends CssSelectorNodeWatcherScriptHandler<AutoRefreshNodeWatcherDependencies> {
   cssSelector = 'ec-thread-list';
 
-  onMutatedNode(_: NodeMutation) {
+  onMutatedNode() {
     this.options.autoRefresh.setUp();
   }
 }

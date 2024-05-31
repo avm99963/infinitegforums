@@ -6,7 +6,7 @@ export function injectStylesheet(
   stylesheetName: string,
   attributes: StylesheetAttributes = {},
 ) {
-  var link = document.createElement('link');
+  const link = document.createElement('link');
   link.setAttribute('rel', 'stylesheet');
   link.setAttribute('href', stylesheetName);
   if ('media' in attributes) {
@@ -21,7 +21,7 @@ export function injectStyles(css: string) {
 }
 
 export function injectScript(scriptName: string, prepend = false) {
-  var script = document.createElement('script');
+  const script = document.createElement('script');
   script.src = scriptName;
   const root = document.head || document.documentElement;
   if (prepend) {

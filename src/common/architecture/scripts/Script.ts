@@ -41,7 +41,7 @@ export default abstract class Script {
    * Priority with which the script is executed. Scripts with a lower value are
    * executed first.
    */
-  readonly priority: Number = 2 ** 31;
+  readonly priority: number = 2 ** 31;
 
   /**
    * Page where the script should be executed.

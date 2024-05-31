@@ -1,5 +1,5 @@
 import CssSelectorNodeWatcherScriptHandler from '../../../common/architecture/scripts/nodeWatcher/handlers/CssSelectorNodeWatcherScriptHandler';
-import { NodeMutation, NodeMutationType } from '../../../common/nodeWatcher/NodeWatcherHandler';
+import { NodeMutationType } from '../../../common/nodeWatcher/NodeWatcherHandler';
 import { AutoRefreshNodeWatcherDependencies } from '../scripts/nodeWatcher.script';
 
 /**
@@ -12,7 +12,7 @@ export default class AutoRefreshThreadListHideHandler extends CssSelectorNodeWat
     NodeMutationType.RemovedNode,
   ];
 
-  onMutatedNode(_: NodeMutation) {
+  onMutatedNode() {
     this.options.autoRefresh.hideUpdatePrompt();
   }
 }
