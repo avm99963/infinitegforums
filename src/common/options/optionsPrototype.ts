@@ -216,8 +216,8 @@ const rawOptionConfigs = {
   },
   fixpekb269560789: {
     defaultValue: false,
-    context: OptionContext.Options,
-    killSwitchType: KillSwitchType.Option,
+    context: OptionContext.Deprecated,
+    killSwitchType: KillSwitchType.Deprecated,
   },
 };
 
