@@ -6,7 +6,6 @@
     {
       name: 'featuredoptions',
       options: [
-        {codename: 'fixpekb269560789'},
         {codename: 'list'},
         {codename: 'thread'},
         {codename: 'threadall'},

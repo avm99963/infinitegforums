@@ -124,11 +124,6 @@ const rawOptionConfigs = {
     context: OptionContext.Options,
     killSwitchType: KillSwitchType.Option,
   },
-  fixpekb269560789: {
-    defaultValue: true,
-    context: OptionContext.Options,
-    killSwitchType: KillSwitchType.Option,
-  },
 
   // Experiments
   workflows: {
@@ -218,6 +213,11 @@ const rawOptionConfigs = {
     defaultValue: 'previous',
     context: OptionContext.Deprecated,
     killSwitchType: KillSwitchType.Ignore,
+  },
+  fixpekb269560789: {
+    defaultValue: false,
+    context: OptionContext.Options,
+    killSwitchType: KillSwitchType.Option,
   },
 };
 

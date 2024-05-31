@@ -1,3 +1,7 @@
+/**
+ * @deprecated The feature behind this response modifier has been deprecated.
+ * This code will soon be removed once we're sure the feature won't come back.
+ */
 const removeUserAbuseEventsInViewThread = {
   urlRegex: /api\/ViewThread/i,
   featureGated: true,

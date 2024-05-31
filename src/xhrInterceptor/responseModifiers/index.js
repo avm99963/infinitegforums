@@ -4,15 +4,11 @@ import {convertJSONToResponse, convertJSONToResponseText, getResponseJSON} from 
 import createMessageRemoveParentRef from './createMessageRemoveParentRef.js';
 import flattenThread from './flattenThread.js';
 import loadMoreThread from './loadMoreThread.js';
-import removeUserAbuseEventsInViewForum from './removeUserAbuseEventsInViewForum.js';
-import removeUserAbuseEventsInViewThread from './removeUserAbuseEventsInViewThread.js';
 
 export const responseModifiers = [
   loadMoreThread,
   flattenThread,
   createMessageRemoveParentRef,
-  removeUserAbuseEventsInViewForum,
-  removeUserAbuseEventsInViewThread,
 ];
 
 // Content script target
