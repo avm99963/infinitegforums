@@ -6,4 +6,4 @@ New additions in future updates will be disabled by default, and can be manually
 
 The source code is available here: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums. Contributions are welcome!
 
-Help translate the extension to your native language! Visit https://i18n.avm99963.com/projects/tw-power-tools/
+Helfen Sie mit, die Erweiterung in Ihre Muttersprache zu übersetzen! Besuchen sie https://i18n.avm99963.com/projects/tw-power-tools/

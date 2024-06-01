@@ -64,7 +64,7 @@
         "description": "Feature checkbox in the options page"
     },
     "options_loaddrafts": {
-        "message": "커뮤니티 콘솔의 <code class=\"help\" title=\"이 기능을 활성화하면, 게시글의 댓글 버튼을 눌렀을 때 이전에 자동 저장된 답변을 불러옵니다.\">enableLoadingDraftMessages</code> 기능 활성화.",
+        "message": "커뮤니티 콘솔에서 <code class=\"help\" title=\"이 기능을 활성화하면 커뮤니티 콘솔에서 게시글을 열고 답장 버튼을 누를 때, 이전에 자동 저장된 답장을 불러옵니다.\">enableLoadingDraftMessages</code> 활성화.",
         "description": "Feature checkbox in the options page"
     },
     "options_experimental_label": {
@@ -104,11 +104,11 @@
         "description": "Feature checkbox in the options page"
     },
     "options_interopthreadpage_mode_previous": {
-        "message": "구 버전 페이지 디자인",
+        "message": "이전 페이지 디자인",
         "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
     },
     "options_interopthreadpage_mode_next": {
-        "message": "신 버전 페이지 디자인",
+        "message": "신규 페이지 디자인",
         "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
     },
     "options_uispacing": {
@@ -152,7 +152,7 @@
         "description": "Feature checkbox in the options page"
     },
     "options_interopthreadpage": {
-        "message": "커뮤니티 콘솔을 <span id='interopthreadpage_mode--container'></span>으로 보기.",
+        "message": "커뮤니티 콘솔에서 게시글을 <span id='interopthreadpage_mode--container'>으로 보기.",
         "description": "Feature checkbox in the options page. \"<span id='interopthreadpage_mode--container'></span>\" will be substituted with a selector which allows users to select whether they want the new thread page design or the old one."
     },
     "options_nestedreplies": {
@@ -590,7 +590,7 @@
         "description": "Feature checkbox in the options page"
     },
     "options_blockdrafts": {
-        "message": "커뮤니티 콘솔에서 작성한 답변을 Google 서버로 전송하는 것을 차단하기.",
+        "message": "커뮤니티 콘솔에서 작성한 답변이 Google 서버로 자동 전송되는 것을 막기.",
         "description": "Feature checkbox in the options page"
     },
     "options_workflows": {

@@ -62,5 +62,13 @@
     "options_redirect": {
         "message": "Leite alle in TW geöffneten Threads zur Community Console um.",
         "description": "Feature checkbox in the options page"
+    },
+    "options_increasecontrast": {
+        "message": "Erhöhen Sie den Kontrast zwischen gelesenen und ungelesenen Threads in der Community Console.",
+        "description": "Feature checkbox in the options page"
+    },
+    "options_history": {
+        "message": "Zeigen Sie in Benutzerprofilen einen Link zu „vorherigen Beiträgen“ an.",
+        "description": "Feature checkbox in the options page"
     }
 }
