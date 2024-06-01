@@ -73,10 +73,10 @@ importers:
         specifier: 0.0.268
         version: 0.0.268
       '@types/eslint__js':
-        specifier: ^8.42.3
+        specifier: 8.42.3
         version: 8.42.3
       '@types/node':
-        specifier: ^20.13.0
+        specifier: 20.13.0
         version: 20.13.0
       copy-webpack-plugin:
         specifier: 12.0.2
@@ -115,7 +115,7 @@ importers:
         specifier: 4.0.0
         version: 4.0.0(webpack@5.91.0(webpack-cli@5.1.4))
       terser-webpack-plugin:
-        specifier: ^5.3.10
+        specifier: 5.3.10
         version: 5.3.10(webpack@5.91.0(webpack-cli@5.1.4))
       ts-jest:
         specifier: 29.1.4
@@ -133,7 +133,7 @@ importers:
         specifier: 8.0.0-alpha.24
         version: 8.0.0-alpha.24(eslint@9.4.0)(typescript@5.4.5)
       web-ext:
-        specifier: ^8.0.0
+        specifier: 8.0.0
         version: 8.0.0
       webpack:
         specifier: 5.91.0
