@@ -7,6 +7,13 @@ export default class CCInfiniteScrollLoadMoreBtnHandler extends CssSelectorNodeW
     '.scTailwindThreadMorebuttonbutton, .scTailwindThreadMessagegapbutton';
 
   onMutatedNode({ node }: NodeMutation) {
+    if (!(node instanceof Element)) {
+      console.error(
+        '[CCInfiniteScrollLoadMoreBtnHandler] Node is not an Element: ',
+        node,
+      );
+      return;
+    }
     this.options.ccInfiniteScroll.observeLoadMoreInteropBtn(node);
   }
 }

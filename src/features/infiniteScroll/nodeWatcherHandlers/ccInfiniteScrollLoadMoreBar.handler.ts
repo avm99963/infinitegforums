@@ -6,6 +6,13 @@ export default class CCInfiniteScrollLoadMoreBarHandler extends CssSelectorNodeW
   cssSelector = '.load-more-bar';
 
   onMutatedNode({ node }: NodeMutation) {
+    if (!(node instanceof Element)) {
+      console.error(
+        '[CCInfiniteScrollLoadMoreBarHandler] Node is not an Element: ',
+        node,
+      );
+      return;
+    }
     this.options.ccInfiniteScroll.observeLoadMoreBar(node);
   }
 }

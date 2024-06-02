@@ -1,4 +1,7 @@
-import {getOptions, isOptionEnabled} from '../../../common/options/optionsUtils.js';
+import {
+  getOptions,
+  isOptionEnabled,
+} from '../../../common/options/optionsUtils.js';
 
 const kInteropLoadMoreClasses = {
   // New (interop) UI without nested replies
@@ -12,59 +15,61 @@ const kInteropLoadMoreClasses = {
 const kArtificialScrollingDelay = 3500;
 
 export default class CCInfiniteScroll {
-  constructor() {
-    this.intersectionObserver = null;
-  }
+  private intersectionObserver: IntersectionObserver = null;
 
-  setUpIntersectionObserver(node, isScrollableContent) {
+  setUpIntersectionObserver(node: Element, isScrollableContent: boolean) {
     if (this.intersectionObserver === null) {
-      var scrollableContent = isScrollableContent ?
-          node :
-          node.querySelector('.scrollable-content');
+      const scrollableContent = isScrollableContent
+        ? node
+        : node.querySelector('.scrollable-content');
       if (scrollableContent !== null) {
-        let intersectionOptions = {
+        const intersectionOptions = {
           root: scrollableContent,
           rootMargin: '0px',
           threshold: 1.0,
         };
         this.intersectionObserver = new IntersectionObserver(
-            this.intersectionCallback, intersectionOptions);
+          this.intersectionCallback,
+          intersectionOptions,
+        );
       }
     }
   }
 
-  intersectionCallback(entries, observer) {
-    entries.forEach(entry => {
+  intersectionCallback(entries: IntersectionObserverEntry[]) {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        console.debug('[infinitescroll] Clicking button: ', entry.target);
-        entry.target.click();
+        const target = entry.target;
+        if (!(target instanceof HTMLElement)) return;
+        console.debug('[infinitescroll] Clicking button: ', target);
+        target.click();
       }
     });
   }
 
-  isPotentiallyArtificialScroll() {
+  isPotentiallyArtificialScroll(): boolean {
     return window.location.href.includes('/message/');
   }
 
-  observeWithPotentialDelay(node) {
+  observeWithPotentialDelay(node: Element) {
     if (this.intersectionObserver === null) {
       console.warn(
-          '[infinitescroll] ' +
-          'The intersectionObserver is not ready yet.');
+        '[infinitescroll] The intersectionObserver is not ready yet.',
+      );
       return;
     }
 
     if (this.isPotentiallyArtificialScroll()) {
-      window.setTimeout(
-          () => {this.intersectionObserver.observe(node)},
-          kArtificialScrollingDelay);
+      window.setTimeout(() => {
+        this.intersectionObserver.observe(node);
+      }, kArtificialScrollingDelay);
     } else {
       this.intersectionObserver.observe(node);
     }
   }
 
-  observeLoadMoreBar(bar) {
-    getOptions(['thread', 'threadall']).then(threadOptions => {
+  observeLoadMoreBar(bar: Element) {
+    getOptions(['thread', 'threadall']).then((threadOptions) => {
       if (threadOptions.thread)
         this.observeWithPotentialDelay(bar.querySelector('.load-more-button'));
       if (threadOptions.threadall)
@@ -72,9 +77,11 @@ export default class CCInfiniteScroll {
     });
   }
 
-  observeLoadMoreInteropBtn(btn) {
-    let parentClasses = btn.parentNode?.classList;
-    let feature = null;
+  observeLoadMoreInteropBtn(btn: Element) {
+    const parentNode = btn.parentNode;
+    if (!(parentNode instanceof Element)) return;
+    const parentClasses = parentNode?.classList;
+    let feature: string = null;
     for (const [c, f] of Object.entries(kInteropLoadMoreClasses)) {
       if (parentClasses?.contains?.(c)) {
         feature = f;
@@ -82,8 +89,8 @@ export default class CCInfiniteScroll {
       }
     }
     if (feature === null) return;
-    isOptionEnabled(feature).then(isEnabled => {
+    isOptionEnabled(feature).then((isEnabled) => {
       if (isEnabled) this.observeWithPotentialDelay(btn);
     });
   }
-};
+}
