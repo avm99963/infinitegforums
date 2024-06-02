@@ -51,33 +51,20 @@ export default class CCInfiniteScroll {
     return window.location.href.includes('/message/');
   }
 
-  observeWithPotentialDelay(node: Element) {
-    if (this.intersectionObserver === null) {
-      console.warn(
-        '[infinitescroll] The intersectionObserver is not ready yet.',
-      );
-      return;
-    }
-
-    if (this.isPotentiallyArtificialScroll()) {
-      window.setTimeout(() => {
-        this.intersectionObserver.observe(node);
-      }, kArtificialScrollingDelay);
-    } else {
-      this.intersectionObserver.observe(node);
-    }
-  }
-
   observeLoadMoreBar(bar: Element) {
+    console.debug('[infinitescroll] Found load more bar:', bar);
     getOptions(['thread', 'threadall']).then((threadOptions) => {
-      if (threadOptions.thread)
+      if (threadOptions.thread) {
         this.observeWithPotentialDelay(bar.querySelector('.load-more-button'));
-      if (threadOptions.threadall)
+      }
+      if (threadOptions.threadall) {
         this.observeWithPotentialDelay(bar.querySelector('.load-all-button'));
+      }
     });
   }
 
   observeLoadMoreInteropBtn(btn: Element) {
+    console.debug('[infinitescroll] Found load more interop button:', btn);
     const parentNode = btn.parentNode;
     if (!(parentNode instanceof Element)) return;
     const parentClasses = parentNode?.classList;
@@ -92,5 +79,37 @@ export default class CCInfiniteScroll {
     isOptionEnabled(feature).then((isEnabled) => {
       if (isEnabled) this.observeWithPotentialDelay(btn);
     });
+  }
+
+  private observeWithPotentialDelay(node: Element) {
+    if (this.intersectionObserver === null) {
+      console.warn(
+        '[infinitescroll] The intersectionObserver is not ready yet.',
+      );
+      return;
+    }
+
+    if (this.isPotentiallyArtificialScroll()) {
+      console.debug(
+        `[infinitescroll] Delaying observing`,
+        node,
+        `due to potential artifical scroll.`,
+      );
+      window.setTimeout(() => {
+        console.debug(
+          '[infinitescroll] Starting to observe',
+          node,
+          'after delay.',
+        );
+        this.intersectionObserver.observe(node);
+      }, kArtificialScrollingDelay);
+    } else {
+      console.debug(
+        '[infinitescroll] Starting to observe',
+        node,
+        'without delay.',
+      );
+      this.intersectionObserver.observe(node);
+    }
   }
 }
