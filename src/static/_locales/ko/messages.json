@@ -152,7 +152,7 @@
         "description": "Feature checkbox in the options page"
     },
     "options_interopthreadpage": {
-        "message": "커뮤니티 콘솔에서 게시글을 <span id='interopthreadpage_mode--container'>으로 보기.",
+        "message": "커뮤니티 콘솔에서 게시글을 <span id='interopthreadpage_mode--container'></span>으로 보기.",
         "description": "Feature checkbox in the options page. \"<span id='interopthreadpage_mode--container'></span>\" will be substituted with a selector which allows users to select whether they want the new thread page design or the old one."
     },
     "options_nestedreplies": {
