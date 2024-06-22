@@ -9,6 +9,6 @@ export default class WorkflowsImportCRTagsHandler extends CssSelectorNodeWatcher
   cssSelector = 'ec-canned-response-row .tags';
 
   onMutatedNode(mutation: NodeMutation) {
-    this.options.workflowsImport.addButtonIfEnabled(mutation.node);
+    this.options.workflowsImport.addButtonIfApplicable(mutation.node);
   }
 }

@@ -16,7 +16,8 @@ export default class WorkflowsImport {
     // Only set this class up if the Community Console was opened with the
     // purpose of importing CRs to the workflow manager.
     const searchParams = new URLSearchParams(document.location.search);
-    if (!searchParams.has(kImportParam)) return;
+    this.isSetUp = searchParams.has(kImportParam);
+    if (!this.isSetUp) return;
 
     this.selectedId = searchParams.get(kSelectedIdParam);
 
@@ -100,7 +101,8 @@ export default class WorkflowsImport {
     });
   }
 
-  addButtonIfEnabled(tags) {
+  addButtonIfApplicable(tags) {
+    if (!this.isSetUp) return;
     isOptionEnabled('workflows').then(isEnabled => {
       if (isEnabled) this.addButton(tags);
     });
