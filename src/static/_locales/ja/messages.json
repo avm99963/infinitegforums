@@ -620,5 +620,9 @@
     "actionbadge_killswitch_enabled": {
         "message": "一部の機能は強制的に無効になっています。詳細については、クリックしてください。",
         "description": "Tooltip for the extension icon shown when a kill switch has been enabled."
+    },
+    "options_fixpekb269560789": {
+        "message": "CC の遅さとメモリ使用量の多さの暫定的な修正 (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>)。",
+        "description": "Feature checkbox in the options page"
     }
 }
