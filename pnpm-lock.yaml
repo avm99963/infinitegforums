@@ -28,7 +28,7 @@ importers:
         version: 14.0.0
       '@material/web':
         specifier: ^1.0.0
-        version: 1.5.0
+        version: 1.5.1
       '@stdlib/utils-escape-regexp-string':
         specifier: ^0.2.0
         version: 0.2.1
@@ -752,8 +752,8 @@ packages:
   '@material/typography@14.0.0-canary.53b3cad2f.0':
     resolution: {integrity: sha512-9J0k2fq7uyHsRzRqJDJLGmg3YzRpfRPtFDVeUH/xBcYoqpZE7wYw5Mb7s/l8eP626EtR7HhXhSPjvRTLA6NIJg==}
 
-  '@material/web@1.5.0':
-    resolution: {integrity: sha512-aM2TVCU8Ozh3QS5cckRalmWkNCKK3Y6uhB3skIozP6jIqYX1PDhme/URrHGcWk44k2qqmR7R+X8GEBAu8N/NCQ==}
+  '@material/web@1.5.1':
+    resolution: {integrity: sha512-S9iQV1Biq6JhNpAkqXcsFdVrLW0BC1Tez8C36MEQ/VuhT3YLQySbJkUiG+1U+J1jUqlsG8fT5XsEFbhomCY39w==}
 
   '@mdn/browser-compat-data@5.5.32':
     resolution: {integrity: sha512-viN2VaUd1Hj2VpTDtKVT6LYfBnxzUgXJ+LSQfzuzaHa5mZBlvR3wSxMyUqbfywBbnIWHyKNwz6Yrcdpa4zEOZw==}
@@ -3600,6 +3600,9 @@ packages:
   tslib@2.4.0:
     resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
 
+  tslib@2.6.3:
+    resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
+
   type-check@0.3.2:
     resolution: {integrity: sha512-ZCmOJdvOWDBYJlzAoFkC+Q0+bUyEOS1ltgp1MGU03fqHG+dbi9tBFU2Rd9QKiDZFAYrhPh2JUf7rZRIuHRKtOg==}
     engines: {node: '>= 0.8.0'}
@@ -4911,10 +4914,10 @@ snapshots:
       '@material/theme': 14.0.0-canary.53b3cad2f.0
       tslib: 2.4.0
 
-  '@material/web@1.5.0':
+  '@material/web@1.5.1':
     dependencies:
       lit: 3.1.4
-      tslib: 2.4.0
+      tslib: 2.6.3
 
   '@mdn/browser-compat-data@5.5.32': {}
 
@@ -8022,6 +8025,8 @@ snapshots:
       yn: 3.1.1
 
   tslib@2.4.0: {}
+
+  tslib@2.6.3: {}
 
   type-check@0.3.2:
     dependencies:
