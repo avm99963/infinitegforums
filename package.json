@@ -50,7 +50,7 @@
     "ts-loader": "9.5.1",
     "ts-node": "10.9.2",
     "typescript": "5.5.3",
-    "typescript-eslint": "8.0.0-alpha.42",
+    "typescript-eslint": "8.0.0-alpha.44",
     "web-ext": "8.2.0",
     "webpack": "5.93.0",
     "webpack-cli": "5.1.4",
