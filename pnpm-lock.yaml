@@ -31,7 +31,7 @@ importers:
         version: 1.5.1
       '@stdlib/utils-escape-regexp-string':
         specifier: ^0.2.0
-        version: 0.2.1
+        version: 0.2.2
       async-mutex:
         specifier: ^0.5.0
         version: 0.5.0
@@ -766,68 +766,68 @@ packages:
   '@sinonjs/fake-timers@10.3.0':
     resolution: {integrity: sha512-V4BG07kuYSUkTCSBHG8G8TNhM+F19jXFWnQtzj+we8DrkpSBCee9Z3Ms8yiGer/dlmhe35/Xdgyo3/0rQKg7YA==}
 
-  '@stdlib/assert-has-own-property@0.2.1':
-    resolution: {integrity: sha512-TNx+PlR1kGG6Ypg9aiHpHzaIYI8iaKAj7Ad1r/A6BlbkA/czzJMMidJE91uDlpgrMAIILAT68MRXt3kD6X2tAw==}
+  '@stdlib/assert-has-own-property@0.2.2':
+    resolution: {integrity: sha512-m5rV4Z2/iNkwx2vRsNheM6sQZMzc8rQQOo90LieICXovXZy8wA5jNld4kRKjMNcRt/TjrNP7i2Rhh8hruRDlHg==}
     engines: {node: '>=0.10.0', npm: '>2.7.0'}
     os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
 
-  '@stdlib/assert-has-symbol-support@0.2.1':
-    resolution: {integrity: sha512-a0N1kI/csNiPZ/0lad7ATOIMSXgpm0mCBjV95TgA4+Dmmruol0DK3PrP4n+NuoziTLzRSM/CRgEtLQI5X9g6mQ==}
+  '@stdlib/assert-has-symbol-support@0.2.2':
+    resolution: {integrity: sha512-vCsGGmDZz5dikGgdF26rIL0y0nHvH7qaVf89HLLTybceuZijAqFSJEqcB3Gpl5uaeueLNAWExHi2EkoUVqKHGg==}
     engines: {node: '>=0.10.0', npm: '>2.7.0'}
     os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
 
-  '@stdlib/assert-has-tostringtag-support@0.2.1':
-    resolution: {integrity: sha512-cWhgirurOsVJzHSSU0GdX5HqHGF2DRWXPk7xbQ4OPhu0x4yeOa2WAupPf7PHQ0pMD++IoWW3I16Gr310WjLDeg==}
+  '@stdlib/assert-has-tostringtag-support@0.2.2':
+    resolution: {integrity: sha512-bSHGqku11VH0swPEzO4Y2Dr+lTYEtjSWjamwqCTC8udOiOIOHKoxuU4uaMGKJjVfXG1L+XefLHqzuO5azxdRaA==}
     engines: {node: '>=0.10.0', npm: '>2.7.0'}
     os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
 
-  '@stdlib/assert-is-string@0.2.1':
-    resolution: {integrity: sha512-xphxm9i61By/M7cmyCqgPiDof4DP3Rms3lVdcCpkr7T9PkBFMhOlm6zyhxo/2+dhukjf4Sak/WqntF/CWgJFJw==}
+  '@stdlib/assert-is-string@0.2.2':
+    resolution: {integrity: sha512-SOkFg4Hq443hkadM4tzcwTHWvTyKP9ULOZ8MSnnqmU0nBX1zLVFLFGY8jnF6Cary0dL0V7QQBCfuxqKFM6u2PQ==}
     engines: {node: '>=0.10.0', npm: '>2.7.0'}
     os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
 
-  '@stdlib/error-tools-fmtprodmsg@0.2.1':
-    resolution: {integrity: sha512-SaxvGeGfWfda/O3rTNGRGBzAL9gsY/yd8n1hXwzOl/2aUHf8nxcf6Fz6/BQ5PguT0GiBkca19XEhHZZHxX3X/g==}
+  '@stdlib/error-tools-fmtprodmsg@0.2.2':
+    resolution: {integrity: sha512-2IliQfTes4WV5odPidZFGD5eYDswZrPXob7oOu95Q69ERqImo8WzSwnG2EDbHPyOyYCewuMfM5Ha6Ggf+u944Q==}
     engines: {node: '>=0.10.0', npm: '>2.7.0'}
     os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
 
-  '@stdlib/string-base-format-interpolate@0.2.1':
-    resolution: {integrity: sha512-Uxz89eUi4m9yao4VjsqXIxLIF7qDmqEAH0e+XBRWRGC2zx6DhmK2kLnaU0xW69+VJPn3dq4itxq0oryw2E+qIQ==}
+  '@stdlib/string-base-format-interpolate@0.2.2':
+    resolution: {integrity: sha512-i9nU9rAB2+o/RR66TS9iQ8x+YzeUDL1SGiAo6GY3hP6Umz5Dx9Qp/v8T69gWVsb4a1YSclz5+YeCWaFgwvPjKA==}
     engines: {node: '>=0.10.0', npm: '>2.7.0'}
     os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
 
-  '@stdlib/string-base-format-tokenize@0.2.1':
-    resolution: {integrity: sha512-3Ut96pmCgEFArrdwXKm1q0j1FOqTnG/uOsh24uYNU/ABRsMOOajRlAjCCdQv9f8P916qPrSnF1V3Pd18LAaksg==}
+  '@stdlib/string-base-format-tokenize@0.2.2':
+    resolution: {integrity: sha512-kXq2015i+LJjqth5dN+hYnvJXBSzRm8w0ABWB5tYAsIuQTpQK+mSo2muM8JBEFEnqUHAwpUsu2qNTK/9o8lsJg==}
     engines: {node: '>=0.10.0', npm: '>2.7.0'}
     os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
 
-  '@stdlib/string-format@0.2.1':
-    resolution: {integrity: sha512-+HpXkEJ0Z4gthH5KicXvRRJiCiCTSrKzM+mS8N6vwaAD+OG+Oq8Cn43XBD1ic/UHROI9un42MruF1ZLlkSmdOw==}
+  '@stdlib/string-format@0.2.2':
+    resolution: {integrity: sha512-GUa50uxgMAtoItsxTbMmwkyhIwrCxCrsjzk3nAbLnt/1Kt1EWOWMwsALqZdD6K4V/xSJ4ns6PZur3W6w+vKk9g==}
     engines: {node: '>=0.10.0', npm: '>2.7.0'}
     os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
 
-  '@stdlib/symbol-ctor@0.2.1':
-    resolution: {integrity: sha512-ZZAuKPJZ9PVrbRCp4iPKdlyh7uyrCi39dqrU/j/w38mOzYZJV6utK33eeAIsQH5yMDO7Tr0Zu69TKGf2XqmaPw==}
+  '@stdlib/symbol-ctor@0.2.2':
+    resolution: {integrity: sha512-XsmiTfHnTb9jSPf2SoK3O0wrNOXMxqzukvDvtzVur1XBKfim9+seaAS4akmV1H3+AroAXQWVtde885e1B6jz1w==}
     engines: {node: '>=0.10.0', npm: '>2.7.0'}
     os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
 
-  '@stdlib/utils-define-nonenumerable-read-only-property@0.2.1':
-    resolution: {integrity: sha512-L8fs1kI79T2RQIg8rHR9aQnnSDELqiDGWbK3jA1NP8iW+ydxlxXyO8Dw17fBCXVua3Y19a1NVyGtIN5WGe2UCw==}
+  '@stdlib/utils-define-nonenumerable-read-only-property@0.2.2':
+    resolution: {integrity: sha512-V3mpAesJemLYDKG376CsmoczWPE/4LKsp8xBvUxCt5CLNAx3J/1W39iZQyA5q6nY1RStGinGn1/dYZwa8ig0Uw==}
     engines: {node: '>=0.10.0', npm: '>2.7.0'}
     os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
 
-  '@stdlib/utils-define-property@0.2.3':
-    resolution: {integrity: sha512-+EzWImaQR/6XNFbXIITFi3PLQGTbKVIWSYxJfHXAuTtibAMnhHOWvEzKOumVe/Q4Cdsrc3/PIkpjJzliqAX9AA==}
+  '@stdlib/utils-define-property@0.2.4':
+    resolution: {integrity: sha512-XlMdz7xwuw/sqXc9LbsV8XunCzZXjbZPC+OAdf4t4PBw4ZRwGzlTI6WED+f4PYR5Tp9F1cHgLPyMYCIBfA2zRg==}
     engines: {node: '>=0.10.0', npm: '>2.7.0'}
     os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
 
-  '@stdlib/utils-escape-regexp-string@0.2.1':
-    resolution: {integrity: sha512-JwxkU1JGuHu9WJfEAgAvGElizGfainZ25JqIxLOn1pzpmHRW0RVa2cq+scgTjlAvHebcDjjkRQN66ROzIDgUNw==}
+  '@stdlib/utils-escape-regexp-string@0.2.2':
+    resolution: {integrity: sha512-areCibzgpmvm6pGKBg+mXkSDJW4NxtS5jcAT7RtunGMdAYhA/I5whISMPaeJkIT2XhjjFkjKBaIs5pF6aPr4fQ==}
     engines: {node: '>=0.10.0', npm: '>2.7.0'}
     os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
 
-  '@stdlib/utils-native-class@0.2.1':
-    resolution: {integrity: sha512-tM3am6amt50I4mFRlClExUmORqPzMExgDyZc4Lur+LXn5wb0uEoeBbJ27ftMDg8PNLSi5RUuBCwZBEXvYpG0yw==}
+  '@stdlib/utils-native-class@0.2.2':
+    resolution: {integrity: sha512-cSn/FozbEpfR/FlJAoceQtZ8yUJFhZ8RFkbEsxW/7+H4o09yln3lBS0HSfUJISYNtpTNN/2/Fup88vmvwspvwA==}
     engines: {node: '>=0.10.0', npm: '>2.7.0'}
     os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
 
@@ -4914,52 +4914,53 @@ snapshots:
     dependencies:
       '@sinonjs/commons': 3.0.1
 
-  '@stdlib/assert-has-own-property@0.2.1': {}
+  '@stdlib/assert-has-own-property@0.2.2': {}
 
-  '@stdlib/assert-has-symbol-support@0.2.1': {}
+  '@stdlib/assert-has-symbol-support@0.2.2': {}
 
-  '@stdlib/assert-has-tostringtag-support@0.2.1':
+  '@stdlib/assert-has-tostringtag-support@0.2.2':
     dependencies:
-      '@stdlib/assert-has-symbol-support': 0.2.1
+      '@stdlib/assert-has-symbol-support': 0.2.2
 
-  '@stdlib/assert-is-string@0.2.1':
+  '@stdlib/assert-is-string@0.2.2':
     dependencies:
-      '@stdlib/assert-has-tostringtag-support': 0.2.1
-      '@stdlib/utils-define-nonenumerable-read-only-property': 0.2.1
-      '@stdlib/utils-native-class': 0.2.1
+      '@stdlib/assert-has-tostringtag-support': 0.2.2
+      '@stdlib/utils-define-nonenumerable-read-only-property': 0.2.2
+      '@stdlib/utils-native-class': 0.2.2
 
-  '@stdlib/error-tools-fmtprodmsg@0.2.1': {}
+  '@stdlib/error-tools-fmtprodmsg@0.2.2': {}
 
-  '@stdlib/string-base-format-interpolate@0.2.1': {}
+  '@stdlib/string-base-format-interpolate@0.2.2': {}
 
-  '@stdlib/string-base-format-tokenize@0.2.1': {}
+  '@stdlib/string-base-format-tokenize@0.2.2': {}
 
-  '@stdlib/string-format@0.2.1':
+  '@stdlib/string-format@0.2.2':
     dependencies:
-      '@stdlib/string-base-format-interpolate': 0.2.1
-      '@stdlib/string-base-format-tokenize': 0.2.1
+      '@stdlib/string-base-format-interpolate': 0.2.2
+      '@stdlib/string-base-format-tokenize': 0.2.2
 
-  '@stdlib/symbol-ctor@0.2.1': {}
+  '@stdlib/symbol-ctor@0.2.2': {}
 
-  '@stdlib/utils-define-nonenumerable-read-only-property@0.2.1':
+  '@stdlib/utils-define-nonenumerable-read-only-property@0.2.2':
     dependencies:
-      '@stdlib/utils-define-property': 0.2.3
+      '@stdlib/utils-define-property': 0.2.4
 
-  '@stdlib/utils-define-property@0.2.3':
+  '@stdlib/utils-define-property@0.2.4':
     dependencies:
-      '@stdlib/error-tools-fmtprodmsg': 0.2.1
-      '@stdlib/string-format': 0.2.1
+      '@stdlib/error-tools-fmtprodmsg': 0.2.2
+      '@stdlib/string-format': 0.2.2
 
-  '@stdlib/utils-escape-regexp-string@0.2.1':
+  '@stdlib/utils-escape-regexp-string@0.2.2':
     dependencies:
-      '@stdlib/assert-is-string': 0.2.1
-      '@stdlib/string-format': 0.2.1
+      '@stdlib/assert-is-string': 0.2.2
+      '@stdlib/error-tools-fmtprodmsg': 0.2.2
+      '@stdlib/string-format': 0.2.2
 
-  '@stdlib/utils-native-class@0.2.1':
+  '@stdlib/utils-native-class@0.2.2':
     dependencies:
-      '@stdlib/assert-has-own-property': 0.2.1
-      '@stdlib/assert-has-tostringtag-support': 0.2.1
-      '@stdlib/symbol-ctor': 0.2.1
+      '@stdlib/assert-has-own-property': 0.2.2
+      '@stdlib/assert-has-tostringtag-support': 0.2.2
+      '@stdlib/symbol-ctor': 0.2.2
 
   '@szmarczak/http-timer@5.0.1':
     dependencies:
