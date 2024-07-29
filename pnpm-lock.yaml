@@ -27,8 +27,8 @@ importers:
         specifier: ^14.0.0
         version: 14.0.0
       '@material/web':
-        specifier: ^1.0.0
-        version: 1.5.1
+        specifier: ^2.0.0
+        version: 2.0.0
       '@stdlib/utils-escape-regexp-string':
         specifier: ^0.2.0
         version: 0.2.2
@@ -712,8 +712,8 @@ packages:
   '@material/typography@14.0.0-canary.53b3cad2f.0':
     resolution: {integrity: sha512-9J0k2fq7uyHsRzRqJDJLGmg3YzRpfRPtFDVeUH/xBcYoqpZE7wYw5Mb7s/l8eP626EtR7HhXhSPjvRTLA6NIJg==}
 
-  '@material/web@1.5.1':
-    resolution: {integrity: sha512-S9iQV1Biq6JhNpAkqXcsFdVrLW0BC1Tez8C36MEQ/VuhT3YLQySbJkUiG+1U+J1jUqlsG8fT5XsEFbhomCY39w==}
+  '@material/web@2.0.0':
+    resolution: {integrity: sha512-4gukRERrAP4L0m3iLmLW/b7qKvf+26Ey46i2hMjLJCU+kTl6RLiKtI7njDcD8DaziR78IddWJ4Utz9fieuXB6Q==}
 
   '@mdn/browser-compat-data@5.5.34':
     resolution: {integrity: sha512-e8k7+8r3jiJuP7FMH6AL1OnmfQqLyABhTM+NmRDvFeAbMgtFcNQLHpmT7uza5cBnxI01+CAU3aSsIgcKGRdEBQ==}
@@ -4556,7 +4556,7 @@ snapshots:
 
   '@material/animation@14.0.0-canary.53b3cad2f.0':
     dependencies:
-      tslib: 2.4.0
+      tslib: 2.6.3
 
   '@material/banner@14.0.0':
     dependencies:
@@ -4579,7 +4579,7 @@ snapshots:
 
   '@material/base@14.0.0-canary.53b3cad2f.0':
     dependencies:
-      tslib: 2.4.0
+      tslib: 2.6.3
 
   '@material/button@14.0.0':
     dependencies:
@@ -4611,7 +4611,7 @@ snapshots:
       '@material/tokens': 14.0.0-canary.53b3cad2f.0
       '@material/touch-target': 14.0.0-canary.53b3cad2f.0
       '@material/typography': 14.0.0-canary.53b3cad2f.0
-      tslib: 2.4.0
+      tslib: 2.6.3
 
   '@material/circular-progress@14.0.0-canary.53b3cad2f.0':
     dependencies:
@@ -4625,11 +4625,11 @@ snapshots:
 
   '@material/density@14.0.0':
     dependencies:
-      tslib: 2.4.0
+      tslib: 2.6.3
 
   '@material/density@14.0.0-canary.53b3cad2f.0':
     dependencies:
-      tslib: 2.4.0
+      tslib: 2.6.3
 
   '@material/dialog@14.0.0-canary.53b3cad2f.0':
     dependencies:
@@ -4675,7 +4675,7 @@ snapshots:
       '@material/feature-targeting': 14.0.0-canary.53b3cad2f.0
       '@material/rtl': 14.0.0-canary.53b3cad2f.0
       '@material/theme': 14.0.0-canary.53b3cad2f.0
-      tslib: 2.4.0
+      tslib: 2.6.3
 
   '@material/feature-targeting@14.0.0':
     dependencies:
@@ -4683,7 +4683,7 @@ snapshots:
 
   '@material/feature-targeting@14.0.0-canary.53b3cad2f.0':
     dependencies:
-      tslib: 2.4.0
+      tslib: 2.6.3
 
   '@material/focus-ring@14.0.0':
     dependencies:
@@ -4709,7 +4709,7 @@ snapshots:
       '@material/rtl': 14.0.0-canary.53b3cad2f.0
       '@material/theme': 14.0.0-canary.53b3cad2f.0
       '@material/touch-target': 14.0.0-canary.53b3cad2f.0
-      tslib: 2.4.0
+      tslib: 2.6.3
 
   '@material/mwc-base@0.27.0':
     dependencies:
@@ -4747,7 +4747,7 @@ snapshots:
   '@material/mwc-icon@0.27.0':
     dependencies:
       lit: 2.8.0
-      tslib: 2.4.0
+      tslib: 2.6.3
 
   '@material/mwc-ripple@0.27.0':
     dependencies:
@@ -4755,11 +4755,11 @@ snapshots:
       '@material/mwc-base': 0.27.0
       '@material/ripple': 14.0.0-canary.53b3cad2f.0
       lit: 2.8.0
-      tslib: 2.4.0
+      tslib: 2.6.3
 
   '@material/progress-indicator@14.0.0-canary.53b3cad2f.0':
     dependencies:
-      tslib: 2.4.0
+      tslib: 2.6.3
 
   '@material/ripple@14.0.0':
     dependencies:
@@ -4779,7 +4779,7 @@ snapshots:
       '@material/feature-targeting': 14.0.0-canary.53b3cad2f.0
       '@material/rtl': 14.0.0-canary.53b3cad2f.0
       '@material/theme': 14.0.0-canary.53b3cad2f.0
-      tslib: 2.4.0
+      tslib: 2.6.3
 
   '@material/rtl@14.0.0':
     dependencies:
@@ -4789,7 +4789,7 @@ snapshots:
   '@material/rtl@14.0.0-canary.53b3cad2f.0':
     dependencies:
       '@material/theme': 14.0.0-canary.53b3cad2f.0
-      tslib: 2.4.0
+      tslib: 2.6.3
 
   '@material/shape@14.0.0':
     dependencies:
@@ -4803,7 +4803,7 @@ snapshots:
       '@material/feature-targeting': 14.0.0-canary.53b3cad2f.0
       '@material/rtl': 14.0.0-canary.53b3cad2f.0
       '@material/theme': 14.0.0-canary.53b3cad2f.0
-      tslib: 2.4.0
+      tslib: 2.6.3
 
   '@material/theme@14.0.0':
     dependencies:
@@ -4841,14 +4841,14 @@ snapshots:
       '@material/base': 14.0.0
       '@material/feature-targeting': 14.0.0
       '@material/rtl': 14.0.0
-      tslib: 2.4.0
+      tslib: 2.6.3
 
   '@material/touch-target@14.0.0-canary.53b3cad2f.0':
     dependencies:
       '@material/base': 14.0.0-canary.53b3cad2f.0
       '@material/feature-targeting': 14.0.0-canary.53b3cad2f.0
       '@material/rtl': 14.0.0-canary.53b3cad2f.0
-      tslib: 2.4.0
+      tslib: 2.6.3
 
   '@material/typography@14.0.0':
     dependencies:
@@ -4860,9 +4860,9 @@ snapshots:
     dependencies:
       '@material/feature-targeting': 14.0.0-canary.53b3cad2f.0
       '@material/theme': 14.0.0-canary.53b3cad2f.0
-      tslib: 2.4.0
+      tslib: 2.6.3
 
-  '@material/web@1.5.1':
+  '@material/web@2.0.0':
     dependencies:
       lit: 3.1.4
       tslib: 2.6.3
