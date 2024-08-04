@@ -620,5 +620,9 @@
     "inject_extrainfo_message_state_generated_answer_adopted": {
         "message": "Сгенерированный ответ принят",
         "description": "Thread/message state GENERATED_ANSWER_ADOPTED."
+    },
+    "options_fixpekb269560789": {
+        "message": "Предварительное исправление медленной работы Консоли сообщества и высокого использования памяти (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>).",
+        "description": "Feature checkbox in the options page"
     }
 }
