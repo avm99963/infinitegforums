@@ -4,7 +4,7 @@
  */
 
 module.exports = {
-  preset : 'ts-jest/presets/js-with-ts-esm',
+  preset : 'ts-jest/presets/js-with-ts',
   moduleFileExtensions : ['js', 'mjs', 'ts'],
   testRegex : '(/__tests__/.*|(\\.|/)(test|spec))\\.m?[jt]sx?$',
   coverageProvider : 'v8',

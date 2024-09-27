@@ -1,20 +1,14 @@
 /* eslint-disable no-sparse-arrays */
+import { expect, test } from '@jest/globals';
 import * as protojs from './protojs.js';
 
 const objectLike1 = {
   '2': [1, 2, 3],
 };
 
-const arrayLike1 = [
-  undefined,
-  [1, 2, 3],
-];
+const arrayLike1 = [undefined, [1, 2, 3]];
 
-const rObjectLike1 = [
-  ,
-  undefined,
-  [, 1, 2, 3],
-];
+const rObjectLike1 = [, undefined, [, 1, 2, 3]];
 
 const objectLike2 = {
   '1': {
@@ -46,70 +40,83 @@ const objectLike2 = {
   },
 };
 
-const arrayLike2 = [[
-  12,
+const arrayLike2 = [
   [
+    12,
     [
-      undefined, undefined, undefined, undefined, undefined,
-      [false, false, false],
       [
-        false,
-        'Hola',
-      ]
-    ],
-    [
-      undefined, undefined, undefined, undefined, undefined,
-      [true, true, false],
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        [false, false, false],
+        [false, 'Hola'],
+      ],
       [
-        false,
-        'Test',
-      ]
-    ],
-    [
-      undefined, undefined, undefined, undefined, undefined, [],
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        [true, true, false],
+        [false, 'Test'],
+      ],
       [
-        true,
-        'Bye',
-      ]
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        [],
+        [true, 'Bye'],
+      ],
     ],
+    1663,
   ],
-  1663,
-]];
+];
 
-const rObjectLike2 = [, [
+const rObjectLike2 = [
   ,
-  12,
   [
     ,
+    12,
     [
-      , undefined, undefined, undefined, undefined, undefined,
-      [, false, false, false],
+      ,
       [
         ,
-        false,
-        'Hola',
-      ]
-    ],
-    [
-      , undefined, undefined, undefined, undefined, undefined,
-      [, true, true, false],
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        [, false, false, false],
+        [, false, 'Hola'],
+      ],
       [
         ,
-        false,
-        'Test',
-      ]
-    ],
-    [
-      , undefined, undefined, undefined, undefined, undefined, [],
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        [, true, true, false],
+        [, false, 'Test'],
+      ],
       [
         ,
-        true,
-        'Bye',
-      ]
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        [],
+        [, true, 'Bye'],
+      ],
     ],
+    1663,
   ],
-  1663,
-]];
+];
 
 test('can convert object-like to array-like', () => {
   // [ object-like input, array-like verified output ]
