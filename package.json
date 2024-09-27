@@ -26,6 +26,10 @@
     "forums",
     "google"
   ],
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=9"
+  },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "7.24.8",
     "@jest/globals": "29.7.0",
