@@ -13,7 +13,7 @@ importers:
         version: 4.2.3
       '@lit/localize':
         specifier: ^0.12.0
-        version: 0.12.1
+        version: 0.12.2
       '@material/banner':
         specifier: ^14.0.0
         version: 14.0.0
@@ -567,12 +567,15 @@ packages:
   '@lit-labs/ssr-dom-shim@1.2.0':
     resolution: {integrity: sha512-yWJKmpGE6lUURKAaIltoPIE/wrbY3TEkqQt+X0m+7fQNnAv0keydnYvbiJFP1PnMhizmIWRWOG5KLhYyc/xl+g==}
 
+  '@lit-labs/ssr-dom-shim@1.2.1':
+    resolution: {integrity: sha512-wx4aBmgeGvFmOKucFKY+8VFJSYZxs9poN3SDNQFF6lT6NrQUnHiPB2PWz2sc4ieEcAaYYzN+1uWahEeTq2aRIQ==}
+
   '@lit/localize-tools@0.7.2':
     resolution: {integrity: sha512-d5tehVao3Hz1DlTq6jy7TUYrCeyFi/E4BkzWr8MuAMjIM8aoKCR9s3cUw6m++8ZIiqGm2z7+6aHaPc/p1FGHyA==}
     hasBin: true
 
-  '@lit/localize@0.12.1':
-    resolution: {integrity: sha512-uuF6OO6fjqomCf3jXsJ5cTGf1APYuN88S4Gvo/fjt9YkG4OMaMvpEUqd5oWhyzrJfY+HcenAbLJNi2Cq3H7gdg==}
+  '@lit/localize@0.12.2':
+    resolution: {integrity: sha512-Qv9kvgJKDq/JVSwXOxuWvQnnOBysHA99ti9im9a4fImCmx+fto+XXcUYQbjZHqiueEEc4V20PcRDPO+1g/6seQ==}
 
   '@lit/reactive-element@1.6.3':
     resolution: {integrity: sha512-QuTgnG52Poic7uM1AN5yJ09QMe0O28e10XzSvWDz02TJiiKee4stsiownEIadWm8nYzyDAyT+gKzUoZmiWQtsQ==}
@@ -2629,17 +2632,26 @@ packages:
   lit-element@4.0.6:
     resolution: {integrity: sha512-U4sdJ3CSQip7sLGZ/uJskO5hGiqtlpxndsLr6mt3IQIjheg93UKYeGQjWMRql1s/cXNOaRrCzC2FQwjIwSUqkg==}
 
+  lit-element@4.1.0:
+    resolution: {integrity: sha512-gSejRUQJuMQjV2Z59KAS/D4iElUhwKpIyJvZ9w+DIagIQjfJnhR20h2Q5ddpzXGS+fF0tMZ/xEYGMnKmaI/iww==}
+
   lit-html@2.8.0:
     resolution: {integrity: sha512-o9t+MQM3P4y7M7yNzqAyjp7z+mQGa4NS4CxiyLqFPyFWyc4O+nodLrkrxSaCTrla6M5YOLaT3RpbbqjszB5g3Q==}
 
   lit-html@3.1.4:
     resolution: {integrity: sha512-yKKO2uVv7zYFHlWMfZmqc+4hkmSbFp8jgjdZY9vvR9jr4J8fH6FUMXhr+ljfELgmjpvlF7Z1SJ5n5/Jeqtc9YA==}
 
+  lit-html@3.2.0:
+    resolution: {integrity: sha512-pwT/HwoxqI9FggTrYVarkBKFN9MlTUpLrDHubTmW4SrkL3kkqW5gxwbxMMUnbbRHBC0WTZnYHcjDSCM559VyfA==}
+
   lit@2.8.0:
     resolution: {integrity: sha512-4Sc3OFX9QHOJaHbmTMk28SYgVxLN3ePDjg7hofEft2zWlehFL3LiAuapWc4U/kYwMYJSh2hTCPZ6/LIC7ii0MA==}
 
   lit@3.1.4:
     resolution: {integrity: sha512-q6qKnKXHy2g1kjBaNfcoLlgbI3+aSOZ9Q4tiGa9bGYXq5RBXxkVTqTIVmP2VWMp29L4GyvCFm8ZQ2o56eUAMyA==}
+
+  lit@3.2.0:
+    resolution: {integrity: sha512-s6tI33Lf6VpDu7u4YqsSX78D28bYQulM+VAzsGch4fx2H0eLZnJsUBsPWmGYSGoKDNbjtRv02rio1o+UdPVwvw==}
 
   loader-runner@4.2.0:
     resolution: {integrity: sha512-92+huvxMvYlMzMt0iIOukcwYBFpkYJdpl2xsZ7LrlayO7E8SOv+JJUEK17B/dJIHAOLMfh2dZZ/Y18WgmGtYNw==}
@@ -4524,9 +4536,11 @@ snapshots:
 
   '@lit-labs/ssr-dom-shim@1.2.0': {}
 
+  '@lit-labs/ssr-dom-shim@1.2.1': {}
+
   '@lit/localize-tools@0.7.2':
     dependencies:
-      '@lit/localize': 0.12.1
+      '@lit/localize': 0.12.2
       '@parse5/tools': 0.3.0
       '@xmldom/xmldom': 0.8.6
       fast-glob: 3.3.2
@@ -4538,9 +4552,9 @@ snapshots:
       source-map-support: 0.5.21
       typescript: 5.3.3
 
-  '@lit/localize@0.12.1':
+  '@lit/localize@0.12.2':
     dependencies:
-      lit: 3.1.4
+      lit: 3.2.0
 
   '@lit/reactive-element@1.6.3':
     dependencies:
@@ -7124,11 +7138,21 @@ snapshots:
       '@lit/reactive-element': 2.0.4
       lit-html: 3.1.4
 
+  lit-element@4.1.0:
+    dependencies:
+      '@lit-labs/ssr-dom-shim': 1.2.1
+      '@lit/reactive-element': 2.0.4
+      lit-html: 3.2.0
+
   lit-html@2.8.0:
     dependencies:
       '@types/trusted-types': 2.0.7
 
   lit-html@3.1.4:
+    dependencies:
+      '@types/trusted-types': 2.0.7
+
+  lit-html@3.2.0:
     dependencies:
       '@types/trusted-types': 2.0.7
 
@@ -7143,6 +7167,12 @@ snapshots:
       '@lit/reactive-element': 2.0.4
       lit-element: 4.0.6
       lit-html: 3.1.4
+
+  lit@3.2.0:
+    dependencies:
+      '@lit/reactive-element': 2.0.4
+      lit-element: 4.1.0
+      lit-html: 3.2.0
 
   loader-runner@4.2.0: {}
 
