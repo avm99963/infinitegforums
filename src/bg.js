@@ -109,7 +109,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
 
     case 'openWorkflowsManager':
       chrome.tabs.create({
-        url: chrome.runtime.getURL('options/workflows.html'),
+        url: chrome.runtime.getURL('workflows.html'),
       });
       break;
 

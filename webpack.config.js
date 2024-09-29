@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const json5 = require('json5');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const WebpackShellPluginNext = require('webpack-shell-plugin-next');
@@ -40,8 +41,10 @@ module.exports = (env, args) => {
   // web_accessible_resources in //templates/manifest.gjson.
   let entry = {
     // Content scripts
-    communityConsoleMain: './src/platforms/communityConsole/entryPoints/main.ts',
-    communityConsoleStart: './src/platforms/communityConsole/entryPoints/start.ts',
+    communityConsoleMain:
+        './src/platforms/communityConsole/entryPoints/main.ts',
+    communityConsoleStart:
+        './src/platforms/communityConsole/entryPoints/start.ts',
     publicForum: './src/contentScripts/publicForum.js',
     publicThread: './src/contentScripts/publicThread.js',
     publicThreadStart: './src/contentScripts/publicThreadStart.js',
@@ -138,6 +141,11 @@ module.exports = (env, args) => {
             }
           },
         ]
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'workflows.html',
+        template: 'src/features/workflows/templates/workflows.html.ejs',
+        chunks: ['workflowManager'],
       }),
       new webpack.DefinePlugin({
         'PRODUCTION': args.mode == 'production',

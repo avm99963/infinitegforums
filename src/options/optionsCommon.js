@@ -172,7 +172,7 @@ window.addEventListener('load', function() {
     manageWorkflowsBtn.addEventListener('click', e => {
       e.preventDefault();
       chrome.tabs.create({
-        url: chrome.runtime.getURL('options/workflows.html'),
+        url: chrome.runtime.getURL('workflows.html'),
       })
     });
 
