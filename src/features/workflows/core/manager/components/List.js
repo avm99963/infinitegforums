@@ -36,13 +36,26 @@ export default class WFList extends LitElement {
   dialogRef = createRef();
 
   renderListItems() {
-    return map(this.workflows, w => html`
+    return map(this.workflows, (w, index) => html`
       <md-list-item
           type="button"
           @click=${() => this._show(w)}>
         <div slot="headline">${w.proto?.getName?.()}</div>
         <div slot="end" class="end">
           <md-icon-button
+              aria-label="Move up"
+              ?soft-disabled=${index === 0}
+              @click=${e => this._moveUp(w.uuid, e)}>
+            <md-icon>arrow_upward</md-icon>
+          </md-icon-button>
+          <md-icon-button
+              aria-label="Move down"
+              ?soft-disabled=${index === this.workflows.length - 1}
+              @click=${e => this._moveDown(w.uuid, e)}>
+            <md-icon>arrow_downward</md-icon>
+          </md-icon-button>
+          <md-icon-button
+              aria-label="Delete"
               @click=${e => this._showDelete(w.uuid, e)}>
             <md-icon>delete</md-icon>
           </md-icon-button>
@@ -85,6 +98,16 @@ export default class WFList extends LitElement {
     this.dialogRef.value.uuid = fullWorkflow.uuid;
     this.dialogRef.value.workflow = fullWorkflow.proto.cloneMessage();
     this.dialogRef.value.open = true;
+  }
+
+  _moveUp(uuid, e) {
+    e.stopPropagation();
+    WorkflowsStorage.moveUp(uuid);
+  }
+
+  _moveDown(uuid, e) {
+    e.stopPropagation();
+    WorkflowsStorage.moveDown(uuid);
   }
 
   _showDelete(uuid, e) {

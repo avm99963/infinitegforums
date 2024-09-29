@@ -97,6 +97,38 @@ export default class WorkflowsStorage {
     });
   }
 
+  static async moveUp(uuid) {
+    await this.moveToRelativePosition(uuid, -1);
+  }
+
+  static async moveDown(uuid) {
+    await this.moveToRelativePosition(uuid, 1);
+  }
+
+  /**
+   * Swaps the workflow with the one saved in the specified position relative to
+   * the workflow's position. Example: position = 1 swaps the workflow with the
+   * next workflow, so it appears afterwards.
+   */
+  static async moveToRelativePosition(uuid, relativePosition) {
+    const workflows = await this.getAll();
+    const index = workflows.findIndex((workflow) => workflow.uuid === uuid);
+    if (index === -1) {
+      throw new Error(
+          'Couldn\'t move the workflow because it couldn\'t be found.',
+      );
+    }
+    if (workflows[index + relativePosition] === undefined) {
+      throw new Error(
+          'Couldn\'t move the workflow because the specified relative position is out of bounds.',
+      );
+    }
+    [workflows[index], workflows[index + relativePosition]] =
+        [workflows[index + relativePosition], workflows[index]];
+    const items = {[kWorkflowsDataKey]: workflows};
+    await chrome.storage.local.set(items);
+  }
+
   static _proto2Base64(workflow) {
     const binaryWorkflow = workflow.serializeBinary();
     return arrayBufferToBase64(binaryWorkflow);
