@@ -67,8 +67,8 @@ importers:
         specifier: 29.7.0
         version: 29.7.0
       '@lit/localize-tools':
-        specifier: 0.7.2
-        version: 0.7.2
+        specifier: 0.8.0
+        version: 0.8.0
       '@types/chrome':
         specifier: 0.0.272
         version: 0.0.272
@@ -578,8 +578,8 @@ packages:
   '@lit-labs/ssr-dom-shim@1.2.1':
     resolution: {integrity: sha512-wx4aBmgeGvFmOKucFKY+8VFJSYZxs9poN3SDNQFF6lT6NrQUnHiPB2PWz2sc4ieEcAaYYzN+1uWahEeTq2aRIQ==}
 
-  '@lit/localize-tools@0.7.2':
-    resolution: {integrity: sha512-d5tehVao3Hz1DlTq6jy7TUYrCeyFi/E4BkzWr8MuAMjIM8aoKCR9s3cUw6m++8ZIiqGm2z7+6aHaPc/p1FGHyA==}
+  '@lit/localize-tools@0.8.0':
+    resolution: {integrity: sha512-18HY8Ln8ZhSW2CYlXY9+CgDeEoxIY4dBvJ7W5fOe5262NvWEQghMgEC01WT9SQm4Non9C42aDGEYLEegw2ZBhw==}
     hasBin: true
 
   '@lit/localize@0.12.2':
@@ -3658,11 +3658,6 @@ packages:
       typescript:
         optional: true
 
-  typescript@5.3.3:
-    resolution: {integrity: sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==}
-    engines: {node: '>=14.17'}
-    hasBin: true
-
   typescript@5.5.4:
     resolution: {integrity: sha512-Mtq29sKDAEYP7aljRgtPOpTvOfbwRWlS6dPRzwjdE+C0R4brX/GUyhHSecbHMFLNBLcJIPt9nl9yG5TZ1weH+Q==}
     engines: {node: '>=14.17'}
@@ -4546,7 +4541,7 @@ snapshots:
 
   '@lit-labs/ssr-dom-shim@1.2.1': {}
 
-  '@lit/localize-tools@0.7.2':
+  '@lit/localize-tools@0.8.0':
     dependencies:
       '@lit/localize': 0.12.2
       '@parse5/tools': 0.3.0
@@ -4558,7 +4553,7 @@ snapshots:
       minimist: 1.2.8
       parse5: 7.1.2
       source-map-support: 0.5.21
-      typescript: 5.3.3
+      typescript: 5.5.4
 
   '@lit/localize@0.12.2':
     dependencies:
@@ -8063,8 +8058,6 @@ snapshots:
     transitivePeerDependencies:
       - eslint
       - supports-color
-
-  typescript@5.3.3: {}
 
   typescript@5.5.4: {}
 

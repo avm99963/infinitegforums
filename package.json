@@ -33,7 +33,7 @@
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "7.24.8",
     "@jest/globals": "29.7.0",
-    "@lit/localize-tools": "0.7.2",
+    "@lit/localize-tools": "0.8.0",
     "@types/chrome": "0.0.272",
     "@types/eslint__js": "8.42.3",
     "@types/node": "20.14.13",
