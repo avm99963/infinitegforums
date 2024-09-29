@@ -12,6 +12,15 @@
       "automerge": true,
       "automergeType": "pr",
       "autoApprove": true
+    },
+    {
+      "description": "Automerge updates to @types/chrome even if the major version is 0",
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["@types/chrome"],
+      "matchUpdateTypes": ["minor", "patch", "pin"],
+      "automerge": true,
+      "automergeType": "pr",
+      "autoApprove": true
     }
   ]
 }
