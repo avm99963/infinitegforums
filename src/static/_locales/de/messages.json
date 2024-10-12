@@ -70,5 +70,293 @@
     "options_history": {
         "message": "Zeigen Sie in Benutzerprofilen einen Link zu „vorherigen Beiträgen“ an.",
         "description": "Feature checkbox in the options page"
+    },
+    "options_profileindicator": {
+        "message": "Zeigen Sie an, <span class=\"help\" title=\"Wenn der OP an anderen Threads teilgenommen hat, wird neben seinem Benutzernamen ein roter Punkt angezeigt. Wenn die letzten Beiträge des OP gelesen wurden, wird stattdessen ein orangefarbener Punkt angezeigt. Sie können mit der Maus über den Punkt fahren, um die Bedeutung seiner Farbe anzuzeigen.\">ob der OP an anderen Threads teilgenommen hat</span>."
+    },
+    "inject_lockdialog_desc": {
+        "message": "Bitte bestätigen Sie die gewünschte Aktion, indem Sie unten auf die entsprechende Schaltfläche klicken. Beachten Sie, dass diese Aktion in allen von Ihnen ausgewählten Threads ausgeführt wird."
+    },
+    "inject_autorefresh_list_status_indicator_label_disabled": {
+        "message": "Ich kann nicht auf Aktualisierungen der Threadliste achten. Bitte ändern Sie die Sortieroptionen in „Sortieren nach: Letzte Aktualisierung“ und absteigende Reihenfolge."
+    },
+    "options_ccdarktheme": {
+        "message": "Aktivieren Sie das dunkle Design in der Community-Konsole, gesteuert über <span id='ccdarktheme_mode--container'></span>."
+    },
+    "options_ccdarktheme_mode_switch": {
+        "message": "mit einem Schalter im CC"
+    },
+    "options_ccdarktheme_mode_system": {
+        "message": "durch die Dunkelmodus-Einstellung des Betriebssystems"
+    },
+    "options_ccforcehidedrawer": {
+        "message": "Blenden Sie in der Community Console immer die linke Spalte aus."
+    },
+    "options_ccdragndropfix": {
+        "message": "Ermöglicht das Ziehen und Ablegen von Links zum Texteditor der Community Console unter Beibehaltung des Textes."
+    },
+    "options_batchlock": {
+        "message": "Fügen Sie die Option zum Sperren mehrerer Threads aus der Threadliste der Community-Konsole hinzu."
+    },
+    "options_stickysidebarheaders": {
+        "message": "Sorgen Sie dafür, dass die Überschriften in der Seitenleiste der Community Console oben bleiben (+info unter <code>pekb/thread/60784834</code>)."
+    },
+    "inject_extrainfo_profile_abusecategory_noviolation": {
+        "message": "Kein Verstoß"
+    },
+    "options_enhancedannouncementsdot": {
+        "message": "Zeigen Sie den Benachrichtigungspunkt für Ankündigungen in der Community-Konsole deutlicher an."
+    },
+    "options_repositionexpandthread": {
+        "message": "Platzieren Sie die Schaltfläche „Thread erweitern“ ganz links in den Threadlisten der Community-Konsole."
+    },
+    "options_threadlistavatars": {
+        "message": "Avatare in Thread-Listen in der Community-Konsole anzeigen."
+    },
+    "options_autorefreshlist": {
+        "message": "Zeigen Sie in der Community-Konsole eine Benachrichtigung an, wenn eine Thread-Liste neue Updates enthält."
+    },
+    "options_imagemaxheight": {
+        "message": "Verhindern Sie, dass Inline-Bilder in Nachrichten höher als das aktuelle Fenster sind."
+    },
+    "options_loaddrafts": {
+        "message": "Aktivieren Sie das Community-Konsolen-Flag <code class=\"help\" title=\"Dieses Flag ermöglicht der Community-Konsole, eine zuvor automatisch gespeicherte Antwort zu laden, wenn ein Thread geladen und auf die Schaltfläche \"Antworten\" geklickt wird.\">enableLoadingDraftMessages</code>."
+    },
+    "options_profileindicator_moreinfo": {
+        "message": "+Infos zu den beiden vorherigen Optionen"
+    },
+    "options_blockdrafts": {
+        "message": "Blockieren Sie das Senden Ihrer Antworten während der Eingabe an Google-Server in der Community Console."
+    },
+    "options_workflows": {
+        "message": "Aktivieren Sie die Workflow-Funktion."
+    },
+    "options_interopthreadpage": {
+        "message": "Zeigen Sie <span id='interopthreadpage_mode--container'></span> in der Community-Konsole an."
+    },
+    "options_interopthreadpage_mode_previous": {
+        "message": "das alte Thread-Seiten-Design"
+    },
+    "options_interopthreadpage_mode_next": {
+        "message": "das neue Thread-Seiten-Design"
+    },
+    "options_uispacing": {
+        "message": "Reduzieren Sie die Leerzeichen in der Community Console und im TW."
+    },
+    "options_flattenthreads": {
+        "message": "Zeigen Sie einen Schalter zum Aktivieren/Deaktivieren der verschachtelten Ansicht in Threads an."
+    },
+    "inject_previousposts": {
+        "message": "Vorherige Beiträge"
+    },
+    "inject_previousposts_forum": {
+        "message": "Vorherige Beiträge (in diesem Forum)"
+    },
+    "inject_previousposts_all": {
+        "message": "Vorherige Beiträge (in allen Foren)"
+    },
+    "inject_profileindicator_loading": {
+        "message": "lädt ..."
+    },
+    "inject_profileindicator_first_post": {
+        "message": "Dies ist der erste vom OP erstellte Thread in diesem Forum."
+    },
+    "inject_profileindicator_other_posts_read": {
+        "message": "Der OP hat an anderen Threads in diesem Forum teilgenommen, aber Sie haben die letzten fünf gelesen."
+    },
+    "inject_profileindicator_other_posts_unread": {
+        "message": "Der OP hat an anderen Threads in diesem Forum teilgenommen, von denen Sie einige nicht gelesen haben."
+    },
+    "inject_profileindicatoralt_numposts": {
+        "message": "Anzahl der Fragen und Antworten in den letzten $1 Monaten."
+    },
+    "inject_ccdarktheme_helper": {
+        "message": "Design wechseln"
+    },
+    "inject_extension_badge_helper": {
+        "message": "Hinzugefügt um $1"
+    },
+    "inject_lockbtn": {
+        "message": "Threads sperren/entsperren"
+    },
+    "inject_lockdialog_btn_lock": {
+        "message": "sperren"
+    },
+    "inject_lockdialog_btn_unlock": {
+        "message": "entsperren"
+    },
+    "inject_lockdialog_btn_cancel": {
+        "message": "abbrechen"
+    },
+    "inject_lockdialog_btn_close": {
+        "message": "schließen"
+    },
+    "inject_lockdialog_log_entry_beginning": {
+        "message": "Thread $1"
+    },
+    "inject_lockdialog_log_entry_success_lock": {
+        "message": "Erfolgreich gesperrt."
+    },
+    "inject_lockdialog_log_entry_error_lock": {
+        "message": "Beim Sperren von ($1) ist ein Fehler aufgetreten."
+    },
+    "inject_lockdialog_log_entry_success_unlock": {
+        "message": "Erfolgreich entsperrt."
+    },
+    "inject_lockdialog_log_entry_error_unlock": {
+        "message": "Beim Entsperren ist ein Fehler aufgetreten ($1)."
+    },
+    "inject_autorefresh_list_snackbar_message": {
+        "message": "Es gibt neue Threads."
+    },
+    "inject_autorefresh_list_snackbar_action": {
+        "message": "Aktualisieren"
+    },
+    "inject_autorefresh_list_status_indicator_label_active": {
+        "message": "Achten Sie auf Aktualisierungen der Threadliste ..."
+    },
+    "inject_threadlistavatars_private_thread_indicator_label": {
+        "message": "Aus technischen Gründen können wir die Avatare von Threads, die in privaten Foren veröffentlicht werden, nicht laden."
+    },
+    "inject_threadlistavatars_invisible_thread_indicator_label": {
+        "message": "Aus technischen Gründen können wir die Avatare von Threads nicht laden, die für anonyme Benutzer nicht sichtbar sind."
+    },
+    "inject_workflows_menubtn": {
+        "message": "Führen Sie einen Workflow aus ..."
+    },
+    "inject_perforumstats_heading": {
+        "message": "Aktivität pro Forum"
+    },
+    "inject_perforumstats_nummessages_plural": {
+        "message": "$NUM$ Nachrichten",
+        "placeholders": {
+            "num": {
+                "content": "$1",
+                "example": "963"
+            }
+        }
+    },
+    "inject_perforumstats_role_bronze": {
+        "message": "Bronze"
+    },
+    "inject_perforumstats_role_silver": {
+        "message": "Silber"
+    },
+    "inject_perforumstats_role_gold": {
+        "message": "Gold"
+    },
+    "inject_perforumstats_role_platinum": {
+        "message": "Platin"
+    },
+    "inject_perforumstats_role_diamond": {
+        "message": "Diamand"
+    },
+    "inject_perforumstats_role_community_manager": {
+        "message": "CM"
+    },
+    "inject_perforumstats_role_community_specialist": {
+        "message": "Spezialist"
+    },
+    "inject_perforumstats_role_google_employee": {
+        "message": "Googler"
+    },
+    "inject_perforumstats_role_alumnus": {
+        "message": "Alumni"
+    },
+    "inject_perforumstats_optgroup_notposted": {
+        "message": "Nicht innerhalb der letzten 12 Monate gepostet"
+    },
+    "inject_perforumstats_chart_label": {
+        "message": "Benutzeraktivitätsdiagramm"
+    },
+    "inject_perforumstats_chart_replies": {
+        "message": "Antworten (nicht empfohlen)"
+    },
+    "inject_perforumstats_chart_questions": {
+        "message": "Fragen"
+    },
+    "inject_perforumstats_chart_communityvideos": {
+        "message": "Community-Videos"
+    },
+    "inject_perforumstats_chart_communityguides": {
+        "message": "Community-Leitfäden"
+    },
+    "inject_extrainfo_profile_abusecategory": {
+        "message": "Missbrauchskategorie: 1 $"
+    },
+    "inject_extrainfo_profile_abusecategory_communitypolicy": {
+        "message": "Verstoß gegen die Community-Richtlinien"
+    },
+    "inject_extrainfo_profile_abusecategory_legal": {
+        "message": "Rechtsverstoß"
+    },
+    "inject_extrainfo_profile_abusecategory_csai": {
+        "message": "CSAI-Verstoß"
+    },
+    "inject_extrainfo_profile_abusecategory_other": {
+        "message": "Sonstiger Verstoß"
+    },
+    "inject_extrainfo_profile_abuse_account": {
+        "message": "Verstoß gegen die Kontorichtlinien: 1 $"
+    },
+    "inject_extrainfo_profile_abuse_displayname": {
+        "message": "Verstoß gegen die Anzeigenamenrichtlinie: 1 $"
+    },
+    "inject_extrainfo_profile_abuse_avatar": {
+        "message": "Verstoß gegen die Avatar-Richtlinien: 1 $"
+    },
+    "inject_extrainfo_profile_appealsnum": {
+        "message": "Anzahl der Einsprüche: $1"
+    },
+    "inject_extrainfo_crs_used_singular": {
+        "message": "1 mal verwendet"
+    },
+    "inject_extrainfo_crs_used_plural": {
+        "message": "$1 male genutzt"
+    },
+    "inject_extrainfo_crs_lastused": {
+        "message": "Zuletzt verwendet: $1"
+    },
+    "inject_extrainfo_message_pendingstate": {
+        "message": "Nur für Benutzer mit Ausweis sichtbar"
+    },
+    "options_experiments_description": {
+        "message": "Willkommen! Unten finden Sie eine Liste von Experimenten: Funktionen, die sich in der Entwicklung befinden und noch nicht ganz startbereit sind. Sie sind hochgradig experimentell und können daher nicht funktionieren und/oder Probleme verursachen. Wenn Sie jedoch mutig sind, aktivieren Sie die Funktionen, die Sie am meisten interessieren, und <a href='https://github.com/avm99963/infinitegforums/discussions/categories/feedback'>geben Sie Feedback</a>!"
+    },
+    "inject_links": {
+        "message": "Links"
+    },
+    "options_fixpekb269560789": {
+        "message": "Vorläufiger Fix für CC-Langsamkeit und hohen Speicherverbrauch (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>)."
+    },
+    "options_saved": {
+        "message": "gespeichert"
+    },
+    "options_experiments_title": {
+        "message": "Experimente"
+    },
+    "inject_perforumstats_nummessages_singular": {
+        "message": "1 Nachricht"
+    },
+    "options_experimental_label": {
+        "message": "(experimentell)"
+    },
+    "options_profileindicatoralt": {
+        "message": "Zeigt neben dem Benutzernamen die Anzahl der Fragen und Antworten an, die der OP in den letzten <span id='profileindicatoralt_months--container'></span> Monaten geschrieben hat."
+    },
+    "options_workflows_manage": {
+        "message": "Workflows verwalten"
+    },
+    "options_extrainfo": {
+        "message": "Zeigen Sie zusätzliche Informationen in Threads, Profilen und der Liste mit vorgefertigten Antworten an."
+    },
+    "options_perforumstats": {
+        "message": "Zeigen Sie die Aktivität pro Forum in Profilen an."
+    },
+    "options_save": {
+        "message": "Speichern"
+    },
+    "inject_perforumstats_chart_recommended": {
+        "message": "Empfohlen"
     }
 }
