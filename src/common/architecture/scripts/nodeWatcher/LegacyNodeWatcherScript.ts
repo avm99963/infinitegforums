@@ -1,4 +1,4 @@
-import NodeWatcherSingleton from '../../../nodeWatcher/NodeWatcher';
+import NodeWatcherSingleton, { NodeWatcherAdapter } from '../../../../infrastructure/presentation/nodeWatcher/NodeWatcher.adapter';
 import { ConcreteNodeWatcherScriptHandler } from './handlers/NodeWatcherScriptHandler';
 import Script from '../Script';
 
@@ -11,22 +11,28 @@ export default abstract class LegacyNodeWatcherScript<Options> extends Script {
     ConcreteNodeWatcherScriptHandler<Options>
   >;
 
+  private nodeWatcher: NodeWatcherAdapter;
+
+  constructor() {
+    super();
+
+    // TODO(https://iavm.xyz/b/226): Retrieve this via constructor injection.
+    this.nodeWatcher = NodeWatcherSingleton.getInstance();
+  }
+
   /**
    * Resolves to the options when the script is executed.
    *
-   * This is so we can defer retrieving dependencies until the script is
-   * executed, to prevent loading unnecessary things if they aren't needed
-   * after all.
    */
   protected abstract optionsFactory(): Options;
 
   execute() {
-    const nodeWatcher = NodeWatcherSingleton.getInstance();
     const options = this.optionsFactory();
 
+    this.nodeWatcher.start();
     for (const [key, handlerClass] of this.handlers) {
       const handler = new handlerClass(options);
-      nodeWatcher.setHandler(key, handler);
+      this.nodeWatcher.setHandler(key, handler);
     }
   }
 }

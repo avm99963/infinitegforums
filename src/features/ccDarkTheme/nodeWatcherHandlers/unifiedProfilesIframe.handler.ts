@@ -1,5 +1,5 @@
 import CssSelectorNodeWatcherScriptHandler from '../../../common/architecture/scripts/nodeWatcher/handlers/CssSelectorNodeWatcherScriptHandler';
-import { NodeMutation } from '../../../common/nodeWatcher/NodeWatcherHandler';
+import { NodeMutation } from '../../../presentation/nodeWatcher/NodeWatcherHandler';
 import { isDarkThemeOn } from '../core/logic/darkTheme';
 import { unifiedProfilesFix } from '../core/logic/unifiedProfiles';
 import { CCDarkThemeNodeWatcherDependencies } from '../scripts/nodeWatcher.script';

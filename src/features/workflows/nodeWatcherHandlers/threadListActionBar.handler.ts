@@ -1,5 +1,5 @@
 import { NodeWatcherScriptHandler } from '../../../common/architecture/scripts/nodeWatcher/handlers/NodeWatcherScriptHandler';
-import { NodeMutation } from '../../../common/nodeWatcher/NodeWatcherHandler';
+import { NodeMutation } from '../../../presentation/nodeWatcher/NodeWatcherHandler';
 import { WorkflowsNodeWatcherDependencies } from '../scripts/nodeWatcher.script';
 
 /**

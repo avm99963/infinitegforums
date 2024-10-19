@@ -1,4 +1,4 @@
-import { NodeMutation } from '../../../common/nodeWatcher/NodeWatcherHandler';
+import { NodeMutation } from '../../../presentation/nodeWatcher/NodeWatcherHandler';
 import CssSelectorNodeWatcherScriptHandler from '../../../common/architecture/scripts/nodeWatcher/handlers/CssSelectorNodeWatcherScriptHandler';
 import { InfiniteScrollNodeWatcherOptions } from '../scripts/ccInfiniteScroll.script';
 

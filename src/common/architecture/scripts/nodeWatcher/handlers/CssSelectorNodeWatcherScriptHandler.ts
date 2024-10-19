@@ -1,5 +1,5 @@
 import { NodeWatcherScriptHandler } from './NodeWatcherScriptHandler';
-import { NodeMutation, NodeMutationType } from '../../../../nodeWatcher/NodeWatcherHandler';
+import { NodeMutation, NodeMutationType } from '../../../../../presentation/nodeWatcher/NodeWatcherHandler';
 
 /**
  * @deprecated

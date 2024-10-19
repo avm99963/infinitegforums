@@ -2,20 +2,20 @@ import {
   NodeWatcherHandler,
   NodeMutation,
   NodeMutationType,
-} from './NodeWatcherHandler';
+} from '../../../presentation/nodeWatcher/NodeWatcherHandler';
 
-class NodeWatcher {
+export class NodeWatcherAdapter {
+  private started = false;
   private handlers: Map<string, NodeWatcherHandler> = new Map();
-  private mutationObserver: MutationObserver;
+  private mutationObserver: MutationObserver | undefined;
 
-  constructor() {
+  start(): void {
+    if (this.started) return;
+
+    this.started = true;
     this.mutationObserver = new MutationObserver(
       this.mutationCallback.bind(this),
     );
-    this.start();
-  }
-
-  start(): void {
     this.mutationObserver.observe(document.body, {
       childList: true,
       subtree: true,
@@ -27,6 +27,7 @@ class NodeWatcher {
   }
 
   setHandler(key: string, handler: NodeWatcherHandler): void {
+    this.start();
     this.handlers.set(key, handler);
     this.performInitialDiscovery(handler);
   }
@@ -97,16 +98,16 @@ class NodeWatcher {
 }
 
 export default class NodeWatcherSingleton {
-  private static instance: NodeWatcher;
+  private static instance: NodeWatcherAdapter;
 
   /**
    * @see {@link NodeWatcherSingleton.getInstance}
    */
   private constructor() {}
 
-  public static getInstance(): NodeWatcher {
+  public static getInstance(): NodeWatcherAdapter {
     if (!NodeWatcherSingleton.instance) {
-      NodeWatcherSingleton.instance = new NodeWatcher();
+      NodeWatcherSingleton.instance = new NodeWatcherAdapter();
     }
     return NodeWatcherSingleton.instance;
   }

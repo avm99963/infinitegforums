@@ -1,5 +1,5 @@
 import CssSelectorNodeWatcherScriptHandler from '../../../../common/architecture/scripts/nodeWatcher/handlers/CssSelectorNodeWatcherScriptHandler';
-import { NodeMutation } from '../../../../common/nodeWatcher/NodeWatcherHandler';
+import { NodeMutation } from '../../../../presentation/nodeWatcher/NodeWatcherHandler';
 import { CCExtraInfoMainOptions } from '../../scripts/ccExtraInfoMain.script';
 
 export default class CCExtraInfoProfileAbuseChipsHandler extends CssSelectorNodeWatcherScriptHandler<CCExtraInfoMainOptions> {

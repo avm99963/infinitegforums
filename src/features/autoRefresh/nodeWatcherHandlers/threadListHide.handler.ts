@@ -1,5 +1,5 @@
 import CssSelectorNodeWatcherScriptHandler from '../../../common/architecture/scripts/nodeWatcher/handlers/CssSelectorNodeWatcherScriptHandler';
-import { NodeMutationType } from '../../../common/nodeWatcher/NodeWatcherHandler';
+import { NodeMutationType } from '../../../presentation/nodeWatcher/NodeWatcherHandler';
 import { AutoRefreshNodeWatcherDependencies } from '../scripts/nodeWatcher.script';
 
 /**

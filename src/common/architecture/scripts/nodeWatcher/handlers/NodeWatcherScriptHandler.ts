@@ -1,4 +1,4 @@
-import { NodeMutation, NodeWatcherHandler } from "../../../../nodeWatcher/NodeWatcherHandler";
+import { NodeMutation, NodeWatcherHandler } from "../../../../../presentation/nodeWatcher/NodeWatcherHandler";
 
 export abstract class NodeWatcherScriptHandler<Options>
   implements NodeWatcherHandler
