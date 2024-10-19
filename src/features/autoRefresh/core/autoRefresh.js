@@ -26,8 +26,6 @@ export default class AutoRefresh {
     this.snackbar = null;
     this.statusIndicator = null;
     this.interval = null;
-
-    this.setUpHandlers();
   }
 
   isOrderedByTimestampDescending() {
