@@ -4,6 +4,9 @@ import {
   ScriptRunPhase,
 } from '../scripts/Script';
 
+/**
+ * @deprecated
+ */
 export interface Context {
   page: ScriptPage;
   environment: ScriptEnvironment;

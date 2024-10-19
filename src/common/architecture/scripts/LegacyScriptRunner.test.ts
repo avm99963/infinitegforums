@@ -4,7 +4,7 @@ import Script, {
   ScriptRunPhase,
 } from './Script';
 import { beforeEach, expect, it, jest } from '@jest/globals';
-import ScriptRunner from './ScriptRunner';
+import LegacyScriptRunner from './LegacyScriptRunner';
 
 interface FakeScriptOptions {
   id: string;
@@ -69,7 +69,7 @@ it('scripts run in the correct order based on priority', () => {
     },
   ];
 
-  const scriptRunner = new ScriptRunner();
+  const scriptRunner = new LegacyScriptRunner();
   scriptRunner.add(...scriptsConfig.map((config) => config.script));
   scriptRunner.run();
 

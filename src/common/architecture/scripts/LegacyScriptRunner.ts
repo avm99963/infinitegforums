@@ -1,6 +1,6 @@
 import Script from './Script';
 
-export default class ScriptRunner {
+export default class LegacyScriptRunner {
   private scripts: Script[] = [];
 
   add(...scripts: Script[]) {

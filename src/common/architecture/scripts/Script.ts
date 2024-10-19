@@ -1,3 +1,6 @@
+/**
+ * @deprecated
+ */
 export enum ScriptRunPhase {
   /**
    * Executed before any Javascript is executed.
@@ -9,15 +12,24 @@ export enum ScriptRunPhase {
   Main,
 }
 
+/**
+ * @deprecated
+ */
 export enum ScriptEnvironment {
   ContentScript,
   InjectedScript,
 }
 
+/**
+ * @deprecated
+ */
 export enum ScriptPage {
   CommunityConsole,
 }
 
+/**
+ * @deprecated
+ */
 export const ScriptRunPhaseToRunTime: Record<
   ScriptRunPhase,
   chrome.userScripts.RunAt
@@ -26,6 +38,9 @@ export const ScriptRunPhaseToRunTime: Record<
   [ScriptRunPhase.Main]: 'document_idle',
 };
 
+/**
+ * @deprecated
+ */
 export const ScriptEnvironmentToExecutionWorld: Record<
   ScriptEnvironment,
   chrome.scripting.ExecutionWorld
@@ -45,17 +60,20 @@ export default abstract class Script {
 
   /**
    * Page where the script should be executed.
+   * @deprecated
    */
   abstract readonly page: ScriptPage;
 
   /**
    * Environment where the script should be executed.
+   * @deprecated
    */
   abstract readonly environment: ScriptEnvironment;
 
   /**
    * If {@link environment} is {@link ScriptEnvironment.ContentScript}, phase of
    * the page loading when the script should be executed.
+   * @deprecated
    */
   abstract readonly runPhase?: ScriptRunPhase;
 

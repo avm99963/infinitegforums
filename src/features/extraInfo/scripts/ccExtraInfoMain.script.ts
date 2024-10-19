@@ -6,7 +6,7 @@ import {
   ScriptPage,
   ScriptRunPhase,
 } from '../../../common/architecture/scripts/Script';
-import NodeWatcherScript from '../../../common/architecture/scripts/nodeWatcher/NodeWatcherScript';
+import LegacyNodeWatcherScript from '../../../common/architecture/scripts/nodeWatcher/LegacyNodeWatcherScript';
 import ExtraInfo from '../core';
 import CCExtraInfoProfileAbuseChipsHandler from '../nodeWatcherHandlers/profile/ccExtraInfoProfileAbuseChips.handler';
 import CCExtraInfoProfilePerForumStatsHandler from '../nodeWatcherHandlers/profile/ccExtraInfoProfilePerForumStats.handler';
@@ -20,7 +20,7 @@ export interface CCExtraInfoMainOptions {
   extraInfo: ExtraInfo;
 }
 
-export default class CCExtraInfoMainScript extends NodeWatcherScript<CCExtraInfoMainOptions> {
+export default class CCExtraInfoMainScript extends LegacyNodeWatcherScript<CCExtraInfoMainOptions> {
   page = ScriptPage.CommunityConsole;
   environment = ScriptEnvironment.ContentScript;
   runPhase = ScriptRunPhase.Main;

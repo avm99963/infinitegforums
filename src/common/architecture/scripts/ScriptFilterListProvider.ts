@@ -2,6 +2,9 @@ import { Context } from '../entrypoint/Context';
 import Script from './Script';
 import ScriptProvider from './ScriptProvider';
 
+/**
+ * @deprecated
+ */
 export default abstract class ScriptFilterListProvider
   implements ScriptProvider
 {

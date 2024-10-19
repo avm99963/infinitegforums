@@ -1,6 +1,9 @@
 import DependenciesProviderSingleton, { Dependency } from "../../dependenciesProvider/DependenciesProvider";
 import Script from "../Script";
 
+/**
+ * @deprecated
+ */
 export default abstract class SetUpDependenciesScript extends Script {
   abstract dependencies: Dependency[];
 

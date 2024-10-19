@@ -7,7 +7,7 @@ import {
   ScriptPage,
   ScriptRunPhase,
 } from '../../../common/architecture/scripts/Script';
-import NodeWatcherScript from '../../../common/architecture/scripts/nodeWatcher/NodeWatcherScript';
+import LegacyNodeWatcherScript from '../../../common/architecture/scripts/nodeWatcher/LegacyNodeWatcherScript';
 import OptionsProvider from '../../../common/options/OptionsProvider';
 import ReportDialogColorThemeFix from '../core/logic/reportDialog';
 import CCDarkThemeEcAppHandler from '../nodeWatcherHandlers/ecApp.handler';
@@ -19,7 +19,7 @@ export interface CCDarkThemeNodeWatcherDependencies {
   optionsProvider: OptionsProvider;
 }
 
-export default class CCDarkThemeNodeWatcherScript extends NodeWatcherScript<CCDarkThemeNodeWatcherDependencies> {
+export default class CCDarkThemeNodeWatcherScript extends LegacyNodeWatcherScript<CCDarkThemeNodeWatcherDependencies> {
   public page = ScriptPage.CommunityConsole;
   public environment = ScriptEnvironment.ContentScript;
   public runPhase = ScriptRunPhase.Main;

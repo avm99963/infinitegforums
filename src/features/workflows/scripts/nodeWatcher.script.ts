@@ -7,7 +7,7 @@ import {
   ScriptPage,
   ScriptRunPhase,
 } from '../../../common/architecture/scripts/Script';
-import NodeWatcherScript from '../../../common/architecture/scripts/nodeWatcher/NodeWatcherScript';
+import LegacyNodeWatcherScript from '../../../common/architecture/scripts/nodeWatcher/LegacyNodeWatcherScript';
 import WorkflowsImport from '../core/communityConsole/import';
 import Workflows from '../core/communityConsole/workflows';
 import WorkflowsImportCRTagsHandler from '../nodeWatcherHandlers/crTags.handler';
@@ -18,7 +18,7 @@ export interface WorkflowsNodeWatcherDependencies {
   workflowsImport: WorkflowsImport;
 }
 
-export default class WorkflowsNodeWatcherScript extends NodeWatcherScript<WorkflowsNodeWatcherDependencies> {
+export default class WorkflowsNodeWatcherScript extends LegacyNodeWatcherScript<WorkflowsNodeWatcherDependencies> {
   public page = ScriptPage.CommunityConsole;
   public environment = ScriptEnvironment.ContentScript;
   public runPhase = ScriptRunPhase.Main;

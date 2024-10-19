@@ -1,14 +1,17 @@
 import Features from '../../../features/Features';
 import StandaloneScripts from '../../../scripts/Scripts';
 import ScriptProvider from '../scripts/ScriptProvider';
-import ScriptRunner from '../scripts/ScriptRunner';
+import LegacyScriptRunner from '../scripts/LegacyScriptRunner';
 import { Context } from './Context';
 
+/**
+ * @deprecated
+ */
 export default class EntrypointScriptRunner {
-  private scriptRunner: ScriptRunner;
+  private scriptRunner: LegacyScriptRunner;
 
   constructor(public context: Context) {
-    this.scriptRunner = new ScriptRunner();
+    this.scriptRunner = new LegacyScriptRunner();
     this.addScriptProvider(new Features());
     this.addScriptProvider(new StandaloneScripts());
   }

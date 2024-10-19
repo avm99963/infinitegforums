@@ -1,6 +1,9 @@
 import { OptionCodename } from '../../options/optionsPrototype';
 import Script, { ConcreteScript } from '../scripts/Script';
 
+/**
+ * @deprecated
+ */
 export default abstract class Feature {
   /**
    * Internal codename used for the feature.

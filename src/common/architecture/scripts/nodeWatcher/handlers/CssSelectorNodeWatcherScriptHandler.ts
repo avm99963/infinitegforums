@@ -1,6 +1,9 @@
 import { NodeWatcherScriptHandler } from './NodeWatcherScriptHandler';
 import { NodeMutation, NodeMutationType } from '../../../../nodeWatcher/NodeWatcherHandler';
 
+/**
+ * @deprecated
+ */
 export default abstract class CssSelectorNodeWatcherScriptHandler<
   Options,
 > extends NodeWatcherScriptHandler<Options> {

@@ -2,7 +2,10 @@ import NodeWatcherSingleton from '../../../nodeWatcher/NodeWatcher';
 import { ConcreteNodeWatcherScriptHandler } from './handlers/NodeWatcherScriptHandler';
 import Script from '../Script';
 
-export default abstract class NodeWatcherScript<Options> extends Script {
+/**
+ * @deprecated
+ */
+export default abstract class LegacyNodeWatcherScript<Options> extends Script {
   public abstract handlers: Map<
     string,
     ConcreteNodeWatcherScriptHandler<Options>
