@@ -53,6 +53,12 @@ export type ConcreteScript = { new (): Script };
 
 export default abstract class Script {
   /**
+   * Used to indicate that this script should run after the members of the
+   * provided array.
+   */
+  readonly runAfter: ConcreteScript[] = [];
+
+  /**
    * Priority with which the script is executed. Scripts with a lower value are
    * executed first.
    */

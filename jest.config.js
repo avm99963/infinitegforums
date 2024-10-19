@@ -8,5 +8,6 @@ module.exports = {
   moduleFileExtensions : ['js', 'mjs', 'ts'],
   testRegex : '(/__tests__/.*|(\\.|/)(test|spec))\\.m?[jt]sx?$',
   coverageProvider : 'v8',
+  coverageDirectory : './out/coverage/',
   testEnvironment : 'jsdom',
 };
