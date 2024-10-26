@@ -1,19 +1,15 @@
 import DependenciesProviderSingleton, {
   OptionsProviderDependency,
   StartupDataStorageDependency,
-} from '../../../common/architecture/dependenciesProvider/DependenciesProvider';
-import Script, {
-  ScriptEnvironment,
-  ScriptPage,
-  ScriptRunPhase,
-} from '../../../common/architecture/scripts/Script';
+} from '../../../../common/architecture/dependenciesProvider/DependenciesProvider';
+import Script from '../../../../common/architecture/scripts/Script';
 
 const SMEI_RCE_THREAD_INTEROP = 22;
 
-export default class SetThreadPageInDataStartupScript extends Script {
-  page = ScriptPage.CommunityConsole;
-  environment = ScriptEnvironment.ContentScript;
-  runPhase = ScriptRunPhase.Start;
+export default class InteropThreadPageSetupScript extends Script {
+  page: never;
+  environment: never;
+  runPhase: never;
 
   async execute() {
     const dependenciesProvider = DependenciesProviderSingleton.getInstance();
