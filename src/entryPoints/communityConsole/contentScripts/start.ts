@@ -3,6 +3,8 @@ import '../../../contentScripts/communityConsole/start';
 
 import DependenciesProviderSingleton, {
   AutoRefreshDependency,
+  OptionsProviderDependency,
+  StartupDataStorageDependency,
 } from '../../../common/architecture/dependenciesProvider/DependenciesProvider';
 import { Context } from '../../../common/architecture/entrypoint/Context';
 import {
@@ -19,6 +21,7 @@ import ScriptRunner from '../../../infrastructure/presentation/scripts/ScriptRun
 import ScriptSorterAdapter from '../../../infrastructure/presentation/scripts/ScriptSorter.adapter';
 import { SortedScriptsProviderAdapter } from '../../../infrastructure/presentation/scripts/SortedScriptsProvider.adapter';
 import StandaloneScripts from '../../../scripts/Scripts';
+import LoadDraftsSetupScript from '../../../features/loadDrafts/presentation/scripts/setup.script';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -26,6 +29,12 @@ scriptRunner.run();
 function createScriptRunner() {
   const dependenciesProvider = DependenciesProviderSingleton.getInstance();
   const autoRefresh = dependenciesProvider.getDependency(AutoRefreshDependency);
+  const optionsProvider = dependenciesProvider.getDependency(
+    OptionsProviderDependency,
+  );
+  const startupDataStorage = dependenciesProvider.getDependency(
+    StartupDataStorageDependency,
+  );
 
   const context: Context = {
     page: ScriptPage.CommunityConsole,
@@ -41,6 +50,7 @@ function createScriptRunner() {
         new CCDarkThemeInjectAutoDarkTheme(),
         new CCDarkThemeInjectForcedDarkTheme(),
         new InteropThreadPageSetupScript(),
+        new LoadDraftsSetupScript(optionsProvider, startupDataStorage),
 
         // Non-DI scripts (legacy, should be migrated to use a DI approach)
         ...new Features().getScripts(context),

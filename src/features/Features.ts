@@ -2,14 +2,12 @@ import Feature from '../common/architecture/features/Feature';
 import ScriptFilterListProvider from '../common/architecture/scripts/ScriptFilterListProvider';
 import ExtraInfoFeature from './extraInfo/extraInfo.feature';
 import WorkflowsFeature from './workflows/workflows.feature';
-import LoadDraftsFeature from './loadDrafts/loadDrafts.feature';
 
 export type ConcreteFeatureClass = { new (): Feature };
 
 export default class Features extends ScriptFilterListProvider {
   private features: ConcreteFeatureClass[] = [
     ExtraInfoFeature,
-    LoadDraftsFeature,
     WorkflowsFeature,
   ];
   private initializedFeatures: Feature[];
