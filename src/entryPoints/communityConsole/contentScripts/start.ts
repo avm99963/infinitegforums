@@ -5,6 +5,7 @@ import DependenciesProviderSingleton, {
   AutoRefreshDependency,
   OptionsProviderDependency,
   StartupDataStorageDependency,
+  WorkflowsImportDependency,
 } from '../../../common/architecture/dependenciesProvider/DependenciesProvider';
 import { Context } from '../../../common/architecture/entrypoint/Context';
 import {
@@ -22,6 +23,7 @@ import ScriptSorterAdapter from '../../../infrastructure/presentation/scripts/Sc
 import { SortedScriptsProviderAdapter } from '../../../infrastructure/presentation/scripts/SortedScriptsProvider.adapter';
 import StandaloneScripts from '../../../scripts/Scripts';
 import LoadDraftsSetupScript from '../../../features/loadDrafts/presentation/scripts/setup.script';
+import WorkflowsImportSetUpScript from '../../../features/workflows/presentation/scripts/importSetUp.script';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -34,6 +36,9 @@ function createScriptRunner() {
   );
   const startupDataStorage = dependenciesProvider.getDependency(
     StartupDataStorageDependency,
+  );
+  const workflowsImport = dependenciesProvider.getDependency(
+    WorkflowsImportDependency,
   );
 
   const context: Context = {
@@ -51,6 +56,7 @@ function createScriptRunner() {
         new CCDarkThemeInjectForcedDarkTheme(),
         new InteropThreadPageSetupScript(),
         new LoadDraftsSetupScript(optionsProvider, startupDataStorage),
+        new WorkflowsImportSetUpScript(workflowsImport),
 
         // Non-DI scripts (legacy, should be migrated to use a DI approach)
         ...new Features().getScripts(context),

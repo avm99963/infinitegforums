@@ -4,6 +4,7 @@ import '../../../contentScripts/communityConsole/main';
 import DependenciesProviderSingleton, {
   AutoRefreshDependency,
   OptionsProviderDependency,
+  WorkflowsImportDependency,
 } from '../../../common/architecture/dependenciesProvider/DependenciesProvider';
 import { Context } from '../../../common/architecture/entrypoint/Context';
 import {
@@ -30,6 +31,10 @@ import StandaloneScripts from '../../../scripts/Scripts';
 import CCInfiniteScrollSetUpHandler from '../../../features/infiniteScroll/nodeWatcherHandlers/ccInfiniteScrollSetUp.handler';
 import CCInfiniteScrollLoadMoreBarHandler from '../../../features/infiniteScroll/nodeWatcherHandlers/ccInfiniteScrollLoadMoreBar.handler';
 import CCInfiniteScrollLoadMoreBtnHandler from '../../../features/infiniteScroll/nodeWatcherHandlers/ccInfiniteScrollLoadMoreBtn.handler';
+import WorkflowsThreadListActionBarHandler from '../../../features/workflows/presentation/nodeWatcherHandlers/threadListActionBar.handler';
+import WorkflowsImportCRTagsHandler from '../../../features/workflows/presentation/nodeWatcherHandlers/crTags.handler';
+import Workflows from '../../../features/workflows/core/communityConsole/workflows';
+import WorkflowsImportStylesheetScript from '../../../features/workflows/presentation/scripts/importStylesheet';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -39,6 +44,9 @@ function createScriptRunner() {
   const autoRefresh = dependenciesProvider.getDependency(AutoRefreshDependency);
   const optionsProvider = dependenciesProvider.getDependency(
     OptionsProviderDependency,
+  );
+  const workflowsImport = dependenciesProvider.getDependency(
+    WorkflowsImportDependency,
   );
 
   const ccInfiniteScroll = new CCInfiniteScroll();
@@ -88,11 +96,20 @@ function createScriptRunner() {
               'ccInfiniteScrollLoadMoreBtn',
               new CCInfiniteScrollLoadMoreBtnHandler(ccInfiniteScroll),
             ],
+            [
+              'workflowsImportCRTags',
+              new WorkflowsImportCRTagsHandler(workflowsImport),
+            ],
+            [
+              'workflowsThreadListActionBar',
+              new WorkflowsThreadListActionBarHandler(new Workflows()),
+            ],
           ]),
         ),
 
         // Individual feature scripts
         new AutoRefreshStylesScript(),
+        new WorkflowsImportStylesheetScript(),
 
         // Non-DI scripts (legacy, should be migrated to use a DI approach)
         ...new Features().getScripts(context),

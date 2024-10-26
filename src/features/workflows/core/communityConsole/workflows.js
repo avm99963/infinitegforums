@@ -6,8 +6,13 @@ const wfDebugId = 'twpt-workflows';
 
 export default class Workflows {
   constructor() {
+    this.isSetUp = false;
     this.menu = null;
     this.workflows = null;
+  }
+
+  setUp() {
+    if (this.isSetUp) return;
 
     // Always keep the workflows list updated
     WorkflowsStorage.watch(workflows => {
@@ -21,6 +26,8 @@ export default class Workflows {
         message: 'openWorkflowsManager',
       });
     });
+
+    this.isSetup = true;
   }
 
   _emitWorkflowsUpdateEvent() {
@@ -34,6 +41,8 @@ export default class Workflows {
   }
 
   addThreadListBtnIfEnabled(readToggle) {
+    this.setUp();
+
     isOptionEnabled('workflows').then(isEnabled => {
       if (isEnabled) {
         this.menu = document.createElement('twpt-workflows-inject');

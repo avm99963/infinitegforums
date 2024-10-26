@@ -144,7 +144,8 @@ module.exports = (env, args) => {
       }),
       new HtmlWebpackPlugin({
         filename: 'workflows.html',
-        template: 'src/features/workflows/templates/workflows.html.ejs',
+        template:
+            'src/features/workflows/presentation/templates/workflows.html.ejs',
         chunks: ['workflowManager'],
       }),
       new webpack.DefinePlugin({

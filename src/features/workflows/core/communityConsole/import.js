@@ -6,13 +6,19 @@ import {isOptionEnabled} from '../../../../common/options/optionsUtils.js';
 
 const kListCannedResponsesResponse = 'TWPT_ListCannedResponsesResponse';
 
-const kImportParam = 'TWPTImportToWorkflow';
+export const kImportParam = 'TWPTImportToWorkflow';
 const kSelectedIdParam = 'TWPTSelectedId';
 
 // Class which is used to inject a "select" button in the CRs list when loading
 // the canned response list for this purpose from the workflows manager.
 export default class WorkflowsImport {
   constructor() {
+    this.isSetUp = false;
+  }
+
+  setUp() {
+    if (this.isSetUp) return;
+
     // Only set this class up if the Community Console was opened with the
     // purpose of importing CRs to the workflow manager.
     const searchParams = new URLSearchParams(document.location.search);
@@ -27,34 +33,18 @@ export default class WorkflowsImport {
       duplicateNames: new Set(),
     };
 
-    this.setUpHandler();
-    this.addCustomStyles();
+    this._setUpHandler();
   }
 
-  setUpHandler() {
-    window.addEventListener(kListCannedResponsesResponse, e => {
-      if (e.detail.id < this.lastCRsList.id) return;
-
-      // Look if there are duplicate names
-      const crs = e.detail.body?.['1'] ?? [];
-      const names = crs.map(cr => cr?.['7']).slice().sort();
-      let duplicateNames = new Set();
-      for (let i = 1; i < names.length; i++)
-        if (names[i - 1] == names[i]) duplicateNames.add(names[i]);
-
-      this.lastCRsList = {
-        body: e.detail.body,
-        id: e.detail.id,
-        duplicateNames,
-      };
+  addButtonIfApplicable(tags) {
+    this.setUp();
+    if (!this.isSetUp) return;
+    isOptionEnabled('workflows').then(isEnabled => {
+      if (isEnabled) this._addButton(tags);
     });
   }
 
-  addCustomStyles() {
-    injectStylesheet(chrome.runtime.getURL('css/workflow_import.css'));
-  }
-
-  addButton(tags) {
+  _addButton(tags) {
     const cr = recursiveParentElement(tags, 'EC-CANNED-RESPONSE-ROW');
     if (!cr) return;
 
@@ -101,10 +91,22 @@ export default class WorkflowsImport {
     });
   }
 
-  addButtonIfApplicable(tags) {
-    if (!this.isSetUp) return;
-    isOptionEnabled('workflows').then(isEnabled => {
-      if (isEnabled) this.addButton(tags);
+  _setUpHandler() {
+    window.addEventListener(kListCannedResponsesResponse, e => {
+      if (e.detail.id < this.lastCRsList.id) return;
+
+      // Look if there are duplicate names
+      const crs = e.detail.body?.['1'] ?? [];
+      const names = crs.map(cr => cr?.['7']).slice().sort();
+      let duplicateNames = new Set();
+      for (let i = 1; i < names.length; i++)
+        if (names[i - 1] == names[i]) duplicateNames.add(names[i]);
+
+      this.lastCRsList = {
+        body: e.detail.body,
+        id: e.detail.id,
+        duplicateNames,
+      };
     });
   }
 }
