@@ -16,6 +16,8 @@ import StandaloneScripts from '../../../scripts/Scripts';
 
 // Run legacy Javascript entry point
 import '../../../contentScripts/communityConsole/start';
+import CCDarkThemeInjectAutoDarkTheme from '../../../features/ccDarkTheme/scripts/injectAutoDarkTheme.script';
+import CCDarkThemeInjectForcedDarkTheme from '../../../features/ccDarkTheme/scripts/injectForcedDarkTheme.script';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -35,6 +37,8 @@ function createScriptRunner() {
       [
         // Individual feature scripts
         new AutoRefreshSetUpScript(autoRefresh),
+        new CCDarkThemeInjectAutoDarkTheme(),
+        new CCDarkThemeInjectForcedDarkTheme(),
 
         // Non-DI scripts (legacy, should be migrated to use a DI approach)
         ...new Features().getScripts(context),

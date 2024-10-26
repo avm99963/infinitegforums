@@ -1,20 +1,23 @@
-import CssSelectorNodeWatcherScriptHandler from '../../../common/architecture/scripts/nodeWatcher/handlers/CssSelectorNodeWatcherScriptHandler';
+import CssSelectorNodeWatcherHandler from '../../../infrastructure/presentation/nodeWatcher/handlers/CssSelectorHandler.adapter';
 import { NodeMutation } from '../../../presentation/nodeWatcher/NodeWatcherHandler';
+import { OptionsProviderPort } from '../../../services/options/OptionsProvider';
 import { injectDarkThemeButton } from '../core/logic/darkTheme';
-import { CCDarkThemeNodeWatcherDependencies } from '../scripts/nodeWatcher.script';
 
 /**
  * Injects the dark theme button.
  */
-export default class CCDarkThemeEcAppHandler extends CssSelectorNodeWatcherScriptHandler<CCDarkThemeNodeWatcherDependencies> {
+export default class CCDarkThemeEcAppHandler extends CssSelectorNodeWatcherHandler {
   cssSelector = 'ec-app';
+
+  constructor(private optionsProvider: OptionsProviderPort) {
+    super();
+  }
 
   async onMutatedNode(mutation: NodeMutation) {
     if (!(mutation.node instanceof Element)) return;
 
-    const optionsProvider = this.options.optionsProvider;
-    const isEnabled = await optionsProvider.isEnabled('ccdarktheme');
-    const mode = await optionsProvider.getOptionValue('ccdarktheme_mode');
+    const isEnabled = await this.optionsProvider.isEnabled('ccdarktheme');
+    const mode = await this.optionsProvider.getOptionValue('ccdarktheme_mode');
 
     // TODO(avm99963): make this feature dynamic.
     if (isEnabled && mode === 'switch') {

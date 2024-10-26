@@ -1,6 +1,6 @@
 import StylesheetManager from '../../../StylesheetManager';
 import { StylesheetAttributes } from '../../../contentScriptsUtils';
-import OptionsProvider from '../../../options/OptionsProvider';
+import OptionsProviderAdapter from '../../../options/OptionsProvider';
 import DependenciesProviderSingleton, {
   OptionsProviderDependency,
 } from '../../dependenciesProvider/DependenciesProvider';
@@ -23,11 +23,13 @@ export default abstract class StylesheetScript extends Script {
    */
   readonly attributes: StylesheetAttributes = {};
 
-  protected optionsProvider: OptionsProvider;
+  protected optionsProvider: OptionsProviderAdapter;
   private stylesheetManager: StylesheetManager;
 
   constructor() {
     super();
+
+    // TODO(https://iavm.xyz/b/226): Retrieve this via constructor injection.
     const dependenciesProvider = DependenciesProviderSingleton.getInstance();
     this.optionsProvider = dependenciesProvider.getDependency(
       OptionsProviderDependency,

@@ -3,6 +3,10 @@ import { Mutex, MutexInterface, withTimeout } from 'async-mutex';
 import { getOptions } from './optionsUtils';
 import { OptionCodename, OptionsValues } from './optionsPrototype';
 import { OptionsConfiguration } from './OptionsConfiguration';
+import {
+  OptionsChangeListener,
+  OptionsProviderPort,
+} from '../../services/options/OptionsProvider';
 
 // Prioritize reads before writes.
 const kReadPriority = 10;
@@ -11,12 +15,46 @@ const kWritePriority = 0;
 /**
  * Class which provides option values and a way to listen to option changes.
  */
-export default class OptionsProvider {
+export default class OptionsProviderAdapter implements OptionsProviderPort {
   private optionsConfiguration: OptionsConfiguration;
   private mutex: MutexInterface = withTimeout(new Mutex(), 60 * 1000);
   private listeners: Set<OptionsChangeListener> = new Set();
+  private isSetUp = false;
 
-  constructor() {
+  async getOptionValue<O extends OptionCodename>(
+    option: O,
+  ): Promise<OptionsValues[O]> {
+    this.setUp();
+    return this.mutex.runExclusive(
+      () => this.optionsConfiguration.getOptionValue(option),
+      kReadPriority,
+    );
+  }
+
+  async isEnabled(option: OptionCodename): Promise<boolean> {
+    this.setUp();
+    return this.mutex.runExclusive(
+      () => this.optionsConfiguration.isEnabled(option),
+      kReadPriority,
+    );
+  }
+
+  async getOptionsValues(): Promise<OptionsValues> {
+    this.setUp();
+    return this.mutex.runExclusive(
+      () => this.optionsConfiguration.optionsValues,
+      kReadPriority,
+    );
+  }
+
+  addListener(listener: OptionsChangeListener) {
+    this.setUp();
+    this.listeners.add(listener);
+  }
+
+  private setUp() {
+    if (this.isSetUp) return;
+
     this.listenForStorageChanges();
     this.updateValues();
   }
@@ -66,45 +104,4 @@ export default class OptionsProvider {
       listener(previousOptionsConfiguration, this.optionsConfiguration);
     }
   }
-
-  /**
-   * Returns the value of option |option|.
-   */
-  async getOptionValue<O extends OptionCodename>(
-    option: O,
-  ): Promise<OptionsValues[O]> {
-    return this.mutex.runExclusive(
-      () => this.optionsConfiguration.getOptionValue(option),
-      kReadPriority,
-    );
-  }
-
-  /**
-   * Returns whether |feature| is enabled.
-   */
-  async isEnabled(option: OptionCodename): Promise<boolean> {
-    return this.mutex.runExclusive(
-      () => this.optionsConfiguration.isEnabled(option),
-      kReadPriority,
-    );
-  }
-
-  async getOptionsValues(): Promise<OptionsValues> {
-    return this.mutex.runExclusive(
-      () => this.optionsConfiguration.optionsValues,
-      kReadPriority,
-    );
-  }
-
-  /**
-   * Adds a listener for changes in the options configuration.
-   */
-  addListener(listener: OptionsChangeListener) {
-    this.listeners.add(listener);
-  }
 }
-
-export type OptionsChangeListener = (
-  previousOptionValues: OptionsConfiguration,
-  currentOptionValues: OptionsConfiguration,
-) => void;

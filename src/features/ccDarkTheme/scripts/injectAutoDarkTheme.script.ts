@@ -1,7 +1,7 @@
 import { ScriptPage } from '../../../common/architecture/scripts/Script';
 import StylesheetScript from '../../../common/architecture/scripts/stylesheet/StylesheetScript';
 
-export default class InjectAutoDarkTheme extends StylesheetScript {
+export default class CCDarkThemeInjectAutoDarkTheme extends StylesheetScript {
   stylesheet = 'ccDarkTheme.bundle.css';
   attributes = { media: '(prefers-color-scheme: dark)' };
   page = ScriptPage.CommunityConsole;

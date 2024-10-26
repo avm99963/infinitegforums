@@ -1,5 +1,6 @@
 import DependenciesProviderSingleton, {
   AutoRefreshDependency,
+  OptionsProviderDependency,
 } from '../../../common/architecture/dependenciesProvider/DependenciesProvider';
 import { Context } from '../../../common/architecture/entrypoint/Context';
 import {
@@ -21,6 +22,10 @@ import StandaloneScripts from '../../../scripts/Scripts';
 
 // Run legacy Javascript entry point
 import '../../../contentScripts/communityConsole/main';
+import CCDarkThemeEcAppHandler from '../../../features/ccDarkTheme/nodeWatcherHandlers/ecApp.handler';
+import CCDarkThemeReportDialogHandler from '../../../features/ccDarkTheme/nodeWatcherHandlers/reportDialog.handler';
+import CCDarkThemeUnifiedProfilesIframeHandler from '../../../features/ccDarkTheme/nodeWatcherHandlers/unifiedProfilesIframe.handler';
+import ReportDialogColorThemeFix from '../../../features/ccDarkTheme/core/logic/reportDialog';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -28,6 +33,9 @@ scriptRunner.run();
 function createScriptRunner() {
   const dependenciesProvider = DependenciesProviderSingleton.getInstance();
   const autoRefresh = dependenciesProvider.getDependency(AutoRefreshDependency);
+  const optionsProvider = dependenciesProvider.getDependency(
+    OptionsProviderDependency,
+  );
 
   const context: Context = {
     page: ScriptPage.CommunityConsole,
@@ -49,6 +57,18 @@ function createScriptRunner() {
             [
               'autoRefreshThreadListHide',
               new AutoRefreshThreadListHideHandler(autoRefresh),
+            ],
+            ['ccDarkThemeEcApp', new CCDarkThemeEcAppHandler(optionsProvider)],
+            [
+              'ccDarkThemeReportDialog',
+              new CCDarkThemeReportDialogHandler(
+                optionsProvider,
+                new ReportDialogColorThemeFix(),
+              ),
+            ],
+            [
+              'ccDarkThemeUnifiedProfilesIframe',
+              new CCDarkThemeUnifiedProfilesIframeHandler(optionsProvider),
             ],
           ]),
         ),
