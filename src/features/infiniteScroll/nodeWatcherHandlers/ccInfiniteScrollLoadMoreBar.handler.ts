@@ -1,9 +1,13 @@
 import { NodeMutation } from '../../../presentation/nodeWatcher/NodeWatcherHandler';
-import CssSelectorNodeWatcherScriptHandler from '../../../common/architecture/scripts/nodeWatcher/handlers/CssSelectorNodeWatcherScriptHandler';
-import { InfiniteScrollNodeWatcherOptions } from '../scripts/ccInfiniteScroll.script';
+import CCInfiniteScroll from '../core/ccInfiniteScroll';
+import CssSelectorNodeWatcherHandler from '../../../infrastructure/presentation/nodeWatcher/handlers/CssSelectorHandler.adapter';
 
-export default class CCInfiniteScrollLoadMoreBarHandler extends CssSelectorNodeWatcherScriptHandler<InfiniteScrollNodeWatcherOptions> {
+export default class CCInfiniteScrollLoadMoreBarHandler extends CssSelectorNodeWatcherHandler {
   cssSelector = '.load-more-bar';
+
+  constructor(private ccInfiniteScroll: CCInfiniteScroll) {
+    super();
+  }
 
   onMutatedNode({ node }: NodeMutation) {
     if (!(node instanceof Element)) {
@@ -13,6 +17,6 @@ export default class CCInfiniteScrollLoadMoreBarHandler extends CssSelectorNodeW
       );
       return;
     }
-    this.options.ccInfiniteScroll.observeLoadMoreBar(node);
+    this.ccInfiniteScroll.observeLoadMoreBar(node);
   }
 }

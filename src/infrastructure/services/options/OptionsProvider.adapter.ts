@@ -1,12 +1,12 @@
 import { Mutex, MutexInterface, withTimeout } from 'async-mutex';
 
-import { getOptions } from './optionsUtils';
-import { OptionCodename, OptionsValues } from './optionsPrototype';
-import { OptionsConfiguration } from './OptionsConfiguration';
+import { getOptions } from '../../../common/options/optionsUtils';
+import { OptionCodename, OptionsValues } from '../../../common/options/optionsPrototype';
+import { OptionsConfiguration } from '../../../common/options/OptionsConfiguration';
 import {
   OptionsChangeListener,
   OptionsProviderPort,
-} from '../../services/options/OptionsProvider';
+} from '../../../services/options/OptionsProvider';
 
 // Prioritize reads before writes.
 const kReadPriority = 10;

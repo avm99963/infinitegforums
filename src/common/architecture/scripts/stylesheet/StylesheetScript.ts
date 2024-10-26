@@ -1,10 +1,10 @@
 import StylesheetManager from '../../../StylesheetManager';
 import { StylesheetAttributes } from '../../../contentScriptsUtils';
-import OptionsProviderAdapter from '../../../options/OptionsProvider';
 import DependenciesProviderSingleton, {
   OptionsProviderDependency,
 } from '../../dependenciesProvider/DependenciesProvider';
 import Script, { ScriptEnvironment, ScriptRunPhase } from '../Script';
+import { OptionsProviderPort } from '../../../../services/options/OptionsProvider';
 
 /**
  * Script which injects a stylesheet depending on a set condition. It
@@ -23,7 +23,7 @@ export default abstract class StylesheetScript extends Script {
    */
   readonly attributes: StylesheetAttributes = {};
 
-  protected optionsProvider: OptionsProviderAdapter;
+  protected optionsProvider: OptionsProviderPort;
   private stylesheetManager: StylesheetManager;
 
   constructor() {

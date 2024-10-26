@@ -1,10 +1,14 @@
 import { NodeMutation } from '../../../presentation/nodeWatcher/NodeWatcherHandler';
-import CssSelectorNodeWatcherScriptHandler from '../../../common/architecture/scripts/nodeWatcher/handlers/CssSelectorNodeWatcherScriptHandler';
-import { InfiniteScrollNodeWatcherOptions } from '../scripts/ccInfiniteScroll.script';
+import CssSelectorNodeWatcherHandler from '../../../infrastructure/presentation/nodeWatcher/handlers/CssSelectorHandler.adapter';
+import CCInfiniteScroll from '../core/ccInfiniteScroll';
 
-export default class CCInfiniteScrollLoadMoreBtnHandler extends CssSelectorNodeWatcherScriptHandler<InfiniteScrollNodeWatcherOptions> {
+export default class CCInfiniteScrollLoadMoreBtnHandler extends CssSelectorNodeWatcherHandler {
   cssSelector =
     '.scTailwindThreadMorebuttonbutton, .scTailwindThreadMessagegapbutton';
+
+  constructor(private ccInfiniteScroll: CCInfiniteScroll) {
+    super();
+  }
 
   onMutatedNode({ node }: NodeMutation) {
     if (!(node instanceof Element)) {
@@ -14,6 +18,6 @@ export default class CCInfiniteScrollLoadMoreBtnHandler extends CssSelectorNodeW
       );
       return;
     }
-    this.options.ccInfiniteScroll.observeLoadMoreInteropBtn(node);
+    this.ccInfiniteScroll.observeLoadMoreInteropBtn(node);
   }
 }

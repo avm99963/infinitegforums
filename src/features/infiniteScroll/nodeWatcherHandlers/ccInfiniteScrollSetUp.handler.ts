@@ -1,16 +1,17 @@
 import { NodeMutation } from '../../../presentation/nodeWatcher/NodeWatcherHandler';
-import CssSelectorNodeWatcherScriptHandler from '../../../common/architecture/scripts/nodeWatcher/handlers/CssSelectorNodeWatcherScriptHandler';
-import { InfiniteScrollNodeWatcherOptions } from '../scripts/ccInfiniteScroll.script';
+import CssSelectorNodeWatcherHandler from '../../../infrastructure/presentation/nodeWatcher/handlers/CssSelectorHandler.adapter';
+import CCInfiniteScroll from '../core/ccInfiniteScroll';
 
-export default class CCInfiniteScrollSetUpHandler extends CssSelectorNodeWatcherScriptHandler<InfiniteScrollNodeWatcherOptions> {
+export default class CCInfiniteScrollSetUpHandler extends CssSelectorNodeWatcherHandler {
   cssSelector = 'ec-app, .scrollable-content';
+
+  constructor(private ccInfiniteScroll: CCInfiniteScroll) {
+    super();
+  }
 
   onMutatedNode({ node }: NodeMutation) {
     if (!(node instanceof Element)) return;
     const isScrollableContent = node.classList.contains('scrollable-content');
-    this.options.ccInfiniteScroll.setUpIntersectionObserver(
-      node,
-      isScrollableContent,
-    );
+    this.ccInfiniteScroll.setUpIntersectionObserver(node, isScrollableContent);
   }
 }

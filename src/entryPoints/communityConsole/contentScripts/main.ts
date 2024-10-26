@@ -1,3 +1,6 @@
+// Run legacy Javascript entry point
+import '../../../contentScripts/communityConsole/main';
+
 import DependenciesProviderSingleton, {
   AutoRefreshDependency,
   OptionsProviderDependency,
@@ -11,7 +14,12 @@ import {
 import AutoRefreshThreadListHideHandler from '../../../features/autoRefresh/presentation/nodeWatcherHandlers/threadListHide.handler';
 import AutoRefreshThreadListSetUpHandler from '../../../features/autoRefresh/presentation/nodeWatcherHandlers/threadListSetUp.handler';
 import AutoRefreshStylesScript from '../../../features/autoRefresh/presentation/scripts/styles.script';
+import ReportDialogColorThemeFix from '../../../features/ccDarkTheme/core/logic/reportDialog';
+import CCDarkThemeEcAppHandler from '../../../features/ccDarkTheme/nodeWatcherHandlers/ecApp.handler';
+import CCDarkThemeReportDialogHandler from '../../../features/ccDarkTheme/nodeWatcherHandlers/reportDialog.handler';
+import CCDarkThemeUnifiedProfilesIframeHandler from '../../../features/ccDarkTheme/nodeWatcherHandlers/unifiedProfilesIframe.handler';
 import Features from '../../../features/Features';
+import CCInfiniteScroll from '../../../features/infiniteScroll/core/ccInfiniteScroll';
 import { NodeWatcherAdapter } from '../../../infrastructure/presentation/nodeWatcher/NodeWatcher.adapter';
 import NodeWatcherScriptAdapter from '../../../infrastructure/presentation/scripts/NodeWatcherScript.adapter';
 import ScriptRunner from '../../../infrastructure/presentation/scripts/ScriptRunner';
@@ -19,13 +27,9 @@ import ScriptSorterAdapter from '../../../infrastructure/presentation/scripts/Sc
 import { SortedScriptsProviderAdapter } from '../../../infrastructure/presentation/scripts/SortedScriptsProvider.adapter';
 import { NodeWatcherHandler } from '../../../presentation/nodeWatcher/NodeWatcherHandler';
 import StandaloneScripts from '../../../scripts/Scripts';
-
-// Run legacy Javascript entry point
-import '../../../contentScripts/communityConsole/main';
-import CCDarkThemeEcAppHandler from '../../../features/ccDarkTheme/nodeWatcherHandlers/ecApp.handler';
-import CCDarkThemeReportDialogHandler from '../../../features/ccDarkTheme/nodeWatcherHandlers/reportDialog.handler';
-import CCDarkThemeUnifiedProfilesIframeHandler from '../../../features/ccDarkTheme/nodeWatcherHandlers/unifiedProfilesIframe.handler';
-import ReportDialogColorThemeFix from '../../../features/ccDarkTheme/core/logic/reportDialog';
+import CCInfiniteScrollSetUpHandler from '../../../features/infiniteScroll/nodeWatcherHandlers/ccInfiniteScrollSetUp.handler';
+import CCInfiniteScrollLoadMoreBarHandler from '../../../features/infiniteScroll/nodeWatcherHandlers/ccInfiniteScrollLoadMoreBar.handler';
+import CCInfiniteScrollLoadMoreBtnHandler from '../../../features/infiniteScroll/nodeWatcherHandlers/ccInfiniteScrollLoadMoreBtn.handler';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -36,6 +40,8 @@ function createScriptRunner() {
   const optionsProvider = dependenciesProvider.getDependency(
     OptionsProviderDependency,
   );
+
+  const ccInfiniteScroll = new CCInfiniteScroll();
 
   const context: Context = {
     page: ScriptPage.CommunityConsole,
@@ -69,6 +75,18 @@ function createScriptRunner() {
             [
               'ccDarkThemeUnifiedProfilesIframe',
               new CCDarkThemeUnifiedProfilesIframeHandler(optionsProvider),
+            ],
+            [
+              'ccInfiniteScrollSetUp',
+              new CCInfiniteScrollSetUpHandler(ccInfiniteScroll),
+            ],
+            [
+              'ccInfiniteScrollLoadMoreBar',
+              new CCInfiniteScrollLoadMoreBarHandler(ccInfiniteScroll),
+            ],
+            [
+              'ccInfiniteScrollLoadMoreBtn',
+              new CCInfiniteScrollLoadMoreBtnHandler(ccInfiniteScroll),
             ],
           ]),
         ),
