@@ -1,4 +1,5 @@
-import { ScriptRunPhase } from '../../common/architecture/scripts/Script';
+import { ScriptRunPhase } from '../../../common/architecture/scripts/Script';
+import { StartupDataStoragePort } from '../../../services/communityConsole/StartupDataStorage.port';
 import BaseApplyStartupDataModificationsScript from './baseApplyStartupDataModifications.script';
 
 /**
@@ -7,4 +8,8 @@ import BaseApplyStartupDataModificationsScript from './baseApplyStartupDataModif
  */
 export default class ApplyStartupDataModificationsOnMainScript extends BaseApplyStartupDataModificationsScript {
   runPhase = ScriptRunPhase.Main;
+
+  constructor(startupDataStorage: StartupDataStoragePort) {
+    super(startupDataStorage);
+  }
 }

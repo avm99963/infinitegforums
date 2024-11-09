@@ -2,8 +2,8 @@ import Script, {
   ScriptEnvironment,
   ScriptPage,
   ScriptRunPhase,
-} from '../../common/architecture/scripts/Script';
-import { injectScript } from '../../common/contentScriptsUtils';
+} from '../../../common/architecture/scripts/Script';
+import { injectScript } from '../../../common/contentScriptsUtils';
 
 export default class XHRInterceptorScript extends Script {
   priority = 10;

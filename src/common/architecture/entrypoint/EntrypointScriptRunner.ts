@@ -1,5 +1,5 @@
 import Features from '../../../features/Features';
-import StandaloneScripts from '../../../scripts/Scripts';
+import StandaloneScripts from '../../../presentation/standaloneScripts/Scripts';
 import ScriptProvider from '../scripts/ScriptProvider';
 import LegacyScriptRunner from '../scripts/LegacyScriptRunner';
 import { Context } from './Context';

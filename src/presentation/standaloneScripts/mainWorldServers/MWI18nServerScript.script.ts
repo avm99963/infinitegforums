@@ -1,5 +1,5 @@
-import Script, { ScriptEnvironment, ScriptPage, ScriptRunPhase } from "../../common/architecture/scripts/Script"
-import MWI18nServer from "../../common/mainWorldI18n/Server";
+import Script, { ScriptEnvironment, ScriptPage, ScriptRunPhase } from "../../../common/architecture/scripts/Script"
+import MWI18nServer from "../../../common/mainWorldI18n/Server";
 
 export default class MWI18nServerScript extends Script {
   // The server should be available as soon as possible, since e.g. the

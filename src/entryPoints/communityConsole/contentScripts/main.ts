@@ -5,6 +5,7 @@ import DependenciesProviderSingleton, {
   AutoRefreshDependency,
   ExtraInfoDependency,
   OptionsProviderDependency,
+  StartupDataStorageDependency,
   WorkflowsImportDependency,
 } from '../../../common/architecture/dependenciesProvider/DependenciesProvider';
 import { Context } from '../../../common/architecture/entrypoint/Context';
@@ -28,7 +29,7 @@ import ScriptRunner from '../../../infrastructure/presentation/scripts/ScriptRun
 import ScriptSorterAdapter from '../../../infrastructure/presentation/scripts/ScriptSorter.adapter';
 import { SortedScriptsProviderAdapter } from '../../../infrastructure/presentation/scripts/SortedScriptsProvider.adapter';
 import { NodeWatcherHandler } from '../../../presentation/nodeWatcher/NodeWatcherHandler';
-import StandaloneScripts from '../../../scripts/Scripts';
+import StandaloneScripts from '../../../presentation/standaloneScripts/Scripts';
 import CCInfiniteScrollSetUpHandler from '../../../features/infiniteScroll/presentation/nodeWatcherHandlers/ccInfiniteScrollSetUp.handler';
 import CCInfiniteScrollLoadMoreBarHandler from '../../../features/infiniteScroll/presentation/nodeWatcherHandlers/ccInfiniteScrollLoadMoreBar.handler';
 import CCInfiniteScrollLoadMoreBtnHandler from '../../../features/infiniteScroll/presentation/nodeWatcherHandlers/ccInfiniteScrollLoadMoreBtn.handler';
@@ -45,6 +46,8 @@ import CCExtraInfoThreadQuestionHandler from '../../../features/extraInfo/presen
 import CCExtraInfoThreadReplyHandler from '../../../features/extraInfo/presentation/nodeWatcherHandlers/thread/ccExtraInfoThreadReply.handler';
 import CCExtraInfoInjectScript from '../../../features/extraInfo/presentation/scripts/ccExtraInfoInject.script';
 import CCExtraInfoStylesScript from '../../../features/extraInfo/presentation/scripts/ccExtraInfoStyles.script';
+import InjectLitComponentsScript from '../../../presentation/standaloneScripts/litComponents/injectLitComponents.script';
+import ApplyStartupDataModificationsOnMainScript from '../../../presentation/standaloneScripts/startupDataStorage/applyStartupDataModificationsOnMain.script';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -55,6 +58,9 @@ function createScriptRunner() {
   const extraInfo = dependenciesProvider.getDependency(ExtraInfoDependency);
   const optionsProvider = dependenciesProvider.getDependency(
     OptionsProviderDependency,
+  );
+  const startupDataStorage = dependenciesProvider.getDependency(
+    StartupDataStorageDependency,
   );
   const workflowsImport = dependenciesProvider.getDependency(
     WorkflowsImportDependency,
@@ -151,6 +157,10 @@ function createScriptRunner() {
         new CCExtraInfoInjectScript(),
         new CCExtraInfoStylesScript(),
         new WorkflowsImportStylesheetScript(),
+
+        // Standalone scripts
+        new ApplyStartupDataModificationsOnMainScript(startupDataStorage),
+        new InjectLitComponentsScript(),
 
         // Non-DI scripts (legacy, should be migrated to use a DI approach)
         ...new Features().getScripts(context),

@@ -22,10 +22,14 @@ import InteropThreadPageSetupScript from '../../../features/interopThreadPage/pr
 import ScriptRunner from '../../../infrastructure/presentation/scripts/ScriptRunner';
 import ScriptSorterAdapter from '../../../infrastructure/presentation/scripts/ScriptSorter.adapter';
 import { SortedScriptsProviderAdapter } from '../../../infrastructure/presentation/scripts/SortedScriptsProvider.adapter';
-import StandaloneScripts from '../../../scripts/Scripts';
+import StandaloneScripts from '../../../presentation/standaloneScripts/Scripts';
 import LoadDraftsSetupScript from '../../../features/loadDrafts/presentation/scripts/setup.script';
 import WorkflowsImportSetUpScript from '../../../features/workflows/presentation/scripts/importSetUp.script';
 import CCExtraInfoSetUpScript from '../../../features/extraInfo/presentation/scripts/ccExtraInfoSetUp.script';
+import MWI18nServerScript from '../../../presentation/standaloneScripts/mainWorldServers/MWI18nServerScript.script';
+import MWOptionsWatcherServerScript from '../../../presentation/standaloneScripts/mainWorldServers/MWOptionsWatcherServerScript.script';
+import ApplyStartupDataModificationsOnStartScript from '../../../presentation/standaloneScripts/startupDataStorage/applyStartupDataModificationsOnStart.script';
+import XHRInterceptorScript from '../../../presentation/standaloneScripts/xhrInterceptor/xhrInterceptor.script';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -61,6 +65,12 @@ function createScriptRunner() {
         new InteropThreadPageSetupScript(),
         new LoadDraftsSetupScript(optionsProvider, startupDataStorage),
         new WorkflowsImportSetUpScript(workflowsImport),
+
+        // Standalone scripts
+        new ApplyStartupDataModificationsOnStartScript(startupDataStorage),
+        new MWI18nServerScript(),
+        new MWOptionsWatcherServerScript(),
+        new XHRInterceptorScript(),
 
         // Non-DI scripts (legacy, should be migrated to use a DI approach)
         ...new Features().getScripts(context),

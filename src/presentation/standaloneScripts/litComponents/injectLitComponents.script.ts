@@ -1,5 +1,5 @@
-import Script, { ScriptEnvironment, ScriptPage, ScriptRunPhase } from "../../common/architecture/scripts/Script"
-import { injectScript } from "../../common/contentScriptsUtils";
+import Script, { ScriptEnvironment, ScriptPage, ScriptRunPhase } from "../../../common/architecture/scripts/Script"
+import { injectScript } from "../../../common/contentScriptsUtils";
 
 export default class InjectLitComponentsScript extends Script {
   page = ScriptPage.CommunityConsole;
