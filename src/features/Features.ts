@@ -1,13 +1,10 @@
 import Feature from '../common/architecture/features/Feature';
 import ScriptFilterListProvider from '../common/architecture/scripts/ScriptFilterListProvider';
-import ExtraInfoFeature from './extraInfo/extraInfo.feature';
 
 export type ConcreteFeatureClass = { new (): Feature };
 
 export default class Features extends ScriptFilterListProvider {
-  private features: ConcreteFeatureClass[] = [
-    ExtraInfoFeature,
-  ];
+  private features: ConcreteFeatureClass[] = [];
   private initializedFeatures: Feature[];
 
   protected getUnfilteredScriptsList() {

@@ -3,6 +3,7 @@ import '../../../contentScripts/communityConsole/start';
 
 import DependenciesProviderSingleton, {
   AutoRefreshDependency,
+  ExtraInfoDependency,
   OptionsProviderDependency,
   StartupDataStorageDependency,
   WorkflowsImportDependency,
@@ -24,6 +25,7 @@ import { SortedScriptsProviderAdapter } from '../../../infrastructure/presentati
 import StandaloneScripts from '../../../scripts/Scripts';
 import LoadDraftsSetupScript from '../../../features/loadDrafts/presentation/scripts/setup.script';
 import WorkflowsImportSetUpScript from '../../../features/workflows/presentation/scripts/importSetUp.script';
+import CCExtraInfoSetUpScript from '../../../features/extraInfo/presentation/scripts/ccExtraInfoSetUp.script';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -31,6 +33,7 @@ scriptRunner.run();
 function createScriptRunner() {
   const dependenciesProvider = DependenciesProviderSingleton.getInstance();
   const autoRefresh = dependenciesProvider.getDependency(AutoRefreshDependency);
+  const extraInfo = dependenciesProvider.getDependency(ExtraInfoDependency);
   const optionsProvider = dependenciesProvider.getDependency(
     OptionsProviderDependency,
   );
@@ -54,6 +57,7 @@ function createScriptRunner() {
         new AutoRefreshSetUpScript(autoRefresh),
         new CCDarkThemeInjectAutoDarkTheme(),
         new CCDarkThemeInjectForcedDarkTheme(),
+        new CCExtraInfoSetUpScript(extraInfo),
         new InteropThreadPageSetupScript(),
         new LoadDraftsSetupScript(optionsProvider, startupDataStorage),
         new WorkflowsImportSetUpScript(workflowsImport),

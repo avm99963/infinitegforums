@@ -12,7 +12,7 @@ import ThreadQuestionExtraInfoInjection from './injections/threadQuestion.js';
 import ThreadReplyExtraInfoInjection from './injections/threadReply.js';
 
 export default class ExtraInfo {
-  constructor() {
+  setUp() {
     const optionsWatcher = new PartialOptionsWatcher(['extrainfo', 'perforumstats']);
 
     const profileInfoHandler = new ProfileInfoHandler();

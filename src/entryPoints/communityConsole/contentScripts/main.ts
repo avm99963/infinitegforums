@@ -3,6 +3,7 @@ import '../../../contentScripts/communityConsole/main';
 
 import DependenciesProviderSingleton, {
   AutoRefreshDependency,
+  ExtraInfoDependency,
   OptionsProviderDependency,
   WorkflowsImportDependency,
 } from '../../../common/architecture/dependenciesProvider/DependenciesProvider';
@@ -35,6 +36,15 @@ import WorkflowsThreadListActionBarHandler from '../../../features/workflows/pre
 import WorkflowsImportCRTagsHandler from '../../../features/workflows/presentation/nodeWatcherHandlers/crTags.handler';
 import Workflows from '../../../features/workflows/core/communityConsole/workflows';
 import WorkflowsImportStylesheetScript from '../../../features/workflows/presentation/scripts/importStylesheet';
+import CCExtraInfoProfileAbuseChipsHandler from '../../../features/extraInfo/presentation/nodeWatcherHandlers/profile/ccExtraInfoProfileAbuseChips.handler';
+import CCExtraInfoProfilePerForumStatsHandler from '../../../features/extraInfo/presentation/nodeWatcherHandlers/profile/ccExtraInfoProfilePerForumStats.handler';
+import CCExtraInfoThreadCommentHandler from '../../../features/extraInfo/presentation/nodeWatcherHandlers/thread/ccExtraInfoThreadComment.handler';
+import CCExtraInfoThreadListHandler from '../../../features/extraInfo/presentation/nodeWatcherHandlers/threadList/ccExtraInfoThreadList.handler';
+import CCExtraInfoThreadListToolbeltHandler from '../../../features/extraInfo/presentation/nodeWatcherHandlers/threadList/ccExtraInfoThreadListToolbelt.handler';
+import CCExtraInfoThreadQuestionHandler from '../../../features/extraInfo/presentation/nodeWatcherHandlers/thread/ccExtraInfoThreadQuestion.handler';
+import CCExtraInfoThreadReplyHandler from '../../../features/extraInfo/presentation/nodeWatcherHandlers/thread/ccExtraInfoThreadReply.handler';
+import CCExtraInfoInjectScript from '../../../features/extraInfo/presentation/scripts/ccExtraInfoInject.script';
+import CCExtraInfoStylesScript from '../../../features/extraInfo/presentation/scripts/ccExtraInfoStyles.script';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -42,6 +52,7 @@ scriptRunner.run();
 function createScriptRunner() {
   const dependenciesProvider = DependenciesProviderSingleton.getInstance();
   const autoRefresh = dependenciesProvider.getDependency(AutoRefreshDependency);
+  const extraInfo = dependenciesProvider.getDependency(ExtraInfoDependency);
   const optionsProvider = dependenciesProvider.getDependency(
     OptionsProviderDependency,
   );
@@ -85,6 +96,34 @@ function createScriptRunner() {
               new CCDarkThemeUnifiedProfilesIframeHandler(optionsProvider),
             ],
             [
+              'ccExtraInfoProfile',
+              new CCExtraInfoProfileAbuseChipsHandler(extraInfo),
+            ],
+            [
+              'ccExtraInfoProfilePerForumStats',
+              new CCExtraInfoProfilePerForumStatsHandler(extraInfo),
+            ],
+            [
+              'ccExtraInfoThreadComment',
+              new CCExtraInfoThreadCommentHandler(extraInfo),
+            ],
+            [
+              'ccExtraInfoThreadList',
+              new CCExtraInfoThreadListHandler(extraInfo),
+            ],
+            [
+              'ccExtraInfoThreadListToolbelt',
+              new CCExtraInfoThreadListToolbeltHandler(extraInfo),
+            ],
+            [
+              'ccExtraInfoThreadQuestion',
+              new CCExtraInfoThreadQuestionHandler(extraInfo),
+            ],
+            [
+              'ccExtraInfoThreadReply',
+              new CCExtraInfoThreadReplyHandler(extraInfo),
+            ],
+            [
               'ccInfiniteScrollSetUp',
               new CCInfiniteScrollSetUpHandler(ccInfiniteScroll),
             ],
@@ -109,6 +148,8 @@ function createScriptRunner() {
 
         // Individual feature scripts
         new AutoRefreshStylesScript(),
+        new CCExtraInfoInjectScript(),
+        new CCExtraInfoStylesScript(),
         new WorkflowsImportStylesheetScript(),
 
         // Non-DI scripts (legacy, should be migrated to use a DI approach)
