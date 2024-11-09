@@ -3,7 +3,7 @@ import AutoRefresh from '../../../features/autoRefresh/core/autoRefresh';
 import OptionsProviderAdapter from '../../../infrastructure/services/options/OptionsProvider.adapter';
 import WorkflowsImport from '../../../features/workflows/core/communityConsole/import';
 import Workflows from '../../../features/workflows/core/communityConsole/workflows';
-import StartupDataStorage from '../../../contentScripts/communityConsole/utils/StartupDataStorage';
+import StartupDataStorageAdapter from '../../../infrastructure/services/communityConsole/StartupDataStorage.adapter';
 import ReportDialogColorThemeFix from '../../../features/ccDarkTheme/core/logic/reportDialog';
 
 export const AutoRefreshDependency = 'autoRefresh';
@@ -19,7 +19,7 @@ export const DependenciesToClass = {
   [ExtraInfoDependency]: ExtraInfo,
   [OptionsProviderDependency]: OptionsProviderAdapter,
   [ReportDialogColorThemeFixDependency]: ReportDialogColorThemeFix,
-  [StartupDataStorageDependency]: StartupDataStorage,
+  [StartupDataStorageDependency]: StartupDataStorageAdapter,
   [WorkflowsDependency]: Workflows,
   [WorkflowsImportDependency]: WorkflowsImport,
 };

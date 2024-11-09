@@ -1,36 +1,45 @@
 import { Queue } from '@datastructures-js/queue';
 import StartupDataModel from '../../../models/StartupData';
+import {
+  StartupDataModification,
+  StartupDataStoragePort,
+} from '../../../services/communityConsole/StartupDataStorage.port';
 
-type StartupDataModification = (startupData: StartupDataModel) => void;
-
-export default class StartupDataStorage {
+export default class StartupDataStorageAdapter
+  implements StartupDataStoragePort
+{
+  private isSetUp = false;
   private startupData: StartupDataModel;
-  private modificationsQueue: Queue<StartupDataModification>;
-
-  constructor() {
-    const rawData = this.getHtmlElement().getAttribute('data-startup');
-    this.startupData = new StartupDataModel(rawData ? JSON.parse(rawData) : {});
-    this.modificationsQueue = new Queue();
-  }
+  private modificationsQueue = new Queue<StartupDataModification>();
 
   get(): StartupDataModel {
+    this.setUp();
     return this.startupData;
   }
 
   enqueueModification(
     modification: StartupDataModification,
-  ): StartupDataStorage {
+  ): StartupDataStorageAdapter {
     this.modificationsQueue.enqueue(modification);
     return this;
   }
 
-  applyModifications(): StartupDataStorage {
+  applyModifications(): StartupDataStorageAdapter {
+    this.setUp();
     while (!this.modificationsQueue.isEmpty()) {
       const modification = this.modificationsQueue.dequeue();
       modification(this.startupData);
     }
     this.persistToDOM();
     return this;
+  }
+
+  private setUp() {
+    if (this.isSetUp) return;
+
+    this.isSetUp = true;
+    const rawData = this.getHtmlElement().getAttribute('data-startup');
+    this.startupData = new StartupDataModel(rawData ? JSON.parse(rawData) : {});
   }
 
   private persistToDOM() {
