@@ -13,11 +13,11 @@ export enum NodeMutationType {
   RemovedNode,
 }
 
-export interface NodeMutation {
+export interface NodeMutation<T extends Node = Node> {
   /**
    * Node being mutated.
    */
-  node: Node;
+  node: T;
   /**
    * Which mutation has occurred to the node.
    */

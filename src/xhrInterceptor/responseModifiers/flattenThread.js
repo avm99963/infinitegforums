@@ -1,4 +1,4 @@
-import {kAdditionalInfoClass} from '../../contentScripts/communityConsole/flattenThreads/flattenThreads.js';
+import {kAdditionalInfoClass} from '../../features/flattenThreads/core/flattenThreads.js';
 import GapModel from '../../models/Gap.js';
 import MessageModel from '../../models/Message.js';
 import StartupDataModel from '../../models/StartupData.js';

@@ -5,11 +5,6 @@ export const kReplyPayloadSelector =
 export const kReplyActionButtonsSelector =
     '.scTailwindThreadMessageMessagecardcontent:not(.scTailwindThreadMessageMessagecardpromoted) sc-tailwind-thread-message-message-actions';
 export const kAdditionalInfoSelector = '.ck-indent-9996300035194';
-export const kMatchingSelectors = [
-  kReplyPayloadSelector,
-  kReplyActionButtonsSelector,
-  kAdditionalInfoSelector,
-];
 
 export function getExtraInfoNodes(node) {
   return node.querySelectorAll(kAdditionalInfoSelector);
@@ -54,10 +49,6 @@ export default class FlattenThreads {
     if (extraInfo.isComment) this.injectQuote(node, extraInfo);
   }
 
-  shouldInjectQuote(node) {
-    return node.matches(kReplyPayloadSelector);
-  }
-
   injectReplyBtnIfApplicable(node) {
     // If we injected the additional information, it means the flatten threads
     // feature is enabled and in actual use, so we should inject the reply
@@ -71,16 +62,8 @@ export default class FlattenThreads {
     this.injectReplyBtn(node, extraInfo);
   }
 
-  shouldInjectReplyBtn(node) {
-    return node.matches(kReplyActionButtonsSelector);
-  }
-
   deleteAdditionalInfoElementIfApplicable(node) {
     if (!node.closest('sc-tailwind-shared-rich-text-editor')) return;
     node.remove();
-  }
-
-  isAdditionalInfoElement(node) {
-    return node.matches(kAdditionalInfoSelector);
   }
 }

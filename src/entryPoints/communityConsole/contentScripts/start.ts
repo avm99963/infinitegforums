@@ -24,6 +24,8 @@ import MWOptionsWatcherServerScript from '../../../presentation/standaloneScript
 import ApplyStartupDataModificationsOnStartScript from '../../../presentation/standaloneScripts/startupDataStorage/applyStartupDataModificationsOnStart.script';
 import XHRInterceptorScript from '../../../presentation/standaloneScripts/xhrInterceptor/xhrInterceptor.script';
 import ThreadPageDesignWarningSetUpScript from '../../../features/threadPageDesignWarning/presentation/scripts/setUp.script';
+import FlattenThreadsSetUpReplyActionHandlerScript from '../../../features/flattenThreads/presentation/scripts/setUpReplyActionHandler.script';
+import FlattenThreadsReplyActionHandler from '../../../features/flattenThreads/core/replyActionHandler';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -53,10 +55,11 @@ function createScriptRunner() {
         new CCDarkThemeInjectAutoDarkTheme(),
         new CCDarkThemeInjectForcedDarkTheme(),
         new CCExtraInfoSetUpScript(extraInfo),
-        new InteropThreadPageSetupScript(),
-        new ThreadPageDesignWarningSetUpScript(
-          threadPageDesignWarning,
+        new FlattenThreadsSetUpReplyActionHandlerScript(
+          new FlattenThreadsReplyActionHandler(optionsProvider),
         ),
+        new InteropThreadPageSetupScript(),
+        new ThreadPageDesignWarningSetUpScript(threadPageDesignWarning),
         new LoadDraftsSetupScript(optionsProvider, startupDataStorage),
         new WorkflowsImportSetUpScript(workflowsImport),
 

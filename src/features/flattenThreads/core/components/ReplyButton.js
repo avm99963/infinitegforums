@@ -5,7 +5,7 @@ import {css, html} from 'lit';
 
 import {I18nLitElement} from '../../../../common/litI18nUtils.js';
 import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
-import {openReplyEditor} from '../../utils/common.js';
+import {openReplyEditor} from '../../../../contentScripts/communityConsole/utils/common.js';
 import {getExtraInfoNodes} from '../flattenThreads.js';
 
 export default class TwptFlattenThreadReplyButton extends I18nLitElement {

@@ -8,11 +8,10 @@ import {batchLock} from './batchLock.js';
 // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
 import {applyDragAndDropFixIfEnabled} from './dragAndDropFix.js';
 // #!endif
-import {default as FlattenThreads, kMatchingSelectors as kFlattenThreadMatchingSelectors} from './flattenThreads/flattenThreads.js';
 import {kRepliesSectionSelector} from './threadToolbar/constants.js';
 import ThreadToolbar from './threadToolbar/threadToolbar.js';
 
-var mutationObserver, options, avatars, threadToolbar, flattenThreads;
+var mutationObserver, options, avatars, threadToolbar;
 
 const watchedNodesSelectors = [
   // Scrollable content (used for the intersection observer)
@@ -45,9 +44,6 @@ const watchedNodesSelectors = [
 
   // Thread page reply section (for the thread page toolbar)
   kRepliesSectionSelector,
-
-  // Reply payload (for the flatten threads UI)
-  ...kFlattenThreadMatchingSelectors,
 ];
 
 function handleCandidateNode(node) {
@@ -94,31 +90,6 @@ function handleCandidateNode(node) {
     if (threadToolbar.shouldInject(node)) {
       threadToolbar.injectIfApplicable(node);
     }
-
-    // Inject parent reply quote
-    if (flattenThreads.shouldInjectQuote(node)) {
-      flattenThreads.injectQuoteIfApplicable(node);
-    }
-
-    // Inject reply button in non-nested view
-    if (flattenThreads.shouldInjectReplyBtn(node)) {
-      flattenThreads.injectReplyBtnIfApplicable(node);
-    }
-
-    // Delete additional info in the edit message box
-    if (flattenThreads.isAdditionalInfoElement(node)) {
-      flattenThreads.deleteAdditionalInfoElementIfApplicable(node);
-    }
-  }
-}
-
-function handleRemovedNode(mutation, node) {
-  if (!('tagName' in node)) return;
-
-  // Readd reply button when the Community Console removes it
-  if (node.tagName == 'TWPT-FLATTEN-THREAD-REPLY-BUTTON') {
-    flattenThreads.injectReplyBtn(
-        mutation.target, JSON.parse(node.getAttribute('extraInfo')));
   }
 }
 
@@ -127,10 +98,6 @@ function mutationCallback(mutationList) {
     if (mutation.type == 'childList') {
       mutation.addedNodes.forEach(function(node) {
         handleCandidateNode(node);
-      });
-
-      mutation.removedNodes.forEach(function(node) {
-        handleRemovedNode(mutation, node);
       });
     }
   });
@@ -147,7 +114,6 @@ getOptions(null).then(items => {
   // Initialize classes needed by the mutation observer
   avatars = new AvatarsHandler();
   threadToolbar = new ThreadToolbar();
-  flattenThreads = new FlattenThreads();
 
   // Before starting the mutation Observer, check whether we missed any
   // mutations by manually checking whether some watched nodes already
@@ -202,8 +168,6 @@ getOptions(null).then(items => {
   injectStylesheet(chrome.runtime.getURL('css/thread_list_avatars.css'));
   // Thread toolbar
   injectStylesheet(chrome.runtime.getURL('css/thread_toolbar.css'));
-  // Flatten threads
-  injectStylesheet(chrome.runtime.getURL('css/flatten_threads.css'));
 });
 
 new XHRProxyKillSwitchHandler();

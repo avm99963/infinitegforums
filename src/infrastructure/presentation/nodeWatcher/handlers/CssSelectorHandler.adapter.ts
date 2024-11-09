@@ -28,5 +28,5 @@ export default abstract class CssSelectorNodeWatcherHandler
     return this.cssSelector;
   }
 
-  abstract onMutatedNode(nodeMutation: NodeMutation): void;
+  abstract onMutatedNode(nodeMutation: NodeMutation<HTMLElement>): void;
 }

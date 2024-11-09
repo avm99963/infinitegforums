@@ -1,19 +1,14 @@
 import {waitFor} from 'poll-until-promise';
 
 import {parseUrl} from '../../../common/commonUtils';
-import {getOptions} from '../../../common/options/optionsUtils';
 
 const kOpenReplyEditorIntervalInMs = 500;
 const kOpenReplyEditorTimeoutInMs = 10 * 1000;
 
 // @TODO: Handle observing when the hash is added after the page has loaded.
 export default class FlattenThreadsReplyActionHandler {
-  /**
-   * @param {Object} options Options object which at least includes the
-   *     |flattenthreads| and |flattenthreads_switch_enabled| options.
-   */
-  constructor(options = null) {
-    this.options = options;
+  constructor(optionsProvider) {
+    this.optionsProvider = optionsProvider;
   }
 
   async handleIfApplicable() {
@@ -53,13 +48,7 @@ export default class FlattenThreadsReplyActionHandler {
   }
 
   async isFeatureEnabled() {
-    let options;
-    if (this.options !== null) {
-      options = this.options;
-    } else {
-      options =
-          await getOptions(['flattenthreads', 'flattenthreads_switch_enabled']);
-    }
+    const options = await this.optionsProvider.getOptionsValues();
     return options['flattenthreads'] &&
         options['flattenthreads_switch_enabled'];
   }

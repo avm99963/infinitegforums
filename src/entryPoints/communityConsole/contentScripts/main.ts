@@ -42,6 +42,12 @@ import CCExtraInfoStylesScript from '../../../features/extraInfo/presentation/sc
 import InjectLitComponentsScript from '../../../presentation/standaloneScripts/litComponents/injectLitComponents.script';
 import ApplyStartupDataModificationsOnMainScript from '../../../presentation/standaloneScripts/startupDataStorage/applyStartupDataModificationsOnMain.script';
 import ThreadPageDesignWarningInjectHandler from '../../../features/threadPageDesignWarning/presentation/nodeWatcherHandlers/inject.handler';
+import FlattenThreadsAdditionalInfoHandler from '../../../features/flattenThreads/presentation/nodeWatcherHandlers/additionalInfo.handler';
+import FlattenThreadsQuoteHandler from '../../../features/flattenThreads/presentation/nodeWatcherHandlers/quote.handler';
+import FlattenThreadsReaddReplyBtnHandler from '../../../features/flattenThreads/presentation/nodeWatcherHandlers/readdReplyBtn.handler';
+import FlattenThreadsReplyBtnHandler from '../../../features/flattenThreads/presentation/nodeWatcherHandlers/replyBtn.handler';
+import FlattenThreads from '../../../features/flattenThreads/core/flattenThreads';
+import FlattenThreadsStylesScript from '../../../features/flattenThreads/presentation/scripts/styles.script';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -64,6 +70,7 @@ function createScriptRunner() {
   );
 
   const ccInfiniteScroll = new CCInfiniteScroll();
+  const flattenThreads = new FlattenThreads();
 
   return new ScriptRunner(
     new SortedScriptsProviderAdapter(
@@ -133,6 +140,22 @@ function createScriptRunner() {
               new CCInfiniteScrollLoadMoreBtnHandler(ccInfiniteScroll),
             ],
             [
+              'flattenThreadsAdditionalInfo',
+              new FlattenThreadsAdditionalInfoHandler(flattenThreads),
+            ],
+            [
+              'flattenThreadsQuote',
+              new FlattenThreadsQuoteHandler(flattenThreads),
+            ],
+            [
+              'flattenThreadsReaddReplyBtn',
+              new FlattenThreadsReaddReplyBtnHandler(flattenThreads),
+            ],
+            [
+              'flattenThreadsReplyBtn',
+              new FlattenThreadsReplyBtnHandler(flattenThreads),
+            ],
+            [
               'threadPageDesignWarningInject',
               new ThreadPageDesignWarningInjectHandler(threadPageDesignWarning),
             ],
@@ -151,6 +174,7 @@ function createScriptRunner() {
         new AutoRefreshStylesScript(),
         new CCExtraInfoInjectScript(),
         new CCExtraInfoStylesScript(),
+        new FlattenThreadsStylesScript(),
         new WorkflowsImportStylesheetScript(),
 
         // Standalone scripts
