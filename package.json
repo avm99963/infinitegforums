@@ -34,7 +34,7 @@
     "@babel/plugin-transform-modules-commonjs": "7.25.9",
     "@jest/globals": "29.7.0",
     "@lit/localize-tools": "0.8.0",
-    "@testing-library/dom": "^10.4.0",
+    "@testing-library/dom": "10.4.0",
     "@types/chrome": "0.0.280",
     "@types/eslint__js": "8.42.3",
     "@types/node": "20.17.6",
