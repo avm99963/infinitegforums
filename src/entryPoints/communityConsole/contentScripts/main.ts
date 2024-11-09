@@ -8,12 +8,6 @@ import DependenciesProviderSingleton, {
   StartupDataStorageDependency,
   WorkflowsImportDependency,
 } from '../../../common/architecture/dependenciesProvider/DependenciesProvider';
-import { Context } from '../../../common/architecture/entrypoint/Context';
-import {
-  ScriptEnvironment,
-  ScriptPage,
-  ScriptRunPhase,
-} from '../../../common/architecture/scripts/Script';
 import AutoRefreshThreadListHideHandler from '../../../features/autoRefresh/presentation/nodeWatcherHandlers/threadListHide.handler';
 import AutoRefreshThreadListSetUpHandler from '../../../features/autoRefresh/presentation/nodeWatcherHandlers/threadListSetUp.handler';
 import AutoRefreshStylesScript from '../../../features/autoRefresh/presentation/scripts/styles.script';
@@ -21,7 +15,6 @@ import ReportDialogColorThemeFix from '../../../features/ccDarkTheme/core/logic/
 import CCDarkThemeEcAppHandler from '../../../features/ccDarkTheme/presentation/nodeWatcherHandlers/ecApp.handler';
 import CCDarkThemeReportDialogHandler from '../../../features/ccDarkTheme/presentation/nodeWatcherHandlers/reportDialog.handler';
 import CCDarkThemeUnifiedProfilesIframeHandler from '../../../features/ccDarkTheme/presentation/nodeWatcherHandlers/unifiedProfilesIframe.handler';
-import Features from '../../../features/Features';
 import CCInfiniteScroll from '../../../features/infiniteScroll/core/ccInfiniteScroll';
 import { NodeWatcherAdapter } from '../../../infrastructure/presentation/nodeWatcher/NodeWatcher.adapter';
 import NodeWatcherScriptAdapter from '../../../infrastructure/presentation/scripts/NodeWatcherScript.adapter';
@@ -29,7 +22,6 @@ import ScriptRunner from '../../../infrastructure/presentation/scripts/ScriptRun
 import ScriptSorterAdapter from '../../../infrastructure/presentation/scripts/ScriptSorter.adapter';
 import { SortedScriptsProviderAdapter } from '../../../infrastructure/presentation/scripts/SortedScriptsProvider.adapter';
 import { NodeWatcherHandler } from '../../../presentation/nodeWatcher/NodeWatcherHandler';
-import StandaloneScripts from '../../../presentation/standaloneScripts/Scripts';
 import CCInfiniteScrollSetUpHandler from '../../../features/infiniteScroll/presentation/nodeWatcherHandlers/ccInfiniteScrollSetUp.handler';
 import CCInfiniteScrollLoadMoreBarHandler from '../../../features/infiniteScroll/presentation/nodeWatcherHandlers/ccInfiniteScrollLoadMoreBar.handler';
 import CCInfiniteScrollLoadMoreBtnHandler from '../../../features/infiniteScroll/presentation/nodeWatcherHandlers/ccInfiniteScrollLoadMoreBtn.handler';
@@ -67,12 +59,6 @@ function createScriptRunner() {
   );
 
   const ccInfiniteScroll = new CCInfiniteScroll();
-
-  const context: Context = {
-    page: ScriptPage.CommunityConsole,
-    environment: ScriptEnvironment.ContentScript,
-    runPhase: ScriptRunPhase.Main,
-  };
 
   return new ScriptRunner(
     new SortedScriptsProviderAdapter(
@@ -161,10 +147,6 @@ function createScriptRunner() {
         // Standalone scripts
         new ApplyStartupDataModificationsOnMainScript(startupDataStorage),
         new InjectLitComponentsScript(),
-
-        // Non-DI scripts (legacy, should be migrated to use a DI approach)
-        ...new Features().getScripts(context),
-        ...new StandaloneScripts().getScripts(context),
       ],
       new ScriptSorterAdapter(),
     ).getScripts(),
