@@ -1,7 +1,7 @@
-import CssSelectorNodeWatcherHandler from '../../../infrastructure/presentation/nodeWatcher/handlers/CssSelectorHandler.adapter';
-import { NodeMutation } from '../../../presentation/nodeWatcher/NodeWatcherHandler';
-import { OptionsProviderPort } from '../../../services/options/OptionsProvider';
-import ReportDialogColorThemeFix from '../core/logic/reportDialog';
+import CssSelectorNodeWatcherHandler from '../../../../infrastructure/presentation/nodeWatcher/handlers/CssSelectorHandler.adapter';
+import { NodeMutation } from '../../../../presentation/nodeWatcher/NodeWatcherHandler';
+import { OptionsProviderPort } from '../../../../services/options/OptionsProvider';
+import ReportDialogColorThemeFix from '../../core/logic/reportDialog';
 
 /**
  * Sets the report dialog iframe's theme to the appropriate theme.

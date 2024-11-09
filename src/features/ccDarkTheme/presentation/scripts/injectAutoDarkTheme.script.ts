@@ -1,5 +1,5 @@
-import { ScriptPage } from '../../../common/architecture/scripts/Script';
-import StylesheetScript from '../../../common/architecture/scripts/stylesheet/StylesheetScript';
+import { ScriptPage } from '../../../../common/architecture/scripts/Script';
+import StylesheetScript from '../../../../common/architecture/scripts/stylesheet/StylesheetScript';
 
 export default class CCDarkThemeInjectAutoDarkTheme extends StylesheetScript {
   stylesheet = 'ccDarkTheme.bundle.css';

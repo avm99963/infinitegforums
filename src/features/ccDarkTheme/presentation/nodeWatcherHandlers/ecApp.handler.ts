@@ -1,7 +1,7 @@
-import CssSelectorNodeWatcherHandler from '../../../infrastructure/presentation/nodeWatcher/handlers/CssSelectorHandler.adapter';
-import { NodeMutation } from '../../../presentation/nodeWatcher/NodeWatcherHandler';
-import { OptionsProviderPort } from '../../../services/options/OptionsProvider';
-import { injectDarkThemeButton } from '../core/logic/darkTheme';
+import CssSelectorNodeWatcherHandler from '../../../../infrastructure/presentation/nodeWatcher/handlers/CssSelectorHandler.adapter';
+import { NodeMutation } from '../../../../presentation/nodeWatcher/NodeWatcherHandler';
+import { OptionsProviderPort } from '../../../../services/options/OptionsProvider';
+import { injectDarkThemeButton } from '../../core/logic/darkTheme';
 
 /**
  * Injects the dark theme button.

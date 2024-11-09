@@ -1,6 +1,6 @@
-import { NodeMutation } from '../../../presentation/nodeWatcher/NodeWatcherHandler';
-import CCInfiniteScroll from '../core/ccInfiniteScroll';
-import CssSelectorNodeWatcherHandler from '../../../infrastructure/presentation/nodeWatcher/handlers/CssSelectorHandler.adapter';
+import { NodeMutation } from '../../../../presentation/nodeWatcher/NodeWatcherHandler';
+import CCInfiniteScroll from '../../core/ccInfiniteScroll';
+import CssSelectorNodeWatcherHandler from '../../../../infrastructure/presentation/nodeWatcher/handlers/CssSelectorHandler.adapter';
 
 export default class CCInfiniteScrollLoadMoreBarHandler extends CssSelectorNodeWatcherHandler {
   cssSelector = '.load-more-bar';

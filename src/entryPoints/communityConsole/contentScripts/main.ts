@@ -16,9 +16,9 @@ import AutoRefreshThreadListHideHandler from '../../../features/autoRefresh/pres
 import AutoRefreshThreadListSetUpHandler from '../../../features/autoRefresh/presentation/nodeWatcherHandlers/threadListSetUp.handler';
 import AutoRefreshStylesScript from '../../../features/autoRefresh/presentation/scripts/styles.script';
 import ReportDialogColorThemeFix from '../../../features/ccDarkTheme/core/logic/reportDialog';
-import CCDarkThemeEcAppHandler from '../../../features/ccDarkTheme/nodeWatcherHandlers/ecApp.handler';
-import CCDarkThemeReportDialogHandler from '../../../features/ccDarkTheme/nodeWatcherHandlers/reportDialog.handler';
-import CCDarkThemeUnifiedProfilesIframeHandler from '../../../features/ccDarkTheme/nodeWatcherHandlers/unifiedProfilesIframe.handler';
+import CCDarkThemeEcAppHandler from '../../../features/ccDarkTheme/presentation/nodeWatcherHandlers/ecApp.handler';
+import CCDarkThemeReportDialogHandler from '../../../features/ccDarkTheme/presentation/nodeWatcherHandlers/reportDialog.handler';
+import CCDarkThemeUnifiedProfilesIframeHandler from '../../../features/ccDarkTheme/presentation/nodeWatcherHandlers/unifiedProfilesIframe.handler';
 import Features from '../../../features/Features';
 import CCInfiniteScroll from '../../../features/infiniteScroll/core/ccInfiniteScroll';
 import { NodeWatcherAdapter } from '../../../infrastructure/presentation/nodeWatcher/NodeWatcher.adapter';
@@ -28,9 +28,9 @@ import ScriptSorterAdapter from '../../../infrastructure/presentation/scripts/Sc
 import { SortedScriptsProviderAdapter } from '../../../infrastructure/presentation/scripts/SortedScriptsProvider.adapter';
 import { NodeWatcherHandler } from '../../../presentation/nodeWatcher/NodeWatcherHandler';
 import StandaloneScripts from '../../../scripts/Scripts';
-import CCInfiniteScrollSetUpHandler from '../../../features/infiniteScroll/nodeWatcherHandlers/ccInfiniteScrollSetUp.handler';
-import CCInfiniteScrollLoadMoreBarHandler from '../../../features/infiniteScroll/nodeWatcherHandlers/ccInfiniteScrollLoadMoreBar.handler';
-import CCInfiniteScrollLoadMoreBtnHandler from '../../../features/infiniteScroll/nodeWatcherHandlers/ccInfiniteScrollLoadMoreBtn.handler';
+import CCInfiniteScrollSetUpHandler from '../../../features/infiniteScroll/presentation/nodeWatcherHandlers/ccInfiniteScrollSetUp.handler';
+import CCInfiniteScrollLoadMoreBarHandler from '../../../features/infiniteScroll/presentation/nodeWatcherHandlers/ccInfiniteScrollLoadMoreBar.handler';
+import CCInfiniteScrollLoadMoreBtnHandler from '../../../features/infiniteScroll/presentation/nodeWatcherHandlers/ccInfiniteScrollLoadMoreBtn.handler';
 import WorkflowsThreadListActionBarHandler from '../../../features/workflows/presentation/nodeWatcherHandlers/threadListActionBar.handler';
 import WorkflowsImportCRTagsHandler from '../../../features/workflows/presentation/nodeWatcherHandlers/crTags.handler';
 import Workflows from '../../../features/workflows/core/communityConsole/workflows';

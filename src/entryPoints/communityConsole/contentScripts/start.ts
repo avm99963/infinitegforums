@@ -14,8 +14,8 @@ import {
   ScriptRunPhase,
 } from '../../../common/architecture/scripts/Script';
 import AutoRefreshSetUpScript from '../../../features/autoRefresh/presentation/scripts/setUp.script';
-import CCDarkThemeInjectAutoDarkTheme from '../../../features/ccDarkTheme/scripts/injectAutoDarkTheme.script';
-import CCDarkThemeInjectForcedDarkTheme from '../../../features/ccDarkTheme/scripts/injectForcedDarkTheme.script';
+import CCDarkThemeInjectAutoDarkTheme from '../../../features/ccDarkTheme/presentation/scripts/injectAutoDarkTheme.script';
+import CCDarkThemeInjectForcedDarkTheme from '../../../features/ccDarkTheme/presentation/scripts/injectForcedDarkTheme.script';
 import Features from '../../../features/Features';
 import InteropThreadPageSetupScript from '../../../features/interopThreadPage/presentation/scripts/setup.script';
 import ScriptRunner from '../../../infrastructure/presentation/scripts/ScriptRunner';
