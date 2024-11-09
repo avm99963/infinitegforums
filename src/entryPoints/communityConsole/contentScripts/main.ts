@@ -6,6 +6,7 @@ import DependenciesProviderSingleton, {
   ExtraInfoDependency,
   OptionsProviderDependency,
   StartupDataStorageDependency,
+  ThreadPageDesignWarningDependency,
   WorkflowsImportDependency,
 } from '../../../common/architecture/dependenciesProvider/DependenciesProvider';
 import AutoRefreshThreadListHideHandler from '../../../features/autoRefresh/presentation/nodeWatcherHandlers/threadListHide.handler';
@@ -40,6 +41,7 @@ import CCExtraInfoInjectScript from '../../../features/extraInfo/presentation/sc
 import CCExtraInfoStylesScript from '../../../features/extraInfo/presentation/scripts/ccExtraInfoStyles.script';
 import InjectLitComponentsScript from '../../../presentation/standaloneScripts/litComponents/injectLitComponents.script';
 import ApplyStartupDataModificationsOnMainScript from '../../../presentation/standaloneScripts/startupDataStorage/applyStartupDataModificationsOnMain.script';
+import ThreadPageDesignWarningInjectHandler from '../../../features/threadPageDesignWarning/presentation/nodeWatcherHandlers/inject.handler';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -53,6 +55,9 @@ function createScriptRunner() {
   );
   const startupDataStorage = dependenciesProvider.getDependency(
     StartupDataStorageDependency,
+  );
+  const threadPageDesignWarning = dependenciesProvider.getDependency(
+    ThreadPageDesignWarningDependency,
   );
   const workflowsImport = dependenciesProvider.getDependency(
     WorkflowsImportDependency,
@@ -126,6 +131,10 @@ function createScriptRunner() {
             [
               'ccInfiniteScrollLoadMoreBtn',
               new CCInfiniteScrollLoadMoreBtnHandler(ccInfiniteScroll),
+            ],
+            [
+              'threadPageDesignWarningInject',
+              new ThreadPageDesignWarningInjectHandler(threadPageDesignWarning),
             ],
             [
               'workflowsImportCRTags',

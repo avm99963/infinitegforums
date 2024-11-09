@@ -1,18 +1,25 @@
 import {MDCTooltip} from '@material/tooltip';
 import {waitFor} from 'poll-until-promise';
 
-import {parseUrl} from '../../common/commonUtils.js';
-import {injectStylesheet} from '../../common/contentScriptsUtils';
-import {getDocURL} from '../../common/extUtils.js';
-import {getOptions} from '../../common/options/optionsUtils.js';
+import {parseUrl} from '../../../common/commonUtils.js';
+import {injectStylesheet} from '../../../common/contentScriptsUtils';
+import {getDocURL} from '../../../common/extUtils.js';
+import {getOptions} from '../../../common/options/optionsUtils.js';
 
-import {createExtBadge} from './utils/common.js';
+import {createExtBadge} from '../../../contentScripts/communityConsole/utils/common.js';
 
 const kSMEINestedReplies = 15;
 const kViewThreadResponse = 'TWPT_ViewThreadResponse';
 
 export default class ThreadPageDesignWarning {
   constructor() {
+    this.isSetUp = false;
+  }
+
+  setUp() {
+    if (this.isSetUp) return;
+
+    this.isSetUp = true;
     this.lastThread = {
       body: {},
       id: -1,
@@ -110,9 +117,15 @@ export default class ThreadPageDesignWarning {
   injectWarningIfApplicable(content) {
     return waitFor(
                () => {
-                 if (this.shouldShowWarning === undefined)
+                 if (!this.setUp) {
+                   return Promise.reject(new Error(
+                       'ThreadPageDesignWarning hasn\'t been set up yet.'));
+                 }
+
+                 if (this.shouldShowWarning === undefined) {
                    return Promise.reject(
                        new Error('shouldShowWarning is not defined.'));
+                 }
 
                  return Promise.resolve({result: this.shouldShowWarning});
                },

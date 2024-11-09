@@ -4,6 +4,7 @@ import OptionsProviderAdapter from '../../../infrastructure/services/options/Opt
 import WorkflowsImport from '../../../features/workflows/core/communityConsole/import';
 import StartupDataStorageAdapter from '../../../infrastructure/services/communityConsole/StartupDataStorage.adapter';
 import ReportDialogColorThemeFix from '../../../features/ccDarkTheme/core/logic/reportDialog';
+import ThreadPageDesignWarning from '../../../features/threadPageDesignWarning/core/threadPageDesignWarning';
 
 export const AutoRefreshDependency = 'autoRefresh';
 export const ExtraInfoDependency = 'extraInfo';
@@ -11,6 +12,7 @@ export const OptionsProviderDependency = 'optionsProvider';
 export const ReportDialogColorThemeFixDependency =
   'report-dialog-color-theme-fix';
 export const StartupDataStorageDependency = 'startupDataStorage';
+export const ThreadPageDesignWarningDependency = 'threadPageDesignWarning';
 export const WorkflowsImportDependency = 'workflowsImport';
 export const DependenciesToClass = {
   [AutoRefreshDependency]: AutoRefresh,
@@ -18,6 +20,7 @@ export const DependenciesToClass = {
   [OptionsProviderDependency]: OptionsProviderAdapter,
   [ReportDialogColorThemeFixDependency]: ReportDialogColorThemeFix,
   [StartupDataStorageDependency]: StartupDataStorageAdapter,
+  [ThreadPageDesignWarningDependency]: ThreadPageDesignWarning,
   [WorkflowsImportDependency]: WorkflowsImport,
 };
 

@@ -6,6 +6,7 @@ import DependenciesProviderSingleton, {
   ExtraInfoDependency,
   OptionsProviderDependency,
   StartupDataStorageDependency,
+  ThreadPageDesignWarningDependency,
   WorkflowsImportDependency,
 } from '../../../common/architecture/dependenciesProvider/DependenciesProvider';
 import AutoRefreshSetUpScript from '../../../features/autoRefresh/presentation/scripts/setUp.script';
@@ -22,6 +23,7 @@ import MWI18nServerScript from '../../../presentation/standaloneScripts/mainWorl
 import MWOptionsWatcherServerScript from '../../../presentation/standaloneScripts/mainWorldServers/MWOptionsWatcherServerScript.script';
 import ApplyStartupDataModificationsOnStartScript from '../../../presentation/standaloneScripts/startupDataStorage/applyStartupDataModificationsOnStart.script';
 import XHRInterceptorScript from '../../../presentation/standaloneScripts/xhrInterceptor/xhrInterceptor.script';
+import ThreadPageDesignWarningSetUpScript from '../../../features/threadPageDesignWarning/presentation/scripts/setUp.script';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -36,6 +38,9 @@ function createScriptRunner() {
   const startupDataStorage = dependenciesProvider.getDependency(
     StartupDataStorageDependency,
   );
+  const threadPageDesignWarning = dependenciesProvider.getDependency(
+    ThreadPageDesignWarningDependency,
+  );
   const workflowsImport = dependenciesProvider.getDependency(
     WorkflowsImportDependency,
   );
@@ -49,6 +54,9 @@ function createScriptRunner() {
         new CCDarkThemeInjectForcedDarkTheme(),
         new CCExtraInfoSetUpScript(extraInfo),
         new InteropThreadPageSetupScript(),
+        new ThreadPageDesignWarningSetUpScript(
+          threadPageDesignWarning,
+        ),
         new LoadDraftsSetupScript(optionsProvider, startupDataStorage),
         new WorkflowsImportSetUpScript(workflowsImport),
 
