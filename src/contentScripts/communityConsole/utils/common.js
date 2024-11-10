@@ -3,18 +3,6 @@ import {waitFor} from 'poll-until-promise';
 
 import {createPlainTooltip} from '../../../common/tooltip.js';
 
-export function removeChildNodes(node) {
-  while (node?.firstChild) {
-    node.removeChild(node.firstChild);
-  }
-}
-
-export function getNParent(node, n) {
-  if (n <= 0) return node;
-  if (!('parentNode' in node)) return null;
-  return getNParent(node.parentNode, n - 1);
-}
-
 export function createExtBadge() {
   let badge = document.createElement('div');
   badge.classList.add('TWPT-badge');

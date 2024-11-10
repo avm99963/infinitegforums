@@ -1,6 +1,6 @@
 import {isOptionEnabled} from '../../common/options/optionsUtils.js';
 
-import {addButtonToThreadListActions, removeChildNodes, shouldAddBtnToActionBar, softRefreshView} from './utils/common.js';
+import {addButtonToThreadListActions, shouldAddBtnToActionBar, softRefreshView} from './utils/common.js';
 
 const kLockDebugId = 'twpt-lock';
 export const kModalPaneSelector = '.pane[pane-id="default--1"]';
@@ -115,3 +115,9 @@ export var batchLock = {
     });
   },
 };
+
+function removeChildNodes(node) {
+  while (node?.firstChild) {
+    node.removeChild(node.firstChild);
+  }
+}
