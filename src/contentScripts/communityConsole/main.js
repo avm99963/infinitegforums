@@ -1,4 +1,4 @@
-import {injectScript, injectStyles, injectStylesheet} from '../../common/contentScriptsUtils';
+import {injectScript, injectStylesheet} from '../../common/contentScriptsUtils';
 import {getOptions} from '../../common/options/optionsUtils.js';
 import XHRProxyKillSwitchHandler from '../../xhrInterceptor/killSwitchHandler.js';
 import {injectPreviousPostsLinksUnifiedProfileIfEnabled} from '../utilsCommon/unifiedProfiles.js';
@@ -124,35 +124,6 @@ getOptions(null).then(items => {
 
   mutationObserver = new MutationObserver(mutationCallback);
   mutationObserver.observe(document.body, observerOptions);
-
-  // TODO(avm99963): The following features are not dynamic. Make them be.
-  if (options.fixedtoolbar) {
-    injectStyles(
-        'ec-bulk-actions{position: sticky; top: 0; background: var(--TWPT-primary-background, #fff); z-index: 96;}');
-  }
-
-  if (options.increasecontrast) {
-    injectStyles(
-        '.thread-summary.read:not(.checked){background: var(--TWPT-thread-read-background, #ecedee)!important;}');
-  }
-
-  if (options.stickysidebarheaders) {
-    injectStyles(
-        'material-drawer .main-header{background: var(--TWPT-drawer-background, #fff)!important; position: sticky; top: 0; z-index: 1;}');
-  }
-
-  if (options.enhancedannouncementsdot) {
-    injectStylesheet(
-        chrome.runtime.getURL('css/enhanced_announcements_dot.css'));
-  }
-
-  if (options.repositionexpandthread) {
-    injectStylesheet(chrome.runtime.getURL('css/reposition_expand_thread.css'));
-  }
-
-  if (options.imagemaxheight) {
-    injectStylesheet(chrome.runtime.getURL('css/image_max_height.css'));
-  }
 
   if (options.ccforcehidedrawer) {
     var drawer = document.querySelector('material-drawer');

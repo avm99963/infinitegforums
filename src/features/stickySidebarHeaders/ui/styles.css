@@ -1,0 +1,6 @@
+material-drawer .main-header {
+  background: var(--TWPT-drawer-background, #fff) !important;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}

@@ -119,6 +119,9 @@
         "css/thread_page_design_warning.css",
         "css/thread_toolbar.css",
         "css/flatten_threads.css",
+        "css/fixed_toolbar.css",
+        "css/increase_contrast.css",
+        "css/sticky_sidebar_headers.css",
 
         "communityConsoleMain.bundle.js.map",
         "communityConsoleStart.bundle.js.map",

@@ -1,0 +1,6 @@
+ec-bulk-actions {
+  position: sticky;
+  top: 0;
+  background: var(--TWPT-primary-background, #fff);
+  z-index: 96;
+}

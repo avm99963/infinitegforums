@@ -20,26 +20,10 @@ const localeOverrides = [
   },
 ];
 
-const getCopyPluginsForOverridenLocales = outputPath => {
-  return localeOverrides.map(l => {
-    return new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.join(__dirname, 'src/static/_locales/' + l.pontoonLocale),
-          to: path.join(outputPath, '_locales/' + l.webExtLocale),
-          globOptions: {
-            ignore: ['**/OWNERS', '**.md'],
-          }
-        },
-      ]
-    });
-  });
-};
-
 module.exports = (env, args) => {
   // NOTE: When adding an entry, add the corresponding source map file to
   // web_accessible_resources in //templates/manifest.gjson.
-  let entry = {
+  const entry = {
     // Content scripts
     communityConsoleMain:
         './src/entryPoints/communityConsole/contentScripts/main.ts',
@@ -78,14 +62,43 @@ module.exports = (env, args) => {
 
     // Compiled Sass
     ccDarkTheme: './src/features/ccDarkTheme/core/styles/main.scss?asCSSFile',
+
+    // Background script (or service worker for MV3)
+    bg: './src/bg.js',
   };
 
-  // Background script (or service worker for MV3)
-  entry.bg = './src/bg.js';
+  // NOTE: When adding an entry, add the corresponding source map file to
+  // web_accessible_resources in //templates/manifest.gjson.
+  const styles = [
+    {
+      origin: './src/features/enhancedAnnouncementsDot/ui/styles.css',
+      destination: 'css/enhanced_announcements_dot.css',
+    },
+    {
+      origin: './src/features/fixedToolbar/ui/styles.css',
+      destination: 'css/fixed_toolbar.css',
+    },
+    {
+      origin: './src/features/imageMaxHeight/ui/styles.css',
+      destination: 'css/image_max_height.css',
+    },
+    {
+      origin: './src/features/increaseContrast/ui/styles.css',
+      destination: 'css/increase_contrast.css',
+    },
+    {
+      origin: './src/features/repositionExpandThread/ui/styles.css',
+      destination: 'css/reposition_expand_thread.css',
+    },
+    {
+      origin: './src/features/stickySidebarHeaders/ui/styles.css',
+      destination: 'css/sticky_sidebar_headers.css',
+    },
+  ];
 
-  let outputPath = path.join(__dirname, 'dist', env.browser_target);
+  const outputPath = path.join(__dirname, 'dist', env.browser_target);
 
-  let overridenLocalePaths =
+  const overridenLocalePaths =
       localeOverrides.map(l => '**/_locales/' + l.pontoonLocale);
 
   let preprocessorLoader = {
@@ -129,10 +142,6 @@ module.exports = (env, args) => {
                 __dirname, 'src/icons', env.canary ? 'canary' : 'regular'),
             to: path.join(outputPath, 'icons'),
           },
-        ]
-      }),
-      new CopyWebpackPlugin({
-        patterns: [
           {
             from: path.join(__dirname, 'src/static'),
             to: outputPath,
@@ -140,6 +149,7 @@ module.exports = (env, args) => {
               ignore: ['**/OWNERS', '**.md', ...overridenLocalePaths],
             }
           },
+          ...getStylesCopyPatterns(styles),
         ]
       }),
       new HtmlWebpackPlugin({
@@ -244,3 +254,28 @@ module.exports = (env, args) => {
     },
   };
 };
+
+const getCopyPluginsForOverridenLocales = outputPath => {
+  return localeOverrides.map(l => {
+    return new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.join(__dirname, 'src/static/_locales/' + l.pontoonLocale),
+          to: path.join(outputPath, '_locales/' + l.webExtLocale),
+          globOptions: {
+            ignore: ['**/OWNERS', '**.md'],
+          }
+        },
+      ]
+    });
+  });
+};
+
+const getStylesCopyPatterns = styles => {
+  return styles.map(s => {
+    return {
+      from: path.join(__dirname, s.origin),
+      to: s.destination,
+    };
+  });
+}

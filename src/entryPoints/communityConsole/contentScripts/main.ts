@@ -48,6 +48,12 @@ import FlattenThreadsReaddReplyBtnHandler from '../../../features/flattenThreads
 import FlattenThreadsReplyBtnHandler from '../../../features/flattenThreads/presentation/nodeWatcherHandlers/replyBtn.handler';
 import FlattenThreads from '../../../features/flattenThreads/core/flattenThreads';
 import FlattenThreadsStylesScript from '../../../features/flattenThreads/presentation/scripts/styles.script';
+import FixedToolbarStylesScript from '../../../features/fixedToolbar/presentation/scripts/styles.script';
+import EnhancedAnnouncementsDotStylesScript from '../../../features/enhancedAnnouncementsDot/presentation/scripts/styles.script';
+import ImageMaxHeightStylesScript from '../../../features/imageMaxHeight/presentation/scripts/styles.script';
+import RepositionExpandThreadStylesScript from '../../../features/repositionExpandThread/presentation/scripts/styles.script';
+import StickySidebarHeadersStylesScript from '../../../features/stickySidebarHeaders/presentation/scripts/styles.script';
+import IncreaseContrastStylesScript from '../../../features/increaseContrast/presentation/scripts/styles.script';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -174,7 +180,13 @@ function createScriptRunner() {
         new AutoRefreshStylesScript(),
         new CCExtraInfoInjectScript(),
         new CCExtraInfoStylesScript(),
+        new EnhancedAnnouncementsDotStylesScript(),
+        new FixedToolbarStylesScript(),
         new FlattenThreadsStylesScript(),
+        new ImageMaxHeightStylesScript(),
+        new IncreaseContrastStylesScript(),
+        new RepositionExpandThreadStylesScript(),
+        new StickySidebarHeadersStylesScript(),
         new WorkflowsImportStylesheetScript(),
 
         // Standalone scripts
