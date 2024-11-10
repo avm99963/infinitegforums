@@ -1,12 +1,6 @@
-import {injectStylesheet} from '../common/contentScriptsUtils';
 import {getOptions} from '../common/options/optionsUtils.js';
 import {setUpRedirectIfEnabled} from '../redirect/setup.js';
 
-getOptions(['uispacing', 'redirect']).then(options => {
-  if (options.uispacing) {
-    injectStylesheet(chrome.runtime.getURL('css/ui_spacing/shared.css'));
-    injectStylesheet(chrome.runtime.getURL('css/ui_spacing/twbasic.css'));
-  }
-
+getOptions(['redirect']).then(options => {
   setUpRedirectIfEnabled(options);
 });

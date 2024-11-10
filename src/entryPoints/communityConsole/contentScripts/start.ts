@@ -1,6 +1,3 @@
-// Run legacy Javascript entry point
-import '../../../contentScripts/communityConsole/start';
-
 import DependenciesProviderSingleton, {
   AutoRefreshDependency,
   ExtraInfoDependency,
@@ -26,6 +23,8 @@ import XHRInterceptorScript from '../../../presentation/standaloneScripts/xhrInt
 import ThreadPageDesignWarningSetUpScript from '../../../features/threadPageDesignWarning/presentation/scripts/setUp.script';
 import FlattenThreadsSetUpReplyActionHandlerScript from '../../../features/flattenThreads/presentation/scripts/setUpReplyActionHandler.script';
 import FlattenThreadsReplyActionHandler from '../../../features/flattenThreads/core/replyActionHandler';
+import UiSpacingSharedStylesScript from '../../../features/uiSpacing/presentation/scripts/sharedStyles.script';
+import UiSpacingConsoleStylesScript from '../../../features/uiSpacing/presentation/scripts/consoleStyles.script';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -61,6 +60,8 @@ function createScriptRunner() {
         new InteropThreadPageSetupScript(),
         new ThreadPageDesignWarningSetUpScript(threadPageDesignWarning),
         new LoadDraftsSetupScript(optionsProvider, startupDataStorage),
+        new UiSpacingConsoleStylesScript(),
+        new UiSpacingSharedStylesScript(),
         new WorkflowsImportSetUpScript(workflowsImport),
 
         // Standalone scripts

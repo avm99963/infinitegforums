@@ -47,7 +47,7 @@ module.exports = (env, args) => {
         './src/entryPoints/communityConsole/contentScripts/start.ts',
     publicForum: './src/contentScripts/publicForum.js',
     publicThread: './src/contentScripts/publicThread.js',
-    publicThreadStart: './src/contentScripts/publicThreadStart.js',
+    publicThreadStart: './src/entryPoints/twBasic/thread/start.ts',
     publicGuide: './src/contentScripts/publicGuide.js',
     publicGuideStart: './src/contentScripts/publicGuideStart.js',
     publicProfile: './src/contentScripts/publicProfile.js',
