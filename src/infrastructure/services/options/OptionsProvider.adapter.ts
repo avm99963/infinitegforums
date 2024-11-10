@@ -55,6 +55,7 @@ export default class OptionsProviderAdapter implements OptionsProviderPort {
   private setUp() {
     if (this.isSetUp) return;
 
+    this.isSetUp = true;
     this.listenForStorageChanges();
     this.updateValues();
   }
