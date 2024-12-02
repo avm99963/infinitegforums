@@ -6,7 +6,7 @@ import './QuoteAuthor.js';
 import './ReplyButton.js';
 
 import {msg} from '@lit/localize';
-import * as DOMPurify from 'dompurify';
+import DOMPurify from 'dompurify';
 import {css, html} from 'lit';
 import {classMap} from 'lit/directives/class-map.js';
 import {unsafeHTML} from 'lit/directives/unsafe-html.js';
