@@ -2,8 +2,8 @@ Passen Sie die Erweiterung nach der Installation an Ihre Bedürfnisse an, indem 
 
 Eine Liste aller Neuerungen gibt es hier: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+/HEAD/docs/features.md
 
-Neue Funktionen in zukünftigen Updates werden standardmäßig deaktiviert und können auf der Optionsseite manuell aktiviert werden. Treten sie der Gruppe  https://groups.google.com/g/twpowertools-discuss bei um Updates zu neuen Funktionen zu erhalten.
+Neue Funktionen in zukünftigen Updates werden standardmäßig deaktiviert und können auf der Optionsseite manuell aktiviert werden. Treten sie der Gruppe https://groups.google.com/g/twpowertools-discuss bei um Updates zu neuen Funktionen zu erhalten.
 
 Der Quellcode ist hier verfügbar: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums. Beiträge sind willkommen!
 
-Helfen Sie mit, die Erweiterung in Ihre Muttersprache zu übersetzen! Besuchen sie https://i18n.avm99963.com/projects/tw-power-tools/
+Helfen Sie mit, die Erweiterung in Ihre Muttersprache zu übersetzen! Besuchen Sie https://i18n.avm99963.com/projects/tw-power-tools/

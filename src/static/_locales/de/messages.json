@@ -78,7 +78,7 @@
         "message": "Bitte bestätigen Sie die gewünschte Aktion, indem Sie unten auf die entsprechende Schaltfläche klicken. Beachten Sie, dass diese Aktion in allen von Ihnen ausgewählten Threads ausgeführt wird."
     },
     "inject_autorefresh_list_status_indicator_label_disabled": {
-        "message": "Ich kann nicht auf Aktualisierungen der Threadliste achten. Bitte ändern Sie die Sortieroptionen in „Sortieren nach: Letzte Aktualisierung“ und absteigende Reihenfolge."
+        "message": "Aktualisierungen der Threadliste können nicht abgerufen werden. Bitte ändern Sie die Sortierung in „Sortieren nach: Letzte Aktualisierung“ und absteigende Reihenfolge."
     },
     "options_ccdarktheme": {
         "message": "Aktivieren Sie das dunkle Design in der Community-Konsole, gesteuert über <span id='ccdarktheme_mode--container'></span>."
@@ -174,7 +174,7 @@
         "message": "Design wechseln"
     },
     "inject_extension_badge_helper": {
-        "message": "Hinzugefügt um $1"
+        "message": "Hinzugefügt von $1"
     },
     "inject_lockbtn": {
         "message": "Threads sperren/entsperren"
@@ -358,5 +358,137 @@
     },
     "inject_perforumstats_chart_recommended": {
         "message": "Empfohlen"
+    },
+    "inject_perforumstats_forumoption_2helpers": {
+        "message": "$FORUMNAME$ ($HELPER1$, $HELPER2$)",
+        "placeholders": {
+            "forumName": {
+                "content": "$1",
+                "example": "Google Chrome"
+            },
+            "helper1": {
+                "content": "$2",
+                "example": "963 messages"
+            },
+            "helper2": {
+                "content": "$3",
+                "example": "gold"
+            }
+        }
+    },
+    "inject_perforumstats_forumoption_1helper": {
+        "message": "$FORUMNAME$ ($HELPER1$)",
+        "placeholders": {
+            "forumName": {
+                "content": "$1",
+                "example": "Google Chrome"
+            },
+            "helper1": {
+                "content": "$2",
+                "example": "963 messages"
+            }
+        }
+    },
+    "inject_extrainfo_message_pendingstate_tooltip": {
+        "message": "Sichtbar nach $1"
+    },
+    "inject_extrainfo_message_state": {
+        "message": "Zustand: $1"
+    },
+    "inject_extrainfo_message_state_published": {
+        "message": "Veröffentlicht"
+    },
+    "inject_extrainfo_message_state_draft": {
+        "message": "Entwurf"
+    },
+    "inject_extrainfo_message_state_owner_deleted": {
+        "message": "Inhaber gelöscht"
+    },
+    "inject_extrainfo_message_state_automated_abuse_take_down_hide2": {
+        "message": "Unsichtbar (automatisch als Missbrauch markiert)"
+    },
+    "inject_extrainfo_message_state_automated_abuse_take_down_delete2": {
+        "message": "Gelöscht (automatisch als Missbrauch markiert)"
+    },
+    "inject_extrainfo_message_state_automated_off_topic_hide2": {
+        "message": "Unsichtbar (automatisch als ohne Bezug markiert)"
+    },
+    "inject_extrainfo_message_state_automated_flagged_pending_manual_review2": {
+        "message": "Automatisch gekennzeichnet (manuelle Überprüfung steht aus)"
+    },
+    "inject_extrainfo_message_state_user_flagged_pending_manual_review": {
+        "message": "Anwender gekennzeichnet (manuelle Überprüfung steht aus)"
+    },
+    "inject_extrainfo_message_state_expert_flagged_pending_manual_review": {
+        "message": "Experte gekennzeichnet (manuelle Überprüfung steht aus)"
+    },
+    "inject_extrainfo_message_state_awaiting_classification": {
+        "message": "Klassifizierung erwartet"
+    },
+    "inject_extrainfo_message_state_generated_answer_adopted": {
+        "message": "Generierte Antwort angenommen"
+    },
+    "inject_extrainfo_message_state_manual_take_down_hide2": {
+        "message": "Manuell ausgeblendet"
+    },
+    "inject_extrainfo_message_state_manual_take_down_delete2": {
+        "message": "Manuell gelöscht"
+    },
+    "inject_extrainfo_message_state_googler_off_topic_hide2": {
+        "message": "Von einem Googler als ohne Bezug ausgeblendet"
+    },
+    "inject_extrainfo_message_state_manual_profile_take_down_suspend2": {
+        "message": "Ausgeblendet (Profil suspendiert)"
+    },
+    "inject_extrainfo_message_state_reinstate_profile_takedown2": {
+        "message": "Wiederhergestellt (Profilsperre aufgehoben)"
+    },
+    "inject_extrainfo_message_state_reinstate_abuse_takedown2": {
+        "message": "Markierung als Missbrauch manuell aufgehoben"
+    },
+    "inject_extrainfo_message_state_automated_abuse_reinstate2": {
+        "message": "Markierung als Missbrauch automatisch aufgehoben"
+    },
+    "inject_extrainfo_message_state_clear_off_topic2": {
+        "message": "Erledigte ohne Bezug"
+    },
+    "inject_extrainfo_message_shadowblockactive": {
+        "message": "Hintergrundsperre aktiv"
+    },
+    "inject_extrainfo_message_shadowblocknotactive": {
+        "message": "Hintergrundsperre nicht länger aktiv"
+    },
+    "inject_extrainfo_message_livereviewverdict": {
+        "message": "Live Beurteilung: $1"
+    },
+    "inject_extrainfo_message_livereviewverdict_relevant": {
+        "message": "Relevant"
+    },
+    "inject_extrainfo_message_livereviewverdict_abuse": {
+        "message": "Missbrauch"
+    },
+    "inject_extrainfo_thread_autotrending": {
+        "message": "Automatisch als Trend markiert"
+    },
+    "inject_extrainfo_thread_trending": {
+        "message": "Im Trend"
+    },
+    "inject_threadpagedesign_warning": {
+        "message": "Dieser Thread funktioniert möglicherweise nicht richtig. Dies liegt daran, dass er die Funktion für verschachtelte Antworten verwendet und Sie in den TW Power Tools-Optionen das alte Thread-Design aktiviert haben, das keine verschachtelten Antworten unterstützt."
+    },
+    "btn_learnmore": {
+        "message": "Erfahre mehr"
+    },
+    "actionbadge_permissions_requested": {
+        "message": "Für einige Funktionen sind zusätzliche Berechtigungen erforderlich. Hier klicken um das zu beheben."
+    },
+    "actionbadge_killswitch_enabled": {
+        "message": "Einige Funktionen wurden zwangsweise deaktiviert. Hier klicken für weitere Informationen."
+    },
+    "inject_extrainfo_message_state_confirm_off_topic2": {
+        "message": "Bestätigte ohne Bezug"
+    },
+    "inject_extrainfo_message_livereviewverdict_offtopic": {
+        "message": "Ohne Bezug"
     }
 }
