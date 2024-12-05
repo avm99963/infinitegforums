@@ -1,9 +1,9 @@
 import MWOptionsWatcherClient from '../../common/mainWorldOptionsWatcher/Client.js';
 import {convertJSONToResponse, convertJSONToResponseText, getResponseJSON} from '../utils.js';
 
-import createMessageRemoveParentRef from './createMessageRemoveParentRef.js';
-import flattenThread from './flattenThread.js';
-import loadMoreThread from './loadMoreThread.js';
+import createMessageRemoveParentRef from './createMessageRemoveParentRef';
+import flattenThread from './flattenThread';
+import loadMoreThread from './loadMoreThread';
 
 export const responseModifiers = [
   loadMoreThread,
