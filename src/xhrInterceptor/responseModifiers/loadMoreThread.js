@@ -1,8 +1,8 @@
 import {CCApi} from '../../common/api.js';
 import {getAuthUser} from '../../common/communityConsoleUtils.js';
 import GapModel from '../../models/Gap.js';
-import MessageModel from '../../models/Message.js';
-import ThreadModel from '../../models/Thread.js';
+import MessageModel from '../../models/Message';
+import ThreadModel from '../../models/Thread';
 
 const authuser = getAuthUser();
 

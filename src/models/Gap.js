@@ -1,4 +1,4 @@
-import ThreadModel from './Thread.js';
+import ThreadModel from './Thread.ts';
 
 export default class GapModel {
   constructor(data, thread) {

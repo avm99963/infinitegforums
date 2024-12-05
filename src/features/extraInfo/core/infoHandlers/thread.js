@@ -1,7 +1,7 @@
 import {waitFor} from 'poll-until-promise';
 
 import {parseUrl} from '../../../../common/commonUtils.js';
-import ThreadModel from '../../../../models/Thread.js';
+import ThreadModel from '../../../../models/Thread';
 import {kViewThreadResponse} from '../consts.js';
 import MessageExtraInfoService from '../services/message.js';
 

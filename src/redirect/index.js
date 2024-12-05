@@ -1,5 +1,5 @@
 import {parseView} from '../common/TWBasicUtils.js';
-import ThreadModel from '../models/Thread.js';
+import ThreadModel from '../models/Thread';
 
 var CCThreadWithoutMessage = /forum\/[0-9]*\/thread\/[0-9]*$/;
 

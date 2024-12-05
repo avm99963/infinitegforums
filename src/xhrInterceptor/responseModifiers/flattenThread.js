@@ -1,8 +1,8 @@
 import {kAdditionalInfoClass} from '../../features/flattenThreads/core/flattenThreads.js';
 import GapModel from '../../models/Gap.js';
-import MessageModel from '../../models/Message.js';
+import MessageModel from '../../models/Message';
 import StartupDataModel from '../../models/StartupData.js';
-import ThreadModel from '../../models/Thread.js';
+import ThreadModel from '../../models/Thread';
 
 const currentUser = StartupDataModel.buildFromCCDOM().getCurrentUserModel();
 

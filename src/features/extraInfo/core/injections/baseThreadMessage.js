@@ -1,7 +1,6 @@
 import {MDCTooltip} from '@material/tooltip';
 
 import {shouldImplement} from '../../../../common/commonUtils.js';
-import ThreadModel from '../../../../models/Thread.js';
 import MessageExtraInfoService from '../services/message.js';
 
 import BaseExtraInfoInjection from './base.js';
