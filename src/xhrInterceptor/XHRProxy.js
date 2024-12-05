@@ -1,7 +1,7 @@
 import {waitFor} from 'poll-until-promise';
 
 import {correctArrayKeys} from '../common/protojs';
-import ResponseModifier from '../xhrInterceptor/responseModifiers/index.js';
+import ResponseModifier from '../xhrInterceptor/ResponseModifier';
 import * as utils from '../xhrInterceptor/utils.js';
 
 const kSpecialEvents = ['load', 'loadend'];
@@ -144,26 +144,39 @@ export default class XHRProxy {
     window.XMLHttpRequest.prototype.$proxySpecialEvents = function() {
       const proxyInstance = this;
       kSpecialEvents.forEach(eventName => {
-        this.xhr.addEventListener(eventName, function() {
-          let interceptedPromise;
+        this.xhr.addEventListener(eventName, async function() {
           if (eventName === 'load') {
-            interceptedPromise =
-                XHRProxyInstance.responseModifier.intercept(proxyInstance)
-                    .then(() => {
-                      proxyInstance.$responseIntercepted = true;
-                    });
+            const initialResponse = utils.getResponseJSON({
+              responseType: proxyInstance.xhr.responseType,
+              response: proxyInstance.xhr.response,
+              $TWPTRequestURL: proxyInstance.$TWPTRequestURL,
+              $isArrayProto: proxyInstance.$isArrayProto,
+            });
+
+            const result = await XHRProxyInstance.responseModifier.intercept({
+              url: proxyInstance.$TWPTRequestURL,
+              originalResponse: initialResponse,
+            });
+
+            if (result.wasModified) {
+              proxyInstance.$newResponse = utils.convertJSONToResponse(
+                  proxyInstance, result.modifiedResponse);
+              proxyInstance.$newResponseText = utils.convertJSONToResponseText(
+                  proxyInstance, result.modifiedResponse);
+            }
+
+            proxyInstance.$responseModified = result.wasModified;
+            proxyInstance.$responseIntercepted = true;
           } else {
-            interceptedPromise = waitFor(() => {
+            await waitFor(() => {
               if (proxyInstance.$responseIntercepted) return Promise.resolve();
               return Promise.reject();
             }, kCheckInterceptionOptions);
           }
 
-          interceptedPromise.then(() => {
-            for (const e of proxyInstance.specialHandlers[eventName]) {
-              e[1](arguments);
-            }
-          });
+          for (const e of proxyInstance.specialHandlers[eventName]) {
+            e[1](arguments);
+          }
         });
       });
     };
