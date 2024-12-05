@@ -1,9 +1,10 @@
 import {correctArrayKeys, inverseCorrectArrayKeys} from '../common/protojs';
 
-import xhrInterceptors from './interceptors.json5';
+import xhrInterceptors from './interceptors/interceptors';
 
-export {xhrInterceptors};
-
+/**
+ * @deprecated Use `InterceptorHandler`.
+ */
 export function matchInterceptors(interceptFilter, url) {
   return xhrInterceptors.interceptors.filter(interceptor => {
     var regex = new RegExp(interceptor.urlRegex);
@@ -90,12 +91,17 @@ export function convertJSONToResponse(xhr, json) {
 }
 
 export function convertJSONToResponseText(xhr, json) {
-  return convertJSONToResponse({
-    $isArrayProto: xhr.$isArrayProto,
-    responseType: 'text',
-  }, json);
+  return convertJSONToResponse(
+      {
+        $isArrayProto: xhr.$isArrayProto,
+        responseType: 'text',
+      },
+      json);
 }
 
+/**
+ * @deprecated Use `InterceptorHandler`.
+ */
 export function triggerEvent(eventName, body, id) {
   var evt = new CustomEvent('TWPT_' + eventName, {
     detail: {

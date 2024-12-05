@@ -20,6 +20,9 @@ const apiErrors = {
   16: 'UNAUTHENTICATED',
 };
 
+export const XClientHeader = 'X-Client';
+export const XClientValue = 'twpt';
+
 // Function to wrap calls to the Community Console API with intelligent error
 // handling.
 export function CCApi(
@@ -42,6 +45,9 @@ export function CCApi(
       .fetch(CC_API_BASE_URL + method + authuserPart, {
         'headers': {
           'content-type': 'text/plain; charset=utf-8',
+          // Used to exclude our requests from being handled by FetchProxy.
+          // FetchProxy will remove this header.
+          [XClientHeader]: XClientValue,
         },
         'body': JSON.stringify(data),
         'method': 'POST',

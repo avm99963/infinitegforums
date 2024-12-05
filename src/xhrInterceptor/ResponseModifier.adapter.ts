@@ -1,29 +1,24 @@
 import MWOptionsWatcherClient from '../common/mainWorldOptionsWatcher/Client.js';
 import { OptionCodename } from '../common/options/optionsPrototype.js';
-import { ProtobufObject } from '../common/protojs.types.js';
+import {
+  InterceptedResponse,
+  ResponseModifierPort,
+  Result,
+} from './ResponseModifier.port.js';
 
-import createMessageRemoveParentRef from './responseModifiers/createMessageRemoveParentRef';
-import flattenThread from './responseModifiers/flattenThread';
-import loadMoreThread from './responseModifiers/loadMoreThread';
-import { Modifier } from './responseModifiers/types';
-
-export const responseModifiers = [
-  loadMoreThread,
-  flattenThread,
-  createMessageRemoveParentRef,
-] as Modifier[];
+import { Modifier } from './responseModifiers/types.js';
 
 // Content script target
 export const kCSTarget = 'TWPT-XHRInterceptorOptionsWatcher-CS';
 // Main world (AKA regular web page) target
 export const kMWTarget = 'TWPT-XHRInterceptorOptionsWatcher-MW';
 
-export default class ResponseModifier {
+export default class ResponseModifierAdapter implements ResponseModifierPort {
   private optionsWatcher: MWOptionsWatcherClient;
 
-  constructor() {
+  constructor(private responseModifiers: Modifier[]) {
     this.optionsWatcher = new MWOptionsWatcherClient(
-      Array.from(this.watchingFeatures(responseModifiers)),
+      Array.from(this.watchingFeatures(this.responseModifiers)),
       kCSTarget,
       kMWTarget,
     );
@@ -40,7 +35,7 @@ export default class ResponseModifier {
 
   private async getMatchingModifiers(requestUrl: string) {
     // First filter modifiers which match the request URL regex.
-    const urlModifiers = responseModifiers.filter((modifier) =>
+    const urlModifiers = this.responseModifiers.filter((modifier) =>
       requestUrl.match(modifier.urlRegex),
     );
 
@@ -83,25 +78,3 @@ export default class ResponseModifier {
     };
   }
 }
-
-/**
- * Represents an intercepted response.
- */
-export interface InterceptedResponse {
-  /**
-   * URL of the original request.
-   */
-  url: string;
-
-  /**
-   * Object with the response as intercepted without any modification.
-   */
-  originalResponse: ProtobufObject;
-}
-
-export type Result =
-  | { wasModified: false }
-  | {
-      wasModified: true;
-      modifiedResponse: ProtobufObject;
-    };

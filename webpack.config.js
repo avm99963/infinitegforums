@@ -45,7 +45,7 @@ module.exports = (env, args) => {
     // Injected JS
     profileIndicatorInject: './src/injections/profileIndicator.js',
     batchLockInject: './src/injections/batchLock.js',
-    xhrInterceptorInject: './src/injections/xhrProxy.js',
+    xhrInterceptorInject: './src/entryPoints/communityConsole/injections/xhrProxy.ts',
     extraInfoInject: './src/injections/extraInfo.js',
     litComponentsInject: './src/injections/litComponentsInject.js',
     updateHandlerLitComponents:

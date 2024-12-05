@@ -1,7 +1,6 @@
 import {waitFor} from 'poll-until-promise';
 
 import {correctArrayKeys} from '../common/protojs';
-import ResponseModifier from '../xhrInterceptor/ResponseModifier';
 import * as utils from '../xhrInterceptor/utils.js';
 
 const kSpecialEvents = ['load', 'loadend'];
@@ -55,13 +54,16 @@ function flattenOptions(options) {
  * requests through our internal interceptors to read/modify requests/responses.
  *
  * Slightly based in https://stackoverflow.com/a/24561614.
+ *
+ * @param responseModifier
+ * @param messageIdTracker
  */
 export default class XHRProxy {
-  constructor() {
+  constructor(responseModifier, messageIdTracker) {
     this.originalXMLHttpRequest = window.XMLHttpRequest;
 
-    this.messageID = 0;
-    this.responseModifier = new ResponseModifier();
+    this.messageIdTracker = messageIdTracker;
+    this.responseModifier = responseModifier;
 
     this.#overrideXHRObject();
   }
@@ -80,7 +82,7 @@ export default class XHRProxy {
 
     window.XMLHttpRequest = function() {
       this.xhr = new XHRProxyInstance.originalXMLHttpRequest();
-      this.$TWPTID = XHRProxyInstance.messageID++;
+      this.$TWPTID = XHRProxyInstance.messageIdTracker.getNewId();
       this.$responseModified = false;
       this.$responseIntercepted = false;
       this.specialHandlers = {
