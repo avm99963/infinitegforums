@@ -71,8 +71,13 @@ let randomId = btoa(Math.random().toString()).substr(10, 5);
 // #!endif
 export function getOptions(options, requireOptionalPermissions = true) {
   // #!if !production
-  let timeLabel = 'getOptions--' + randomId + '-' + (timerId++);
-  console.time(timeLabel);
+  const timeLabel = 'getOptions--' + randomId + '-' + (timerId++);
+  const startMark = `mark_start_get_options_${timeLabel}`;
+  const grantedPermissionsCheckMark =
+      `mark_get_options_check_granted_permissions_${timeLabel}`;
+  const endMark = `mark_end_get_options_${timeLabel}`;
+  const measureName = `measure_get_options_${timeLabel}`;
+  window.performance.mark(startMark, {detail: {options}});
   // #!endif
   // Once we only target MV3, this can be greatly simplified.
   return new Promise((resolve, reject) => {
@@ -117,9 +122,8 @@ export function getOptions(options, requireOptionalPermissions = true) {
              // https://developer.chrome.com/docs/extensions/mv3/content_scripts/
 
              // #!if !production
-             console.debug(
-                 'We are about to start checking granted permissions');
-             console.timeLog(timeLabel);
+             window.performance.mark(
+                 grantedPermissionsCheckMark, {detail: {options}});
              // #!endif
              if (!chrome.permissions) {
                return chrome.runtime.sendMessage(
@@ -152,15 +156,21 @@ export function getOptions(options, requireOptionalPermissions = true) {
          })
       // #!if !production
       .then(items => {
-        console.group('getOptions(options); resolved; options: ', options);
-        console.timeEnd(timeLabel);
-        console.groupEnd();
+        window.performance.mark(endMark, {detail: {options}});
+        window.performance.measure(measureName, {
+          detail: {options},
+          start: startMark,
+          end: endMark,
+        });
         return items;
       })
       .catch(err => {
-        console.group('getOptions(options); rejected; options: ', options);
-        console.timeEnd(timeLabel);
-        console.groupEnd();
+        window.performance.mark(endMark, {detail: {options}});
+        window.performance.measure(measureName, {
+          detail: {options},
+          start: startMark,
+          end: endMark,
+        });
         throw err;
       })
       // #!endif
