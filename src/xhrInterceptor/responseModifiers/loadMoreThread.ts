@@ -123,7 +123,7 @@ async function loadGap(
     },
     /* authenticated = */ true,
     authuser,
-  ).then((res) => {
+  ).then((res: any) => {
     const thread = new ThreadModel(res[1]);
     return thread.getMessageOrGapModels();
   });
