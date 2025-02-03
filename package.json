@@ -35,7 +35,7 @@
     "@jest/globals": "29.7.0",
     "@lit/localize-tools": "0.8.0",
     "@testing-library/dom": "10.4.0",
-    "@types/chrome": "0.0.300",
+    "@types/chrome": "0.0.301",
     "@types/eslint__js": "8.42.3",
     "@types/node": "20.17.16",
     "copy-webpack-plugin": "12.0.2",
