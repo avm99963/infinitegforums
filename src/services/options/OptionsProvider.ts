@@ -17,6 +17,7 @@ export interface OptionsProviderPort {
    */
   isEnabled(option: OptionCodename): Promise<boolean>;
 
+  getOptionsConfiguration(): Promise<OptionsConfiguration>;
   getOptionsValues(): Promise<OptionsValues>;
 
   /**
@@ -26,6 +27,6 @@ export interface OptionsProviderPort {
 }
 
 export type OptionsChangeListener = (
-  previousOptionValues: OptionsConfiguration,
-  currentOptionValues: OptionsConfiguration,
+  previousConfiguration: OptionsConfiguration,
+  currentConfiguration: OptionsConfiguration,
 ) => void;

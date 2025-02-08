@@ -1,7 +1,10 @@
 import { Mutex, MutexInterface, withTimeout } from 'async-mutex';
 
 import { getOptions } from '../../../common/options/optionsUtils';
-import { OptionCodename, OptionsValues } from '../../../common/options/optionsPrototype';
+import {
+  OptionCodename,
+  OptionsValues,
+} from '../../../common/options/optionsPrototype';
 import { OptionsConfiguration } from '../../../common/options/OptionsConfiguration';
 import {
   OptionsChangeListener,
@@ -32,19 +35,19 @@ export default class OptionsProviderAdapter implements OptionsProviderPort {
   }
 
   async isEnabled(option: OptionCodename): Promise<boolean> {
+    return (await this.getOptionsConfiguration()).isEnabled(option);
+  }
+
+  async getOptionsConfiguration(): Promise<OptionsConfiguration> {
     this.setUp();
     return this.mutex.runExclusive(
-      () => this.optionsConfiguration.isEnabled(option),
+      () => this.optionsConfiguration,
       kReadPriority,
     );
   }
 
   async getOptionsValues(): Promise<OptionsValues> {
-    this.setUp();
-    return this.mutex.runExclusive(
-      () => this.optionsConfiguration.optionsValues,
-      kReadPriority,
-    );
+    return (await this.getOptionsConfiguration()).optionsValues;
   }
 
   addListener(listener: OptionsChangeListener) {
