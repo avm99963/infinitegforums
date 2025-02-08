@@ -121,6 +121,7 @@
         "css/fixed_toolbar.css",
         "css/increase_contrast.css",
         "css/sticky_sidebar_headers.css",
+        "css/bulk_report_replies.css",
 
         "communityConsoleMain.bundle.js.map",
         "communityConsoleStart.bundle.js.map",

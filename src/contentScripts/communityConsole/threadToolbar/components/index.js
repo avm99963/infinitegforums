@@ -1,15 +1,31 @@
 import '@material/web/icon/icon.js';
+import '@material/web/iconbutton/icon-button.js';
+import '@material/web/menu/menu.js';
+import '@material/web/menu/menu-item.js';
 import '@material/web/switch/switch.js';
 import '../../../../common/components/FormField.js';
 
 import consoleCommonStyles from '!!raw-loader!../../../../static/css/common/console.css';
 import {msg} from '@lit/localize';
+import {Corner} from '@material/web/menu/menu.js';
 import {css, html, nothing, unsafeCSS} from 'lit';
+import {map} from 'lit/directives/map.js';
 import {createRef, ref} from 'lit/directives/ref.js';
 
 import {I18nLitElement} from '../../../../common/litI18nUtils.js';
 import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
-import {kEventFlattenThreadsUpdated} from '../constants.js';
+import {kEventOptionUpdated} from '../constants.js';
+
+const getOverflowMenuItems = (options) =>
+    [{
+      label: msg('Bulk report replies', {
+        'desc':
+            'Option shown in the settings menu of the thread toolbar which enables the "bulk report replies" feature.',
+      }),
+      isShown: options['bulkreportreplies'] === true,
+      option: 'bulkreportreplies_switch_enabled'
+    },
+].filter(item => item.isShown);
 
 export default class TwptThreadToolbarInject extends I18nLitElement {
   static properties = {
@@ -27,10 +43,18 @@ export default class TwptThreadToolbarInject extends I18nLitElement {
 
       .toolbar {
         display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-between;
+        row-gap: 0.5rem;
+        padding: 0.5rem 0.25rem;
+      }
+
+      .toolbar-start, .toolbar-end {
+        display: flex;
         flex-flow: row wrap;
         align-items: center;
         row-gap: 0.5rem;
-        padding: 0.5rem 0.25rem;
       }
 
       .badge-container {
@@ -46,6 +70,7 @@ export default class TwptThreadToolbarInject extends I18nLitElement {
   ];
 
   nestedViewRef = createRef();
+  overflowMenuRef = createRef();
 
   constructor() {
     super();
@@ -82,26 +107,74 @@ export default class TwptThreadToolbarInject extends I18nLitElement {
     `;
   }
 
+  renderOverflowMenu() {
+    const items = getOverflowMenuItems(this.options);
+
+    if (items.length === 0) return nothing;
+
+    return html`
+      <md-icon-button
+          id="thread-toolbar-overflow-menu-anchor"
+          @click="${this._toggleOverflowMenu}">
+        <md-icon>settings</md-icon>
+      </md-icon-button>
+      <md-menu ${ref(this.overflowMenuRef)}
+          anchor="thread-toolbar-overflow-menu-anchor"
+          anchor-corner="${Corner.END_END}"
+          menu-corner="${Corner.START_END}"
+          positioning="popover">
+        ${
+        map(items,
+            item => html`
+          <md-menu-item
+              @click="${
+                () => this._onOptionChanged(
+                    item.option, !this.options[item.option], false)}">
+            <md-icon slot="start">${
+                this.options[item.option] ? 'check' : ''}</md-icon>
+              <span>
+                ${item.label}
+              </span>
+          </md-menu-item>
+        `)}
+      </md-menu>
+    `;
+  }
+
   render() {
     // NOTE: Keep this in sync!
-    if (!this.options.flattenthreads) return nothing;
+    if (!this.options.flattenthreads && !this.options.bulkreportreplies)
+      return nothing;
 
     return html`
       <div class="toolbar">
-        ${this.renderBadge()}
-        ${this.renderFlattenRepliesSwitch()}
+        <div class="toolbar-start">
+          ${this.renderBadge()}
+          ${this.renderFlattenRepliesSwitch()}
+        </div>
+        <div class="toolbar-end">
+          ${this.renderOverflowMenu()}
+        </div>
       </div>
     `;
   }
 
   _flattenThreadsChanged() {
     const enabled = !this.nestedViewRef.value.selected;
-    const e = new CustomEvent(kEventFlattenThreadsUpdated, {
+    this._onOptionChanged('flattenthreads_switch_enabled', enabled, true);
+  }
+
+  _onOptionChanged(option, enabled, softRefreshView = false) {
+    const e = new CustomEvent(kEventOptionUpdated, {
       bubbles: true,
       composed: true,
-      detail: {enabled},
+      detail: {option, enabled, softRefreshView},
     });
     this.dispatchEvent(e);
+  }
+
+  _toggleOverflowMenu() {
+    this.overflowMenuRef.value.open = !this.overflowMenuRef.value.open;
   }
 }
 window.customElements.define(

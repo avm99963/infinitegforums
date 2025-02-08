@@ -53,6 +53,10 @@ import ImageMaxHeightStylesScript from '../../../features/imageMaxHeight/present
 import RepositionExpandThreadStylesScript from '../../../features/repositionExpandThread/presentation/scripts/styles.script';
 import StickySidebarHeadersStylesScript from '../../../features/stickySidebarHeaders/presentation/scripts/styles.script';
 import IncreaseContrastStylesScript from '../../../features/increaseContrast/presentation/scripts/styles.script';
+import BulkReportRepliesMessageCardHandler from '../../../features/bulkReportReplies/presentation/nodeWatcherHandlers/messageCard.handler';
+import BulkReportRepliesHandleBodyClassScript from '../../../features/bulkReportReplies/presentation/scripts/handleBodyClass.script';
+import { IsBulkReportRepliesFeatureEnabledServiceAdapter } from '../../../features/bulkReportReplies/services/isFeatureEnabled.service';
+import BulkReportRepliesStylesScript from '../../../features/bulkReportReplies/presentation/scripts/styles.script';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -91,6 +95,10 @@ function createScriptRunner() {
             [
               'autoRefreshThreadListHide',
               new AutoRefreshThreadListHideHandler(autoRefresh),
+            ],
+            [
+              'bulkReportRepliesMessageCard',
+              new BulkReportRepliesMessageCardHandler(optionsProvider),
             ],
             ['ccDarkThemeEcApp', new CCDarkThemeEcAppHandler(optionsProvider)],
             [
@@ -177,6 +185,11 @@ function createScriptRunner() {
 
         // Individual feature scripts
         new AutoRefreshStylesScript(),
+        new BulkReportRepliesHandleBodyClassScript(
+          optionsProvider,
+          new IsBulkReportRepliesFeatureEnabledServiceAdapter(),
+        ),
+        new BulkReportRepliesStylesScript(),
         new CCExtraInfoInjectScript(),
         new CCExtraInfoStylesScript(),
         new EnhancedAnnouncementsDotStylesScript(),

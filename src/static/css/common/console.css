@@ -169,7 +169,7 @@
  * that case, only users who have enabled one of the specified features will
  * experience the breakage.
  **/
-body.TWPT-flattenthreads-enabled {
+body:is(.TWPT-flattenthreads-enabled, .TWPT-bulkreportreplies-enabled) {
   ec-thread sc-tailwind-thread-message-message-list sc-tailwind-thread-message-message-actions {
     display: flex;
     flex-direction: row;

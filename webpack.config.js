@@ -45,7 +45,8 @@ module.exports = (env, args) => {
     // Injected JS
     profileIndicatorInject: './src/injections/profileIndicator.js',
     batchLockInject: './src/injections/batchLock.js',
-    xhrInterceptorInject: './src/entryPoints/communityConsole/injections/xhrProxy.ts',
+    xhrInterceptorInject:
+        './src/entryPoints/communityConsole/injections/xhrProxy.ts',
     extraInfoInject: './src/injections/extraInfo.js',
     litComponentsInject: './src/injections/litComponentsInject.js',
     updateHandlerLitComponents:
@@ -93,6 +94,10 @@ module.exports = (env, args) => {
     {
       origin: './src/features/stickySidebarHeaders/ui/styles.css',
       destination: 'css/sticky_sidebar_headers.css',
+    },
+    {
+      origin: './src/features/bulkReportReplies/ui/styles.css',
+      destination: 'css/bulk_report_replies.css',
     },
   ];
 

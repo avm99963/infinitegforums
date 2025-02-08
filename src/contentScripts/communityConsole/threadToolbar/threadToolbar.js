@@ -27,17 +27,30 @@ export default class ThreadToolbar {
   }
 
   getOptions() {
-    return getOptions(['flattenthreads', 'flattenthreads_switch_enabled']);
+    return getOptions([
+      'flattenthreads',
+      'flattenthreads_switch_enabled',
+      'bulkreportreplies',
+      'bulkreportreplies_switch_enabled',
+    ]);
   }
 
   inject(node, options) {
     const toolbar = document.createElement('twpt-thread-toolbar-inject');
     toolbar.setAttribute('options', JSON.stringify(options));
-    toolbar.addEventListener(consts.kEventFlattenThreadsUpdated, e => {
+    toolbar.addEventListener(consts.kEventOptionUpdated, e => {
+      const option = e.detail?.option;
       const enabled = e.detail?.enabled;
-      if (typeof enabled != 'boolean') return;
-      chrome.storage.sync.set({flattenthreads_switch_enabled: enabled}, _ => {
-        softRefreshView();
+      if (typeof option != 'string' || typeof enabled != 'boolean') return;
+      chrome.storage.sync.set({[option]: enabled}, _ => {
+        options = {
+          ...options,
+          [option]: enabled,
+        };
+        toolbar.setAttribute('options', JSON.stringify(options));
+        if (e.detail?.softRefreshView) {
+          softRefreshView();
+        }
       });
     });
     node.parentElement.insertBefore(toolbar, node);

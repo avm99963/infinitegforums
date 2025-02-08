@@ -33,6 +33,10 @@
   <source>Reload</source>
   <note from="lit-localize">Button which reloads the current page.</note>
 </trans-unit>
+<trans-unit id="s9a0167b14ce5b9b1">
+  <source>Bulk report replies</source>
+  <note from="lit-localize">Option shown in the settings menu of the thread toolbar which enables the "bulk report replies" feature.</note>
+</trans-unit>
 </body>
 </file>
 </xliff>

@@ -21,6 +21,7 @@
   "inputFiles": [
     "src/contentScripts/communityConsole/threadToolbar/components/**/*.js",
     "src/contentScripts/communityConsole/updateHandler/banner/components/**/*.js",
+    "src/features/bulkReportReplies/ui/components/**/*.ts",
     "src/features/flattenThreads/core/components/**/*.js",
     "src/features/flattenThreads/core/components/**/*.ts",
     "src/features/workflows/core/communityConsole/components/**/*.js",

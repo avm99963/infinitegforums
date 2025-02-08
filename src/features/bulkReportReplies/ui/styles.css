@@ -1,0 +1,9 @@
+/**
+ * When the option is disabled or the feature is temporarily disabled via the
+ * toolbar, we hide bulk-report-controls.
+ */
+body:not(.TWPT-bulkreportreplies-enabled) {
+  bulk-report-controls {
+    display: none;
+  }
+}

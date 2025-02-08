@@ -158,6 +158,11 @@ const rawOptionConfigs = {
     context: OptionContext.Experiments,
     killSwitchType: KillSwitchType.Experiment,
   },
+  bulkreportreplies: {
+    defaultValue: false,
+    context: OptionContext.Experiments,
+    killSwitchType: KillSwitchType.Experiment,
+  },
 
   // Internal options
   ccdarktheme_switch_status: {
@@ -166,6 +171,11 @@ const rawOptionConfigs = {
     killSwitchType: KillSwitchType.Ignore,
   },
   flattenthreads_switch_enabled: {
+    defaultValue: true,
+    context: OptionContext.Internal,
+    killSwitchType: KillSwitchType.Ignore,
+  },
+  bulkreportreplies_switch_enabled: {
     defaultValue: true,
     context: OptionContext.Internal,
     killSwitchType: KillSwitchType.Ignore,

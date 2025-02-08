@@ -183,6 +183,10 @@
     "message": "Tentative fix for CC slowness and high memory usage (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>).",
     "description": "Feature checkbox in the options page"
   },
+  "options_bulkreportreplies": {
+    "message": "Enable the ability to bulk report replies.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Save",
     "description": "Button in the options page to save the settings"

@@ -1,5 +1,5 @@
-export const kEventFlattenThreadsUpdated =
-    'TWPTThreadToolbarFlattenThreadsUpdated';
+export const kEventOptionUpdated =
+    'TWPTThreadToolbarOptionUpdated';
 
 export const kRepliesSectionSelector =
     'ec-thread .scTailwindThreadThreadcontentreplies-section';

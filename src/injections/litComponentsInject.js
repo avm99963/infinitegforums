@@ -6,6 +6,7 @@ import '../features/workflows/core/communityConsole/components/index.js';
 import '../contentScripts/communityConsole/threadToolbar/components/index.js';
 import '../features/flattenThreads/core/components/index.js';
 import '../contentScripts/communityConsole/updateHandler/banner/components/index.js';
+import '../features/bulkReportReplies/ui/components/index';
 
 import {injectStylesheet} from '../common/contentScriptsUtils';
 
