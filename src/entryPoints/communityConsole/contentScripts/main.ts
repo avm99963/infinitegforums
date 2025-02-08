@@ -47,7 +47,6 @@ import FlattenThreadsQuoteHandler from '../../../features/flattenThreads/present
 import FlattenThreadsReaddReplyBtnHandler from '../../../features/flattenThreads/presentation/nodeWatcherHandlers/readdReplyBtn.handler';
 import FlattenThreadsReplyBtnHandler from '../../../features/flattenThreads/presentation/nodeWatcherHandlers/replyBtn.handler';
 import FlattenThreads from '../../../features/flattenThreads/core/flattenThreads';
-import FlattenThreadsStylesScript from '../../../features/flattenThreads/presentation/scripts/styles.script';
 import FixedToolbarStylesScript from '../../../features/fixedToolbar/presentation/scripts/styles.script';
 import EnhancedAnnouncementsDotStylesScript from '../../../features/enhancedAnnouncementsDot/presentation/scripts/styles.script';
 import ImageMaxHeightStylesScript from '../../../features/imageMaxHeight/presentation/scripts/styles.script';
@@ -182,7 +181,6 @@ function createScriptRunner() {
         new CCExtraInfoStylesScript(),
         new EnhancedAnnouncementsDotStylesScript(),
         new FixedToolbarStylesScript(),
-        new FlattenThreadsStylesScript(),
         new ImageMaxHeightStylesScript(),
         new IncreaseContrastStylesScript(),
         new RepositionExpandThreadStylesScript(),
