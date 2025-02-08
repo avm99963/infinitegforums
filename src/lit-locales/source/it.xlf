@@ -39,6 +39,10 @@
   <source>Bulk report replies</source>
   <note from="lit-localize">Option shown in the settings menu of the thread toolbar which enables the "bulk report replies" feature.</note>
 </trans-unit>
+<trans-unit id="sb30734baa37281be">
+  <source>(Alt+R)</source>
+  <note from="lit-localize">Text shown below the "bulk report replies" feature, to let the user know that they can use this keyboard shortcut to toggle it.</note>
+</trans-unit>
     </body>
   </file>
 </xliff>

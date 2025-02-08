@@ -57,6 +57,8 @@ import BulkReportRepliesMessageCardHandler from '../../../features/bulkReportRep
 import BulkReportRepliesHandleBodyClassScript from '../../../features/bulkReportReplies/presentation/scripts/handleBodyClass.script';
 import { IsBulkReportRepliesFeatureEnabledServiceAdapter } from '../../../features/bulkReportReplies/services/isFeatureEnabled.service';
 import BulkReportRepliesStylesScript from '../../../features/bulkReportReplies/presentation/scripts/styles.script';
+import BulkReportRepliesKeyboardShortcutScript from '../../../features/bulkReportReplies/presentation/scripts/keyboardShortcut.script';
+import { OptionsModifierAdapter } from '../../../infrastructure/services/options/OptionsModifier.adapter';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -78,6 +80,7 @@ function createScriptRunner() {
     WorkflowsImportDependency,
   );
 
+  const optionsModifier = new OptionsModifierAdapter();
   const ccInfiniteScroll = new CCInfiniteScroll();
   const flattenThreads = new FlattenThreads();
 
@@ -189,6 +192,7 @@ function createScriptRunner() {
           optionsProvider,
           new IsBulkReportRepliesFeatureEnabledServiceAdapter(),
         ),
+        new BulkReportRepliesKeyboardShortcutScript(optionsProvider, optionsModifier),
         new BulkReportRepliesStylesScript(),
         new CCExtraInfoInjectScript(),
         new CCExtraInfoStylesScript(),

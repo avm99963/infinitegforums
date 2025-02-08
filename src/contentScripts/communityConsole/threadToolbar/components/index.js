@@ -22,6 +22,10 @@ const getOverflowMenuItems = (options) =>
         'desc':
             'Option shown in the settings menu of the thread toolbar which enables the "bulk report replies" feature.',
       }),
+      supportingText: msg('(Alt+R)', {
+        'desc':
+            'Text shown below the "bulk report replies" feature, to let the user know that they can use this keyboard shortcut to toggle it.',
+      }),
       isShown: options['bulkreportreplies'] === true,
       option: 'bulkreportreplies_switch_enabled'
     },
@@ -135,6 +139,11 @@ export default class TwptThreadToolbarInject extends I18nLitElement {
               <span>
                 ${item.label}
               </span>
+              ${item.supportingText && html`
+                <span slot="supporting-text">
+                  ${item.supportingText}
+                </span>
+              `}
           </md-menu-item>
         `)}
       </md-menu>
