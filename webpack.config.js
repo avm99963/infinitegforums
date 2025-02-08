@@ -128,12 +128,17 @@ module.exports = (env, args) => {
           scripts: ['make lit_localize_build'],
           blocking: true,
         },
+      }),
+      new WebpackShellPluginNext({
         onBuildEnd: {
           scripts:
               ['genmanifest -template templates/manifest.gjson -dest ' +
                path.join(outputPath, 'manifest.json') + ' ' +
                env.browser_target]
-        }
+        },
+        // This makes this command run multiple times when building on watch
+        // mode.
+        dev: false,
       }),
       new CopyWebpackPlugin({
         patterns: [
