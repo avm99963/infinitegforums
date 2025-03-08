@@ -37,7 +37,7 @@
     "@testing-library/dom": "10.4.0",
     "@types/chrome": "0.0.308",
     "@types/eslint__js": "8.42.3",
-    "@types/node": "20.17.23",
+    "@types/node": "20.17.24",
     "copy-webpack-plugin": "12.0.2",
     "css-loader": "7.1.2",
     "eslint": "9.22.0",
