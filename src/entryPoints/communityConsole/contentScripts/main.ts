@@ -179,7 +179,9 @@ function createScriptRunner() {
             ],
             [
               'threadToolbar',
-              new ThreadToolbarInjectHandler(new ThreadToolbar()),
+              new ThreadToolbarInjectHandler(
+                new ThreadToolbar(optionsProvider, optionsModifier),
+              ),
             ],
             [
               'workflowsImportCRTags',

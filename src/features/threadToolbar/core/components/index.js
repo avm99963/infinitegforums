@@ -14,7 +14,7 @@ import {createRef, ref} from 'lit/directives/ref.js';
 
 import {I18nLitElement} from '../../../../common/litI18nUtils.js';
 import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
-import {kEventOptionUpdated} from '../constants.js';
+import {kEventOptionUpdatedFromToolbar} from '../constants';
 
 const getOverflowMenuItems = (options) =>
     [{
@@ -174,7 +174,7 @@ export default class TwptThreadToolbarInject extends I18nLitElement {
   }
 
   _onOptionChanged(option, enabled, softRefreshView = false) {
-    const e = new CustomEvent(kEventOptionUpdated, {
+    const e = new CustomEvent(kEventOptionUpdatedFromToolbar, {
       bubbles: true,
       composed: true,
       detail: {option, enabled, softRefreshView},
