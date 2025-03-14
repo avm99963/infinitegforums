@@ -19,14 +19,12 @@
     "vi"
   ],
   "inputFiles": [
-    "src/contentScripts/communityConsole/threadToolbar/components/**/*.js",
-    "src/contentScripts/communityConsole/updateHandler/banner/components/**/*.js",
-    "src/features/bulkReportReplies/ui/components/**/*.ts",
-    "src/features/flattenThreads/core/components/**/*.js",
-    "src/features/flattenThreads/core/components/**/*.ts",
-    "src/features/workflows/core/communityConsole/components/**/*.js",
-    "src/features/workflows/core/communityConsole/components/**/*.ts",
-    "src/workflows/manager/components/**/*.js"
+    "src/contentScripts/communityConsole/updateHandler/banner/components/**/*.(js|ts)",
+    "src/features/bulkReportReplies/ui/components/**/*.(js|ts)",
+    "src/features/flattenThreads/core/components/**/*.(js|ts)",
+    "src/features/threadToolbar/core/components/**/*.(js|ts)",
+    "src/features/workflows/core/communityConsole/components/**/*.(js|ts)",
+    "src/workflows/manager/components/**/*.(js|ts)"
   ],
   "output": {
     "mode": "runtime",

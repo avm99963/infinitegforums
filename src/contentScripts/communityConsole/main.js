@@ -8,10 +8,8 @@ import {batchLock} from './batchLock.js';
 // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
 import {applyDragAndDropFixIfEnabled} from './dragAndDropFix.js';
 // #!endif
-import {kRepliesSectionSelector} from './threadToolbar/constants.js';
-import ThreadToolbar from './threadToolbar/threadToolbar.js';
 
-var mutationObserver, options, avatars, threadToolbar;
+var mutationObserver, options, avatars;
 
 const watchedNodesSelectors = [
   // Scrollable content (used for the intersection observer)
@@ -41,9 +39,6 @@ const watchedNodesSelectors = [
 
   // Thread list (used for the autorefresh feature)
   'ec-thread-list',
-
-  // Thread page reply section (for the thread page toolbar)
-  kRepliesSectionSelector,
 ];
 
 function handleCandidateNode(node) {
@@ -85,11 +80,6 @@ function handleCandidateNode(node) {
         node.querySelector('ec-thread-summary') !== null) {
       avatars.injectIfEnabled(node);
     }
-
-    // Inject thread toolbar
-    if (threadToolbar.shouldInject(node)) {
-      threadToolbar.injectIfApplicable(node);
-    }
   }
 }
 
@@ -113,7 +103,6 @@ getOptions(null).then(items => {
 
   // Initialize classes needed by the mutation observer
   avatars = new AvatarsHandler();
-  threadToolbar = new ThreadToolbar();
 
   // Before starting the mutation Observer, check whether we missed any
   // mutations by manually checking whether some watched nodes already

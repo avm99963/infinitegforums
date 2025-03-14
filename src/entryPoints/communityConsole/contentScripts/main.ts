@@ -59,6 +59,8 @@ import { IsBulkReportRepliesFeatureEnabledServiceAdapter } from '../../../featur
 import BulkReportRepliesStylesScript from '../../../features/bulkReportReplies/presentation/scripts/styles.script';
 import BulkReportRepliesKeyboardShortcutScript from '../../../features/bulkReportReplies/presentation/scripts/keyboardShortcut.script';
 import { OptionsModifierAdapter } from '../../../infrastructure/services/options/OptionsModifier.adapter';
+import ThreadToolbarInjectHandler from '../../../features/threadToolbar/presentation/nodeWatcherHandlers/inject.handler';
+import ThreadToolbar from '../../../features/threadToolbar/core/threadToolbar';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -176,6 +178,10 @@ function createScriptRunner() {
               new ThreadPageDesignWarningInjectHandler(threadPageDesignWarning),
             ],
             [
+              'threadToolbar',
+              new ThreadToolbarInjectHandler(new ThreadToolbar()),
+            ],
+            [
               'workflowsImportCRTags',
               new WorkflowsImportCRTagsHandler(workflowsImport),
             ],
@@ -192,7 +198,10 @@ function createScriptRunner() {
           optionsProvider,
           new IsBulkReportRepliesFeatureEnabledServiceAdapter(),
         ),
-        new BulkReportRepliesKeyboardShortcutScript(optionsProvider, optionsModifier),
+        new BulkReportRepliesKeyboardShortcutScript(
+          optionsProvider,
+          optionsModifier,
+        ),
         new BulkReportRepliesStylesScript(),
         new CCExtraInfoInjectScript(),
         new CCExtraInfoStylesScript(),

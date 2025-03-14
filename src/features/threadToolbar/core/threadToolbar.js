@@ -1,5 +1,5 @@
 import {getOptions} from '../../../common/options/optionsUtils.js';
-import {softRefreshView} from '../utils/common.js';
+import {softRefreshView} from '../../../contentScripts/communityConsole/utils/common.js';
 
 import * as consts from './constants.js';
 
@@ -62,9 +62,5 @@ export default class ThreadToolbar {
       if (!this.shouldSeeToolbar(options)) return;
       return this.inject(node, options);
     });
-  }
-
-  shouldInject(node) {
-    return node.matches(consts.kRepliesSectionSelector);
   }
 }
