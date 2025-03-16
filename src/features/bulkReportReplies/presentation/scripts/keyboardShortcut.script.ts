@@ -24,17 +24,25 @@ export default class BulkReportRepliesKeyboardShortcutScript extends Script {
       // from being triggered.
       e.stopPropagation();
 
-      this.toggleFeature();
+      this.toggleSwitchIfApplicable();
     }
   }
 
-  private async toggleFeature() {
-    const isCurrentlyEnabled = await this.optionsProvider.getOptionValue(
+  private async toggleSwitchIfApplicable() {
+    const isFeatureEnabled =
+      await this.optionsProvider.isEnabled('bulkreportreplies');
+    if (isFeatureEnabled) {
+      this.toggleSwitch();
+    }
+  }
+
+  private async toggleSwitch() {
+    const isEnabled = await this.optionsProvider.getOptionValue(
       'bulkreportreplies_switch_enabled',
     );
     await this.optionsModifier.set(
       'bulkreportreplies_switch_enabled',
-      !isCurrentlyEnabled,
+      !isEnabled,
     );
   }
 }
