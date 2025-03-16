@@ -624,5 +624,8 @@
     "options_fixpekb269560789": {
         "message": "Possible solució per la lentitud de la CC i l'alt consum de memòria (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>).",
         "description": "Feature checkbox in the options page"
+    },
+    "options_bulkreportreplies": {
+        "message": "Activa poder informar diverses respostes alhora."
     }
 }
