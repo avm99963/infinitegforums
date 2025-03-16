@@ -19,10 +19,11 @@ export default class BulkReportRepliesKeyboardShortcutScript extends Script {
   }
 
   private handleKeyPress(e: KeyboardEvent) {
-    // Otherwise the reply dialog will be shown.
-    e.stopPropagation();
-
     if (e.code === 'KeyR' && e.altKey && !e.repeat) {
+      // Prevent other shortcuts (e.g. the one which opens the reply dialog)
+      // from being triggered.
+      e.stopPropagation();
+
       this.toggleFeature();
     }
   }
