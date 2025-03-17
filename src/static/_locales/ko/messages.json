@@ -602,7 +602,7 @@
         "description": "Button in the options page which opens the workflow management page."
     },
     "inject_profileindicator_other_posts_read": {
-        "message": "OP가 이 포럼의 다른 스레드에 참여했지만, 최근 5개 게시물을 이미 읽었습니다.",
+        "message": "OP가 이 포럼의 다른 스레드에 참여했지만, 최근 5개 게시글을 이미 읽었습니다.",
         "description": "Tooltip for the profile indicator dot."
     },
     "inject_profileindicator_other_posts_unread": {
@@ -624,5 +624,8 @@
     "options_fixpekb269560789": {
         "message": "커뮤니티 콘솔의 메모리 사용량이 증가하여 페이지가 느려지는 문제에 대한 임시 수정사항 적용하기 (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>).",
         "description": "Feature checkbox in the options page"
+    },
+    "options_bulkreportreplies": {
+        "message": "댓글을 일괄 신고할 수 있는 기능 활성화."
     }
 }
