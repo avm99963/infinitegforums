@@ -41,14 +41,16 @@
         <target state="translated">새로고침</target>
         <note from="lit-localize">Button which reloads the current page.</note>
       </trans-unit>
-<trans-unit id="s9a0167b14ce5b9b1">
-  <source>Bulk report replies</source>
-  <note from="lit-localize">Option shown in the settings menu of the thread toolbar which enables the "bulk report replies" feature.</note>
-</trans-unit>
-<trans-unit id="sb30734baa37281be">
-  <source>(Alt+R)</source>
-  <note from="lit-localize">Text shown below the "bulk report replies" feature, to let the user know that they can use this keyboard shortcut to toggle it.</note>
-</trans-unit>
+      <trans-unit id="s9a0167b14ce5b9b1" xml:space="preserve">
+        <source>Bulk report replies</source>
+        <target state="translated">댓글 일괄 신고</target>
+        <note from="lit-localize">Option shown in the settings menu of the thread toolbar which enables the "bulk report replies" feature.</note>
+      </trans-unit>
+      <trans-unit id="sb30734baa37281be" xml:space="preserve">
+        <source>(Alt+R)</source>
+        <target state="translated">(Alt+R)</target>
+        <note from="lit-localize">Text shown below the "bulk report replies" feature, to let the user know that they can use this keyboard shortcut to toggle it.</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>
