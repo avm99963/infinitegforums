@@ -3,26 +3,26 @@
   <file target-language="ru" source-language="en" original="lit-localize-inputs" datatype="plaintext">
     <body>
       <trans-unit id="s0b7ae9543c001867" xml:space="preserve">
-  <source>Reply</source>
+        <source>Reply</source>
         <target>Ответить</target>
         <note from="lit-localize">Button which is used to open the reply box.</note>
       </trans-unit>
       <trans-unit id="sa5ef80b4bb9b39f8" xml:space="preserve">
-  <source>Less</source>
+        <source>Less</source>
         <target>Меньше</target>
         <note from="lit-localize">Button to collapse the quote message (used in the flatten threads feature).</note>
       </trans-unit>
       <trans-unit id="s37a9e8aec5713460" xml:space="preserve">
-  <source>More</source>
+        <source>More</source>
         <target>Больше</target>
         <note from="lit-localize">Button to expand the quote message (used in the flatten threads feature).</note>
       </trans-unit>
       <trans-unit id="s6b0ed0c74667d28c" xml:space="preserve">
-  <source><x id="0" equiv-text="${authorName}"/> said:</source>
+        <source><x id="0" equiv-text="${authorName}"/> said:</source>
         <target><x id="0" equiv-text="${authorName}"/> сказал:</target>
       </trans-unit>
       <trans-unit id="s98a0ccd6f423421f" xml:space="preserve">
-  <source>Nested view</source>
+        <source>Nested view</source>
         <target>Вложенный вид</target>
         <note from="lit-localize">Label for the switch which lets users enable/disable the nested view in a thread.</note>
       </trans-unit>
@@ -41,14 +41,16 @@
         <target state="translated">Перезагрузить</target>
         <note from="lit-localize">Button which reloads the current page.</note>
       </trans-unit>
-<trans-unit id="s9a0167b14ce5b9b1">
-  <source>Bulk report replies</source>
-  <note from="lit-localize">Option shown in the settings menu of the thread toolbar which enables the "bulk report replies" feature.</note>
-</trans-unit>
-<trans-unit id="sb30734baa37281be">
-  <source>(Alt+R)</source>
-  <note from="lit-localize">Text shown below the "bulk report replies" feature, to let the user know that they can use this keyboard shortcut to toggle it.</note>
-</trans-unit>
+      <trans-unit id="s9a0167b14ce5b9b1" xml:space="preserve">
+        <source>Bulk report replies</source>
+        <target state="translated">Массово пожаловаться на ответы</target>
+        <note from="lit-localize">Option shown in the settings menu of the thread toolbar which enables the "bulk report replies" feature.</note>
+      </trans-unit>
+      <trans-unit id="sb30734baa37281be" xml:space="preserve">
+        <source>(Alt+R)</source>
+        <target state="translated">(Alt+R)</target>
+        <note from="lit-localize">Text shown below the "bulk report replies" feature, to let the user know that they can use this keyboard shortcut to toggle it.</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>
