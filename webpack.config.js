@@ -106,7 +106,7 @@ module.exports = (env, args) => {
   const overridenLocalePaths =
       localeOverrides.map(l => '**/_locales/' + l.pontoonLocale);
 
-  let preprocessorLoader = {
+  const preprocessorLoader = {
     loader: 'webpack-preprocessor-loader',
     options: {
       params: {
@@ -114,6 +114,14 @@ module.exports = (env, args) => {
         production: args.mode == 'production',
         canary: !!env.canary
       },
+    },
+  };
+
+  const sassLoaderOptions = {
+    // Prefer `dart-sass`
+    implementation: require('sass'),
+    sassOptions: {
+      quietDeps: true,
     },
   };
 
@@ -212,10 +220,7 @@ module.exports = (env, args) => {
                 'css-loader',
                 {
                   loader: 'sass-loader',
-                  options: {
-                    // Prefer `dart-sass`
-                    implementation: require('sass'),
-                  },
+                  options: sassLoaderOptions,
                 },
               ],
             },
@@ -226,10 +231,7 @@ module.exports = (env, args) => {
                 'css-loader',
                 {
                   loader: 'sass-loader',
-                  options: {
-                    // Prefer `dart-sass`
-                    implementation: require('sass'),
-                  },
+                  options: sassLoaderOptions,
                 },
               ],
             },
@@ -239,10 +241,7 @@ module.exports = (env, args) => {
                 'css-loader',
                 {
                   loader: 'sass-loader',
-                  options: {
-                    // Prefer `dart-sass`
-                    implementation: require('sass'),
-                  },
+                  options: sassLoaderOptions,
                 },
               ],
             },
