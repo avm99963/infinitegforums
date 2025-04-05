@@ -61,6 +61,7 @@ import BulkReportRepliesKeyboardShortcutScript from '../../../features/bulkRepor
 import { OptionsModifierAdapter } from '../../../infrastructure/services/options/OptionsModifier.adapter';
 import ThreadToolbarInjectHandler from '../../../features/threadToolbar/presentation/nodeWatcherHandlers/inject.handler';
 import ThreadToolbar from '../../../features/threadToolbar/core/threadToolbar';
+import { BulkReportControlsInjectorAdapter } from '../../../features/bulkReportReplies/infrastructure/ui/injectors/bulkReportControls.injector.adapter';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -103,7 +104,10 @@ function createScriptRunner() {
             ],
             [
               'bulkReportRepliesMessageCard',
-              new BulkReportRepliesMessageCardHandler(optionsProvider),
+              new BulkReportRepliesMessageCardHandler(
+                optionsProvider,
+                new BulkReportControlsInjectorAdapter(),
+              ),
             ],
             ['ccDarkThemeEcApp', new CCDarkThemeEcAppHandler(optionsProvider)],
             [

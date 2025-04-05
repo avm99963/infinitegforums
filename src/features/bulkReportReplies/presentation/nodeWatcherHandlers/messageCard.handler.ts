@@ -1,7 +1,7 @@
 import CssSelectorNodeWatcherHandler from '../../../../infrastructure/presentation/nodeWatcher/handlers/CssSelectorHandler.adapter';
 import { NodeMutation } from '../../../../presentation/nodeWatcher/NodeWatcherHandler';
 import { OptionsProviderPort } from '../../../../services/options/OptionsProvider';
-import BulkReportControlsInjector from '../../ui/injectors/bulkReportControls.injector';
+import { BulkReportControlsInjectorPort } from '../../ui/injectors/bulkReportControls.injector.port';
 
 /**
  * Injects the bulk report reply controls.
@@ -10,9 +10,10 @@ export default class BulkReportRepliesMessageCardHandler extends CssSelectorNode
   cssSelector =
     ':is(.scTailwindThreadMessageMessagecardcontent:not(.scTailwindThreadMessageMessagecardpromoted), .scTailwindThreadMessageCommentcardcomment) sc-tailwind-thread-message-message-actions';
 
-  bulkReportControlsInjector = new BulkReportControlsInjector();
-
-  constructor(private optionsProvider: OptionsProviderPort) {
+  constructor(
+    private optionsProvider: OptionsProviderPort,
+    private bulkReportControlsInjector: BulkReportControlsInjectorPort,
+  ) {
     super();
   }
 
