@@ -80,17 +80,34 @@ describe('MessageInfoRepositoryAdapter', () => {
       document.body.innerHTML = '';
     });
 
-    it('should obtain it from the data-statsid attribute of the closest .scTailwindThreadMessageMessagecardcontent element', () => {
-      document.body.innerHTML = `<div class="scTailwindThreadMessageMessagecardcontent" data-focus-item="true" data-focus-group="0" tabindex="-1" data-focus-id="${dummyMessageId}" data-stats-visible-imp="true" data-stats-ve="64" data-stats-id="${dummyMessageId}">
-        <div id="element-inside-message"></div>
-      </div>`;
-      const elementInsideMessage = document.getElementById(
-        'element-inside-message',
-      );
+    describe('when treating a top-level reply', () => {
+      it('should obtain it from the data-statsid attribute of the closest .scTailwindThreadMessageMessagecardcontent element', () => {
+        document.body.innerHTML = `<div class="scTailwindThreadMessageMessagecardcontent" data-focus-item="true" data-focus-group="0" tabindex="-1" data-focus-id="${dummyMessageId}" data-stats-visible-imp="true" data-stats-ve="64" data-stats-id="${dummyMessageId}">
+          <div id="element-inside-message"></div>
+        </div>`;
+        const elementInsideMessage = document.getElementById(
+          'element-inside-message',
+        );
 
-      const result = sut.getInfo(elementInsideMessage);
+        const result = sut.getInfo(elementInsideMessage);
 
-      expect(result.messageId).toBe(dummyMessageId);
+        expect(result.messageId).toBe(dummyMessageId);
+      });
+    });
+
+    describe('when treating a nested reply', () => {
+      it('should obtain it from the data-statsid attribute of the closest .scTailwindThreadMessageCommentcardnested-reply element', () => {
+        document.body.innerHTML = `<div class="scTailwindThreadMessageCommentcardnested-reply" data-focus-item="true" data-focus-group="9" tabindex="0" data-focus-id="${dummyMessageId}" data-stats-visible-imp="true" data-stats-ve="64" data-stats-id="${dummyMessageId}">
+          <div id="element-inside-message"></div>
+        </div>`;
+        const elementInsideMessage = document.getElementById(
+          'element-inside-message',
+        );
+
+        const result = sut.getInfo(elementInsideMessage);
+
+        expect(result.messageId).toBe(dummyMessageId);
+      });
     });
 
     it("should throw an error if the data-statsid attribute doesn't exist", () => {

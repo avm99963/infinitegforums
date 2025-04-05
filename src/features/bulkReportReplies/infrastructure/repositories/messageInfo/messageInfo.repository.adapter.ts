@@ -30,7 +30,7 @@ export class MessageInfoRepositoryAdapter implements MessageInfoRepositoryPort {
 
   private getMessageId(elementInsideMessage: Element) {
     const messageElement = elementInsideMessage.closest(
-      '.scTailwindThreadMessageMessagecardcontent',
+      '.scTailwindThreadMessageMessagecardcontent, .scTailwindThreadMessageCommentcardnested-reply',
     );
     if (messageElement === null) {
       throw new Error(
