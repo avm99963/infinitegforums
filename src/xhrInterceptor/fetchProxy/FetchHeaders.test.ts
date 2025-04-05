@@ -1,8 +1,4 @@
-/**
- * @jest-environment ./src/xhrInterceptor/fetchProxy/__environments__/fetchEnvironment.ts
- */
-
-import { describe, expect, it } from '@jest/globals';
+import { describe, expect, it } from 'vitest';
 import FetchHeaders from './FetchHeaders';
 
 describe('FetchHeaders', () => {

@@ -1,18 +1,18 @@
-import { beforeEach, describe, expect, it, jest } from '@jest/globals';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import NodeWatcherScriptAdapter from './NodeWatcherScript.adapter';
 import { NodeWatcherPort } from '../../../presentation/nodeWatcher/NodeWatcher.port';
 import { NodeWatcherHandler } from '../../../presentation/nodeWatcher/NodeWatcherHandler';
 
 describe('NodeWatcherScriptAdapter', () => {
   const fakeNodeWatcher: NodeWatcherPort = {
-    start: jest.fn<NodeWatcherPort['start']>(),
-    pause: jest.fn<NodeWatcherPort['pause']>(),
-    setHandler: jest.fn<NodeWatcherPort['setHandler']>(),
-    removeHandler: jest.fn<NodeWatcherPort['removeHandler']>(),
+    start: vi.fn<NodeWatcherPort['start']>(),
+    pause: vi.fn<NodeWatcherPort['pause']>(),
+    setHandler: vi.fn<NodeWatcherPort['setHandler']>(),
+    removeHandler: vi.fn<NodeWatcherPort['removeHandler']>(),
   };
 
   beforeEach(() => {
-    jest.resetAllMocks();
+    vi.resetAllMocks();
   });
 
   describe('When the script is executed', () => {

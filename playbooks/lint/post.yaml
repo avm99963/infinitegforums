@@ -1,7 +1,7 @@
-- name: Get Jest log
+- name: Get Vitest log
   hosts: all
   roles:
     - fetch-log-file
   vars:
-    sourceFile: "{{ zuul.project.src_dir }}/out/jest-log.txt"
-    logFileName: "jest-log.txt"
+    sourceFile: "{{ zuul.project.src_dir }}/out/vitest-log.txt"
+    logFileName: "vitest-log.txt"

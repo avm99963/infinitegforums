@@ -1,5 +1,5 @@
 /* eslint-disable no-sparse-arrays */
-import { expect, test } from '@jest/globals';
+import { expect, test } from 'vitest';
 import * as protojs from './protojs.js';
 
 const objectLike1 = {

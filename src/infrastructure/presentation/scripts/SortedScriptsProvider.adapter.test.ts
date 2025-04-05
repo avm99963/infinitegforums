@@ -1,4 +1,4 @@
-import { describe, expect, it } from "@jest/globals";
+import { describe, expect, it } from "vitest";
 import { FakeScript } from "../../../common/architecture/scripts/FakeScript";
 import { SortedScriptsProviderAdapter } from "./SortedScriptsProvider.adapter";
 import ScriptSorterAdapter from "./ScriptSorter.adapter";

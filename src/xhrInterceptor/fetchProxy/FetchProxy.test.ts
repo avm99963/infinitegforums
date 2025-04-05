@@ -1,8 +1,4 @@
-/**
- * @jest-environment ./src/xhrInterceptor/fetchProxy/__environments__/fetchEnvironment.ts
- */
-
-import { beforeEach, describe, expect, it, jest } from '@jest/globals';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import FetchProxy from './FetchProxy';
 import MessageIdTracker from '../MessageIdTracker';
 import { ResponseModifierPort } from '../ResponseModifier.port';
@@ -16,9 +12,9 @@ import {
   InterceptorFilter,
 } from '../interceptors/InterceptorHandler.port';
 
-jest.mock('../interceptors/InterceptorHandler.adapter');
+vi.mock('../interceptors/InterceptorHandler.adapter');
 
-const interceptMock = jest.fn<ResponseModifierPort['intercept']>();
+const interceptMock = vi.fn<ResponseModifierPort['intercept']>();
 class MockResponseModifier implements ResponseModifierPort {
   async intercept(
     ...args: Parameters<ResponseModifierPort['intercept']>
@@ -27,13 +23,13 @@ class MockResponseModifier implements ResponseModifierPort {
   }
 }
 
-const fetchMock = jest.fn<typeof window.fetch>();
+const fetchMock = vi.fn<typeof window.fetch>();
 
-const consoleErrorMock = jest.spyOn(global.console, 'error');
+const consoleErrorMock = vi.spyOn(global.console, 'error');
 
 const dummyResponse = new Response('{}', { status: 200 });
 beforeEach(() => {
-  jest.resetAllMocks();
+  vi.resetAllMocks();
 
   window.fetch = fetchMock;
 
@@ -147,7 +143,9 @@ describe('FetchProxy', () => {
               throw new Error('dummy error');
             });
 
-            expect(await window.fetch(dummyUrl, dummyInit)).resolves;
+            await expect(
+              window.fetch(dummyUrl, dummyInit),
+            ).resolves.toBeDefined();
           });
 
           // TODO: add test to ensure something is logged when the previous condition happens
@@ -191,7 +189,7 @@ describe('FetchProxy', () => {
           throw new Error('dummy error');
         });
 
-        expect(await window.fetch(dummyUrl, dummyInit)).resolves;
+        await expect(window.fetch(dummyUrl, dummyInit)).resolves.toBeDefined();
       });
     });
 
@@ -204,7 +202,7 @@ describe('FetchProxy', () => {
         },
       ]);
 
-      expect(await window.fetch(dummyUrl)).resolves;
+      await expect(window.fetch(dummyUrl)).resolves.toBeDefined();
     });
   });
 });

@@ -1,4 +1,4 @@
-import { beforeAll, describe, expect, it, jest } from '@jest/globals';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { waitFor } from '@testing-library/dom';
 import { NodeWatcherAdapter } from './NodeWatcher.adapter';
 import {
@@ -8,13 +8,13 @@ import {
 
 describe('NodeWatcherAdapter', () => {
   beforeAll(() => {
-    jest.resetAllMocks();
+    vi.resetAllMocks();
   });
 
   const createFakeHandler = () => {
     return {
-      nodeFilter: jest.fn<NodeWatcherHandler['nodeFilter']>(),
-      onMutatedNode: jest.fn<NodeWatcherHandler['onMutatedNode']>(),
+      nodeFilter: vi.fn<NodeWatcherHandler['nodeFilter']>(),
+      onMutatedNode: vi.fn<NodeWatcherHandler['onMutatedNode']>(),
     };
   };
 
@@ -28,7 +28,7 @@ describe('NodeWatcherAdapter', () => {
     it('should only call MutationObserver.prototype.observe 1 time after calling start 2 times', () => {
       const sut = new NodeWatcherAdapter();
 
-      const observeSpy = jest.spyOn(MutationObserver.prototype, 'observe');
+      const observeSpy = vi.spyOn(MutationObserver.prototype, 'observe');
 
       sut.start();
       sut.start();

@@ -1,10 +1,9 @@
-import { jest } from '@jest/globals';
+import { vi } from 'vitest';
 import { InterceptorHandlerPort } from '../InterceptorHandler.port';
 
 export const matchInterceptorsMock =
-  jest.fn<InterceptorHandlerPort['matchInterceptors']>();
-export const triggerEventMock =
-  jest.fn<InterceptorHandlerPort['triggerEvent']>();
+  vi.fn<InterceptorHandlerPort['matchInterceptors']>();
+export const triggerEventMock = vi.fn<InterceptorHandlerPort['triggerEvent']>();
 
 class InterceptorHandlerMock {
   matchInterceptors(

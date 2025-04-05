@@ -1,7 +1,7 @@
 .PHONY: node_deps clean_dist deps clean_deps lit_localize_extract lit_localize_build lit_localize_all serve_chromium_mv3 serve_gecko release release_chromium_stable release_chromium_beta release_chromium_canary release_gecko_stable build_test_extension clean_releases test clean trigger_nightly_build
 
 WEBPACK := ./node_modules/webpack-cli/bin/cli.js
-JEST := node ./node_modules/jest/bin/jest.js
+VITEST := pnpm exec vitest
 RELEASE_SCRIPT := bash tools/release.bash
 
 grpc_proto_gen:
@@ -68,7 +68,7 @@ clean_releases:
 	rm -rf out
 
 test:
-	$(JEST)
+	$(VITEST)
 
 clean: clean_deps clean_dist clean_releases
 
