@@ -9,6 +9,12 @@ import { SHARED_MD3_STYLES } from '../../../../common/styles/md3';
 @customElement('bulk-report-controls')
 export default class BulkReportControls extends I18nLitElement {
   @property({ type: String })
+  accessor forumId: string;
+
+  @property({ type: String })
+  accessor threadId: string;
+
+  @property({ type: String })
   accessor messageId: string;
 
   static styles = [

@@ -62,6 +62,7 @@ import { OptionsModifierAdapter } from '../../../infrastructure/services/options
 import ThreadToolbarInjectHandler from '../../../features/threadToolbar/presentation/nodeWatcherHandlers/inject.handler';
 import ThreadToolbar from '../../../features/threadToolbar/core/threadToolbar';
 import { BulkReportControlsInjectorAdapter } from '../../../features/bulkReportReplies/infrastructure/ui/injectors/bulkReportControls.injector.adapter';
+import { MessageInfoRepositoryAdapter } from '../../../features/bulkReportReplies/infrastructure/repositories/messageInfo/messageInfo.repository.adapter';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -106,7 +107,7 @@ function createScriptRunner() {
               'bulkReportRepliesMessageCard',
               new BulkReportRepliesMessageCardHandler(
                 optionsProvider,
-                new BulkReportControlsInjectorAdapter(),
+                new BulkReportControlsInjectorAdapter(new MessageInfoRepositoryAdapter()),
               ),
             ],
             ['ccDarkThemeEcApp', new CCDarkThemeEcAppHandler(optionsProvider)],
