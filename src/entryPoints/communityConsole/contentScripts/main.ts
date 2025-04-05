@@ -63,6 +63,8 @@ import ThreadToolbarInjectHandler from '../../../features/threadToolbar/presenta
 import ThreadToolbar from '../../../features/threadToolbar/core/threadToolbar';
 import { BulkReportControlsInjectorAdapter } from '../../../features/bulkReportReplies/infrastructure/ui/injectors/bulkReportControls.injector.adapter';
 import { MessageInfoRepositoryAdapter } from '../../../features/bulkReportReplies/infrastructure/repositories/messageInfo/messageInfo.repository.adapter';
+import { ReportOffTopicRepositoryAdapter } from '../../../features/bulkReportReplies/infrastructure/repositories/api/reportOffTopic/reportOffTopic.repository.adapter';
+import { ReportAbuseRepositoryAdapter } from '../../../features/bulkReportReplies/infrastructure/repositories/api/reportAbuse/reportAbuse.repository.adapter';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -107,7 +109,11 @@ function createScriptRunner() {
               'bulkReportRepliesMessageCard',
               new BulkReportRepliesMessageCardHandler(
                 optionsProvider,
-                new BulkReportControlsInjectorAdapter(new MessageInfoRepositoryAdapter()),
+                new BulkReportControlsInjectorAdapter(
+                  new MessageInfoRepositoryAdapter(),
+                  new ReportOffTopicRepositoryAdapter(),
+                  new ReportAbuseRepositoryAdapter(),
+                ),
               ),
             ],
             ['ccDarkThemeEcApp', new CCDarkThemeEcAppHandler(optionsProvider)],

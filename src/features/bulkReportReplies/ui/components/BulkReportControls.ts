@@ -5,6 +5,17 @@ import { customElement, property } from 'lit/decorators.js';
 import { I18nLitElement } from '../../../../common/litI18nUtils';
 import { css, html } from 'lit';
 import { SHARED_MD3_STYLES } from '../../../../common/styles/md3';
+import { map } from 'lit/directives/map.js';
+import { ReportStatus, ReportStatusValues } from '../../domain/reportStatus';
+import { ReportType, ReportTypeValues } from '../../domain/reportType';
+import { kEventReportReply } from '../events';
+
+interface ReportButton {
+  type: ReportType;
+  icon: string;
+  labels: Record<ReportStatus, string>;
+  status: ReportStatus;
+}
 
 @customElement('bulk-report-controls')
 export default class BulkReportControls extends I18nLitElement {
@@ -16,6 +27,12 @@ export default class BulkReportControls extends I18nLitElement {
 
   @property({ type: String })
   accessor messageId: string;
+
+  @property({ type: String })
+  accessor offTopicStatus: ReportStatus = ReportStatusValues.Idle;
+
+  @property({ type: String })
+  accessor abuseStatus: ReportStatus = ReportStatusValues.Idle;
 
   static styles = [
     SHARED_MD3_STYLES,
@@ -35,20 +52,88 @@ export default class BulkReportControls extends I18nLitElement {
     `,
   ];
 
-  // TODO(https://iavm.xyz/b/twpowertools/192): Make the buttons work.
   render() {
     return html`
       <md-chip-set aria-label="Report actions">
-        <md-assist-chip>
-          <md-icon slot="icon">block</md-icon>
-          Mark as off-topic
-        </md-assist-chip>
-        <md-assist-chip>
-          <md-icon slot="icon">error</md-icon>
-          Mark as abuse
-        </md-assist-chip>
+        ${this.renderButtons()}
       </md-chip-set>
     `;
+  }
+
+  private renderButtons() {
+    const buttons = this.getButtons();
+    const hasNonIdleButton = buttons.some(
+      (btn) => btn.status !== ReportStatusValues.Idle,
+    );
+
+    return map(this.getButtons(), (btn) =>
+      this.renderButton(btn, hasNonIdleButton),
+    );
+  }
+
+  private renderButton(button: ReportButton, hasNonIdleButton: boolean) {
+    let icon = button.icon;
+    switch (button.status) {
+      case ReportStatusValues.Processing:
+        icon = 'pending';
+        break;
+
+      case ReportStatusValues.Done:
+        icon = 'check';
+        break;
+    }
+
+    return html`
+      <md-assist-chip
+        ?disabled=${hasNonIdleButton}
+        @click=${() => this.sendReport(button.type)}
+      >
+        <md-icon slot="icon">${icon}</md-icon>
+        ${button.labels[button.status]}
+      </md-assist-chip>
+    `;
+  }
+
+  private getButtons(): ReportButton[] {
+    return [
+      {
+        type: ReportTypeValues.OffTopic,
+        icon: 'block',
+        labels: {
+          [ReportStatusValues.Idle]: 'Mark as off-topic',
+          [ReportStatusValues.Processing]: 'Marking as off-topic…',
+          [ReportStatusValues.Done]: 'Marked as off-topic',
+        },
+        status: this.offTopicStatus,
+      },
+      {
+        type: ReportTypeValues.Abuse,
+        icon: 'error',
+        labels: {
+          [ReportStatusValues.Idle]: 'Mark as abuse',
+          [ReportStatusValues.Processing]: 'Marking as abuse…',
+          [ReportStatusValues.Done]: 'Marked as abuse',
+        },
+        status: this.abuseStatus,
+      },
+    ];
+  }
+
+  private sendReport(type: ReportType) {
+    const e: WindowEventMap[typeof kEventReportReply] = new CustomEvent(
+      kEventReportReply,
+      {
+        bubbles: false,
+        composed: false,
+        detail: {
+          forumId: this.forumId,
+          threadId: this.threadId,
+          messageId: this.messageId,
+          type,
+        },
+      },
+    );
+    this.dispatchEvent(e);
   }
 }
 
