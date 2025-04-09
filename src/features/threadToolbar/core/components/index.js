@@ -16,16 +16,25 @@ import {I18nLitElement} from '../../../../common/litI18nUtils.js';
 import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
 import {kEventOptionUpdatedFromToolbar} from '../constants';
 
+const appleProductRegex = /(macos|macintosh|iphone|ipod|ipad)/i;
+const isMac = () => appleProductRegex.test(navigator.userAgentData?.platform) ||
+    appleProductRegex.test(navigator.userAgent);
+
 const getOverflowMenuItems = (options) =>
     [{
       label: msg('Bulk report replies', {
-        'desc':
+        desc:
             'Option shown in the settings menu of the thread toolbar which enables the "bulk report replies" feature.',
       }),
-      supportingText: msg('(Alt+R)', {
-        'desc':
-            'Text shown below the "bulk report replies" feature, to let the user know that they can use this keyboard shortcut to toggle it.',
-      }),
+      supportingText: isMac() ?
+          msg('(⌥ + R)', {
+            desc:
+                'Text shown to Mac users below the "bulk report replies" toggle, to let them know that they can use this keyboard shortcut to toggle it.',
+          }) :
+          msg('(Alt + R)', {
+            desc:
+                'Text shown below the "bulk report replies" toggle, to let the user know that they can use this keyboard shortcut to toggle it.',
+          }),
       isShown: options['bulkreportreplies'] === true,
       option: 'bulkreportreplies_switch_enabled'
     },

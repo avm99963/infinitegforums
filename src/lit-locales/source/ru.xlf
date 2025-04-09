@@ -46,11 +46,14 @@
         <target state="translated">Массово пожаловаться на ответы</target>
         <note from="lit-localize">Option shown in the settings menu of the thread toolbar which enables the "bulk report replies" feature.</note>
       </trans-unit>
-      <trans-unit id="sb30734baa37281be" xml:space="preserve">
-        <source>(Alt+R)</source>
-        <target state="translated">(Alt+R)</target>
-        <note from="lit-localize">Text shown below the "bulk report replies" feature, to let the user know that they can use this keyboard shortcut to toggle it.</note>
-      </trans-unit>
+<trans-unit id="s9c0adc97ce1e614c">
+  <source>(Alt + R)</source>
+  <note from="lit-localize">Text shown below the "bulk report replies" toggle, to let the user know that they can use this keyboard shortcut to toggle it.</note>
+</trans-unit>
+<trans-unit id="s23d50c510d921290">
+  <source>(⌥ + R)</source>
+  <note from="lit-localize">Text shown to Mac users below the "bulk report replies" toggle, to let them know that they can use this keyboard shortcut to toggle it.</note>
+</trans-unit>
     </body>
   </file>
 </xliff>
