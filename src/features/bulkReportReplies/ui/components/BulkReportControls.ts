@@ -9,6 +9,7 @@ import { map } from 'lit/directives/map.js';
 import { ReportStatus, ReportStatusValues } from '../../domain/reportStatus';
 import { ReportType, ReportTypeValues } from '../../domain/reportType';
 import { kEventReportReply } from '../events';
+import { msg } from '@lit/localize';
 
 interface ReportButton {
   type: ReportType;
@@ -100,9 +101,18 @@ export default class BulkReportControls extends I18nLitElement {
         type: ReportTypeValues.OffTopic,
         icon: 'block',
         labels: {
-          [ReportStatusValues.Idle]: 'Mark as off-topic',
-          [ReportStatusValues.Processing]: 'Marking as off-topic…',
-          [ReportStatusValues.Done]: 'Marked as off-topic',
+          [ReportStatusValues.Idle]: msg('Mark as off-topic', {
+            id: 'bulkReportControls.offTopicChip.defaultLabel',
+            desc: 'Chip shown to report a reply in a thread.',
+          }),
+          [ReportStatusValues.Processing]: msg('Marking as off-topic…', {
+            id: 'bulkReportControls.offTopicChip.sendingLabel',
+            desc: 'Chip label shown when sending the report.',
+          }),
+          [ReportStatusValues.Done]: msg('Marked as off-topic', {
+            id: 'bulkReportControls.offTopicChip.successLabel',
+            desc: 'Chip label shown when the report succeeded.',
+          }),
         },
         status: this.offTopicStatus,
       },
@@ -110,9 +120,18 @@ export default class BulkReportControls extends I18nLitElement {
         type: ReportTypeValues.Abuse,
         icon: 'error',
         labels: {
-          [ReportStatusValues.Idle]: 'Mark as abuse',
-          [ReportStatusValues.Processing]: 'Marking as abuse…',
-          [ReportStatusValues.Done]: 'Marked as abuse',
+          [ReportStatusValues.Idle]: msg('Mark as abuse', {
+            id: 'bulkReportControls.abuseChip.defaultLabel',
+            desc: 'Chip shown to report a reply in a thread.',
+          }),
+          [ReportStatusValues.Processing]: msg('Marking as abuse…', {
+            id: 'bulkReportControls.abuseChip.sendingLabel',
+            desc: 'Chip label shown when sending the report.',
+          }),
+          [ReportStatusValues.Done]: msg('Marked as abuse', {
+            id: 'bulkReportControls.abuseChip.successLabel',
+            desc: 'Chip label shown when the report succeeded.',
+          }),
         },
         status: this.abuseStatus,
       },
