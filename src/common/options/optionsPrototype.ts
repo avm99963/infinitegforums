@@ -146,6 +146,11 @@ const rawOptionConfigs = {
     context: OptionContext.Options,
     killSwitchType: KillSwitchType.Option,
   },
+  bulkreportreplies: {
+    defaultValue: false,
+    context: OptionContext.Options,
+    killSwitchType: KillSwitchType.Option,
+  },
 
   // Experiments
   workflows: {
@@ -154,11 +159,6 @@ const rawOptionConfigs = {
     killSwitchType: KillSwitchType.Experiment,
   },
   extrainfo: {
-    defaultValue: false,
-    context: OptionContext.Experiments,
-    killSwitchType: KillSwitchType.Experiment,
-  },
-  bulkreportreplies: {
     defaultValue: false,
     context: OptionContext.Experiments,
     killSwitchType: KillSwitchType.Experiment,

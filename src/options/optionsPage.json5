@@ -15,6 +15,7 @@
         {codename: 'history'},
         {codename: 'perforumstats'},
         {codename: 'batchlock'},
+        {codename: 'bulkreportreplies'},
         {codename: 'autorefreshlist'},
         // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
         {codename: 'blockdrafts'},

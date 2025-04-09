@@ -263,6 +263,18 @@ anteriormente.
 
 ![GIF animado que muestra cómo se usa la función](resources/flatten_threads.gif)
 
+### Informa respuestas masivamente
+> **Option name:** _Activa poder informar varias respuestas a la vez._
+
+Esta opción añade un interruptor en la barra de herramientas de los hilos
+(justo debajo del post principal) que, cuando se activa, hace que se muestre
+una interfaz especial que te permite reportar múltiples hilos fácilmente:
+
+![GIF animado que muestra cómo se activa y desactiva la interfaz](resources/bulk_report_replies.gif)
+
+También puedes usar el atajo "Alt + R" (equivalentemente, "⌥  + R" para
+usuarios de Mac) para activar/desactivar la interfaz.
+
 ## Punto indicador
 > **Opciones:** _Muestra si el autor del hilo ha participado en otros hilos_,
 _Muestra el número de preguntas y respuestas escritas por el autor del hilo

@@ -262,6 +262,18 @@ in a linear non-nested view, just like before.
 
 ![Animated GIF showing how the feature is used](resources/flatten_threads.gif)
 
+### Bulk report replies
+> **Option name:** _Enable the ability to bulk report replies._
+
+This option shows a toggle in the thread toolbar (just below the main post)
+which, when enabled, shows a special UI which lets you report many replies
+easily:
+
+![Animated GIF showing the UI being toggled on and off](resources/bulk_report_replies.gif)
+
+You can also use the "Alt + R" shortcut (equivalently, "⌥ + R" for Mac users)
+to toggle showing the UI.
+
 ## Indicator dot
 > **Option names:** _Show whether the OP has participated in other threads_,
 _Show the number of questions and replies written by the OP within the last `n`
