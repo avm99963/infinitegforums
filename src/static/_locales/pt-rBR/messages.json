@@ -60,7 +60,7 @@
         "description": "Feature checkbox in the options page"
     },
     "options_redirect": {
-        "message": "Redirecione todos os tópicos abertos na Central para o Console",
+        "message": "Redirecione todos os tópicos abertos na Central para o Console.",
         "description": "Feature checkbox in the options page"
     },
     "options_loaddrafts": {
