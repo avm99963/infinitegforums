@@ -1,6 +1,5 @@
-import {isOptionEnabled} from '../../common/options/optionsUtils.js';
-
-import {addButtonToThreadListActions, shouldAddBtnToActionBar, softRefreshView} from './utils/common.js';
+import {isOptionEnabled} from '../../../common/options/optionsUtils.js';
+import {addButtonToThreadListActions, shouldAddBtnToActionBar, softRefreshView} from '../../../contentScripts/communityConsole/utils/common.js';
 
 const kLockDebugId = 'twpt-lock';
 export const kModalPaneSelector = '.pane[pane-id="default--1"]';

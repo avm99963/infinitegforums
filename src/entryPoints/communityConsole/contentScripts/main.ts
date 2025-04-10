@@ -65,6 +65,9 @@ import { BulkReportControlsInjectorAdapter } from '../../../features/bulkReportR
 import { MessageInfoRepositoryAdapter } from '../../../features/bulkReportReplies/infrastructure/repositories/messageInfo/messageInfo.repository.adapter';
 import { ReportOffTopicRepositoryAdapter } from '../../../features/bulkReportReplies/infrastructure/repositories/api/reportOffTopic/reportOffTopic.repository.adapter';
 import { ReportAbuseRepositoryAdapter } from '../../../features/bulkReportReplies/infrastructure/repositories/api/reportAbuse/reportAbuse.repository.adapter';
+import BatchLockBulkActionsHandler from '../../../features/batchLock/presentation/nodeWatcherHandlers/bulkActions.handler';
+import BatchLockInjectScript from '../../../features/batchLock/presentation/scripts/inject.script';
+import BatchLockStylesScript from '../../../features/batchLock/presentation/scripts/styles.script';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -105,6 +108,7 @@ function createScriptRunner() {
               'autoRefreshThreadListHide',
               new AutoRefreshThreadListHideHandler(autoRefresh),
             ],
+            ['batchLockBulkActions', new BatchLockBulkActionsHandler()],
             [
               'bulkReportRepliesMessageCard',
               new BulkReportRepliesMessageCardHandler(
@@ -207,6 +211,8 @@ function createScriptRunner() {
 
         // Individual feature scripts
         new AutoRefreshStylesScript(),
+        new BatchLockInjectScript(),
+        new BatchLockStylesScript(),
         new BulkReportRepliesHandleBodyClassScript(
           optionsProvider,
           new IsBulkReportRepliesFeatureEnabledServiceAdapter(),

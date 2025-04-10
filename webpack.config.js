@@ -72,6 +72,14 @@ module.exports = (env, args) => {
   // web_accessible_resources in //templates/manifest.gjson.
   const styles = [
     {
+      origin: './src/features/batchLock/ui/styles.css',
+      destination: 'css/batchlock_inject.css',
+    },
+    {
+      origin: './src/features/bulkReportReplies/ui/styles.css',
+      destination: 'css/bulk_report_replies.css',
+    },
+    {
       origin: './src/features/enhancedAnnouncementsDot/ui/styles.css',
       destination: 'css/enhanced_announcements_dot.css',
     },
@@ -94,10 +102,6 @@ module.exports = (env, args) => {
     {
       origin: './src/features/stickySidebarHeaders/ui/styles.css',
       destination: 'css/sticky_sidebar_headers.css',
-    },
-    {
-      origin: './src/features/bulkReportReplies/ui/styles.css',
-      destination: 'css/bulk_report_replies.css',
     },
   ];
 
