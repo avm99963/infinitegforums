@@ -620,5 +620,11 @@
     "inject_extrainfo_message_state_generated_answer_adopted": {
         "message": "تمّ اعتماد الإجابة المُولَّدة",
         "description": "Thread/message state GENERATED_ANSWER_ADOPTED."
+    },
+    "options_bulkreportreplies": {
+        "message": "تفعيل القدرة على الإبلاغ عن الرُّدود بشكل مجمَّع."
+    },
+    "options_fixpekb269560789": {
+        "message": "حلّ محتمل لبُطء واستخدام الذَّاكرة العالي لوحدة التّحكُّم (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>)."
     }
 }
