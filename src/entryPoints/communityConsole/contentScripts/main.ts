@@ -68,6 +68,9 @@ import { ReportAbuseRepositoryAdapter } from '../../../features/bulkReportReplie
 import BatchLockBulkActionsHandler from '../../../features/batchLock/presentation/nodeWatcherHandlers/bulkActions.handler';
 import BatchLockInjectScript from '../../../features/batchLock/presentation/scripts/inject.script';
 import BatchLockStylesScript from '../../../features/batchLock/presentation/scripts/styles.script';
+import { BatchLockButtonInjectorAdapter } from '../../../features/batchLock/infrastructure/ui/injectors/batchLockButton.injector.adapter';
+import { CCThreadListGenericActionButtonInjectorAdapter } from '../../../infrastructure/ui/injectors/communityConsole/threadListGenericActionButton.injector.adapter';
+import { CCThreadListActionInjectorAdapter } from '../../../infrastructure/ui/injectors/communityConsole/threadListAction.injector.adapter';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -108,7 +111,17 @@ function createScriptRunner() {
               'autoRefreshThreadListHide',
               new AutoRefreshThreadListHideHandler(autoRefresh),
             ],
-            ['batchLockBulkActions', new BatchLockBulkActionsHandler(optionsProvider)],
+            [
+              'batchLockBulkActions',
+              new BatchLockBulkActionsHandler(
+                optionsProvider,
+                new BatchLockButtonInjectorAdapter(
+                  new CCThreadListGenericActionButtonInjectorAdapter(
+                    new CCThreadListActionInjectorAdapter(),
+                  ),
+                ),
+              ),
+            ],
             [
               'bulkReportRepliesMessageCard',
               new BulkReportRepliesMessageCardHandler(

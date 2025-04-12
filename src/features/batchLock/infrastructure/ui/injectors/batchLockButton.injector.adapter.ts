@@ -1,17 +1,33 @@
-import {
-  addButtonToThreadListActions,
-  shouldAddBtnToActionBar,
-  softRefreshView,
-} from '../../../contentScripts/communityConsole/utils/common.js';
+import { softRefreshView } from '../../../../../contentScripts/communityConsole/utils/common';
+import { ThreadListGenericActionButtonInjectorPort } from '../../../../../ui/injectors/threadListGenericActionButton.injector.port';
+import { BatchLockButtonInjectorPort } from '../../../ui/injectors/batchLockButton.injector.port';
 
 const kLockDebugId = 'twpt-lock';
 export const kModalPaneSelector = '.pane[pane-id="default--1"]';
 
-export const batchLock = {
-  shouldAddButton(node: Node) {
-    return shouldAddBtnToActionBar(kLockDebugId, node);
-  },
-  createDialog() {
+export class BatchLockButtonInjectorAdapter
+  implements BatchLockButtonInjectorPort
+{
+  constructor(
+    private actionButtonInjector: ThreadListGenericActionButtonInjectorPort,
+  ) {}
+
+  execute(): void {
+    let tooltip = chrome.i18n.getMessage('inject_lockbtn');
+
+    const btn = this.actionButtonInjector.execute({
+      icon: 'lock',
+      key: kLockDebugId,
+      tooltip,
+    });
+
+    btn.addEventListener('click', () => {
+      this.createDialog();
+    });
+  }
+
+  // TODO(https://iavm.xyz/b/twpowertools/176): extract this to the ui layer.
+  private createDialog() {
     const modal = document.querySelector(kModalPaneSelector);
 
     if (!(modal instanceof HTMLElement)) {
@@ -82,7 +98,7 @@ export const batchLock = {
 
               modal.classList.remove('visible');
               modal.style.display = 'none';
-              removeChildNodes(modal);
+              this.removeChildNodes(modal);
             });
             break;
         }
@@ -104,27 +120,15 @@ export const batchLock = {
       dialog.append(footer);
     }
 
-    removeChildNodes(modal);
+    this.removeChildNodes(modal);
     modal.append(dialog);
     modal.classList.add('visible', 'modal');
     modal.style.display = 'flex';
-  },
-  addButton(readToggle: Node) {
-    let tooltip = chrome.i18n.getMessage('inject_lockbtn');
-    let btn = addButtonToThreadListActions(
-      readToggle,
-      'lock',
-      kLockDebugId,
-      tooltip,
-    );
-    btn.addEventListener('click', () => {
-      this.createDialog();
-    });
-  },
-};
+  }
 
-function removeChildNodes(node: Node) {
-  while (node?.firstChild) {
-    node.removeChild(node.firstChild);
+  private removeChildNodes(node: Node) {
+    while (node?.firstChild) {
+      node.removeChild(node.firstChild);
+    }
   }
 }

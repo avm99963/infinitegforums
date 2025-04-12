@@ -1,7 +1,7 @@
 import {CCApi} from '../common/api.js';
 import {parseUrl, recursiveParentElement} from '../common/commonUtils.js';
 import {getAuthUser} from '../common/communityConsoleUtils.js';
-import {kModalPaneSelector} from '../features/batchLock/core/batchLock';
+import {kModalPaneSelector} from '../features/batchLock/infrastructure/ui/injectors/batchLockButton.injector.adapter';
 
 // Source:
 // https://stackoverflow.com/questions/33063774/communication-from-an-injected-script-to-the-content-script-with-a-response
