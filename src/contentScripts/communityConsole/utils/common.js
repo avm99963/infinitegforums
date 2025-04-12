@@ -39,6 +39,8 @@ export function addElementToThreadListActions(originalBtn, element) {
  * Adds a button to the thread list actions bar next to the button given by
  * |originalBtn|. The button will have icon |icon|, when hovered it will display
  * |tooltip|, and will have a debugid attribute with value |debugId|.
+ *
+ * @deprecated Use CCThreadListGenericActionButtonInjectorAdapter
  */
 export function addButtonToThreadListActions(
     originalBtn, icon, debugId, tooltip) {
@@ -64,6 +66,8 @@ export function addButtonToThreadListActions(
  * Returns true if |node| is the "mark as read/unread" button, the parent of the
  * parent of |node| is the actions bar of the thread list, and the button with
  * debugid |debugid| is NOT part of the actions bar.
+ *
+ * @deprecated Use CCThreadListActionInjectorAdapter
  */
 export function shouldAddBtnToActionBar(debugid, node) {
   return node?.tagName == 'MATERIAL-BUTTON' &&
