@@ -1,5 +1,4 @@
-import CssSelectorNodeWatcherHandler from '../../../../infrastructure/presentation/nodeWatcher/handlers/CssSelectorHandler.adapter';
-import { NodeMutation } from '../../../../presentation/nodeWatcher/NodeWatcherHandler';
+import CCThreadListBulkActionsNodeWatcherHandler from '../../../../infrastructure/presentation/nodeWatcher/handlers/CCThreadListBulkActions.adapter';
 import { OptionsProviderPort } from '../../../../services/options/OptionsProvider';
 import { BatchLockButtonInjectorPort } from '../../ui/injectors/batchLockButton.injector.port';
 
@@ -7,10 +6,7 @@ import { BatchLockButtonInjectorPort } from '../../ui/injectors/batchLockButton.
  * Injects the batch lock button in the thread list if the option is
  * currently enabled.
  */
-export default class BatchLockBulkActionsHandler extends CssSelectorNodeWatcherHandler {
-  cssSelector =
-    'ec-bulk-actions material-button:is([debugid="mark-read-button"], [debugid="mark-unread-button"])';
-
+export default class BatchLockBulkActionsHandler extends CCThreadListBulkActionsNodeWatcherHandler {
   constructor(
     private optionsProvider: OptionsProviderPort,
     private batchLockButtonInjector: BatchLockButtonInjectorPort,
@@ -18,9 +14,7 @@ export default class BatchLockBulkActionsHandler extends CssSelectorNodeWatcherH
     super();
   }
 
-  async onMutatedNode({ node }: NodeMutation) {
-    if (!(node instanceof Element)) return;
-
+  async onCreated() {
     const isEnabled = await this.optionsProvider.isEnabled('batchlock');
     if (isEnabled) {
       this.batchLockButtonInjector.execute();
