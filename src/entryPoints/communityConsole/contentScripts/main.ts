@@ -108,7 +108,7 @@ function createScriptRunner() {
               'autoRefreshThreadListHide',
               new AutoRefreshThreadListHideHandler(autoRefresh),
             ],
-            ['batchLockBulkActions', new BatchLockBulkActionsHandler()],
+            ['batchLockBulkActions', new BatchLockBulkActionsHandler(optionsProvider)],
             [
               'bulkReportRepliesMessageCard',
               new BulkReportRepliesMessageCardHandler(

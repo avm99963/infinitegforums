@@ -1,4 +1,3 @@
-import { isOptionEnabled } from '../../../common/options/optionsUtils.js';
 import {
   addButtonToThreadListActions,
   shouldAddBtnToActionBar,
@@ -110,20 +109,16 @@ export const batchLock = {
     modal.classList.add('visible', 'modal');
     modal.style.display = 'flex';
   },
-  addButtonIfEnabled(readToggle: Node) {
-    isOptionEnabled('batchlock').then((isEnabled) => {
-      if (isEnabled) {
-        let tooltip = chrome.i18n.getMessage('inject_lockbtn');
-        let btn = addButtonToThreadListActions(
-          readToggle,
-          'lock',
-          kLockDebugId,
-          tooltip,
-        );
-        btn.addEventListener('click', () => {
-          this.createDialog();
-        });
-      }
+  addButton(readToggle: Node) {
+    let tooltip = chrome.i18n.getMessage('inject_lockbtn');
+    let btn = addButtonToThreadListActions(
+      readToggle,
+      'lock',
+      kLockDebugId,
+      tooltip,
+    );
+    btn.addEventListener('click', () => {
+      this.createDialog();
     });
   },
 };
