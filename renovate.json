@@ -20,7 +20,8 @@
       "matchUpdateTypes": ["minor", "patch", "pin"],
       "automerge": true,
       "automergeType": "pr",
-      "autoApprove": true
+      "autoApprove": true,
+      "schedule": ["every weekend"]
     }
   ]
 }
