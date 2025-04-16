@@ -46,38 +46,46 @@
         <target state="translated">Informa de varias respuestas a la vez</target>
         <note from="lit-localize">Option shown in the settings menu of the thread toolbar which enables the "bulk report replies" feature.</note>
       </trans-unit>
-<trans-unit id="s9c0adc97ce1e614c">
-  <source>(Alt + R)</source>
-  <note from="lit-localize">Text shown below the "bulk report replies" toggle, to let the user know that they can use this keyboard shortcut to toggle it.</note>
-</trans-unit>
-<trans-unit id="s23d50c510d921290">
-  <source>(⌥ + R)</source>
-  <note from="lit-localize">Text shown to Mac users below the "bulk report replies" toggle, to let them know that they can use this keyboard shortcut to toggle it.</note>
-</trans-unit>
-<trans-unit id="bulkReportControls.offTopicChip.sendingLabel">
-  <source>Marking as off-topic…</source>
-  <note from="lit-localize">Chip label shown when sending the report.</note>
-</trans-unit>
-<trans-unit id="bulkReportControls.abuseChip.sendingLabel">
-  <source>Marking as abuse…</source>
-  <note from="lit-localize">Chip label shown when sending the report.</note>
-</trans-unit>
-<trans-unit id="bulkReportControls.offTopicChip.successLabel">
-  <source>Marked as off-topic</source>
-  <note from="lit-localize">Chip label shown when the report succeeded.</note>
-</trans-unit>
-<trans-unit id="bulkReportControls.abuseChip.successLabel">
-  <source>Marked as abuse</source>
-  <note from="lit-localize">Chip label shown when the report succeeded.</note>
-</trans-unit>
-<trans-unit id="bulkReportControls.offTopicChip.defaultLabel">
-  <source>Mark as off-topic</source>
-  <note from="lit-localize">Chip shown to report a reply in a thread.</note>
-</trans-unit>
-<trans-unit id="bulkReportControls.abuseChip.defaultLabel">
-  <source>Mark as abuse</source>
-  <note from="lit-localize">Chip shown to report a reply in a thread.</note>
-</trans-unit>
+      <trans-unit id="s9c0adc97ce1e614c" xml:space="preserve">
+        <source>(Alt + R)</source>
+        <target state="translated">(Alt + R)</target>
+        <note from="lit-localize">Text shown below the "bulk report replies" toggle, to let the user know that they can use this keyboard shortcut to toggle it.</note>
+      </trans-unit>
+      <trans-unit id="s23d50c510d921290" xml:space="preserve">
+        <source>(⌥ + R)</source>
+        <target state="translated">(⌥ + R)</target>
+        <note from="lit-localize">Text shown to Mac users below the "bulk report replies" toggle, to let them know that they can use this keyboard shortcut to toggle it.</note>
+      </trans-unit>
+      <trans-unit id="bulkReportControls.offTopicChip.sendingLabel" xml:space="preserve">
+        <source>Marking as off-topic…</source>
+        <target state="translated">Marcando como tema no relacionado…</target>
+        <note from="lit-localize">Chip label shown when sending the report.</note>
+      </trans-unit>
+      <trans-unit id="bulkReportControls.abuseChip.sendingLabel" xml:space="preserve">
+        <source>Marking as abuse…</source>
+        <target state="translated">Marcando como abuso…</target>
+        <note from="lit-localize">Chip label shown when sending the report.</note>
+      </trans-unit>
+      <trans-unit id="bulkReportControls.offTopicChip.successLabel" xml:space="preserve">
+        <source>Marked as off-topic</source>
+        <target state="translated">Marcado como tema no relacionado</target>
+        <note from="lit-localize">Chip label shown when the report succeeded.</note>
+      </trans-unit>
+      <trans-unit id="bulkReportControls.abuseChip.successLabel" xml:space="preserve">
+        <source>Marked as abuse</source>
+        <target state="translated">Marcado como abuso</target>
+        <note from="lit-localize">Chip label shown when the report succeeded.</note>
+      </trans-unit>
+      <trans-unit id="bulkReportControls.offTopicChip.defaultLabel" xml:space="preserve">
+        <source>Mark as off-topic</source>
+        <target state="translated">Marcar como tema no relacionado</target>
+        <note from="lit-localize">Chip shown to report a reply in a thread.</note>
+      </trans-unit>
+      <trans-unit id="bulkReportControls.abuseChip.defaultLabel" xml:space="preserve">
+        <source>Mark as abuse</source>
+        <target state="translated">Marcar como abuso</target>
+        <note from="lit-localize">Chip shown to report a reply in a thread.</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>
