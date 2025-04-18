@@ -71,6 +71,8 @@ import BatchLockStylesScript from '../../../features/batchLock/presentation/scri
 import { BatchLockButtonInjectorAdapter } from '../../../features/batchLock/infrastructure/ui/injectors/batchLockButton.injector.adapter';
 import { CCThreadListGenericActionButtonInjectorAdapter } from '../../../infrastructure/ui/injectors/communityConsole/threadListGenericActionButton.injector.adapter';
 import { CCThreadListActionInjectorAdapter } from '../../../infrastructure/ui/injectors/communityConsole/threadListAction.injector.adapter';
+import BulkMoveBulkActionsHandler from '../../../features/bulkMove/presentation/nodeWatchHandlers/bulkActions.handler';
+import { BulkMoveButtonInjectorAdapter } from '../../../features/bulkMove/infrastructure/ui/injectors/bulkMoveButton.injector.adapter';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -92,7 +94,12 @@ function createScriptRunner() {
     WorkflowsImportDependency,
   );
 
+  const ccThreadListGenericActionButtonInjector =
+    new CCThreadListGenericActionButtonInjectorAdapter(
+      new CCThreadListActionInjectorAdapter(),
+    );
   const optionsModifier = new OptionsModifierAdapter();
+
   const ccInfiniteScroll = new CCInfiniteScroll();
   const flattenThreads = new FlattenThreads();
 
@@ -116,9 +123,16 @@ function createScriptRunner() {
               new BatchLockBulkActionsHandler(
                 optionsProvider,
                 new BatchLockButtonInjectorAdapter(
-                  new CCThreadListGenericActionButtonInjectorAdapter(
-                    new CCThreadListActionInjectorAdapter(),
-                  ),
+                  ccThreadListGenericActionButtonInjector,
+                ),
+              ),
+            ],
+            [
+              'bulkMoveBulkActions',
+              new BulkMoveBulkActionsHandler(
+                optionsProvider,
+                new BulkMoveButtonInjectorAdapter(
+                  ccThreadListGenericActionButtonInjector,
                 ),
               ),
             ],
