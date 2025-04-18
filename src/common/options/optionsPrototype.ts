@@ -163,6 +163,11 @@ const rawOptionConfigs = {
     context: OptionContext.Experiments,
     killSwitchType: KillSwitchType.Experiment,
   },
+  bulkmove: {
+    defaultValue: false,
+    context: OptionContext.Experiments,
+    killSwitchType: KillSwitchType.Experiment,
+  },
 
   // Internal options
   ccdarktheme_switch_status: {

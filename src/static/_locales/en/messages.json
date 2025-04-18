@@ -187,6 +187,10 @@
     "message": "Enable the ability to bulk report replies.",
     "description": "Feature checkbox in the options page"
   },
+  "options_bulkmove": {
+    "message": "Add the option to move multiple threads from the Community Console thread list.",
+    "description": "Feature checkbox in the options page"
+  },
   "options_save": {
     "message": "Save",
     "description": "Button in the options page to save the settings"
