@@ -1,6 +1,13 @@
-import Script, { ScriptEnvironment, ScriptPage, ScriptRunPhase } from "../../../common/architecture/scripts/Script"
-import MWOptionsWatcherServer from "../../../common/mainWorldOptionsWatcher/Server"
-import { kCSTarget, kMWTarget } from "../../../xhrInterceptor/ResponseModifier.adapter"
+import Script, {
+  ScriptEnvironment,
+  ScriptPage,
+  ScriptRunPhase,
+} from '../../../common/architecture/scripts/Script';
+import MWOptionsWatcherServer from '../../mainWorldContentScriptBridge/optionsWatcher/Server';
+import {
+  kCSTarget,
+  kMWTarget,
+} from '../../../xhrInterceptor/ResponseModifier.adapter';
 
 export default class MWOptionsWatcherServerScript extends Script {
   // The server should be available as soon as possible, since e.g. the
@@ -13,6 +20,7 @@ export default class MWOptionsWatcherServerScript extends Script {
   runPhase = ScriptRunPhase.Start;
 
   execute() {
-    new MWOptionsWatcherServer(kCSTarget, kMWTarget);
+    const server = new MWOptionsWatcherServer(kCSTarget, kMWTarget);
+    server.register();
   }
 }

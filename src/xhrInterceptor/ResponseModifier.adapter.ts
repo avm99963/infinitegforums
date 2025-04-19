@@ -1,5 +1,8 @@
-import MWOptionsWatcherClient from '../common/mainWorldOptionsWatcher/Client.js';
-import { OptionCodename } from '../common/options/optionsPrototype.js';
+import MWOptionsWatcherClient from '../presentation/mainWorldContentScriptBridge/optionsWatcher/Client';
+import {
+  OptionCodename,
+  OptionsValues,
+} from '../common/options/optionsPrototype.js';
 import {
   InterceptedResponse,
   ResponseModifierPort,
@@ -41,7 +44,7 @@ export default class ResponseModifierAdapter implements ResponseModifierPort {
 
     // Now filter modifiers which require a certain feature to be enabled
     // (feature-gated modifiers).
-    const featuresAreEnabled = await this.optionsWatcher.areEnabled(
+    const featuresAreEnabled = await this.optionsWatcher.getOptions(
       Array.from(this.watchingFeatures(urlModifiers)),
     );
 
@@ -57,7 +60,11 @@ export default class ResponseModifierAdapter implements ResponseModifierPort {
     // #!endif
 
     return urlModifiers.filter((modifier) => {
-      return !modifier.featureGated || modifier.isEnabled(featuresAreEnabled);
+      // TODO(https://iavm.xyz/b/twpowertools/230): Fix the type assertion below.
+      return (
+        !modifier.featureGated ||
+        modifier.isEnabled(featuresAreEnabled as OptionsValues)
+      );
     });
   }
 

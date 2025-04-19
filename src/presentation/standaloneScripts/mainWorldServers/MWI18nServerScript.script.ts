@@ -1,5 +1,9 @@
-import Script, { ScriptEnvironment, ScriptPage, ScriptRunPhase } from "../../../common/architecture/scripts/Script"
-import MWI18nServer from "../../../common/mainWorldI18n/Server";
+import Script, {
+  ScriptEnvironment,
+  ScriptPage,
+  ScriptRunPhase,
+} from '../../../common/architecture/scripts/Script';
+import MWI18nServer from '../../mainWorldContentScriptBridge/i18n/Server';
 
 export default class MWI18nServerScript extends Script {
   // The server should be available as soon as possible, since e.g. the
@@ -12,6 +16,7 @@ export default class MWI18nServerScript extends Script {
   runPhase = ScriptRunPhase.Start;
 
   execute() {
-    new MWI18nServer();
+    const server = new MWI18nServer();
+    server.register();
   }
 }
