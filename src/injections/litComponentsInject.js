@@ -7,6 +7,7 @@ import '../features/threadToolbar/core/components/index.js';
 import '../features/flattenThreads/core/components/index.js';
 import '../contentScripts/communityConsole/updateHandler/banner/components/index.js';
 import '../features/bulkReportReplies/ui/components/index';
+import '../features/bulkMove/ui/components/index';
 
 import {injectStylesheet} from '../common/contentScriptsUtils';
 
