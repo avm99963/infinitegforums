@@ -1,5 +1,5 @@
 import PartialOptionsWatcher from '../options/partialOptionsWatcher.js';
-import MainWorldContentScriptBridgeServer from '../mainWorldContentScriptBridge/Server.js';
+import MainWorldContentScriptBridgeServer from '../../presentation/mainWorldContentScriptBridge/Server';
 
 // Main World OptionsWatcher server (used in content scripts to be able to serve
 // the options to Main World (MW) scripts).

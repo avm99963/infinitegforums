@@ -1,6 +1,6 @@
-import MainWorldContentScriptBridgeServer from '../mainWorldContentScriptBridge/Server.js';
+import MainWorldContentScriptBridgeServer from '../../presentation/mainWorldContentScriptBridge/Server';
 
-import {kCSTarget, kMWTarget} from './consts.js';
+import {kCSTarget, kMWTarget} from './consts';
 
 // Main World i18n server (used in content scripts to be able to serve the
 // chrome.i18n API to Main World (MW) scripts).
