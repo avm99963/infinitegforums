@@ -627,5 +627,8 @@
     },
     "options_bulkreportreplies": {
         "message": "댓글을 일괄 신고할 수 있는 기능 활성화."
+    },
+    "options_bulkmove": {
+        "message": "커뮤니티 콘솔의 게시글 목록에서 여러 게시글을 이동할 수 있는 옵션 추가하기."
     }
 }
