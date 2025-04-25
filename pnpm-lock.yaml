@@ -70,8 +70,8 @@ importers:
         specifier: 10.4.0
         version: 10.4.0
       '@types/chrome':
-        specifier: 0.0.315
-        version: 0.0.315
+        specifier: 0.0.317
+        version: 0.0.317
       '@types/node':
         specifier: 20.17.31
         version: 20.17.31
@@ -1045,8 +1045,8 @@ packages:
   '@types/aria-query@5.0.4':
     resolution: {integrity: sha512-rfT93uj5s0PRL7EzccGMs3brplhcrghnDoV26NqKhCAS1hVo+WdNsPvE/yb6ilfr5hi2MEk6d5EWJTKdxg8jVw==}
 
-  '@types/chrome@0.0.315':
-    resolution: {integrity: sha512-Oy1dYWkr6BCmgwBtOngLByCHstQ3whltZg7/7lubgIZEYvKobDneqplgc6LKERNRBwckFviV4UU5AZZNUFrJ4A==}
+  '@types/chrome@0.0.317':
+    resolution: {integrity: sha512-ibKycbXX8ZZToFshjgWg98BTvFUSvQht8m53Xc+87ye3Z6ZoHJubLjoiDsil8rtW+noWE+Z0+7y0nwLxArU+CQ==}
 
   '@types/eslint-scope@3.7.7':
     resolution: {integrity: sha512-MzMFlSLBqNF2gcHWO0G1vP/YQyfvrxZ0bF+u7mzUdZ1/xK4A4sru+nraZz5i3iEIk1l1uyicaDVTB4QbbEkAYg==}
@@ -4699,7 +4699,7 @@ snapshots:
 
   '@types/aria-query@5.0.4': {}
 
-  '@types/chrome@0.0.315':
+  '@types/chrome@0.0.317':
     dependencies:
       '@types/filesystem': 0.0.36
       '@types/har-format': 1.2.15
