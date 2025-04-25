@@ -620,5 +620,8 @@
     },
     "options_fixpekb269560789": {
         "message": "Correção provisória para lentidão do CC e alto uso de memória (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>)."
+    },
+    "options_bulkmove": {
+        "message": "Adicione a opção de mover vários tópicos da lista de tópicos do Console da Comunidade."
     }
 }
