@@ -35,7 +35,7 @@
     "@lit/localize-tools": "0.8.0",
     "@testing-library/dom": "10.4.0",
     "@types/chrome": "0.0.317",
-    "@types/node": "20.17.31",
+    "@types/node": "20.17.32",
     "@vitest/coverage-v8": "3.1.2",
     "@vitest/eslint-plugin": "1.1.43",
     "copy-webpack-plugin": "13.0.0",
