@@ -627,5 +627,8 @@
     },
     "options_bulkreportreplies": {
         "message": "Activa poder informar diverses respostes alhora."
+    },
+    "options_bulkmove": {
+        "message": "Afegeix l'opció per moure diversos fils des de la llista de fils de la Consola de la Comunitat."
     }
 }

@@ -627,5 +627,8 @@
     },
     "options_bulkreportreplies": {
         "message": "Activa poder informar varias respuestas a la vez."
+    },
+    "options_bulkmove": {
+        "message": "Añade la opción para mover varios hilos desde la lista de hilos de la Consola de la Comunidad."
     }
 }
