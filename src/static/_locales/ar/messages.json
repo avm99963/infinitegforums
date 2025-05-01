@@ -64,7 +64,7 @@
         "description": "Feature checkbox in the options page"
     },
     "options_loaddrafts": {
-        "message": "تشغيل علامة <code class=\"help\" title=\"تسمح هذه العلامة لوحدة تحكم المجتمع بتحميل رد تم حفظه تلقائيًا مسبقًا عند تحميل سلسلة رسائل والنقر على الرد button.\">enableLoadingDraftMessages</code> على وحدة تحكّم المجتمع",
+        "message": "تمكين علامة <code class=\"help\" title=\"تتيح هذه العلامة لوحدة التحكم في المجتمع تحميل رد تم حفظه تلقائيًا مسبقًا عند تحميل موضوع والنقر فوق زر الرد.\">enableLoadingDraftMessages</code> إبلاغات وحدة التحكُّم.",
         "description": "Feature checkbox in the options page"
     },
     "options_experimental_label": {
@@ -626,5 +626,8 @@
     },
     "options_fixpekb269560789": {
         "message": "حلّ محتمل لبُطء واستخدام الذَّاكرة العالي لوحدة التّحكُّم (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>)."
+    },
+    "options_bulkmove": {
+        "message": "إضافة خيار نقل منشورات متعددة من قائمة منشورات وحدة التحكم في المجتمع."
     }
 }
