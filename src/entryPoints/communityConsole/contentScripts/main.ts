@@ -133,6 +133,7 @@ function createScriptRunner() {
                 optionsProvider,
                 new BulkMoveButtonInjectorAdapter(
                   ccThreadListGenericActionButtonInjector,
+                  startupDataStorage,
                 ),
               ),
             ],

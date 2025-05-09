@@ -1,7 +1,9 @@
+import { StartupDataStoragePort } from '../../../../../services/communityConsole/StartupDataStorage.port';
 import { ThreadListGenericActionButtonInjectorPort } from '../../../../../ui/injectors/threadListGenericActionButton.injector.port';
 import { Forum } from '../../../../../domain/forum';
 import BulkMoveModal from '../../../ui/components/BulkMoveModal';
 import { BulkMoveButtonInjectorPort } from '../../../ui/injectors/bulkMoveButton.injector.port';
+import { ForumsFactory } from './forums.factory';
 
 const BULK_MOVE_ACTION_KEY = 'bulk-move';
 
@@ -10,8 +12,11 @@ export class BulkMoveButtonInjectorAdapter
 {
   private modal: BulkMoveModal | undefined;
 
+  private readonly forumsFactory = new ForumsFactory();
+
   constructor(
     private readonly buttonInjector: ThreadListGenericActionButtonInjectorPort,
+    private readonly startupDataStorage: StartupDataStoragePort,
   ) {}
 
   execute() {
@@ -50,76 +55,23 @@ export class BulkMoveButtonInjectorAdapter
   }
 
   private getForums(): Forum[] {
-    return [
-      {
-        name: 'Google Chrome',
-        id: 'chrome-dummy',
-        languageConfigurations: [
-          {
-            id: 'es',
-            name: 'Español',
-            categories: [
-              { id: 'learn', name: 'Aprende sobre Chrome' },
-              { id: 'bug', name: 'Reporta un bug sobre Chrome' },
-            ],
-            details: [
-              {
-                id: 'os',
-                name: 'Sistema operativo',
-                options: [
-                  { id: 'win', name: 'Windows' },
-                  { id: 'mac', name: 'Mac' },
-                  { id: 'linux', name: 'Linux' },
-                ],
-              },
-              {
-                id: 'channel',
-                name: 'Canal de Chrome',
-                options: [
-                  { id: 'stable', name: 'Estable' },
-                  { id: 'beta', name: 'Beta' },
-                  { id: 'dev', name: 'Dev' },
-                  { id: 'canary', name: 'Canary' },
-                ],
-              },
-            ],
-          },
-          {
-            id: 'en',
-            name: 'English',
-            categories: [],
-            details: [],
-          },
-          {
-            id: 'ca',
-            name: 'Català',
-            categories: [
-              { id: 'learn', name: 'Aprèn sobre Chrome' },
-              { id: 'bug', name: 'Reporta un bug de Chrome' },
-              { id: 'fun', name: 'Yay!' },
-            ],
-            details: [],
-          },
-        ],
-      },
-      {
-        name: 'Google AI',
-        id: 'ai-dummy',
-        languageConfigurations: [
-          {
-            id: 'es',
-            name: 'Castellano',
-            categories: [],
-            details: [],
-          },
-          {
-            id: 'ca',
-            name: 'Català',
-            categories: [],
-            details: [],
-          },
-        ],
-      },
-    ];
+    const startupData = this.startupDataStorage.get();
+    const forumsInfo = startupData.getRawForumsInfo();
+    const publicForumsInfo = this.getPublicForums(forumsInfo);
+    const displayLanguage = startupData.getDisplayLanguage();
+    return this.forumsFactory.convertProtobufListToEntities(
+      publicForumsInfo,
+      displayLanguage,
+    );
+  }
+
+  private getPublicForums(forums: any) {
+    return forums.filter((forumInfo: any) => {
+      const forumVisibility = forumInfo?.[2]?.[18];
+      const VISIBILITY_PUBLIC = 1;
+      // Don't include non-public forums in the list of forums to choose
+      // from.
+      return forumVisibility == VISIBILITY_PUBLIC;
+    });
   }
 }

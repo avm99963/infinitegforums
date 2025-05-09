@@ -38,4 +38,8 @@ export default class StartupDataModel {
   getCurrentUserModel() {
     return new UserModel(this.getRawUser(), this);
   }
+
+  getDisplayLanguage() {
+    return this.data[1]?.[1]?.[3]?.[6] ?? 'en';
+  }
 }
