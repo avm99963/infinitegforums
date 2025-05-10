@@ -104,6 +104,7 @@ export default class BulkMoveModal extends I18nLitElement {
             .forums=${this.forums}
             authuser=${this.authuser}
             displayLanguage=${this.displayLanguage}
+            autofocus
             @change=${this.onForumChanged}
             @loaded-full-forum-info=${this.onLoadedFullForumInfo}
             ${ref(this.forumSelectRef)}

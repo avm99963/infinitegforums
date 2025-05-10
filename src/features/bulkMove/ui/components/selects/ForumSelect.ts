@@ -12,6 +12,8 @@ import { FORM_STYLES } from './styles';
 import { EVENT_LOADED_FULL_FORUM_INFO } from '../events';
 import { GetForumRepositoryAdapter } from '../../../infrastructure/repositories/api/getForum.repository.adapter';
 import { GetForumRepositoryPort } from '../../ports/getForum.repository.port';
+import { createRef, Ref, ref } from 'lit/directives/ref.js';
+import { MdOutlinedSelect } from '@material/web/select/outlined-select.js';
 
 interface SingleLanguageConfiguration {
   language: string;
@@ -46,6 +48,8 @@ export default class ForumSelect extends I18nLitElement {
   private readonly getForumRepository: GetForumRepositoryPort =
     new GetForumRepositoryAdapter();
 
+  communityForumSelectRef: Ref<MdOutlinedSelect> = createRef();
+
   render() {
     return html`
       <div class="fields">
@@ -66,6 +70,7 @@ export default class ForumSelect extends I18nLitElement {
         required
         clampMenuWidth
         @change=${this.onForumChanged}
+        ${ref(this.communityForumSelectRef)}
       >
         ${repeat(
           sortedForums,
@@ -83,7 +88,7 @@ export default class ForumSelect extends I18nLitElement {
     `;
   }
 
-  renderLanguageSelect() {
+  private renderLanguageSelect() {
     const selectedForum = this.getSelectedForum();
     const isForumSelected = selectedForum !== undefined;
 
@@ -118,6 +123,10 @@ export default class ForumSelect extends I18nLitElement {
         </md-outlined-select>
       `,
     );
+  }
+
+  focus() {
+    this.communityForumSelectRef.value?.focus();
   }
 
   private getSortedSingleLanguageConfigurations(
