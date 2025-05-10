@@ -73,6 +73,8 @@ import { CCThreadListGenericActionButtonInjectorAdapter } from '../../../infrast
 import { CCThreadListActionInjectorAdapter } from '../../../infrastructure/ui/injectors/communityConsole/threadListAction.injector.adapter';
 import BulkMoveBulkActionsHandler from '../../../features/bulkMove/presentation/nodeWatchHandlers/bulkActions.handler';
 import { BulkMoveButtonInjectorAdapter } from '../../../features/bulkMove/infrastructure/ui/injectors/bulkMoveButton.injector.adapter';
+import { GetSelectedThreadsServiceAdapter } from '../../../infrastructure/ui/services/communityConsole/getSelectedThreads.service.adapter';
+import { UrlThreadDataParserServiceAdapter } from '../../../infrastructure/ui/services/communityConsole/urlThreadDataParser.service.adapter';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -134,6 +136,9 @@ function createScriptRunner() {
                 new BulkMoveButtonInjectorAdapter(
                   ccThreadListGenericActionButtonInjector,
                   startupDataStorage,
+                  new GetSelectedThreadsServiceAdapter(
+                    new UrlThreadDataParserServiceAdapter(),
+                  ),
                 ),
               ),
             ],

@@ -9,6 +9,10 @@ import { EVENT_START_BULK_MOVE } from '../../../ui/components/events';
 import BulkMoveProgressModal, {
   ThreadProgress,
 } from '../../../ui/components/BulkMoveProgressModal';
+import {
+  GetSelectedThreadsServicePort,
+  SelectedThread,
+} from '../../../../../ui/services/getSelectedThreads.service.port';
 
 const BULK_MOVE_ACTION_KEY = 'bulk-move';
 
@@ -23,6 +27,7 @@ export class BulkMoveButtonInjectorAdapter
   constructor(
     private readonly buttonInjector: ThreadListGenericActionButtonInjectorPort,
     private readonly startupDataStorage: StartupDataStoragePort,
+    private readonly getSelectedThreadsService: GetSelectedThreadsServicePort,
   ) {}
 
   execute() {
@@ -93,49 +98,31 @@ export class BulkMoveButtonInjectorAdapter
     if (this.progressModal === undefined) {
       this.injectProgressModal();
     }
-    const mockProgress: ThreadProgress[] = [
-      {
-        originalThread: {
-          title: 'I want to recover my password plz',
-          id: '123',
-          forumId: '1',
-        },
-        destinationForumId: '2',
-        status: 'waiting',
-      },
-      {
-        originalThread: {
-          title: 'Hacker. HELP!!!',
-          id: '124',
-          forumId: '1',
-        },
-        destinationForumId: '2',
-        status: 'loading',
-      },
-      {
-        originalThread: {
-          title:
-            'Ahhhh I am so scared of losing my account. What can I do to fix this? Please reply!!',
-          id: '125',
-          forumId: '1',
-        },
-        destinationForumId: '2',
-        status: 'success',
-      },
-      {
-        originalThread: {
-          title: 'Hi :)',
-          id: '126',
-          forumId: '1',
-        },
-        destinationForumId: '2',
-        status: 'error',
-        errorMessage: 'Permission denied.',
-      },
-    ];
-    // TODO: Change with the real data and actually move the threads.
+    const selectedThreads = this.getSelectedThreadsService.execute();
+    const mockProgress = this.createInitialProgress(
+      selectedThreads,
+      e.detail.destinationForumId,
+    );
     this.progressModal.setAttribute('progress', JSON.stringify(mockProgress));
     this.progressModal.setAttribute('open', '');
+    // TODO: Actually move the threads.
+  }
+
+  private createInitialProgress(
+    selectedThreads: SelectedThread[],
+    destinationForumId: string,
+  ): ThreadProgress[] {
+    return selectedThreads.map((thread) => {
+      return {
+        originalThread: {
+          forumId: thread.forumId,
+          id: thread.id,
+          title: thread.title,
+        },
+        destinationForumId,
+        status: 'waiting',
+      };
+    });
   }
 
   private injectProgressModal() {
