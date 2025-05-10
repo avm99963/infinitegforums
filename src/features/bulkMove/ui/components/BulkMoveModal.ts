@@ -4,7 +4,7 @@ import { createRef, ref, Ref } from 'lit/directives/ref.js';
 import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles.js';
 import { I18nLitElement } from '../../../../common/litI18nUtils';
 import { SHARED_MD3_STYLES } from '../../../../common/styles/md3';
-import { Forum } from '../../../../domain/forum';
+import { Forum, LanguageConfiguration } from '../../../../domain/forum';
 import { ThreadProperty } from '../../../../domain/threadProperty';
 import ForumSelect from './selects/ForumSelect';
 import AdditionalDetailsSelect from './selects/AdditionalDetailsSelect';
@@ -108,18 +108,49 @@ export default class BulkMoveModal extends I18nLitElement {
   }
 
   private onForumChanged() {
+    const previousCategoryId = this.categoryId;
+    const previousProperties: Readonly<ThreadProperty[]> = this.properties;
+
+    this.categoryId = undefined;
+    this.properties = [];
     this.forumId = this.forumSelectRef.value?.forumId;
     this.language = this.forumSelectRef.value?.language;
 
-    const languageConfiguration = this.getLanguageConfiguration();
+    const newLanguageConfiguration = this.getLanguageConfiguration();
+    this.attemptToSetPreviousCategory(
+      previousCategoryId,
+      newLanguageConfiguration,
+    );
+    this.attemptToSetPreviousProperties(
+      previousProperties,
+      newLanguageConfiguration,
+    );
+  }
+
+  private attemptToSetPreviousCategory(
+    previousCategoryId: string,
+    newLanguageConfiguration: LanguageConfiguration,
+  ) {
     if (
-      !(languageConfiguration?.categories ?? []).some(
-        (category) => category.id === this.categoryId,
+      (newLanguageConfiguration?.categories ?? []).some(
+        (category) => category.id === previousCategoryId,
       )
     ) {
-      this.categoryId = undefined;
+      this.categoryId = previousCategoryId;
     }
-    this.properties = [];
+  }
+
+  private attemptToSetPreviousProperties(
+    previousProperties: Readonly<ThreadProperty[]>,
+    newLanguageConfiguration: LanguageConfiguration,
+  ) {
+    this.properties = previousProperties.filter((prevProperty) => {
+      return newLanguageConfiguration.details.some(
+        (detail) =>
+          detail.id === prevProperty.key &&
+          detail.options.some((option) => option.id === prevProperty.value),
+      );
+    });
   }
 
   private onAdditionalDetailsChanged() {
