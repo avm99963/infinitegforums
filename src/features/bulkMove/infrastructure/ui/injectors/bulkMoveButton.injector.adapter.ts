@@ -7,8 +7,10 @@ import { ForumsFactory } from '../../factories/forums.factory';
 import StartupDataModel from '../../../../../models/StartupData';
 import { EVENT_START_BULK_MOVE } from '../../../ui/components/events';
 import BulkMoveProgressModal, {
+  Status,
   ThreadProgress,
 } from '../../../ui/components/BulkMoveProgressModal';
+import { MoveThreadRepositoryPort } from '../../../ui/ports/moveThread.repository.port';
 import {
   GetSelectedThreadsServicePort,
   SelectedThread,
@@ -21,6 +23,7 @@ export class BulkMoveButtonInjectorAdapter
 {
   private modal: BulkMoveModal | undefined;
   private progressModal: BulkMoveProgressModal | undefined;
+  private progress: ThreadProgress[] | undefined;
 
   private readonly forumsFactory = new ForumsFactory();
 
@@ -28,6 +31,7 @@ export class BulkMoveButtonInjectorAdapter
     private readonly buttonInjector: ThreadListGenericActionButtonInjectorPort,
     private readonly startupDataStorage: StartupDataStoragePort,
     private readonly getSelectedThreadsService: GetSelectedThreadsServicePort,
+    private readonly moveThreadRepository: MoveThreadRepositoryPort,
   ) {}
 
   execute() {
@@ -67,7 +71,9 @@ export class BulkMoveButtonInjectorAdapter
         'displayLanguage',
         startupData.getDisplayLanguage(),
       );
-      this.modal.addEventListener(EVENT_START_BULK_MOVE, (e) => this.move(e));
+      this.modal.addEventListener(EVENT_START_BULK_MOVE, (e) =>
+        this.startMove(e),
+      );
       overlay.append(this.modal);
     } catch (e) {
       throw Error(`Couldn't inject modal: ${e}`);
@@ -94,18 +100,71 @@ export class BulkMoveButtonInjectorAdapter
     });
   }
 
-  private move(e: GlobalEventHandlersEventMap[typeof EVENT_START_BULK_MOVE]) {
+  private startMove(
+    e: GlobalEventHandlersEventMap[typeof EVENT_START_BULK_MOVE],
+  ) {
     if (this.progressModal === undefined) {
       this.injectProgressModal();
     }
     const selectedThreads = this.getSelectedThreadsService.execute();
-    const mockProgress = this.createInitialProgress(
+    this.progress = this.createInitialProgress(
       selectedThreads,
       e.detail.destinationForumId,
     );
-    this.progressModal.setAttribute('progress', JSON.stringify(mockProgress));
+    this.progressModal.setAttribute('progress', JSON.stringify(this.progress));
     this.progressModal.setAttribute('open', '');
-    // TODO: Actually move the threads.
+    this.move(selectedThreads, e);
+  }
+
+  private move(
+    selectedThreads: SelectedThread[],
+    e: GlobalEventHandlersEventMap[typeof EVENT_START_BULK_MOVE],
+  ) {
+    const startupData = this.startupDataStorage.get();
+    const authuser = startupData.getAuthUser();
+    for (const thread of selectedThreads) {
+      this.updateThreadProgressStatus(thread.id, 'loading');
+      this.moveThreadRepository
+        .move(
+          {
+            threadId: thread.id,
+            oldForumId: thread.forumId,
+            destination: {
+              forumId: e.detail.destinationForumId,
+              language: e.detail.language,
+              categoryId: e.detail.categoryId,
+              properties: e.detail.properties,
+            },
+          },
+          authuser,
+        )
+        .then(() => {
+          this.updateThreadProgressStatus(thread.id, 'success');
+        })
+        .catch((e) => {
+          this.updateThreadProgressStatus(
+            thread.id,
+            'error',
+            e?.message ?? e?.toString?.() ?? `${e}`,
+          );
+        });
+    }
+  }
+
+  private updateThreadProgressStatus(
+    threadId: string,
+    status: Status,
+    errorMessage?: string,
+  ) {
+    const threadProgress = this.progress.find(
+      (p) => p.originalThread.id === threadId,
+    );
+    if (threadProgress === undefined) {
+      throw new Error(`Could not find thread progress for thread ${threadId}.`);
+    }
+    threadProgress.status = status;
+    threadProgress.errorMessage = errorMessage ?? undefined;
+    this.progressModal.setAttribute('progress', JSON.stringify(this.progress));
   }
 
   private createInitialProgress(
