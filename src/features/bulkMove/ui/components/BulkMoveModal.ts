@@ -142,7 +142,7 @@ export default class BulkMoveModal extends I18nLitElement {
       const existingForumIndex = forums.findIndex(
         (forum) => forum.id === fullForum.id,
       );
-      if (existingForumIndex) {
+      if (existingForumIndex !== -1) {
         forums[existingForumIndex] = fullForum;
       } else {
         forums.push(fullForum);
