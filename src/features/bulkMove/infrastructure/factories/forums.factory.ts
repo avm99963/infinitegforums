@@ -1,14 +1,23 @@
-import { Forum } from '../../../../../domain/forum';
+import { Forum } from '../../../../domain/forum';
 
 export class ForumsFactory {
-  convertProtobufListToEntities(forums: any, displayLanguage: string): Forum[] {
-    return forums.map((rawForumInfo: any) =>
-      this.convertProtobufToEntity(rawForumInfo, displayLanguage),
-    );
+  convertProtobufForumInfoListToEntities(
+    forums: any,
+    displayLanguage: string,
+  ): Forum[] {
+    return forums.map((rawForumInfo: any) => {
+      const productForum = rawForumInfo?.[2];
+      return this.convertProtobufProductForumToEntity(
+        productForum,
+        displayLanguage,
+      );
+    });
   }
 
-  convertProtobufToEntity(forumInfo: any, displayLanguage: string) {
-    const productForum = forumInfo[2];
+  convertProtobufProductForumToEntity(
+    productForum: any,
+    displayLanguage: string,
+  ) {
     const languageConfigurations = productForum?.[10];
     const defaultLanguageConfiguration = this.getDefaultLanguageConfiguration(
       languageConfigurations,

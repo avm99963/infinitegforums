@@ -16,14 +16,35 @@ import '@material/web/dialog/dialog.js';
 import '@material/web/icon/icon.js';
 import '@material/web/select/outlined-select.js';
 import '@material/web/select/select-option.js';
+import { EVENT_LOADED_FULL_FORUM_INFO } from './events';
 
 @customElement('twpt-bulk-move-modal')
 export default class BulkMoveModal extends I18nLitElement {
   @property({ type: Boolean, reflect: true })
   accessor open = false;
 
+  /**
+   * Array with partial preloaded forums data. In specific, all forums
+   * to be shown should be available in this array, but not all language
+   * configurations need to be passed here.
+   *
+   * The modal will look up the full language configurations array when
+   * the forum is selected.
+   */
   @property({ type: Object })
-  accessor forums: Forum[] | undefined;
+  accessor preloadedForums: Forum[] | undefined;
+
+  /**
+   * Authenticated user ID, used for API calls.
+   */
+  @property({ type: String })
+  accessor authuser: string | undefined;
+
+  /**
+   * Display language code set by the user in the Community Console.
+   */
+  @property({ type: String })
+  accessor displayLanguage: string | undefined;
 
   @state()
   private accessor forumId: string | undefined;
@@ -36,6 +57,12 @@ export default class BulkMoveModal extends I18nLitElement {
 
   @state()
   private accessor properties: ThreadProperty[] | undefined = [];
+
+  /**
+   * Map which contains complete forums data, loaded via GetForum.
+   */
+  @state()
+  private accessor fullForumInfo = new Map<string, Forum>([]);
 
   static styles = [
     SHARED_MD3_STYLES,
@@ -73,7 +100,10 @@ export default class BulkMoveModal extends I18nLitElement {
           </div>
           <twpt-forum-select
             .forums=${this.forums}
+            authuser=${this.authuser}
+            displayLanguage=${this.displayLanguage}
             @change=${this.onForumChanged}
+            @loaded-full-forum-info=${this.onLoadedFullForumInfo}
             ${ref(this.forumSelectRef)}
           ></twpt-forum-select>
           <div class="section-title md-typescale-title-medium">
@@ -97,6 +127,28 @@ export default class BulkMoveModal extends I18nLitElement {
         </div>
       </md-dialog>
     `;
+  }
+
+  /**
+   * Retrieves a forums array with the maximum amount of information
+   * possible.
+   *
+   * In particular, it combines the data from `this.initialForums` with
+   * the full data found in `this.fullForumInfo`.
+   */
+  private get forums() {
+    const forums = structuredClone(this.preloadedForums);
+    for (const fullForum of this.fullForumInfo.values()) {
+      const existingForumIndex = forums.findIndex(
+        (forum) => forum.id === fullForum.id,
+      );
+      if (existingForumIndex) {
+        forums[existingForumIndex] = fullForum;
+      } else {
+        forums.push(fullForum);
+      }
+    }
+    return forums;
   }
 
   private openingDialog() {
@@ -164,6 +216,13 @@ export default class BulkMoveModal extends I18nLitElement {
     return forum?.languageConfigurations.find(
       (lang) => lang.id === this.language,
     );
+  }
+
+  private onLoadedFullForumInfo(
+    e: WindowEventMap[typeof EVENT_LOADED_FULL_FORUM_INFO],
+  ) {
+    const forum = e.detail.forum;
+    this.fullForumInfo.set(forum.id, forum);
   }
 }
 

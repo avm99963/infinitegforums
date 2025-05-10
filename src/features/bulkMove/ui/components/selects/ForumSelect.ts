@@ -9,6 +9,9 @@ import '@material/web/select/outlined-select.js';
 import '@material/web/select/select-option.js';
 import { keyed } from 'lit/directives/keyed.js';
 import { FORM_STYLES } from './styles';
+import { EVENT_LOADED_FULL_FORUM_INFO } from '../events';
+import { GetForumRepositoryAdapter } from '../../../infrastructure/repositories/api/getForum.repository.adapter';
+import { GetForumRepositoryPort } from '../../ports/getForum.repository.port';
 
 @customElement('twpt-forum-select')
 export default class ForumSelect extends I18nLitElement {
@@ -19,9 +22,24 @@ export default class ForumSelect extends I18nLitElement {
   accessor language: string | undefined;
 
   @property({ type: Object })
-  private accessor forums: Forum[] | undefined;
+  accessor forums: Forum[] | undefined;
+
+  /**
+   * Authenticated user ID, used for API calls.
+   */
+  @property({ type: String })
+  accessor authuser: string | undefined;
+
+  /**
+   * Display language code set by the user in the Community Console.
+   */
+  @property({ type: String })
+  accessor displayLanguage: string | undefined;
 
   static styles = [SHARED_MD3_STYLES, FORM_STYLES];
+
+  private readonly getForumRepository: GetForumRepositoryPort =
+    new GetForumRepositoryAdapter();
 
   render() {
     return html`
@@ -101,19 +119,25 @@ export default class ForumSelect extends I18nLitElement {
     return this.forums?.find((forum) => forum.id === this.forumId);
   }
 
-  private onForumChanged(e: Event) {
+  private async onForumChanged(e: Event) {
     this.forumId = (e.target as HTMLInputElement).value;
 
-    const selectedForum = this.getSelectedForum();
+    const forum = await this.loadFullSelectedForumInfo();
     if (
-      !selectedForum.languageConfigurations.some(
+      !forum.languageConfigurations.some(
         (language) => language.id === this.language,
       )
     ) {
       this.language = undefined;
     }
-    const event = new Event('change');
-    this.dispatchEvent(event);
+    const changeEvent = new Event('change');
+    this.dispatchEvent(changeEvent);
+
+    const loadedFullForumInfoEvent = new CustomEvent(
+      EVENT_LOADED_FULL_FORUM_INFO,
+      { detail: { forum } },
+    );
+    this.dispatchEvent(loadedFullForumInfoEvent);
   }
 
   private onLanguageChanged(e: Event) {
@@ -121,6 +145,14 @@ export default class ForumSelect extends I18nLitElement {
 
     const event = new Event('change');
     this.dispatchEvent(event);
+  }
+
+  private async loadFullSelectedForumInfo(): Promise<Forum> {
+    return this.getForumRepository.getForum(
+      this.forumId,
+      this.displayLanguage,
+      this.authuser,
+    );
   }
 }
 

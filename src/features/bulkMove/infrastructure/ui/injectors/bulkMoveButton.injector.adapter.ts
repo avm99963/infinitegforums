@@ -3,7 +3,8 @@ import { ThreadListGenericActionButtonInjectorPort } from '../../../../../ui/inj
 import { Forum } from '../../../../../domain/forum';
 import BulkMoveModal from '../../../ui/components/BulkMoveModal';
 import { BulkMoveButtonInjectorPort } from '../../../ui/injectors/bulkMoveButton.injector.port';
-import { ForumsFactory } from './forums.factory';
+import { ForumsFactory } from '../../factories/forums.factory';
+import StartupDataModel from '../../../../../models/StartupData';
 
 const BULK_MOVE_ACTION_KEY = 'bulk-move';
 
@@ -49,17 +50,25 @@ export class BulkMoveButtonInjectorAdapter
       );
     }
 
+    const startupData = this.startupDataStorage.get();
     this.modal = document.createElement('twpt-bulk-move-modal');
-    this.modal.setAttribute('forums', JSON.stringify(this.getForums()));
+    this.modal.setAttribute(
+      'preloadedForums',
+      JSON.stringify(this.getForums(startupData)),
+    );
+    this.modal.setAttribute('authuser', startupData.getAuthUser());
+    this.modal.setAttribute(
+      'displayLanguage',
+      startupData.getDisplayLanguage(),
+    );
     overlay.append(this.modal);
   }
 
-  private getForums(): Forum[] {
-    const startupData = this.startupDataStorage.get();
+  private getForums(startupData: StartupDataModel): Forum[] {
     const forumsInfo = startupData.getRawForumsInfo();
     const publicForumsInfo = this.getPublicForums(forumsInfo);
     const displayLanguage = startupData.getDisplayLanguage();
-    return this.forumsFactory.convertProtobufListToEntities(
+    return this.forumsFactory.convertProtobufForumInfoListToEntities(
       publicForumsInfo,
       displayLanguage,
     );
