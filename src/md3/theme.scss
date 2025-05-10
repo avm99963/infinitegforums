@@ -50,6 +50,14 @@
   --#{$var-prefix}md-sys-color-surface-container: rgb(26 33 32);
   --#{$var-prefix}md-sys-color-surface-container-high: rgb(37 43 42);
   --#{$var-prefix}md-sys-color-surface-container-highest: rgb(48 54 53);
+  --#{$var-prefix}md-extended-color-success-color: rgb(165 211 149);
+  --#{$var-prefix}md-extended-color-success-on-color: rgb(17 56 11);
+  --#{$var-prefix}md-extended-color-success-color-container: rgb(40 80 32);
+  --#{$var-prefix}md-extended-color-success-on-color-container: rgb(192 239 176);
+  --#{$var-prefix}md-extended-color-special-color: rgb(249 177 220);
+  --#{$var-prefix}md-extended-color-special-on-color: rgb(80 30 65);
+  --#{$var-prefix}md-extended-color-special-color-container: rgb(106 52 88);
+  --#{$var-prefix}md-extended-color-special-on-color-container: rgb(255 216 236);
 
   // Custom colors
   --#{$var-prefix}reply-button-color: #d0bcfe;
@@ -105,6 +113,14 @@
   --md-sys-color-surface-container: rgb(233 239 237);
   --md-sys-color-surface-container-high: rgb(227 234 231);
   --md-sys-color-surface-container-highest: rgb(221 228 225);
+  --md-extended-color-success-color: rgb(64 104 54);
+  --md-extended-color-success-on-color: rgb(255 255 255);
+  --md-extended-color-success-color-container: rgb(192 239 176);
+  --md-extended-color-success-on-color-container: rgb(40 80 32);
+  --md-extended-color-special-color: rgb(133 75 113);
+  --md-extended-color-special-on-color: rgb(255 255 255);
+  --md-extended-color-special-color-container: rgb(255 216 236);
+  --md-extended-color-special-on-color-container: rgb(106 52 88);
 
   // Custom colors
   --reply-button-color: #65558f;

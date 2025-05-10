@@ -16,7 +16,7 @@ import '@material/web/dialog/dialog.js';
 import '@material/web/icon/icon.js';
 import '@material/web/select/outlined-select.js';
 import '@material/web/select/select-option.js';
-import { EVENT_LOADED_FULL_FORUM_INFO } from './events';
+import { EVENT_LOADED_FULL_FORUM_INFO, EVENT_START_BULK_MOVE } from './events';
 
 @customElement('twpt-bulk-move-modal')
 export default class BulkMoveModal extends I18nLitElement {
@@ -124,7 +124,9 @@ export default class BulkMoveModal extends I18nLitElement {
         </div>
         <div slot="actions">
           <md-text-button @click=${this.cancel}>Cancel</md-text-button>
-          <md-text-button>Move</md-text-button>
+          <md-text-button ?disabled=${!this.isFormComplete} @click=${this.move}>
+            Move
+          </md-text-button>
         </div>
       </md-dialog>
     `;
@@ -152,8 +154,32 @@ export default class BulkMoveModal extends I18nLitElement {
     return forums;
   }
 
+  private get isFormComplete() {
+    return (
+      this.forumId !== undefined &&
+      this.language !== undefined &&
+      this.categoryId !== undefined
+    );
+  }
+
   private cancel() {
     this.open = false;
+    this.resetForm();
+  }
+
+  private move() {
+    this.open = false;
+    const e = new CustomEvent<
+      GlobalEventHandlersEventMap[typeof EVENT_START_BULK_MOVE]['detail']
+    >(EVENT_START_BULK_MOVE, {
+      detail: {
+        destinationForumId: this.forumId,
+        language: this.language,
+        categoryId: this.categoryId,
+        properties: this.properties,
+      },
+    });
+    this.dispatchEvent(e);
     this.resetForm();
   }
 
@@ -232,7 +258,7 @@ export default class BulkMoveModal extends I18nLitElement {
   }
 
   private onLoadedFullForumInfo(
-    e: WindowEventMap[typeof EVENT_LOADED_FULL_FORUM_INFO],
+    e: GlobalEventHandlersEventMap[typeof EVENT_LOADED_FULL_FORUM_INFO],
   ) {
     const forum = e.detail.forum;
     this.fullForumInfo.set(forum.id, forum);

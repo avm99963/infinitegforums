@@ -54,6 +54,14 @@ export const SHARED_MD3_STYLES = css`
     --md-sys-color-surface-container: var(--TWPT-md-sys-color-surface-container, rgb(233 239 237));
     --md-sys-color-surface-container-high: var(--TWPT-md-sys-color-surface-container-high, rgb(227 234 231));
     --md-sys-color-surface-container-highest: var(--TWPT-md-sys-color-surface-container-highest, rgb(221 228 225));
+    --md-extended-color-success-color: var(--TWPT-md-extended-color-success-color, rgb(64 104 54));
+    --md-extended-color-success-on-color: var(--TWPT-md-extended-color-success-on-color, rgb(255 255 255));
+    --md-extended-color-success-color-container: var(--TWPT-md-extended-color-success-color-container, rgb(192 239 176));
+    --md-extended-color-success-on-color-container: var(--TWPT-md-extended-color-success-on-color-container, rgb(40 80 32));
+    --md-extended-color-special-color: var(--TWPT-md-extended-color-special-color, rgb(133 75 113));
+    --md-extended-color-special-on-color: var(--TWPT-md-extended-color-special-on-color, rgb(255 255 255));
+    --md-extended-color-special-color-container: var(--TWPT-md-extended-color-special-color-container, rgb(255 216 236));
+    --md-extended-color-special-on-color-container: var(--TWPT-md-extended-color-special-on-color-container, rgb(106 52 88));
 
     /* Custom colors */
     --reply-button-color: var(--TWPT-reply-button-color, #65558f);
