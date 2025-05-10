@@ -2,7 +2,11 @@ import { customElement, property } from 'lit/decorators.js';
 import { I18nLitElement } from '../../../../../common/litI18nUtils';
 import { html } from 'lit';
 import { SHARED_MD3_STYLES } from '../../../../../common/styles/md3';
-import { Detail, Forum, LanguageConfiguration } from '../../../../../domain/forum';
+import {
+  Detail,
+  Forum,
+  LanguageConfiguration,
+} from '../../../../../domain/forum';
 import { repeat } from 'lit/directives/repeat.js';
 
 import '@material/web/select/outlined-select.js';
@@ -26,7 +30,7 @@ export default class AdditionalDetailsSelect extends I18nLitElement {
   accessor language: string | undefined;
 
   @property({ type: Object })
-  private accessor forums: Forum[] | undefined;
+  accessor forums: Forum[] | undefined;
 
   static styles = [SHARED_MD3_STYLES, FORM_STYLES];
 
@@ -106,7 +110,7 @@ export default class AdditionalDetailsSelect extends I18nLitElement {
             <md-select-option
               value=${option.id}
               ?selected=${currentValue !== undefined &&
-              option.name === currentValue}
+              option.id === currentValue}
             >
               <div slot="headline">${option.name}</div>
             </md-select-option>
@@ -141,9 +145,7 @@ export default class AdditionalDetailsSelect extends I18nLitElement {
 
   private changePropertiesDetail(key: string, value: string) {
     let newProperties = structuredClone(this.properties) ?? [];
-    const property = newProperties.find(
-      (property) => property.key === key
-    );
+    const property = newProperties.find((property) => property.key === key);
 
     if (value !== '') {
       if (property !== undefined) {
