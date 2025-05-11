@@ -70,7 +70,7 @@ export default class ForumSelect extends I18nLitElement {
               value=${forum.id}
               ?selected=${forum.id === this.forumId}
             >
-              <div slot="headline">${forum.name}</div>
+              <div slot="headline">${forum.name ?? forum.id}</div>
             </md-select-option>
           `,
         )}
@@ -107,7 +107,7 @@ export default class ForumSelect extends I18nLitElement {
                 value=${language.id}
                 ?selected=${language.id === this.language}
               >
-                <div slot="headline">${language.name}</div>
+                <div slot="headline">${language.name ?? language.id}</div>
               </md-select-option>
             `,
           )}

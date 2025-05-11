@@ -66,7 +66,7 @@ export default class AdditionalDetailsSelect extends I18nLitElement {
                 value=${category.id}
                 ?selected=${category.id === this.categoryId}
               >
-                <div slot="headline">${category.name}</div>
+                <div slot="headline">${category.name ?? category.id}</div>
               </md-select-option>
             `,
           )}
@@ -96,7 +96,7 @@ export default class AdditionalDetailsSelect extends I18nLitElement {
 
     return html`
       <md-outlined-select
-        label=${detail.name}
+        label=${detail.name ?? detail.id}
         clampMenuWidth
         @change=${(e: Event) => this.onDetailChanged(e, detail.id)}
       >
@@ -112,7 +112,7 @@ export default class AdditionalDetailsSelect extends I18nLitElement {
               ?selected=${currentValue !== undefined &&
               option.id === currentValue}
             >
-              <div slot="headline">${option.name}</div>
+              <div slot="headline">${option.name ?? option.id}</div>
             </md-select-option>
           `,
         )}
