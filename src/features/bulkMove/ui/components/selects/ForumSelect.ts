@@ -61,6 +61,11 @@ export default class ForumSelect extends I18nLitElement {
     const selectedForum = this.getSelectedForum();
     const isForumSelected = selectedForum !== undefined;
 
+    const sortedLanguageConfigurations =
+      selectedForum?.languageConfigurations.sort((a, b) =>
+        a.name.localeCompare(b.name, undefined, { sensitivity: 'accent' }),
+      );
+
     // We use keyed since otherwise when changing forums the new language is not
     // properly set.
     return keyed(
@@ -73,9 +78,9 @@ export default class ForumSelect extends I18nLitElement {
           clampMenuWidth
           @change=${this.onLanguageChanged}
         >
-          ${isForumSelected
+          ${sortedLanguageConfigurations
             ? repeat(
-                selectedForum.languageConfigurations,
+                sortedLanguageConfigurations,
                 (language) => language.id,
                 (language) => html`
                   <md-select-option
