@@ -624,5 +624,11 @@
     "options_fixpekb269560789": {
         "message": "CC の遅さとメモリ使用量の多さの暫定的な修正 (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>)。",
         "description": "Feature checkbox in the options page"
+    },
+    "options_bulkmove": {
+        "message": "コミュニティコンソールのスレッドリストから、複数のスレッドを移動できるオプションを追加してください。"
+    },
+    "options_bulkreportreplies": {
+        "message": "返信を一括で報告する機能を有効にする"
     }
 }
