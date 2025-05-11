@@ -1,4 +1,9 @@
-import { Forum } from '../../../../domain/forum';
+import {
+  Category,
+  Detail,
+  Forum,
+  LanguageConfiguration,
+} from '../../../../domain/forum';
 
 export class ForumsFactory {
   convertProtobufForumInfoListToEntities(
@@ -17,7 +22,7 @@ export class ForumsFactory {
   convertProtobufProductForumToEntity(
     productForum: any,
     displayLanguage: string,
-  ) {
+  ): Forum {
     const languageConfigurations = productForum?.[10];
     const defaultLanguageConfiguration = this.getDefaultLanguageConfiguration(
       languageConfigurations,
@@ -37,7 +42,7 @@ export class ForumsFactory {
   private getDefaultLanguageConfiguration(
     languageConfigurations: any,
     displayLanguage: string,
-  ) {
+  ): any {
     return (
       languageConfigurations?.find?.(
         (configuration: any) => configuration[1] === displayLanguage,
@@ -45,10 +50,16 @@ export class ForumsFactory {
     );
   }
 
-  private convertLanguageConfiguration(configuration: any) {
+  private convertLanguageConfiguration(
+    configuration: any,
+  ): LanguageConfiguration {
     return {
       id: configuration?.[1],
-      name: configuration?.[1], // TODO: Change with localized language name
+      supportedLanguages: [
+        ...new Set<string>(
+          configuration?.[3].map((lang: any) => lang?.toLowerCase?.()) ?? [],
+        ),
+      ],
       categories: configuration?.[12]?.map?.((category: any) =>
         this.convertCategory(category),
       ),
@@ -59,14 +70,14 @@ export class ForumsFactory {
     };
   }
 
-  private convertCategory(category: any) {
+  private convertCategory(category: any): Category {
     return {
       id: category?.[1],
       name: category?.[2],
     };
   }
 
-  private convertDetail(detail: any) {
+  private convertDetail(detail: any): Detail {
     return {
       id: detail?.[1],
       name: detail?.[2],

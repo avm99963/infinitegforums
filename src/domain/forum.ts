@@ -16,7 +16,7 @@ export interface Detail {
 
 export interface LanguageConfiguration {
   id: string;
-  name: string;
+  supportedLanguages: string[];
   categories: Category[];
   details: Detail[];
 }

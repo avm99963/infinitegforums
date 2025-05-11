@@ -213,8 +213,8 @@ export default class BulkMoveModal extends I18nLitElement {
 
   private getLanguageConfiguration() {
     const forum = this.forums?.find((forum) => forum.id === this.forumId);
-    return forum?.languageConfigurations.find(
-      (lang) => lang.id === this.language,
+    return forum?.languageConfigurations.find((configuration) =>
+      configuration.supportedLanguages.includes(this.language),
     );
   }
 

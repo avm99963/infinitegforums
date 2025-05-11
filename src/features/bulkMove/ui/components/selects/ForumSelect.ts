@@ -2,7 +2,7 @@ import { customElement, property } from 'lit/decorators.js';
 import { I18nLitElement } from '../../../../../common/litI18nUtils';
 import { html } from 'lit';
 import { SHARED_MD3_STYLES } from '../../../../../common/styles/md3';
-import { Forum } from '../../../../../domain/forum';
+import { Forum, LanguageConfiguration } from '../../../../../domain/forum';
 import { repeat } from 'lit/directives/repeat.js';
 
 import '@material/web/select/outlined-select.js';
@@ -12,6 +12,11 @@ import { FORM_STYLES } from './styles';
 import { EVENT_LOADED_FULL_FORUM_INFO } from '../events';
 import { GetForumRepositoryAdapter } from '../../../infrastructure/repositories/api/getForum.repository.adapter';
 import { GetForumRepositoryPort } from '../../ports/getForum.repository.port';
+
+interface SingleLanguageConfiguration {
+  language: string;
+  configuration: LanguageConfiguration;
+}
 
 @customElement('twpt-forum-select')
 export default class ForumSelect extends I18nLitElement {
@@ -82,10 +87,9 @@ export default class ForumSelect extends I18nLitElement {
     const selectedForum = this.getSelectedForum();
     const isForumSelected = selectedForum !== undefined;
 
-    const sortedLanguageConfigurations =
-      selectedForum?.languageConfigurations.sort((a, b) =>
-        a.name.localeCompare(b.name, undefined, { sensitivity: 'accent' }),
-      ) ?? [];
+    const sortedSingleLanguageConfigurations = isForumSelected
+      ? this.getSortedSingleLanguageConfigurations(selectedForum)
+      : [];
 
     // We use keyed since otherwise when changing forums the new language is not
     // properly set.
@@ -100,19 +104,40 @@ export default class ForumSelect extends I18nLitElement {
           @change=${this.onLanguageChanged}
         >
           ${repeat(
-            sortedLanguageConfigurations,
-            (language) => language.id,
-            (language) => html`
+            sortedSingleLanguageConfigurations,
+            (configuration) => configuration.language,
+            (configuration) => html`
               <md-select-option
-                value=${language.id}
-                ?selected=${language.id === this.language}
+                value=${configuration.language}
+                ?selected=${configuration.language === this.language}
               >
-                <div slot="headline">${language.name ?? language.id}</div>
+                <div slot="headline">${configuration.language}</div>
               </md-select-option>
             `,
           )}
         </md-outlined-select>
       `,
+    );
+  }
+
+  private getSortedSingleLanguageConfigurations(
+    forum: Forum,
+  ): SingleLanguageConfiguration[] {
+    return (
+      forum?.languageConfigurations
+        .map((configuration) => {
+          return configuration.supportedLanguages.map(
+            (language): SingleLanguageConfiguration => {
+              return { language, configuration };
+            },
+          );
+        })
+        .flat()
+        .sort((a, b) =>
+          a.language.localeCompare(b.language, undefined, {
+            sensitivity: 'accent',
+          }),
+        ) ?? []
     );
   }
 
@@ -125,8 +150,8 @@ export default class ForumSelect extends I18nLitElement {
 
     const forum = await this.loadFullSelectedForumInfo();
     if (
-      !forum.languageConfigurations.some(
-        (language) => language.id === this.language,
+      !forum.languageConfigurations.some((language) =>
+        language.supportedLanguages.includes(this.language),
       )
     ) {
       this.language = undefined;
