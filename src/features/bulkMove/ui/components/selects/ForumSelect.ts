@@ -1,6 +1,6 @@
 import { customElement, property } from 'lit/decorators.js';
 import { I18nLitElement } from '../../../../../common/litI18nUtils';
-import { html, nothing } from 'lit';
+import { html } from 'lit';
 import { SHARED_MD3_STYLES } from '../../../../../common/styles/md3';
 import { Forum } from '../../../../../domain/forum';
 import { repeat } from 'lit/directives/repeat.js';
@@ -50,6 +50,11 @@ export default class ForumSelect extends I18nLitElement {
   }
 
   private renderForumSelect() {
+    const sortedForums =
+      this.forums?.sort((a, b) =>
+        a.name.localeCompare(b.name, undefined, { sensitivity: 'accent' }),
+      ) ?? [];
+
     return html`
       <md-outlined-select
         label="Community Forum"
@@ -57,20 +62,18 @@ export default class ForumSelect extends I18nLitElement {
         clampMenuWidth
         @change=${this.onForumChanged}
       >
-        ${this.forums
-          ? repeat(
-              this.forums,
-              (forum) => forum.id,
-              (forum) => html`
-                <md-select-option
-                  value=${forum.id}
-                  ?selected=${forum.id === this.forumId}
-                >
-                  <div slot="headline">${forum.name}</div>
-                </md-select-option>
-              `,
-            )
-          : nothing}
+        ${repeat(
+          sortedForums,
+          (forum) => forum.id,
+          (forum) => html`
+            <md-select-option
+              value=${forum.id}
+              ?selected=${forum.id === this.forumId}
+            >
+              <div slot="headline">${forum.name}</div>
+            </md-select-option>
+          `,
+        )}
       </md-outlined-select>
     `;
   }
@@ -82,7 +85,7 @@ export default class ForumSelect extends I18nLitElement {
     const sortedLanguageConfigurations =
       selectedForum?.languageConfigurations.sort((a, b) =>
         a.name.localeCompare(b.name, undefined, { sensitivity: 'accent' }),
-      );
+      ) ?? [];
 
     // We use keyed since otherwise when changing forums the new language is not
     // properly set.
@@ -96,20 +99,18 @@ export default class ForumSelect extends I18nLitElement {
           clampMenuWidth
           @change=${this.onLanguageChanged}
         >
-          ${sortedLanguageConfigurations
-            ? repeat(
-                sortedLanguageConfigurations,
-                (language) => language.id,
-                (language) => html`
-                  <md-select-option
-                    value=${language.id}
-                    ?selected=${language.id === this.language}
-                  >
-                    <div slot="headline">${language.name}</div>
-                  </md-select-option>
-                `,
-              )
-            : nothing}
+          ${repeat(
+            sortedLanguageConfigurations,
+            (language) => language.id,
+            (language) => html`
+              <md-select-option
+                value=${language.id}
+                ?selected=${language.id === this.language}
+              >
+                <div slot="headline">${language.name}</div>
+              </md-select-option>
+            `,
+          )}
         </md-outlined-select>
       `,
     );
