@@ -99,6 +99,8 @@ export default class BulkMoveModal extends I18nLitElement {
             Destination forum
           </div>
           <twpt-forum-select
+            forumId=${this.forumId}
+            language=${this.language}
             .forums=${this.forums}
             authuser=${this.authuser}
             displayLanguage=${this.displayLanguage}
@@ -120,9 +122,7 @@ export default class BulkMoveModal extends I18nLitElement {
           ></twpt-additional-details-select>
         </div>
         <div slot="actions">
-          <md-text-button @click=${() => (this.open = false)}
-            >Cancel</md-text-button
-          >
+          <md-text-button @click=${this.cancel}>Cancel</md-text-button>
           <md-text-button>Move</md-text-button>
         </div>
       </md-dialog>
@@ -149,6 +149,18 @@ export default class BulkMoveModal extends I18nLitElement {
       }
     }
     return forums;
+  }
+
+  private cancel() {
+    this.open = false;
+    this.resetForm();
+  }
+
+  private resetForm() {
+    this.forumId = undefined;
+    this.language = undefined;
+    this.categoryId = undefined;
+    this.properties = [];
   }
 
   private openingDialog() {
