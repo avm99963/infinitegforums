@@ -15,23 +15,7 @@ import '@material/web/list/list-item.js';
 import '@material/web/progress/circular-progress.js';
 import { repeat } from 'lit/directives/repeat.js';
 import { styleMap } from 'lit/directives/style-map.js';
-
-export interface OriginalThread {
-  forumId: string;
-  id: string;
-  title: string;
-}
-
-export type Status = 'waiting' | 'loading' | 'success' | 'error';
-
-export interface ThreadProgress {
-  originalThread: OriginalThread;
-  destinationForumId: string;
-  status: Status;
-  errorMessage?: string;
-}
-
-const COMPLETE_STATES: Status[] = ['success', 'error'];
+import { COMPLETE_STATES, Status, ThreadProgress } from './dataStructures';
 
 @customElement('twpt-bulk-move-progress-modal')
 export default class BulkMoveProgressModal extends I18nLitElement {
@@ -96,10 +80,7 @@ export default class BulkMoveProgressModal extends I18nLitElement {
         : threadProgress.originalThread.forumId;
     const threadUrl = `https://support.google.com/s/community/forum/${forumId}/thread/${threadProgress.originalThread.id}`;
     return html`
-      <md-list-item
-        href=${threadUrl}
-        target="_blank"
-      >
+      <md-list-item href=${threadUrl} target="_blank">
         <div slot="headline" class="thread-title">
           ${threadProgress.originalThread.title}
         </div>

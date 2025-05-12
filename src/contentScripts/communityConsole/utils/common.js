@@ -2,6 +2,7 @@ import {MDCTooltip} from '@material/tooltip';
 import {waitFor} from 'poll-until-promise';
 
 import {createPlainTooltip} from '../../../common/tooltip.js';
+import {ViewSoftRefresherServiceAdapter} from '../../../infrastructure/ui/services/communityConsole/viewSoftRefresher.service.adapter';
 
 export function createExtBadge() {
   let badge = document.createElement('div');
@@ -89,13 +90,12 @@ export function getDisplayLanguage() {
 /**
  * Refreshes the current view in the Community Console without reloading the
  * whole page if possible.
+ *
+ * @deprecated Use `ViewSoftRefresherServicePort`.
  */
 export function softRefreshView() {
-  const refreshButton = document.querySelector('.app-title-button');
-  if (refreshButton == null)
-    window.location.reload();
-  else
-    refreshButton.click();
+  const viewSoftRefresher = new ViewSoftRefresherServiceAdapter();
+  viewSoftRefresher.refresh({forceRefresh: true});
 }
 
 /**

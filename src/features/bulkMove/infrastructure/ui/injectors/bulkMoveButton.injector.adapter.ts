@@ -6,15 +6,18 @@ import { BulkMoveButtonInjectorPort } from '../../../ui/injectors/bulkMoveButton
 import { ForumsFactory } from '../../factories/forums.factory';
 import StartupDataModel from '../../../../../models/StartupData';
 import { EVENT_START_BULK_MOVE } from '../../../ui/components/events';
-import BulkMoveProgressModal, {
-  Status,
-  ThreadProgress,
-} from '../../../ui/components/BulkMoveProgressModal';
+import BulkMoveProgressModal from '../../../ui/components/BulkMoveProgressModal';
 import { MoveThreadRepositoryPort } from '../../../ui/ports/moveThread.repository.port';
 import {
   GetSelectedThreadsServicePort,
   SelectedThread,
 } from '../../../../../ui/services/getSelectedThreads.service.port';
+import { ViewSoftRefresherServicePort } from '../../../../../ui/services/viewSoftRefresher.service.port';
+import {
+  COMPLETE_STATES,
+  Status,
+  ThreadProgress,
+} from '../../../ui/components/dataStructures';
 
 const BULK_MOVE_ACTION_KEY = 'bulk-move';
 
@@ -31,6 +34,7 @@ export class BulkMoveButtonInjectorAdapter
     private readonly buttonInjector: ThreadListGenericActionButtonInjectorPort,
     private readonly startupDataStorage: StartupDataStoragePort,
     private readonly getSelectedThreadsService: GetSelectedThreadsServicePort,
+    private readonly viewSoftRefresher: ViewSoftRefresherServicePort,
     private readonly moveThreadRepository: MoveThreadRepositoryPort,
   ) {}
 
@@ -147,6 +151,11 @@ export class BulkMoveButtonInjectorAdapter
             'error',
             e?.message ?? e?.toString?.() ?? `${e}`,
           );
+        })
+        .then(() => {
+          if (this.progress.every((p) => COMPLETE_STATES.includes(p.status))) {
+            this.viewSoftRefresher.refresh();
+          }
         });
     }
   }

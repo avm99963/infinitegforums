@@ -76,6 +76,7 @@ import { BulkMoveButtonInjectorAdapter } from '../../../features/bulkMove/infras
 import { GetSelectedThreadsServiceAdapter } from '../../../infrastructure/ui/services/communityConsole/getSelectedThreads.service.adapter';
 import { UrlThreadDataParserServiceAdapter } from '../../../infrastructure/ui/services/communityConsole/urlThreadDataParser.service.adapter';
 import { BulkMoveThreadsRepositoryAdapter } from '../../../features/bulkMove/infrastructure/repositories/api/moveThread.repository.adapter';
+import { ViewSoftRefresherServiceAdapter } from '../../../infrastructure/ui/services/communityConsole/viewSoftRefresher.service.adapter';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -140,6 +141,7 @@ function createScriptRunner() {
                   new GetSelectedThreadsServiceAdapter(
                     new UrlThreadDataParserServiceAdapter(),
                   ),
+                  new ViewSoftRefresherServiceAdapter(),
                   new BulkMoveThreadsRepositoryAdapter(),
                 ),
               ),
