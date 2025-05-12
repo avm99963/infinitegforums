@@ -36,6 +36,12 @@ export default class BulkMoveProgressModal extends I18nLitElement {
         text-wrap: nowrap;
       }
 
+      .progress-bar {
+        display: block;
+        margin: auto;
+        margin-bottom: 16px;
+      }
+
       md-circular-progress {
         --md-circular-progress-size: 32px;
       }
@@ -53,6 +59,10 @@ export default class BulkMoveProgressModal extends I18nLitElement {
         <md-icon slot="icon">arrow_right_alt</md-icon>
         <span slot="headline">Move threads</span>
         <div class="content" slot="content">
+          <progress
+            value=${this.completedProgress}
+            class="progress-bar"
+          ></progress>
           <md-list>
             ${repeat(
               this.progress,
@@ -145,6 +155,19 @@ export default class BulkMoveProgressModal extends I18nLitElement {
         COMPLETE_STATES.includes(threadProgress.status),
       )
     );
+  }
+
+  private get completedProgress() {
+    if (this.progress !== undefined && this.progress.length > 0) {
+      const completeThreads = this.progress.reduce(
+        (partialSum, p) =>
+          partialSum + (COMPLETE_STATES.includes(p.status) ? 1 : 0),
+        0,
+      );
+      return completeThreads / this.progress.length;
+    } else {
+      return 0;
+    }
   }
 
   private openingDialog() {
