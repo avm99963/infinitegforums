@@ -16,6 +16,7 @@ export interface Detail {
 
 export interface LanguageConfiguration {
   id: string;
+  forumName: string;
   supportedLanguages: string[];
   categories: Category[];
   details: Detail[];

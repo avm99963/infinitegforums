@@ -1,3 +1,4 @@
+import { ProtobufObject } from '../../../../common/protojs.types';
 import {
   Category,
   Detail,
@@ -7,10 +8,10 @@ import {
 
 export class ForumsFactory {
   convertProtobufForumInfoListToEntities(
-    forums: any,
+    forums: ProtobufObject,
     displayLanguage: string,
   ): Forum[] {
-    return forums.map((rawForumInfo: any) => {
+    return forums.map((rawForumInfo: ProtobufObject) => {
       const productForum = rawForumInfo?.[2];
       return this.convertProtobufProductForumToEntity(
         productForum,
@@ -20,68 +21,69 @@ export class ForumsFactory {
   }
 
   convertProtobufProductForumToEntity(
-    productForum: any,
+    productForum: ProtobufObject,
     displayLanguage: string,
   ): Forum {
-    const languageConfigurations = productForum?.[10];
+    const languageConfigurations =
+      (productForum?.[10] as ProtobufObject[] | undefined)?.map?.(
+        (configuration) => this.convertLanguageConfiguration(configuration),
+      ) ?? [];
     const defaultLanguageConfiguration = this.getDefaultLanguageConfiguration(
       languageConfigurations,
       displayLanguage,
     );
 
     return {
-      name: defaultLanguageConfiguration?.[4] ?? 'Unknown forum name',
+      name: defaultLanguageConfiguration?.forumName ?? 'Unknown forum name',
       id: productForum?.[1]?.[1],
-      languageConfigurations:
-        languageConfigurations?.map?.((configuration: any) =>
-          this.convertLanguageConfiguration(configuration),
-        ) ?? [],
+      languageConfigurations,
     };
   }
 
   private getDefaultLanguageConfiguration(
-    languageConfigurations: any,
+    languageConfigurations: LanguageConfiguration[],
     displayLanguage: string,
-  ): any {
+  ): LanguageConfiguration | undefined {
     return (
-      languageConfigurations?.find?.(
-        (configuration: any) => configuration[1] === displayLanguage,
+      languageConfigurations.find((configuration) =>
+        configuration.supportedLanguages.includes(displayLanguage),
       ) ?? languageConfigurations?.[0]
     );
   }
 
   private convertLanguageConfiguration(
-    configuration: any,
+    configuration: ProtobufObject,
   ): LanguageConfiguration {
     return {
       id: configuration?.[1],
+      forumName: configuration?.[4],
       supportedLanguages: [
         ...new Set<string>(
-          configuration?.[3].map((lang: any) => lang?.toLowerCase?.()) ?? [],
+          configuration?.[3].map((lang: string) => lang?.toLowerCase?.()) ?? [],
         ),
       ],
-      categories: configuration?.[12]?.map?.((category: any) =>
+      categories: configuration?.[12]?.map?.((category: ProtobufObject) =>
         this.convertCategory(category),
       ),
       details:
-        configuration?.[13]?.map?.((detail: any) =>
+        configuration?.[13]?.map?.((detail: ProtobufObject) =>
           this.convertDetail(detail),
         ) ?? [],
     };
   }
 
-  private convertCategory(category: any): Category {
+  private convertCategory(category: ProtobufObject): Category {
     return {
       id: category?.[1],
       name: category?.[2],
     };
   }
 
-  private convertDetail(detail: any): Detail {
+  private convertDetail(detail: ProtobufObject): Detail {
     return {
       id: detail?.[1],
       name: detail?.[2],
-      options: detail?.[3]?.map?.((option: any) => {
+      options: detail?.[3]?.map?.((option: ProtobufObject) => {
         return {
           id: option?.[1],
           name: option?.[2],
