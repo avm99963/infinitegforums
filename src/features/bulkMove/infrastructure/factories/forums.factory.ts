@@ -45,9 +45,21 @@ export class ForumsFactory {
     displayLanguage: string,
   ): LanguageConfiguration | undefined {
     return (
-      languageConfigurations.find((configuration) =>
-        configuration.supportedLanguages.includes(displayLanguage),
-      ) ?? languageConfigurations?.[0]
+      this.getLanguageConfiguration(languageConfigurations, displayLanguage) ??
+      // It seems like the Community Console falls back to loading the English
+      // language configuration if the forum is not available in the user's
+      // display language, so we're doing the same.
+      this.getLanguageConfiguration(languageConfigurations, 'en') ??
+      languageConfigurations?.[0]
+    );
+  }
+
+  private getLanguageConfiguration(
+    languageConfigurations: LanguageConfiguration[],
+    language: string,
+  ): LanguageConfiguration {
+    return languageConfigurations.find((configuration) =>
+      configuration.supportedLanguages.includes(language),
     );
   }
 
