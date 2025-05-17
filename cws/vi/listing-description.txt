@@ -1,9 +1,9 @@
-After installing the extension, adjust it to your needs by clicking its icon in the extensions menu to access the options page. This is because features other than infinite scroll are disabled by default.
+Sau khi cài đặt tiện ích mở rộng, hãy điều chỉnh theo nhu cầu của bạn bằng cách nhấp vào biểu tượng của tiện ích mở rộng trong menu tiện ích mở rộng để truy cập trang tùy chọn. Điều này là do các tính năng khác ngoài cuộn vô hạn bị tắt theo mặc định.
 
-You can see a list of all the enhancements here: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+/HEAD/docs/features.md
+Bạn có thể xem danh sách tất cả các cải tiến tại đây: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+/HEAD/docs/features.md
 
-New additions in future updates will be disabled by default, and can be manually enabled in the options page. Join https://groups.google.com/g/twpowertools-discuss to receive updates about new functionality.
+Các bổ sung mới trong các bản cập nhật trong tương lai sẽ bị vô hiệu hóa theo mặc định và có thể được bật thủ công trong trang tùy chọn. Tham gia https://groups.google.com/g/twpowertools-discuss để nhận thông tin cập nhật về chức năng mới.
 
-The source code is available here: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums. Contributions are welcome!
+Mã nguồn có sẵn tại đây: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums. Hoan nghênh mọi đóng góp!
 
-Help translate the extension to your native language! Visit https://i18n.avm99963.com/projects/tw-power-tools/
+Hãy giúp dịch phần mở rộng sang ngôn ngữ mẹ đẻ của bạn! Truy cập https://i18n.avm99963.com/projects/tw-power-tools/
