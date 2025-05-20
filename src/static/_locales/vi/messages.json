@@ -85,5 +85,62 @@
     },
     "options_ccdragndropfix": {
         "message": "Cho phép kéo và thả liên kết vào trình soạn thảo văn bản của Community Console trong khi vẫn giữ nguyên văn bản."
+    },
+    "options_stickysidebarheaders": {
+        "message": "Đặt tiêu đề trong thanh bên của Bảng điều khiển cộng đồng ở trên cùng (+ thông tin tại <code>pekb/thread/60784834</code>)."
+    },
+    "options_profileindicator_moreinfo": {
+        "message": "+thông tin về 2 lựa chọn trước đó"
+    },
+    "options_workflows": {
+        "message": "Bật tính năng quy trình công việc."
+    },
+    "options_workflows_manage": {
+        "message": "Quản lý quy trình làm việc"
+    },
+    "options_extrainfo": {
+        "message": "Hiển thị thông tin bổ sung trong chủ đề, hồ sơ và danh sách phản hồi có sẵn."
+    },
+    "options_interopthreadpage_mode_next": {
+        "message": "thiết kế trang chủ đề mới"
+    },
+    "options_uispacing": {
+        "message": "Giảm khoảng trắng trong Bảng điều khiển cộng đồng và TW."
+    },
+    "options_bulkreportreplies": {
+        "message": "Cho phép khả năng báo cáo hàng loạt phản hồi."
+    },
+    "options_save": {
+        "message": "Cứu"
+    },
+    "options_saved": {
+        "message": "đã lưu"
+    },
+    "options_experiments_title": {
+        "message": "Thí nghiệm"
+    },
+    "options_profileindicatoralt": {
+        "message": "Hiển thị số lượng câu hỏi và câu trả lời do OP viết trong <span id='profileindicatoralt_months--container'></span> tháng gần đây bên cạnh tên người dùng của họ."
+    },
+    "options_blockdrafts": {
+        "message": "Chặn việc gửi phản hồi khi bạn nhập vào máy chủ Google trong Bảng điều khiển cộng đồng."
+    },
+    "options_interopthreadpage": {
+        "message": "Hiển thị <span id='interopthreadpage_mode--container'></span> trong Bảng điều khiển cộng đồng."
+    },
+    "options_perforumstats": {
+        "message": "Hiển thị hoạt động trên từng diễn đàn trong hồ sơ."
+    },
+    "options_interopthreadpage_mode_previous": {
+        "message": "thiết kế trang chủ đề cũ"
+    },
+    "options_flattenthreads": {
+        "message": "Hiển thị nút chuyển đổi để bật/tắt chế độ xem lồng nhau trong các luồng."
+    },
+    "options_fixpekb269560789": {
+        "message": "Bản sửa lỗi tạm thời cho tình trạng CC chậm và sử dụng nhiều bộ nhớ (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>)."
+    },
+    "options_bulkmove": {
+        "message": "Thêm tùy chọn di chuyển nhiều chủ đề từ danh sách chủ đề của Bảng điều khiển cộng đồng."
     }
 }
