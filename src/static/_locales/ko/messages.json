@@ -184,7 +184,7 @@
         "description": "Tooltip for the extension badge, which appears next to components injected by the extension."
     },
     "inject_lockbtn": {
-        "message": "게시글 잠금/잠금 해제",
+        "message": "주제 열기 또는 잠금",
         "description": "Tooltip of the 'lock/unlock threads' icon shown when selecting multiple threads in the Community Console. Also the title for the dialog shown after clicking this icon."
     },
     "inject_lockdialog_btn_lock": {

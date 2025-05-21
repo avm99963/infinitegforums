@@ -68,12 +68,12 @@
       </trans-unit>
       <trans-unit id="bulkReportControls.offTopicChip.successLabel" xml:space="preserve">
         <source>Marked as off-topic</source>
-        <target state="translated">トピックと関係がない（オフトピック）としてマークされました。</target>
+        <target state="translated">トピックと関係がない（オフトピック）としてマークされました</target>
         <note from="lit-localize">Chip label shown when the report succeeded.</note>
       </trans-unit>
       <trans-unit id="bulkReportControls.abuseChip.successLabel" xml:space="preserve">
         <source>Marked as abuse</source>
-        <target state="translated">不適切な投稿（abuse）としてマークされました。</target>
+        <target state="translated">不適切な投稿（abuse）としてマークされました</target>
         <note from="lit-localize">Chip label shown when the report succeeded.</note>
       </trans-unit>
       <trans-unit id="bulkReportControls.offTopicChip.defaultLabel" xml:space="preserve">

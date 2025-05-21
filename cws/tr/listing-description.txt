@@ -1,9 +1,9 @@
-After installing the extension, adjust it to your needs by clicking its icon in the extensions menu to access the options page. This is because features other than infinite scroll are disabled by default.
+Eklentiyi yükledikten sonra, seçenekler sayfasına erişmek için eklentiler menüsündeki simgesine tıklayarak ihtiyaçlarınıza göre ayarlayın. Bunun nedeni, sonsuz kaydırma dışındaki özelliklerin varsayılan olarak devre dışı olmasıdır.
 
-You can see a list of all the enhancements here: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+/HEAD/docs/features.md
+Tüm geliştirmelerin listesini burada görebilirsiniz: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+/HEAD/docs/features.md
 
-New additions in future updates will be disabled by default, and can be manually enabled in the options page. Join https://groups.google.com/g/twpowertools-discuss to receive updates about new functionality.
+Gelecekteki güncellemelerdeki yeni eklemeler varsayılan olarak devre dışı bırakılacak ve seçenekler sayfasından manuel olarak etkinleştirilebilecektir. Yeni işlevler hakkında güncellemeler almak için https://groups.google.com/g/twpowertools-discuss adresine katılın.
 
-The source code is available here: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums. Contributions are welcome!
+Kaynak kodu burada mevcuttur: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums. Katkılarınız memnuniyetle karşılanır!
 
-Help translate the extension to your native language! Visit https://i18n.avm99963.com/projects/tw-power-tools/
+Eklentiyi ana dilinize çevirmeye yardımcı olun! https://i18n.avm99963.com/projects/tw-power-tools/ adresini ziyaret edin

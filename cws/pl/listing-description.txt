@@ -1,9 +1,9 @@
-After installing the extension, adjust it to your needs by clicking its icon in the extensions menu to access the options page. This is because features other than infinite scroll are disabled by default.
+Po zainstalowaniu rozszerzenia dostosuj je do swoich potrzeb, klikając jego ikonę w menu rozszerzeń, aby uzyskać dostęp do strony opcji. Dzieje się tak, ponieważ funkcje inne niż nieskończone przewijanie są domyślnie wyłączone.
 
-You can see a list of all the enhancements here: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+/HEAD/docs/features.md
+Listę wszystkich udoskonaleń można zobaczyć tutaj: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums/+/HEAD/docs/features.md
 
-New additions in future updates will be disabled by default, and can be manually enabled in the options page. Join https://groups.google.com/g/twpowertools-discuss to receive updates about new functionality.
+Nowe dodatki w przyszłych aktualizacjach będą domyślnie wyłączone i można je ręcznie włączyć na stronie opcji. Dołącz do https://groups.google.com/g/twpowertools-discuss, aby otrzymywać aktualizacje dotyczące nowych funkcji.
 
-The source code is available here: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums. Contributions are welcome!
+Kod źródłowy jest dostępny tutaj: https://gerrit.avm99963.com/plugins/gitiles/infinitegforums. Wkład jest mile widziany!
 
-Help translate the extension to your native language! Visit https://i18n.avm99963.com/projects/tw-power-tools/
+Pomóż przetłumaczyć rozszerzenie na swój język ojczysty! Odwiedź https://i18n.avm99963.com/projects/tw-power-tools/

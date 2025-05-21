@@ -44,19 +44,19 @@
         "description": "Heading for several options that can be enabled in the options page."
     },
     "options_list": {
-        "message": "تفعيل التمرير اللانهائي في قوائم المواضيع",
+        "message": "تفعيل التمرير اللانهائي في قوائم المواضيع.",
         "description": "Feature checkbox in the options page"
     },
     "options_thread": {
-        "message": "تحميل مجموعات الرسائل تلقائيًا داخل سلاسل المحادثات عند التمرير لأسفل",
+        "message": "تحميل مجموعات الرّدود تلقائيّا داخل سلاسل المحادثات عند التّمرير لأسفل.",
         "description": "Feature checkbox in the options page"
     },
     "options_threadall": {
-        "message": "تحميل جميع الرسائل تلقائيا مرة واحدة داخل سلاسل المحادثات عند التمرير لأسفل",
+        "message": "تحميل جميع الرُّدود تلقائيا مرة واحدة داخل سلاسل المحادثات عند التَّمرير لأسفل.",
         "description": "Feature checkbox in the options page"
     },
     "options_fixedtoolbar": {
-        "message": "تثبيت شريط الأدوات في قوائم سلاسل المحادثات في وحدة التحكم في المجتمع",
+        "message": "تثبيت شريط الأدوات في قوائم سلاسل المحادثات في وحدة التحكم في المجتمع.",
         "description": "Feature checkbox in the options page"
     },
     "options_redirect": {
