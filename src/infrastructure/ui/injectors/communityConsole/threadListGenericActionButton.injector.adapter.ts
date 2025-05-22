@@ -39,6 +39,15 @@ export class CCThreadListGenericActionButtonInjectorAdapter
     }
     new MDCTooltip(badgeTooltip);
 
+    if (options.onActivate !== undefined) {
+      button.addEventListener('click', () => options.onActivate());
+      button.addEventListener('keydown', (e) => {
+        if (e.code === 'Enter') {
+          options.onActivate();
+        }
+      });
+    }
+
     return button;
   }
 

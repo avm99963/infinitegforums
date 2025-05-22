@@ -39,17 +39,11 @@ export class BulkMoveButtonInjectorAdapter
   ) {}
 
   execute() {
-    const button = this.buttonInjector.execute({
+    this.buttonInjector.execute({
       icon: 'arrow_right_alt',
       key: BULK_MOVE_ACTION_KEY,
+      onActivate: () => this.showModal(),
     });
-    if (button === null) {
-      throw new Error(
-        "Couldn't inject bulk move button to thread list actions toolbar.",
-      );
-    }
-
-    button.addEventListener('click', () => this.showModal());
   }
 
   private showModal() {

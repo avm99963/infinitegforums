@@ -5,6 +5,12 @@ export interface ThreadListGenericActionButtonOptions {
   /* Key which univocally identifies the action. */
   key: string;
 
+  /**
+   * Function to be called when activating the button via a click or the enter
+   * key.
+   */
+  onActivate?: () => void;
+
   /* Optional text to show in a tooltip. */
   tooltip?: string;
 }

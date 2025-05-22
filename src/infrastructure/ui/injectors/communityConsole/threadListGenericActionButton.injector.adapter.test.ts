@@ -4,7 +4,8 @@ import {
   GENERIC_ACTION_BUTTON_TEST_ID,
 } from './threadListGenericActionButton.injector.adapter';
 import { CCThreadListActionInjectorAdapter } from './threadListAction.injector.adapter';
-import { findByTestId } from '@testing-library/dom';
+import { findByTestId, fireEvent } from '@testing-library/dom';
+import { ThreadListGenericActionButtonOptions } from '../../../../ui/injectors/threadListGenericActionButton.injector.port';
 
 const DUMMY_ICON = 'dummy-icon';
 const DUMMY_KEY = 'dummy-key';
@@ -133,6 +134,49 @@ describe('when a reference button exists', () => {
       sut.execute({ icon: DUMMY_ICON, key: DUMMY_KEY, tooltip: DUMMY_TOOLTIP });
 
       expect(document.body.innerHTML).toContain(DUMMY_TOOLTIP);
+    });
+  });
+
+  describe('when onActivate is supplied', () => {
+    const onActivateMock =
+      vi.fn<ThreadListGenericActionButtonOptions['onActivate']>();
+    const options: ThreadListGenericActionButtonOptions = {
+      icon: DUMMY_ICON,
+      key: DUMMY_KEY,
+      onActivate: onActivateMock,
+    };
+
+    it('should call onActivate after the user clicks the button', async () => {
+      sut.execute(options);
+      const button = await findByTestId(
+        document.body,
+        GENERIC_ACTION_BUTTON_TEST_ID,
+      );
+      button.click();
+
+      expect(onActivateMock).toHaveBeenCalledOnce();
+    });
+
+    it('should call onActivate after the user presses Enter with the button focused', async () => {
+      sut.execute(options);
+      const button = await findByTestId(
+        document.body,
+        GENERIC_ACTION_BUTTON_TEST_ID,
+      );
+      fireEvent.keyDown(button, { code: 'Enter' });
+
+      expect(onActivateMock).toHaveBeenCalledOnce();
+    });
+
+    it('should not call onActivate after the user presses a non-Enter key with the button focused', async () => {
+      sut.execute(options);
+      const button = await findByTestId(
+        document.body,
+        GENERIC_ACTION_BUTTON_TEST_ID,
+      );
+      fireEvent.keyDown(button, { code: '1' });
+
+      expect(onActivateMock).not.toHaveBeenCalled();
     });
   });
 });
