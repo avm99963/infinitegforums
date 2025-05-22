@@ -27,6 +27,12 @@
       "run_at": "document_start"
     },
     {
+      "matches": ["https://support.google.com/s/community*"],
+      "js": ["communityConsoleInjectionStart.bundle.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
       "matches": ["https://support.google.com/*/threads*"],
       "js": ["publicForum.bundle.js", "mdcStyles.bundle.js"]
     },
@@ -95,7 +101,6 @@
 #endif
         "profileIndicatorInject.bundle.js",
         "batchLockInject.bundle.js",
-        "xhrInterceptorInject.bundle.js",
         "extraInfoInject.bundle.js",
         "litComponentsInject.bundle.js",
         "updateHandlerLitComponents.bundle.js",
@@ -123,6 +128,7 @@
 
         "communityConsoleMain.bundle.js.map",
         "communityConsoleStart.bundle.js.map",
+        "communityConsoleInjectionStart.bundle.js.map",
         "publicForum.bundle.js.map",
         "publicThread.bundle.js.map",
         "publicThreadStart.bundle.js.map",
@@ -130,7 +136,6 @@
         "profileIndicator.bundle.js.map",
         "profileIndicatorInject.bundle.js.map",
         "batchLockInject.bundle.js.map",
-        "xhrInterceptorInject.bundle.js.map",
         "extraInfoInject.bundle.js.map",
         "optionsCommon.bundle.js.map",
         "mdcStyles.bundle.js.map"
@@ -176,10 +181,10 @@
   "browser_specific_settings": {
     "gecko": {
       "id": "twpowertools@avm99963.com",
-      "strict_min_version": "121.0"
+      "strict_min_version": "128.0"
     },
     "gecko_android": {
-      "strict_min_version": "121.0"
+      "strict_min_version": "128.0"
     }
   },
 #endif

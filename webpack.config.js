@@ -29,6 +29,8 @@ module.exports = (env, args) => {
         './src/entryPoints/communityConsole/contentScripts/main.ts',
     communityConsoleStart:
         './src/entryPoints/communityConsole/contentScripts/start.ts',
+    communityConsoleInjectionStart:
+        './src/entryPoints/communityConsole/injections/start.ts',
     publicForum: './src/contentScripts/publicForum.js',
     publicThread: './src/contentScripts/publicThread.js',
     publicThreadStart: './src/entryPoints/twBasic/thread/start.ts',
@@ -45,8 +47,6 @@ module.exports = (env, args) => {
     // Injected JS
     profileIndicatorInject: './src/injections/profileIndicator.js',
     batchLockInject: './src/injections/batchLock.js',
-    xhrInterceptorInject:
-        './src/entryPoints/communityConsole/injections/xhrProxy.ts',
     extraInfoInject: './src/injections/extraInfo.js',
     litComponentsInject: './src/injections/litComponentsInject.js',
     updateHandlerLitComponents:

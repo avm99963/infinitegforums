@@ -68,7 +68,6 @@ function createScriptRunner() {
         new ApplyStartupDataModificationsOnStartScript(startupDataStorage),
         new MWI18nServerScript(),
         new MWOptionsWatcherServerScript(),
-        new XHRInterceptorScript(),
       ],
       new ScriptSorterAdapter(),
     ).getScripts(),
