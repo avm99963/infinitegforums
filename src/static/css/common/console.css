@@ -27,6 +27,22 @@
   cursor: pointer;
 }
 
+@media(hover: hover) {
+  .TWPT-btn--with-badge:focus:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: currentColor;
+    opacity: .12;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+}
+
 .TWPT-btn--with-badge .content {
   padding: 8px;
 }
