@@ -1,6 +1,10 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { CCThreadListGenericActionButtonInjectorAdapter } from './threadListGenericActionButton.injector.adapter';
+import {
+  CCThreadListGenericActionButtonInjectorAdapter,
+  GENERIC_ACTION_BUTTON_TEST_ID,
+} from './threadListGenericActionButton.injector.adapter';
 import { CCThreadListActionInjectorAdapter } from './threadListAction.injector.adapter';
+import { findByTestId } from '@testing-library/dom';
 
 const DUMMY_ICON = 'dummy-icon';
 const DUMMY_KEY = 'dummy-key';
@@ -14,6 +18,30 @@ function setUpDOMWithActions(actionsInnerHTML: string) {
         ${actionsInnerHTML}
       </div>
     </ec-bulk-actions>
+  `;
+}
+
+function createDummyReferenceButtonContents(icon = 'dummy') {
+  return `
+    <div class="content _ngcontent-lit-2">
+      <material-icon
+        icon="content_copy"
+        class="_ngcontent-lit-37
+          _nghost-lit-3"
+      >
+        <i
+          class="material-icon-i material-icons-extended _ngcontent-lit-3"
+          role="img"
+          aria-hidden="true"
+        >
+          ${icon}
+        </i>
+      </material-icon>
+    </div>
+    <material-ripple aria-hidden="true" class="_ngcontent-lit-2">
+    </material-ripple>
+    <div class="touch-target _ngcontent-lit-2"></div>
+    <div class="focus-ring _ngcontent-lit-2"></div>
   `;
 }
 
@@ -48,25 +76,7 @@ describe('when a reference button exists', () => {
       aria-disabled="false"
       elevation="1"
     >
-      <div class="content _ngcontent-lit-2">
-        <material-icon
-          icon="content_copy"
-          class="_ngcontent-lit-37
-            _nghost-lit-3"
-        >
-          <i
-            class="material-icon-i material-icons-extended _ngcontent-lit-3"
-            role="img"
-            aria-hidden="true"
-          >
-            content_copy
-          </i>
-        </material-icon>
-      </div>
-      <material-ripple aria-hidden="true" class="_ngcontent-lit-2">
-      </material-ripple>
-      <div class="touch-target _ngcontent-lit-2"></div>
-      <div class="focus-ring _ngcontent-lit-2"></div>
+      ${createDummyReferenceButtonContents('content_copy')}
     </material-button>
   `;
 
@@ -132,3 +142,39 @@ it('should throw an error when a reference button is not found', () => {
 
   expect(() => sut.execute({ icon: DUMMY_ICON, key: DUMMY_KEY })).toThrow();
 });
+
+// We require this because sometimes the "mark as duplicate" button is disabled,
+// and we don't want our buttons to be disabled.
+it.each([
+  { button: 'mark read', debugId: 'mark-read-button' },
+  { button: 'mark unread', debugId: 'mark-unread-button' },
+])(
+  'should prefer cloning the $button button over the mark as duplicate button',
+  async ({ debugId }) => {
+    // The following code doesn't reflect the actual structure in the Community
+    // Console, but just the parts necessary for the test.
+    const MINIMAL_ACTIONS_HTML = `
+      <material-button
+        debugid="${debugId}"
+        data-expected-reference-button="true"
+      >
+        ${createDummyReferenceButtonContents()}
+      </material-button>
+      <material-button
+        debugid="mark-duplicate-button"
+        data-expected-reference-button="false"
+      >
+        ${createDummyReferenceButtonContents()}
+      </material-button>
+    `;
+    setUpDOMWithActions(MINIMAL_ACTIONS_HTML);
+
+    sut.execute({ icon: DUMMY_ICON, key: DUMMY_KEY });
+
+    const button = await findByTestId(
+      document.body,
+      GENERIC_ACTION_BUTTON_TEST_ID,
+    );
+    expect(button.getAttribute('data-expected-reference-button')).toBe('true');
+  },
+);
