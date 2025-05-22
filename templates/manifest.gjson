@@ -1,5 +1,5 @@
 {
-#if defined(CHROMIUM || GECKO)
+#if defined(GECKO)
   "manifest_version": 2,
 #endif
 #if defined(CHROMIUM_MV3)
@@ -7,7 +7,7 @@
 #endif
   "name": "__MSG_appName__",
   "version": "0",
-#if defined(CHROMIUM || CHROMIUM_MV3)
+#if defined(CHROMIUM_MV3)
   "version_name": "dirty",
 #endif
   "description": "__MSG_appDescription__",
@@ -73,13 +73,11 @@
     }
   ],
   "permissions": [
-#if defined(CHROMIUM || GECKO)
+#if defined(GECKO)
     "https://support.google.com/*",
 #endif
-#if defined(CHROMIUM || CHROMIUM_MV3)
-    "declarativeNetRequestWithHostAccess",
-#endif
 #if defined(CHROMIUM_MV3)
+    "declarativeNetRequestWithHostAccess",
     "scripting",
 #endif
     "storage",
@@ -144,7 +142,7 @@
     }
 #endif
   ],
-#if defined(CHROMIUM || CHROMIUM_MV3)
+#if defined(CHROMIUM_MV3)
   "declarative_net_request": {
     "rule_resources": [{
       "id": "blockDrafts",
@@ -153,33 +151,24 @@
     }]
   },
 #endif
-#if defined(CHROMIUM || GECKO)
+#if defined(GECKO)
   "browser_action": {},
 #endif
 #if defined(CHROMIUM_MV3)
   "action": {},
-#endif
-#if defined(CHROMIUM)
-  "options_page": "options/options.html",
 #endif
   "options_ui": {
     "page": "options/options.html",
     "open_in_tab": false
   },
   "background": {
-#if defined(CHROMIUM || GECKO)
-#if defined(CHROMIUM)
-    "persistent": false,
-#endif
+#if defined(GECKO)
     "scripts": ["bg.bundle.js"]
 #endif
 #if defined(CHROMIUM_MV3)
     "service_worker": "bg.bundle.js"
 #endif
   },
-#if defined(CHROMIUM)
-  "minimum_chrome_version": "96",
-#endif
 #if defined(CHROMIUM_MV3)
   "minimum_chrome_version": "105",
 #endif

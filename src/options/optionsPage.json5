@@ -17,7 +17,7 @@
         {codename: 'batchlock'},
         {codename: 'bulkreportreplies'},
         {codename: 'autorefreshlist'},
-        // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
+        // #!if browser_target == 'chromium_mv3'
         {codename: 'blockdrafts'},
         // #!endif
       ],
@@ -39,7 +39,7 @@
         {codename: 'increasecontrast'},
         {codename: 'stickysidebarheaders'},
         {codename: 'ccforcehidedrawer'},
-        // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
+        // #!if browser_target == 'chromium_mv3'
         {codename: 'ccdragndropfix'},
         // #!endif
         {codename: 'enhancedannouncementsdot'},

@@ -9,10 +9,8 @@ import {getOptions} from './optionsUtils.js';
 const requiredPermissions = {
   permissions: new Set([
     'storage', 'alarms',
-    // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
-    'declarativeNetRequestWithHostAccess',
-    // #!endif
     // #!if browser_target == 'chromium_mv3'
+    'declarativeNetRequestWithHostAccess',
     'scripting',
     // #!endif
   ]),

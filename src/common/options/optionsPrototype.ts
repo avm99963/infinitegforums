@@ -77,7 +77,7 @@ const rawOptionConfigs = {
     context: OptionContext.Options,
     killSwitchType: KillSwitchType.Option,
   },
-  // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
+  // #!if browser_target == 'chromium_mv3'
   ccdragndropfix: {
     defaultValue: false,
     context: OptionContext.Options,
@@ -114,7 +114,7 @@ const rawOptionConfigs = {
     context: OptionContext.Options,
     killSwitchType: KillSwitchType.Option,
   },
-  // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
+  // #!if browser_target == 'chromium_mv3'
   blockdrafts: {
     defaultValue: false,
     context: OptionContext.Options,

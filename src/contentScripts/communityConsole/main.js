@@ -4,7 +4,7 @@ import XHRProxyKillSwitchHandler from '../../xhrInterceptor/killSwitchHandler.js
 import {injectPreviousPostsLinksUnifiedProfileIfEnabled} from '../utilsCommon/unifiedProfiles.js';
 
 import AvatarsHandler from './avatars.js';
-// #!if ['chromium', 'chromium_mv3'].includes(browser_target)
+// #!if browser_target == 'chromium_mv3'
 import {applyDragAndDropFixIfEnabled} from './dragAndDropFix.js';
 // #!endif
 
@@ -46,7 +46,7 @@ function handleCandidateNode(node) {
           /* isCommunityConsole = */ true);
     }
 
-    // #!if ['chromium', 'chromium_mv3'].includes(browser_target)
+    // #!if browser_target == 'chromium_mv3'
     // Fix the drag&drop issue with the rich text editor if the option is
     // currently enabled.
     //

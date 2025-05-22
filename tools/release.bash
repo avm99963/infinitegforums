@@ -15,8 +15,8 @@ function usage() {
     -c, --channel  indicates the channel of the release. Can be "beta",
                    "stable" or "canary". Defaults to "stable".
     -b, --browser  indicates the target browser for the release. Can be
-                   "chromium", "gecko" or "chromium_mv3".
-                   Defaults to "chromium".
+                   "gecko" or "chromium_mv3".
+                   Defaults to "chromium_mv3".
 
 END
 }
@@ -31,7 +31,7 @@ opts=$(getopt -l "help,channel:,browser:" -o "hc:b:" -n "$progname" -- "$@")
 eval set -- "$opts"
 
 channel=stable
-browser=chromium
+browser=chromium_mv3
 folder=null
 
 while true; do
@@ -59,8 +59,7 @@ if [[ $channel != "stable" && $channel != "beta" && \
   exit
 fi
 
-if [[ $browser != "chromium" && $browser != "gecko" && \
-  $browser != "chromium_mv3" ]]; then
+if [[ $browser != "gecko" && $browser != "chromium_mv3" ]]; then
   echo "browser parameter value is incorrect." >&2
   usage
   exit
