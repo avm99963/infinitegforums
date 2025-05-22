@@ -26,10 +26,13 @@ export class CCThreadListGenericActionButtonInjectorAdapter
     const [badge, badgeTooltip] = createExtBadge() as [HTMLDivElement, any];
     button.append(badge);
 
-    this.threadListActionInjector.execute({
+    const wasInjected = this.threadListActionInjector.execute({
       element: button,
       key: options.key,
     });
+    if (!wasInjected) {
+      return null;
+    }
 
     if (options.tooltip !== undefined) {
       createPlainTooltip(button, options.tooltip);
