@@ -37,7 +37,7 @@
     "@types/chrome": "0.0.323",
     "@types/node": "20.17.50",
     "@vitest/coverage-v8": "3.1.4",
-    "@vitest/eslint-plugin": "1.2.0",
+    "@vitest/eslint-plugin": "1.2.1",
     "copy-webpack-plugin": "13.0.0",
     "css-loader": "7.1.2",
     "eslint": "9.27.0",
