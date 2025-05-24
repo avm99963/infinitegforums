@@ -142,6 +142,141 @@
   <source>Additional details</source><target>Дополнительные сведения</target>
   <note from="lit-localize">Title of the section in the forum destination picker with the category/details selects.</note>
 </trans-unit>
+<trans-unit id="languages.ar">
+  <source>Arabic</source><target>арабский</target>
+</trans-unit>
+<trans-unit id="languages.bg">
+  <source>Bulgarian</source><target>болгарский</target>
+</trans-unit>
+<trans-unit id="languages.ca">
+  <source>Catalan</source><target>каталанский</target>
+</trans-unit>
+<trans-unit id="languages.cs">
+  <source>Czech</source><target>чешский</target>
+</trans-unit>
+<trans-unit id="languages.da">
+  <source>Danish</source><target>датский</target>
+</trans-unit>
+<trans-unit id="languages.de">
+  <source>German</source><target>немецкий</target>
+</trans-unit>
+<trans-unit id="languages.el">
+  <source>Greek</source><target>греческий</target>
+</trans-unit>
+<trans-unit id="languages.en">
+  <source>English</source><target>английский</target>
+</trans-unit>
+<trans-unit id="languages.en-AU">
+  <source>English (Australia)</source><target>английский (Австралия)</target>
+</trans-unit>
+<trans-unit id="languages.en-GB">
+  <source>English (UK)</source><target>английский (Великобритания)</target>
+</trans-unit>
+<trans-unit id="languages.es">
+  <source>Spanish</source><target>испанский</target>
+</trans-unit>
+<trans-unit id="languages.es-419">
+  <source>Spanish (Latin America)</source><target>испанский (Латинская Америка)</target>
+</trans-unit>
+<trans-unit id="languages.et">
+  <source>Estonian</source><target>эстонский</target>
+</trans-unit>
+<trans-unit id="languages.fi">
+  <source>Finnish</source><target>финский</target>
+</trans-unit>
+<trans-unit id="languages.fil">
+  <source>Filipino</source><target>филиппинский</target>
+</trans-unit>
+<trans-unit id="languages.fr">
+  <source>French</source><target>французский</target>
+</trans-unit>
+<trans-unit id="languages.hi">
+  <source>Hindi</source><target>хинди</target>
+</trans-unit>
+<trans-unit id="languages.hr">
+  <source>Croatian</source><target>хорватский</target>
+</trans-unit>
+<trans-unit id="languages.hu">
+  <source>Hungarian</source><target>венгерский</target>
+</trans-unit>
+<trans-unit id="languages.id">
+  <source>Indonesian</source><target>индонезийский</target>
+</trans-unit>
+<trans-unit id="languages.it">
+  <source>Italian</source><target>итальянский</target>
+</trans-unit>
+<trans-unit id="languages.iw">
+  <source>Hebrew</source><target>иврит</target>
+</trans-unit>
+<trans-unit id="languages.ja">
+  <source>Japanese</source><target>японский</target>
+</trans-unit>
+<trans-unit id="languages.ko">
+  <source>Korean</source><target>корейский</target>
+</trans-unit>
+<trans-unit id="languages.lt">
+  <source>Lithuanian</source><target>литовский</target>
+</trans-unit>
+<trans-unit id="languages.lv">
+  <source>Latvian</source><target>латышский</target>
+</trans-unit>
+<trans-unit id="languages.ms">
+  <source>Malay</source><target>малайский</target>
+</trans-unit>
+<trans-unit id="languages.nl">
+  <source>Dutch</source><target>нидерландский</target>
+</trans-unit>
+<trans-unit id="languages.no">
+  <source>Norwegian (Bokmal)</source><target>норвежский (букмол)</target>
+</trans-unit>
+<trans-unit id="languages.pl">
+  <source>Polish</source><target>польский</target>
+</trans-unit>
+<trans-unit id="languages.pt-BR">
+  <source>Portuguese (Brazil)</source><target>португальский (Бразилия)</target>
+</trans-unit>
+<trans-unit id="languages.pt-PT">
+  <source>Portuguese (Portugal)</source><target>португальский (Португалия)</target>
+</trans-unit>
+<trans-unit id="languages.ro">
+  <source>Romanian</source><target>румынский</target>
+</trans-unit>
+<trans-unit id="languages.ru">
+  <source>Russian</source><target>русский</target>
+</trans-unit>
+<trans-unit id="languages.sk">
+  <source>Slovak</source><target>словацкий</target>
+</trans-unit>
+<trans-unit id="languages.sl">
+  <source>Slovenian</source><target>словенский</target>
+</trans-unit>
+<trans-unit id="languages.sr">
+  <source>Serbian</source><target>сербский</target>
+</trans-unit>
+<trans-unit id="languages.sv">
+  <source>Swedish</source><target>шведский</target>
+</trans-unit>
+<trans-unit id="languages.th">
+  <source>Thai</source><target>тайский</target>
+</trans-unit>
+<trans-unit id="languages.tr">
+  <source>Turkish</source><target>турецкий</target>
+</trans-unit>
+<trans-unit id="languages.uk">
+  <source>Ukrainian</source><target>украинский</target>
+</trans-unit>
+<trans-unit id="languages.vi">
+  <source>Vietnamese</source><target>вьетнамский</target>
+</trans-unit>
+<trans-unit id="languages.zh-CN">
+  <source>Chinese (Simplified)</source><target>китайский (упрощенный)</target>
+</trans-unit>
+<trans-unit id="languages.zh-HK">
+  <source>Chinese (Hong Kong)</source><target>китайский (Гонконг)</target>
+</trans-unit>
+<trans-unit id="languages.zh-TW">
+  <source>Chinese (Traditional)</source><target>китайский (традиционный)</target>
+</trans-unit>
     </body>
   </file>
 </xliff>

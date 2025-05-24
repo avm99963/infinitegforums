@@ -18,6 +18,7 @@ import { msg } from '@lit/localize';
 
 interface SingleLanguageConfiguration {
   language: string;
+  localizedName: string;
   configuration: LanguageConfiguration;
 }
 
@@ -123,7 +124,7 @@ export default class ForumPicker extends I18nLitElement {
                 value=${configuration.language}
                 ?selected=${configuration.language === this.language}
               >
-                <div slot="headline">${configuration.language}</div>
+                <div slot="headline">${configuration.localizedName}</div>
               </md-select-option>
             `,
           )}
@@ -144,17 +145,120 @@ export default class ForumPicker extends I18nLitElement {
         .map((configuration) => {
           return configuration.supportedLanguages.map(
             (language): SingleLanguageConfiguration => {
-              return { language, configuration };
+              return {
+                language,
+                localizedName: this.getLocalizedLanguageName(language),
+                configuration,
+              };
             },
           );
         })
         .flat()
+        // The Community Console doesn't show languages without a localized name.
+        .filter((it) => it.localizedName !== undefined)
         .sort((a, b) =>
-          a.language.localeCompare(b.language, undefined, {
+          a.localizedName.localeCompare(b.localizedName, undefined, {
             sensitivity: 'accent',
           }),
         ) ?? []
     );
+  }
+
+  private getLocalizedLanguageName(language: string) {
+    switch (language.toLowerCase()) {
+      case 'ar':
+        return msg('Arabic', { id: 'languages.ar' });
+      case 'bg':
+        return msg('Bulgarian', { id: 'languages.bg' });
+      case 'ca':
+        return msg('Catalan', { id: 'languages.ca' });
+      case 'cs':
+        return msg('Czech', { id: 'languages.cs' });
+      case 'da':
+        return msg('Danish', { id: 'languages.da' });
+      case 'de':
+        return msg('German', { id: 'languages.de' });
+      case 'el':
+        return msg('Greek', { id: 'languages.el' });
+      case 'en':
+        return msg('English', { id: 'languages.en' });
+      case 'en-au':
+        return msg('English (Australia)', { id: 'languages.en-AU' });
+      case 'en-gb':
+        return msg('English (UK)', { id: 'languages.en-GB' });
+      case 'es':
+        return msg('Spanish', { id: 'languages.es' });
+      case 'es-419':
+        return msg('Spanish (Latin America)', { id: 'languages.es-419' });
+      case 'et':
+        return msg('Estonian', { id: 'languages.et' });
+      case 'fi':
+        return msg('Finnish', { id: 'languages.fi' });
+      case 'fil':
+        return msg('Filipino', { id: 'languages.fil' });
+      case 'fr':
+        return msg('French', { id: 'languages.fr' });
+      case 'hi':
+        return msg('Hindi', { id: 'languages.hi' });
+      case 'hr':
+        return msg('Croatian', { id: 'languages.hr' });
+      case 'hu':
+        return msg('Hungarian', { id: 'languages.hu' });
+      case 'id':
+        return msg('Indonesian', { id: 'languages.id' });
+      case 'it':
+        return msg('Italian', { id: 'languages.it' });
+      case 'iw':
+        return msg('Hebrew', { id: 'languages.iw' });
+      case 'ja':
+        return msg('Japanese', { id: 'languages.ja' });
+      case 'ko':
+        return msg('Korean', { id: 'languages.ko' });
+      case 'lt':
+        return msg('Lithuanian', { id: 'languages.lt' });
+      case 'lv':
+        return msg('Latvian', { id: 'languages.lv' });
+      case 'ms':
+        return msg('Malay', { id: 'languages.ms' });
+      case 'nl':
+        return msg('Dutch', { id: 'languages.nl' });
+      case 'no':
+        return msg('Norwegian (Bokmal)', { id: 'languages.no' });
+      case 'pl':
+        return msg('Polish', { id: 'languages.pl' });
+      case 'pt-br':
+        return msg('Portuguese (Brazil)', { id: 'languages.pt-BR' });
+      case 'pt-pt':
+        return msg('Portuguese (Portugal)', { id: 'languages.pt-PT' });
+      case 'ro':
+        return msg('Romanian', { id: 'languages.ro' });
+      case 'ru':
+        return msg('Russian', { id: 'languages.ru' });
+      case 'sk':
+        return msg('Slovak', { id: 'languages.sk' });
+      case 'sl':
+        return msg('Slovenian', { id: 'languages.sl' });
+      case 'sr':
+        return msg('Serbian', { id: 'languages.sr' });
+      case 'sv':
+        return msg('Swedish', { id: 'languages.sv' });
+      case 'th':
+        return msg('Thai', { id: 'languages.th' });
+      case 'tr':
+        return msg('Turkish', { id: 'languages.tr' });
+      case 'uk':
+        return msg('Ukrainian', { id: 'languages.uk' });
+      case 'vi':
+        return msg('Vietnamese', { id: 'languages.vi' });
+      case 'zh-cn':
+        return msg('Chinese (Simplified)', { id: 'languages.zh-CN' });
+      case 'zh-hk':
+        return msg('Chinese (Hong Kong)', { id: 'languages.zh-HK' });
+      case 'zh-tw':
+        return msg('Chinese (Traditional)', { id: 'languages.zh-TW' });
+      default:
+        return undefined;
+    }
   }
 
   private getSelectedForum(): Forum | undefined {
