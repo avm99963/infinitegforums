@@ -1,22 +1,22 @@
 import { customElement, property } from 'lit/decorators.js';
-import { I18nLitElement } from '../../../../../common/litI18nUtils';
+import { I18nLitElement } from '../../../../common/litI18nUtils';
 import { html } from 'lit';
-import { SHARED_MD3_STYLES } from '../../../../../common/styles/md3';
+import { SHARED_MD3_STYLES } from '../../../../common/styles/md3';
 import {
   Detail,
   Forum,
   LanguageConfiguration,
-} from '../../../../../domain/forum';
+} from '../../../../domain/forum';
 import { repeat } from 'lit/directives/repeat.js';
 
 import '@material/web/select/outlined-select.js';
 import '@material/web/select/select-option.js';
 import { keyed } from 'lit/directives/keyed.js';
 import { FORM_STYLES } from './styles';
-import { ThreadProperty } from '../../../../../domain/threadProperty';
+import { ThreadProperty } from '../../../../domain/threadProperty';
 
-@customElement('twpt-additional-details-select')
-export default class AdditionalDetailsSelect extends I18nLitElement {
+@customElement('twpt-additional-details-picker')
+export default class AdditionalDetailsPicker extends I18nLitElement {
   @property({ type: String })
   accessor categoryId: string | undefined;
 
@@ -163,6 +163,6 @@ export default class AdditionalDetailsSelect extends I18nLitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'twpt-additional-details-select': AdditionalDetailsSelect;
+    'twpt-additional-details-picker': AdditionalDetailsPicker;
   }
 }

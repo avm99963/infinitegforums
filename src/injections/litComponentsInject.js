@@ -8,6 +8,7 @@ import '../features/flattenThreads/core/components/index.js';
 import '../contentScripts/communityConsole/updateHandler/banner/components/index.js';
 import '../features/bulkReportReplies/ui/components/index';
 import '../features/bulkMove/ui/components/index';
+import '../ui/components';
 
 import {injectStylesheet} from '../common/contentScriptsUtils';
 

@@ -1,8 +1,8 @@
 import { customElement, property } from 'lit/decorators.js';
-import { I18nLitElement } from '../../../../../common/litI18nUtils';
+import { I18nLitElement } from '../../../../common/litI18nUtils';
 import { html } from 'lit';
-import { SHARED_MD3_STYLES } from '../../../../../common/styles/md3';
-import { Forum, LanguageConfiguration } from '../../../../../domain/forum';
+import { SHARED_MD3_STYLES } from '../../../../common/styles/md3';
+import { Forum, LanguageConfiguration } from '../../../../domain/forum';
 import { repeat } from 'lit/directives/repeat.js';
 
 import '@material/web/select/outlined-select.js';
@@ -10,8 +10,8 @@ import '@material/web/select/select-option.js';
 import { keyed } from 'lit/directives/keyed.js';
 import { FORM_STYLES } from './styles';
 import { EVENT_LOADED_FULL_FORUM_INFO } from '../events';
-import { GetForumRepositoryAdapter } from '../../../infrastructure/repositories/api/getForum.repository.adapter';
-import { GetForumRepositoryPort } from '../../ports/getForum.repository.port';
+import { GetForumRepositoryAdapter } from '../../../../features/bulkMove/infrastructure/repositories/api/getForum.repository.adapter';
+import { GetForumRepositoryPort } from '../../../../features/bulkMove/ui/ports/getForum.repository.port';
 import { createRef, Ref, ref } from 'lit/directives/ref.js';
 import { MdOutlinedSelect } from '@material/web/select/outlined-select.js';
 
@@ -20,8 +20,8 @@ interface SingleLanguageConfiguration {
   configuration: LanguageConfiguration;
 }
 
-@customElement('twpt-forum-select')
-export default class ForumSelect extends I18nLitElement {
+@customElement('twpt-forum-picker')
+export default class ForumPicker extends I18nLitElement {
   @property({ type: String })
   accessor forumId: string | undefined;
 
@@ -193,6 +193,6 @@ export default class ForumSelect extends I18nLitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'twpt-forum-select': ForumSelect;
+    'twpt-forum-picker': ForumPicker;
   }
 }

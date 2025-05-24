@@ -1,22 +1,17 @@
 import { css, html } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import { createRef, ref, Ref } from 'lit/directives/ref.js';
-import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles.js';
 import { I18nLitElement } from '../../../../common/litI18nUtils';
 import { SHARED_MD3_STYLES } from '../../../../common/styles/md3';
-import { Forum, LanguageConfiguration } from '../../../../domain/forum';
+import { Forum } from '../../../../domain/forum';
 import { ThreadProperty } from '../../../../domain/threadProperty';
-import ForumSelect from './selects/ForumSelect';
-import AdditionalDetailsSelect from './selects/AdditionalDetailsSelect';
+import { EVENT_START_BULK_MOVE } from './events';
+import { createRef, ref, Ref } from 'lit/directives/ref.js';
+import ForumDestinationPicker from '../../../../ui/components/forumDestinationPicker/ForumDestinationPicker';
 
-import './selects/AdditionalDetailsSelect';
-import './selects/ForumSelect';
+import '../../../../ui/components/forumDestinationPicker/ForumDestinationPicker';
 import '@material/web/button/text-button.js';
 import '@material/web/dialog/dialog.js';
 import '@material/web/icon/icon.js';
-import '@material/web/select/outlined-select.js';
-import '@material/web/select/select-option.js';
-import { EVENT_LOADED_FULL_FORUM_INFO, EVENT_START_BULK_MOVE } from './events';
 
 @customElement('twpt-bulk-move-modal')
 export default class BulkMoveModal extends I18nLitElement {
@@ -58,30 +53,16 @@ export default class BulkMoveModal extends I18nLitElement {
   @state()
   private accessor properties: ThreadProperty[] | undefined = [];
 
-  /**
-   * Map which contains complete forums data, loaded via GetForum.
-   */
-  @state()
-  private accessor fullForumInfo = new Map<string, Forum>([]);
-
   static styles = [
     SHARED_MD3_STYLES,
-    typescaleStyles,
     css`
       :host {
         pointer-events: auto;
       }
-
-      .content {
-        .section-title {
-          margin-bottom: 16px;
-        }
-      }
     `,
   ];
 
-  forumSelectRef: Ref<ForumSelect> = createRef();
-  additionalDetailsSelectRef: Ref<AdditionalDetailsSelect> = createRef();
+  private forumDestinationPicker: Ref<ForumDestinationPicker> = createRef();
 
   render() {
     return html`
@@ -95,32 +76,17 @@ export default class BulkMoveModal extends I18nLitElement {
         <md-icon slot="icon">arrow_right_alt</md-icon>
         <span slot="headline">Move threads</span>
         <div class="content" slot="content">
-          <div class="section-title md-typescale-title-medium">
-            Destination forum
-          </div>
-          <twpt-forum-select
-            forumId=${this.forumId}
-            language=${this.language}
-            .forums=${this.forums}
+          <twpt-forum-destination-picker
+            .preloadedForums=${this.preloadedForums}
             authuser=${this.authuser}
             displayLanguage=${this.displayLanguage}
-            autofocus
-            @change=${this.onForumChanged}
-            @loaded-full-forum-info=${this.onLoadedFullForumInfo}
-            ${ref(this.forumSelectRef)}
-          ></twpt-forum-select>
-          <div class="section-title md-typescale-title-medium">
-            Additional details
-          </div>
-          <twpt-additional-details-select
             forumId=${this.forumId}
             language=${this.language}
             categoryId=${this.categoryId}
             .properties=${this.properties}
-            .forums=${this.forums}
-            @change=${this.onAdditionalDetailsChanged}
-            ${ref(this.additionalDetailsSelectRef)}
-          ></twpt-additional-details-select>
+            @change=${this.onForumDestinationChange}
+            ${ref(this.forumDestinationPicker)}
+          ></twpt-forum-destination-picker>
         </div>
         <div slot="actions">
           <md-text-button @click=${this.cancel}>Cancel</md-text-button>
@@ -132,29 +98,7 @@ export default class BulkMoveModal extends I18nLitElement {
     `;
   }
 
-  /**
-   * Retrieves a forums array with the maximum amount of information
-   * possible.
-   *
-   * In particular, it combines the data from `this.initialForums` with
-   * the full data found in `this.fullForumInfo`.
-   */
-  private get forums() {
-    const forums = structuredClone(this.preloadedForums);
-    for (const fullForum of this.fullForumInfo.values()) {
-      const existingForumIndex = forums.findIndex(
-        (forum) => forum.id === fullForum.id,
-      );
-      if (existingForumIndex !== -1) {
-        forums[existingForumIndex] = fullForum;
-      } else {
-        forums.push(fullForum);
-      }
-    }
-    return forums;
-  }
-
-  private get isFormComplete() {
+  private get isFormComplete(): boolean {
     return (
       this.forumId !== undefined &&
       this.language !== undefined &&
@@ -190,78 +134,19 @@ export default class BulkMoveModal extends I18nLitElement {
     this.properties = [];
   }
 
+  private onForumDestinationChange() {
+    this.forumId = this.forumDestinationPicker.value?.forumId;
+    this.language = this.forumDestinationPicker.value?.language;
+    this.categoryId = this.forumDestinationPicker.value?.categoryId;
+    this.properties = this.forumDestinationPicker.value?.properties;
+  }
+
   private openingDialog() {
     this.open = true;
   }
 
   private closingDialog() {
     this.open = false;
-  }
-
-  private onForumChanged() {
-    const previousCategoryId = this.categoryId;
-    const previousProperties: Readonly<ThreadProperty[]> = this.properties;
-
-    this.categoryId = undefined;
-    this.properties = [];
-    this.forumId = this.forumSelectRef.value?.forumId;
-    this.language = this.forumSelectRef.value?.language;
-
-    const newLanguageConfiguration = this.getLanguageConfiguration();
-    this.attemptToSetPreviousCategory(
-      previousCategoryId,
-      newLanguageConfiguration,
-    );
-    this.attemptToSetPreviousProperties(
-      previousProperties,
-      newLanguageConfiguration,
-    );
-  }
-
-  private attemptToSetPreviousCategory(
-    previousCategoryId: string,
-    newLanguageConfiguration: LanguageConfiguration,
-  ) {
-    if (
-      (newLanguageConfiguration?.categories ?? []).some(
-        (category) => category.id === previousCategoryId,
-      )
-    ) {
-      this.categoryId = previousCategoryId;
-    }
-  }
-
-  private attemptToSetPreviousProperties(
-    previousProperties: Readonly<ThreadProperty[]>,
-    newLanguageConfiguration: LanguageConfiguration,
-  ) {
-    this.properties = previousProperties.filter((prevProperty) => {
-      return newLanguageConfiguration.details.some(
-        (detail) =>
-          detail.id === prevProperty.key &&
-          detail.options.some((option) => option.id === prevProperty.value),
-      );
-    });
-  }
-
-  private onAdditionalDetailsChanged() {
-    const additionalDetailsSelect = this.additionalDetailsSelectRef.value;
-    this.categoryId = additionalDetailsSelect?.categoryId;
-    this.properties = additionalDetailsSelect?.properties;
-  }
-
-  private getLanguageConfiguration() {
-    const forum = this.forums?.find((forum) => forum.id === this.forumId);
-    return forum?.languageConfigurations.find((configuration) =>
-      configuration.supportedLanguages.includes(this.language),
-    );
-  }
-
-  private onLoadedFullForumInfo(
-    e: GlobalEventHandlersEventMap[typeof EVENT_LOADED_FULL_FORUM_INFO],
-  ) {
-    const forum = e.detail.forum;
-    this.fullForumInfo.set(forum.id, forum);
   }
 }
 
