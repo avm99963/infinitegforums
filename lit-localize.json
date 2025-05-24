@@ -19,12 +19,7 @@
     "vi"
   ],
   "inputFiles": [
-    "src/contentScripts/communityConsole/updateHandler/banner/components/**/*.(js|ts)",
-    "src/features/*/ui/components/**/*.(js|ts)",
-    "src/features/flattenThreads/core/components/**/*.(js|ts)",
-    "src/features/threadToolbar/core/components/**/*.(js|ts)",
-    "src/features/workflows/core/communityConsole/components/**/*.(js|ts)",
-    "src/workflows/manager/components/**/*.(js|ts)"
+    "src/**/components/**/*.(js|ts)"
   ],
   "output": {
     "mode": "runtime",
