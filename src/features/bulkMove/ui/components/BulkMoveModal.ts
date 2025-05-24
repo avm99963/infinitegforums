@@ -6,6 +6,7 @@ import { Forum } from '../../../../domain/forum';
 import { ThreadProperty } from '../../../../domain/threadProperty';
 import { EVENT_START_BULK_MOVE } from './events';
 import { createRef, ref, Ref } from 'lit/directives/ref.js';
+import { msg } from '@lit/localize';
 import ForumDestinationPicker from '../../../../ui/components/forumDestinationPicker/ForumDestinationPicker';
 
 import '../../../../ui/components/forumDestinationPicker/ForumDestinationPicker';
@@ -67,14 +68,18 @@ export default class BulkMoveModal extends I18nLitElement {
   render() {
     return html`
       <md-dialog
-        aria-label="Move threads dialog"
         ?open=${this.open}
         @open=${this.openingDialog}
         @close=${this.closingDialog}
         @keydown=${(e: Event) => e.stopPropagation()}
       >
         <md-icon slot="icon">arrow_right_alt</md-icon>
-        <span slot="headline">Move threads</span>
+        <span slot="headline">
+          ${msg('Move threads', {
+            id: 'bulkMove.dialogsTitle',
+            desc: 'Title of the bulk move threads dialogs.',
+          })}
+        </span>
         <div class="content" slot="content">
           <twpt-forum-destination-picker
             .preloadedForums=${this.preloadedForums}
@@ -89,9 +94,17 @@ export default class BulkMoveModal extends I18nLitElement {
           ></twpt-forum-destination-picker>
         </div>
         <div slot="actions">
-          <md-text-button @click=${this.cancel}>Cancel</md-text-button>
+          <md-text-button @click=${this.cancel}>
+            ${msg('Cancel', {
+              id: 'bulkMove.dialog.cancel',
+              desc: 'Text of the button in the bulk move threads dialog to close and reset the modal.',
+            })}
+          </md-text-button>
           <md-text-button ?disabled=${!this.isFormComplete} @click=${this.move}>
-            Move
+            ${msg('Move', {
+              id: 'bulkMove.dialog.move',
+              desc: 'Text of the button in the bulk move threads dialog which will perform the action.',
+            })}
           </md-text-button>
         </div>
       </md-dialog>

@@ -9,6 +9,7 @@ import { SHARED_MD3_STYLES } from '../../../common/styles/md3';
 import { EVENT_LOADED_FULL_FORUM_INFO } from './events';
 import ForumPicker from './selects/ForumPicker';
 import AdditionalDetailsPicker from './selects/AdditionalDetailsPicker';
+import { msg } from '@lit/localize';
 
 @customElement('twpt-forum-destination-picker')
 export default class ForumDestinationPicker extends I18nLitElement {
@@ -70,7 +71,10 @@ export default class ForumDestinationPicker extends I18nLitElement {
   render() {
     return html`
       <div class="section-title md-typescale-title-medium">
-        Destination forum
+        ${msg('Destination forum', {
+          id: 'components.forumDestinationPicker.destinationForum',
+          desc: 'Title of the section in the forum destination picker which contains the destination forum and language selects.',
+        })}
       </div>
       <twpt-forum-picker
         forumId=${this.forumId}
@@ -84,7 +88,10 @@ export default class ForumDestinationPicker extends I18nLitElement {
         ${ref(this.forumPickerRef)}
       ></twpt-forum-picker>
       <div class="section-title md-typescale-title-medium">
-        Additional details
+        ${msg('Additional details', {
+          id: 'components.forumDestinationPicker.additionalDetails',
+          desc: 'Title of the section in the forum destination picker with the category/details selects.',
+        })}
       </div>
       <twpt-additional-details-picker
         forumId=${this.forumId}

@@ -14,6 +14,7 @@ import '@material/web/select/select-option.js';
 import '@material/web/list/list.js';
 import '@material/web/list/list-item.js';
 import '@material/web/progress/circular-progress.js';
+import { msg } from '@lit/localize';
 
 @customElement('twpt-bulk-move-progress-modal')
 export default class BulkMoveProgressModal extends I18nLitElement {
@@ -49,13 +50,17 @@ export default class BulkMoveProgressModal extends I18nLitElement {
   render() {
     return html`
       <md-dialog
-        aria-label="Move threads progress dialog"
         ?open=${this.open}
         @open=${this.openingDialog}
         @close=${this.closingDialog}
       >
         <md-icon slot="icon">arrow_right_alt</md-icon>
-        <span slot="headline">Move threads</span>
+        <span slot="headline">
+          ${msg('Move threads', {
+            id: 'bulkMove.dialogsTitle',
+            desc: 'Title of the bulk move threads dialogs.',
+          })}
+        </span>
         <div class="content" slot="content">
           <progress
             value=${this.completedProgress}
@@ -74,7 +79,10 @@ export default class BulkMoveProgressModal extends I18nLitElement {
             ?disabled=${!this.isComplete}
             @click=${() => (this.open = false)}
           >
-            Close
+            ${msg('Close', {
+              id: 'bulkMove.progressDialog.close',
+              desc: 'Text of the button in the bulk move threads dialog which closes the dialog.',
+            })}
           </md-text-button>
         </div>
       </md-dialog>
@@ -111,13 +119,24 @@ export default class BulkMoveProgressModal extends I18nLitElement {
     switch (status) {
       case 'waiting':
         return html`
-          <md-icon slot="end" aria-label="Waiting">pending</md-icon>
+          <md-icon
+            slot="end"
+            aria-label=${msg('Waiting', {
+              id: 'bulkMove.progressDialog.status.waiting',
+              desc: 'Status of a thread which is waiting to be moved.',
+            })}
+          >
+            pending
+          </md-icon>
         `;
       case 'loading':
         return html`
           <md-circular-progress
             slot="end"
-            aria-label="Loading"
+            aria-label=${msg('Loading', {
+              id: 'bulkMove.progressDialog.status.loading',
+              desc: 'Status of a thread which is in the process of being moved.',
+            })}
             indeterminate
           ></md-circular-progress>
         `;
@@ -125,7 +144,10 @@ export default class BulkMoveProgressModal extends I18nLitElement {
         return html`
           <md-icon
             slot="end"
-            aria-label="Success"
+            aria-label=${msg('Success', {
+              id: 'bulkMove.progressDialog.status.success',
+              desc: 'Status of a thread which has been moved successfully.',
+            })}
             style=${styleMap({
               color: 'var(--md-extended-color-success-color)',
             })}
@@ -137,7 +159,10 @@ export default class BulkMoveProgressModal extends I18nLitElement {
         return html`
           <md-icon
             slot="end"
-            aria-label="Error"
+            aria-label=${msg('Error', {
+              id: 'bulkMove.progressDialog.status.error',
+              desc: 'Status of a thread which has been attempted to move, but failed.',
+            })}
             style=${styleMap({ color: 'var(--md-sys-color-error)' })}
           >
             error

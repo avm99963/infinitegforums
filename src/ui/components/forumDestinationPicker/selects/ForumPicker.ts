@@ -14,6 +14,7 @@ import { GetForumRepositoryAdapter } from '../../../../features/bulkMove/infrast
 import { GetForumRepositoryPort } from '../../../../features/bulkMove/ui/ports/getForum.repository.port';
 import { createRef, Ref, ref } from 'lit/directives/ref.js';
 import { MdOutlinedSelect } from '@material/web/select/outlined-select.js';
+import { msg } from '@lit/localize';
 
 interface SingleLanguageConfiguration {
   language: string;
@@ -66,7 +67,10 @@ export default class ForumPicker extends I18nLitElement {
 
     return html`
       <md-outlined-select
-        label="Community Forum"
+        label=${msg('Community Forum', {
+          id: 'components.forumPicker.communityForum',
+          desc: 'Label for the forum select in the forum picker.',
+        })}
         required
         clampMenuWidth
         @change=${this.onForumChanged}
@@ -102,7 +106,10 @@ export default class ForumPicker extends I18nLitElement {
       this.forumId,
       html`
         <md-outlined-select
-          label="Language"
+          label=${msg('Language', {
+            id: 'components.forumPicker.language',
+            desc: 'Label for the language select in the forum picker.',
+          })}
           required
           ?disabled=${!isForumSelected}
           clampMenuWidth

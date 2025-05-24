@@ -14,6 +14,7 @@ import '@material/web/select/select-option.js';
 import { keyed } from 'lit/directives/keyed.js';
 import { FORM_STYLES } from './styles';
 import { ThreadProperty } from '../../../../domain/threadProperty';
+import { msg } from '@lit/localize';
 
 @customElement('twpt-additional-details-picker')
 export default class AdditionalDetailsPicker extends I18nLitElement {
@@ -52,7 +53,10 @@ export default class AdditionalDetailsPicker extends I18nLitElement {
       `${this.forumId ?? ''},${this.language ?? ''}`,
       html`
         <md-outlined-select
-          label="Category"
+          label=${msg('Category', {
+            id: 'components.additionalDetailsPicker.category',
+            desc: 'Label for the thread category select in the additional details picker.',
+          })}
           required
           ?disabled=${languageConfiguration === undefined}
           clampMenuWidth
@@ -101,7 +105,12 @@ export default class AdditionalDetailsPicker extends I18nLitElement {
         @change=${(e: Event) => this.onDetailChanged(e, detail.id)}
       >
         <md-select-option value="" ?selected=${currentValue === undefined}>
-          <div slot="headline">Not selected</div>
+          <div slot="headline">
+            ${msg('Not selected', {
+              id: 'components.additionalDetailsPicker.detailNotSelected',
+              desc: 'Default option which lets the user not select any option in a thread detail select, inside the additional details picker.',
+            })}
+          </div>
         </md-select-option>
         ${repeat(
           detail.options,

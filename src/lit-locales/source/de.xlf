@@ -77,6 +77,62 @@
   <source>Mark as abuse</source>
   <note from="lit-localize">Chip shown to report a reply in a thread.</note>
 </trans-unit>
+<trans-unit id="bulkMove.progressDialog.status.error">
+  <source>Error</source>
+  <note from="lit-localize">Status of a thread which has been attempted to move, but failed.</note>
+</trans-unit>
+<trans-unit id="bulkMove.progressDialog.status.success">
+  <source>Success</source>
+  <note from="lit-localize">Status of a thread which has been moved successfully.</note>
+</trans-unit>
+<trans-unit id="bulkMove.progressDialog.status.loading">
+  <source>Loading</source>
+  <note from="lit-localize">Status of a thread which is in the process of being moved.</note>
+</trans-unit>
+<trans-unit id="bulkMove.progressDialog.status.waiting">
+  <source>Waiting</source>
+  <note from="lit-localize">Status of a thread which is waiting to be moved.</note>
+</trans-unit>
+<trans-unit id="bulkMove.dialog.cancel">
+  <source>Cancel</source>
+  <note from="lit-localize">Text of the button in the bulk move threads dialog to close and reset the modal.</note>
+</trans-unit>
+<trans-unit id="bulkMove.progressDialog.close">
+  <source>Close</source>
+  <note from="lit-localize">Text of the button in the bulk move threads dialog which closes the dialog.</note>
+</trans-unit>
+<trans-unit id="bulkMove.dialog.move">
+  <source>Move</source>
+  <note from="lit-localize">Text of the button in the bulk move threads dialog which will perform the action.</note>
+</trans-unit>
+<trans-unit id="bulkMove.dialogsTitle">
+  <source>Move threads</source>
+  <note from="lit-localize">Title of the bulk move threads dialogs.</note>
+</trans-unit>
+<trans-unit id="components.additionalDetailsPicker.detailNotSelected">
+  <source>Not selected</source>
+  <note from="lit-localize">Default option which lets the user not select any option in a thread detail select, inside the additional details picker.</note>
+</trans-unit>
+<trans-unit id="components.forumPicker.communityForum">
+  <source>Community Forum</source>
+  <note from="lit-localize">Label for the forum select in the forum picker.</note>
+</trans-unit>
+<trans-unit id="components.forumPicker.language">
+  <source>Language</source>
+  <note from="lit-localize">Label for the language select in the forum picker.</note>
+</trans-unit>
+<trans-unit id="components.additionalDetailsPicker.category">
+  <source>Category</source>
+  <note from="lit-localize">Label for the thread category select in the additional details picker.</note>
+</trans-unit>
+<trans-unit id="components.forumDestinationPicker.destinationForum">
+  <source>Destination forum</source>
+  <note from="lit-localize">Title of the section in the forum destination picker which contains the destination forum and language selects.</note>
+</trans-unit>
+<trans-unit id="components.forumDestinationPicker.additionalDetails">
+  <source>Additional details</source>
+  <note from="lit-localize">Title of the section in the forum destination picker with the category/details selects.</note>
+</trans-unit>
     </body>
   </file>
 </xliff>
