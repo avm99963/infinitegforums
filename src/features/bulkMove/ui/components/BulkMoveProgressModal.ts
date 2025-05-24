@@ -1,10 +1,11 @@
 import { css, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { repeat } from 'lit/directives/repeat.js';
+import { styleMap } from 'lit/directives/style-map.js';
 import { I18nLitElement } from '../../../../common/litI18nUtils';
 import { SHARED_MD3_STYLES } from '../../../../common/styles/md3';
+import { COMPLETE_STATES, Status, ThreadProgress } from './dataStructures';
 
-import './selects/AdditionalDetailsSelect';
-import './selects/ForumSelect';
 import '@material/web/button/text-button.js';
 import '@material/web/dialog/dialog.js';
 import '@material/web/icon/icon.js';
@@ -13,9 +14,6 @@ import '@material/web/select/select-option.js';
 import '@material/web/list/list.js';
 import '@material/web/list/list-item.js';
 import '@material/web/progress/circular-progress.js';
-import { repeat } from 'lit/directives/repeat.js';
-import { styleMap } from 'lit/directives/style-map.js';
-import { COMPLETE_STATES, Status, ThreadProgress } from './dataStructures';
 
 @customElement('twpt-bulk-move-progress-modal')
 export default class BulkMoveProgressModal extends I18nLitElement {
