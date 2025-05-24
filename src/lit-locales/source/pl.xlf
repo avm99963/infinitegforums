@@ -86,15 +86,15 @@
   <note from="lit-localize">Status of a thread which is waiting to be moved.</note>
 </trans-unit>
 <trans-unit id="bulkMove.dialog.cancel">
-  <source>Cancel</source>
+  <source>Cancel</source><target>Anuluj</target>
   <note from="lit-localize">Text of the button in the bulk move threads dialog to close and reset the modal.</note>
 </trans-unit>
 <trans-unit id="bulkMove.progressDialog.close">
-  <source>Close</source>
+  <source>Close</source><target>Zamknij</target>
   <note from="lit-localize">Text of the button in the bulk move threads dialog which closes the dialog.</note>
 </trans-unit>
 <trans-unit id="bulkMove.dialog.move">
-  <source>Move</source>
+  <source>Move</source><target>Przenieś</target>
   <note from="lit-localize">Text of the button in the bulk move threads dialog which will perform the action.</note>
 </trans-unit>
 <trans-unit id="bulkMove.dialogsTitle">
@@ -106,23 +106,23 @@
   <note from="lit-localize">Default option which lets the user not select any option in a thread detail select, inside the additional details picker.</note>
 </trans-unit>
 <trans-unit id="components.forumPicker.communityForum">
-  <source>Community Forum</source>
+  <source>Community Forum</source><target>Forum społeczności</target>
   <note from="lit-localize">Label for the forum select in the forum picker.</note>
 </trans-unit>
 <trans-unit id="components.forumPicker.language">
-  <source>Language</source>
+  <source>Language</source><target>Język</target>
   <note from="lit-localize">Label for the language select in the forum picker.</note>
 </trans-unit>
 <trans-unit id="components.additionalDetailsPicker.category">
-  <source>Category</source>
+  <source>Category</source><target>Z wybranej kategorii</target>
   <note from="lit-localize">Label for the thread category select in the additional details picker.</note>
 </trans-unit>
 <trans-unit id="components.forumDestinationPicker.destinationForum">
-  <source>Destination forum</source>
+  <source>Destination forum</source><target>Forum docelowe</target>
   <note from="lit-localize">Title of the section in the forum destination picker which contains the destination forum and language selects.</note>
 </trans-unit>
 <trans-unit id="components.forumDestinationPicker.additionalDetails">
-  <source>Additional details</source>
+  <source>Additional details</source><target>Informacje dodatkowe</target>
   <note from="lit-localize">Title of the section in the forum destination picker with the category/details selects.</note>
 </trans-unit>
 </body>

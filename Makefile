@@ -31,6 +31,9 @@ lit_localize_build:
 
 lit_localize_all: lit_localize_extract lit_localize_build
 
+sync_translations:
+	pnpm ts-node tools/syncTranslations/syncTranslations.ts
+
 serve_chromium_mv3: deps
 	$(WEBPACK) --mode development --env browser_target=chromium_mv3 --watch
 
