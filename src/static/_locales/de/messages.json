@@ -120,7 +120,7 @@
         "message": "Verhindern Sie, dass Inline-Bilder in Nachrichten höher als das aktuelle Fenster sind."
     },
     "options_loaddrafts": {
-        "message": "Aktivieren Sie das Community-Konsolen-Flag <code class=\"help\" title=\"Dieses Flag ermöglicht der Community-Konsole, eine zuvor automatisch gespeicherte Antwort zu laden, wenn ein Thread geladen und auf die Schaltfläche \"Antworten\" geklickt wird.\">enableLoadingDraftMessages</code>."
+        "message": "Aktivieren Sie das Community-Konsolen-Flag <code class=\"help\" title=\"Dieses Flag ermöglicht der Community-Konsole, eine zuvor automatisch gespeicherte Antwort zu laden, wenn ein Thread geladen und auf die Schaltfläche &quot;Antworten&quot; geklickt wird.\">enableLoadingDraftMessages</code>."
     },
     "options_profileindicator_moreinfo": {
         "message": "+Infos zu den beiden vorherigen Optionen"
