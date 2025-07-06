@@ -32,7 +32,7 @@ export enum ScriptPage {
  */
 export const ScriptRunPhaseToRunTime: Record<
   ScriptRunPhase,
-  chrome.userScripts.RunAt
+  chrome.extensionTypes.RunAt
 > = {
   [ScriptRunPhase.Start]: 'document_start',
   [ScriptRunPhase.Main]: 'document_idle',
