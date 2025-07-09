@@ -264,7 +264,7 @@ anteriormente.
 ![GIF animado que muestra cómo se usa la función](resources/flatten_threads.gif)
 
 ### Informa respuestas masivamente
-> **Option name:** _Activa poder informar varias respuestas a la vez._
+> **Opción:** _Activa poder informar varias respuestas a la vez._
 
 Esta opción añade un interruptor en la barra de herramientas de los hilos
 (justo debajo del post principal) que, cuando se activa, hace que se muestre
@@ -274,6 +274,16 @@ una interfaz especial que te permite reportar múltiples hilos fácilmente:
 
 También puedes usar el atajo "Alt + R" (equivalentemente, "⌥  + R" para
 usuarios de Mac) para activar/desactivar la interfaz.
+
+### Mover hilos en masa
+
+> **Opción:** _Añade la opción para mover varios hilos desde la lista de
+hilos de la Consola de la Comunidad._
+
+Después de activarla, puedes seleccionar varios hilos en la Consola de la
+Comunidad y moverlos a la vez.
+
+![GIF animado que muestra cómo se usa la función](resources/bulk_move.gif)
 
 ## Punto indicador
 > **Opciones:** _Muestra si el autor del hilo ha participado en otros hilos_,

@@ -274,6 +274,16 @@ easily:
 You can also use the "Alt + R" shortcut (equivalently, "⌥ + R" for Mac users)
 to toggle showing the UI.
 
+### Bulk move
+
+> **Option name:** _Add the option to move multiple threads from the Community
+Console thread list._
+
+After enabling it, you can select multiple threads in the Community Console and
+move them at the same time:
+
+![Animated GIF showing how the feature is used](resources/bulk_move.gif)
+
 ## Indicator dot
 > **Option names:** _Show whether the OP has participated in other threads_,
 _Show the number of questions and replies written by the OP within the last `n`
