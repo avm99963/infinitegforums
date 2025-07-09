@@ -20,7 +20,12 @@
       "matchUpdateTypes": ["minor", "patch", "pin"],
       "automerge": true,
       "automergeType": "pr",
-      "autoApprove": true,
+      "autoApprove": true
+    },
+    {
+      "description": "Only update @types/chrome and @types/node on weekends",
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["@types/chrome", "@types/node"],
       "schedule": ["every weekend"]
     }
   ]
