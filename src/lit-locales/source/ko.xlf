@@ -86,197 +86,256 @@
         <target state="translated">악용 신고</target>
         <note from="lit-localize">Chip shown to report a reply in a thread.</note>
       </trans-unit>
-<trans-unit id="bulkMove.progressDialog.status.error">
-  <source>Error</source>
-  <note from="lit-localize">Status of a thread which has been attempted to move, but failed.</note>
-</trans-unit>
-<trans-unit id="bulkMove.progressDialog.status.success">
-  <source>Success</source>
-  <note from="lit-localize">Status of a thread which has been moved successfully.</note>
-</trans-unit>
-<trans-unit id="bulkMove.progressDialog.status.loading">
-  <source>Loading</source>
-  <note from="lit-localize">Status of a thread which is in the process of being moved.</note>
-</trans-unit>
-<trans-unit id="bulkMove.progressDialog.status.waiting">
-  <source>Waiting</source>
-  <note from="lit-localize">Status of a thread which is waiting to be moved.</note>
-</trans-unit>
-<trans-unit id="bulkMove.dialog.cancel">
-  <source>Cancel</source><target>취소</target>
-  <note from="lit-localize">Text of the button in the bulk move threads dialog to close and reset the modal.</note>
-</trans-unit>
-<trans-unit id="bulkMove.progressDialog.close">
-  <source>Close</source><target>닫기</target>
-  <note from="lit-localize">Text of the button in the bulk move threads dialog which closes the dialog.</note>
-</trans-unit>
-<trans-unit id="bulkMove.dialog.move">
-  <source>Move</source><target>이동</target>
-  <note from="lit-localize">Text of the button in the bulk move threads dialog which will perform the action.</note>
-</trans-unit>
-<trans-unit id="bulkMove.dialogsTitle">
-  <source>Move threads</source>
-  <note from="lit-localize">Title of the bulk move threads dialogs.</note>
-</trans-unit>
-<trans-unit id="components.additionalDetailsPicker.detailNotSelected">
-  <source>Not selected</source>
-  <note from="lit-localize">Default option which lets the user not select any option in a thread detail select, inside the additional details picker.</note>
-</trans-unit>
-<trans-unit id="components.forumPicker.communityForum">
-  <source>Community Forum</source><target>커뮤니티의 포럼</target>
-  <note from="lit-localize">Label for the forum select in the forum picker.</note>
-</trans-unit>
-<trans-unit id="components.forumPicker.language">
-  <source>Language</source><target>언어</target>
-  <note from="lit-localize">Label for the language select in the forum picker.</note>
-</trans-unit>
-<trans-unit id="components.additionalDetailsPicker.category">
-  <source>Category</source><target>카테고리</target>
-  <note from="lit-localize">Label for the thread category select in the additional details picker.</note>
-</trans-unit>
-<trans-unit id="components.forumDestinationPicker.destinationForum">
-  <source>Destination forum</source><target>대상 포럼</target>
-  <note from="lit-localize">Title of the section in the forum destination picker which contains the destination forum and language selects.</note>
-</trans-unit>
-<trans-unit id="components.forumDestinationPicker.additionalDetails">
-  <source>Additional details</source><target>추가 정보</target>
-  <note from="lit-localize">Title of the section in the forum destination picker with the category/details selects.</note>
-</trans-unit>
-<trans-unit id="languages.ar">
-  <source>Arabic</source><target>아랍어</target>
-</trans-unit>
-<trans-unit id="languages.bg">
-  <source>Bulgarian</source><target>불가리아어</target>
-</trans-unit>
-<trans-unit id="languages.ca">
-  <source>Catalan</source><target>카탈로니아어</target>
-</trans-unit>
-<trans-unit id="languages.cs">
-  <source>Czech</source><target>체코어</target>
-</trans-unit>
-<trans-unit id="languages.da">
-  <source>Danish</source><target>덴마크어</target>
-</trans-unit>
-<trans-unit id="languages.de">
-  <source>German</source><target>독일어</target>
-</trans-unit>
-<trans-unit id="languages.el">
-  <source>Greek</source><target>그리스어</target>
-</trans-unit>
-<trans-unit id="languages.en">
-  <source>English</source><target>영어</target>
-</trans-unit>
-<trans-unit id="languages.en-AU">
-  <source>English (Australia)</source><target>영어(오스트레일리아)</target>
-</trans-unit>
-<trans-unit id="languages.en-GB">
-  <source>English (UK)</source><target>영어(영국)</target>
-</trans-unit>
-<trans-unit id="languages.es">
-  <source>Spanish</source><target>스페인어</target>
-</trans-unit>
-<trans-unit id="languages.es-419">
-  <source>Spanish (Latin America)</source><target>스페인어(라틴 아메리카)</target>
-</trans-unit>
-<trans-unit id="languages.et">
-  <source>Estonian</source><target>에스토니아어</target>
-</trans-unit>
-<trans-unit id="languages.fi">
-  <source>Finnish</source><target>핀란드어</target>
-</trans-unit>
-<trans-unit id="languages.fil">
-  <source>Filipino</source><target>필리핀어</target>
-</trans-unit>
-<trans-unit id="languages.fr">
-  <source>French</source><target>프랑스어</target>
-</trans-unit>
-<trans-unit id="languages.hi">
-  <source>Hindi</source><target>힌디어</target>
-</trans-unit>
-<trans-unit id="languages.hr">
-  <source>Croatian</source><target>크로아티아어</target>
-</trans-unit>
-<trans-unit id="languages.hu">
-  <source>Hungarian</source><target>헝가리어</target>
-</trans-unit>
-<trans-unit id="languages.id">
-  <source>Indonesian</source><target>인도네시아어</target>
-</trans-unit>
-<trans-unit id="languages.it">
-  <source>Italian</source><target>이탈리아어</target>
-</trans-unit>
-<trans-unit id="languages.iw">
-  <source>Hebrew</source><target>히브리어</target>
-</trans-unit>
-<trans-unit id="languages.ja">
-  <source>Japanese</source><target>일본어</target>
-</trans-unit>
-<trans-unit id="languages.ko">
-  <source>Korean</source><target>한국어</target>
-</trans-unit>
-<trans-unit id="languages.lt">
-  <source>Lithuanian</source><target>리투아니아어</target>
-</trans-unit>
-<trans-unit id="languages.lv">
-  <source>Latvian</source><target>라트비아어</target>
-</trans-unit>
-<trans-unit id="languages.ms">
-  <source>Malay</source><target>말레이어</target>
-</trans-unit>
-<trans-unit id="languages.nl">
-  <source>Dutch</source><target>네덜란드어</target>
-</trans-unit>
-<trans-unit id="languages.no">
-  <source>Norwegian (Bokmal)</source><target>노르웨이어(복말)</target>
-</trans-unit>
-<trans-unit id="languages.pl">
-  <source>Polish</source><target>폴란드어</target>
-</trans-unit>
-<trans-unit id="languages.pt-BR">
-  <source>Portuguese (Brazil)</source><target>포르투갈어(브라질)</target>
-</trans-unit>
-<trans-unit id="languages.pt-PT">
-  <source>Portuguese (Portugal)</source><target>포르투갈어(포르투갈)</target>
-</trans-unit>
-<trans-unit id="languages.ro">
-  <source>Romanian</source><target>루마니아어</target>
-</trans-unit>
-<trans-unit id="languages.ru">
-  <source>Russian</source><target>러시아어</target>
-</trans-unit>
-<trans-unit id="languages.sk">
-  <source>Slovak</source><target>슬로바키아어</target>
-</trans-unit>
-<trans-unit id="languages.sl">
-  <source>Slovenian</source><target>슬로베니아어</target>
-</trans-unit>
-<trans-unit id="languages.sr">
-  <source>Serbian</source><target>세르비아어</target>
-</trans-unit>
-<trans-unit id="languages.sv">
-  <source>Swedish</source><target>스웨덴어</target>
-</trans-unit>
-<trans-unit id="languages.th">
-  <source>Thai</source><target>태국어</target>
-</trans-unit>
-<trans-unit id="languages.tr">
-  <source>Turkish</source><target>터키어</target>
-</trans-unit>
-<trans-unit id="languages.uk">
-  <source>Ukrainian</source><target>우크라이나어</target>
-</trans-unit>
-<trans-unit id="languages.vi">
-  <source>Vietnamese</source><target>베트남어</target>
-</trans-unit>
-<trans-unit id="languages.zh-CN">
-  <source>Chinese (Simplified)</source><target>중국어(간체)</target>
-</trans-unit>
-<trans-unit id="languages.zh-HK">
-  <source>Chinese (Hong Kong)</source><target>중국어(홍콩)</target>
-</trans-unit>
-<trans-unit id="languages.zh-TW">
-  <source>Chinese (Traditional)</source><target>중국어(번체)</target>
-</trans-unit>
+      <trans-unit id="bulkMove.progressDialog.status.error" xml:space="preserve">
+        <source>Error</source>
+        <target state="translated">오류</target>
+        <note from="lit-localize">Status of a thread which has been attempted to move, but failed.</note>
+      </trans-unit>
+      <trans-unit id="bulkMove.progressDialog.status.success" xml:space="preserve">
+        <source>Success</source>
+        <target state="translated">성공</target>
+        <note from="lit-localize">Status of a thread which has been moved successfully.</note>
+      </trans-unit>
+      <trans-unit id="bulkMove.progressDialog.status.loading" xml:space="preserve">
+        <source>Loading</source>
+        <target state="translated">이동 처리 중</target>
+        <note from="lit-localize">Status of a thread which is in the process of being moved.</note>
+      </trans-unit>
+      <trans-unit id="bulkMove.progressDialog.status.waiting" xml:space="preserve">
+        <source>Waiting</source>
+        <target state="translated">대기 중</target>
+        <note from="lit-localize">Status of a thread which is waiting to be moved.</note>
+      </trans-unit>
+      <trans-unit id="bulkMove.dialog.cancel">
+        <source>Cancel</source>
+        <target>취소</target>
+        <note from="lit-localize">Text of the button in the bulk move threads dialog to close and reset the modal.</note>
+      </trans-unit>
+      <trans-unit id="bulkMove.progressDialog.close">
+        <source>Close</source>
+        <target>닫기</target>
+        <note from="lit-localize">Text of the button in the bulk move threads dialog which closes the dialog.</note>
+      </trans-unit>
+      <trans-unit id="bulkMove.dialog.move">
+        <source>Move</source>
+        <target>이동</target>
+        <note from="lit-localize">Text of the button in the bulk move threads dialog which will perform the action.</note>
+      </trans-unit>
+      <trans-unit id="bulkMove.dialogsTitle" xml:space="preserve">
+        <source>Move threads</source>
+        <target state="translated">게시글 이동</target>
+        <note from="lit-localize">Title of the bulk move threads dialogs.</note>
+      </trans-unit>
+      <trans-unit id="components.additionalDetailsPicker.detailNotSelected" xml:space="preserve">
+        <source>Not selected</source>
+        <target state="translated">선택되지 않음</target>
+        <note from="lit-localize">Default option which lets the user not select any option in a thread detail select, inside the additional details picker.</note>
+      </trans-unit>
+      <trans-unit id="components.forumPicker.communityForum" xml:space="preserve">
+        <source>Community Forum</source>
+        <target state="translated">커뮤니티 포럼</target>
+        <note from="lit-localize">Label for the forum select in the forum picker.</note>
+      </trans-unit>
+      <trans-unit id="components.forumPicker.language">
+        <source>Language</source>
+        <target>언어</target>
+        <note from="lit-localize">Label for the language select in the forum picker.</note>
+      </trans-unit>
+      <trans-unit id="components.additionalDetailsPicker.category">
+        <source>Category</source>
+        <target>카테고리</target>
+        <note from="lit-localize">Label for the thread category select in the additional details picker.</note>
+      </trans-unit>
+      <trans-unit id="components.forumDestinationPicker.destinationForum">
+        <source>Destination forum</source>
+        <target>대상 포럼</target>
+        <note from="lit-localize">Title of the section in the forum destination picker which contains the destination forum and language selects.</note>
+      </trans-unit>
+      <trans-unit id="components.forumDestinationPicker.additionalDetails">
+        <source>Additional details</source>
+        <target>추가 정보</target>
+        <note from="lit-localize">Title of the section in the forum destination picker with the category/details selects.</note>
+      </trans-unit>
+      <trans-unit id="languages.ar">
+        <source>Arabic</source>
+        <target>아랍어</target>
+      </trans-unit>
+      <trans-unit id="languages.bg">
+        <source>Bulgarian</source>
+        <target>불가리아어</target>
+      </trans-unit>
+      <trans-unit id="languages.ca">
+        <source>Catalan</source>
+        <target>카탈로니아어</target>
+      </trans-unit>
+      <trans-unit id="languages.cs">
+        <source>Czech</source>
+        <target>체코어</target>
+      </trans-unit>
+      <trans-unit id="languages.da">
+        <source>Danish</source>
+        <target>덴마크어</target>
+      </trans-unit>
+      <trans-unit id="languages.de">
+        <source>German</source>
+        <target>독일어</target>
+      </trans-unit>
+      <trans-unit id="languages.el">
+        <source>Greek</source>
+        <target>그리스어</target>
+      </trans-unit>
+      <trans-unit id="languages.en">
+        <source>English</source>
+        <target>영어</target>
+      </trans-unit>
+      <trans-unit id="languages.en-AU">
+        <source>English (Australia)</source>
+        <target>영어(오스트레일리아)</target>
+      </trans-unit>
+      <trans-unit id="languages.en-GB">
+        <source>English (UK)</source>
+        <target>영어(영국)</target>
+      </trans-unit>
+      <trans-unit id="languages.es">
+        <source>Spanish</source>
+        <target>스페인어</target>
+      </trans-unit>
+      <trans-unit id="languages.es-419">
+        <source>Spanish (Latin America)</source>
+        <target>스페인어(라틴 아메리카)</target>
+      </trans-unit>
+      <trans-unit id="languages.et">
+        <source>Estonian</source>
+        <target>에스토니아어</target>
+      </trans-unit>
+      <trans-unit id="languages.fi">
+        <source>Finnish</source>
+        <target>핀란드어</target>
+      </trans-unit>
+      <trans-unit id="languages.fil">
+        <source>Filipino</source>
+        <target>필리핀어</target>
+      </trans-unit>
+      <trans-unit id="languages.fr">
+        <source>French</source>
+        <target>프랑스어</target>
+      </trans-unit>
+      <trans-unit id="languages.hi">
+        <source>Hindi</source>
+        <target>힌디어</target>
+      </trans-unit>
+      <trans-unit id="languages.hr">
+        <source>Croatian</source>
+        <target>크로아티아어</target>
+      </trans-unit>
+      <trans-unit id="languages.hu">
+        <source>Hungarian</source>
+        <target>헝가리어</target>
+      </trans-unit>
+      <trans-unit id="languages.id">
+        <source>Indonesian</source>
+        <target>인도네시아어</target>
+      </trans-unit>
+      <trans-unit id="languages.it">
+        <source>Italian</source>
+        <target>이탈리아어</target>
+      </trans-unit>
+      <trans-unit id="languages.iw">
+        <source>Hebrew</source>
+        <target>히브리어</target>
+      </trans-unit>
+      <trans-unit id="languages.ja">
+        <source>Japanese</source>
+        <target>일본어</target>
+      </trans-unit>
+      <trans-unit id="languages.ko">
+        <source>Korean</source>
+        <target>한국어</target>
+      </trans-unit>
+      <trans-unit id="languages.lt">
+        <source>Lithuanian</source>
+        <target>리투아니아어</target>
+      </trans-unit>
+      <trans-unit id="languages.lv">
+        <source>Latvian</source>
+        <target>라트비아어</target>
+      </trans-unit>
+      <trans-unit id="languages.ms">
+        <source>Malay</source>
+        <target>말레이어</target>
+      </trans-unit>
+      <trans-unit id="languages.nl">
+        <source>Dutch</source>
+        <target>네덜란드어</target>
+      </trans-unit>
+      <trans-unit id="languages.no">
+        <source>Norwegian (Bokmal)</source>
+        <target>노르웨이어(복말)</target>
+      </trans-unit>
+      <trans-unit id="languages.pl">
+        <source>Polish</source>
+        <target>폴란드어</target>
+      </trans-unit>
+      <trans-unit id="languages.pt-BR">
+        <source>Portuguese (Brazil)</source>
+        <target>포르투갈어(브라질)</target>
+      </trans-unit>
+      <trans-unit id="languages.pt-PT">
+        <source>Portuguese (Portugal)</source>
+        <target>포르투갈어(포르투갈)</target>
+      </trans-unit>
+      <trans-unit id="languages.ro">
+        <source>Romanian</source>
+        <target>루마니아어</target>
+      </trans-unit>
+      <trans-unit id="languages.ru">
+        <source>Russian</source>
+        <target>러시아어</target>
+      </trans-unit>
+      <trans-unit id="languages.sk">
+        <source>Slovak</source>
+        <target>슬로바키아어</target>
+      </trans-unit>
+      <trans-unit id="languages.sl">
+        <source>Slovenian</source>
+        <target>슬로베니아어</target>
+      </trans-unit>
+      <trans-unit id="languages.sr">
+        <source>Serbian</source>
+        <target>세르비아어</target>
+      </trans-unit>
+      <trans-unit id="languages.sv">
+        <source>Swedish</source>
+        <target>스웨덴어</target>
+      </trans-unit>
+      <trans-unit id="languages.th">
+        <source>Thai</source>
+        <target>태국어</target>
+      </trans-unit>
+      <trans-unit id="languages.tr">
+        <source>Turkish</source>
+        <target>터키어</target>
+      </trans-unit>
+      <trans-unit id="languages.uk">
+        <source>Ukrainian</source>
+        <target>우크라이나어</target>
+      </trans-unit>
+      <trans-unit id="languages.vi">
+        <source>Vietnamese</source>
+        <target>베트남어</target>
+      </trans-unit>
+      <trans-unit id="languages.zh-CN">
+        <source>Chinese (Simplified)</source>
+        <target>중국어(간체)</target>
+      </trans-unit>
+      <trans-unit id="languages.zh-HK">
+        <source>Chinese (Hong Kong)</source>
+        <target>중국어(홍콩)</target>
+      </trans-unit>
+      <trans-unit id="languages.zh-TW">
+        <source>Chinese (Traditional)</source>
+        <target>중국어(번체)</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
