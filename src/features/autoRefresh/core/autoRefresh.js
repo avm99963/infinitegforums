@@ -4,7 +4,6 @@ import {CCApi} from '../../../common/api.js';
 import {getAuthUser} from '../../../common/communityConsoleUtils.js';
 import {isOptionEnabled} from '../../../common/options/optionsUtils.js';
 import {createPlainTooltip} from '../../../common/tooltip.js';
-
 import {createExtBadge, softRefreshView} from '../../../contentScripts/communityConsole/utils/common.js';
 
 var authuser = getAuthUser();
@@ -173,7 +172,8 @@ export default class AutoRefresh {
 
   injectStatusIndicator(isSetUp) {
     let badgeTooltip, statusTooltip;
-    [this.statusIndicator, badgeTooltip, statusTooltip] = this.createStatusIndicator(isSetUp);
+    [this.statusIndicator, badgeTooltip, statusTooltip] =
+        this.createStatusIndicator(isSetUp);
 
     var sortOptionsDiv = document.querySelector('ec-thread-list .sort-options');
     if (sortOptionsDiv) {
@@ -193,7 +193,7 @@ export default class AutoRefresh {
     }
 
     if (!this.lastTimestamp) {
-      console.error('autorefresh_list: this.lastTimestamp is not set.');
+      console.warn('autorefresh_list: this.lastTimestamp is not set (this is normal if the current thread list doesn\'t have any threads).');
       this.unregister();
       return;
     }
@@ -258,13 +258,15 @@ export default class AutoRefresh {
         'autorefresh_list: handling corresponding ViewForum response');
 
     this.lastTimestamp = e.detail.body?.['1']?.['2']?.[0]?.['2']?.['17'];
-    if (this.lastTimestamp === undefined)
-      console.error(
-          'autorefresh_list: Unexpected body of response (' +
-          (e.detail.body?.['1']?.['2']?.[0] === undefined ?
-               'no threads were returned' :
-               'the timestamp value is not present in the first thread') +
-          ').');
+    if (this.lastTimestamp === undefined) {
+      if (e.detail.body?.['1']?.['2']?.[0] === undefined) {
+        console.debug(
+            'autorefresh_list: The intercepted loaded list doesn\'t contain any thread.');
+      } else {
+        console.error(
+            'autorefresh_list: Unexpected body of intercepted response (the timestamp value is not present in the first thread).');
+      }
+    }
   }
 
   // This is called when a thread list node is detected in the page. This
