@@ -79,6 +79,10 @@ import { BulkMoveThreadsRepositoryAdapter } from '../../../features/bulkMove/inf
 import { ViewSoftRefresherServiceAdapter } from '../../../infrastructure/ui/services/communityConsole/viewSoftRefresher.service.adapter';
 import CCForceHideDrawerScript from '../../../features/ccForceHideDrawer/presentation/hideDrawer.script';
 
+// #!if browser_target == 'chromium_mv3'
+import CCDragAndDropFixTextEditorHandler from '../../../features/ccDragAndDropFix/presentation/nodeWatcherHandlers/fixTextEditor.handler';
+// #!endif
+
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
 
@@ -170,6 +174,12 @@ function createScriptRunner() {
               'ccDarkThemeUnifiedProfilesIframe',
               new CCDarkThemeUnifiedProfilesIframeHandler(optionsProvider),
             ],
+            // #!if browser_target == 'chromium_mv3'
+            [
+              'ccDragAndDropFixTextEditor',
+              new CCDragAndDropFixTextEditorHandler(optionsProvider),
+            ],
+            // #!endif
             [
               'ccExtraInfoProfile',
               new CCExtraInfoProfileAbuseChipsHandler(extraInfo),

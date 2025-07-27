@@ -4,19 +4,12 @@ import XHRProxyKillSwitchHandler from '../../xhrInterceptor/killSwitchHandler.js
 import {injectPreviousPostsLinksUnifiedProfileIfEnabled} from '../utilsCommon/unifiedProfiles.js';
 
 import AvatarsHandler from './avatars.js';
-// #!if browser_target == 'chromium_mv3'
-import {applyDragAndDropFixIfEnabled} from './dragAndDropFix.js';
-// #!endif
 
 var mutationObserver, options, avatars;
 
 const watchedNodesSelectors = [
   // Username span/editor inside ec-unified-user (user profile view)
   'ec-unified-user .scTailwindUser_profileUsercarddetails',
-
-  // Rich text editor
-  'ec-movable-dialog',
-  'ec-rich-text-editor',
 
   // Thread list items (used to inject the avatars)
   'li',
@@ -31,22 +24,6 @@ function handleCandidateNode(node) {
       injectPreviousPostsLinksUnifiedProfileIfEnabled(
           /* isCommunityConsole = */ true);
     }
-
-    // #!if browser_target == 'chromium_mv3'
-    // Fix the drag&drop issue with the rich text editor if the option is
-    // currently enabled.
-    //
-    //   We target both tags because in different contexts different
-    //   elements containing the text editor get added to the DOM structure.
-    //   Sometimes it's a EC-MOVABLE-DIALOG which already contains the
-    //   EC-RICH-TEXT-EDITOR, and sometimes it's the EC-RICH-TEXT-EDITOR
-    //   directly.
-    if (('tagName' in node) &&
-        (node.tagName == 'EC-MOVABLE-DIALOG' ||
-         node.tagName == 'EC-RICH-TEXT-EDITOR')) {
-      applyDragAndDropFixIfEnabled(node);
-    }
-    // #!endif
 
     // Inject avatar links to threads in the thread list. injectIfEnabled is
     // responsible of determining whether it should run or not depending on its
