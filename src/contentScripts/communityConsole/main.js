@@ -103,13 +103,6 @@ getOptions(null).then(items => {
   mutationObserver = new MutationObserver(mutationCallback);
   mutationObserver.observe(document.body, observerOptions);
 
-  if (options.ccforcehidedrawer) {
-    var drawer = document.querySelector('material-drawer');
-    if (drawer !== null && drawer.classList.contains('mat-drawer-expanded')) {
-      document.querySelector('.material-drawer-button').click();
-    }
-  }
-
   // Thread list avatars
   injectStylesheet(chrome.runtime.getURL('css/thread_list_avatars.css'));
   // Thread toolbar
