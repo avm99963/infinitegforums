@@ -1,6 +1,3 @@
-// Run legacy Javascript entry point
-import '../../../contentScripts/communityConsole/main';
-
 import DependenciesProviderSingleton, {
   AutoRefreshDependency,
   ExtraInfoDependency,
@@ -86,6 +83,7 @@ import PreviousPostsInjectHandler from '../../../features/previousPosts/presenta
 import AvatarsInjectHandler from '../../../features/avatars/presentation/nodeWatcherHandlers/inject.script';
 import AvatarsStylesScript from '../../../features/avatars/presentation/scripts/styles.script';
 import AvatarsHandler from '../../../features/avatars/core/avatars';
+import XHRInterceptorSetUpKillSwitchHandler from '../../../presentation/standaloneScripts/xhrInterceptor/setUpKillSwitchHandler.script';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -296,6 +294,7 @@ function createScriptRunner() {
         // Standalone scripts
         new ApplyStartupDataModificationsOnMainScript(startupDataStorage),
         new InjectLitComponentsScript(),
+        new XHRInterceptorSetUpKillSwitchHandler(),
       ],
       new ScriptSorterAdapter(),
     ).getScripts(),

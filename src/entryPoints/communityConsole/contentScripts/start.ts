@@ -19,7 +19,6 @@ import CCExtraInfoSetUpScript from '../../../features/extraInfo/presentation/scr
 import MWI18nServerScript from '../../../presentation/standaloneScripts/mainWorldServers/MWI18nServerScript.script';
 import MWOptionsWatcherServerScript from '../../../presentation/standaloneScripts/mainWorldServers/MWOptionsWatcherServerScript.script';
 import ApplyStartupDataModificationsOnStartScript from '../../../presentation/standaloneScripts/startupDataStorage/applyStartupDataModificationsOnStart.script';
-import XHRInterceptorScript from '../../../presentation/standaloneScripts/xhrInterceptor/xhrInterceptor.script';
 import ThreadPageDesignWarningSetUpScript from '../../../features/threadPageDesignWarning/presentation/scripts/setUp.script';
 import FlattenThreadsSetUpReplyActionHandlerScript from '../../../features/flattenThreads/presentation/scripts/setUpReplyActionHandler.script';
 import FlattenThreadsReplyActionHandler from '../../../features/flattenThreads/core/replyActionHandler';
