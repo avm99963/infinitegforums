@@ -1,4 +1,4 @@
-import {injectScript, injectStylesheet} from '../../common/contentScriptsUtils';
+import {injectStylesheet} from '../../common/contentScriptsUtils';
 import {getOptions} from '../../common/options/optionsUtils.js';
 import XHRProxyKillSwitchHandler from '../../xhrInterceptor/killSwitchHandler.js';
 import {injectPreviousPostsLinksUnifiedProfileIfEnabled} from '../utilsCommon/unifiedProfiles.js';
@@ -11,17 +11,6 @@ import {applyDragAndDropFixIfEnabled} from './dragAndDropFix.js';
 var mutationObserver, options, avatars;
 
 const watchedNodesSelectors = [
-  // Scrollable content (used for the intersection observer)
-  '.scrollable-content',
-
-  // Load more bar and buttons
-  '.load-more-bar',
-  '.scTailwindThreadMorebuttonbutton',
-  '.scTailwindThreadMessagegapbutton',
-
-  // User profile card inside ec-unified-user
-  'ec-unified-user .scTailwindUser_profileUsercardmain',
-
   // Username span/editor inside ec-unified-user (user profile view)
   'ec-unified-user .scTailwindUser_profileUsercarddetails',
 
@@ -31,9 +20,6 @@ const watchedNodesSelectors = [
 
   // Thread list items (used to inject the avatars)
   'li',
-
-  // Thread list (used for the autorefresh feature)
-  'ec-thread-list',
 ];
 
 function handleCandidateNode(node) {
