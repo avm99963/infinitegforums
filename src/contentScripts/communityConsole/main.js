@@ -1,15 +1,12 @@
 import {injectStylesheet} from '../../common/contentScriptsUtils';
 import {getOptions} from '../../common/options/optionsUtils.js';
 import XHRProxyKillSwitchHandler from '../../xhrInterceptor/killSwitchHandler.js';
-import {injectPreviousPostsLinksUnifiedProfileIfEnabled} from '../utilsCommon/unifiedProfiles.js';
 
 import AvatarsHandler from './avatars.js';
 
 var mutationObserver, options, avatars;
 
 const watchedNodesSelectors = [
-  // Username span/editor inside ec-unified-user (user profile view)
-  'ec-unified-user .scTailwindUser_profileUsercarddetails',
 
   // Thread list items (used to inject the avatars)
   'li',
@@ -17,14 +14,6 @@ const watchedNodesSelectors = [
 
 function handleCandidateNode(node) {
   if (typeof node.classList !== 'undefined') {
-    // Show the "previous posts" links if the option is currently enabled.
-    //   Here we're selecting the 'ec-user > div' element (unique child)
-    if (node.matches(
-            'ec-unified-user .scTailwindUser_profileUsercarddetails')) {
-      injectPreviousPostsLinksUnifiedProfileIfEnabled(
-          /* isCommunityConsole = */ true);
-    }
-
     // Inject avatar links to threads in the thread list. injectIfEnabled is
     // responsible of determining whether it should run or not depending on its
     // current setting.

@@ -82,6 +82,7 @@ import CCForceHideDrawerScript from '../../../features/ccForceHideDrawer/present
 import CCDragAndDropFixTextEditorHandler from '../../../features/ccDragAndDropFix/presentation/nodeWatcherHandlers/fixTextEditor.handler';
 // #!endif
 import ThreadToolbarStylesScript from '../../../features/threadToolbar/presentation/nodeWatcherHandlers/styles.handler';
+import PreviousPostsInjectHandler from '../../../features/previousPosts/presentation/handlers/inject.handler';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -235,6 +236,10 @@ function createScriptRunner() {
             [
               'flattenThreadsReplyBtn',
               new FlattenThreadsReplyBtnHandler(flattenThreads),
+            ],
+            [
+              'previousPostsInject',
+              new PreviousPostsInjectHandler(optionsProvider),
             ],
             [
               'threadPageDesignWarningInject',
