@@ -223,14 +223,14 @@ export default class AutoRefresh {
     // If the request was made before the last known one, return.
     if (this.requestId !== null && e.detail.id < this.requestId) return;
 
-    // Ignore ViewForum requests made by the chat feature and the "Mark as
-    // duplicate" dialog.
+    // Ignore ViewForum requests made by the chat feature, the "Mark as
+    // duplicate" dialog, and the counters in the drawer next to some filters.
     //
-    // All those requests have |maxNum| set to 10 and 20 respectively, while the
-    // request that we want to handle is the initial request to load the thread
-    // list which currently requests 100 threads.
+    // All those requests have |maxNum| set to 10, 20 and 1000 respectively,
+    // while the request that we want to handle is the initial request to load
+    // the thread list which currently requests 100 threads.
     var maxNum = e.detail.body?.['2']?.['1']?.['2'];
-    if (maxNum == 10 || maxNum == 20) return;
+    if (maxNum == 10 || maxNum == 20 || maxNum == 1000) return;
 
     // Ignore requests to load more threads in the current thread list. All
     // those requests include a PaginationToken, and also have |maxNum| set

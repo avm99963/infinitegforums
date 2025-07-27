@@ -29,15 +29,15 @@ export default class ThreadListInfoHandler extends BaseInfoHandler {
   }
 
   onThreadRequest(e) {
-    // Ignore ViewForum requests made by the chat feature and the "Mark as
-    // duplicate" dialog.
+    // Ignore ViewForum requests made by the chat feature, the "Mark as
+    // duplicate" dialog, and the counters in the drawer next to some filters.
     //
-    // All those requests have |maxNum| set to 10 and 20 respectively, while
-    // the requests that we want to handle are the ones to initially load the
-    // thread list (which currently requests 100 threads) and the ones to load
-    // more threads (which request 50 threads).
+    // All those requests have |maxNum| set to 10, 20 and 1000 respectively,
+    // while the requests that we want to handle are the ones to initially
+    // load the thread list (which currently requests 100 threads) and the
+    // ones to load more threads (which request 50 threads).
     const maxNum = e.detail.body?.['2']?.['1']?.['2'];
-    if (maxNum == 10 || maxNum == 20) return;
+    if (maxNum == 10 || maxNum == 20 || maxNum == 1000) return;
 
     this.requestId = e.detail.id;
     this.isFirstBatch =
