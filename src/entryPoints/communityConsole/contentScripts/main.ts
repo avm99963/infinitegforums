@@ -83,6 +83,9 @@ import CCDragAndDropFixTextEditorHandler from '../../../features/ccDragAndDropFi
 // #!endif
 import ThreadToolbarStylesScript from '../../../features/threadToolbar/presentation/nodeWatcherHandlers/styles.handler';
 import PreviousPostsInjectHandler from '../../../features/previousPosts/presentation/handlers/inject.handler';
+import AvatarsInjectHandler from '../../../features/avatars/presentation/nodeWatcherHandlers/inject.script';
+import AvatarsStylesScript from '../../../features/avatars/presentation/scripts/styles.script';
+import AvatarsHandler from '../../../features/avatars/core/avatars';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -110,6 +113,7 @@ function createScriptRunner() {
     );
   const optionsModifier = new OptionsModifierAdapter();
 
+  const avatarsHandler = new AvatarsHandler();
   const ccInfiniteScroll = new CCInfiniteScroll();
   const flattenThreads = new FlattenThreads();
 
@@ -128,6 +132,7 @@ function createScriptRunner() {
               'autoRefreshThreadListHide',
               new AutoRefreshThreadListHideHandler(autoRefresh),
             ],
+            ['avatarsInject', new AvatarsInjectHandler(avatarsHandler)],
             [
               'batchLockBulkActions',
               new BatchLockBulkActionsHandler(
@@ -264,6 +269,7 @@ function createScriptRunner() {
 
         // Individual feature scripts
         new AutoRefreshStylesScript(),
+        new AvatarsStylesScript(),
         new BatchLockInjectScript(),
         new BatchLockStylesScript(),
         new BulkReportRepliesHandleBodyClassScript(

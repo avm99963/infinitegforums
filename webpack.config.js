@@ -72,6 +72,10 @@ module.exports = (env, args) => {
   // web_accessible_resources in //templates/manifest.gjson.
   const styles = [
     {
+      origin: './src/features/avatars/ui/styles.css',
+      destination: 'css/thread_list_avatars.css',
+    },
+    {
       origin: './src/features/batchLock/ui/styles.css',
       destination: 'css/batchlock_inject.css',
     },

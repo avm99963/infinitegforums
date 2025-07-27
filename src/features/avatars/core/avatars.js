@@ -1,11 +1,11 @@
 import {waitFor} from 'poll-until-promise';
 
-import {CCApi} from '../../common/api.js';
-import {parseUrl} from '../../common/commonUtils.js';
-import PartialOptionsWatcher from '../../common/options/partialOptionsWatcher.js';
-import {createPlainTooltip} from '../../common/tooltip.js';
+import {CCApi} from '../../../common/api.js';
+import {parseUrl} from '../../../common/commonUtils.js';
+import PartialOptionsWatcher from '../../../common/options/partialOptionsWatcher.js';
+import {createPlainTooltip} from '../../../common/tooltip.js';
 
-import AvatarsDB from './utils/AvatarsDB.js'
+import AvatarsDB from './AvatarsDB.js'
 
 export default class AvatarsHandler {
   constructor() {
