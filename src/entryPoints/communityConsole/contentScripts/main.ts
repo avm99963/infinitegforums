@@ -78,10 +78,10 @@ import { UrlThreadDataParserServiceAdapter } from '../../../infrastructure/ui/se
 import { BulkMoveThreadsRepositoryAdapter } from '../../../features/bulkMove/infrastructure/repositories/api/moveThread.repository.adapter';
 import { ViewSoftRefresherServiceAdapter } from '../../../infrastructure/ui/services/communityConsole/viewSoftRefresher.service.adapter';
 import CCForceHideDrawerScript from '../../../features/ccForceHideDrawer/presentation/hideDrawer.script';
-
 // #!if browser_target == 'chromium_mv3'
 import CCDragAndDropFixTextEditorHandler from '../../../features/ccDragAndDropFix/presentation/nodeWatcherHandlers/fixTextEditor.handler';
 // #!endif
+import ThreadToolbarStylesScript from '../../../features/threadToolbar/presentation/nodeWatcherHandlers/styles.handler';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -279,6 +279,7 @@ function createScriptRunner() {
         new IncreaseContrastStylesScript(),
         new RepositionExpandThreadStylesScript(),
         new StickySidebarHeadersStylesScript(),
+        new ThreadToolbarStylesScript(),
         new WorkflowsImportStylesheetScript(),
 
         // Standalone scripts

@@ -103,6 +103,10 @@ module.exports = (env, args) => {
       origin: './src/features/stickySidebarHeaders/ui/styles.css',
       destination: 'css/sticky_sidebar_headers.css',
     },
+    {
+      origin: './src/features/threadToolbar/ui/styles.css',
+      destination: 'css/thread_toolbar.css',
+    },
   ];
 
   const outputPath = path.join(__dirname, 'dist', env.browser_target);

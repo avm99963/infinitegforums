@@ -68,8 +68,6 @@ getOptions(null).then(items => {
 
   // Thread list avatars
   injectStylesheet(chrome.runtime.getURL('css/thread_list_avatars.css'));
-  // Thread toolbar
-  injectStylesheet(chrome.runtime.getURL('css/thread_toolbar.css'));
 });
 
 new XHRProxyKillSwitchHandler();
