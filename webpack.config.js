@@ -29,6 +29,8 @@ module.exports = (env, args) => {
         './src/entryPoints/communityConsole/contentScripts/main.ts',
     communityConsoleStart:
         './src/entryPoints/communityConsole/contentScripts/start.ts',
+    communityConsoleInjectionMain:
+        './src/entryPoints/communityConsole/injections/main.ts',
     communityConsoleInjectionStart:
         './src/entryPoints/communityConsole/injections/start.ts',
     publicForum: './src/contentScripts/publicForum.js',

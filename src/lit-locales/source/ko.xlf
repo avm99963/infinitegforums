@@ -342,7 +342,11 @@
         <note from="lit-localize">Additional information shown in the options page about the "Change thread page design" feature.</note>
       </trans-unit>
       <trans-unit id="h9a0810c202cacc55" xml:space="preserve">
-        <source>One or more features have been disabled remotely for everyone. <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/> Learn why in our discussion group. <x id="1" equiv-text="&lt;/a&gt;&#10;            "/></source>
+        <source>
+              One or more features have been disabled remotely for everyone.
+              <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>
+                Learn why in our discussion group.
+              <x id="1" equiv-text="&lt;/a&gt;&#10;            "/></source>
         <target state="translated">한 개 이상의 기능이 모든 사용자에 대해 원격으로 사용 중지되었습니다. <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/> 토론 그룹에서 더 자세한 내용을 확인해 주세요. <x id="1" equiv-text="&lt;/a&gt;&#10;            "/></target>
         <note from="lit-localize">Content of the banner which lets users know that a feature was remotely disabled in the options page.</note>
       </trans-unit>
@@ -422,7 +426,12 @@
         <note from="lit-localize">Description of the "Limit image size" feature.</note>
       </trans-unit>
       <trans-unit id="hd6ef3603ca3544c3" xml:space="preserve">
-        <source>Enables the <x id="0" equiv-text="&lt;code&gt;"/>enableLoadingDraftMessages<x id="1" equiv-text="&lt;/code&gt;"/> Community Console flag, which enables recovering an existing draft saved in the Google servers when you start a new reply. </source>
+        <source>
+      Enables the
+      <x id="0" equiv-text="&lt;code&gt;"/>enableLoadingDraftMessages<x id="1" equiv-text="&lt;/code&gt;"/>
+      Community Console flag, which enables recovering an existing draft saved
+      in the Google servers when you start a new reply.
+    </source>
         <target state="translated"><x id="0" equiv-text="&lt;code&gt;"/>enableLoadingDraftMessages<x id="1" equiv-text="&lt;/code&gt;"/> 커뮤니티 콘솔 기능을 활성화하여, 새 댓글 작성을 시작할 때 Google 서버에 저장된 기존 임시 글을 불러올 수 있도록 합니다. </target>
         <note from="lit-localize">Description of the "Load draft messages when replying" feature.</note>
       </trans-unit>
@@ -637,7 +646,12 @@
         <note from="lit-localize">Note for the "Infinite scroll" feature for thread lists.</note>
       </trans-unit>
       <trans-unit id="hc6a96bb38b498270" xml:space="preserve">
-        <source><x id="0" equiv-text="&lt;i&gt;${automaticOptionLabel}"/>:<x id="1" equiv-text="&lt;/i&gt;"/> will use the theme defined in the system settings. <x id="2" equiv-text="&lt;br&gt;&#10;      &lt;i&gt;${manualOptionLabel}"/>:<x id="3" equiv-text="&lt;/i&gt;"/> will add a button to the Community Console that lets you switch the theme. </source>
+        <source>
+      <x id="0" equiv-text="&lt;i&gt;${automaticOptionLabel}"/>:<x id="1" equiv-text="&lt;/i&gt;"/>
+      will use the theme defined in the system settings.
+      <x id="2" equiv-text="&lt;br&gt;&#10;      &lt;i&gt;${manualOptionLabel}"/>:<x id="3" equiv-text="&lt;/i&gt;"/>
+      will add a button to the Community Console that lets you switch the theme.
+    </source>
         <target state="translated"><x id="0" equiv-text="&lt;i&gt;${automaticOptionLabel}"/>:<x id="1" equiv-text="&lt;/i&gt;"/> 시스템 설정에서 정의된 화면 모드를 사용합니다. <x id="2" equiv-text="&lt;br&gt;&#10;      &lt;i&gt;${manualOptionLabel}"/>:<x id="3" equiv-text="&lt;/i&gt;"/> 화면 모드를 변경하는 버튼이 커뮤니티 콘솔에 추가됩니다. </target>
         <note from="lit-localize">Note for the "Theme" feature.</note>
       </trans-unit>
@@ -677,7 +691,11 @@
         <note from="lit-localize">Tag shown in the options page for features that work in the Community Console.</note>
       </trans-unit>
       <trans-unit id="h74e97b4e6e3628b4" xml:space="preserve">
-        <source>This feature has been disabled remotely for everyone. <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/> Learn why. <x id="1" equiv-text="&lt;/a&gt;&#10;          "/></source>
+        <source>
+            This feature has been disabled remotely for everyone.
+            <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>
+              Learn why.
+            <x id="1" equiv-text="&lt;/a&gt;&#10;          "/></source>
         <target state="translated">이 기능은 모든 사용자에 대해 원격으로 사용 중지되었습니다. <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>이유를 알아보세요. <x id="1" equiv-text="&lt;/a&gt;&#10;          "/></target>
         <note from="lit-localize">Text that appears in a feature card in the options page when the feature has been disabled remotely (i.e., the feature kill switch is active).</note>
       </trans-unit>
@@ -697,7 +715,14 @@
         <note from="lit-localize">The extension name.</note>
       </trans-unit>
       <trans-unit id="h484816adcf825576" xml:space="preserve">
-        <source>These features only affect the Community Console's old message composer, which is shown when creating a new thread or canned response, when pressing <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/> inside a thread, or when creating a new reply in the old thread view. The new message composer doesn't suffer from these issues. </source>
+        <source>
+        These features only affect the Community Console's old message composer,
+        which is shown when creating a new thread or canned response, when
+        pressing
+        <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/>
+        inside a thread, or when creating a new reply in the old thread view.
+        The new message composer doesn't suffer from these issues.
+      </source>
         <target state="translated">이 기능들은 새 게시글이나 CR를 만들 때, 스레드 내에서 <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/> 키를 누를 때, 또는 이전 게시글 보기에서 새 답장을 작성할 때 표시되는 커뮤니티 콘솔의 구 버전 메시지 작성기에만 영향을 미칩니다. 신 버전 메시지 작성기에서는 이러한 문제가 발생하지 않습니다. </target>
         <note from="lit-localize">Explanatory note for the features that relate to the old reply editor in the Community Console.</note>
       </trans-unit>
@@ -744,6 +769,18 @@
         <source>Please leave feedback and report bugs in our <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;"/>discussion group<x id="1" equiv-text="&lt;/a&gt;"/>. Thanks for testing!</source>
         <target state="translated">개선 사항이나 버그가 있다면 저희 <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;"/>토론 그룹<x id="1" equiv-text="&lt;/a&gt;"/>에서 알려주세요. 테스트에 참여해 주셔서 감사합니다!</target>
       </trans-unit>
+<trans-unit id="s4c92f48e04b9ef0e">
+  <source>Patches the bug that incorrectly opens the link dialog multiple times when adding or editing a link.</source>
+  <note from="lit-localize">Description of the "Fix link dialog" feature.</note>
+</trans-unit>
+<trans-unit id="sa5ebc8ee802beea8">
+  <source>Fix link dialog</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="scec7442ea759dba6">
+  <source>Message composer</source>
+  <note from="lit-localize">Name of the category of extension features related to the message composer.</note>
+</trans-unit>
     </body>
   </file>
 </xliff>

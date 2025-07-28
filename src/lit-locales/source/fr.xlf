@@ -619,6 +619,18 @@
 <trans-unit id="h75ff4c12afaffb0c">
   <source>Please leave feedback and report bugs in our <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;"/>discussion group<x id="1" equiv-text="&lt;/a&gt;"/>. Thanks for testing!</source>
 </trans-unit>
+<trans-unit id="s4c92f48e04b9ef0e">
+  <source>Patches the bug that incorrectly opens the link dialog multiple times when adding or editing a link.</source>
+  <note from="lit-localize">Description of the "Fix link dialog" feature.</note>
+</trans-unit>
+<trans-unit id="sa5ebc8ee802beea8">
+  <source>Fix link dialog</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="scec7442ea759dba6">
+  <source>Message composer</source>
+  <note from="lit-localize">Name of the category of extension features related to the message composer.</note>
+</trans-unit>
     </body>
   </file>
 </xliff>

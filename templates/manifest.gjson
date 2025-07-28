@@ -28,6 +28,11 @@
     },
     {
       "matches": ["https://support.google.com/s/community*"],
+      "js": ["communityConsoleInjectionMain.bundle.js"],
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://support.google.com/s/community*"],
       "js": ["communityConsoleInjectionStart.bundle.js"],
       "run_at": "document_start",
       "world": "MAIN"

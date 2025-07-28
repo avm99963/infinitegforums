@@ -33,12 +33,25 @@ import { ccDragAndDropFixFeature } from '../../features/ccDragAndDropFix/present
 import { html } from 'lit';
 import { perForumActivityFeature } from '../../features/extraInfo/presentation/options/feature';
 import { previousPostsFeature } from '../../features/previousPosts/presentation/options/feature';
+import { fixLinkDialogFeature } from '../../features/linkDialogFix/presentation/options/feature';
 
-const minorUIEnhancementsSectionName = () => msg('Minor UI enhancements', {
-  desc: 'Name of a generic section of features, which includes features that minimally enhance the user interface of the forums platform.',
-});
-const bulkActionsSectionName = () => msg('Bulk actions', {
-  desc: 'Name of a generic section of features that let users perform actions to many threads at once.',
+const minorUIEnhancementsSectionName = () =>
+  msg('Minor UI enhancements', {
+    desc: 'Name of a generic section of features, which includes features that minimally enhance the user interface of the forums platform.',
+  });
+const bulkActionsSectionName = () =>
+  msg('Bulk actions', {
+    desc: 'Name of a generic section of features that let users perform actions to many threads at once.',
+  });
+
+// TODO(https://iavm.xyz/b/twpowertools/250): place this category above the "Old
+// message composer" category when launching the fixLinkDialog feature.
+const _messageComposerCategory = new FeatureCategory({
+  id: 'messageComposer',
+  name: msg('Message composer', {
+    desc: 'Name of the category of extension features related to the message composer.',
+  }),
+  features: [fixLinkDialogFeature()],
 });
 
 export const getFeatureCategories = () => [
