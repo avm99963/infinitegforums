@@ -1,0 +1,11 @@
+@use '../../../md3/theme' as md3-theme;
+
+:root {
+  @include md3-theme.light-theme();
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include md3-theme.dark-theme();
+  }
+}

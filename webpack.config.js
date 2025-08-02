@@ -55,6 +55,9 @@ module.exports = (env, args) => {
     // Old options page
     optionsCommonOld: './src/options/old/optionsCommon.js',
 
+    // New options page
+    optionsScript: './src/options/presentation/scripts/options.ts',
+
     // Workflow manager
     workflowManager: './src/features/workflows/core/manager/index.js',
 
@@ -187,6 +190,12 @@ module.exports = (env, args) => {
         template:
             'src/features/workflows/presentation/templates/workflows.html.ejs',
         chunks: ['workflowManager'],
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'options.html',
+        template:
+            'src/options/presentation/templates/options.html.ejs',
+        chunks: ['optionsScript'],
       }),
       new webpack.DefinePlugin({
         'PRODUCTION': args.mode == 'production',
