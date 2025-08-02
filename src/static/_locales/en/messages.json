@@ -204,7 +204,7 @@
     "description": "Title of the experiments page: a page where highly experimental options can be set."
   },
   "options_experiments_description": {
-    "message": "Welchrome! Below you'll a find a list of experiments: features which are in development, and are not quite ready for launch. They are highly experimental and so might break and/or cause issues, but if you're brave, please do enable the ones you're most interested in, and <a href='https://github.com/avm99963/infinitegforums/discussions/categories/feedback'>give feedback</a>!",
+    "message": "Welchrome! Below you'll a find a list of experiments: features which are in development, and are not quite ready for launch. They are highly experimental and so might break and/or cause issues, but if you're brave, please do enable the ones you're most interested in, and <a href='https://groups.google.com/g/twpowertools-discuss'>give feedback</a>!",
     "description": "Description shown in the beginning of the experiments page, below the title."
   },
   "inject_links": {
