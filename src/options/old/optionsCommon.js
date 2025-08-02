@@ -1,6 +1,6 @@
-import {getDocURL, getDocURLWithRef, getExtVersion, isProdVersion} from '../common/extUtils.js';
-import {ensureOptPermissions, grantedOptPermissions, isPermissionsObjectEmpty, missingPermissions} from '../common/options/optionsPermissions.js';
-import {cleanUpOptions, optionsPrototype, specialOptions} from '../common/options/optionsUtils.js';
+import {getDocURL, getDocURLWithRef, getExtVersion, isProdVersion} from '../../common/extUtils.js';
+import {ensureOptPermissions, grantedOptPermissions, isPermissionsObjectEmpty, missingPermissions} from '../../common/options/optionsPermissions.js';
+import {cleanUpOptions, optionsPrototype, specialOptions} from '../../common/options/optionsUtils.js';
 
 import optionsPage from './optionsPage.json5';
 

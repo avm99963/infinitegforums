@@ -52,8 +52,8 @@ module.exports = (env, args) => {
     updateHandlerLitComponents:
         './src/injections/updateHandlerLitComponents.js',
 
-    // Options page
-    optionsCommon: './src/options/optionsCommon.js',
+    // Old options page
+    optionsCommonOld: './src/options/old/optionsCommon.js',
 
     // Workflow manager
     workflowManager: './src/features/workflows/core/manager/index.js',

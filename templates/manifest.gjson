@@ -137,7 +137,7 @@
         "profileIndicatorInject.bundle.js.map",
         "batchLockInject.bundle.js.map",
         "extraInfoInject.bundle.js.map",
-        "optionsCommon.bundle.js.map",
+        "optionsCommonOld.bundle.js.map",
         "mdcStyles.bundle.js.map"
 #if defined(CHROMIUM_MV3)
       ],
@@ -163,7 +163,7 @@
   "action": {},
 #endif
   "options_ui": {
-    "page": "options/options.html",
+    "page": "options/options_old.html",
     "open_in_tab": false
   },
   "background": {
