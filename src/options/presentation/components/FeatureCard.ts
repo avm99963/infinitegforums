@@ -14,9 +14,12 @@ import { styles as typescaleStyles } from '@material/web/typography/md-typescale
 import { Feature } from '../models/feature';
 import { msg } from '@lit/localize';
 import { map } from 'lit/directives/map.js';
-import { OptionsValues } from '../../../common/options/optionsPrototype';
-
-export type SubOptionValues = Partial<OptionsValues>;
+import {
+  OptionCodename,
+  optionsMap,
+  OptionsValues,
+} from '../../../common/options/optionsPrototype';
+import { OptionsConfiguration } from '../../../common/options/OptionsConfiguration';
 
 @customElement('feature-card')
 export default class FeatureCard extends I18nLitElement {
@@ -88,11 +91,8 @@ export default class FeatureCard extends I18nLitElement {
   @property({ type: Object })
   accessor feature: Feature | undefined;
 
-  @property({ type: Boolean })
-  accessor isEnabled: boolean | undefined;
-
   @property({ type: Object })
-  accessor subOptionValues: SubOptionValues | undefined;
+  accessor optionsConfiguration: OptionsConfiguration | undefined;
 
   @state()
   private accessor isExpanded = false;
@@ -111,7 +111,7 @@ export default class FeatureCard extends I18nLitElement {
           <md-checkbox
             id=${checkboxId}
             class="feature-checkbox"
-            :checked=${this.isEnabled}
+            ?checked=${this.isEnabled()}
             aria-label=${msg(`Enable "${this.feature.name}" feature`)}
           ></md-checkbox>
           <div class="content">
@@ -131,6 +131,12 @@ export default class FeatureCard extends I18nLitElement {
         </div>
       </md-filled-card>
     `;
+  }
+
+  private isEnabled() {
+    return (
+      this.optionsConfiguration?.isEnabled(this.feature.optionCodename) ?? false
+    );
   }
 
   private renderDescription() {
@@ -167,10 +173,22 @@ export default class FeatureCard extends I18nLitElement {
       ${map(
         this.feature.subOptions,
         (subOption) => html`
-          <sub-option-input .subOption=${subOption}></sub-option-input>
+          <sub-option-input
+            .subOption=${subOption}
+            value=${this.getSubOptionValue(subOption.optionCodename)}
+          ></sub-option-input>
         `,
       )}
     `;
+  }
+
+  private getSubOptionValue<T extends OptionCodename>(
+    codename: T,
+  ): OptionsValues[T] | undefined {
+    return (
+      this.optionsConfiguration?.getOptionValue(codename) ??
+      (optionsMap.get(codename).defaultValue as OptionsValues[T])
+    );
   }
 
   private renderSupportingMedia() {

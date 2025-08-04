@@ -1,15 +1,16 @@
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import { I18nLitElement } from '../../../common/litI18nUtils';
 import { OptionsProviderPort } from '../../../services/options/OptionsProvider';
 import { OptionsModifierPort } from '../../../services/options/OptionsModifier.port';
-import { css, html } from 'lit';
-
+import { css, html, PropertyValues } from 'lit';
 import './FeatureCard.ts';
 import { Feature } from '../models/feature';
 import { msg } from '@lit/localize';
 import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles';
 import { SubOption } from '../models/subOption';
 import '../styles/styles.scss';
+import { OptionsConfiguration } from '../../../common/options/OptionsConfiguration';
+import { makeAbortable, PromiseAbortError } from '../../../common/abortable';
 
 @customElement('options-app')
 export default class OptionsApp extends I18nLitElement {
@@ -18,6 +19,11 @@ export default class OptionsApp extends I18nLitElement {
 
   @property({ type: Object })
   accessor optionsModifier: OptionsModifierPort | undefined;
+
+  @state()
+  accessor optionsConfiguration: OptionsConfiguration | undefined;
+
+  private configurationReqAbortController: AbortController | undefined;
 
   static styles = [
     typescaleStyles,
@@ -53,6 +59,61 @@ export default class OptionsApp extends I18nLitElement {
       }
     `,
   ];
+
+  willUpdate(changedProperties: PropertyValues<this>) {
+    if (
+      changedProperties.has('optionsProvider') &&
+      this.optionsProvider !== undefined
+    ) {
+      this.setUpOptionsProvider();
+    }
+  }
+
+  private setUpOptionsProvider() {
+    // TODO: If we keep changing the optionsProvider, we should remove the
+    // previous listener in the previous provider. We don't currently handle
+    // this case since we don't change the optionsProvider.
+    this.optionsProvider.addListener((_, newConfiguration) =>
+      this.onChangedOptions(newConfiguration),
+    );
+    this.loadConfiguration();
+  }
+
+  private onChangedOptions(newConfiguration: OptionsConfiguration) {
+    this.abortConfigurationRequest();
+    this.optionsConfiguration = newConfiguration;
+  }
+
+  private async loadConfiguration() {
+    this.abortConfigurationRequest();
+    this.configurationReqAbortController = new AbortController();
+    const signal = this.configurationReqAbortController.signal;
+    const abortableGetOptionsConfiguration = makeAbortable(
+      this.optionsProvider.getOptionsConfiguration.bind(this.optionsProvider),
+    );
+    try {
+      // If the call is aborted, it will throw PromiseAbortError and the
+      // assignment will not be made.
+      this.optionsConfiguration = await abortableGetOptionsConfiguration({
+        signal,
+      });
+    } catch (error: unknown) {
+      if (error instanceof PromiseAbortError) {
+        console.debug(
+          'Ignoring aborted request to load the current configuration.',
+        );
+      } else {
+        throw error;
+      }
+    }
+  }
+
+  private abortConfigurationRequest() {
+    if (this.configurationReqAbortController !== undefined) {
+      this.configurationReqAbortController.abort();
+      this.configurationReqAbortController = undefined;
+    }
+  }
 
   render() {
     const features = [
@@ -115,12 +176,17 @@ export default class OptionsApp extends I18nLitElement {
         <h1 class="md-typescale-display-small">
           Options (non-functional prototype)
         </h1>
-        ${features.map(
-          (f) => html`
-            <feature-card .feature=${f}></feature-card>
-          `,
-        )}
+        ${features.map((f) => this.renderFeatureCard(f))}
       </main>
+    `;
+  }
+
+  private renderFeatureCard(feature: Feature) {
+    return html`
+      <feature-card
+        .feature=${feature}
+        .optionsConfiguration=${this.optionsConfiguration}
+      ></feature-card>
     `;
   }
 }

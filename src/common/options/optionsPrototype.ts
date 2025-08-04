@@ -245,7 +245,7 @@ export const optionsPrototype: Record<
   OptionPrototype<unknown>
 > = rawOptionConfigs;
 
-export const options = Object.entries(optionsPrototype).map(
+export const options = Object.entries(rawOptionConfigs).map(
   ([codename, rawOption]) =>
     new Option({
       codename,
