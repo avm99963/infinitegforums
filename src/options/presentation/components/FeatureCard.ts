@@ -35,19 +35,24 @@ export default class FeatureCard extends I18nLitElement {
         gap: 16px;
       }
 
-      .content {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        min-width: 0;
-      }
-
       .feature-checkbox {
         margin-top: 10px;
       }
 
+      .expand-collapse-button {
+        /**
+         * This button should appear last even if semantically it's placed
+         * before content.
+         **/
+        order: 1;
+      }
+
       .content {
+        display: flex;
         margin-top: 6px;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
       }
 
       .title {
@@ -116,6 +121,7 @@ export default class FeatureCard extends I18nLitElement {
             aria-label=${msg(`Enable "${this.feature.name}" feature`)}
             @change=${this.onCheckboxChange}
           ></md-checkbox>
+          ${this.renderExpandCollapseButton()}
           <div class="content">
             <label
               id=${titleId}
@@ -129,7 +135,6 @@ export default class FeatureCard extends I18nLitElement {
             ${this.isExpanded ? this.renderSupportingMedia() : nothing}
             ${this.renderTags()}
           </div>
-          ${this.renderExpandCollapseButton()}
         </div>
       </md-filled-card>
     `;
@@ -245,7 +250,11 @@ export default class FeatureCard extends I18nLitElement {
     }
 
     return html`
-      <md-icon-button @click=${this.toggleExpand} aria-hidden="true">
+      <md-icon-button
+        class="expand-collapse-button"
+        aria-hidden="true"
+        @click=${this.toggleExpand}
+      >
         <md-icon>
           ${this.isExpanded ? 'expand_circle_up' : 'expand_circle_down'}
         </md-icon>
