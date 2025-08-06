@@ -28,21 +28,24 @@ export function cleanUpOptions(options, dryRun = false) {
   return options;
 }
 
-// Returns a promise which returns the values of options |options| which are
-// stored in the sync storage area.
-//
-// |requireOptionalPermissions| will determine whether to check if the required
-// optional permissions have been granted or not to the options which have such
-// requirements. If it is true, features with missing permissions will have
-// their value set to false.
-//
-// When a kill switch is active, affected options always have their value set to
-// false.
-
 // #!if !production
 let timerId = 0;
 let randomId = btoa(Math.random().toString()).substr(10, 5);
 // #!endif
+/**
+ * Returns a promise which returns the values of options |options| which are
+ * stored in the sync storage area.
+ *
+ * |requireOptionalPermissions| will determine whether to check if the required
+ * optional permissions have been granted or not to the options which have such
+ * requirements. If it is true, features with missing permissions will have
+ * their value set to false.
+ *
+ * When a kill switch is active, affected options always have their value set to
+ * false.
+ *
+ * @deprecated Use OptionsProviderPort.
+ */
 export function getOptions(options, requireOptionalPermissions = true) {
   // #!if !production
   const timeLabel = 'getOptions--' + randomId + '-' + (timerId++);

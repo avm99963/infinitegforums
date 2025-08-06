@@ -1,11 +1,15 @@
 import { Mutex, MutexInterface, withTimeout } from 'async-mutex';
 
-import { getOptions } from '../../../common/options/optionsUtils';
 import {
   OptionCodename,
+  optionCodenames,
   OptionsValues,
 } from '../../../common/options/optionsPrototype';
-import { OptionsConfiguration } from '../../../common/options/OptionsConfiguration';
+import {
+  OptionsConfiguration,
+  OptionsStatus,
+  OptionStatus,
+} from '../../../common/options/OptionsConfiguration';
 import {
   OptionsChangeListener,
   OptionsProviderPort,
@@ -47,7 +51,12 @@ export default class OptionsProviderAdapter implements OptionsProviderPort {
   }
 
   async getOptionsValues(): Promise<OptionsValues> {
-    return (await this.getOptionsConfiguration()).optionsValues;
+    const optionsConfiguration = await this.getOptionsConfiguration();
+    const entries = optionCodenames.map((codename) => [
+      codename,
+      optionsConfiguration.getOptionValue(codename),
+    ]);
+    return Object.fromEntries(entries) as OptionsValues;
   }
 
   addListener(listener: OptionsChangeListener) {
@@ -88,10 +97,40 @@ export default class OptionsProviderAdapter implements OptionsProviderPort {
 
   private async nonSafeUpdateValues() {
     const previousConfiguration = this.optionsConfiguration;
-    const currentOptionsValues = await getOptions(null);
-    this.optionsConfiguration = new OptionsConfiguration(currentOptionsValues);
-
+    this.optionsConfiguration = await this.retrieveOptionsConfiguration();
     this.notifyListenersIfApplicable(previousConfiguration);
+  }
+
+  private async retrieveOptionsConfiguration() {
+    const options = await chrome.storage.sync.get();
+    const entries = optionCodenames.map(
+      <O extends OptionCodename>(codename: O): [O, OptionStatus<O>] => [
+        codename,
+        {
+          value: options[codename] as OptionsValues[O],
+          isKillSwitchEnabled: false,
+        },
+      ],
+    );
+    const optionsStatus = Object.fromEntries(entries) as OptionsStatus;
+
+    const forceDisabledFeatures = options._forceDisabledFeatures;
+    if (Array.isArray(forceDisabledFeatures)) {
+      this.addKillSwitchInformation(forceDisabledFeatures, optionsStatus);
+    }
+
+    return new OptionsConfiguration(optionsStatus);
+  }
+
+  private addKillSwitchInformation(
+    forceDisabledFeatures: OptionCodename[],
+    optionsStatus: OptionsStatus,
+  ) {
+    for (const forceDisabledFeature of forceDisabledFeatures) {
+      if (Object.hasOwn(optionsStatus, forceDisabledFeature)) {
+        optionsStatus[forceDisabledFeature].isKillSwitchEnabled = true;
+      }
+    }
   }
 
   private async notifyListenersIfApplicable(
