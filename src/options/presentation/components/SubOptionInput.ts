@@ -9,6 +9,10 @@ import '@material/web/textfield/outlined-text-field.js';
 import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles';
 import { SubOption } from '../models/subOption';
 import { map } from 'lit/directives/map.js';
+import { OptionChangedEvent } from '../events/events';
+import { createRef, Ref, ref } from 'lit/directives/ref.js';
+import { MdOutlinedTextField } from '@material/web/textfield/outlined-text-field.js';
+import { MdOutlinedSelect } from '@material/web/select/outlined-select.js';
 
 @customElement('sub-option-input')
 export default class SubOptionInput extends I18nLitElement {
@@ -34,6 +38,9 @@ export default class SubOptionInput extends I18nLitElement {
 
   @property()
   accessor value: unknown;
+
+  private integerField: Ref<MdOutlinedTextField> = createRef();
+  private selectField: Ref<MdOutlinedSelect> = createRef();
 
   render() {
     if (this.subOption === undefined) {
@@ -75,6 +82,10 @@ export default class SubOptionInput extends I18nLitElement {
         min=${this.subOption.type.min}
         max=${this.subOption.type.max}
         step="1"
+        required
+        no-asterisk
+        @change=${this.onIntegerChange}
+        ${ref(this.integerField)}
       ></md-outlined-text-field>
     `;
   }
@@ -85,7 +96,13 @@ export default class SubOptionInput extends I18nLitElement {
     }
 
     return html`
-      <md-outlined-select label=${this.subOption.label} clampMenuWidth>
+      <md-outlined-select
+        label=${this.subOption.label}
+        required
+        no-asterisk
+        @change=${this.onSelectChange}
+        ${ref(this.selectField)}
+      >
         ${map(
           this.subOption.type.options,
           (option) => html`
@@ -99,6 +116,42 @@ export default class SubOptionInput extends I18nLitElement {
         )}
       </md-outlined-select>
     `;
+  }
+
+  private onIntegerChange() {
+    const field = this.integerField.value;
+    if (field === undefined) {
+      console.error('Integer field cannot be found.');
+      return;
+    }
+
+    if (field.reportValidity()) {
+      this.onValueChange(field.value);
+    }
+  }
+
+  private onSelectChange() {
+    const field = this.selectField.value;
+    if (field === undefined) {
+      console.error('Select field cannot be found.');
+      return;
+    }
+
+    if (field.reportValidity()) {
+      this.onValueChange(field.value);
+    }
+  }
+
+  private onValueChange(value: unknown) {
+    const changeEvent: OptionChangedEvent = new CustomEvent('change', {
+      detail: {
+        option: this.subOption?.optionCodename,
+        value,
+      },
+      bubbles: true,
+      composed: true,
+    });
+    this.dispatchEvent(changeEvent);
   }
 }
 

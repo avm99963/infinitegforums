@@ -11,6 +11,7 @@ import { SubOption } from '../models/subOption';
 import '../styles/styles.scss';
 import { OptionsConfiguration } from '../../../common/options/OptionsConfiguration';
 import { makeAbortable, PromiseAbortError } from '../../../common/abortable';
+import { OptionChangedEvent } from '../events/events';
 
 @customElement('options-app')
 export default class OptionsApp extends I18nLitElement {
@@ -74,12 +75,12 @@ export default class OptionsApp extends I18nLitElement {
     // previous listener in the previous provider. We don't currently handle
     // this case since we don't change the optionsProvider.
     this.optionsProvider.addListener((_, newConfiguration) =>
-      this.onChangedOptions(newConfiguration),
+      this.onProviderChangedOptions(newConfiguration),
     );
     this.loadConfiguration();
   }
 
-  private onChangedOptions(newConfiguration: OptionsConfiguration) {
+  private onProviderChangedOptions(newConfiguration: OptionsConfiguration) {
     this.abortConfigurationRequest();
     this.optionsConfiguration = newConfiguration;
   }
@@ -173,9 +174,7 @@ export default class OptionsApp extends I18nLitElement {
 
     return html`
       <main>
-        <h1 class="md-typescale-display-small">
-          Options (non-functional prototype)
-        </h1>
+        <h1 class="md-typescale-display-small">Options</h1>
         ${features.map((f) => this.renderFeatureCard(f))}
       </main>
     `;
@@ -186,8 +185,19 @@ export default class OptionsApp extends I18nLitElement {
       <feature-card
         .feature=${feature}
         .optionsConfiguration=${this.optionsConfiguration}
+        @change=${this.onOptionChangedByUser}
       ></feature-card>
     `;
+  }
+
+  private onOptionChangedByUser(e: OptionChangedEvent) {
+    if (this.optionsModifier === undefined) {
+      console.error(
+        "The options can't be saved because an optionsModifier instance was not supplied.",
+      );
+      return;
+    }
+    this.optionsModifier.set(e.detail.option, e.detail.value);
   }
 }
 

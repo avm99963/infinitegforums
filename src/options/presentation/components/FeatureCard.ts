@@ -20,6 +20,7 @@ import {
   OptionsValues,
 } from '../../../common/options/optionsPrototype';
 import { OptionsConfiguration } from '../../../common/options/OptionsConfiguration';
+import { OptionChangedEvent } from '../events/events';
 
 @customElement('feature-card')
 export default class FeatureCard extends I18nLitElement {
@@ -113,6 +114,7 @@ export default class FeatureCard extends I18nLitElement {
             class="feature-checkbox"
             ?checked=${this.isEnabled()}
             aria-label=${msg(`Enable "${this.feature.name}" feature`)}
+            @change=${this.onCheckboxChange}
           ></md-checkbox>
           <div class="content">
             <label
@@ -243,10 +245,7 @@ export default class FeatureCard extends I18nLitElement {
     }
 
     return html`
-      <md-icon-button
-        @click=${this.toggleExpand}
-        aria-hidden="true"
-      >
+      <md-icon-button @click=${this.toggleExpand} aria-hidden="true">
         <md-icon>
           ${this.isExpanded ? 'expand_circle_up' : 'expand_circle_down'}
         </md-icon>
@@ -256,6 +255,19 @@ export default class FeatureCard extends I18nLitElement {
 
   private toggleExpand() {
     this.isExpanded = !this.isExpanded;
+  }
+
+  private onCheckboxChange(e: Event) {
+    const enabled = (e.target as HTMLInputElement).checked ?? false;
+    const changeEvent: OptionChangedEvent = new CustomEvent('change', {
+      detail: {
+        option: this.feature?.optionCodename,
+        value: enabled,
+      },
+      bubbles: true,
+      composed: true,
+    });
+    this.dispatchEvent(changeEvent);
   }
 }
 
