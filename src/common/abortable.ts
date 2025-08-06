@@ -1,6 +1,6 @@
 export class PromiseAbortError extends Error {
-  constructor(message = 'The promise was aborted.') {
-    super(message);
+  constructor(functionName: string) {
+    super(`Operation '${functionName}' was aborted.`);
   }
 }
 
@@ -11,9 +11,9 @@ export class PromiseAbortError extends Error {
  * @returns A new function that takes an AbortSignal and the rest of the
  * original arguments.
  */
-export function makeAbortable<T extends (...args: unknown[]) => Promise<unknown>>(
-  f: T,
-) {
+export function makeAbortable<
+  T extends (...args: unknown[]) => Promise<unknown>,
+>(f: T) {
   return function (
     options: { signal: AbortSignal },
     ...args: Parameters<T>
@@ -22,15 +22,11 @@ export function makeAbortable<T extends (...args: unknown[]) => Promise<unknown>
 
     return new Promise((resolve, reject) => {
       if (signal.aborted) {
-        return reject(new PromiseAbortError());
+        return reject(new PromiseAbortError(f.name));
       }
 
       const onAbort = () => {
-        reject(
-          new PromiseAbortError(
-            `Operation '${f.name ?? 'anonymous'}' was aborted.`,
-          ),
-        );
+        reject(new PromiseAbortError(f.name));
       };
       signal.addEventListener('abort', onAbort, { once: true });
 
