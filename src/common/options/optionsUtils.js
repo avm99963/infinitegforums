@@ -1,4 +1,3 @@
-import {grantedOptPermissions, isPermissionsObjectEmpty, missingPermissions} from './optionsPermissions.js';
 import {optionsPrototype} from './optionsPrototype';
 import specialOptions from './specialOptions.json5';
 
@@ -29,31 +28,6 @@ export function cleanUpOptions(options, dryRun = false) {
   return options;
 }
 
-// This piece of code is used as part of the getOptions computation, and so
-// isn't that useful. It's exported since we sometimes need to finish the
-// computation in a service worker, where we have access to the
-// chrome.permissions API.
-//
-// It accepts as an argument an object |items| with the same structure of the
-// items saved in the sync storage area, and an array |permissionChecksFeatures|
-// of features
-export function disableItemsWithMissingPermissions(
-    items, permissionChecksFeatures) {
-  return grantedOptPermissions().then(grantedPerms => {
-    let permissionChecksPromises = [];
-    for (const f of permissionChecksFeatures)
-      permissionChecksPromises.push(missingPermissions(f, grantedPerms));
-
-    Promise.all(permissionChecksPromises).then(missingPerms => {
-      for (let i = 0; i < permissionChecksFeatures.length; i++)
-        if (!isPermissionsObjectEmpty(missingPerms[i]))
-          items[permissionChecksFeatures[i]] = false;
-
-      return items;
-    });
-  });
-}
-
 // Returns a promise which returns the values of options |options| which are
 // stored in the sync storage area.
 //
@@ -73,8 +47,6 @@ export function getOptions(options, requireOptionalPermissions = true) {
   // #!if !production
   const timeLabel = 'getOptions--' + randomId + '-' + (timerId++);
   const startMark = `mark_start_get_options_${timeLabel}`;
-  const grantedPermissionsCheckMark =
-      `mark_get_options_check_granted_permissions_${timeLabel}`;
   const endMark = `mark_end_get_options_${timeLabel}`;
   const measureName = `measure_get_options_${timeLabel}`;
   window.performance.mark(startMark, {detail: {options}});
@@ -103,55 +75,7 @@ export function getOptions(options, requireOptionalPermissions = true) {
                delete items._forceDisabledFeatures;
              }
 
-             if (!requireOptionalPermissions) return resolve(items);
-
-             // Check whether some options have missing permissions which would
-             // force disable these features
-             let permissionChecksFeatures = [];
-             for (const [key, value] of Object.entries(items))
-               if ((key in optionsPrototype) && value &&
-                   optionsPrototype[key].requiredOptPermissions?.length)
-                 permissionChecksFeatures.push(key);
-
-             if (permissionChecksFeatures.length == 0) return resolve(items);
-
-             // If we don't have access to the chrome.permissions API (content
-             // scripts don't have access to it[1]), do the final piece of
-             // computation in the service worker/background script.
-             // [1]:
-             // https://developer.chrome.com/docs/extensions/mv3/content_scripts/
-
-             // #!if !production
-             window.performance.mark(
-                 grantedPermissionsCheckMark, {detail: {options}});
-             // #!endif
-             if (!chrome.permissions) {
-               return chrome.runtime.sendMessage(
-                   {
-                     message: 'runDisableItemsWithMissingPermissions',
-                     options: {
-                       items,
-                       permissionChecksFeatures,
-                     },
-                   },
-                   response => {
-                     if (response === undefined)
-                       return reject(new Error(
-                           'An error ocurred while communicating with the service worker: ' +
-                           chrome.runtime.lastError.message));
-
-                     if (response.status == 'rejected')
-                       return reject(response.error);
-                     if (response.status == 'resolved')
-                       return resolve(response.items);
-                     return reject(new Error(
-                         'An unknown response was recieved from service worker.'));
-                   });
-             }
-
-             disableItemsWithMissingPermissions(items, permissionChecksFeatures)
-                 .then(finalItems => resolve(finalItems))
-                 .catch(err => reject(err));
+             return resolve(items);
            });
          })
       // #!if !production

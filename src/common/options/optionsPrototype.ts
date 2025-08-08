@@ -236,10 +236,7 @@ const rawOptionConfigs = {
   },
 };
 
-export type OptionPrototype<T> = Omit<
-  OptionConfig<T>,
-  'codename' | 'optionalPermissions'
->;
+export type OptionPrototype<T> = Omit<OptionConfig<T>, 'codename'>;
 export const optionsPrototype: Record<
   string,
   OptionPrototype<unknown>

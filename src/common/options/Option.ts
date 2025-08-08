@@ -18,7 +18,6 @@ export interface OptionConfig<T> {
   context: OptionContext;
   defaultValue: T;
   killSwitchType: KillSwitchType;
-  optionalPermissions?: string[];
 }
 
 export class Option<T> implements OptionConfig<T> {
@@ -26,13 +25,11 @@ export class Option<T> implements OptionConfig<T> {
   public context: OptionContext;
   public defaultValue: T;
   public killSwitchType: KillSwitchType;
-  public optionalPermissions: string[];
 
   constructor(config: OptionConfig<T>) {
     this.codename = config.codename;
     this.context = config.context;
     this.defaultValue = config.defaultValue;
     this.killSwitchType = config.killSwitchType;
-    this.optionalPermissions = config.optionalPermissions ?? [];
   }
 }

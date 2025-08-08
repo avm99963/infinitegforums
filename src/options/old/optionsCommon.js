@@ -1,5 +1,4 @@
-import {getDocURL, getDocURLWithRef, getExtVersion, isProdVersion} from '../../common/extUtils.js';
-import {ensureOptPermissions, grantedOptPermissions, isPermissionsObjectEmpty, missingPermissions} from '../../common/options/optionsPermissions.js';
+import {getDocURL, isProdVersion} from '../../common/extUtils.js';
 import {cleanUpOptions, optionsPrototype, specialOptions} from '../../common/options/optionsUtils.js';
 
 import optionsPage from './optionsPage.json5';
@@ -7,7 +6,6 @@ import optionsPage from './optionsPage.json5';
 var savedSuccessfullyTimeout = null;
 
 const exclusiveOptions = [['thread', 'threadall']];
-const kClickShouldEnableFeat = 'data-click-should-enable-feature';
 
 // Get the value of the option set in the options/experiments page
 function getOptionValue(opt) {
@@ -129,25 +127,14 @@ window.addEventListener('load', function() {
             optionsContainer.append(optionEl);
           }
 
-          // Add optional permissions warning label and kill switch component
-          // after each option.
-          let optionalPermissionsWarningLabel = document.createElement('div');
-          optionalPermissionsWarningLabel.classList.add(
-              'optional-permissions-warning-label');
-          optionalPermissionsWarningLabel.setAttribute('hidden', '');
-          optionalPermissionsWarningLabel.setAttribute(
-              'data-feature', option.codename);
-          optionalPermissionsWarningLabel.setAttribute(
-              'data-i18n', 'optionalpermissionswarning_label');
-
+          // Add kill switch component after each option.
           let killSwitchComponent = document.createElement('div');
           killSwitchComponent.classList.add('kill-switch-label');
           killSwitchComponent.setAttribute('hidden', '');
           killSwitchComponent.setAttribute('data-feature', option.codename);
           killSwitchComponent.setAttribute('data-i18n', 'killswitchenabled');
 
-          optionsContainer.append(
-              optionalPermissionsWarningLabel, killSwitchComponent);
+          optionsContainer.append(killSwitchComponent);
         }
       }
 
@@ -273,82 +260,6 @@ window.addEventListener('load', function() {
             }
           }));
     });
-
-    // Handle options which need optional permissions.
-    grantedOptPermissions()
-        .then(grantedPerms => {
-          for (const [opt, optMeta] of Object.entries(optionsPrototype)) {
-            if (!optMeta.requiredOptPermissions || !isOptionShown(opt))
-              continue;
-
-            let warningLabel = document.querySelector(
-                '.optional-permissions-warning-label[data-feature="' + opt +
-                '"]');
-
-            // Ensure we have the appropriate permissions when the checkbox
-            // switches from disabled to enabled.
-            //
-            // Also, if the checkbox was indeterminate because the feature was
-            // enabled but not all permissions had been granted, enable the
-            // feature in order to trigger the permission request again.
-            let checkbox = document.getElementById(opt);
-            if (!checkbox) {
-              console.error('Expected checkbox for feature "' + opt + '".');
-              continue;
-            }
-            checkbox.addEventListener('change', () => {
-              if (checkbox.hasAttribute(kClickShouldEnableFeat)) {
-                checkbox.removeAttribute(kClickShouldEnableFeat);
-                checkbox.checked = true;
-              }
-
-              if (checkbox.checked)
-                ensureOptPermissions(opt)
-                    .then(granted => {
-                      if (granted) {
-                        warningLabel.setAttribute('hidden', '');
-                        if (!document.querySelector(
-                                '.optional-permissions-warning-label:not([hidden])'))
-                          document
-                              .getElementById('optional-permissions-warning')
-                              .setAttribute('hidden', '');
-                      } else
-                        document.getElementById(opt).checked = false;
-                    })
-                    .catch(err => {
-                      console.error(
-                          'An error ocurred while ensuring that the optional ' +
-                              'permissions were granted after the checkbox ' +
-                              'was clicked for feature "' + opt + '":',
-                          err);
-                      document.getElementById(opt).checked = false;
-                    });
-            });
-
-            // Add warning message if some permissions are missing and the
-            // feature is enabled.
-            if (items[opt] === true) {
-              let shownHeaderMessage = false;
-              missingPermissions(opt, grantedPerms)
-                  .then(missingPerms => {
-                    if (!isPermissionsObjectEmpty(missingPerms)) {
-                      checkbox.indeterminate = true;
-                      checkbox.setAttribute(kClickShouldEnableFeat, '');
-
-                      warningLabel.removeAttribute('hidden');
-
-                      if (!shownHeaderMessage) {
-                        shownHeaderMessage = true;
-                        document.getElementById('optional-permissions-warning')
-                            .removeAttribute('hidden');
-                      }
-                    }
-                  })
-                  .catch(err => console.error(err));
-            }
-          }
-        })
-        .catch(err => console.error(err));
 
     document.querySelector('#save').addEventListener('click', save);
   });

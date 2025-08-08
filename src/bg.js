@@ -3,8 +3,7 @@ import XMLHttpRequest from 'sw-xhr';
 // #!endif
 
 import actionApi from './common/actionApi.js';
-import {cleanUpOptPermissions} from './common/options/optionsPermissions.js';
-import {cleanUpOptions, disableItemsWithMissingPermissions} from './common/options/optionsUtils.js';
+import {cleanUpOptions} from './common/options/optionsUtils.js';
 import KillSwitchMechanism from './killSwitch/index.js';
 import {handleBgOptionChange, handleBgOptionsOnStart} from './options/bgHandler.js';
 import UpdateNotifier from './updateNotifier/index.js';
@@ -82,14 +81,13 @@ chrome.runtime.onInstalled.addListener(details => {
 // starts and when the options change.
 chrome.storage.onChanged.addListener((changes, areaName) => {
   if (areaName !== 'sync') return;
-  cleanUpOptPermissions();
 
   for (let [key] of Object.entries(changes)) {
     handleBgOptionChange(key);
   }
 });
 
-chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((msg, sender) => {
   if (sender.id !== chrome.runtime.id)
     return console.warn(
         'An unknown sender (' + sender.id +
@@ -98,15 +96,6 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
 
   console.assert(msg.message);
   switch (msg.message) {
-    case 'runDisableItemsWithMissingPermissions':
-      console.assert(
-          msg.options?.items && msg.options?.permissionChecksFeatures);
-      disableItemsWithMissingPermissions(
-          msg.options?.items, msg.options?.permissionChecksFeatures)
-          .then(items => sendResponse({status: 'resolved', items}))
-          .catch(error => sendResponse({status: 'rejected', error}));
-      break;
-
     case 'openWorkflowsManager':
       chrome.tabs.create({
         url: chrome.runtime.getURL('workflows.html'),
@@ -121,7 +110,6 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
 // This should only run once when the extension starts up.
 isExtensionStartup().then(isStartup => {
   if (isStartup) {
-    cleanUpOptPermissions();
     handleBgOptionsOnStart();
     setHasAlreadyStarted();
   }
