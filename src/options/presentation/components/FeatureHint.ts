@@ -25,7 +25,7 @@ export default class FeatureHint extends I18nLitElement {
         margin-bottom: 4px;
         color: var(--md-sys-color-on-surface-variant);
 
-        &--error {
+        &.hint--error {
           color: var(--md-sys-color-error);
         }
 
@@ -46,6 +46,12 @@ export default class FeatureHint extends I18nLitElement {
             width: inherit;
             height: inherit;
             font-size: inherit;
+          }
+        }
+
+        .text {
+          ::slotted(*) {
+            --md-icon-size: 12px;
           }
         }
       }

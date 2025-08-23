@@ -22,6 +22,9 @@ import {
 } from '../../../common/options/optionsPrototype';
 import { OptionsConfiguration } from '../../../common/options/OptionsConfiguration';
 import { OptionChangedEvent } from '../events/events';
+import { classMap } from 'lit/directives/class-map.js';
+
+const DISCUSS_GROUP_URL = 'https://groups.google.com/g/twpowertools-discuss';
 
 @customElement('feature-card')
 export default class FeatureCard extends I18nLitElement {
@@ -38,6 +41,25 @@ export default class FeatureCard extends I18nLitElement {
 
       .feature-checkbox {
         margin-top: 10px;
+
+        &.feature-checkbox--kill-switch-enabled {
+          --md-checkbox-selected-container-color: var(--md-sys-color-error);
+          --md-checkbox-selected-icon-color: var(--md-sys-color-on-error);
+          --md-checkbox-selected-focus-container-color: var(
+            --md-sys-color-error
+          );
+          --md-checkbox-selected-focus-icon-color: var(--md-sys-color-on-error);
+          --md-checkbox-selected-hover-container-color: var(
+            --md-sys-color-error
+          );
+          --md-checkbox-selected-hover-icon-color: var(--md-sys-color-on-error);
+          --md-checkbox-selected-pressed-container-color: var(
+            --md-sys-color-error
+          );
+          --md-checkbox-selected-pressed-icon-color: var(
+            --md-sys-color-on-error
+          );
+        }
       }
 
       .expand-collapse-button {
@@ -80,6 +102,10 @@ export default class FeatureCard extends I18nLitElement {
         margin-top: 6px;
         gap: 4px;
       }
+
+      a {
+        color: var(--md-sys-color-primary);
+      }
     `,
   ];
 
@@ -99,13 +125,17 @@ export default class FeatureCard extends I18nLitElement {
 
     const idPrefix = `${this.feature.optionCodename}-feature`;
     const checkboxId = `${idPrefix}-checkbox`;
+    const checkboxClasses = {
+      'feature-checkbox': true,
+      'feature-checkbox--kill-switch-enabled': this.isKillSwitchEnabled(),
+    };
     const titleId = `${idPrefix}-title`;
     return html`
       <md-filled-card role="group" aria-labelledby=${titleId}>
         <div class="container">
           <md-checkbox
             id=${checkboxId}
-            class="feature-checkbox"
+            class=${classMap(checkboxClasses)}
             ?checked=${this.isEnabled()}
             aria-label=${msg(`Enable "${this.feature.name}" feature`)}
             @change=${this.onCheckboxChange}
@@ -120,7 +150,7 @@ export default class FeatureCard extends I18nLitElement {
               ${this.feature.name}
             </label>
             ${this.renderDescription()} ${this.renderNote()}
-            ${this.renderSubOptions()}
+            ${this.renderKillSwitch()} ${this.renderSubOptions()}
             ${this.isExpanded ? this.renderSupportingMedia() : nothing}
             ${this.renderTags()}
           </div>
@@ -134,6 +164,15 @@ export default class FeatureCard extends I18nLitElement {
       this.optionsConfiguration?.getUserConfiguredOptionValue(
         this.feature.optionCodename,
       ) === true
+    );
+  }
+
+  private isKillSwitchEnabled() {
+    return (
+      this.feature?.optionCodename !== undefined &&
+      this.optionsConfiguration?.isKillSwitchEnabled(
+        this.feature.optionCodename,
+      )
     );
   }
 
@@ -158,6 +197,33 @@ export default class FeatureCard extends I18nLitElement {
       <feature-hint type="note">
         <md-icon slot="icon">info</md-icon>
         ${this.feature.note}
+      </feature-hint>
+    `;
+  }
+
+  private renderKillSwitch() {
+    if (!this.isKillSwitchEnabled()) {
+      return nothing;
+    }
+
+    return html`
+      <feature-hint type="error">
+        <md-icon slot="icon">error</md-icon>
+        ${msg(
+          html`
+            This feature has been disabled remotely for everyone.
+            <a
+              href=${DISCUSS_GROUP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Learn why.
+            </a>
+          `,
+          {
+            desc: 'Text that appears in a feature card in the options page when the feature has been disabled remotely (i.e., the feature kill switch is active).',
+          },
+        )}
       </feature-hint>
     `;
   }
