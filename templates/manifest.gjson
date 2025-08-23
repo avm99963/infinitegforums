@@ -163,8 +163,8 @@
   "action": {},
 #endif
   "options_ui": {
-    "page": "options/options_old.html",
-    "open_in_tab": false
+    "page": "options.html",
+    "open_in_tab": true
   },
   "background": {
 #if defined(GECKO)
