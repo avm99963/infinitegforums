@@ -2,8 +2,9 @@ import { customElement, property, state } from 'lit/decorators.js';
 import { I18nLitElement } from '../../../common/litI18nUtils';
 import { OptionsProviderPort } from '../../../services/options/OptionsProvider';
 import { OptionsModifierPort } from '../../../services/options/OptionsModifier.port';
-import { css, html, PropertyValues } from 'lit';
-import './FeatureCard.ts';
+import { css, html, nothing, PropertyValues } from 'lit';
+import './FeatureCard';
+import './KillSwitchEnabledBanner';
 import { Feature } from '../models/feature';
 import { msg } from '@lit/localize';
 import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles';
@@ -12,6 +13,7 @@ import '../styles/styles.scss';
 import { OptionsConfiguration } from '../../../common/options/OptionsConfiguration';
 import { makeAbortable, PromiseAbortError } from '../../../common/abortable';
 import { OptionChangedEvent } from '../events/events';
+import { optionCodenames } from '../../../common/options/optionsPrototype';
 
 @customElement('options-app')
 export default class OptionsApp extends I18nLitElement {
@@ -175,9 +177,26 @@ export default class OptionsApp extends I18nLitElement {
     return html`
       <main>
         <h1 class="md-typescale-display-small">Options</h1>
+        ${this.maybeRenderKillSwitchEnabledBanner()}
         ${features.map((f) => this.renderFeatureCard(f))}
       </main>
     `;
+  }
+
+  private maybeRenderKillSwitchEnabledBanner() {
+    if (!this.isSomeKillSwitchEnabled()) {
+      return nothing;
+    }
+
+    return html`
+      <kill-switch-enabled-banner></kill-switch-enabled-banner>
+    `;
+  }
+
+  private isSomeKillSwitchEnabled() {
+    return optionCodenames.some((codename) =>
+      this.optionsConfiguration.isKillSwitchEnabled(codename),
+    );
   }
 
   private renderFeatureCard(feature: Feature) {

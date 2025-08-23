@@ -23,8 +23,7 @@ import {
 import { OptionsConfiguration } from '../../../common/options/OptionsConfiguration';
 import { OptionChangedEvent } from '../events/events';
 import { classMap } from 'lit/directives/class-map.js';
-
-const DISCUSS_GROUP_URL = 'https://groups.google.com/g/twpowertools-discuss';
+import { DISCUSS_GROUP_URL } from '../../../common/consts';
 
 @customElement('feature-card')
 export default class FeatureCard extends I18nLitElement {
