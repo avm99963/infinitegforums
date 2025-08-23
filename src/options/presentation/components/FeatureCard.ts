@@ -2,8 +2,9 @@ import { customElement, property, state } from 'lit/decorators.js';
 import { I18nLitElement } from '../../../common/litI18nUtils';
 import { css, html, nothing } from 'lit';
 
-import './SubOptionInput';
+import './FeatureHint';
 import './FeatureTag';
+import './SubOptionInput';
 import '@material/web/checkbox/checkbox.js';
 import '@material/web/chips/chip-set.js';
 import '@material/web/chips/input-chip.js';
@@ -61,18 +62,6 @@ export default class FeatureCard extends I18nLitElement {
 
       .description {
         margin-bottom: 4px;
-      }
-
-      .note {
-        display: flex;
-        flex-direction: row;
-        gap: 4px;
-        margin-bottom: 4px;
-        color: var(--md-sys-color-on-surface-variant);
-
-        md-icon {
-          --md-icon-size: 16px;
-        }
       }
 
       .demo-image,
@@ -166,10 +155,10 @@ export default class FeatureCard extends I18nLitElement {
     }
 
     return html`
-      <div class="note md-typescale-body-small">
-        <md-icon>info</md-icon>
-        <div>${this.feature.note}</div>
-      </div>
+      <feature-hint type="note">
+        <md-icon slot="icon">info</md-icon>
+        ${this.feature.note}
+      </feature-hint>
     `;
   }
 
