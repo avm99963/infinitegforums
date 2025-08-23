@@ -142,7 +142,9 @@ export default class FeatureCard extends I18nLitElement {
 
   private isEnabled() {
     return (
-      this.optionsConfiguration?.isEnabled(this.feature.optionCodename) ?? false
+      this.optionsConfiguration?.getUserConfiguredOptionValue(
+        this.feature.optionCodename,
+      ) === true
     );
   }
 
