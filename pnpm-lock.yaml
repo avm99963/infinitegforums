@@ -11,6 +11,9 @@ importers:
       '@datastructures-js/queue':
         specifier: ^4.2.3
         version: 4.2.4
+      '@lit-labs/motion':
+        specifier: ^1.0.9
+        version: 1.0.9
       '@lit/localize':
         specifier: ^0.12.0
         version: 0.12.2
@@ -604,6 +607,9 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
+
+  '@lit-labs/motion@1.0.9':
+    resolution: {integrity: sha512-oUdZpZDyf9UKAW/im5nkXY6W4cpsMlDgzN99j0FcdPiAOsGclxJpRYbvQz9/eQrPlXpywnr4SkzS9WsSeKILRA==}
 
   '@lit-labs/ssr-dom-shim@1.4.0':
     resolution: {integrity: sha512-ficsEARKnmmW5njugNYKipTm4SFnbik7CXtoencDZzmzo/dQ+2Q0bgkzJuoJP20Aj0F+izzJjOqsnkd6F/o1bw==}
@@ -4034,6 +4040,10 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  '@lit-labs/motion@1.0.9':
+    dependencies:
+      lit: 3.3.1
 
   '@lit-labs/ssr-dom-shim@1.4.0': {}
 

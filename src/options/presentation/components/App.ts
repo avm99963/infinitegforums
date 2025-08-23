@@ -3,17 +3,21 @@ import { I18nLitElement } from '../../../common/litI18nUtils';
 import { OptionsProviderPort } from '../../../services/options/OptionsProvider';
 import { OptionsModifierPort } from '../../../services/options/OptionsModifier.port';
 import { css, html, nothing, PropertyValues } from 'lit';
-import './FeatureCard';
+import './CategoriesSelector';
+import './FeatureCategory';
 import './KillSwitchEnabledBanner';
-import { Feature } from '../models/feature';
-import { msg } from '@lit/localize';
-import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles';
-import { SubOption } from '../models/subOption';
+import './NavDrawer';
+import './TopAppBar';
 import '../styles/styles.scss';
 import { OptionsConfiguration } from '../../../common/options/OptionsConfiguration';
 import { makeAbortable, PromiseAbortError } from '../../../common/abortable';
 import { OptionChangedEvent } from '../events/events';
 import { optionCodenames } from '../../../common/options/optionsPrototype';
+import { FeatureCategory } from '../models/category';
+import type { NavDrawer } from './NavDrawer';
+import type { TopAppBar } from './TopAppBar';
+import type { CategoriesSelector } from './CategoriesSelector';
+import { SKIP_TO_MAIN_EVENT } from './consts';
 
 @customElement('options-app')
 export default class OptionsApp extends I18nLitElement {
@@ -23,33 +27,28 @@ export default class OptionsApp extends I18nLitElement {
   @property({ type: Object })
   accessor optionsModifier: OptionsModifierPort | undefined;
 
+  @property({ type: Array })
+  accessor featureCategories: FeatureCategory[] | undefined;
+
   @state()
   accessor optionsConfiguration: OptionsConfiguration | undefined;
+
+  @state()
+  accessor isDrawerOpen = false;
+
+  @state()
+  accessor selectedCategoryId: string | undefined;
 
   private configurationReqAbortController: AbortController | undefined;
 
   static styles = [
-    typescaleStyles,
     css`
       :host {
-        font-family:
-          'Roboto',
-          -apple-system,
-          BlinkMacSystemFont,
-          'Segoe UI',
-          Helvetica,
-          Arial,
-          sans-serif,
-          'Apple Color Emoji',
-          'Segoe UI Emoji',
-          'Segoe UI Symbol' !important;
+        --top-app-bar-height: calc(48px + 2 * 12px);
 
         display: block;
-        position: relative;
-        width: 100%;
-        min-height: 100%;
         color: var(--md-sys-color-on-surface);
-        background: var(--md-sys-color-surface);
+        background-color: var(--md-sys-color-surface-container);
       }
 
       main {
@@ -62,6 +61,17 @@ export default class OptionsApp extends I18nLitElement {
       }
     `,
   ];
+
+  firstUpdated() {
+    document.body.addEventListener(
+      SKIP_TO_MAIN_EVENT,
+      this.focusMainContent.bind(this),
+    );
+  }
+
+  focusMainContent() {
+    this.shadowRoot.getElementById('main-content')?.focus();
+  }
 
   willUpdate(changedProperties: PropertyValues<this>) {
     if (
@@ -119,67 +129,26 @@ export default class OptionsApp extends I18nLitElement {
   }
 
   render() {
-    const features = [
-      new Feature({
-        optionCodename: 'bulkreportreplies',
-        name: msg('Report replies quickly'),
-        description: msg(
-          'Adds quick report buttons to all replies, so you can report each one with a single click.',
-        ),
-        demoMedia: {
-          imgUrl:
-            'https://raw.githubusercontent.com/avm99963/infinitegforums/refs/heads/master/docs/resources/bulk_report_replies.gif',
-        },
-        tags: ['Tailwind Basic', 'Community Console'],
-      }),
-      new Feature({
-        optionCodename: 'interopthreadpage',
-        name: msg('Thread page design'),
-        description: msg('Forces showing the new or old thread page design.'),
-        note: 'The old thread page design is partially broken, but this feature is kept since some PEs rely on the old design to access some missing features.',
-        subOptions: [
-          new SubOption({
-            optionCodename: 'interopthreadpage_mode',
-            label: msg('Design to show'),
-            type: {
-              type: 'dropdown',
-              options: [
-                { label: msg('Old design'), value: 'previous' },
-                { label: msg('New design'), value: 'next' },
-              ],
-            },
-          }),
-        ],
-        demoMedia: {
-          videoUrl:
-            'https://private-user-images.githubusercontent.com/682310/464158376-47d0d05d-a00f-46a2-9596-01cb15bbf380.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTQxNDk2NjEsIm5iZiI6MTc1NDE0OTM2MSwicGF0aCI6Ii82ODIzMTAvNDY0MTU4Mzc2LTQ3ZDBkMDVkLWEwMGYtNDZhMi05NTk2LTAxY2IxNWJiZjM4MC5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwODAyJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDgwMlQxNTQyNDFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wNTlmZDlhMzFjYjFkMDJiMDk2NDlmZGE1MWY5NGVkMmI3OWExMDBiNjI3ZWIwNWE2ZTJlYTBmM2FlNWNmMjgyJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.OYDESeTjjyqvD_A-zeqe9MdoTU5QlgeGqprKnROzHwk',
-        },
-        tags: ['Community Console'],
-      }),
-      new Feature({
-        optionCodename: 'profileindicatoralt',
-        name: msg('OP messages count'),
-        description: msg(
-          "Shows a badge next to the OP's username with the number of messages posted by them.",
-        ),
-        subOptions: [
-          new SubOption({
-            optionCodename: 'profileindicatoralt_months',
-            label: msg('Months'),
-            type: { type: 'integer', min: 1, max: 12 },
-          }),
-        ],
-        demoMedia: {},
-        tags: ['Community Console'],
-      }),
-    ];
-
     return html`
-      <main>
-        <h1 class="md-typescale-display-small">Options</h1>
-        ${this.maybeRenderKillSwitchEnabledBanner()}
-        ${features.map((f) => this.renderFeatureCard(f))}
-      </main>
+      <nav-drawer
+        ?isOpen=${this.isDrawerOpen}
+        @change=${this.onNavDrawerChange}
+      >
+        <top-app-bar
+          slot="top-app-bar"
+          ?isDrawerOpen=${this.isDrawerOpen}
+          @change=${this.onTopAppBarChange}
+        ></top-app-bar>
+        <main id="main-content" slot="app-content" tabindex="-1">
+          ${this.maybeRenderKillSwitchEnabledBanner()}
+          ${this.renderFeatureCategory()}
+        </main>
+        <categories-selector
+          selectedCategoryId=${this.getCurrentCategoryId()}
+          .featureCategories=${this.featureCategories}
+          @change=${this.onCategoriesSelectorChange}
+        ></categories-selector>
+      </nav-drawer>
     `;
   }
 
@@ -193,20 +162,34 @@ export default class OptionsApp extends I18nLitElement {
     `;
   }
 
-  private isSomeKillSwitchEnabled() {
-    return optionCodenames.some((codename) =>
-      this.optionsConfiguration.isKillSwitchEnabled(codename),
-    );
-  }
+  private renderFeatureCategory() {
+    const category = this.getCurrentCategory();
+    if (category === undefined) {
+      return nothing;
+    }
 
-  private renderFeatureCard(feature: Feature) {
     return html`
-      <feature-card
-        .feature=${feature}
+      <feature-category-content
+        .category=${category}
         .optionsConfiguration=${this.optionsConfiguration}
         @change=${this.onOptionChangedByUser}
-      ></feature-card>
+      ></feature-category-content>
     `;
+  }
+
+  private getCurrentCategory(): FeatureCategory | undefined {
+    const currentCategoryId = this.getCurrentCategoryId();
+    return this.featureCategories.find((c) => c.id === currentCategoryId);
+  }
+
+  private getCurrentCategoryId(): string | undefined {
+    return this.selectedCategoryId ?? this.featureCategories[0]?.id;
+  }
+
+  private isSomeKillSwitchEnabled() {
+    return optionCodenames.some((codename) =>
+      this.optionsConfiguration?.isKillSwitchEnabled(codename),
+    );
   }
 
   private onOptionChangedByUser(e: OptionChangedEvent) {
@@ -217,6 +200,22 @@ export default class OptionsApp extends I18nLitElement {
       return;
     }
     this.optionsModifier.set(e.detail.option, e.detail.value);
+  }
+
+  private onNavDrawerChange(e: Event) {
+    this.isDrawerOpen = (e.target as NavDrawer).isOpen ?? false;
+  }
+
+  private onTopAppBarChange(e: Event) {
+    this.isDrawerOpen = (e.target as TopAppBar).isDrawerOpen ?? false;
+  }
+
+  private onCategoriesSelectorChange(e: Event) {
+    this.selectedCategoryId = (
+      e.target as CategoriesSelector
+    ).selectedCategoryId;
+    this.isDrawerOpen = false;
+    this.focusMainContent();
   }
 }
 
