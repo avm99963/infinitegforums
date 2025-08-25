@@ -62,14 +62,9 @@ export class OptionsConfiguration {
    * Returns whether a feature option is enabled, taking into account any
    * enabled kill switch.
    *
-   * NOTE: the only admitted options are feature options (those marked with
-   * KillSwitchType.Option).
+   * NOTE: the only admitted options are boolean options.
    */
   isEnabled(option: OptionCodename): boolean {
-    if (optionsMap.get(option).killSwitchType !== KillSwitchType.Option) {
-      return false;
-    }
-
     return (
       this.getOptionValue(option) === true && !this.isKillSwitchEnabled(option)
     );
