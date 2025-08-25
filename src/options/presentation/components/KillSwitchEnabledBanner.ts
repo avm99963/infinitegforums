@@ -38,7 +38,7 @@ export default class KillSwitchEnabledBanner extends I18nLitElement {
       <md-filled-card aria-labelledby="kill-switch-enabled-title">
         <div class="title md-typescale-title-large">
           <md-icon>error</md-icon>
-          Remotely disabled features
+          Kill switch active
         </div>
         <div class="description md-typescale-body-medium">
           One or more features have been disabled remotely for everyone.
