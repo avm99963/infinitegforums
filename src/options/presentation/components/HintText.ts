@@ -13,26 +13,44 @@ import '@material/web/iconbutton/icon-button.js';
 import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles';
 import { classMap } from 'lit/directives/class-map.js';
 
-@customElement('feature-hint')
-export default class FeatureHint extends I18nLitElement {
+@customElement('hint-text')
+export default class HintText extends I18nLitElement {
   static styles = [
     typescaleStyles,
     css`
+      :host {
+        display: block;
+      }
+
       .hint {
         display: flex;
         flex-direction: row;
         gap: 4px;
-        margin-bottom: 4px;
         color: var(--md-sys-color-on-surface-variant);
 
         &.hint--error {
           color: var(--md-sys-color-error);
         }
 
+        &.hint--small {
+          --hint-icon-size: 16px;
+          --hint-icon-size-in-text: 12px;
+        }
+
+        &.hint--medium {
+          --hint-icon-size: 20px;
+          --hint-icon-size-in-text: 14px;
+        }
+
+        &.hint--large {
+          --hint-icon-size: 24px;
+          --hint-icon-size-in-text: 16px;
+        }
+
         .icon {
-          min-width: 16px;
-          height: 16px;
-          font-size: 16px;
+          min-width: var(--hint-icon-size);
+          height: var(--hint-icon-size);
+          font-size: var(--hint-icon-size);
 
           slot {
             display: flex;
@@ -51,7 +69,7 @@ export default class FeatureHint extends I18nLitElement {
 
         .text {
           ::slotted(*) {
-            --md-icon-size: 12px;
+            --md-icon-size: var(--hint-icon-size-in-text);
           }
         }
       }
@@ -61,10 +79,14 @@ export default class FeatureHint extends I18nLitElement {
   @property({ type: String })
   accessor type: 'note' | 'error';
 
+  @property({ type: String })
+  accessor size: 'small' | 'medium' | 'large';
+
   render() {
     const classes = {
       hint: true,
-      'md-typescale-body-small': true,
+      [`hint--${this.getSize()}`]: true,
+      [typescaleClassBySize[this.getSize()]]: true,
       'hint--error': this.type === 'error',
     };
 
@@ -75,10 +97,21 @@ export default class FeatureHint extends I18nLitElement {
       </div>
     `;
   }
+
+  private getSize() {
+    const validSizes = ['small', 'medium', 'large'];
+    return validSizes.includes(this.size) ? this.size : 'medium';
+  }
 }
+
+const typescaleClassBySize = {
+  small: 'md-typescale-body-small',
+  medium: 'md-typescale-body-medium',
+  large: 'md-typescale-body-large',
+};
 
 declare global {
   interface HTMLElementTagNameMap {
-    'feature-hint': FeatureHint;
+    'hint-text': HintText;
   }
 }

@@ -1,7 +1,8 @@
 import { customElement, property, state } from 'lit/decorators.js';
 import { I18nLitElement } from '../../../common/litI18nUtils';
-import { css, html } from 'lit';
+import { css, html, nothing } from 'lit';
 import './FeatureCard';
+import './HintText';
 import './KillSwitchEnabledBanner';
 import { Feature } from '../models/feature';
 import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles';
@@ -25,11 +26,27 @@ export default class FeatureCategoryContent extends I18nLitElement {
       .feature-title {
         margin-top: 16px;
         margin-bottom: 22px;
+
+        &.feature-title--with-hint {
+          margin-bottom: 16px;
+        }
+      }
+
+      hint-text.category-hint {
+        margin-bottom: 16px;
       }
 
       .section-title {
         margin-top: 24px;
         margin-bottom: 16px;
+
+        &.section-title--with-hint {
+          margin-bottom: 8px;
+        }
+      }
+
+      hint-text.section-hint {
+        margin-bottom: 8px;
       }
 
       .features {
@@ -41,9 +58,23 @@ export default class FeatureCategoryContent extends I18nLitElement {
   ];
 
   render() {
-    // TODO: Render note.
+    const hasNote = this.category.note !== undefined;
     return html`
-      <h2 class="md-typescale-display-small feature-title">${this.category.name}</h2>
+      <h2
+        class="md-typescale-display-small feature-title ${hasNote
+          ? 'feature-title--with-hint'
+          : ''}"
+      >
+        ${this.category.name}
+      </h2>
+      ${hasNote
+        ? html`
+            <hint-text type="note" size="medium" class="category-hint">
+              <md-icon slot="icon">info</md-icon>
+              ${this.category.note}
+            </hint-text>
+          `
+        : nothing}
       <div class="features">
         ${this.category?.features?.map((f) => this.renderFeatureCard(f))}
       </div>
@@ -52,9 +83,23 @@ export default class FeatureCategoryContent extends I18nLitElement {
   }
 
   private renderSection(section: FeatureSection) {
-    // TODO: Render note.
+    const hasNote = section.note !== undefined;
     return html`
-      <h3 class="md-typescale-title-large section-title">${section.name}</h3>
+      <h3
+        class="md-typescale-title-large section-title ${hasNote
+          ? 'section-title--with-hint'
+          : ''}"
+      >
+        ${section.name}
+      </h3>
+      ${hasNote
+        ? html`
+            <hint-text type="note" size="medium" class="section-hint">
+              <md-icon slot="icon">info</md-icon>
+              ${section.note}
+            </hint-text>
+          `
+        : nothing}
       <div class="features">
         ${map(section.features, (f) => this.renderFeatureCard(f))}
       </div>

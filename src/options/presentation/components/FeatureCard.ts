@@ -2,7 +2,7 @@ import { customElement, property, state } from 'lit/decorators.js';
 import { I18nLitElement } from '../../../common/litI18nUtils';
 import { css, html, nothing } from 'lit';
 
-import './FeatureHint';
+import './HintText';
 import './FeatureTag';
 import './SubOptionInput';
 import '@material/web/checkbox/checkbox.js';
@@ -82,6 +82,10 @@ export default class FeatureCard extends I18nLitElement {
       }
 
       .description {
+        margin-bottom: 4px;
+      }
+
+      hint-text {
         margin-bottom: 4px;
       }
 
@@ -193,10 +197,10 @@ export default class FeatureCard extends I18nLitElement {
     }
 
     return html`
-      <feature-hint type="note">
+      <hint-text type="note" size="small">
         <md-icon slot="icon">info</md-icon>
         ${this.feature.note}
-      </feature-hint>
+      </hint-text>
     `;
   }
 
@@ -206,7 +210,7 @@ export default class FeatureCard extends I18nLitElement {
     }
 
     return html`
-      <feature-hint type="error">
+      <hint-text type="error" size="small">
         <md-icon slot="icon">error</md-icon>
         ${msg(
           html`
@@ -223,7 +227,7 @@ export default class FeatureCard extends I18nLitElement {
             desc: 'Text that appears in a feature card in the options page when the feature has been disabled remotely (i.e., the feature kill switch is active).',
           },
         )}
-      </feature-hint>
+      </hint-text>
     `;
   }
 

@@ -58,6 +58,7 @@ const categories = [
     name: msg('Threads', {
       desc: 'Name of the category of extension features related to threads.',
     }),
+    note: 'Test',
     features: [
       new Feature({
         optionCodename: 'profileindicatoralt',
@@ -127,6 +128,7 @@ const categories = [
         name: msg('Bulk actions', {
           desc: 'Name of a section inside the feature category "Threads".',
         }),
+        note: 'Test',
         features: [
           new Feature({
             optionCodename: 'bulkreportreplies',
