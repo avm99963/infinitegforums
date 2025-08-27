@@ -1,3 +1,4 @@
+import { TemplateResult } from 'lit';
 import { Feature } from './feature';
 import { FeatureSection } from './section';
 
@@ -5,7 +6,7 @@ export interface FeatureCategoryConfig {
   /** Unique ID for internal purposes. */
   id: string;
   name: string;
-  note?: string;
+  note?: string | TemplateResult;
   features?: Feature[];
   sections?: FeatureSection[];
 }
@@ -14,7 +15,7 @@ export class FeatureCategory {
   /** Unique ID for internal purposes. */
   public id: string;
   public name: string;
-  public note?: string;
+  public note?: string | TemplateResult;
   public features?: Feature[];
   public sections?: FeatureSection[];
 

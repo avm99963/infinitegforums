@@ -6,6 +6,7 @@ import { SubOption } from '../models/subOption';
 import '../components/App';
 import { FeatureCategory } from '../models/category';
 import { FeatureSection } from '../models/section';
+import { html } from 'lit';
 
 const categories = [
   new FeatureCategory({
@@ -22,6 +23,19 @@ const categories = [
         description: msg(
           'Enables choosing between a custom-built dark theme and the vanilla light theme in the Community Console.',
           { desc: 'Description of the "Dark theme" feature.' },
+        ),
+        note: msg(
+          html`
+            <i>Automatic:</i>
+            will use the theme defined in the system settings.
+            <br />
+            <i>Manual:</i>
+            will add a button to the Community Console which lets you switch the
+            theme.
+          `,
+          {
+            desc: 'Note for the "Theme" feature.',
+          },
         ),
         subOptions: [
           new SubOption({

@@ -1,11 +1,12 @@
+import { TemplateResult } from 'lit';
 import { OptionCodename } from '../../../common/options/optionsPrototype';
 import { SubOption } from './subOption';
 
 export interface FeatureConfig {
   optionCodename: OptionCodename;
   name: string;
-  description?: string;
-  note?: string;
+  description?: string | TemplateResult;
+  note?: string | TemplateResult;
   subOptions?: SubOption[];
   demoMedia?: {
     imgUrl?: string;
@@ -17,8 +18,8 @@ export interface FeatureConfig {
 export class Feature {
   public optionCodename: OptionCodename;
   public name: string;
-  public description?: string;
-  public note?: string;
+  public description?: string | TemplateResult;
+  public note?: string | TemplateResult;
   public subOptions?: SubOption[];
   public demoMedia?: {
     imgUrl?: string;
