@@ -7,7 +7,7 @@ import '@material/web/labs/card/filled-card.js';
 @customElement('banner-card')
 export default class BannerCard extends LitElement {
   @property({ type: String })
-  accessor type: 'regular' | 'error';
+  accessor type: 'regular' | 'error' | 'tertiary';
 
   render() {
     const className = this.getType();
@@ -28,7 +28,7 @@ export default class BannerCard extends LitElement {
   }
 
   private getType() {
-    return ['normal', 'error'].includes(this.type)
+    return ['normal', 'error', 'tertiary'].includes(this.type)
       ? this.type
       : 'regular';
   }
@@ -46,6 +46,13 @@ export default class BannerCard extends LitElement {
         &.error {
           --md-filled-card-container-color: var(--md-sys-color-error-container);
           color: var(--md-sys-color-on-error-container);
+        }
+
+        &.tertiary {
+          --md-filled-card-container-color: var(
+            --md-sys-color-tertiary-container
+          );
+          color: var(--md-sys-color-on-tertiary-container);
         }
 
         .title {
