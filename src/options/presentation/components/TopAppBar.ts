@@ -7,7 +7,7 @@
  */
 
 import type { MdIconButton } from '@material/web/iconbutton/icon-button.js';
-import { css, html, LitElement } from 'lit';
+import { css, html, LitElement, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { live } from 'lit/directives/live.js';
 
@@ -27,6 +27,12 @@ export class TopAppBar extends LitElement {
    */
   @property({ type: Boolean })
   accessor isDrawerOpen = false;
+
+  /**
+   * Whether we should show the link to the experiments page.
+   */
+  @property({ type: Boolean })
+  accessor showExperimentsLink: boolean;
 
   render() {
     return html`
@@ -65,15 +71,19 @@ export class TopAppBar extends LitElement {
           </button>
 
           <section class="end">
-            <md-icon-button
-              title="Experiments"
-              aria-label="Experiments"
-              href="/options/experiments.html"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <md-icon>experiment</md-icon>
-            </md-icon-button>
+            ${this.showExperimentsLink
+              ? html`
+                  <md-icon-button
+                    title="Experiments"
+                    aria-label="Experiments"
+                    href="/options/experiments.html"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    <md-icon>experiment</md-icon>
+                  </md-icon-button>
+                `
+              : nothing}
             <md-icon-button
               title="Help translate the extension"
               aria-label="Help translate the extension"

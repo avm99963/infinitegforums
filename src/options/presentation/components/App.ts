@@ -30,6 +30,10 @@ export default class OptionsApp extends I18nLitElement {
   @property({ type: Array })
   accessor featureCategories: FeatureCategory[] | undefined;
 
+  /** Whether we're running a production release of the extension. */
+  @property({ type: Boolean })
+  accessor isProdVersion: boolean;
+
   @state()
   accessor optionsConfiguration: OptionsConfiguration | undefined;
 
@@ -141,6 +145,7 @@ export default class OptionsApp extends I18nLitElement {
         <top-app-bar
           slot="top-app-bar"
           ?isDrawerOpen=${this.isDrawerOpen}
+          showExperimentsLink=${!this.isProdVersion}
           @change=${this.onTopAppBarChange}
         ></top-app-bar>
         <main id="main-content" slot="app-content" tabindex="-1">
