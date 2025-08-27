@@ -72,6 +72,9 @@ export default class OptionsApp extends I18nLitElement {
 
   focusMainContent() {
     this.shadowRoot.getElementById('main-content')?.focus();
+    (
+      this.shadowRoot.querySelector('nav-drawer') as NavDrawer
+    )?.scrollAppContentToTop();
   }
 
   willUpdate(changedProperties: PropertyValues<this>) {

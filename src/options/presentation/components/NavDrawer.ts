@@ -108,6 +108,15 @@ export class NavDrawer extends LitElement {
   }
 
   /**
+   * Scrolls the app content to the top.
+   */
+  scrollAppContentToTop() {
+    this.shadowRoot
+      .querySelector('.content-pane .scroll-wrapper')
+      ?.scrollTo({ top: 0, left: 0 });
+  }
+
+  /**
    * Closes the drawer on scrim click.
    */
   private onScrimClick() {
