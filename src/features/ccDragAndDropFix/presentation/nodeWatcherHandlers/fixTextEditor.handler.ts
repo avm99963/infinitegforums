@@ -23,13 +23,8 @@ export default class CCDragAndDropFixTextEditorHandler extends CssSelectorNodeWa
   async onMutatedNode(mutation: NodeMutation) {
     if (!(mutation.node instanceof HTMLElement)) return;
 
-    // In Firefox the 'ccdragndropfix' option codename doesn't exist. This code
-    // isn't used and shouldn't be compiled for Firefox, but ts-loader insists
-    // on trying to compile this file and fails. We're unsafely casting this
-    // string to OptionCodename to work around this.
-    const isFeatureEnabled = await this.optionsProvider.isEnabled(
-      'ccdragndropfix' as OptionCodename,
-    );
+    const isFeatureEnabled =
+      await this.optionsProvider.isEnabled('ccdragndropfix');
     if (!isFeatureEnabled) return;
 
     this.fixTextEditor(mutation.node);

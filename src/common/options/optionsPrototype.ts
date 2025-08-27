@@ -77,13 +77,11 @@ const rawOptionConfigs = {
     context: OptionContext.Options,
     killSwitchType: KillSwitchType.Option,
   },
-  // #!if browser_target == 'chromium_mv3'
   ccdragndropfix: {
     defaultValue: false,
     context: OptionContext.Options,
     killSwitchType: KillSwitchType.Option,
   },
-  // #!endif
   batchlock: {
     defaultValue: false,
     context: OptionContext.Options,
@@ -114,13 +112,11 @@ const rawOptionConfigs = {
     context: OptionContext.Options,
     killSwitchType: KillSwitchType.Option,
   },
-  // #!if browser_target == 'chromium_mv3'
   blockdrafts: {
     defaultValue: false,
     context: OptionContext.Options,
     killSwitchType: KillSwitchType.Option,
   },
-  // #!endif
   perforumstats: {
     defaultValue: false,
     context: OptionContext.Options,
