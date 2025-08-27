@@ -558,6 +558,14 @@
   <source>Kill switch active</source>
   <note from="lit-localize">Title of the banner which lets users know that a feature was remotely disabled in the options page.</note>
 </trans-unit>
+<trans-unit id="s457d59d649765619">
+  <source>Skip to main content</source>
+  <note from="lit-localize">Text for the button that lets users skip directly to the main content in a page.</note>
+</trans-unit>
+<trans-unit id="sd51b2f371fbec9c6">
+  <source>TW Power Tools</source>
+  <note from="lit-localize">The extension name.</note>
+</trans-unit>
 </body>
 </file>
 </xliff>

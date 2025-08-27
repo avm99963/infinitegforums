@@ -1,4 +1,4 @@
-import {configureLocalization, updateWhenLocaleChanges} from '@lit/localize';
+import {configureLocalization, msg, updateWhenLocaleChanges} from '@lit/localize';
 import {LitElement} from 'lit';
 
 import MWI18nClient from '../common/mainWorldI18n/Client.js';
