@@ -1,30 +1,17 @@
 import { css, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { I18nLitElement } from '../../../common/litI18nUtils';
-import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles';
-
-import '@material/web/labs/card/filled-card.js';
-import '@material/web/icon/icon.js';
 import { DISCUSS_GROUP_URL } from '../../../common/consts';
+
+import '@material/web/icon/icon.js';
+import './BannerCard';
 
 @customElement('kill-switch-enabled-banner')
 export default class KillSwitchEnabledBanner extends I18nLitElement {
   static styles = [
-    typescaleStyles,
     css`
-      md-filled-card {
-        --md-filled-card-container-color: var(--md-sys-color-error-container);
-        color: var(--md-sys-color-on-error-container);
-        padding: 20px 24px;
+      banner {
         margin-bottom: 8px;
-
-        .title {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          gap: 8px;
-          margin-bottom: 4px;
-        }
 
         a {
           color: var(--md-sys-color-primary);
@@ -35,12 +22,10 @@ export default class KillSwitchEnabledBanner extends I18nLitElement {
 
   render() {
     return html`
-      <md-filled-card aria-labelledby="kill-switch-enabled-title">
-        <div class="title md-typescale-title-large">
-          <md-icon>error</md-icon>
-          Kill switch active
-        </div>
-        <div class="description md-typescale-body-medium">
+      <banner-card type="error">
+        <md-icon slot="icon">error</md-icon>
+        <div slot="title">Kill switch active</div>
+        <div slot="description">
           One or more features have been disabled remotely for everyone.
           <a
             href=${DISCUSS_GROUP_URL}
@@ -50,7 +35,7 @@ export default class KillSwitchEnabledBanner extends I18nLitElement {
             Learn why in our discussion group.
           </a>
         </div>
-      </md-filled-card>
+      </banner-card>
     `;
   }
 }
