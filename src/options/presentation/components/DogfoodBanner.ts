@@ -7,6 +7,8 @@ import { DISCUSS_GROUP_URL } from '../../../common/consts';
 const DOGFOOD_ICON =
   'https://www.gstatic.com/images/branding/product/2x/dogfoody_64dp.png';
 
+// NOTE: We will not localize this component unless we want to extend
+// the new options page dogfood to languages other than English.
 @customElement('dogfood-banner')
 export default class DogfoodBanner extends LitElement {
   render() {

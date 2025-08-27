@@ -1,6 +1,5 @@
 import { customElement, property, state } from 'lit/decorators.js';
-import { I18nLitElement } from '../../../common/litI18nUtils';
-import { css, html, nothing } from 'lit';
+import { css, html, LitElement, nothing } from 'lit';
 import './FeatureCard';
 import './HintText';
 import './KillSwitchEnabledBanner';
@@ -13,7 +12,7 @@ import { FeatureSection } from '../models/section';
 import { map } from 'lit/directives/map.js';
 
 @customElement('feature-category-content')
-export default class FeatureCategoryContent extends I18nLitElement {
+export default class FeatureCategoryContent extends LitElement {
   @property({ type: Array })
   accessor category: FeatureCategory | undefined;
 

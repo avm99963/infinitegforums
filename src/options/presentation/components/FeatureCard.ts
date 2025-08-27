@@ -13,7 +13,7 @@ import '@material/web/icon/icon.js';
 import '@material/web/iconbutton/icon-button.js';
 import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles';
 import { Feature } from '../models/feature';
-import { msg } from '@lit/localize';
+import { msg, str } from '@lit/localize';
 import { map } from 'lit/directives/map.js';
 import {
   OptionCodename,
@@ -140,7 +140,9 @@ export default class FeatureCard extends I18nLitElement {
             id=${checkboxId}
             class=${classMap(checkboxClasses)}
             ?checked=${this.isEnabled()}
-            aria-label=${msg(`Enable "${this.feature.name}" feature`)}
+            aria-label=${msg(str`Enable "${this.feature.name}" feature`, {
+              desc: 'Label for the checkbox that lets a user enable a specific feature in the options page (ex: \'Enable "Dark theme" feature\')',
+            })}
             @change=${this.onCheckboxChange}
           ></md-checkbox>
           ${this.renderExpandCollapseButton()}

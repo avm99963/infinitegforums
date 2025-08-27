@@ -10,6 +10,7 @@ import '@material/web/iconbutton/icon-button.js';
 import '@material/web/list/list.js';
 import '@material/web/list/list-item.js';
 import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles';
+import { msg } from '@lit/localize';
 
 /**
  * Top app bar.
@@ -31,7 +32,9 @@ export class CategoriesSelector extends I18nLitElement {
   render() {
     return html`
       <md-list
-        aria-label="List of feature categories"
+        aria-label=${msg('List of feature categories', {
+          desc: 'Label for the sidebar of the options page that lets the user select which category to be shown.',
+        })}
         role="menubar"
         class="nav"
       >

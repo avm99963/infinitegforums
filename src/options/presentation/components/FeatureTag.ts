@@ -1,10 +1,9 @@
-import { css, html, nothing } from 'lit';
+import { css, html, LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import { I18nLitElement } from '../../../common/litI18nUtils';
 import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles';
 
 @customElement('feature-tag')
-export default class FeatureTag extends I18nLitElement {
+export default class FeatureTag extends LitElement {
   static styles = [
     typescaleStyles,
     css`

@@ -10,12 +10,17 @@ import type { MdIconButton } from '@material/web/iconbutton/icon-button.js';
 import { css, html, LitElement, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { live } from 'lit/directives/live.js';
+import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles';
+import { SKIP_TO_MAIN_EVENT } from './consts';
+import {
+  EXTENSION_NAME,
+  SKIP_TO_MAIN_CONTENT,
+} from '../../../common/litI18nUtils.js';
+import { msg } from '@lit/localize';
 
 import '@material/web/focus/md-focus-ring.js';
 import '@material/web/icon/icon.js';
 import '@material/web/iconbutton/icon-button.js';
-import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles';
-import { SKIP_TO_MAIN_EVENT } from './consts';
 
 /**
  * Top app bar.
@@ -35,6 +40,19 @@ export class TopAppBar extends LitElement {
   accessor showExperimentsLink: boolean;
 
   render() {
+    const openCategoriesMenuLabel = msg('Open menu with feature categories', {
+      desc: 'Label for the button that opens the list of feature categories in the options page.',
+    });
+    const closeCategoriesMenuLabel = msg('Close menu with feature categories', {
+      desc: 'Label for the button that closes the list of feature categories in the options page.',
+    });
+    const experimentsLinkLabel = msg('Experiments', {
+      desc: 'Label for the link to the experiments page.',
+    });
+    const localizationLinkLabel = msg('Help translate the extension', {
+      desc: 'Label for the link to Weblate.',
+    });
+
     return html`
       <header>
         <div class="default-content">
@@ -42,12 +60,12 @@ export class TopAppBar extends LitElement {
             <md-icon-button
               toggle
               class="menu-button"
-              aria-label-selected="Open navigation menu"
-              aria-label="Close navigation menu"
+              aria-label-selected=${openCategoriesMenuLabel}
+              aria-label=${closeCategoriesMenuLabel}
               aria-expanded=${this.isDrawerOpen ? 'false' : 'true'}
               title="${!this.isDrawerOpen
-                ? 'Open navigation menu'
-                : 'Close navigation menu'}"
+                ? openCategoriesMenuLabel
+                : closeCategoriesMenuLabel}"
               .selected=${live(!this.isDrawerOpen)}
               @input=${this.onMenuIconToggle}
             >
@@ -59,7 +77,7 @@ export class TopAppBar extends LitElement {
             </md-icon>
           </section>
 
-          <span class="title">TW Power Tools</span>
+          <span class="title">${EXTENSION_NAME}</span>
 
           <button
             id="skip-to-main"
@@ -67,15 +85,15 @@ export class TopAppBar extends LitElement {
             tabindex="0"
             @click=${this.skipToMain}
           >
-            Skip to main content
+            ${SKIP_TO_MAIN_CONTENT}
           </button>
 
           <section class="end">
             ${this.showExperimentsLink
               ? html`
                   <md-icon-button
-                    title="Experiments"
-                    aria-label="Experiments"
+                    title=${experimentsLinkLabel}
+                    aria-label=${experimentsLinkLabel}
                     href="/options/experiments.html"
                     target="_blank"
                     rel="noreferrer noopener"
@@ -85,8 +103,8 @@ export class TopAppBar extends LitElement {
                 `
               : nothing}
             <md-icon-button
-              title="Help translate the extension"
-              aria-label="Help translate the extension"
+              title=${localizationLinkLabel}
+              aria-label=${localizationLinkLabel}
               href="https://i18n.avm99963.com/projects/tw-power-tools/#languages"
               target="_blank"
               rel="noreferrer noopener"

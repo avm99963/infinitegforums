@@ -19,7 +19,10 @@
     "vi"
   ],
   "inputFiles": [
-    "src/**/components/**/*.(js|ts)"
+    "src/**/components/**/*.(js|ts)",
+    "src/features/**/presentation/options/*.ts",
+    "src/common/litI18nUtils.js",
+    "src/options/presentation/utils/featureUtils.ts"
   ],
   "output": {
     "mode": "runtime",

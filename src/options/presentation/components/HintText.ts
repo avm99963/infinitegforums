@@ -1,6 +1,5 @@
 import { customElement, property } from 'lit/decorators.js';
-import { I18nLitElement } from '../../../common/litI18nUtils';
-import { css, html } from 'lit';
+import { css, html, LitElement } from 'lit';
 
 import './SubOptionInput';
 import './FeatureTag';
@@ -14,7 +13,7 @@ import { styles as typescaleStyles } from '@material/web/typography/md-typescale
 import { classMap } from 'lit/directives/class-map.js';
 
 @customElement('hint-text')
-export default class HintText extends I18nLitElement {
+export default class HintText extends LitElement {
   static styles = [
     typescaleStyles,
     css`

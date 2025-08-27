@@ -1,6 +1,5 @@
 import { customElement, property } from 'lit/decorators.js';
-import { I18nLitElement } from '../../../common/litI18nUtils';
-import { css, html, nothing } from 'lit';
+import { css, html, LitElement, nothing } from 'lit';
 
 import '@material/web/icon/icon.js';
 import '@material/web/select/outlined-select.js';
@@ -15,7 +14,7 @@ import { MdOutlinedTextField } from '@material/web/textfield/outlined-text-field
 import { MdOutlinedSelect } from '@material/web/select/outlined-select.js';
 
 @customElement('sub-option-input')
-export default class SubOptionInput extends I18nLitElement {
+export default class SubOptionInput extends LitElement {
   static styles = [
     typescaleStyles,
     css`

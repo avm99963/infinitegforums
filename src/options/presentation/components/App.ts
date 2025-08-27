@@ -1,8 +1,7 @@
 import { customElement, property, state } from 'lit/decorators.js';
-import { I18nLitElement } from '../../../common/litI18nUtils';
 import { OptionsProviderPort } from '../../../services/options/OptionsProvider';
 import { OptionsModifierPort } from '../../../services/options/OptionsModifier.port';
-import { css, html, nothing, PropertyValues } from 'lit';
+import { css, html, LitElement, nothing, PropertyValues } from 'lit';
 import './CategoriesSelector';
 import './DogfoodBanner';
 import './FeatureCategory';
@@ -21,7 +20,7 @@ import type { CategoriesSelector } from './CategoriesSelector';
 import { SKIP_TO_MAIN_EVENT } from './consts';
 
 @customElement('options-app')
-export default class OptionsApp extends I18nLitElement {
+export default class OptionsApp extends LitElement {
   @property({ type: Object })
   accessor optionsProvider: OptionsProviderPort | undefined;
 

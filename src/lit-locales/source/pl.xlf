@@ -260,6 +260,304 @@
 <trans-unit id="languages.zh-TW">
   <source>Chinese (Traditional)</source><target>chiński (tradycyjny)</target>
 </trans-unit>
+<trans-unit id="s7d06ea4f1ccd5f6f">
+  <source>The old thread page design is partially broken, but this feature is kept since some PEs rely on it to access some features that are missing in the new design.</source>
+  <note from="lit-localize">Additional information shown in the options page about the "Change thread page design" feature.</note>
+</trans-unit>
+<trans-unit id="h9a0810c202cacc55">
+  <source>
+              One or more features have been disabled remotely for everyone.
+              <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>
+                Learn why in our discussion group.
+              <x id="1" equiv-text="&lt;/a&gt;&#10;            "/></source>
+  <note from="lit-localize">Content of the banner which lets users know that a feature was remotely disabled in the options page.</note>
+</trans-unit>
+<trans-unit id="sb6bc2f903f58c1e7">
+  <source>Shows avatars of participants next to each thread.</source>
+  <note from="lit-localize">Description of the "Avatars" feature.</note>
+</trans-unit>
+<trans-unit id="s94477c001fc4600a">
+  <source>Blocks saving drafts of your replies as you type to Google servers in the Community Console.</source>
+  <note from="lit-localize">Description of the "Block saving drafts" feature.</note>
+</trans-unit>
+<trans-unit id="sf11e849c4f7e174d">
+  <source>Adds a button to lock all selected threads at once.</source>
+  <note from="lit-localize">Description of the "Bulk lock" feature.</note>
+</trans-unit>
+<trans-unit id="sbccd6eedc254fbc7">
+  <source>Adds a button to move all selected threads at once.</source>
+  <note from="lit-localize">Description of the "Bulk move" feature.</note>
+</trans-unit>
+<trans-unit id="s9347ba024909ae4e">
+  <source>Forces showing the new or old thread page design.</source>
+  <note from="lit-localize">Description of the "Change thread page design" feature.</note>
+</trans-unit>
+<trans-unit id="s7242cc88574abf53">
+  <source>Reduce the whitespace in the UI.</source>
+  <note from="lit-localize">Description of the "Compact mode" feature.</note>
+</trans-unit>
+<trans-unit id="sc6c94bb8a8efddf1">
+  <source>Enables choosing between a custom-built dark theme and the vanilla light theme in the Community Console.</source>
+  <note from="lit-localize">Description of the "Dark theme" feature.</note>
+</trans-unit>
+<trans-unit id="s942248eeba34045f">
+  <source>Allows to drag and drop links to the text editor while preserving the link text.</source>
+  <note from="lit-localize">Description of the "Fix drag and dropping links" feature.</note>
+</trans-unit>
+<trans-unit id="sb43c89f7dbcda0eb">
+  <source>Shows a toggle which lets you disable nested view to display the replies flattened.</source>
+  <note from="lit-localize">Description of the "Flatten replies" feature.</note>
+</trans-unit>
+<trans-unit id="sc94b61f0d59d93fa">
+  <source>Hides the sidebar when opening the Community Console.</source>
+  <note from="lit-localize">Description of the "Hide sidebar by default" feature.</note>
+</trans-unit>
+<trans-unit id="se1b156e30d3f6827">
+  <source>Shows more prominently the dot that appears in the Community Console when Googlers publish a new announcement.</source>
+  <note from="lit-localize">Description of the "Highlight announcements notification dot" feature.</note>
+</trans-unit>
+<trans-unit id="s6ce91fd240036df3">
+  <source>Increases contrast between the background of read and unread threads.</source>
+  <note from="lit-localize">Description of the "Increase contrast" feature.</note>
+</trans-unit>
+<trans-unit id="sf79eb8af612719a2">
+  <source>Automatically loads more threads when scrolling down.</source>
+  <note from="lit-localize">Description of the "Infinite Scroll" feature in thread lists.</note>
+</trans-unit>
+<trans-unit id="sd328bf8e2e2f6119">
+  <source>Automatically loads more replies when scrolling down.</source>
+  <note from="lit-localize">Description of the "Infinite Scroll" feature in threads.</note>
+</trans-unit>
+<trans-unit id="sb7ef17ca1ed43552">
+  <source>Prevents inline images in messages from being taller than the current window.</source>
+  <note from="lit-localize">Description of the "Limit image size" feature.</note>
+</trans-unit>
+<trans-unit id="hd6ef3603ca3544c3">
+  <source>
+      Enables the
+      <x id="0" equiv-text="&lt;code&gt;"/>enableLoadingDraftMessages<x id="1" equiv-text="&lt;/code&gt;"/>
+      Community Console flag, which enables recovering an existing draft saved
+      in the Google servers when you start a new reply.
+    </source>
+  <note from="lit-localize">Description of the "Load draft messages when replying" feature.</note>
+</trans-unit>
+<trans-unit id="s7d9104ef3d3b4273">
+  <source>Shows a non-intrusive notification when a thread list has new updates.</source>
+  <note from="lit-localize">Description of the "Notify updates" feature.</note>
+</trans-unit>
+<trans-unit id="s186c89b0df27cf80">
+  <source>Shows a badge next to the OP's username with the number of messages posted by them.</source>
+  <note from="lit-localize">Description of the "OP messages count" feature.</note>
+</trans-unit>
+<trans-unit id="s56f5d6f9019b5601">
+  <source>Shows a per-forum activity chart in profiles.</source>
+  <note from="lit-localize">Description of the "Per-forum activity" feature.</note>
+</trans-unit>
+<trans-unit id="s5c8548c650ea28ac">
+  <source>Places the "expand thread" button all the way to the left.</source>
+  <note from="lit-localize">Description of the "Place expand button in the left" feature.</note>
+</trans-unit>
+<trans-unit id="sec94d5c0e05e4c7a">
+  <source>Shows a "previous posts" link in user profiles.</source>
+  <note from="lit-localize">Description of the "Previous posts" feature.</note>
+</trans-unit>
+<trans-unit id="sa244dcf39d9d765a">
+  <source>Redirects all threads opened in Tailwind Basic to the Community Console.</source>
+  <note from="lit-localize">Description of the "Redirect to the Community Console" feature.</note>
+</trans-unit>
+<trans-unit id="s75e5d910d8a301be">
+  <source>Adds quick report buttons to all replies, so you can report each one with a single click.</source>
+  <note from="lit-localize">Description of the "Report replies quickly" feature.</note>
+</trans-unit>
+<trans-unit id="s3c671990138ef1d5">
+  <source>Makes the toolbar not disappear when scrolling down.</source>
+  <note from="lit-localize">Description of the "Sticky bulk actions toolbar" feature.</note>
+</trans-unit>
+<trans-unit id="s62398db1c3d787c0">
+  <source>Makes the headers of the collapsible sections in the sidebar sticky so they don't disappear when scrolling down.</source>
+  <note from="lit-localize">Description of the "Sticky sidebar headers" feature.</note>
+</trans-unit>
+<trans-unit id="sc3d18c5d40ce8aa0">
+  <source>Close menu with feature categories</source>
+  <note from="lit-localize">Label for the button that closes the list of feature categories in the options page.</note>
+</trans-unit>
+<trans-unit id="s1d76b4fc9e0c9f06">
+  <source>Open menu with feature categories</source>
+  <note from="lit-localize">Label for the button that opens the list of feature categories in the options page.</note>
+</trans-unit>
+<trans-unit id="sd8c7f380694a123e">
+  <source>Enable "<x id="0" equiv-text="${this.feature.name}"/>" feature</source>
+  <note from="lit-localize">Label for the checkbox that lets a user enable a specific feature in the options page (ex: 'Enable "Dark theme" feature')</note>
+</trans-unit>
+<trans-unit id="secf1350a6da28533">
+  <source>Experiments</source>
+  <note from="lit-localize">Label for the link to the experiments page.</note>
+</trans-unit>
+<trans-unit id="s0a9a5319eed5087a">
+  <source>Help translate the extension</source>
+  <note from="lit-localize">Label for the link to Weblate.</note>
+</trans-unit>
+<trans-unit id="sd13e01f2878f6e80">
+  <source>List of feature categories</source>
+  <note from="lit-localize">Label for the sidebar of the options page that lets the user select which category to be shown.</note>
+</trans-unit>
+<trans-unit id="saab875d8cfcfe712">
+  <source>Theme</source>
+  <note from="lit-localize">Name of a suboption of the "Dark theme" feature.</note>
+</trans-unit>
+<trans-unit id="s077f1115c8cb6492">
+  <source>Notify updates</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="sb8e4edaea6f1d935">
+  <source>Avatars</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="sc8cd255eb973bbe0">
+  <source>Bulk lock</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s1f5af7657c1fb644">
+  <source>Block saving drafts</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="sf53f535371b485ce">
+  <source>Bulk move</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s95c6b373633d4a2f">
+  <source>Report replies quickly</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s3ac6d6bc5baddf30">
+  <source>Dark theme</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s7d7a69fc2d6e11cd">
+  <source>Fix drag and dropping links</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s3faaa7838e5c3fbf">
+  <source>Hide sidebar by default</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s5620911a370a2355">
+  <source>Highlight announcements notification dot</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s5b315a07b3168a91">
+  <source>Per-forum activity</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s68ec92f1167241ee">
+  <source>Sticky bulk actions toolbar</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s5f5f4dde977a84f1">
+  <source>Flatten replies</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="sfc204caf671903ba">
+  <source>Limit image size</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s832d9d09497d5821">
+  <source>Increase contrast</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="sef7cb1d8a92135c6">
+  <source>Infinite scroll</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s2e3ae8ef1d0d3d34">
+  <source>Change thread page design</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s30d762b6c0d27066">
+  <source>Load draft messages when replying</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="sac84048ce43a8813">
+  <source>Previous posts</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s07dcf88dcc1d021d">
+  <source>OP messages count</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s1c6025c89f081afd">
+  <source>Redirect to the Community Console</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="scfffb3f9d0ff36f5">
+  <source>Place expand button in the left</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s45c4dfb19d1893dc">
+  <source>Sticky sidebar headers</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s56972a20e50faa59">
+  <source>Compact mode</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s7632fc9aa12bf382">
+  <source>Months</source>
+  <note from="lit-localize">Name of the suboption which lets you choose the number of months to show in the OP messages count badge.</note>
+</trans-unit>
+<trans-unit id="s3dd06b20bd5b28c4">
+  <source>The Community Console already has this feature built-in without the need of the extension.</source>
+  <note from="lit-localize">Note for the "Infinite scroll" feature for thread lists.</note>
+</trans-unit>
+<trans-unit id="hc6a96bb38b498270">
+  <source>
+      <x id="0" equiv-text="&lt;i&gt;${automaticOptionLabel}"/>:<x id="1" equiv-text="&lt;/i&gt;"/>
+      will use the theme defined in the system settings.
+      <x id="2" equiv-text="&lt;br&gt;&#10;      &lt;i&gt;${manualOptionLabel}"/>:<x id="3" equiv-text="&lt;/i&gt;"/>
+      will add a button to the Community Console that lets you switch the theme.
+    </source>
+  <note from="lit-localize">Note for the "Theme" feature.</note>
+</trans-unit>
+<trans-unit id="s5534d887d865e194">
+  <source>Old design</source>
+  <note from="lit-localize">Selectable option for the "Design to show" suboption of the "Change thread page design" feature.</note>
+</trans-unit>
+<trans-unit id="sb7caaf7e7ac078b1">
+  <source>New design</source>
+  <note from="lit-localize">Selectable option for the "Design to show" suboption of the "Change thread page design" feature.</note>
+</trans-unit>
+<trans-unit id="sd200028b9f6015e4">
+  <source>Automatic</source>
+  <note from="lit-localize">Selectable option for the "Theme" suboption of the "Dark theme" feature.</note>
+</trans-unit>
+<trans-unit id="s956c5a9fb7ee0b23">
+  <source>Manual</source>
+  <note from="lit-localize">Selectable option for the "Theme" suboption of the "Dark theme" feature.</note>
+</trans-unit>
+<trans-unit id="se9b6b34d60e86c7d">
+  <source>Design to show</source>
+  <note from="lit-localize">Suboption for the "Change thread page design" feature.</note>
+</trans-unit>
+<trans-unit id="s164a95895c17e807">
+  <source>Tailwind Basic</source>
+  <note from="lit-localize">Tag shown in the options page for features that work in Tailwind Basic.</note>
+</trans-unit>
+<trans-unit id="s11978a20450b4dd3">
+  <source>Community Console</source>
+  <note from="lit-localize">Tag shown in the options page for features that work in the Community Console.</note>
+</trans-unit>
+<trans-unit id="h74e97b4e6e3628b4">
+  <source>
+            This feature has been disabled remotely for everyone.
+            <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>
+              Learn why.
+            <x id="1" equiv-text="&lt;/a&gt;&#10;          "/></source>
+  <note from="lit-localize">Text that appears in a feature card in the options page when the feature has been disabled remotely (i.e., the feature kill switch is active).</note>
+</trans-unit>
+<trans-unit id="s4159a5f1849a41c3">
+  <source>Kill switch active</source>
+  <note from="lit-localize">Title of the banner which lets users know that a feature was remotely disabled in the options page.</note>
+</trans-unit>
 </body>
 </file>
 </xliff>
