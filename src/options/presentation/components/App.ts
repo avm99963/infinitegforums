@@ -55,6 +55,7 @@ export default class OptionsApp extends I18nLitElement {
         display: flex;
         padding: 16px 0;
         margin: auto;
+        min-width: 300px;
         max-width: min(512px, calc(100% - 2 * 16px));
         flex-direction: column;
         gap: 8px;
