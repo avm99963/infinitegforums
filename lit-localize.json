@@ -22,6 +22,7 @@
     "src/**/components/**/*.(js|ts)",
     "src/features/**/presentation/options/*.ts",
     "src/common/litI18nUtils.js",
+    "src/options/presentation/featureCategories.ts",
     "src/options/presentation/utils/featureUtils.ts"
   ],
   "output": {

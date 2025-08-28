@@ -342,7 +342,11 @@
         <note from="lit-localize">Additional information shown in the options page about the "Change thread page design" feature.</note>
       </trans-unit>
       <trans-unit id="h9a0810c202cacc55" xml:space="preserve">
-        <source>One or more features have been disabled remotely for everyone. <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/> Learn why in our discussion group. <x id="1" equiv-text="&lt;/a&gt;&#10;            "/></source>
+        <source>
+              One or more features have been disabled remotely for everyone.
+              <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>
+                Learn why in our discussion group.
+              <x id="1" equiv-text="&lt;/a&gt;&#10;            "/></source>
         <target state="translated">Одна или несколько функций были удаленно отключены для всех. <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/> Узнайте почему в нашей группе для обсуждения. <x id="1" equiv-text="&lt;/a&gt;&#10;            "/></target>
         <note from="lit-localize">Content of the banner which lets users know that a feature was remotely disabled in the options page.</note>
       </trans-unit>
@@ -420,7 +424,12 @@
         <note from="lit-localize">Description of the "Limit image size" feature.</note>
       </trans-unit>
       <trans-unit id="hd6ef3603ca3544c3">
-        <source>Enables the <x id="0" equiv-text="&lt;code&gt;"/>enableLoadingDraftMessages<x id="1" equiv-text="&lt;/code&gt;"/> Community Console flag, which enables recovering an existing draft saved in the Google servers when you start a new reply. </source>
+        <source>
+      Enables the
+      <x id="0" equiv-text="&lt;code&gt;"/>enableLoadingDraftMessages<x id="1" equiv-text="&lt;/code&gt;"/>
+      Community Console flag, which enables recovering an existing draft saved
+      in the Google servers when you start a new reply.
+    </source>
         <note from="lit-localize">Description of the "Load draft messages when replying" feature.</note>
       </trans-unit>
       <trans-unit id="s7d9104ef3d3b4273">
@@ -592,7 +601,12 @@
         <note from="lit-localize">Note for the "Infinite scroll" feature for thread lists.</note>
       </trans-unit>
       <trans-unit id="hc6a96bb38b498270">
-        <source><x id="0" equiv-text="&lt;i&gt;${automaticOptionLabel}"/>:<x id="1" equiv-text="&lt;/i&gt;"/> will use the theme defined in the system settings. <x id="2" equiv-text="&lt;br&gt;&#10;      &lt;i&gt;${manualOptionLabel}"/>:<x id="3" equiv-text="&lt;/i&gt;"/> will add a button to the Community Console that lets you switch the theme. </source>
+        <source>
+      <x id="0" equiv-text="&lt;i&gt;${automaticOptionLabel}"/>:<x id="1" equiv-text="&lt;/i&gt;"/>
+      will use the theme defined in the system settings.
+      <x id="2" equiv-text="&lt;br&gt;&#10;      &lt;i&gt;${manualOptionLabel}"/>:<x id="3" equiv-text="&lt;/i&gt;"/>
+      will add a button to the Community Console that lets you switch the theme.
+    </source>
         <note from="lit-localize">Note for the "Theme" feature.</note>
       </trans-unit>
       <trans-unit id="s5534d887d865e194">
@@ -624,7 +638,11 @@
         <note from="lit-localize">Tag shown in the options page for features that work in the Community Console.</note>
       </trans-unit>
       <trans-unit id="h74e97b4e6e3628b4">
-        <source>This feature has been disabled remotely for everyone. <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/> Learn why. <x id="1" equiv-text="&lt;/a&gt;&#10;          "/></source>
+        <source>
+            This feature has been disabled remotely for everyone.
+            <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>
+              Learn why.
+            <x id="1" equiv-text="&lt;/a&gt;&#10;          "/></source>
         <note from="lit-localize">Text that appears in a feature card in the options page when the feature has been disabled remotely (i.e., the feature kill switch is active).</note>
       </trans-unit>
       <trans-unit id="s4159a5f1849a41c3">
@@ -639,6 +657,45 @@
         <source>TW Power Tools</source>
         <note from="lit-localize">The extension name.</note>
       </trans-unit>
+<trans-unit id="h484816adcf825576">
+  <source>
+        These features only affect the Community Console's old message composer,
+        which is shown when creating a new thread or canned response, when
+        pressing
+        <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/>
+        inside a thread, or when creating a new reply in the old thread view.
+        The new message composer doesn't suffer from these issues.
+      </source>
+  <note from="lit-localize">Explanatory note for the features that relate to the old reply editor in the Community Console.</note>
+</trans-unit>
+<trans-unit id="s9f87b689a748b55a">
+  <source>Bulk actions</source>
+  <note from="lit-localize">Name of a generic section of features that let users perform actions to many threads at once.</note>
+</trans-unit>
+<trans-unit id="s275ffb8ac7b2973f">
+  <source>Minor UI enhancements</source>
+  <note from="lit-localize">Name of a generic section of features, which includes features that minimally enhance the user interface of the forums platform.</note>
+</trans-unit>
+<trans-unit id="s30ae03472b93dc47">
+  <source>Profiles</source>
+  <note from="lit-localize">Name of the category of extension features related to profiles.</note>
+</trans-unit>
+<trans-unit id="s55cec32fb241f2f5">
+  <source>Old message composer</source>
+  <note from="lit-localize">Name of the category of extension features related to the old message composer.</note>
+</trans-unit>
+<trans-unit id="s6163ba50e1af9788">
+  <source>Thread lists</source>
+  <note from="lit-localize">Name of the category of extension features related to thread lists.</note>
+</trans-unit>
+<trans-unit id="s8b60bf2db1580306">
+  <source>Threads</source>
+  <note from="lit-localize">Name of the category of extension features related to threads.</note>
+</trans-unit>
+<trans-unit id="sc3ac225273c8316b">
+  <source>General</source>
+  <note from="lit-localize">Name of the category of extension features that apply to multiple areas of the forums platform.</note>
+</trans-unit>
     </body>
   </file>
 </xliff>

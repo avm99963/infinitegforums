@@ -566,6 +566,45 @@
   <source>TW Power Tools</source>
   <note from="lit-localize">The extension name.</note>
 </trans-unit>
+<trans-unit id="h484816adcf825576">
+  <source>
+        These features only affect the Community Console's old message composer,
+        which is shown when creating a new thread or canned response, when
+        pressing
+        <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/>
+        inside a thread, or when creating a new reply in the old thread view.
+        The new message composer doesn't suffer from these issues.
+      </source>
+  <note from="lit-localize">Explanatory note for the features that relate to the old reply editor in the Community Console.</note>
+</trans-unit>
+<trans-unit id="s9f87b689a748b55a">
+  <source>Bulk actions</source>
+  <note from="lit-localize">Name of a generic section of features that let users perform actions to many threads at once.</note>
+</trans-unit>
+<trans-unit id="s275ffb8ac7b2973f">
+  <source>Minor UI enhancements</source>
+  <note from="lit-localize">Name of a generic section of features, which includes features that minimally enhance the user interface of the forums platform.</note>
+</trans-unit>
+<trans-unit id="s30ae03472b93dc47">
+  <source>Profiles</source>
+  <note from="lit-localize">Name of the category of extension features related to profiles.</note>
+</trans-unit>
+<trans-unit id="s55cec32fb241f2f5">
+  <source>Old message composer</source>
+  <note from="lit-localize">Name of the category of extension features related to the old message composer.</note>
+</trans-unit>
+<trans-unit id="s6163ba50e1af9788">
+  <source>Thread lists</source>
+  <note from="lit-localize">Name of the category of extension features related to thread lists.</note>
+</trans-unit>
+<trans-unit id="s8b60bf2db1580306">
+  <source>Threads</source>
+  <note from="lit-localize">Name of the category of extension features related to threads.</note>
+</trans-unit>
+<trans-unit id="sc3ac225273c8316b">
+  <source>General</source>
+  <note from="lit-localize">Name of the category of extension features that apply to multiple areas of the forums platform.</note>
+</trans-unit>
 </body>
 </file>
 </xliff>
