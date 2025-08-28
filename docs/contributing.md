@@ -21,10 +21,11 @@ and maybe the Javascript console logs (open the Javascript console by pressing
 
 ## Contribute translations
 If you speak a language other than English, you can help translate the UI to
-your language! Just go to the following website and select your language to
-start translating:
+your language! Just go to the following website and start translating:
 
-- https://i18n.avm99963.com/projects/tw-power-tools/
+- https://i18n.avm99963.com/engage/tw-power-tools/
+
+Learn more in the [Translator guide](./localization/translator_guide.md).
 
 ## Beta test the extension
 Releasing an update to the stable channel isn't always an easy task, because
