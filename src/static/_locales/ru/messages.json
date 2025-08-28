@@ -196,7 +196,7 @@
         "description": "Title of the experiments page: a page where highly experimental options can be set."
     },
     "options_experiments_description": {
-        "message": "Добро пожаловать! Ниже вы найдете список экспериментов: функции, которые находятся в разработке и ещё не готовы к запуску. Они являются экспериментальными и поэтому могут сломаться и/или вызвать проблемы, но если вы смелый, пожалуйста, включите те, которые вам наиболее интересны, и <a href='https://github.com/avm99963/infinitegforums/discussions/categories/feedback'>оставьте отзыв</a>!",
+        "message": "Добро пожаловать! Ниже вы найдете список экспериментов: функции, которые находятся в разработке и ещё не готовы к запуску. Они являются экспериментальными и поэтому могут сломаться и/или вызвать проблемы, но если вы смелый, пожалуйста, включите те, которые вам наиболее интересны, и <a href='https://groups.google.com/g/twpowertools-discuss'>оставьте отзыв</a>!",
         "description": "Description shown in the beginning of the experiments page, below the title."
     },
     "inject_links": {

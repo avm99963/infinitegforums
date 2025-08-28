@@ -588,5 +588,17 @@
     "actionbadge_permissions_requested": {
         "message": "Alcune funzioni necessitano di permessi aggiuntivi. Clicca per risolvere.",
         "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."
+    },
+    "options_flattenthreads": {
+        "message": "Mostra un'opzione per attivare il raggruppamento delle risposte nei thread."
+    },
+    "options_fixpekb269560789": {
+        "message": "Correzione provvisoria per la lentezza di CC e l'elevato utilizzo della memoria (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>)."
+    },
+    "options_bulkreportreplies": {
+        "message": "Abilita la possibilità di segnalare in blocco le risposte."
+    },
+    "options_bulkmove": {
+        "message": "Aggiungere l'opzione per spostare più thread dall'elenco dei thread della Community Console."
     }
 }
