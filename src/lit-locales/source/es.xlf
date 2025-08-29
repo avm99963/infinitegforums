@@ -347,7 +347,14 @@
               <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>
                 Learn why in our discussion group.
               <x id="1" equiv-text="&lt;/a&gt;&#10;            "/></source>
-        <target state="translated">Una o más funciones se han desactivado remotamente para todo el mundo. <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/> Aprende por qué en nuestro grupo de debate.<x id="1" equiv-text="&lt;/a&gt;&#10;            "/></target>
+        <target state="translated">
+              Una o más funciones se han desactivado remotamente para todo el mundo.
+
+              <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>
+
+                Aprende por qué en nuestro grupo de debate.
+
+              <x id="1" equiv-text="&lt;/a&gt;&#10;            "/></target>
         <note from="lit-localize">Content of the banner which lets users know that a feature was remotely disabled in the options page.</note>
       </trans-unit>
       <trans-unit id="sb6bc2f903f58c1e7" xml:space="preserve">
@@ -652,7 +659,9 @@
       <x id="2" equiv-text="&lt;br&gt;&#10;      &lt;i&gt;${manualOptionLabel}"/>:<x id="3" equiv-text="&lt;/i&gt;"/>
       will add a button to the Community Console that lets you switch the theme.
     </source>
-        <target state="translated"><x id="0" equiv-text="&lt;i&gt;${automaticOptionLabel}"/>:<x id="1" equiv-text="&lt;/i&gt;"/> usará el tema definido en la configuración del sistema. <x id="2" equiv-text="&lt;br&gt;&#10;      &lt;i&gt;${manualOptionLabel}"/>:<x id="3" equiv-text="&lt;/i&gt;"/> añadirá un botón a la Consola de la Comunidad que te permite cambiar el tema. </target>
+        <target state="translated">
+      <x id="0" equiv-text="&lt;i&gt;${automaticOptionLabel}"/>:<x id="1" equiv-text="&lt;/i&gt;"/> usará el tema definido en la configuración del sistema. <x id="2" equiv-text="&lt;br&gt;&#10;      &lt;i&gt;${manualOptionLabel}"/>:<x id="3" equiv-text="&lt;/i&gt;"/> añadirá un botón a la Consola de la Comunidad que te permite cambiar el tema.
+    </target>
         <note from="lit-localize">Note for the "Theme" feature.</note>
       </trans-unit>
       <trans-unit id="s5534d887d865e194" xml:space="preserve">
@@ -714,45 +723,46 @@
         <target state="translated">TW Power Tools</target>
         <note from="lit-localize">The extension name.</note>
       </trans-unit>
-<trans-unit id="h484816adcf825576">
-  <source>
-        These features only affect the Community Console's old message composer,
-        which is shown when creating a new thread or canned response, when
-        pressing
-        <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/>
-        inside a thread, or when creating a new reply in the old thread view.
-        The new message composer doesn't suffer from these issues.
-      </source>
-  <note from="lit-localize">Explanatory note for the features that relate to the old reply editor in the Community Console.</note>
-</trans-unit>
-<trans-unit id="s9f87b689a748b55a">
-  <source>Bulk actions</source>
-  <note from="lit-localize">Name of a generic section of features that let users perform actions to many threads at once.</note>
-</trans-unit>
-<trans-unit id="s275ffb8ac7b2973f">
-  <source>Minor UI enhancements</source>
-  <note from="lit-localize">Name of a generic section of features, which includes features that minimally enhance the user interface of the forums platform.</note>
-</trans-unit>
-<trans-unit id="s30ae03472b93dc47">
-  <source>Profiles</source>
-  <note from="lit-localize">Name of the category of extension features related to profiles.</note>
-</trans-unit>
-<trans-unit id="s55cec32fb241f2f5">
-  <source>Old message composer</source>
-  <note from="lit-localize">Name of the category of extension features related to the old message composer.</note>
-</trans-unit>
-<trans-unit id="s6163ba50e1af9788">
-  <source>Thread lists</source>
-  <note from="lit-localize">Name of the category of extension features related to thread lists.</note>
-</trans-unit>
-<trans-unit id="s8b60bf2db1580306">
-  <source>Threads</source>
-  <note from="lit-localize">Name of the category of extension features related to threads.</note>
-</trans-unit>
-<trans-unit id="sc3ac225273c8316b">
-  <source>General</source>
-  <note from="lit-localize">Name of the category of extension features that apply to multiple areas of the forums platform.</note>
-</trans-unit>
+      <trans-unit id="h484816adcf825576" xml:space="preserve">
+        <source>These features only affect the Community Console's old message composer, which is shown when creating a new thread or canned response, when pressing <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/> inside a thread, or when creating a new reply in the old thread view. The new message composer doesn't suffer from these issues. </source>
+        <target state="translated">Estas funciones solo afectan el editor de mensajes antiguo de la Consola de la Comunidad, que se muestra cuando se crea un nuevo hilo o una respuesta enlatada, cuando se pulsa <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/> dentro de un hilo, o cuando se crea una nueva respuesta en la vista antigua de los hilos. El nuevo editor de texto no sufre de estos problemas. </target>
+        <note from="lit-localize">Explanatory note for the features that relate to the old reply editor in the Community Console.</note>
+      </trans-unit>
+      <trans-unit id="s9f87b689a748b55a" xml:space="preserve">
+        <source>Bulk actions</source>
+        <target state="translated">Acciones masivas</target>
+        <note from="lit-localize">Name of a generic section of features that let users perform actions to many threads at once.</note>
+      </trans-unit>
+      <trans-unit id="s275ffb8ac7b2973f" xml:space="preserve">
+        <source>Minor UI enhancements</source>
+        <target state="translated">Mejoras menores de la interfaz</target>
+        <note from="lit-localize">Name of a generic section of features, which includes features that minimally enhance the user interface of the forums platform.</note>
+      </trans-unit>
+      <trans-unit id="s30ae03472b93dc47" xml:space="preserve">
+        <source>Profiles</source>
+        <target state="translated">Perfiles</target>
+        <note from="lit-localize">Name of the category of extension features related to profiles.</note>
+      </trans-unit>
+      <trans-unit id="s55cec32fb241f2f5" xml:space="preserve">
+        <source>Old message composer</source>
+        <target state="translated">Editor de texto antiguo</target>
+        <note from="lit-localize">Name of the category of extension features related to the old message composer.</note>
+      </trans-unit>
+      <trans-unit id="s6163ba50e1af9788" xml:space="preserve">
+        <source>Thread lists</source>
+        <target state="translated">Listas de hilos</target>
+        <note from="lit-localize">Name of the category of extension features related to thread lists.</note>
+      </trans-unit>
+      <trans-unit id="s8b60bf2db1580306" xml:space="preserve">
+        <source>Threads</source>
+        <target state="translated">Hilos</target>
+        <note from="lit-localize">Name of the category of extension features related to threads.</note>
+      </trans-unit>
+      <trans-unit id="sc3ac225273c8316b" xml:space="preserve">
+        <source>General</source>
+        <target state="translated">General</target>
+        <note from="lit-localize">Name of the category of extension features that apply to multiple areas of the forums platform.</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>

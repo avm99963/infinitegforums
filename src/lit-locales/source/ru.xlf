@@ -415,125 +415,149 @@
         <target state="translated">Автоматически загружает больше тем при прокрутке вниз.</target>
         <note from="lit-localize">Description of the "Infinite Scroll" feature in thread lists.</note>
       </trans-unit>
-      <trans-unit id="sd328bf8e2e2f6119">
+      <trans-unit id="sd328bf8e2e2f6119" xml:space="preserve">
         <source>Automatically loads more replies when scrolling down.</source>
+        <target state="translated">Автоматически загружает дополнительные ответы при прокрутке вниз.</target>
         <note from="lit-localize">Description of the "Infinite Scroll" feature in threads.</note>
       </trans-unit>
-      <trans-unit id="sb7ef17ca1ed43552">
+      <trans-unit id="sb7ef17ca1ed43552" xml:space="preserve">
         <source>Prevents inline images in messages from being taller than the current window.</source>
+        <target state="translated">Не допускает, чтобы встроенные изображения в сообщениях были выше текущего окна.</target>
         <note from="lit-localize">Description of the "Limit image size" feature.</note>
       </trans-unit>
-      <trans-unit id="hd6ef3603ca3544c3">
-        <source>
-      Enables the
-      <x id="0" equiv-text="&lt;code&gt;"/>enableLoadingDraftMessages<x id="1" equiv-text="&lt;/code&gt;"/>
-      Community Console flag, which enables recovering an existing draft saved
-      in the Google servers when you start a new reply.
-    </source>
+      <trans-unit id="hd6ef3603ca3544c3" xml:space="preserve">
+        <source>Enables the <x id="0" equiv-text="&lt;code&gt;"/>enableLoadingDraftMessages<x id="1" equiv-text="&lt;/code&gt;"/> Community Console flag, which enables recovering an existing draft saved in the Google servers when you start a new reply. </source>
+        <target state="translated">Включает флаг <x id="0" equiv-text="&lt;code&gt;"/>enableLoadingDraftMessages<x id="1" equiv-text="&lt;/code&gt;"/> в Консоли сообщества, который позволяет восстанавливать существующий черновик, сохраненный на серверах Google, при начале нового ответа. </target>
         <note from="lit-localize">Description of the "Load draft messages when replying" feature.</note>
       </trans-unit>
-      <trans-unit id="s7d9104ef3d3b4273">
+      <trans-unit id="s7d9104ef3d3b4273" xml:space="preserve">
         <source>Shows a non-intrusive notification when a thread list has new updates.</source>
+        <target state="translated">Показывает ненавязчивое уведомление, когда в списке тем появляются новые обновления.</target>
         <note from="lit-localize">Description of the "Notify updates" feature.</note>
       </trans-unit>
-      <trans-unit id="s186c89b0df27cf80">
+      <trans-unit id="s186c89b0df27cf80" xml:space="preserve">
         <source>Shows a badge next to the OP's username with the number of messages posted by them.</source>
+        <target state="translated">Показывает значок рядом с именем пользователя АТ с количеством опубликованных им сообщений.</target>
         <note from="lit-localize">Description of the "OP messages count" feature.</note>
       </trans-unit>
-      <trans-unit id="s56f5d6f9019b5601">
+      <trans-unit id="s56f5d6f9019b5601" xml:space="preserve">
         <source>Shows a per-forum activity chart in profiles.</source>
+        <target state="translated">Показывает диаграмму активности по каждому форуму в профилях.</target>
         <note from="lit-localize">Description of the "Per-forum activity" feature.</note>
       </trans-unit>
-      <trans-unit id="s5c8548c650ea28ac">
+      <trans-unit id="s5c8548c650ea28ac" xml:space="preserve">
         <source>Places the "expand thread" button all the way to the left.</source>
+        <target state="translated">Размещает кнопку "развернуть тему" в самом левом углу.</target>
         <note from="lit-localize">Description of the "Place expand button in the left" feature.</note>
       </trans-unit>
-      <trans-unit id="sec94d5c0e05e4c7a">
+      <trans-unit id="sec94d5c0e05e4c7a" xml:space="preserve">
         <source>Shows a "previous posts" link in user profiles.</source>
+        <target state="translated">Показывает ссылку "предыдущие сообщения" в профилях пользователей.</target>
         <note from="lit-localize">Description of the "Previous posts" feature.</note>
       </trans-unit>
-      <trans-unit id="sa244dcf39d9d765a">
+      <trans-unit id="sa244dcf39d9d765a" xml:space="preserve">
         <source>Redirects all threads opened in Tailwind Basic to the Community Console.</source>
+        <target state="translated">Перенаправляет все открытые в Tailwind Basic темы в Консоль сообщества.</target>
         <note from="lit-localize">Description of the "Redirect to the Community Console" feature.</note>
       </trans-unit>
-      <trans-unit id="s75e5d910d8a301be">
+      <trans-unit id="s75e5d910d8a301be" xml:space="preserve">
         <source>Adds quick report buttons to all replies, so you can report each one with a single click.</source>
+        <target state="translated">Добавляет кнопки быстрой отправки жалобы ко всем ответам, чтобы вы могли пожаловаться на каждый из них одним нажатием.</target>
         <note from="lit-localize">Description of the "Report replies quickly" feature.</note>
       </trans-unit>
-      <trans-unit id="s3c671990138ef1d5">
+      <trans-unit id="s3c671990138ef1d5" xml:space="preserve">
         <source>Makes the toolbar not disappear when scrolling down.</source>
+        <target state="translated">Не позволяет панели инструментов исчезать при прокрутке вниз.</target>
         <note from="lit-localize">Description of the "Sticky bulk actions toolbar" feature.</note>
       </trans-unit>
-      <trans-unit id="s62398db1c3d787c0">
+      <trans-unit id="s62398db1c3d787c0" xml:space="preserve">
         <source>Makes the headers of the collapsible sections in the sidebar sticky so they don't disappear when scrolling down.</source>
+        <target state="translated">Делает заголовки сворачиваемых разделов на боковой панели "липкими", чтобы они не исчезали при прокрутке вниз.</target>
         <note from="lit-localize">Description of the "Sticky sidebar headers" feature.</note>
       </trans-unit>
-      <trans-unit id="sc3d18c5d40ce8aa0">
+      <trans-unit id="sc3d18c5d40ce8aa0" xml:space="preserve">
         <source>Close menu with feature categories</source>
+        <target state="translated">Закрыть меню с категориями функций</target>
         <note from="lit-localize">Label for the button that closes the list of feature categories in the options page.</note>
       </trans-unit>
-      <trans-unit id="s1d76b4fc9e0c9f06">
+      <trans-unit id="s1d76b4fc9e0c9f06" xml:space="preserve">
         <source>Open menu with feature categories</source>
+        <target state="translated">Открыть меню с категориями функций</target>
         <note from="lit-localize">Label for the button that opens the list of feature categories in the options page.</note>
       </trans-unit>
-      <trans-unit id="sd8c7f380694a123e">
+      <trans-unit id="sd8c7f380694a123e" xml:space="preserve">
         <source>Enable "<x id="0" equiv-text="${this.feature.name}"/>" feature</source>
+        <target state="translated">Включить функцию "<x id="0" equiv-text="${this.feature.name}"/>"</target>
         <note from="lit-localize">Label for the checkbox that lets a user enable a specific feature in the options page (ex: 'Enable "Dark theme" feature')</note>
       </trans-unit>
-      <trans-unit id="secf1350a6da28533">
+      <trans-unit id="secf1350a6da28533" xml:space="preserve">
         <source>Experiments</source>
+        <target state="translated">Эксперименты</target>
         <note from="lit-localize">Label for the link to the experiments page.</note>
       </trans-unit>
-      <trans-unit id="s0a9a5319eed5087a">
+      <trans-unit id="s0a9a5319eed5087a" xml:space="preserve">
         <source>Help translate the extension</source>
+        <target state="translated">Помогите перевести расширение</target>
         <note from="lit-localize">Label for the link to Weblate.</note>
       </trans-unit>
-      <trans-unit id="sd13e01f2878f6e80">
+      <trans-unit id="sd13e01f2878f6e80" xml:space="preserve">
         <source>List of feature categories</source>
+        <target state="translated">Список категорий функций</target>
         <note from="lit-localize">Label for the sidebar of the options page that lets the user select which category to be shown.</note>
       </trans-unit>
-      <trans-unit id="saab875d8cfcfe712">
+      <trans-unit id="saab875d8cfcfe712" xml:space="preserve">
         <source>Theme</source>
+        <target state="translated">Тема</target>
         <note from="lit-localize">Name of a suboption of the "Dark theme" feature.</note>
       </trans-unit>
-      <trans-unit id="s077f1115c8cb6492">
+      <trans-unit id="s077f1115c8cb6492" xml:space="preserve">
         <source>Notify updates</source>
+        <target state="translated">Уведомлять об обновлениях</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="sb8e4edaea6f1d935">
+      <trans-unit id="sb8e4edaea6f1d935" xml:space="preserve">
         <source>Avatars</source>
+        <target state="translated">Аватары</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="sc8cd255eb973bbe0">
+      <trans-unit id="sc8cd255eb973bbe0" xml:space="preserve">
         <source>Bulk lock</source>
+        <target state="translated">Массово заблокировать</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s1f5af7657c1fb644">
+      <trans-unit id="s1f5af7657c1fb644" xml:space="preserve">
         <source>Block saving drafts</source>
+        <target state="translated">Заблокировать сохранения черновиков</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="sf53f535371b485ce">
+      <trans-unit id="sf53f535371b485ce" xml:space="preserve">
         <source>Bulk move</source>
+        <target state="translated">Массово переместить</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s95c6b373633d4a2f">
+      <trans-unit id="s95c6b373633d4a2f" xml:space="preserve">
         <source>Report replies quickly</source>
+        <target state="translated">Быстро пожаловаться на ответы</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s3ac6d6bc5baddf30">
+      <trans-unit id="s3ac6d6bc5baddf30" xml:space="preserve">
         <source>Dark theme</source>
+        <target state="translated">Темная тема</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s7d7a69fc2d6e11cd">
+      <trans-unit id="s7d7a69fc2d6e11cd" xml:space="preserve">
         <source>Fix drag and dropping links</source>
+        <target state="translated">Исправить перетаскивание ссылок</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s3faaa7838e5c3fbf">
+      <trans-unit id="s3faaa7838e5c3fbf" xml:space="preserve">
         <source>Hide sidebar by default</source>
+        <target state="translated">Скрыть боковую панель по умолчанию</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s5620911a370a2355">
+      <trans-unit id="s5620911a370a2355" xml:space="preserve">
         <source>Highlight announcements notification dot</source>
+        <target state="translated">Выделять точку уведомлений об объявлениях</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
       <trans-unit id="s5b315a07b3168a91">
@@ -601,12 +625,7 @@
         <note from="lit-localize">Note for the "Infinite scroll" feature for thread lists.</note>
       </trans-unit>
       <trans-unit id="hc6a96bb38b498270">
-        <source>
-      <x id="0" equiv-text="&lt;i&gt;${automaticOptionLabel}"/>:<x id="1" equiv-text="&lt;/i&gt;"/>
-      will use the theme defined in the system settings.
-      <x id="2" equiv-text="&lt;br&gt;&#10;      &lt;i&gt;${manualOptionLabel}"/>:<x id="3" equiv-text="&lt;/i&gt;"/>
-      will add a button to the Community Console that lets you switch the theme.
-    </source>
+        <source><x id="0" equiv-text="&lt;i&gt;${automaticOptionLabel}"/>:<x id="1" equiv-text="&lt;/i&gt;"/> will use the theme defined in the system settings. <x id="2" equiv-text="&lt;br&gt;&#10;      &lt;i&gt;${manualOptionLabel}"/>:<x id="3" equiv-text="&lt;/i&gt;"/> will add a button to the Community Console that lets you switch the theme. </source>
         <note from="lit-localize">Note for the "Theme" feature.</note>
       </trans-unit>
       <trans-unit id="s5534d887d865e194">
@@ -638,11 +657,7 @@
         <note from="lit-localize">Tag shown in the options page for features that work in the Community Console.</note>
       </trans-unit>
       <trans-unit id="h74e97b4e6e3628b4">
-        <source>
-            This feature has been disabled remotely for everyone.
-            <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>
-              Learn why.
-            <x id="1" equiv-text="&lt;/a&gt;&#10;          "/></source>
+        <source>This feature has been disabled remotely for everyone. <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/> Learn why. <x id="1" equiv-text="&lt;/a&gt;&#10;          "/></source>
         <note from="lit-localize">Text that appears in a feature card in the options page when the feature has been disabled remotely (i.e., the feature kill switch is active).</note>
       </trans-unit>
       <trans-unit id="s4159a5f1849a41c3">
@@ -657,45 +672,38 @@
         <source>TW Power Tools</source>
         <note from="lit-localize">The extension name.</note>
       </trans-unit>
-<trans-unit id="h484816adcf825576">
-  <source>
-        These features only affect the Community Console's old message composer,
-        which is shown when creating a new thread or canned response, when
-        pressing
-        <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/>
-        inside a thread, or when creating a new reply in the old thread view.
-        The new message composer doesn't suffer from these issues.
-      </source>
-  <note from="lit-localize">Explanatory note for the features that relate to the old reply editor in the Community Console.</note>
-</trans-unit>
-<trans-unit id="s9f87b689a748b55a">
-  <source>Bulk actions</source>
-  <note from="lit-localize">Name of a generic section of features that let users perform actions to many threads at once.</note>
-</trans-unit>
-<trans-unit id="s275ffb8ac7b2973f">
-  <source>Minor UI enhancements</source>
-  <note from="lit-localize">Name of a generic section of features, which includes features that minimally enhance the user interface of the forums platform.</note>
-</trans-unit>
-<trans-unit id="s30ae03472b93dc47">
-  <source>Profiles</source>
-  <note from="lit-localize">Name of the category of extension features related to profiles.</note>
-</trans-unit>
-<trans-unit id="s55cec32fb241f2f5">
-  <source>Old message composer</source>
-  <note from="lit-localize">Name of the category of extension features related to the old message composer.</note>
-</trans-unit>
-<trans-unit id="s6163ba50e1af9788">
-  <source>Thread lists</source>
-  <note from="lit-localize">Name of the category of extension features related to thread lists.</note>
-</trans-unit>
-<trans-unit id="s8b60bf2db1580306">
-  <source>Threads</source>
-  <note from="lit-localize">Name of the category of extension features related to threads.</note>
-</trans-unit>
-<trans-unit id="sc3ac225273c8316b">
-  <source>General</source>
-  <note from="lit-localize">Name of the category of extension features that apply to multiple areas of the forums platform.</note>
-</trans-unit>
+      <trans-unit id="h484816adcf825576">
+        <source>These features only affect the Community Console's old message composer, which is shown when creating a new thread or canned response, when pressing <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/> inside a thread, or when creating a new reply in the old thread view. The new message composer doesn't suffer from these issues. </source>
+        <note from="lit-localize">Explanatory note for the features that relate to the old reply editor in the Community Console.</note>
+      </trans-unit>
+      <trans-unit id="s9f87b689a748b55a">
+        <source>Bulk actions</source>
+        <note from="lit-localize">Name of a generic section of features that let users perform actions to many threads at once.</note>
+      </trans-unit>
+      <trans-unit id="s275ffb8ac7b2973f">
+        <source>Minor UI enhancements</source>
+        <note from="lit-localize">Name of a generic section of features, which includes features that minimally enhance the user interface of the forums platform.</note>
+      </trans-unit>
+      <trans-unit id="s30ae03472b93dc47">
+        <source>Profiles</source>
+        <note from="lit-localize">Name of the category of extension features related to profiles.</note>
+      </trans-unit>
+      <trans-unit id="s55cec32fb241f2f5">
+        <source>Old message composer</source>
+        <note from="lit-localize">Name of the category of extension features related to the old message composer.</note>
+      </trans-unit>
+      <trans-unit id="s6163ba50e1af9788">
+        <source>Thread lists</source>
+        <note from="lit-localize">Name of the category of extension features related to thread lists.</note>
+      </trans-unit>
+      <trans-unit id="s8b60bf2db1580306">
+        <source>Threads</source>
+        <note from="lit-localize">Name of the category of extension features related to threads.</note>
+      </trans-unit>
+      <trans-unit id="sc3ac225273c8316b">
+        <source>General</source>
+        <note from="lit-localize">Name of the category of extension features that apply to multiple areas of the forums platform.</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>
