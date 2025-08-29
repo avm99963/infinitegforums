@@ -724,7 +724,14 @@
         <note from="lit-localize">The extension name.</note>
       </trans-unit>
       <trans-unit id="h484816adcf825576" xml:space="preserve">
-        <source>These features only affect the Community Console's old message composer, which is shown when creating a new thread or canned response, when pressing <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/> inside a thread, or when creating a new reply in the old thread view. The new message composer doesn't suffer from these issues. </source>
+        <source>
+        These features only affect the Community Console's old message composer,
+        which is shown when creating a new thread or canned response, when
+        pressing
+        <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/>
+        inside a thread, or when creating a new reply in the old thread view.
+        The new message composer doesn't suffer from these issues.
+      </source>
         <target state="translated">Estas funciones solo afectan el editor de mensajes antiguo de la Consola de la Comunidad, que se muestra cuando se crea un nuevo hilo o una respuesta enlatada, cuando se pulsa <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/> dentro de un hilo, o cuando se crea una nueva respuesta en la vista antigua de los hilos. El nuevo editor de texto no sufre de estos problemas. </target>
         <note from="lit-localize">Explanatory note for the features that relate to the old reply editor in the Community Console.</note>
       </trans-unit>
@@ -763,6 +770,12 @@
         <target state="translated">General</target>
         <note from="lit-localize">Name of the category of extension features that apply to multiple areas of the forums platform.</note>
       </trans-unit>
+<trans-unit id="s79ad81a9d63904fc">
+  <source>You're testing the new options page.</source>
+</trans-unit>
+<trans-unit id="h75ff4c12afaffb0c">
+  <source>Please leave feedback and report bugs in our <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;"/>discussion group<x id="1" equiv-text="&lt;/a&gt;"/>. Thanks for testing!</source>
+</trans-unit>
     </body>
   </file>
 </xliff>

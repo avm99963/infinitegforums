@@ -430,7 +430,12 @@
         <note from="lit-localize">Description of the "Limit image size" feature.</note>
       </trans-unit>
       <trans-unit id="hd6ef3603ca3544c3" xml:space="preserve">
-        <source>Enables the <x id="0" equiv-text="&lt;code&gt;"/>enableLoadingDraftMessages<x id="1" equiv-text="&lt;/code&gt;"/> Community Console flag, which enables recovering an existing draft saved in the Google servers when you start a new reply. </source>
+        <source>
+      Enables the
+      <x id="0" equiv-text="&lt;code&gt;"/>enableLoadingDraftMessages<x id="1" equiv-text="&lt;/code&gt;"/>
+      Community Console flag, which enables recovering an existing draft saved
+      in the Google servers when you start a new reply.
+    </source>
         <target state="translated">Включает флаг <x id="0" equiv-text="&lt;code&gt;"/>enableLoadingDraftMessages<x id="1" equiv-text="&lt;/code&gt;"/> в Консоли сообщества, который позволяет восстанавливать существующий черновик, сохраненный на серверах Google, при начале нового ответа. </target>
         <note from="lit-localize">Description of the "Load draft messages when replying" feature.</note>
       </trans-unit>
@@ -645,7 +650,12 @@
         <note from="lit-localize">Note for the "Infinite scroll" feature for thread lists.</note>
       </trans-unit>
       <trans-unit id="hc6a96bb38b498270" xml:space="preserve">
-        <source><x id="0" equiv-text="&lt;i&gt;${automaticOptionLabel}"/>:<x id="1" equiv-text="&lt;/i&gt;"/> will use the theme defined in the system settings. <x id="2" equiv-text="&lt;br&gt;&#10;      &lt;i&gt;${manualOptionLabel}"/>:<x id="3" equiv-text="&lt;/i&gt;"/> will add a button to the Community Console that lets you switch the theme. </source>
+        <source>
+      <x id="0" equiv-text="&lt;i&gt;${automaticOptionLabel}"/>:<x id="1" equiv-text="&lt;/i&gt;"/>
+      will use the theme defined in the system settings.
+      <x id="2" equiv-text="&lt;br&gt;&#10;      &lt;i&gt;${manualOptionLabel}"/>:<x id="3" equiv-text="&lt;/i&gt;"/>
+      will add a button to the Community Console that lets you switch the theme.
+    </source>
         <target state="translated"><x id="0" equiv-text="&lt;i&gt;${automaticOptionLabel}"/>:<x id="1" equiv-text="&lt;/i&gt;"/> будет использовать тему, определенную в настройках системы. <x id="2" equiv-text="&lt;br&gt;&#10;      &lt;i&gt;${manualOptionLabel}"/>:<x id="3" equiv-text="&lt;/i&gt;"/> добавит в Консоль сообщества кнопку, позволяющую переключать тему. </target>
         <note from="lit-localize">Note for the "Theme" feature.</note>
       </trans-unit>
@@ -685,7 +695,11 @@
         <note from="lit-localize">Tag shown in the options page for features that work in the Community Console.</note>
       </trans-unit>
       <trans-unit id="h74e97b4e6e3628b4" xml:space="preserve">
-        <source>This feature has been disabled remotely for everyone. <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/> Learn why. <x id="1" equiv-text="&lt;/a&gt;&#10;          "/></source>
+        <source>
+            This feature has been disabled remotely for everyone.
+            <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>
+              Learn why.
+            <x id="1" equiv-text="&lt;/a&gt;&#10;          "/></source>
         <target state="translated">Эта функция была удаленно отключена для всех. <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/> Узнайте почему. <x id="1" equiv-text="&lt;/a&gt;&#10;          "/></target>
         <note from="lit-localize">Text that appears in a feature card in the options page when the feature has been disabled remotely (i.e., the feature kill switch is active).</note>
       </trans-unit>
@@ -705,7 +719,14 @@
         <note from="lit-localize">The extension name.</note>
       </trans-unit>
       <trans-unit id="h484816adcf825576" xml:space="preserve">
-        <source>These features only affect the Community Console's old message composer, which is shown when creating a new thread or canned response, when pressing <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/> inside a thread, or when creating a new reply in the old thread view. The new message composer doesn't suffer from these issues. </source>
+        <source>
+        These features only affect the Community Console's old message composer,
+        which is shown when creating a new thread or canned response, when
+        pressing
+        <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/>
+        inside a thread, or when creating a new reply in the old thread view.
+        The new message composer doesn't suffer from these issues.
+      </source>
         <target state="translated">Эти функции влияют только на старый редактор сообщений Консоли сообщества, который отображается при создании новой темы или шаблонного ответа при нажатии <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/> внутри темы, или при создании нового ответа в старом отображении темы. Новый редактор сообщений не испытывает этих проблем. </target>
         <note from="lit-localize">Explanatory note for the features that relate to the old reply editor in the Community Console.</note>
       </trans-unit>
@@ -744,6 +765,12 @@
         <target state="translated">Общее</target>
         <note from="lit-localize">Name of the category of extension features that apply to multiple areas of the forums platform.</note>
       </trans-unit>
+<trans-unit id="s79ad81a9d63904fc">
+  <source>You're testing the new options page.</source>
+</trans-unit>
+<trans-unit id="h75ff4c12afaffb0c">
+  <source>Please leave feedback and report bugs in our <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;"/>discussion group<x id="1" equiv-text="&lt;/a&gt;"/>. Thanks for testing!</source>
+</trans-unit>
     </body>
   </file>
 </xliff>

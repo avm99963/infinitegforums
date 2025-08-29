@@ -753,6 +753,12 @@
   <source>General</source>
   <note from="lit-localize">Name of the category of extension features that apply to multiple areas of the forums platform.</note>
 </trans-unit>
+<trans-unit id="s79ad81a9d63904fc">
+  <source>You're testing the new options page.</source>
+</trans-unit>
+<trans-unit id="h75ff4c12afaffb0c">
+  <source>Please leave feedback and report bugs in our <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;"/>discussion group<x id="1" equiv-text="&lt;/a&gt;"/>. Thanks for testing!</source>
+</trans-unit>
     </body>
   </file>
 </xliff>
