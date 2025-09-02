@@ -24,6 +24,20 @@ export default class WFActionReplyWithCR extends LitElement {
       .select-cr-btn {
         --md-outlined-button-icon-size: 24px;
       }
+
+      .disabled-notice {
+        align-items: flex-start;
+        color: var(--md-sys-color-error);
+
+        .disabled-notice-text {
+          display: flex;
+          flex-direction: column;
+
+          & > :not(:last-child) {
+            margin-bottom: 4px;
+          }
+        }
+      }
     `,
   ];
 
@@ -47,6 +61,7 @@ export default class WFActionReplyWithCR extends LitElement {
 
   render() {
     return html`
+      ${this.maybeRenderDisabledNotice()}
       <div class="form-line">
         <md-outlined-text-field ${ref(this.cannedResponseRef)}
             type="number"
@@ -90,6 +105,22 @@ export default class WFActionReplyWithCR extends LitElement {
         </twpt-form-field>
       </div>
     `;
+  }
+
+  maybeRenderDisabledNotice() {
+    // #!if !enable_bulk_crs
+    return html`
+      <div class="form-line disabled-notice">
+        <md-icon>warning</md-icon>
+        <div class="disabled-notice-text">
+          <span>Replying with CRs in workflows <a href="https://groups.google.com/g/twpowertools-discuss/c/676mUvH4mAM/m/lhqxxQSuAgAJ" target="_blank" rel="noopener noreferrer">has been temporarily disabled</a>.</span>
+          <span>This action will not be executed.</span>
+        </span>
+      </div>
+    `;
+    // #!else
+    return nothing;
+    // #!endif
   }
 
   disconnectedCallback() {

@@ -49,6 +49,9 @@ export default class CRRunner {
   }
 
   execute(action, thread) {
+    // #!if !enable_bulk_crs
+    return Promise.reject(new Error('Bulk CRs are not allowed temporarily.'));
+    // #!else
     let crId = action?.getCannedResponseId?.();
     if (!crId)
       return Promise.reject(
@@ -76,5 +79,6 @@ export default class CRRunner {
               },
               /* authenticated = */ true, getAuthUser());
         });
+    // #!endif
   }
 }
