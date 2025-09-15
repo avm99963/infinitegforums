@@ -720,7 +720,7 @@
       </trans-unit>
       <trans-unit id="sd51b2f371fbec9c6" xml:space="preserve">
         <source>TW Power Tools</source>
-        <target state="translated">TW Power Tools</target>
+        <target state="translated">Herramientas avanzadas para TW</target>
         <note from="lit-localize">The extension name.</note>
       </trans-unit>
       <trans-unit id="h484816adcf825576" xml:space="preserve">
