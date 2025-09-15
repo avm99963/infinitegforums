@@ -14,41 +14,35 @@ export default class CRRunner {
     this._haveCRsBeenLoaded = false;
   }
 
-  loadCRs() {
-    return CCApi(
-               'ListCannedResponses', {}, /* authenticated = */ true,
-               getAuthUser())
-        .then(res => {
-          this._CRs = res?.[1] ?? [];
-          this._haveCRsBeenLoaded = true;
-        });
+  async loadCRs() {
+    const res = await CCApi(
+      'ListCannedResponses', {}, /* authenticated = */ true,
+      getAuthUser());
+    this._CRs = res?.[1] ?? [];
+    this._haveCRsBeenLoaded = true;
   }
 
-  _getCRPayload(id) {
-    let maybeLoadCRsPromise;
-    if (!this._haveCRsBeenLoaded)
-      maybeLoadCRsPromise = this.loadCRs();
-    else
-      maybeLoadCRsPromise = Promise.resolve();
+  async _getCRPayload(id) {
+    if (!this._haveCRsBeenLoaded) {
+      await this.loadCRs();
+    }
+    const cr = this._CRs.find(cr => cr?.[1]?.[1] == id);
+    if (!cr) throw new Error(`Couldn't find CR with id ${id}.`);
+    return cr?.[3];
+  }
 
-    return maybeLoadCRsPromise.then(() => {
-      let cr = this._CRs.find(cr => cr?.[1]?.[1] == id);
-      if (!cr) throw new Error(`Couldn't find CR with id ${id}.`);
-      return cr?.[3];
+  async _templateSubstitute(payload, thread) {
+    if (!payload.match(kVariablesRegex)) {
+      return payload;
+    }
+
+    await thread.loadThreadDetails();
+    return payload.replaceAll(kVariablesRegex, (_, p1) => {
+      return thread?.[p1] ?? '';
     });
   }
 
-  _templateSubstitute(payload, thread) {
-    if (!payload.match(kVariablesRegex)) return Promise.resolve(payload);
-
-    return thread.loadThreadDetails().then(() => {
-      return payload.replaceAll(kVariablesRegex, (_, p1) => {
-        return thread?.[p1] ?? '';
-      });
-    });
-  }
-
-  execute(action, thread) {
+  async execute(action, thread) {
     // #!if !enable_bulk_crs
     return Promise.reject(new Error('Bulk CRs are not allowed temporarily.'));
     // #!else
@@ -57,28 +51,26 @@ export default class CRRunner {
       return Promise.reject(
           new Error('The action doesn\'t contain a valid CR id.'));
 
-    return this._getCRPayload(crId)
-        .then(payload => this._templateSubstitute(payload, thread))
-        .then(payload => {
-          let subscribe = action?.getSubscribe?.() ?? false;
-          let markAsAnswer = action?.getMarkAsAnswer?.() ?? false;
-          return CCApi(
-              'CreateMessage', {
-                1: thread.forumId,
-                2: thread.threadId,
-                // message
-                3: {
-                  4: payload,
-                  6: {
-                    1: markAsAnswer ? kType_RecommendedAnswer : kType_Reply,
-                  },
-                  11: kPostMethodCommunityConsole,
-                },
-                4: subscribe,
-                6: kPiiScanType_ScanNone,
-              },
-              /* authenticated = */ true, getAuthUser());
-        });
+    const original_payload = await this._getCRPayload(crId);
+    const payload = await this._templateSubstitute(original_payload, thread);
+    let subscribe = action?.getSubscribe?.() ?? false;
+    let markAsAnswer = action?.getMarkAsAnswer?.() ?? false;
+    return await CCApi(
+      'CreateMessage', {
+      1: thread.forumId,
+      2: thread.threadId,
+      // message
+      3: {
+        4: payload,
+        6: {
+          1: markAsAnswer ? kType_RecommendedAnswer : kType_Reply,
+        },
+        11: kPostMethodCommunityConsole,
+      },
+      4: subscribe,
+      6: kPiiScanType_ScanNone,
+    },
+    /* authenticated = */ true, getAuthUser());
     // #!endif
   }
 }
