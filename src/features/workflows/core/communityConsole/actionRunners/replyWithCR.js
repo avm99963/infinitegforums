@@ -7,6 +7,8 @@ const kType_RecommendedAnswer = 3;
 const kPostMethodCommunityConsole = 4;
 
 const kVariablesRegex = /\$([A-Za-z_]+)/g;
+const kLicense =
+    'I AGREE TO USE THE WORKFLOWS FUNCTIONALITY ETHICALLY AND ACCORDING TO THE PE PROGRAM AND FORUM RULES. I UNDERSTAND THAT MAINTAINERS MAY REVOKE MY ACCESS TO THIS FEATURE AT THEIR SOLE DISCRETION IF THEY BELIEVE I HAVE MISUSED IT.';
 
 export default class CRRunner {
   constructor() {
@@ -15,13 +17,17 @@ export default class CRRunner {
   }
 
   async execute(action, thread) {
-    // #!if !enable_bulk_crs
-    return Promise.reject(new Error('Bulk CRs are not allowed temporarily.'));
-    // #!else
     let crId = action?.getCannedResponseId?.();
     if (!crId)
       return Promise.reject(
           new Error('The action doesn\'t contain a valid CR id.'));
+
+    const tags = await this._getCRTags(crId);
+    // #!if !enable_bulk_crs
+    if (!tags.some(tag => tag.trim() == kLicense)) {
+      return Promise.reject(new Error('Bulk CRs are not allowed temporarily.'));
+    }
+    // #!endif
 
     const original_payload = await this._getCRPayload(crId);
     const payload = await this._templateSubstitute(original_payload, thread);
@@ -43,16 +49,25 @@ export default class CRRunner {
       6: kPiiScanType_ScanNone,
     },
     /* authenticated = */ true, getAuthUser());
-    // #!endif
+  }
+
+  async _getCRTags(id) {
+    const cr = await this._getCR(id);
+    return cr?.[6] ?? [];
   }
 
   async _getCRPayload(id) {
+    const cr = await this._getCR(id);
+    return cr?.[3];
+  }
+
+  async _getCR(id) {
     if (!this._haveCRsBeenLoaded) {
       await this.loadCRs();
     }
     const cr = this._CRs.find(cr => cr?.[1]?.[1] == id);
     if (!cr) throw new Error(`Couldn't find CR with id ${id}.`);
-    return cr?.[3];
+    return cr;
   }
 
   async loadCRs() {
