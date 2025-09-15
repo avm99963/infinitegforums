@@ -5,6 +5,7 @@ const kPiiScanType_ScanNone = 0;
 const kType_Reply = 1;
 const kType_RecommendedAnswer = 3;
 const kPostMethodCommunityConsole = 4;
+const kSourceMessageTypeCannedResponse = 9;
 
 const kVariablesRegex = /\$([A-Za-z_]+)/g;
 const kLicense =
@@ -30,25 +31,42 @@ export default class CRRunner {
     // #!endif
 
     const original_payload = await this._getCRPayload(crId);
-    const payload = await this._templateSubstitute(original_payload, thread);
+    const payload = this._addFingerprint(
+        await this._templateSubstitute(original_payload, thread));
     let subscribe = action?.getSubscribe?.() ?? false;
     let markAsAnswer = action?.getMarkAsAnswer?.() ?? false;
+    const sourceCannedResponse = {
+      // source_message_id
+      1: crId,
+      2: kSourceMessageTypeCannedResponse,
+      // attribution
+      6: [{
+        // title
+        1: 'TW Power Tools (workflows feature)',
+        // url
+        2: 'https://s.iavm.xyz/twpt-bulk-crs-in-workflows',
+      }],
+    };
     return await CCApi(
-      'CreateMessage', {
-      1: thread.forumId,
-      2: thread.threadId,
-      // message
-      3: {
-        4: payload,
-        6: {
-          1: markAsAnswer ? kType_RecommendedAnswer : kType_Reply,
+        'CreateMessage', {
+          1: thread.forumId,
+          2: thread.threadId,
+          // message
+          3: {
+            4: payload,
+            6: {
+              1: markAsAnswer ? kType_RecommendedAnswer : kType_Reply,
+            },
+            11: kPostMethodCommunityConsole,
+            // source_message
+            42: sourceCannedResponse,
+            // canned_response_sources
+            44: [sourceCannedResponse],
+          },
+          4: subscribe,
+          6: kPiiScanType_ScanNone,
         },
-        11: kPostMethodCommunityConsole,
-      },
-      4: subscribe,
-      6: kPiiScanType_ScanNone,
-    },
-    /* authenticated = */ true, getAuthUser());
+        /* authenticated = */ true, getAuthUser());
   }
 
   async _getCRTags(id) {
@@ -72,8 +90,7 @@ export default class CRRunner {
 
   async loadCRs() {
     const res = await CCApi(
-      'ListCannedResponses', {}, /* authenticated = */ true,
-      getAuthUser());
+        'ListCannedResponses', {}, /* authenticated = */ true, getAuthUser());
     this._CRs = res?.[1] ?? [];
     this._haveCRsBeenLoaded = true;
   }
@@ -87,5 +104,10 @@ export default class CRRunner {
     return payload.replaceAll(kVariablesRegex, (_, p1) => {
       return thread?.[p1] ?? '';
     });
+  }
+
+  _addFingerprint(payload) {
+    return `${
+        payload}<div aria-label=""><div><div aria-label=""></div></div></div>`;
   }
 }
