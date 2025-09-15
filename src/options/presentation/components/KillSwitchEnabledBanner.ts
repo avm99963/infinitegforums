@@ -11,12 +11,8 @@ import './BannerCard';
 export default class KillSwitchEnabledBanner extends I18nLitElement {
   static styles = [
     css`
-      banner {
-        margin-bottom: 8px;
-
-        a {
-          color: var(--md-sys-color-primary);
-        }
+      a {
+        color: var(--md-sys-color-primary);
       }
     `,
   ];

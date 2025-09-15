@@ -1,5 +1,5 @@
 import { msg } from '@lit/localize';
-import { html } from 'lit';
+import { css, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { DISCUSS_GROUP_URL } from '../../../common/consts';
 import { I18nLitElement } from '../../../common/litI18nUtils';
@@ -11,6 +11,14 @@ const DOGFOOD_ICON =
 
 @customElement('dogfood-banner')
 export default class DogfoodBanner extends I18nLitElement {
+  static styles = [
+    css`
+      a {
+        color: var(--md-sys-color-primary);
+      }
+    `,
+  ];
+
   render() {
     const title = msg("You're testing the new options page.");
     // prettier-ignore
