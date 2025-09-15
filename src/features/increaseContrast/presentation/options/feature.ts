@@ -2,7 +2,7 @@ import { msg } from '@lit/localize';
 import { Feature } from '../../../../options/presentation/models/feature';
 import { COMMUNITY_CONSOLE_TAG } from '../../../../options/presentation/utils/featureUtils';
 
-export const increaseContrastFeature = new Feature({
+export const increaseContrastFeature = () => new Feature({
   optionCodename: 'increasecontrast',
   name: msg('Increase contrast', {
     desc: 'Name of an extension feature.',
@@ -13,5 +13,5 @@ export const increaseContrastFeature = new Feature({
       desc: 'Description of the "Increase contrast" feature.',
     },
   ),
-  tags: [COMMUNITY_CONSOLE_TAG],
+  tags: [COMMUNITY_CONSOLE_TAG()],
 });

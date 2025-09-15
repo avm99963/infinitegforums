@@ -5,7 +5,7 @@ import {
   TAILWIND_BASIC_TAG,
 } from '../../../../options/presentation/utils/featureUtils';
 
-export const bulkReportRepliesFeature = new Feature({
+export const bulkReportRepliesFeature = () => new Feature({
   optionCodename: 'bulkreportreplies',
   name: msg('Report replies quickly', {
     desc: 'Name of an extension feature.',
@@ -16,5 +16,5 @@ export const bulkReportRepliesFeature = new Feature({
       desc: 'Description of the "Report replies quickly" feature.',
     },
   ),
-  tags: [TAILWIND_BASIC_TAG, COMMUNITY_CONSOLE_TAG],
+  tags: [TAILWIND_BASIC_TAG(), COMMUNITY_CONSOLE_TAG()],
 });

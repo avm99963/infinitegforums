@@ -38,7 +38,7 @@ export class CategoriesSelector extends I18nLitElement {
         role="menubar"
         class="nav"
       >
-        ${map(this.featureCategories, (c) => {
+        ${map(this.featureCategories ?? [], (c) => {
           const isSelected = c.id === this.selectedCategoryId;
           return html`
             <md-list-item

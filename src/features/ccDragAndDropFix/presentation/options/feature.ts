@@ -2,7 +2,7 @@ import { msg } from '@lit/localize';
 import { Feature } from '../../../../options/presentation/models/feature';
 import { COMMUNITY_CONSOLE_TAG } from '../../../../options/presentation/utils/featureUtils';
 
-export const ccDragAndDropFixFeature = new Feature({
+export const ccDragAndDropFixFeature = () => new Feature({
   optionCodename: 'ccdragndropfix',
   name: msg('Fix drag and dropping links', {
     desc: 'Name of an extension feature.',
@@ -13,5 +13,5 @@ export const ccDragAndDropFixFeature = new Feature({
       desc: 'Description of the "Fix drag and dropping links" feature.',
     },
   ),
-  tags: [COMMUNITY_CONSOLE_TAG],
+  tags: [COMMUNITY_CONSOLE_TAG()],
 });

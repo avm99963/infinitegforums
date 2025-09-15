@@ -2,7 +2,7 @@ import { msg } from '@lit/localize';
 import { Feature } from '../../../../options/presentation/models/feature';
 import { COMMUNITY_CONSOLE_TAG } from '../../../../options/presentation/utils/featureUtils';
 
-export const blockDraftsFeature = new Feature({
+export const blockDraftsFeature = () => new Feature({
   optionCodename: 'blockdrafts',
   name: msg('Block saving drafts', {
     desc: 'Name of an extension feature.',
@@ -13,5 +13,5 @@ export const blockDraftsFeature = new Feature({
       desc: 'Description of the "Block saving drafts" feature.',
     },
   ),
-  tags: [COMMUNITY_CONSOLE_TAG],
+  tags: [COMMUNITY_CONSOLE_TAG()],
 });

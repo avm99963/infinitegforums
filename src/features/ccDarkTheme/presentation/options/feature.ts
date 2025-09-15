@@ -11,7 +11,7 @@ const manualOptionLabel = msg('Manual', {
   desc: 'Selectable option for the "Theme" suboption of the "Dark theme" feature.',
 });
 
-export const ccDarkThemeFeature = new Feature({
+export const ccDarkThemeFeature = () => new Feature({
   optionCodename: 'ccdarktheme',
   name: msg('Dark theme', {
     desc: 'Name of an extension feature.',
@@ -53,5 +53,5 @@ export const ccDarkThemeFeature = new Feature({
       },
     }),
   ],
-  tags: [COMMUNITY_CONSOLE_TAG],
+  tags: [COMMUNITY_CONSOLE_TAG()],
 });

@@ -5,7 +5,7 @@ import {
   TAILWIND_BASIC_TAG,
 } from '../../../../options/presentation/utils/featureUtils';
 
-export const uiSpacingFeature = new Feature({
+export const uiSpacingFeature = () => new Feature({
   optionCodename: 'uispacing',
   name: msg('Compact mode', {
     desc: 'Name of an extension feature.',
@@ -13,5 +13,5 @@ export const uiSpacingFeature = new Feature({
   description: msg('Reduce the whitespace in the UI.', {
     desc: 'Description of the "Compact mode" feature.',
   }),
-  tags: [TAILWIND_BASIC_TAG, COMMUNITY_CONSOLE_TAG],
+  tags: [TAILWIND_BASIC_TAG(), COMMUNITY_CONSOLE_TAG()],
 });

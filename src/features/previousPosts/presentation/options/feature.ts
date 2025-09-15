@@ -5,7 +5,7 @@ import {
   TAILWIND_BASIC_TAG,
 } from '../../../../options/presentation/utils/featureUtils';
 
-export const previousPostsFeature = new Feature({
+export const previousPostsFeature = () => new Feature({
   optionCodename: 'history',
   name: msg('Previous posts', {
     desc: 'Name of an extension feature.',
@@ -13,5 +13,5 @@ export const previousPostsFeature = new Feature({
   description: msg('Shows a "previous posts" link in user profiles.', {
     desc: 'Description of the "Previous posts" feature.',
   }),
-  tags: [TAILWIND_BASIC_TAG, COMMUNITY_CONSOLE_TAG],
+  tags: [TAILWIND_BASIC_TAG(), COMMUNITY_CONSOLE_TAG()],
 });

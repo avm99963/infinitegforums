@@ -1,8 +1,6 @@
 import { msg } from '@lit/localize';
 import { FeatureCategory } from './models/category';
-import { Feature } from './models/feature';
 import { FeatureSection } from './models/section';
-import { SubOption } from './models/subOption';
 import { ccDarkThemeFeature } from '../../features/ccDarkTheme/presentation/options/feature';
 import { redirectFeature } from '../../features/redirect/presentation/options/feature';
 import { uiSpacingFeature } from '../../features/uiSpacing/presentation/options/feature';
@@ -36,27 +34,27 @@ import { html } from 'lit';
 import { perForumActivityFeature } from '../../features/extraInfo/presentation/options/feature';
 import { previousPostsFeature } from '../../features/previousPosts/presentation/options/feature';
 
-const minorUIEnhancementsSectionName = msg('Minor UI enhancements', {
+const minorUIEnhancementsSectionName = () => msg('Minor UI enhancements', {
   desc: 'Name of a generic section of features, which includes features that minimally enhance the user interface of the forums platform.',
 });
-const bulkActionsSectionName = msg('Bulk actions', {
+const bulkActionsSectionName = () => msg('Bulk actions', {
   desc: 'Name of a generic section of features that let users perform actions to many threads at once.',
 });
 
-export const featureCategories = [
+export const getFeatureCategories = () => [
   new FeatureCategory({
     id: 'general',
     name: msg('General', {
       desc: 'Name of the category of extension features that apply to multiple areas of the forums platform.',
     }),
-    features: [ccDarkThemeFeature, redirectFeature, uiSpacingFeature],
+    features: [ccDarkThemeFeature(), redirectFeature(), uiSpacingFeature()],
     sections: [
       new FeatureSection({
-        name: minorUIEnhancementsSectionName,
+        name: minorUIEnhancementsSectionName(),
         features: [
-          stickySidebarHeadersFeature,
-          ccForceHideDrawerFeature,
-          enhancedAnnouncementsDotFeature,
+          stickySidebarHeadersFeature(),
+          ccForceHideDrawerFeature(),
+          enhancedAnnouncementsDotFeature(),
         ],
       }),
     ],
@@ -67,21 +65,21 @@ export const featureCategories = [
       desc: 'Name of the category of extension features related to thread lists.',
     }),
     features: [
-      avatarsFeature,
-      autoRefreshFeature,
-      threadListsInfiniteScrollFeature,
+      avatarsFeature(),
+      autoRefreshFeature(),
+      threadListsInfiniteScrollFeature(),
     ],
     sections: [
       new FeatureSection({
-        name: bulkActionsSectionName,
-        features: [batchLockFeature, bulkMoveFeature],
+        name: bulkActionsSectionName(),
+        features: [batchLockFeature(), bulkMoveFeature()],
       }),
       new FeatureSection({
-        name: minorUIEnhancementsSectionName,
+        name: minorUIEnhancementsSectionName(),
         features: [
-          fixedToolbarFeature,
-          repositionExpandThreadFeature,
-          increaseContrastFeature,
+          fixedToolbarFeature(),
+          repositionExpandThreadFeature(),
+          increaseContrastFeature(),
         ],
       }),
     ],
@@ -92,21 +90,21 @@ export const featureCategories = [
       desc: 'Name of the category of extension features related to threads.',
     }),
     features: [
-      flattenThreadsFeature,
-      profileIndicatorFeature,
-      profileIndicatorDotFeature,
-      threadsInfiniteScrollInBatchesFeature,
-      threadsInfiniteScrollAllAtOnceFeature,
-      interopThreadPageFeature,
+      flattenThreadsFeature(),
+      profileIndicatorFeature(),
+      profileIndicatorDotFeature(),
+      threadsInfiniteScrollInBatchesFeature(),
+      threadsInfiniteScrollAllAtOnceFeature(),
+      interopThreadPageFeature(),
     ],
     sections: [
       new FeatureSection({
-        name: bulkActionsSectionName,
-        features: [bulkReportRepliesFeature],
+        name: bulkActionsSectionName(),
+        features: [bulkReportRepliesFeature()],
       }),
       new FeatureSection({
-        name: minorUIEnhancementsSectionName,
-        features: [imageMaxHeightFeature],
+        name: minorUIEnhancementsSectionName(),
+        features: [imageMaxHeightFeature()],
       }),
     ],
   }),
@@ -130,10 +128,10 @@ export const featureCategories = [
     ),
     features: [
       // #!if browser_target == 'chromium_mv3'
-      ccDragAndDropFixFeature,
-      blockDraftsFeature,
+      ccDragAndDropFixFeature(),
+      blockDraftsFeature(),
       // #!endif
-      loadDraftsFeature,
+      loadDraftsFeature(),
     ],
   }),
   new FeatureCategory({
@@ -141,6 +139,6 @@ export const featureCategories = [
     name: msg('Profiles', {
       desc: 'Name of the category of extension features related to profiles.',
     }),
-    features: [perForumActivityFeature, previousPostsFeature],
+    features: [perForumActivityFeature(), previousPostsFeature()],
   }),
 ];

@@ -3,7 +3,7 @@ import { Feature } from '../../../../options/presentation/models/feature';
 import { COMMUNITY_CONSOLE_TAG } from '../../../../options/presentation/utils/featureUtils';
 import { SubOption } from '../../../../options/presentation/models/subOption';
 
-export const interopThreadPageFeature = new Feature({
+export const interopThreadPageFeature = () => new Feature({
   optionCodename: 'interopthreadpage',
   name: msg('Change thread page design', {
     desc: 'Name of an extension feature.',
@@ -42,5 +42,5 @@ export const interopThreadPageFeature = new Feature({
       },
     }),
   ],
-  tags: [COMMUNITY_CONSOLE_TAG],
+  tags: [COMMUNITY_CONSOLE_TAG()],
 });

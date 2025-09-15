@@ -2,7 +2,7 @@ import { msg } from '@lit/localize';
 import { Feature } from '../../../../options/presentation/models/feature';
 import { COMMUNITY_CONSOLE_TAG } from '../../../../options/presentation/utils/featureUtils';
 
-export const autoRefreshFeature = new Feature({
+export const autoRefreshFeature = () => new Feature({
   optionCodename: 'autorefreshlist',
   name: msg('Notify updates', {
     desc: 'Name of an extension feature.',
@@ -13,5 +13,5 @@ export const autoRefreshFeature = new Feature({
       desc: 'Description of the "Notify updates" feature.',
     },
   ),
-  tags: [COMMUNITY_CONSOLE_TAG],
+  tags: [COMMUNITY_CONSOLE_TAG()],
 });

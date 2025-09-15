@@ -28,7 +28,7 @@ export default class OptionsApp extends LitElement {
   accessor optionsModifier: OptionsModifierPort | undefined;
 
   @property({ type: Array })
-  accessor featureCategories: FeatureCategory[] | undefined;
+  accessor getFeatureCategories: () => FeatureCategory[] | undefined;
 
   /** Whether we're running a production release of the extension. */
   @property({ type: Boolean })
@@ -42,6 +42,8 @@ export default class OptionsApp extends LitElement {
 
   @state()
   accessor selectedCategoryId: string | undefined;
+
+  private featureCategories: FeatureCategory[] | undefined;
 
   private configurationReqAbortController: AbortController | undefined;
 
@@ -88,6 +90,8 @@ export default class OptionsApp extends LitElement {
     ) {
       this.setUpOptionsProvider();
     }
+
+    this.featureCategories = this.getFeatureCategories();
   }
 
   private setUpOptionsProvider() {
@@ -189,11 +193,11 @@ export default class OptionsApp extends LitElement {
 
   private getCurrentCategory(): FeatureCategory | undefined {
     const currentCategoryId = this.getCurrentCategoryId();
-    return this.featureCategories.find((c) => c.id === currentCategoryId);
+    return this.featureCategories?.find((c) => c.id === currentCategoryId);
   }
 
   private getCurrentCategoryId(): string | undefined {
-    return this.selectedCategoryId ?? this.featureCategories[0]?.id;
+    return this.selectedCategoryId ?? this.featureCategories?.[0]?.id;
   }
 
   private isSomeKillSwitchEnabled() {

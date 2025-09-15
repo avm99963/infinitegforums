@@ -5,7 +5,7 @@ import {
   TAILWIND_BASIC_TAG,
 } from '../../../../options/presentation/utils/featureUtils';
 
-export const imageMaxHeightFeature = new Feature({
+export const imageMaxHeightFeature = () => new Feature({
   optionCodename: 'imagemaxheight',
   name: msg('Limit image size', {
     desc: 'Name of an extension feature.',
@@ -14,5 +14,5 @@ export const imageMaxHeightFeature = new Feature({
     'Prevents inline images in messages from being taller than the current window.',
     { desc: 'Description of the "Limit image size" feature.' },
   ),
-  tags: [TAILWIND_BASIC_TAG, COMMUNITY_CONSOLE_TAG],
+  tags: [TAILWIND_BASIC_TAG(), COMMUNITY_CONSOLE_TAG()],
 });

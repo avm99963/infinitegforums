@@ -2,7 +2,7 @@ import { msg } from '@lit/localize';
 import { Feature } from '../../../../options/presentation/models/feature';
 import { COMMUNITY_CONSOLE_TAG } from '../../../../options/presentation/utils/featureUtils';
 
-export const repositionExpandThreadFeature = new Feature({
+export const repositionExpandThreadFeature = () => new Feature({
   optionCodename: 'repositionexpandthread',
   name: msg('Place expand button in the left', {
     desc: 'Name of an extension feature.',
@@ -13,5 +13,5 @@ export const repositionExpandThreadFeature = new Feature({
       desc: 'Description of the "Place expand button in the left" feature.',
     },
   ),
-  tags: [COMMUNITY_CONSOLE_TAG],
+  tags: [COMMUNITY_CONSOLE_TAG()],
 });

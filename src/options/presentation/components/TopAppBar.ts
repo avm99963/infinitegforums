@@ -7,13 +7,14 @@
  */
 
 import type { MdIconButton } from '@material/web/iconbutton/icon-button.js';
-import { css, html, LitElement, nothing } from 'lit';
+import { css, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { live } from 'lit/directives/live.js';
 import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles';
 import { SKIP_TO_MAIN_EVENT } from './consts';
 import {
   EXTENSION_NAME,
+  I18nLitElement,
   SKIP_TO_MAIN_CONTENT,
 } from '../../../common/litI18nUtils.js';
 import { msg } from '@lit/localize';
@@ -26,7 +27,7 @@ import '@material/web/iconbutton/icon-button.js';
  * Top app bar.
  */
 @customElement('top-app-bar')
-export class TopAppBar extends LitElement {
+export class TopAppBar extends I18nLitElement {
   /**
    * Whether the drawer is open.
    */
@@ -77,7 +78,7 @@ export class TopAppBar extends LitElement {
             </md-icon>
           </section>
 
-          <span class="title">${EXTENSION_NAME}</span>
+          <span class="title">${EXTENSION_NAME()}</span>
 
           <button
             id="skip-to-main"
@@ -85,7 +86,7 @@ export class TopAppBar extends LitElement {
             tabindex="0"
             @click=${this.skipToMain}
           >
-            ${SKIP_TO_MAIN_CONTENT}
+            ${SKIP_TO_MAIN_CONTENT()}
           </button>
 
           <section class="end">

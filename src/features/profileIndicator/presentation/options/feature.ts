@@ -7,7 +7,7 @@ import {
 } from '../../../../options/presentation/utils/featureUtils';
 import { html } from 'lit';
 
-export const profileIndicatorFeature = new Feature({
+export const profileIndicatorFeature = () => new Feature({
   optionCodename: 'profileindicatoralt',
   name: msg('OP messages count', {
     desc: 'Name of an extension feature.',
@@ -25,11 +25,11 @@ export const profileIndicatorFeature = new Feature({
       type: { type: 'integer', min: 1, max: 12 },
     }),
   ],
-  tags: [TAILWIND_BASIC_TAG, COMMUNITY_CONSOLE_TAG],
+  tags: [TAILWIND_BASIC_TAG(), COMMUNITY_CONSOLE_TAG()],
 });
 
 // TODO(https://iavm.xyz/b/twpowertools/251): remove this feature once deprecated.
-export const profileIndicatorDotFeature = new Feature({
+export const profileIndicatorDotFeature = () => new Feature({
   optionCodename: 'profileindicator',
   name: 'OP messages dot',
   description:
@@ -39,5 +39,5 @@ export const profileIndicatorDotFeature = new Feature({
     This option will be merged into the "OP messages count" option in the
     future.
   `,
-  tags: [TAILWIND_BASIC_TAG, COMMUNITY_CONSOLE_TAG],
+  tags: [TAILWIND_BASIC_TAG(), COMMUNITY_CONSOLE_TAG()],
 });
