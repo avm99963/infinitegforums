@@ -12,4 +12,9 @@ export default defineConfig({
     // otherwise they just pollute the test's STDOUT.
     silent: 'passed-only',
   },
+  server: {
+    watch: {
+      ignored: ['**/.jj/**'],
+    },
+  },
 });
