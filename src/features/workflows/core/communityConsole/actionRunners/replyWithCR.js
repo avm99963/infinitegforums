@@ -8,8 +8,7 @@ const kPostMethodCommunityConsole = 4;
 const kSourceMessageTypeCannedResponse = 9;
 
 const kVariablesRegex = /\$([A-Za-z_]+)/g;
-const kLicense =
-    'I AGREE TO USE THE WORKFLOWS FUNCTIONALITY ETHICALLY AND ACCORDING TO THE PE PROGRAM AND FORUM RULES. I UNDERSTAND THAT MAINTAINERS MAY REVOKE MY ACCESS TO THIS FEATURE AT THEIR SOLE DISCRETION IF THEY BELIEVE I HAVE MISUSED IT.';
+const kLicense = 'twpt_tos_agree';
 
 export default class CRRunner {
   constructor() {
