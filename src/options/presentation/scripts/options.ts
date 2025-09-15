@@ -4,7 +4,7 @@ import { featureCategories } from '../featureCategories';
 import '../components/App';
 import { isProdVersion } from '../../../common/extUtils';
 
-const SUPPORTED_LANGUAGES: string[] = ['en'];
+const SUPPORTED_LANGUAGES: string[] = ['en', 'es', 'pt', 'ru'];
 
 function main() {
   if (shouldShowOldPage()) {
