@@ -714,51 +714,54 @@
         <target state="translated">TW Power Tools</target>
         <note from="lit-localize">The extension name.</note>
       </trans-unit>
-<trans-unit id="h484816adcf825576">
-  <source>
-        These features only affect the Community Console's old message composer,
-        which is shown when creating a new thread or canned response, when
-        pressing
-        <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/>
-        inside a thread, or when creating a new reply in the old thread view.
-        The new message composer doesn't suffer from these issues.
-      </source>
-  <note from="lit-localize">Explanatory note for the features that relate to the old reply editor in the Community Console.</note>
-</trans-unit>
-<trans-unit id="s9f87b689a748b55a">
-  <source>Bulk actions</source>
-  <note from="lit-localize">Name of a generic section of features that let users perform actions to many threads at once.</note>
-</trans-unit>
-<trans-unit id="s275ffb8ac7b2973f">
-  <source>Minor UI enhancements</source>
-  <note from="lit-localize">Name of a generic section of features, which includes features that minimally enhance the user interface of the forums platform.</note>
-</trans-unit>
-<trans-unit id="s30ae03472b93dc47">
-  <source>Profiles</source>
-  <note from="lit-localize">Name of the category of extension features related to profiles.</note>
-</trans-unit>
-<trans-unit id="s55cec32fb241f2f5">
-  <source>Old message composer</source>
-  <note from="lit-localize">Name of the category of extension features related to the old message composer.</note>
-</trans-unit>
-<trans-unit id="s6163ba50e1af9788">
-  <source>Thread lists</source>
-  <note from="lit-localize">Name of the category of extension features related to thread lists.</note>
-</trans-unit>
-<trans-unit id="s8b60bf2db1580306">
-  <source>Threads</source>
-  <note from="lit-localize">Name of the category of extension features related to threads.</note>
-</trans-unit>
-<trans-unit id="sc3ac225273c8316b">
-  <source>General</source>
-  <note from="lit-localize">Name of the category of extension features that apply to multiple areas of the forums platform.</note>
-</trans-unit>
-<trans-unit id="s79ad81a9d63904fc">
-  <source>You're testing the new options page.</source>
-</trans-unit>
-<trans-unit id="h75ff4c12afaffb0c">
-  <source>Please leave feedback and report bugs in our <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;"/>discussion group<x id="1" equiv-text="&lt;/a&gt;"/>. Thanks for testing!</source>
-</trans-unit>
+      <trans-unit id="h484816adcf825576" xml:space="preserve">
+        <source>These features only affect the Community Console's old message composer, which is shown when creating a new thread or canned response, when pressing <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/> inside a thread, or when creating a new reply in the old thread view. The new message composer doesn't suffer from these issues. </source>
+        <target state="translated">Esses recursos afetam apenas o antigo compositor de mensagens do Console da Comunidade, que é exibido ao criar uma nova discussão ou resposta pronta, ao pressionar <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/> dentro de uma discussão ou ao criar uma nova resposta na visualização de discussão antiga. O novo compositor de mensagens não sofre com esses problemas. </target>
+        <note from="lit-localize">Explanatory note for the features that relate to the old reply editor in the Community Console.</note>
+      </trans-unit>
+      <trans-unit id="s9f87b689a748b55a" xml:space="preserve">
+        <source>Bulk actions</source>
+        <target state="translated">Ações massivas</target>
+        <note from="lit-localize">Name of a generic section of features that let users perform actions to many threads at once.</note>
+      </trans-unit>
+      <trans-unit id="s275ffb8ac7b2973f" xml:space="preserve">
+        <source>Minor UI enhancements</source>
+        <target state="translated">Pequenas melhorias na interface do usuário</target>
+        <note from="lit-localize">Name of a generic section of features, which includes features that minimally enhance the user interface of the forums platform.</note>
+      </trans-unit>
+      <trans-unit id="s30ae03472b93dc47" xml:space="preserve">
+        <source>Profiles</source>
+        <target state="translated">Perfis</target>
+        <note from="lit-localize">Name of the category of extension features related to profiles.</note>
+      </trans-unit>
+      <trans-unit id="s55cec32fb241f2f5" xml:space="preserve">
+        <source>Old message composer</source>
+        <target state="translated">Editor de texto antigo</target>
+        <note from="lit-localize">Name of the category of extension features related to the old message composer.</note>
+      </trans-unit>
+      <trans-unit id="s6163ba50e1af9788" xml:space="preserve">
+        <source>Thread lists</source>
+        <target state="translated">Listas de tópicos</target>
+        <note from="lit-localize">Name of the category of extension features related to thread lists.</note>
+      </trans-unit>
+      <trans-unit id="s8b60bf2db1580306" xml:space="preserve">
+        <source>Threads</source>
+        <target state="translated">Tópicos</target>
+        <note from="lit-localize">Name of the category of extension features related to threads.</note>
+      </trans-unit>
+      <trans-unit id="sc3ac225273c8316b" xml:space="preserve">
+        <source>General</source>
+        <target state="translated">Geral</target>
+        <note from="lit-localize">Name of the category of extension features that apply to multiple areas of the forums platform.</note>
+      </trans-unit>
+      <trans-unit id="s79ad81a9d63904fc" xml:space="preserve">
+        <source>You're testing the new options page.</source>
+        <target state="translated">Você está testando a nova página de Configuração.</target>
+      </trans-unit>
+      <trans-unit id="h75ff4c12afaffb0c" xml:space="preserve">
+        <source>Please leave feedback and report bugs in our <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;"/>discussion group<x id="1" equiv-text="&lt;/a&gt;"/>. Thanks for testing!</source>
+        <target state="translated">Deixe seu feedback e relate bugs em nosso <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;"/>grupo de discussão<x id="1" equiv-text="&lt;/a&gt;"/>. Obrigado por testar!</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

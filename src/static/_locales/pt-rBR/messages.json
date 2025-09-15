@@ -192,7 +192,7 @@
         "description": "Title of the experiments page: a page where highly experimental options can be set."
     },
     "options_experiments_description": {
-        "message": "Bem-vindo! Abaixo, você encontrará uma lista de experimentos: recursos que estão em desenvolvimento e ainda não estão prontos para o lançamento. Eles são altamente experimentais e podem quebrar, por conta disso:<a href='https://github.com/avm99963/infinitegforums/discussions/categories/feedback'> aguardo seu feedback</a>!",
+        "message": "Bem-vindo! Abaixo, você encontrará uma lista de experimentos: recursos que estão em desenvolvimento e ainda não estão prontos para lançamento. Eles são altamente experimentais e, portanto, podem apresentar falhas e/ou problemas, mas, se você for corajoso, ative aqueles em que mais se interessa e <a href='https://groups.google.com/g/twpowertools-discuss'>dê seu feedback</a>!",
         "description": "Description shown in the beginning of the experiments page, below the title."
     },
     "inject_links": {
