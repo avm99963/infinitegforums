@@ -14,34 +14,6 @@ export default class CRRunner {
     this._haveCRsBeenLoaded = false;
   }
 
-  async loadCRs() {
-    const res = await CCApi(
-      'ListCannedResponses', {}, /* authenticated = */ true,
-      getAuthUser());
-    this._CRs = res?.[1] ?? [];
-    this._haveCRsBeenLoaded = true;
-  }
-
-  async _getCRPayload(id) {
-    if (!this._haveCRsBeenLoaded) {
-      await this.loadCRs();
-    }
-    const cr = this._CRs.find(cr => cr?.[1]?.[1] == id);
-    if (!cr) throw new Error(`Couldn't find CR with id ${id}.`);
-    return cr?.[3];
-  }
-
-  async _templateSubstitute(payload, thread) {
-    if (!payload.match(kVariablesRegex)) {
-      return payload;
-    }
-
-    await thread.loadThreadDetails();
-    return payload.replaceAll(kVariablesRegex, (_, p1) => {
-      return thread?.[p1] ?? '';
-    });
-  }
-
   async execute(action, thread) {
     // #!if !enable_bulk_crs
     return Promise.reject(new Error('Bulk CRs are not allowed temporarily.'));
@@ -72,5 +44,33 @@ export default class CRRunner {
     },
     /* authenticated = */ true, getAuthUser());
     // #!endif
+  }
+
+  async _getCRPayload(id) {
+    if (!this._haveCRsBeenLoaded) {
+      await this.loadCRs();
+    }
+    const cr = this._CRs.find(cr => cr?.[1]?.[1] == id);
+    if (!cr) throw new Error(`Couldn't find CR with id ${id}.`);
+    return cr?.[3];
+  }
+
+  async loadCRs() {
+    const res = await CCApi(
+      'ListCannedResponses', {}, /* authenticated = */ true,
+      getAuthUser());
+    this._CRs = res?.[1] ?? [];
+    this._haveCRsBeenLoaded = true;
+  }
+
+  async _templateSubstitute(payload, thread) {
+    if (!payload.match(kVariablesRegex)) {
+      return payload;
+    }
+
+    await thread.loadThreadDetails();
+    return payload.replaceAll(kVariablesRegex, (_, p1) => {
+      return thread?.[p1] ?? '';
+    });
   }
 }
