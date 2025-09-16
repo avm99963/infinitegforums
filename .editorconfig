@@ -13,3 +13,7 @@ switch_case_indent = true
 [*.{html,css,js,json}]
 indent_style = space
 indent_size = 2
+
+[*.{bazel,bzl}]
+indent_style = space
+indent_size = 4

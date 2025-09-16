@@ -2,3 +2,8 @@ dist/
 node_modules/
 out/
 .DS_Store
+
+# bazel-* symlinks
+/bazel-*
+# Optional user-specific .bazelrc
+/user.bazelrc

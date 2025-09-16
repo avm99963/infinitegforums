@@ -1,0 +1,4 @@
+common --repo_env=DO_NOT_TRACK=true
+
+# To allow importing a user-defined .bazelrc
+try-import %workspace%/user.bazelrc
