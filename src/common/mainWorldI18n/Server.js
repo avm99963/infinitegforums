@@ -12,12 +12,6 @@ export default class MWI18nServer extends MainWorldContentScriptBridgeServer {
 
   handleMessage(uuid, action, request) {
     switch (action) {
-      case 'getMessage':
-        var response = chrome.i18n.getMessage(
-            request.messageName, request.substitutions, request.options);
-        this._respond(uuid, response);
-        return;
-
       case 'getUILanguage':
         this._respond(uuid, chrome.i18n.getUILanguage());
         return;

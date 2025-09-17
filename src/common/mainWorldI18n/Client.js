@@ -9,11 +9,6 @@ export default class MWI18nClient extends MainWorldContentScriptBridgeClient {
     super(kCSTarget, kMWTarget, timeout);
   }
 
-  async getMessage(messageName, substitutions, options) {
-    return this._sendRequest(
-        'getMessage', {messageName, substitutions, options});
-  }
-
   async getUILanguage() {
     return this._sendRequest('getUILanguage', {});
   }
