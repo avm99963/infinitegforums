@@ -1,7 +1,7 @@
 import {configureLocalization, msg, updateWhenLocaleChanges} from '@lit/localize';
 import {LitElement} from 'lit';
 
-import MWI18nClient from './mainWorldI18n/Client';
+import MWI18nClient from './mainWorldI18n/Client.js';
 import {allLocales, sourceLocale, targetLocales} from '../lit-locales/generated/locales.js';
 
 export class I18nLitElement extends LitElement {

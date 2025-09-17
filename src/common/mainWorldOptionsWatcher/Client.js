@@ -1,4 +1,4 @@
-import MainWorldContentScriptBridgeClient from '../../presentation/mainWorldContentScriptBridge/Client';
+import MainWorldContentScriptBridgeClient from '../mainWorldContentScriptBridge/Client.js';
 
 // Main World OptionsWatcher client (used in scripts injected into the Main
 // World (MW) to get the options).

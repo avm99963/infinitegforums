@@ -1,5 +1,5 @@
 import {injectScript} from '../../../common/contentScriptsUtils';
-import MWI18nServer from '../../../common/mainWorldI18n/Server';
+import MWI18nServer from '../../../common/mainWorldI18n/Server.js';
 
 import UpdateBanner from './banner/index.js';
 
