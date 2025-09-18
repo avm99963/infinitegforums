@@ -12,6 +12,8 @@ import {
 /**
  * Main World OptionsWatcher client (used in scripts injected into the Main
  * World (MW) to get the options).
+ *
+ * @deprecated Use MWOptionsProviderAdapter
  */
 export default class MWOptionsWatcherClient extends MainWorldContentScriptBridgeClient<
   OptionsWatcherAction,

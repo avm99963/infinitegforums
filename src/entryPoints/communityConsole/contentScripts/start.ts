@@ -25,6 +25,7 @@ import UiSpacingSharedStylesScript from '../../../features/uiSpacing/presentatio
 import UiSpacingConsoleStylesScript from '../../../features/uiSpacing/presentation/scripts/consoleStyles.script';
 import OptionsProviderAdapter from '../../../infrastructure/services/options/OptionsProvider.adapter';
 import { OptionsConfigurationRepositoryAdapter } from '../../../options/infrastructure/repositories/OptionsConfiguration.repository.adapter';
+import MWOptionsConfigurationRepositoryServerScript from '../../../presentation/standaloneScripts/mainWorldServers/MWOptionsConfigurationRepositoryServerScript.script';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -43,8 +44,10 @@ function createScriptRunner() {
     WorkflowsImportDependency,
   );
 
+  const optionsConfigurationRepository =
+    new OptionsConfigurationRepositoryAdapter();
   const optionsProvider = new OptionsProviderAdapter(
-    new OptionsConfigurationRepositoryAdapter(),
+    optionsConfigurationRepository,
   );
 
   return new ScriptRunner(
@@ -68,6 +71,9 @@ function createScriptRunner() {
         // Standalone scripts
         new ApplyStartupDataModificationsOnStartScript(startupDataStorage),
         new MWI18nServerScript(),
+        new MWOptionsConfigurationRepositoryServerScript(
+          optionsConfigurationRepository,
+        ),
         new MWOptionsWatcherServerScript(),
       ],
       new ScriptSorterAdapter(),
