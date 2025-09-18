@@ -168,7 +168,7 @@
         "description": "Title of the experiments page: a page where highly experimental options can be set."
     },
     "options_experiments_description": {
-        "message": "Welchrome! 아래에는 개발 중인 실험적 기능 목록이 있습니다. 아직 정식 출시되지 않았으며, 예상치 못한 오류가 발생할 수 있습니다. 하지만 도전할 준비가 되었다면 관심 있는 기능을 활성화하고, <a href='https://github.com/avm99963/infinitegforums/discussions/categories/feedback'>피드백을 제공해 주세요</a>!",
+        "message": "환영합니다! 여기에서는 현재 개발 중이며 아직 정식 출시 준비가 되지 않은 기능들을 확인하실 수 있습니다. 이 기능들은 실험적인 단계에 있으므로, 오류가 발생하거나 문제를 일으킬 수 있습니다. 괜찮으시다면 가장 관심 있는 기능을 활성화하여 사용해 보시고 <a href='https://groups.google.com/g/twpowertools-discuss'>여기에서</a> 피드백을 보내주세요!",
         "description": "Description shown in the beginning of the experiments page, below the title."
     },
     "inject_profileindicatoralt_numposts": {
