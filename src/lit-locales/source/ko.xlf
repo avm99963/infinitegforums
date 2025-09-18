@@ -353,7 +353,7 @@
       </trans-unit>
       <trans-unit id="s94477c001fc4600a" xml:space="preserve">
         <source>Blocks saving drafts of your replies as you type to Google servers in the Community Console.</source>
-        <target state="translated">커뮤니티 콘솔에서 답글을 작성하는 동안 해당 내용이 Google 서버에 자동으로 임시 저장되는 것을 차단합니다.</target>
+        <target state="translated">커뮤니티 콘솔에서 댓글을 작성하는 동안 해당 내용이 Google 서버에 자동으로 임시 저장되는 것을 차단합니다.</target>
         <note from="lit-localize">Description of the "Block saving drafts" feature.</note>
       </trans-unit>
       <trans-unit id="sf11e849c4f7e174d" xml:space="preserve">
@@ -388,7 +388,7 @@
       </trans-unit>
       <trans-unit id="sb43c89f7dbcda0eb" xml:space="preserve">
         <source>Shows a toggle which lets you disable nested view to display the replies flattened.</source>
-        <target state="translated">대화형식으로 보기를 비활성화하여 답글을 목록 형태로 볼 수 있는 토글 버튼을 표시합니다.</target>
+        <target state="translated">대화형식으로 보기를 비활성화하여 댓글을 목록 형태로 볼 수 있는 토글 버튼을 표시합니다.</target>
         <note from="lit-localize">Description of the "Flatten replies" feature.</note>
       </trans-unit>
       <trans-unit id="sc94b61f0d59d93fa" xml:space="preserve">
@@ -401,276 +401,341 @@
         <target state="translated">커뮤니티 콘솔에서 구글 직원이 새 공지를 게시할 때 나타나는 점을 더 눈에 띄게 표시합니다.</target>
         <note from="lit-localize">Description of the "Highlight announcements notification dot" feature.</note>
       </trans-unit>
-      <trans-unit id="s6ce91fd240036df3">
+      <trans-unit id="s6ce91fd240036df3" xml:space="preserve">
         <source>Increases contrast between the background of read and unread threads.</source>
+        <target state="translated">읽은 게시글과 읽지 않은 게시글을 배경색으로 더 쉽게 구분할 수 있도록 대비를 강화합니다.</target>
         <note from="lit-localize">Description of the "Increase contrast" feature.</note>
       </trans-unit>
-      <trans-unit id="sf79eb8af612719a2">
+      <trans-unit id="sf79eb8af612719a2" xml:space="preserve">
         <source>Automatically loads more threads when scrolling down.</source>
+        <target state="translated">아래로 스크롤할 때 더 많은 게시글을 자동으로 불러옵니다.</target>
         <note from="lit-localize">Description of the "Infinite Scroll" feature in thread lists.</note>
       </trans-unit>
-      <trans-unit id="sd328bf8e2e2f6119">
+      <trans-unit id="sd328bf8e2e2f6119" xml:space="preserve">
         <source>Automatically loads more replies when scrolling down.</source>
+        <target state="translated">아래로 스크롤할 때 더 많은 댓글을 자동으로 불러옵니다.</target>
         <note from="lit-localize">Description of the "Infinite Scroll" feature in threads.</note>
       </trans-unit>
-      <trans-unit id="sb7ef17ca1ed43552">
+      <trans-unit id="sb7ef17ca1ed43552" xml:space="preserve">
         <source>Prevents inline images in messages from being taller than the current window.</source>
+        <target state="translated">메시지 내 인라인 이미지의 높이가 현재 창보다 커지지 않도록 합니다.</target>
         <note from="lit-localize">Description of the "Limit image size" feature.</note>
       </trans-unit>
-      <trans-unit id="hd6ef3603ca3544c3">
+      <trans-unit id="hd6ef3603ca3544c3" xml:space="preserve">
         <source>Enables the <x id="0" equiv-text="&lt;code&gt;"/>enableLoadingDraftMessages<x id="1" equiv-text="&lt;/code&gt;"/> Community Console flag, which enables recovering an existing draft saved in the Google servers when you start a new reply. </source>
+        <target state="translated"><x id="0" equiv-text="&lt;code&gt;"/>enableLoadingDraftMessages<x id="1" equiv-text="&lt;/code&gt;"/> 커뮤니티 콘솔 기능을 활성화하여, 새 댓글 작성을 시작할 때 Google 서버에 저장된 기존 임시 글을 불러올 수 있도록 합니다. </target>
         <note from="lit-localize">Description of the "Load draft messages when replying" feature.</note>
       </trans-unit>
-      <trans-unit id="s7d9104ef3d3b4273">
+      <trans-unit id="s7d9104ef3d3b4273" xml:space="preserve">
         <source>Shows a non-intrusive notification when a thread list has new updates.</source>
+        <target state="translated">게시글 목록에 새 업데이트가 있을 때, 사용자를 방해하지 않는 알림을 표시합니다.</target>
         <note from="lit-localize">Description of the "Notify updates" feature.</note>
       </trans-unit>
-      <trans-unit id="s186c89b0df27cf80">
+      <trans-unit id="s186c89b0df27cf80" xml:space="preserve">
         <source>Shows a badge next to the OP's username with the number of messages posted by them.</source>
+        <target state="translated">OP의 사용자 이름 옆에 작성한 게시글 수가 표시된 배지를 보여줍니다.</target>
         <note from="lit-localize">Description of the "OP messages count" feature.</note>
       </trans-unit>
-      <trans-unit id="s56f5d6f9019b5601">
+      <trans-unit id="s56f5d6f9019b5601" xml:space="preserve">
         <source>Shows a per-forum activity chart in profiles.</source>
+        <target state="translated">프로필에서 포럼별 활동을 표시합니다.</target>
         <note from="lit-localize">Description of the "Per-forum activity" feature.</note>
       </trans-unit>
-      <trans-unit id="s5c8548c650ea28ac">
+      <trans-unit id="s5c8548c650ea28ac" xml:space="preserve">
         <source>Places the "expand thread" button all the way to the left.</source>
+        <target state="translated">"게시글 확장" 버튼을 왼쪽에 위치시킵니다.</target>
         <note from="lit-localize">Description of the "Place expand button in the left" feature.</note>
       </trans-unit>
-      <trans-unit id="sec94d5c0e05e4c7a">
+      <trans-unit id="sec94d5c0e05e4c7a" xml:space="preserve">
         <source>Shows a "previous posts" link in user profiles.</source>
+        <target state="translated">"이전 활동" 링크를 사용자 프로필에 표시합니다.</target>
         <note from="lit-localize">Description of the "Previous posts" feature.</note>
       </trans-unit>
-      <trans-unit id="sa244dcf39d9d765a">
+      <trans-unit id="sa244dcf39d9d765a" xml:space="preserve">
         <source>Redirects all threads opened in Tailwind Basic to the Community Console.</source>
+        <target state="translated">기본 Tailwind에서 열리는 모든 게시글을 커뮤니티 콘솔로 리디렉션합니다.</target>
         <note from="lit-localize">Description of the "Redirect to the Community Console" feature.</note>
       </trans-unit>
-      <trans-unit id="s75e5d910d8a301be">
+      <trans-unit id="s75e5d910d8a301be" xml:space="preserve">
         <source>Adds quick report buttons to all replies, so you can report each one with a single click.</source>
+        <target state="translated">모든 댓글에 빠른 신고 버튼을 추가하여, 한 번의 클릭만으로 신고할 수 있도록 합니다.</target>
         <note from="lit-localize">Description of the "Report replies quickly" feature.</note>
       </trans-unit>
-      <trans-unit id="s3c671990138ef1d5">
+      <trans-unit id="s3c671990138ef1d5" xml:space="preserve">
         <source>Makes the toolbar not disappear when scrolling down.</source>
+        <target state="translated">스크롤을 내려도 툴바가 사라지지 않도록 합니다.</target>
         <note from="lit-localize">Description of the "Sticky bulk actions toolbar" feature.</note>
       </trans-unit>
-      <trans-unit id="s62398db1c3d787c0">
+      <trans-unit id="s62398db1c3d787c0" xml:space="preserve">
         <source>Makes the headers of the collapsible sections in the sidebar sticky so they don't disappear when scrolling down.</source>
+        <target state="translated">사이드바에 있는 접이식 섹션의 헤더가 스크롤을 내려도 사라지지 않도록 상단에 고정됩니다.</target>
         <note from="lit-localize">Description of the "Sticky sidebar headers" feature.</note>
       </trans-unit>
-      <trans-unit id="sc3d18c5d40ce8aa0">
+      <trans-unit id="sc3d18c5d40ce8aa0" xml:space="preserve">
         <source>Close menu with feature categories</source>
+        <target state="translated">기능 카테고리 메뉴 닫기</target>
         <note from="lit-localize">Label for the button that closes the list of feature categories in the options page.</note>
       </trans-unit>
-      <trans-unit id="s1d76b4fc9e0c9f06">
+      <trans-unit id="s1d76b4fc9e0c9f06" xml:space="preserve">
         <source>Open menu with feature categories</source>
+        <target state="translated">기능 카테고리 메뉴 열기</target>
         <note from="lit-localize">Label for the button that opens the list of feature categories in the options page.</note>
       </trans-unit>
-      <trans-unit id="sd8c7f380694a123e">
+      <trans-unit id="sd8c7f380694a123e" xml:space="preserve">
         <source>Enable "<x id="0" equiv-text="${this.feature.name}"/>" feature</source>
+        <target state="translated">"<x id="0" equiv-text="${this.feature.name}"/>" 활성화</target>
         <note from="lit-localize">Label for the checkbox that lets a user enable a specific feature in the options page (ex: 'Enable "Dark theme" feature')</note>
       </trans-unit>
-      <trans-unit id="secf1350a6da28533">
+      <trans-unit id="secf1350a6da28533" xml:space="preserve">
         <source>Experiments</source>
+        <target state="translated">실험적 기능</target>
         <note from="lit-localize">Label for the link to the experiments page.</note>
       </trans-unit>
-      <trans-unit id="s0a9a5319eed5087a">
+      <trans-unit id="s0a9a5319eed5087a" xml:space="preserve">
         <source>Help translate the extension</source>
+        <target state="translated">확장 프로그램 번역에 기여하기</target>
         <note from="lit-localize">Label for the link to Weblate.</note>
       </trans-unit>
-      <trans-unit id="sd13e01f2878f6e80">
+      <trans-unit id="sd13e01f2878f6e80" xml:space="preserve">
         <source>List of feature categories</source>
+        <target state="translated">기능 카테고리 목록</target>
         <note from="lit-localize">Label for the sidebar of the options page that lets the user select which category to be shown.</note>
       </trans-unit>
-      <trans-unit id="saab875d8cfcfe712">
+      <trans-unit id="saab875d8cfcfe712" xml:space="preserve">
         <source>Theme</source>
+        <target state="translated">화면 모드</target>
         <note from="lit-localize">Name of a suboption of the "Dark theme" feature.</note>
       </trans-unit>
-      <trans-unit id="s077f1115c8cb6492">
+      <trans-unit id="s077f1115c8cb6492" xml:space="preserve">
         <source>Notify updates</source>
+        <target state="translated">업데이트 알림</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="sb8e4edaea6f1d935">
+      <trans-unit id="sb8e4edaea6f1d935" xml:space="preserve">
         <source>Avatars</source>
+        <target state="translated">아바타</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="sc8cd255eb973bbe0">
+      <trans-unit id="sc8cd255eb973bbe0" xml:space="preserve">
         <source>Bulk lock</source>
+        <target state="translated">일괄 잠금</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s1f5af7657c1fb644">
+      <trans-unit id="s1f5af7657c1fb644" xml:space="preserve">
         <source>Block saving drafts</source>
+        <target state="translated">임시 저장 차단</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="sf53f535371b485ce">
+      <trans-unit id="sf53f535371b485ce" xml:space="preserve">
         <source>Bulk move</source>
+        <target state="translated">일괄 이동</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s95c6b373633d4a2f">
+      <trans-unit id="s95c6b373633d4a2f" xml:space="preserve">
         <source>Report replies quickly</source>
+        <target state="translated">빠른 댓글 신고</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s3ac6d6bc5baddf30">
+      <trans-unit id="s3ac6d6bc5baddf30" xml:space="preserve">
         <source>Dark theme</source>
+        <target state="translated">다크 모드</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s7d7a69fc2d6e11cd">
+      <trans-unit id="s7d7a69fc2d6e11cd" xml:space="preserve">
         <source>Fix drag and dropping links</source>
+        <target state="translated">링크 드래그 앤 드롭 오류 수정</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s3faaa7838e5c3fbf">
+      <trans-unit id="s3faaa7838e5c3fbf" xml:space="preserve">
         <source>Hide sidebar by default</source>
+        <target state="translated">기본적으로 사이드바 숨기기</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s5620911a370a2355">
+      <trans-unit id="s5620911a370a2355" xml:space="preserve">
         <source>Highlight announcements notification dot</source>
+        <target state="translated">공지사항 알림 강조</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s5b315a07b3168a91">
+      <trans-unit id="s5b315a07b3168a91" xml:space="preserve">
         <source>Per-forum activity</source>
+        <target state="translated">포럼별 활동</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s68ec92f1167241ee">
+      <trans-unit id="s68ec92f1167241ee" xml:space="preserve">
         <source>Sticky bulk actions toolbar</source>
+        <target state="translated">일괄 작업 툴바 고정</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s5f5f4dde977a84f1">
+      <trans-unit id="s5f5f4dde977a84f1" xml:space="preserve">
         <source>Flatten replies</source>
+        <target state="translated">댓글을 순서대로 표시</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="sfc204caf671903ba">
+      <trans-unit id="sfc204caf671903ba" xml:space="preserve">
         <source>Limit image size</source>
+        <target state="translated">이미지 크기 제한</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s832d9d09497d5821">
+      <trans-unit id="s832d9d09497d5821" xml:space="preserve">
         <source>Increase contrast</source>
+        <target state="translated">대비 강화</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="sef7cb1d8a92135c6">
+      <trans-unit id="sef7cb1d8a92135c6" xml:space="preserve">
         <source>Infinite scroll</source>
+        <target state="translated">무한 스크롤</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s2e3ae8ef1d0d3d34">
+      <trans-unit id="s2e3ae8ef1d0d3d34" xml:space="preserve">
         <source>Change thread page design</source>
+        <target state="translated">게시글 페이지 디자인 변경</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s30d762b6c0d27066">
+      <trans-unit id="s30d762b6c0d27066" xml:space="preserve">
         <source>Load draft messages when replying</source>
+        <target state="translated">댓글을 작성할 때 임시 저장 메시지 불러오기</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="sac84048ce43a8813">
+      <trans-unit id="sac84048ce43a8813" xml:space="preserve">
         <source>Previous posts</source>
+        <target state="translated">이전 활동</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s07dcf88dcc1d021d">
+      <trans-unit id="s07dcf88dcc1d021d" xml:space="preserve">
         <source>OP messages count</source>
+        <target state="translated">OP가 작성한 메시지 수</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s1c6025c89f081afd">
+      <trans-unit id="s1c6025c89f081afd" xml:space="preserve">
         <source>Redirect to the Community Console</source>
+        <target state="translated">커뮤니티 콘솔로 리디렉션</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="scfffb3f9d0ff36f5">
+      <trans-unit id="scfffb3f9d0ff36f5" xml:space="preserve">
         <source>Place expand button in the left</source>
+        <target state="translated">확장 버튼을 왼쪽으로 이동</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s45c4dfb19d1893dc">
+      <trans-unit id="s45c4dfb19d1893dc" xml:space="preserve">
         <source>Sticky sidebar headers</source>
+        <target state="translated">사이드바 헤더 고정</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
       <trans-unit id="s56972a20e50faa59">
         <source>Compact mode</source>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s7632fc9aa12bf382">
+      <trans-unit id="s7632fc9aa12bf382" xml:space="preserve">
         <source>Months</source>
+        <target state="translated">개월</target>
         <note from="lit-localize">Name of the suboption which lets you choose the number of months to show in the OP messages count badge.</note>
       </trans-unit>
-      <trans-unit id="s3dd06b20bd5b28c4">
+      <trans-unit id="s3dd06b20bd5b28c4" xml:space="preserve">
         <source>The Community Console already has this feature built-in without the need of the extension.</source>
+        <target state="translated">확장 프로그램이 없어도 커뮤니티 콘솔에서 이 기능을 사용할 수 있습니다.</target>
         <note from="lit-localize">Note for the "Infinite scroll" feature for thread lists.</note>
       </trans-unit>
-      <trans-unit id="hc6a96bb38b498270">
+      <trans-unit id="hc6a96bb38b498270" xml:space="preserve">
         <source><x id="0" equiv-text="&lt;i&gt;${automaticOptionLabel}"/>:<x id="1" equiv-text="&lt;/i&gt;"/> will use the theme defined in the system settings. <x id="2" equiv-text="&lt;br&gt;&#10;      &lt;i&gt;${manualOptionLabel}"/>:<x id="3" equiv-text="&lt;/i&gt;"/> will add a button to the Community Console that lets you switch the theme. </source>
+        <target state="translated"><x id="0" equiv-text="&lt;i&gt;${automaticOptionLabel}"/>:<x id="1" equiv-text="&lt;/i&gt;"/> 시스템 설정에서 정의된 화면 모드를 사용합니다. <x id="2" equiv-text="&lt;br&gt;&#10;      &lt;i&gt;${manualOptionLabel}"/>:<x id="3" equiv-text="&lt;/i&gt;"/> 화면 모드를 변경하는 버튼이 커뮤니티 콘솔에 추가됩니다. </target>
         <note from="lit-localize">Note for the "Theme" feature.</note>
       </trans-unit>
-      <trans-unit id="s5534d887d865e194">
+      <trans-unit id="s5534d887d865e194" xml:space="preserve">
         <source>Old design</source>
+        <target state="translated">이전 디자인</target>
         <note from="lit-localize">Selectable option for the "Design to show" suboption of the "Change thread page design" feature.</note>
       </trans-unit>
-      <trans-unit id="sb7caaf7e7ac078b1">
+      <trans-unit id="sb7caaf7e7ac078b1" xml:space="preserve">
         <source>New design</source>
+        <target state="translated">신규 디자인</target>
         <note from="lit-localize">Selectable option for the "Design to show" suboption of the "Change thread page design" feature.</note>
       </trans-unit>
-      <trans-unit id="sd200028b9f6015e4">
+      <trans-unit id="sd200028b9f6015e4" xml:space="preserve">
         <source>Automatic</source>
+        <target state="translated">자동</target>
         <note from="lit-localize">Selectable option for the "Theme" suboption of the "Dark theme" feature.</note>
       </trans-unit>
-      <trans-unit id="s956c5a9fb7ee0b23">
+      <trans-unit id="s956c5a9fb7ee0b23" xml:space="preserve">
         <source>Manual</source>
+        <target state="translated">수동</target>
         <note from="lit-localize">Selectable option for the "Theme" suboption of the "Dark theme" feature.</note>
       </trans-unit>
-      <trans-unit id="se9b6b34d60e86c7d">
+      <trans-unit id="se9b6b34d60e86c7d" xml:space="preserve">
         <source>Design to show</source>
+        <target state="translated">표시할 디자인</target>
         <note from="lit-localize">Suboption for the "Change thread page design" feature.</note>
       </trans-unit>
-      <trans-unit id="s164a95895c17e807">
+      <trans-unit id="s164a95895c17e807" xml:space="preserve">
         <source>Tailwind Basic</source>
+        <target state="translated">기본 Tailwind</target>
         <note from="lit-localize">Tag shown in the options page for features that work in Tailwind Basic.</note>
       </trans-unit>
-      <trans-unit id="s11978a20450b4dd3">
+      <trans-unit id="s11978a20450b4dd3" xml:space="preserve">
         <source>Community Console</source>
+        <target state="translated">커뮤니티 콘솔</target>
         <note from="lit-localize">Tag shown in the options page for features that work in the Community Console.</note>
       </trans-unit>
-      <trans-unit id="h74e97b4e6e3628b4">
+      <trans-unit id="h74e97b4e6e3628b4" xml:space="preserve">
         <source>This feature has been disabled remotely for everyone. <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/> Learn why. <x id="1" equiv-text="&lt;/a&gt;&#10;          "/></source>
+        <target state="translated">이 기능은 모든 사용자에 대해 원격으로 사용 중지되었습니다. <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>이유를 알아보세요. <x id="1" equiv-text="&lt;/a&gt;&#10;          "/></target>
         <note from="lit-localize">Text that appears in a feature card in the options page when the feature has been disabled remotely (i.e., the feature kill switch is active).</note>
       </trans-unit>
-      <trans-unit id="s4159a5f1849a41c3">
+      <trans-unit id="s4159a5f1849a41c3" xml:space="preserve">
         <source>Kill switch active</source>
+        <target state="translated">킬 스위치 활성화됨</target>
         <note from="lit-localize">Title of the banner which lets users know that a feature was remotely disabled in the options page.</note>
       </trans-unit>
-      <trans-unit id="s457d59d649765619">
+      <trans-unit id="s457d59d649765619" xml:space="preserve">
         <source>Skip to main content</source>
+        <target state="translated">메인 콘텐츠로 건너뛰기</target>
         <note from="lit-localize">Text for the button that lets users skip directly to the main content in a page.</note>
       </trans-unit>
-      <trans-unit id="sd51b2f371fbec9c6">
+      <trans-unit id="sd51b2f371fbec9c6" xml:space="preserve">
         <source>TW Power Tools</source>
+        <target state="translated">TW Power Tools</target>
         <note from="lit-localize">The extension name.</note>
       </trans-unit>
       <trans-unit id="h484816adcf825576">
         <source>These features only affect the Community Console's old message composer, which is shown when creating a new thread or canned response, when pressing <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/> inside a thread, or when creating a new reply in the old thread view. The new message composer doesn't suffer from these issues. </source>
         <note from="lit-localize">Explanatory note for the features that relate to the old reply editor in the Community Console.</note>
       </trans-unit>
-      <trans-unit id="s9f87b689a748b55a">
+      <trans-unit id="s9f87b689a748b55a" xml:space="preserve">
         <source>Bulk actions</source>
+        <target state="translated">일괄 작업</target>
         <note from="lit-localize">Name of a generic section of features that let users perform actions to many threads at once.</note>
       </trans-unit>
-      <trans-unit id="s275ffb8ac7b2973f">
+      <trans-unit id="s275ffb8ac7b2973f" xml:space="preserve">
         <source>Minor UI enhancements</source>
+        <target state="translated">사소한 UI 개선</target>
         <note from="lit-localize">Name of a generic section of features, which includes features that minimally enhance the user interface of the forums platform.</note>
       </trans-unit>
-      <trans-unit id="s30ae03472b93dc47">
+      <trans-unit id="s30ae03472b93dc47" xml:space="preserve">
         <source>Profiles</source>
+        <target state="translated">프로필</target>
         <note from="lit-localize">Name of the category of extension features related to profiles.</note>
       </trans-unit>
       <trans-unit id="s55cec32fb241f2f5">
         <source>Old message composer</source>
         <note from="lit-localize">Name of the category of extension features related to the old message composer.</note>
       </trans-unit>
-      <trans-unit id="s6163ba50e1af9788">
+      <trans-unit id="s6163ba50e1af9788" xml:space="preserve">
         <source>Thread lists</source>
+        <target state="translated">게시글 목록</target>
         <note from="lit-localize">Name of the category of extension features related to thread lists.</note>
       </trans-unit>
-      <trans-unit id="s8b60bf2db1580306">
+      <trans-unit id="s8b60bf2db1580306" xml:space="preserve">
         <source>Threads</source>
+        <target state="translated">게시글</target>
         <note from="lit-localize">Name of the category of extension features related to threads.</note>
       </trans-unit>
-      <trans-unit id="sc3ac225273c8316b">
+      <trans-unit id="sc3ac225273c8316b" xml:space="preserve">
         <source>General</source>
+        <target state="translated">일반</target>
         <note from="lit-localize">Name of the category of extension features that apply to multiple areas of the forums platform.</note>
       </trans-unit>
-      <trans-unit id="s79ad81a9d63904fc">
+      <trans-unit id="s79ad81a9d63904fc" xml:space="preserve">
         <source>You're testing the new options page.</source>
+        <target state="translated">새로운 설정 페이지를 보고 있습니다.</target>
       </trans-unit>
       <trans-unit id="h75ff4c12afaffb0c">
         <source>Please leave feedback and report bugs in our <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;"/>discussion group<x id="1" equiv-text="&lt;/a&gt;"/>. Thanks for testing!</source>

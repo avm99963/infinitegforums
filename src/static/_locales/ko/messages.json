@@ -240,7 +240,7 @@
         "description": "Tooltip of the icon shown above a thread or in thread lists when selecting multiple threads in the Community Console which lets the user show a menu with the worklofws they can run."
     },
     "inject_perforumstats_heading": {
-        "message": "각 포럼별 활동",
+        "message": "포럼별 활동",
         "description": "Heading of the section with the per-forum activity stacked bars graph showing the number of questions, replies and recommended answers each month."
     },
     "inject_perforumstats_forumoption_1helper": {
