@@ -31,11 +31,8 @@ export default class OptionsProviderAdapter implements OptionsProviderPort {
   async getOptionValue<O extends OptionCodename>(
     option: O,
   ): Promise<OptionsValues[O]> {
-    this.setUp();
-    return this.mutex.runExclusive(
-      () => this.optionsConfiguration.getOptionValue(option),
-      kReadPriority,
-    );
+    const optionsConfiguration = await this.getOptionsConfiguration();
+    return optionsConfiguration.getOptionValue(option);
   }
 
   async isEnabled(option: OptionCodename): Promise<boolean> {
