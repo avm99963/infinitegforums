@@ -1,29 +1,9 @@
-import {
-  OptionsConfiguration,
-  OptionsStatus,
-  OptionStatus,
-} from './OptionsConfiguration';
+import { OptionsConfiguration } from './OptionsConfiguration';
 import { describe, expect, it } from 'vitest';
-import { options, OptionCodename } from './optionsPrototype';
+import { buildDummyOptionsStatus } from './testUtils';
 
-function buildDummyOptionsStatus(
-  override: Partial<OptionsStatus>,
-): OptionsStatus {
-  const defaultOptionsStatus = Object.fromEntries(
-    options.map((option) => {
-      const optionStatus: OptionStatus<OptionCodename> = {
-        value: option.defaultValue,
-        isKillSwitchEnabled: false,
-      };
-      return [option.codename, optionStatus];
-    }),
-  ) as OptionsStatus;
-
-  return {
-    ...defaultOptionsStatus,
-    ...override,
-  };
-}
+// NOTE: More tests that cover OptionsConfiguration can be viewed at
+// OptionsProvider.test.ts.
 
 describe('OptionsConfiguration', () => {
   describe('isEnabled', () => {

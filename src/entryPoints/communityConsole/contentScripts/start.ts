@@ -24,6 +24,7 @@ import FlattenThreadsReplyActionHandler from '../../../features/flattenThreads/c
 import UiSpacingSharedStylesScript from '../../../features/uiSpacing/presentation/scripts/sharedStyles.script';
 import UiSpacingConsoleStylesScript from '../../../features/uiSpacing/presentation/scripts/consoleStyles.script';
 import OptionsProviderAdapter from '../../../infrastructure/services/options/OptionsProvider.adapter';
+import { OptionsConfigurationRepositoryAdapter } from '../../../options/infrastructure/repositories/OptionsConfiguration.repository.adapter';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -42,7 +43,9 @@ function createScriptRunner() {
     WorkflowsImportDependency,
   );
 
-  const optionsProvider = new OptionsProviderAdapter();
+  const optionsProvider = new OptionsProviderAdapter(
+    new OptionsConfigurationRepositoryAdapter(),
+  );
 
   return new ScriptRunner(
     new SortedScriptsProviderAdapter(

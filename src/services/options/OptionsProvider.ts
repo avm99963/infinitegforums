@@ -4,6 +4,9 @@ import {
   OptionsValues,
 } from '../../common/options/optionsPrototype';
 
+/**
+ * Class which provides option values and a way to listen to option changes.
+ */
 export interface OptionsProviderPort {
   /**
    * Returns the raw value of option |option| as configured by the user, that

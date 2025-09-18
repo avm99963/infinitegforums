@@ -84,6 +84,7 @@ import AvatarsStylesScript from '../../../features/avatars/presentation/scripts/
 import AvatarsHandler from '../../../features/avatars/core/avatars';
 import XHRInterceptorSetUpKillSwitchHandler from '../../../presentation/standaloneScripts/xhrInterceptor/setUpKillSwitchHandler.script';
 import OptionsProviderAdapter from '../../../infrastructure/services/options/OptionsProvider.adapter';
+import { OptionsConfigurationRepositoryAdapter } from '../../../options/infrastructure/repositories/OptionsConfiguration.repository.adapter';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -107,7 +108,9 @@ function createScriptRunner() {
       new CCThreadListActionInjectorAdapter(),
     );
   const optionsModifier = new OptionsModifierAdapter();
-  const optionsProvider = new OptionsProviderAdapter();
+  const optionsProvider = new OptionsProviderAdapter(
+    new OptionsConfigurationRepositoryAdapter(),
+  );
 
   const avatarsHandler = new AvatarsHandler();
   const ccInfiniteScroll = new CCInfiniteScroll();

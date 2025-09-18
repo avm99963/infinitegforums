@@ -3,6 +3,7 @@ import OptionsProviderAdapter from '../../../infrastructure/services/options/Opt
 import { getFeatureCategories } from '../featureCategories';
 import '../components/App';
 import { isProdVersion } from '../../../common/extUtils';
+import { OptionsConfigurationRepositoryAdapter } from '../../infrastructure/repositories/OptionsConfiguration.repository.adapter';
 
 const SUPPORTED_LANGUAGES: string[] = ['en', 'es', 'ko', 'pt', 'ru'];
 
@@ -14,7 +15,9 @@ function main() {
 
   const container = document.getElementById('container');
   const app = document.createElement('options-app');
-  app.optionsProvider = new OptionsProviderAdapter();
+  app.optionsProvider = new OptionsProviderAdapter(
+    new OptionsConfigurationRepositoryAdapter(),
+  );
   app.optionsModifier = new OptionsModifierAdapter();
   app.getFeatureCategories = getFeatureCategories;
   app.isProdVersion = isProdVersion();

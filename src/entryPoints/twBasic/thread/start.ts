@@ -7,12 +7,15 @@ import ScriptRunner from '../../../infrastructure/presentation/scripts/ScriptRun
 import ScriptSorterAdapter from '../../../infrastructure/presentation/scripts/ScriptSorter.adapter';
 import { SortedScriptsProviderAdapter } from '../../../infrastructure/presentation/scripts/SortedScriptsProvider.adapter';
 import OptionsProviderAdapter from '../../../infrastructure/services/options/OptionsProvider.adapter';
+import { OptionsConfigurationRepositoryAdapter } from '../../../options/infrastructure/repositories/OptionsConfiguration.repository.adapter';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
 
 function createScriptRunner() {
-  const optionsProvider = new OptionsProviderAdapter();
+  const optionsProvider = new OptionsProviderAdapter(
+    new OptionsConfigurationRepositoryAdapter(),
+  );
 
   return new ScriptRunner(
     new SortedScriptsProviderAdapter(
