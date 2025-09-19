@@ -1,4 +1,4 @@
-import { ProtobufObject } from "../common/protojs.types";
+import { ProtobufObject } from '../common/protojs.types';
 
 export interface ResponseModifierPort {
   intercept(interception: InterceptedResponse): Promise<Result>;
@@ -14,7 +14,7 @@ export interface InterceptedResponse {
   url: string;
 
   /**
-   * Object with the response as intercepted without any modification.
+   * Object with the normalized response without any further modification.
    */
   originalResponse: ProtobufObject;
 }

@@ -123,7 +123,7 @@ export default class FetchProxyCallHandler {
     let json = await response.json();
 
     if (this.isArrayProto) {
-      correctArrayKeys(json);
+      json = correctArrayKeys(json);
     }
 
     const result = await this.responseModifier.intercept({
@@ -135,7 +135,7 @@ export default class FetchProxyCallHandler {
     }
 
     if (this.isArrayProto) {
-      inverseCorrectArrayKeys(json);
+      json = inverseCorrectArrayKeys(json);
     }
 
     return new Response(JSON.stringify(json), {

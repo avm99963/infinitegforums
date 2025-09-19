@@ -177,6 +177,21 @@ describe('FetchProxy', () => {
         });
       });
 
+      it(`should pass the normalized protobuf response to ResponseModifier when the request is application/json+protobuf`, async () => {
+        const dummyResponse = ['response'];
+        fetchMock.mockResolvedValue(
+          new Response(JSON.stringify(dummyResponse)),
+        );
+
+        await window.fetch(dummyUrl, dummyInitProtoJs);
+
+        expect(interceptMock).toHaveBeenCalledTimes(1);
+        const interceptedOriginalResponse =
+          interceptMock.mock.calls[0][0]?.originalResponse;
+        expect(interceptedOriginalResponse).toBeDefined();
+        expect(interceptedOriginalResponse[1]).toBe('response');
+      });
+
       it('should return the modified response when ResponseModifier modifies it', async () => {
         const response = await window.fetch(dummyUrl, dummyInit);
         const result = await response.json();
