@@ -56,7 +56,7 @@ function createScriptRunner() {
         new FlattenThreadsSetUpReplyActionHandlerScript(
           new FlattenThreadsReplyActionHandler(optionsProvider),
         ),
-        new InteropThreadPageSetupScript(),
+        new InteropThreadPageSetupScript(optionsProvider, startupDataStorage),
         new ThreadPageDesignWarningSetUpScript(threadPageDesignWarning),
         new LoadDraftsSetupScript(optionsProvider, startupDataStorage),
         new UiSpacingConsoleStylesScript(optionsProvider),

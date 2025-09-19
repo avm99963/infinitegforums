@@ -1,8 +1,6 @@
-import DependenciesProviderSingleton, {
-  OptionsProviderDependency,
-  StartupDataStorageDependency,
-} from '../../../../common/architecture/dependenciesProvider/DependenciesProvider';
 import Script from '../../../../common/architecture/scripts/Script';
+import { StartupDataStoragePort } from '../../../../services/communityConsole/StartupDataStorage.port';
+import { OptionsProviderPort } from '../../../../services/options/OptionsProvider';
 
 const SMEI_RCE_THREAD_INTEROP = 22;
 
@@ -11,19 +9,19 @@ export default class InteropThreadPageSetupScript extends Script {
   environment: never;
   runPhase: never;
 
+  constructor(
+    private readonly optionsProvider: OptionsProviderPort,
+    private readonly startupDataStorage: StartupDataStoragePort,
+  ) {
+    super();
+  }
+
   async execute() {
-    const dependenciesProvider = DependenciesProviderSingleton.getInstance();
-    const optionsProvider = dependenciesProvider.getDependency(
-      OptionsProviderDependency,
-    );
-    if (await optionsProvider.isEnabled('interopthreadpage')) {
-      const startupDataStorage = dependenciesProvider.getDependency(
-        StartupDataStorageDependency,
-      );
-      const mode = await optionsProvider.getOptionValue(
+    if (await this.optionsProvider.isEnabled('interopthreadpage')) {
+      const mode = await this.optionsProvider.getOptionValue(
         'interopthreadpage_mode',
       );
-      startupDataStorage.enqueueModification((startupDataModel) => {
+      this.startupDataStorage.enqueueModification((startupDataModel) => {
         const index = startupDataModel.data[1][6].indexOf(
           SMEI_RCE_THREAD_INTEROP,
         );
@@ -43,7 +41,7 @@ export default class InteropThreadPageSetupScript extends Script {
         }
       });
       // NOTE: Workaround because otherwise the modifications would be applied too late.
-      startupDataStorage.applyModifications();
+      this.startupDataStorage.applyModifications();
     }
   }
 }
