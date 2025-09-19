@@ -3,6 +3,7 @@ import {
   correctArrayKeys,
   inverseCorrectArrayKeys,
 } from '../../common/protojs';
+import { ProtobufObject } from '../../common/protojs.types';
 import { InterceptorHandlerPort } from '../interceptors/InterceptorHandler.port';
 import MessageIdTracker from '../MessageIdTracker';
 import { ResponseModifierPort } from '../ResponseModifier.port';
@@ -65,9 +66,7 @@ export default class FetchProxyCallHandler {
       init,
     ]);
 
-    const response = await this.attemptToModifyResponse(originalResponse);
-
-    await this.attemptToSendResponseInterceptorEvent(response);
+    const response = await this.handleResponse(originalResponse);
 
     return response;
   }
@@ -104,50 +103,72 @@ export default class FetchProxyCallHandler {
     }
   }
 
+  private async handleResponse(originalResponse: Response) {
+    const response = originalResponse.clone();
+    const responseBody = await response.json();
+    const normalizedResponseBody: ProtobufObject = this.isArrayProto
+      ? correctArrayKeys(responseBody)
+      : responseBody;
+
+    const modificationResult = await this.attemptToModifyResponse(
+      normalizedResponseBody,
+    );
+    const updatedResponseBody = modificationResult.wasModified
+      ? modificationResult.modifiedResponse
+      : normalizedResponseBody;
+    await this.attemptToSendResponseInterceptorEvent(updatedResponseBody);
+
+    if (modificationResult.wasModified) {
+      return new Response(JSON.stringify(modificationResult.modifiedResponse), {
+        status: response.status,
+        statusText: response.statusText,
+        headers: response.headers,
+      });
+    } else {
+      return originalResponse;
+    }
+  }
+
   private async attemptToModifyResponse(
-    originalResponse: Response,
-  ): Promise<Response> {
+    originalJson: ProtobufObject,
+  ): Promise<ModificationResult> {
     try {
-      return await this.modifyResponse(originalResponse);
+      return await this.modifyResponse(originalJson);
     } catch (e) {
       console.error(
         `[Fetch Proxy] Couldn\'t modify the response for ${this.url}`,
         e,
       );
-      return originalResponse;
+      return { wasModified: false };
     }
   }
 
-  private async modifyResponse(originalResponse: Response) {
-    const response = originalResponse.clone();
-    let json = await response.json();
-
-    if (this.isArrayProto) {
-      json = correctArrayKeys(json);
-    }
-
+  private async modifyResponse(
+    originalJson: ProtobufObject,
+  ): Promise<ModificationResult> {
     const result = await this.responseModifier.intercept({
-      originalResponse: json,
+      originalResponse: originalJson,
       url: this.url,
     });
-    if (result.wasModified) {
-      json = result.modifiedResponse;
+
+    if (!result.wasModified) {
+      return result;
     }
+
+    let json = result.modifiedResponse;
 
     if (this.isArrayProto) {
       json = inverseCorrectArrayKeys(json);
     }
 
-    return new Response(JSON.stringify(json), {
-      status: response.status,
-      statusText: response.statusText,
-      headers: response.headers,
-    });
+    return { wasModified: true, modifiedResponse: json };
   }
 
-  private async attemptToSendResponseInterceptorEvent(response: Response) {
+  private async attemptToSendResponseInterceptorEvent(
+    responseJson: ProtobufObject,
+  ) {
     try {
-      await this.sendResponseInterceptorEvent(response);
+      await this.sendResponseInterceptorEvent(responseJson);
     } catch (e) {
       console.error(
         `[FetchProxy] An error ocurred sending a response interceptor event for ${this.url}:`,
@@ -156,24 +177,28 @@ export default class FetchProxyCallHandler {
     }
   }
 
-  private async sendResponseInterceptorEvent(response: Response) {
+  private async sendResponseInterceptorEvent(responseJson: ProtobufObject) {
+    if (!responseJson) return;
+
     const interceptors = this.interceptorHandler.matchInterceptors(
       'response',
       this.url,
     );
     if (interceptors.length === 0) return;
 
-    const rawBody = await response.clone().json();
-    if (!rawBody) return;
-
-    const body = this.isArrayProto ? correctArrayKeys(rawBody) : rawBody;
-
     for (const interceptor of interceptors) {
       this.interceptorHandler.triggerEvent(
         interceptor.eventName,
-        body,
+        responseJson,
         this.messageId,
       );
     }
   }
 }
+
+type ModificationResult =
+  | { wasModified: false }
+  | {
+      wasModified: true;
+      modifiedResponse: ProtobufObject;
+    };
