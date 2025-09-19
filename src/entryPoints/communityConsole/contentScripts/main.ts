@@ -1,7 +1,6 @@
 import DependenciesProviderSingleton, {
   AutoRefreshDependency,
   ExtraInfoDependency,
-  OptionsProviderDependency,
   StartupDataStorageDependency,
   ThreadPageDesignWarningDependency,
   WorkflowsImportDependency,
@@ -84,6 +83,7 @@ import AvatarsInjectHandler from '../../../features/avatars/presentation/nodeWat
 import AvatarsStylesScript from '../../../features/avatars/presentation/scripts/styles.script';
 import AvatarsHandler from '../../../features/avatars/core/avatars';
 import XHRInterceptorSetUpKillSwitchHandler from '../../../presentation/standaloneScripts/xhrInterceptor/setUpKillSwitchHandler.script';
+import OptionsProviderAdapter from '../../../infrastructure/services/options/OptionsProvider.adapter';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -92,9 +92,6 @@ function createScriptRunner() {
   const dependenciesProvider = DependenciesProviderSingleton.getInstance();
   const autoRefresh = dependenciesProvider.getDependency(AutoRefreshDependency);
   const extraInfo = dependenciesProvider.getDependency(ExtraInfoDependency);
-  const optionsProvider = dependenciesProvider.getDependency(
-    OptionsProviderDependency,
-  );
   const startupDataStorage = dependenciesProvider.getDependency(
     StartupDataStorageDependency,
   );
@@ -110,6 +107,7 @@ function createScriptRunner() {
       new CCThreadListActionInjectorAdapter(),
     );
   const optionsModifier = new OptionsModifierAdapter();
+  const optionsProvider = new OptionsProviderAdapter();
 
   const avatarsHandler = new AvatarsHandler();
   const ccInfiniteScroll = new CCInfiniteScroll();

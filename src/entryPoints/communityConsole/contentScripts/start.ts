@@ -1,7 +1,6 @@
 import DependenciesProviderSingleton, {
   AutoRefreshDependency,
   ExtraInfoDependency,
-  OptionsProviderDependency,
   StartupDataStorageDependency,
   ThreadPageDesignWarningDependency,
   WorkflowsImportDependency,
@@ -24,6 +23,7 @@ import FlattenThreadsSetUpReplyActionHandlerScript from '../../../features/flatt
 import FlattenThreadsReplyActionHandler from '../../../features/flattenThreads/core/replyActionHandler';
 import UiSpacingSharedStylesScript from '../../../features/uiSpacing/presentation/scripts/sharedStyles.script';
 import UiSpacingConsoleStylesScript from '../../../features/uiSpacing/presentation/scripts/consoleStyles.script';
+import OptionsProviderAdapter from '../../../infrastructure/services/options/OptionsProvider.adapter';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -32,9 +32,6 @@ function createScriptRunner() {
   const dependenciesProvider = DependenciesProviderSingleton.getInstance();
   const autoRefresh = dependenciesProvider.getDependency(AutoRefreshDependency);
   const extraInfo = dependenciesProvider.getDependency(ExtraInfoDependency);
-  const optionsProvider = dependenciesProvider.getDependency(
-    OptionsProviderDependency,
-  );
   const startupDataStorage = dependenciesProvider.getDependency(
     StartupDataStorageDependency,
   );
@@ -44,6 +41,8 @@ function createScriptRunner() {
   const workflowsImport = dependenciesProvider.getDependency(
     WorkflowsImportDependency,
   );
+
+  const optionsProvider = new OptionsProviderAdapter();
 
   return new ScriptRunner(
     new SortedScriptsProviderAdapter(
