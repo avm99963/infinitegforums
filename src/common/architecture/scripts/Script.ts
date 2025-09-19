@@ -49,7 +49,7 @@ export const ScriptEnvironmentToExecutionWorld: Record<
   [ScriptEnvironment.InjectedScript]: 'MAIN',
 };
 
-export type ConcreteScript = { new (): Script };
+export type ConcreteScript = { new (...args: unknown[]): Script };
 
 export default abstract class Script {
   /**

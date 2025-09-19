@@ -6,17 +6,20 @@ import UiSpacingTwBasicStylesScript from '../../../features/uiSpacing/presentati
 import ScriptRunner from '../../../infrastructure/presentation/scripts/ScriptRunner';
 import ScriptSorterAdapter from '../../../infrastructure/presentation/scripts/ScriptSorter.adapter';
 import { SortedScriptsProviderAdapter } from '../../../infrastructure/presentation/scripts/SortedScriptsProvider.adapter';
+import OptionsProviderAdapter from '../../../infrastructure/services/options/OptionsProvider.adapter';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
 
 function createScriptRunner() {
+  const optionsProvider = new OptionsProviderAdapter();
+
   return new ScriptRunner(
     new SortedScriptsProviderAdapter(
       [
         // Individual feature scripts
-        new UiSpacingSharedStylesScript(),
-        new UiSpacingTwBasicStylesScript(),
+        new UiSpacingSharedStylesScript(optionsProvider),
+        new UiSpacingTwBasicStylesScript(optionsProvider),
       ],
       new ScriptSorterAdapter(),
     ).getScripts(),

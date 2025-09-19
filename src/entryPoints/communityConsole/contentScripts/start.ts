@@ -50,8 +50,8 @@ function createScriptRunner() {
       [
         // Individual feature scripts
         new AutoRefreshSetUpScript(autoRefresh),
-        new CCDarkThemeInjectAutoDarkTheme(),
-        new CCDarkThemeInjectForcedDarkTheme(),
+        new CCDarkThemeInjectAutoDarkTheme(optionsProvider),
+        new CCDarkThemeInjectForcedDarkTheme(optionsProvider),
         new CCExtraInfoSetUpScript(extraInfo),
         new FlattenThreadsSetUpReplyActionHandlerScript(
           new FlattenThreadsReplyActionHandler(optionsProvider),
@@ -59,8 +59,8 @@ function createScriptRunner() {
         new InteropThreadPageSetupScript(),
         new ThreadPageDesignWarningSetUpScript(threadPageDesignWarning),
         new LoadDraftsSetupScript(optionsProvider, startupDataStorage),
-        new UiSpacingConsoleStylesScript(),
-        new UiSpacingSharedStylesScript(),
+        new UiSpacingConsoleStylesScript(optionsProvider),
+        new UiSpacingSharedStylesScript(optionsProvider),
         new WorkflowsImportSetUpScript(workflowsImport),
 
         // Standalone scripts
