@@ -338,7 +338,7 @@
       </trans-unit>
       <trans-unit id="s7d06ea4f1ccd5f6f" xml:space="preserve">
         <source>The old thread page design is partially broken, but this feature is kept since some PEs rely on it to access some features that are missing in the new design.</source>
-        <target state="translated">이전 버전 게시글 페이지 디자인은 부분적으로 손상되었지만, 신규 디자인에서 사라진 일부 기능을 필요로 하는 PE분들을 위해 유지되고 있습니다.</target>
+        <target state="translated">구 버전 게시글 페이지 디자인은 부분적으로 손상되었지만, 신 버전 디자인에서 사라진 일부 기능을 필요로 하는 PE분들을 위해 유지되고 있습니다.</target>
         <note from="lit-localize">Additional information shown in the options page about the "Change thread page design" feature.</note>
       </trans-unit>
       <trans-unit id="h9a0810c202cacc55" xml:space="preserve">
@@ -368,7 +368,7 @@
       </trans-unit>
       <trans-unit id="s9347ba024909ae4e" xml:space="preserve">
         <source>Forces showing the new or old thread page design.</source>
-        <target state="translated">신규 또는 이전 게시글 페이지 디자인을 강제로 표시합니다.</target>
+        <target state="translated">신 버전 또는 구 버전 게시글 페이지 디자인을 강제로 표시합니다.</target>
         <note from="lit-localize">Description of the "Change thread page design" feature.</note>
       </trans-unit>
       <trans-unit id="s7242cc88574abf53" xml:space="preserve">
@@ -621,8 +621,9 @@
         <target state="translated">사이드바 헤더 고정</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s56972a20e50faa59">
+      <trans-unit id="s56972a20e50faa59" xml:space="preserve">
         <source>Compact mode</source>
+        <target state="translated">컴팩트 모드</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
       <trans-unit id="s7632fc9aa12bf382" xml:space="preserve">
@@ -642,12 +643,12 @@
       </trans-unit>
       <trans-unit id="s5534d887d865e194" xml:space="preserve">
         <source>Old design</source>
-        <target state="translated">이전 디자인</target>
+        <target state="translated">구 버전 디자인</target>
         <note from="lit-localize">Selectable option for the "Design to show" suboption of the "Change thread page design" feature.</note>
       </trans-unit>
       <trans-unit id="sb7caaf7e7ac078b1" xml:space="preserve">
         <source>New design</source>
-        <target state="translated">신규 디자인</target>
+        <target state="translated">신 버전 디자인</target>
         <note from="lit-localize">Selectable option for the "Design to show" suboption of the "Change thread page design" feature.</note>
       </trans-unit>
       <trans-unit id="sd200028b9f6015e4" xml:space="preserve">
@@ -695,8 +696,9 @@
         <target state="translated">TW Power Tools</target>
         <note from="lit-localize">The extension name.</note>
       </trans-unit>
-      <trans-unit id="h484816adcf825576">
+      <trans-unit id="h484816adcf825576" xml:space="preserve">
         <source>These features only affect the Community Console's old message composer, which is shown when creating a new thread or canned response, when pressing <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/> inside a thread, or when creating a new reply in the old thread view. The new message composer doesn't suffer from these issues. </source>
+        <target state="translated">이 기능들은 새 게시글이나 CR를 만들 때, 스레드 내에서 <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/> 키를 누를 때, 또는 이전 게시글 보기에서 새 답장을 작성할 때 표시되는 커뮤니티 콘솔의 구 버전 메시지 작성기에만 영향을 미칩니다. 신 버전 메시지 작성기에서는 이러한 문제가 발생하지 않습니다. </target>
         <note from="lit-localize">Explanatory note for the features that relate to the old reply editor in the Community Console.</note>
       </trans-unit>
       <trans-unit id="s9f87b689a748b55a" xml:space="preserve">
@@ -714,8 +716,9 @@
         <target state="translated">프로필</target>
         <note from="lit-localize">Name of the category of extension features related to profiles.</note>
       </trans-unit>
-      <trans-unit id="s55cec32fb241f2f5">
+      <trans-unit id="s55cec32fb241f2f5" xml:space="preserve">
         <source>Old message composer</source>
+        <target state="translated">구 버전 메시지 작성기</target>
         <note from="lit-localize">Name of the category of extension features related to the old message composer.</note>
       </trans-unit>
       <trans-unit id="s6163ba50e1af9788" xml:space="preserve">
@@ -737,8 +740,9 @@
         <source>You're testing the new options page.</source>
         <target state="translated">새로운 설정 페이지를 보고 있습니다.</target>
       </trans-unit>
-      <trans-unit id="h75ff4c12afaffb0c">
+      <trans-unit id="h75ff4c12afaffb0c" xml:space="preserve">
         <source>Please leave feedback and report bugs in our <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;"/>discussion group<x id="1" equiv-text="&lt;/a&gt;"/>. Thanks for testing!</source>
+        <target state="translated">개선 사항이나 버그가 있다면 저희 <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;"/>토론 그룹<x id="1" equiv-text="&lt;/a&gt;"/>에서 알려주세요. 테스트에 참여해 주셔서 감사합니다!</target>
       </trans-unit>
     </body>
   </file>
