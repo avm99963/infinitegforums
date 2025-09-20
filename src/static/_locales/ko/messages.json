@@ -176,7 +176,7 @@
         "description": "Tooltip for the profile indicator dot."
     },
     "inject_ccdarktheme_helper": {
-        "message": "테마 변경하기",
+        "message": "화면 모드 변경하기",
         "description": "Tooltip for the dark mode switch."
     },
     "inject_extension_badge_helper": {

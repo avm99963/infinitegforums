@@ -358,12 +358,12 @@
       </trans-unit>
       <trans-unit id="sf11e849c4f7e174d" xml:space="preserve">
         <source>Adds a button to lock all selected threads at once.</source>
-        <target state="translated">선택된 모든 게시글을 한 번에 잠그는 버튼을 추가합니다.</target>
+        <target state="translated">선택한 모든 게시글을 한 번에 잠그는 버튼을 추가합니다.</target>
         <note from="lit-localize">Description of the "Bulk lock" feature.</note>
       </trans-unit>
       <trans-unit id="sbccd6eedc254fbc7" xml:space="preserve">
         <source>Adds a button to move all selected threads at once.</source>
-        <target state="translated">선택된 모든 게시글을 한 번에 이동시키는 버튼을 추가합니다.</target>
+        <target state="translated">선택한 모든 게시글을 한 번에 이동시키는 버튼을 추가합니다.</target>
         <note from="lit-localize">Description of the "Bulk move" feature.</note>
       </trans-unit>
       <trans-unit id="s9347ba024909ae4e" xml:space="preserve">
@@ -433,7 +433,7 @@
       </trans-unit>
       <trans-unit id="s186c89b0df27cf80" xml:space="preserve">
         <source>Shows a badge next to the OP's username with the number of messages posted by them.</source>
-        <target state="translated">OP의 사용자 이름 옆에 작성한 게시글 수가 표시된 배지를 보여줍니다.</target>
+        <target state="translated">OP의 사용자 이름 옆에 지금까지 작성한 메시지 수를 나타내는 배지를 표시합니다.</target>
         <note from="lit-localize">Description of the "OP messages count" feature.</note>
       </trans-unit>
       <trans-unit id="s56f5d6f9019b5601" xml:space="preserve">
