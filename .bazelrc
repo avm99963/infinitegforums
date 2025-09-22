@@ -1,4 +1,7 @@
 common --repo_env=DO_NOT_TRACK=true
 
+build --flag_alias=browser=//:browser
+build --flag_alias=channel=//:channel
+
 # To allow importing a user-defined .bazelrc
 try-import %workspace%/user.bazelrc

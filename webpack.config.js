@@ -118,6 +118,9 @@ module.exports = (env, args) => {
     },
   ];
 
+  const isCanaryBuild = env.canary == 'true';
+  const isBazelBuild = env.is_bazel_build == 'true';
+
   const outputPath = path.join(__dirname, 'dist', env.browser_target);
 
   const overridenLocalePaths =
@@ -129,7 +132,7 @@ module.exports = (env, args) => {
       params: {
         browser_target: env.browser_target,
         production: args.mode == 'production',
-        canary: !!env.canary,
+        canary: isCanaryBuild,
         enable_bulk_crs: env.enable_bulk_crs === 'true' ?? false,
       },
     },
@@ -154,13 +157,14 @@ module.exports = (env, args) => {
       new MiniCssExtractPlugin({
         filename: '[name].bundle.css',
       }),
-      new WebpackShellPluginNext({
+      !isBazelBuild ? new WebpackShellPluginNext({
         onBuildStart: {
           scripts: ['make lit_localize_build'],
           blocking: true,
         },
-      }),
-      new WebpackShellPluginNext({
+      }) :
+                      undefined,
+      !isBazelBuild ? new WebpackShellPluginNext({
         onBuildEnd: {
           scripts:
               ['genmanifest -template templates/manifest.gjson -dest ' +
@@ -170,12 +174,13 @@ module.exports = (env, args) => {
         // This makes this command run multiple times when building on watch
         // mode.
         dev: false,
-      }),
-      new CopyWebpackPlugin({
+      }) :
+                      undefined,
+      !isBazelBuild ? new CopyWebpackPlugin({
         patterns: [
           {
             from: path.join(
-                __dirname, 'src/icons', env.canary ? 'canary' : 'regular'),
+                __dirname, 'src/icons', isCanaryBuild ? 'canary' : 'regular'),
             to: path.join(outputPath, 'icons'),
           },
           {
@@ -187,7 +192,8 @@ module.exports = (env, args) => {
           },
           ...getStylesCopyPatterns(styles),
         ]
-      }),
+      }) :
+                      undefined,
       new HtmlWebpackPlugin({
         filename: 'workflows.html',
         template:
@@ -196,14 +202,13 @@ module.exports = (env, args) => {
       }),
       new HtmlWebpackPlugin({
         filename: 'options.html',
-        template:
-            'src/options/presentation/templates/options.html.ejs',
+        template: 'src/options/presentation/templates/options.html.ejs',
         chunks: ['optionsScript'],
       }),
       new webpack.DefinePlugin({
         'PRODUCTION': args.mode == 'production',
       }),
-      ...getCopyPluginsForOverridenLocales(outputPath),
+      ...(!isBazelBuild ? getCopyPluginsForOverridenLocales(outputPath) : []),
     ],
     devtool: (args.mode == 'production' ? 'source-map' : 'inline-source-map'),
     resolve: {

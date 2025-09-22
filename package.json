@@ -28,7 +28,7 @@
   ],
   "engines": {
     "node": ">=20",
-    "pnpm": ">=9"
+    "pnpm": ">=8 <9"
   },
   "devDependencies": {
     "@babel/parser": "7.28.4",
@@ -88,5 +88,8 @@
     "poll-until-promise": "^4.0.0",
     "semver": "^7.3.5",
     "sw-xhr": "^0.0.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": []
   }
 }

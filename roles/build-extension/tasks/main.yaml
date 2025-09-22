@@ -1,5 +1,5 @@
 - name: Install pnpm
-  ansible.builtin.command: npm install -g pnpm
+  ansible.builtin.command: npm install -g pnpm@8
   args:
     chdir: "{{ zuul.project.src_dir }}"
 

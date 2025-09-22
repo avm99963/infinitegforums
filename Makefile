@@ -53,7 +53,7 @@ release_chromium_beta: deps
 	rm -rf dist/chromium_mv3
 
 release_chromium_canary: deps
-	$(WEBPACK) --mode production --env browser_target=chromium_mv3 --env canary
+	$(WEBPACK) --mode production --env browser_target=chromium_mv3 --env canary=true
 	$(RELEASE_SCRIPT) -c canary -b chromium_mv3
 	rm -rf dist/chromium_mv3
 
