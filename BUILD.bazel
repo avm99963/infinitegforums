@@ -9,7 +9,11 @@ npm_link_all_packages()
 webpack_srcs = glob([
     "src/**",
     "tsconfig.json",
-])
+]) + [
+    # TODO(https://iavm.xyz/b/twpowertools/256): Move this out of the static
+    # folder.
+    "//src/static:common_console_styles",
+]
 
 # TODO(https://iavm.xyz/b/twpowertools/256): Remove is_bazel_build once Bazel
 # replaces Webpack as the build system.

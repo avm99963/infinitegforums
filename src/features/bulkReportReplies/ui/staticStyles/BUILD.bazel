@@ -1,0 +1,5 @@
+filegroup(
+    name = "staticStyles",
+    srcs = ["styles.css"],
+    visibility = ["//:__pkg__"],
+)

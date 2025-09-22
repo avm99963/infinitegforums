@@ -75,45 +75,48 @@ module.exports = (env, args) => {
 
   // NOTE: When adding an entry, add the corresponding source map file to
   // web_accessible_resources in //templates/manifest.gjson.
+  // Keep this synced with tools/static_styles_provider.bzl as well.
   const styles = [
     {
-      origin: './src/features/avatars/ui/styles.css',
+      origin: './src/features/avatars/ui/staticStyles/styles.css',
       destination: 'css/thread_list_avatars.css',
     },
     {
-      origin: './src/features/batchLock/ui/styles.css',
+      origin: './src/features/batchLock/ui/staticStyles/styles.css',
       destination: 'css/batchlock_inject.css',
     },
     {
-      origin: './src/features/bulkReportReplies/ui/styles.css',
+      origin: './src/features/bulkReportReplies/ui/staticStyles/styles.css',
       destination: 'css/bulk_report_replies.css',
     },
     {
-      origin: './src/features/enhancedAnnouncementsDot/ui/styles.css',
+      origin:
+          './src/features/enhancedAnnouncementsDot/ui/staticStyles/styles.css',
       destination: 'css/enhanced_announcements_dot.css',
     },
     {
-      origin: './src/features/fixedToolbar/ui/styles.css',
+      origin: './src/features/fixedToolbar/ui/staticStyles/styles.css',
       destination: 'css/fixed_toolbar.css',
     },
     {
-      origin: './src/features/imageMaxHeight/ui/styles.css',
+      origin: './src/features/imageMaxHeight/ui/staticStyles/styles.css',
       destination: 'css/image_max_height.css',
     },
     {
-      origin: './src/features/increaseContrast/ui/styles.css',
+      origin: './src/features/increaseContrast/ui/staticStyles/styles.css',
       destination: 'css/increase_contrast.css',
     },
     {
-      origin: './src/features/repositionExpandThread/ui/styles.css',
+      origin:
+          './src/features/repositionExpandThread/ui/staticStyles/styles.css',
       destination: 'css/reposition_expand_thread.css',
     },
     {
-      origin: './src/features/stickySidebarHeaders/ui/styles.css',
+      origin: './src/features/stickySidebarHeaders/ui/staticStyles/styles.css',
       destination: 'css/sticky_sidebar_headers.css',
     },
     {
-      origin: './src/features/threadToolbar/ui/styles.css',
+      origin: './src/features/threadToolbar/ui/staticStyles/styles.css',
       destination: 'css/thread_toolbar.css',
     },
   ];
