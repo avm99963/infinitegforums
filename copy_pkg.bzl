@@ -7,10 +7,17 @@ def copy_extension_package_to_directory(name, webpack_bundle, out):
         srcs = [
             webpack_bundle,
             "//src/icons",
+            "//src/static",
         ] + get_static_styles_labels(),
         out = out,
+        exclude_srcs_patterns = [
+            "**/OWNERS",
+            "**/*.bazel",
+            "**/*.bzl",
+        ],
         replace_prefixes = {
             "src/icons/*": "icons",
+            "src/static": "",
             "webpack_bundle": "",
         } | get_static_styles_replace_prefixes(),
     )

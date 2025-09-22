@@ -1,0 +1,14 @@
+load("@aspect_bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
+
+filegroup(
+    name = "static",
+    srcs = glob(["*/**"]) + ["//src/static/_locales"],
+    visibility = ["//:__pkg__"],
+)
+
+# TODO(https://iavm.xyz/b/twpowertools/256): Move this out of the static folder.
+copy_to_bin(
+    name = "common_console_styles",
+    srcs = ["css/common/console.css"],
+    visibility = ["//:__subpackages__"],
+)
