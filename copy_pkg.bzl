@@ -6,9 +6,11 @@ def copy_extension_package_to_directory(name, webpack_bundle, out):
         name = name,
         srcs = [
             webpack_bundle,
+            "//src/icons",
         ] + get_static_styles_labels(),
         out = out,
         replace_prefixes = {
+            "src/icons/*": "icons",
             "webpack_bundle": "",
         } | get_static_styles_replace_prefixes(),
     )

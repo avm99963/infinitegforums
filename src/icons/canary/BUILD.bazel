@@ -1,0 +1,8 @@
+filegroup(
+    name = "icons",
+    srcs = [
+        "128.png",
+        "512.png",
+    ],
+    visibility = ["//src/icons:__pkg__"],
+)

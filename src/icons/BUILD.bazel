@@ -1,0 +1,10 @@
+load("@rules_pkg//pkg:mappings.bzl", "pkg_filegroup", "pkg_files")
+
+filegroup(
+    name = "icons",
+    srcs = select({
+        "//:canary": ["//src/icons/canary:icons"],
+        "//conditions:default": ["//src/icons/regular:icons"],
+    }),
+    visibility = ["//:__pkg__"],
+)
