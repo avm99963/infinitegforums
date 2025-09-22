@@ -8,6 +8,7 @@ def copy_extension_package_to_directory(name, webpack_bundle, out):
             webpack_bundle,
             "//src/icons",
             "//src/static",
+            "//manifest",
         ] + get_static_styles_labels(),
         out = out,
         exclude_srcs_patterns = [
@@ -16,6 +17,7 @@ def copy_extension_package_to_directory(name, webpack_bundle, out):
             "**/*.bzl",
         ],
         replace_prefixes = {
+            "manifest": "",
             "src/icons/*": "icons",
             "src/static": "",
             "webpack_bundle": "",

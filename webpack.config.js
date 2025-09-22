@@ -22,7 +22,7 @@ const localeOverrides = [
 
 module.exports = (env, args) => {
   // NOTE: When adding an entry, add the corresponding source map file to
-  // web_accessible_resources in //templates/manifest.gjson.
+  // web_accessible_resources in //manifest/manifest.template.gjson.
   const entry = {
     // Content scripts
     communityConsoleMain:
@@ -74,7 +74,7 @@ module.exports = (env, args) => {
   };
 
   // NOTE: When adding an entry, add the corresponding source map file to
-  // web_accessible_resources in //templates/manifest.gjson.
+  // web_accessible_resources in //manifest/manifest.template.gjson.
   // Keep this synced with tools/static_styles_provider.bzl as well.
   const styles = [
     {
@@ -170,7 +170,7 @@ module.exports = (env, args) => {
       !isBazelBuild ? new WebpackShellPluginNext({
         onBuildEnd: {
           scripts:
-              ['genmanifest -template templates/manifest.gjson -dest ' +
+              ['genmanifest -template manifest/manifest.template.gjson -dest ' +
                path.join(outputPath, 'manifest.json') + ' ' +
                env.browser_target]
         },

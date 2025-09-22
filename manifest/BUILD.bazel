@@ -1,0 +1,31 @@
+load("@bazel_skylib//rules:run_binary.bzl", "run_binary")
+
+alias(
+    name = "genmanifest",
+    actual = "@com_avm99963_gomodules_webext//genmanifest",
+)
+
+# A template of the manifest adapted for the selected platform.
+run_binary(
+    name = "platform_manifest_template",
+    srcs = ["manifest.template.gjson"],
+    outs = ["manifest.template.json"],
+    args = [
+        "-template",
+        "$(location manifest.template.gjson)",
+        "-dest",
+        "$(location manifest.template.json)",
+    ] + select({
+        "//:chromium": ["CHROMIUM_MV3"],
+        "//:gecko": ["GECKO"],
+    }),
+    tool = "genmanifest",
+)
+
+# TODO(https://iavm.xyz/b/twpowertools/255): fill in the template with the
+# actual information.
+alias(
+    name = "manifest",
+    actual = "platform_manifest_template",
+    visibility = ["//:__pkg__"],
+)
