@@ -13,6 +13,7 @@ node.toolchain(node_version = "22.18.0")
 npm = use_extension("@aspect_rules_js//npm:extensions.bzl", "npm", dev_dependency = True)
 npm.npm_translate_lock(
     name = "npm",
+    generate_bzl_library_targets = True,
     pnpm_lock = "//:pnpm-lock.yaml",
     verify_node_modules_ignored = "//:.bazelignore",
 )

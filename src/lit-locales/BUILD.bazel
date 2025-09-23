@@ -1,0 +1,10 @@
+load("@npm//:@lit/localize-tools/package_json.bzl", "bin")
+
+bin.lit_localize(
+    name = "lit-locales",
+    srcs = glob(["source/*.xlf"]) + ["//:lit-localize"],
+    args = ["build"],
+    out_dirs = ["generated"],
+    progress_message = "Building lit-locales files",
+    visibility = ["//:__pkg__"],
+)

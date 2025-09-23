@@ -1,3 +1,4 @@
+load("@aspect_bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
 load("@aspect_rules_webpack//webpack:defs.bzl", "webpack_bundle", "webpack_devserver")
 load("@npm//:defs.bzl", "npm_link_all_packages")
 load("@rules_pkg//pkg/private/zip:zip.bzl", "pkg_zip")
@@ -6,10 +7,17 @@ load("defs.bzl", "browser", "channel")
 
 npm_link_all_packages()
 
+copy_to_bin(
+    name = "lit-localize",
+    srcs = ["lit-localize.json"],
+    visibility = ["//src/lit-locales:__pkg__"],
+)
+
 webpack_srcs = glob([
     "src/**",
     "tsconfig.json",
 ]) + [
+    "//src/lit-locales",
     # TODO(https://iavm.xyz/b/twpowertools/256): Move this out of the static
     # folder.
     "//src/static:common_console_styles",
