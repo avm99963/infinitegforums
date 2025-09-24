@@ -1,5 +1,7 @@
 load("@aspect_bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
+load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
 load("@aspect_rules_webpack//webpack:defs.bzl", "webpack_bundle", "webpack_devserver")
+load("@fremtind_rules_vitest//vitest:defs.bzl", "vitest_test")
 load("@npm//:defs.bzl", "npm_link_all_packages")
 load("@rules_pkg//pkg/private/zip:zip.bzl", "pkg_zip")
 load("copy_pkg.bzl", "copy_extension_package_to_directory")
@@ -122,6 +124,30 @@ pkg_zip(
     out = "twpowertools.zip",
     strip_prefix = "unpacked_pkg",
     visibility = ["//visibility:public"],
+)
+
+ts_project(
+    name = "vitest_config",
+    srcs = ["vitest.config.ts"],
+    allow_js = True,
+    source_map = True,
+    transpiler = "tsc",
+    tsconfig = "tsconfig.json",
+    deps = [
+        ":node_modules/@types/node",
+        ":node_modules/vitest",
+    ],
+)
+
+vitest_test(
+    name = "test",
+    config = "vitest.config.js",
+    data = glob(["src/**"]) + [
+        ":node_modules/@material/tooltip",
+        ":node_modules/@testing-library/dom",
+        ":node_modules/poll-until-promise",
+    ],
+    node_modules = ":node_modules",
 )
 
 browser(

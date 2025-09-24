@@ -1,7 +1,9 @@
 bazel_dep(name = "aspect_bazel_lib", version = "2.21.2")
 bazel_dep(name = "aspect_rules_js", version = "2.6.0")
+bazel_dep(name = "aspect_rules_ts", version = "3.7.0")
 bazel_dep(name = "aspect_rules_webpack", version = "0.17.1")
 bazel_dep(name = "bazel_skylib", version = "1.8.1")
+bazel_dep(name = "fremtind_rules_vitest", version = "0.2.1")
 bazel_dep(name = "gazelle", version = "0.45.0")
 bazel_dep(name = "rules_go", version = "0.57.0")
 bazel_dep(name = "rules_nodejs", version = "6.5.0")
@@ -24,6 +26,13 @@ pnpm = use_extension("@aspect_rules_js//npm:extensions.bzl", "pnpm")
 # Allows developers to use the matching pnpm version, for example:
 # bazel run -- @pnpm --dir /path/to/infinitegforums install
 use_repo(pnpm, "pnpm")
+
+rules_ts_ext = use_extension("@aspect_rules_ts//ts:extensions.bzl", "ext", dev_dependency = True)
+rules_ts_ext.deps(
+    ts_integrity = "sha512-CWBzXQrc/qOkhidw1OzBTQuYRbfyxDXJMVJ1XNwUHGROVmuaeiEm3OslpZ1RV96d7SKKjZKrSJu3+t/xlw3R9A==",
+    ts_version_from = "//:package.json",
+)
+use_repo(rules_ts_ext, "npm_typescript")
 
 go_deps = use_extension("@gazelle//:extensions.bzl", "go_deps")
 go_deps.from_file(go_mod = "//:go.mod")
