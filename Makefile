@@ -3,6 +3,7 @@
 WEBPACK := ./node_modules/webpack-cli/bin/cli.js
 VITEST := pnpm exec vitest
 RELEASE_SCRIPT := bash tools/release.bash
+IBAZEL := ibazel
 
 grpc_proto_gen:
 	(cd src/killSwitch && \
@@ -34,8 +35,20 @@ lit_localize_all: lit_localize_extract lit_localize_build
 sync_translations:
 	pnpm ts-node tools/syncTranslations/syncTranslations.ts
 
+# Experimental target which will be renamed to serve_chromium to substitute
+# serve_chromium_mv3.
+.PHONY: bazel_serve_chromium
+bazel_serve_chromium:
+	$(IBAZEL) -run_command_after_success "./tools/copy_pkg_to_writeable_dir.sh" build --compilation_mode=fastbuild --//:browser=CHROMIUM --//:channel=STABLE unpacked_pkg
+
 serve_chromium_mv3: deps
 	$(WEBPACK) --mode development --env browser_target=chromium_mv3 --watch
+
+# Experimental target which will be renamed to serve_chromium to substitute
+# serve_chromium_mv3.
+.PHONY: bazel_serve_gecko
+bazel_serve_gecko:
+	$(IBAZEL) -run_command_after_success "./tools/copy_pkg_to_writeable_dir.sh" build --compilation_mode=fastbuild --//:browser=GECKO --//:channel=STABLE unpacked_pkg
 
 serve_gecko: deps
 	$(WEBPACK) --mode development --env browser_target=gecko --watch
