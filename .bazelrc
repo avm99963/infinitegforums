@@ -1,3 +1,6 @@
+# Preset from bazelrc-preset.bzl
+import %workspace%/tools/preset.bazelrc
+
 common --repo_env=DO_NOT_TRACK=true
 
 build --flag_alias=browser=//:browser

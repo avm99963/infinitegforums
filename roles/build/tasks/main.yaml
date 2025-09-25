@@ -1,6 +1,6 @@
 - name: Build project
   ansible.builtin.shell: |
     export PATH="{{ ansible_user_dir }}/.local/bin:$PATH"
-    bazelisk build --//:browser="{{ browser }}" --//:channel="{{ channel }}" //...
+    bazelisk build --config=ci --//:browser="{{ browser }}" --//:channel="{{ channel }}" //...
   args:
     chdir: '{{ zuul_work_dir }}'
