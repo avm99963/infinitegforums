@@ -1,5 +1,22 @@
 load("@bazelrc-preset.bzl", "bazelrc_preset")
+load("@rules_shell//shell:sh_library.bzl", "sh_library")
+load("@rules_shell//shell:sh_test.bzl", "sh_test")
 
 bazelrc_preset(
     name = "preset",
+)
+
+sh_library(
+    name = "release_utils",
+    data = ["release_utils.sh"],
+)
+
+sh_test(
+    name = "release_utils_test",
+    size = "small",
+    srcs = ["release_utils.test.sh"],
+    deps = [
+        ":release_utils",
+        "@rules_shell//shell/runfiles",
+    ],
 )
