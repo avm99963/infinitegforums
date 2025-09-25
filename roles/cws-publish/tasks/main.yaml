@@ -1,6 +1,6 @@
 - name: Build extension
   include_role:
-    name: build-extension
+    name: legacy-build-extension
   vars:
     make_target: release_chromium_canary
 

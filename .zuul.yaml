@@ -7,11 +7,11 @@
 # More info about Zuul: https://zuul-ci.org/docs/zuul/
 
 - job:
-    name: infinitegforums-lint
+    name: infinitegforums-legacy-lint
     parent: web-ext-lint
-    pre-run: playbooks/lint/pre.yaml
-    run: playbooks/lint/run.yaml
-    post-run: playbooks/lint/post.yaml
+    pre-run: playbooks/legacy-lint/pre.yaml
+    run: playbooks/legacy-lint/run.yaml
+    post-run: playbooks/legacy-lint/post.yaml
     vars:
       use_standalone_web_ext: false
       web_ext_command: "./node_modules/web-ext/bin/web-ext.js"
@@ -57,7 +57,7 @@
     check:
       jobs:
         - infinitegforums-test-nightly-build
-        - infinitegforums-lint
+        - infinitegforums-legacy-lint
     nightly-build:
       jobs:
         - infinitegforums-nightly-build
