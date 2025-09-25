@@ -1,4 +1,4 @@
-load("//:tools/static_styles_provider.bzl", "StaticStyle")
+load("//tools:static_styles_provider.bzl", "StaticStyle")
 
 static_style = StaticStyle(
     label = Label("staticStyles"),
