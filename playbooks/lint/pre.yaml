@@ -1,0 +1,9 @@
+- hosts: all
+  roles:
+    - role: ensure-build-essential
+      become: yes
+    - role: ensure-zip
+      become: yes
+    - role: ensure-bazelisk
+      vars:
+        bazelisk_version: v1.27.0

@@ -1,0 +1,5 @@
+- hosts: all
+  roles:
+    - role: build
+    # TODO(https://iavm.xyz/b/twpowertools/255): Add web-ext-lint
+    # TODO(https://iavm.xyz/b/twpowertools/255): Add test role
