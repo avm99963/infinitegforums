@@ -9,6 +9,7 @@ bazelrc_preset(
 sh_library(
     name = "release_utils",
     data = ["release_utils.sh"],
+    visibility = ["//manifest:__pkg__"],
 )
 
 sh_test(

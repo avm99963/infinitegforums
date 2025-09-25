@@ -1,4 +1,4 @@
-load("@bazel_skylib//rules:run_binary.bzl", "run_binary")
+load("@aspect_bazel_lib//lib:run_binary.bzl", "run_binary")
 
 alias(
     name = "genmanifest",
@@ -22,10 +22,39 @@ run_binary(
     tool = "genmanifest",
 )
 
-# TODO(https://iavm.xyz/b/twpowertools/255): fill in the template with the
-# actual information.
-alias(
+sh_library(
+    name = "manifest_utils",
+    data = ["manifest_utils.sh"],
+)
+
+sh_binary(
+    name = "stamp_manifest",
+    srcs = ["stamp_manifest.sh"],
+    deps = [
+        ":manifest_utils",
+        "//tools:release_utils",
+        "@rules_shell//shell/runfiles",
+    ],
+)
+
+run_binary(
     name = "manifest",
-    actual = "platform_manifest_template",
+    srcs = [":platform_manifest_template"],
+    outs = ["manifest.json"],
+    args = select({
+        "//:stable": ["stable"],
+        "//:beta": ["beta"],
+        "//:canary": ["canary"],
+    }) + select({
+        "//:chromium": ["chromium_mv3"],
+        "//:gecko": ["gecko"],
+    }) + [
+        "$(location :platform_manifest_template)",
+        "$(location manifest.json)",
+    ],
+    mnemonic = "StampManifest",
+    progress_message = "Stamping manifest",
+    stamp = -1,
+    tool = ":stamp_manifest",
     visibility = ["//:__pkg__"],
 )

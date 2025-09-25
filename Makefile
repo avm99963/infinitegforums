@@ -3,6 +3,7 @@
 WEBPACK := ./node_modules/webpack-cli/bin/cli.js
 VITEST := pnpm exec vitest
 RELEASE_SCRIPT := bash tools/release.bash
+BAZEL := bazel
 IBAZEL := ibazel
 
 grpc_proto_gen:
@@ -55,20 +56,48 @@ serve_gecko: deps
 
 release: release_chromium_stable release_chromium_beta release_gecko_stable
 
+# Experimental target which will substitute release_chromium_stable.
+.PHONY: bazel_release_chromium_stable
+bazel_release_chromium_stable:
+	$(BAZEL) build --config=release --//:browser=CHROMIUM --//:channel=STABLE pkg_zip
+	mkdir -p out
+	cp bazel-bin/twpowertools.zip out/twpowertools-chromium-stable.zip
+
 release_chromium_stable: deps
 	$(WEBPACK) --mode production --env browser_target=chromium_mv3
 	$(RELEASE_SCRIPT) -c stable -b chromium_mv3
 	rm -rf dist/chromium_mv3
+
+# Experimental target which will substitute release_chromium_beta.
+.PHONY: bazel_release_chromium_beta
+bazel_release_chromium_beta:
+	$(BAZEL) build --config=release --//:browser=CHROMIUM --//:channel=BETA pkg_zip
+	mkdir -p out
+	cp bazel-bin/twpowertools.zip out/twpowertools-chromium-beta.zip
 
 release_chromium_beta: deps
 	$(WEBPACK) --mode production --env browser_target=chromium_mv3
 	$(RELEASE_SCRIPT) -c beta -b chromium_mv3
 	rm -rf dist/chromium_mv3
 
+# Experimental target which will substitute release_chromium_canary.
+.PHONY: bazel_release_chromium_canary
+bazel_release_chromium_canary:
+	$(BAZEL) build --config=release --//:browser=CHROMIUM --//:channel=CANARY pkg_zip
+	mkdir -p out
+	cp bazel-bin/twpowertools.zip out/twpowertools-chromium-canary.zip
+
 release_chromium_canary: deps
 	$(WEBPACK) --mode production --env browser_target=chromium_mv3 --env canary=true
 	$(RELEASE_SCRIPT) -c canary -b chromium_mv3
 	rm -rf dist/chromium_mv3
+
+# Experimental target which will substitute release_gecko.
+.PHONY: bazel_release_gecko
+bazel_release_gecko:
+	$(BAZEL) build --config=release --//:browser=GECKO --//:channel=STABLE pkg_zip
+	mkdir -p out
+	cp bazel-bin/twpowertools.zip out/twpowertools-gecko-stable.zip
 
 release_gecko_stable: deps
 	$(WEBPACK) --mode production --env browser_target=gecko
