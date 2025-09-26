@@ -6,11 +6,11 @@ common --repo_env=DO_NOT_TRACK=true
 build --flag_alias=browser=//:browser
 build --flag_alias=channel=//:channel
 
-test:ci --test_env=CI=true
+common:ci --test_env=CI=true
 
 build:release --stamp
 build:release --workspace_status_command=./tools/bazel_stamp_vars.sh
-build:release --compilation_mode=opt
+common:release --compilation_mode=opt
 
 # To allow importing a user-defined .bazelrc
 try-import %workspace%/user.bazelrc
