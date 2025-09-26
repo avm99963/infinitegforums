@@ -30,7 +30,7 @@ dependencies:
     version: 14.0.0
   '@material/web':
     specifier: ^2.0.0
-    version: 2.0.0
+    version: 2.4.0
   '@stdlib/utils-escape-regexp-string':
     specifier: ^0.2.0
     version: 0.2.0
@@ -1350,8 +1350,8 @@ packages:
       tslib: 2.8.1
     dev: false
 
-  /@material/web@2.0.0:
-    resolution: {integrity: sha512-4gukRERrAP4L0m3iLmLW/b7qKvf+26Ey46i2hMjLJCU+kTl6RLiKtI7njDcD8DaziR78IddWJ4Utz9fieuXB6Q==}
+  /@material/web@2.4.0:
+    resolution: {integrity: sha512-2jYiPIYOuP2UcWXal4VdKRlkpBX02U3rgXMWp0yFQbJaOmK8MOIA3BsyuooM3VOYI+VCO70BeH1x43y5cBLvZQ==}
     dependencies:
       lit: 3.0.0
       tslib: 2.8.1
