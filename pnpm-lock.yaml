@@ -33,7 +33,7 @@ dependencies:
     version: 2.4.0
   '@stdlib/utils-escape-regexp-string':
     specifier: ^0.2.0
-    version: 0.2.0
+    version: 0.2.2
   async-mutex:
     specifier: ^0.5.0
     version: 0.5.0
@@ -1728,14 +1728,6 @@ packages:
       '@stdlib/utils-native-class': 0.2.2
     dev: false
 
-  /@stdlib/error-tools-fmtprodmsg@0.1.1:
-    resolution: {integrity: sha512-gyQsjgr+TacoDXpPUIkL5LxEx+tT7uWycyv92no0Jo4J+mCzxOq47cBNuwTxboeIKtUSuscD5trWpL9oIdYYbQ==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dependencies:
-      '@stdlib/types': 0.1.0
-    dev: false
-
   /@stdlib/error-tools-fmtprodmsg@0.2.2:
     resolution: {integrity: sha512-2IliQfTes4WV5odPidZFGD5eYDswZrPXob7oOu95Q69ERqImo8WzSwnG2EDbHPyOyYCewuMfM5Ha6Ggf+u944Q==}
     engines: {node: '>=0.10.0', npm: '>2.7.0'}
@@ -1769,12 +1761,6 @@ packages:
     os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
     dev: false
 
-  /@stdlib/types@0.1.0:
-    resolution: {integrity: sha512-gnUBNBOoDvA5BRJ11e/mNGasMRQwZrTERt6qICAAwqjCJuMamK+SKELv+GNQP/wX6i7rdqhocJy/7Fq7cGbRLQ==}
-    engines: {node: '>=0.10.0', npm: '>2.7.0'}
-    os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
-    dev: false
-
   /@stdlib/utils-define-nonenumerable-read-only-property@0.2.2:
     resolution: {integrity: sha512-V3mpAesJemLYDKG376CsmoczWPE/4LKsp8xBvUxCt5CLNAx3J/1W39iZQyA5q6nY1RStGinGn1/dYZwa8ig0Uw==}
     engines: {node: '>=0.10.0', npm: '>2.7.0'}
@@ -1792,13 +1778,13 @@ packages:
       '@stdlib/string-format': 0.2.2
     dev: false
 
-  /@stdlib/utils-escape-regexp-string@0.2.0:
-    resolution: {integrity: sha512-R7L8lIgnQUAqkutExaEfJMhUh6b6idtwJFuoVEboP+jQEScWBtHCvlATtsPKi5vC0j4wy8wn66YhWjLWDt6iSQ==}
+  /@stdlib/utils-escape-regexp-string@0.2.2:
+    resolution: {integrity: sha512-areCibzgpmvm6pGKBg+mXkSDJW4NxtS5jcAT7RtunGMdAYhA/I5whISMPaeJkIT2XhjjFkjKBaIs5pF6aPr4fQ==}
     engines: {node: '>=0.10.0', npm: '>2.7.0'}
     os: [aix, darwin, freebsd, linux, macos, openbsd, sunos, win32, windows]
     dependencies:
       '@stdlib/assert-is-string': 0.2.2
-      '@stdlib/error-tools-fmtprodmsg': 0.1.1
+      '@stdlib/error-tools-fmtprodmsg': 0.2.2
       '@stdlib/string-format': 0.2.2
     dev: false
 
