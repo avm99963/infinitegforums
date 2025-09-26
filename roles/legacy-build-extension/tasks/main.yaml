@@ -2,6 +2,7 @@
   ansible.builtin.command: npm install -g pnpm@8
   args:
     chdir: "{{ zuul.project.src_dir }}"
+  become: yes
 
 - name: Ouptut pnpm version
   ansible.builtin.command: pnpm --version
