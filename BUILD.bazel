@@ -3,6 +3,7 @@ load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
 load("@aspect_rules_webpack//webpack:defs.bzl", "webpack_bundle", "webpack_devserver")
 load("@fremtind_rules_vitest//vitest:defs.bzl", "vitest_test")
 load("@npm//:defs.bzl", "npm_link_all_packages")
+load("@npm//:web-ext/package_json.bzl", web_ext_bin = "bin")
 load("@rules_pkg//pkg/private/zip:zip.bzl", "pkg_zip")
 load("copy_pkg.bzl", "copy_extension_package_to_directory")
 load("defs.bzl", "browser", "channel")
@@ -198,4 +199,38 @@ config_setting(
         ":channel": "CANARY",
     },
     visibility = ["//:__subpackages__"],
+)
+
+config_setting(
+    name = "should_web_ext_lint",
+    flag_values = {
+        ":browser": "GECKO",
+    },
+    values = {
+        "compilation_mode": "opt",
+    },
+)
+
+web_ext_bin.web_ext_binary(
+    name = "web_ext",
+)
+
+sh_test(
+    name = "maybe_web_ext_lint",
+    size = "small",
+    srcs = [":web_ext_lint.sh"],
+    args = ["$(location :web_ext)"] + select({
+        "//:should_web_ext_lint": [""],
+        "//conditions:default": ["DO_NOT_RUN"],
+    }),
+    data = [
+        ":unpacked_pkg",
+        ":web_ext",
+    ],
+    env = {
+        "NO_UPDATE_NOTIFIER": "true",
+    },
+    deps = [
+        "@rules_shell//shell/runfiles",
+    ],
 )

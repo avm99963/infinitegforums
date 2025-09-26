@@ -213,7 +213,7 @@
   "moduleExtensions": {
     "@@aspect_rules_js+//npm:extensions.bzl%pnpm": {
       "general": {
-        "bzlTransitiveDigest": "XWQCf6k8RKB/w/l5ekGOVMCzJWr/eP4apMWuDHzOxpc=",
+        "bzlTransitiveDigest": "mj9/exho7u/DzMijTej8scGr5pFfybdztYTBOpBpXN4=",
         "usagesDigest": "n7oESiEObPkNgG/HeE+iGY4zf1fRXT3JoCE9I9c1/oo=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
