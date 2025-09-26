@@ -91,7 +91,7 @@ devDependencies:
     specifier: 20.19.17
     version: 20.19.17
   '@vitest/coverage-istanbul':
-    specifier: ^3.2.4
+    specifier: 3.2.4
     version: 3.2.4(vitest@3.2.4)
   '@vitest/coverage-v8':
     specifier: 3.2.4
