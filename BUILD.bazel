@@ -3,6 +3,7 @@ load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
 load("@aspect_rules_webpack//webpack:defs.bzl", "webpack_bundle", "webpack_devserver")
 load("@fremtind_rules_vitest//vitest:defs.bzl", "vitest_test")
 load("@npm//:defs.bzl", "npm_link_all_packages")
+load("@npm//:renovate/package_json.bzl", renovate_bin = "bin")
 load("@npm//:web-ext/package_json.bzl", web_ext_bin = "bin")
 load("@rules_pkg//pkg/private/zip:zip.bzl", "pkg_zip")
 load("copy_pkg.bzl", "copy_extension_package_to_directory")
@@ -233,4 +234,10 @@ sh_test(
     deps = [
         "@rules_shell//shell/runfiles",
     ],
+)
+
+renovate_bin.renovate_config_validator_test(
+    name = "renovate_config_test",
+    size = "small",
+    data = [":renovate.json"],
 )
