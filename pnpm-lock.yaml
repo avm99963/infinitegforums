@@ -45,7 +45,7 @@ dependencies:
     version: 4.0.0
   grpc-web:
     specifier: ^2.0.0
-    version: 2.0.0
+    version: 2.0.2
   idb:
     specifier: ^8.0.0
     version: 8.0.0
@@ -3846,8 +3846,8 @@ packages:
     resolution: {integrity: sha512-+xGQY0YyAWCnqy7Cd++hc2JqMYzlm0dG30Jd0beaA64sROr8C4nt8Yc9V5Ro3avlSUDTN0ulqP/VBKi1/lLygw==}
     dev: true
 
-  /grpc-web@2.0.0:
-    resolution: {integrity: sha512-DVt8qfQ+tyV2h4PNfehw/k5h0tOOaCwiWwDFOSCj5TLLEk93q0VTd8TcaibtBFMK/mkOKDKssvYH+prWmclwFg==}
+  /grpc-web@2.0.2:
+    resolution: {integrity: sha512-bvBP0/d5jyVM3eGxxffJhRLAPpH6eXhJeUzBT+bSIEgUKkG4a/BotEimVeW3phP0WLnsJnkRl8uQdRf2yDLaVA==}
     dev: false
 
   /has-flag@4.0.0:
