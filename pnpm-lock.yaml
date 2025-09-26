@@ -54,7 +54,7 @@ dependencies:
     version: 3.3.1
   poll-until-promise:
     specifier: ^4.0.0
-    version: 4.0.1
+    version: 4.2.0
   semver:
     specifier: ^7.3.5
     version: 7.3.5
@@ -4934,8 +4934,8 @@ packages:
       find-up: 4.1.0
     dev: true
 
-  /poll-until-promise@4.0.1:
-    resolution: {integrity: sha512-J/joZWIl0cFuyMgANGBgohq1Dvg0qWeIybiJJmh33WSTrdlZ51XzaIcxHx7kJhzwjGjaoqw5D1tdVGfVM7M1cg==}
+  /poll-until-promise@4.2.0:
+    resolution: {integrity: sha512-Ny/T20blKNNOUdzXaBYEFlSVURmvKkBRT5Rc/mXsoXAARS0f9IXS6QQCYL4Z5Ng1QfuYJN5goOBC52Bo/TyWXw==}
     dev: false
 
   /postcss-modules-extract-imports@3.1.0(postcss@8.5.6):
