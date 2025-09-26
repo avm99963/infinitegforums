@@ -28,5 +28,10 @@
       "matchPackageNames": ["@types/chrome", "@types/node"],
       "schedule": ["every weekend"]
     }
-  ]
+  ],
+  "postUpgradeTasks": {
+    "commands": ["bazel mod tidy", "bazel run //tools:preset.update"],
+    "fileFilters": ["MODULE.bazel.lock", "tools/preset.bazelrc"],
+    "executionMode": "branch"
+  }
 }
