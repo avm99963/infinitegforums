@@ -51,7 +51,7 @@ dependencies:
     version: 8.0.3
   lit:
     specifier: ^3.0.0
-    version: 3.0.0
+    version: 3.3.1
   poll-until-promise:
     specifier: ^4.0.0
     version: 4.0.1
@@ -1353,7 +1353,7 @@ packages:
   /@material/web@2.4.0:
     resolution: {integrity: sha512-2jYiPIYOuP2UcWXal4VdKRlkpBX02U3rgXMWp0yFQbJaOmK8MOIA3BsyuooM3VOYI+VCO70BeH1x43y5cBLvZQ==}
     dependencies:
-      lit: 3.0.0
+      lit: 3.3.1
       tslib: 2.8.1
     dev: false
 
@@ -4458,14 +4458,6 @@ packages:
       '@lit/reactive-element': 1.6.3
       lit-element: 3.3.3
       lit-html: 2.8.0
-    dev: false
-
-  /lit@3.0.0:
-    resolution: {integrity: sha512-nQ0teRzU1Kdj++VdmttS2WvIen8M79wChJ6guRKIIym2M3Ansg3Adj9O6yuQh2IpjxiUXlNuS81WKlQ4iL3BmA==}
-    dependencies:
-      '@lit/reactive-element': 2.1.1
-      lit-element: 4.2.1
-      lit-html: 3.3.1
     dev: false
 
   /lit@3.3.1:
