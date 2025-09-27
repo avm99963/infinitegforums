@@ -1,10 +1,14 @@
 - hosts: all
   roles:
     - role: ensure-build-essential
+      become: yes
     - role: ensure-zip
+      become: yes
     - role: ensure-genmanifest
     - role: ensure-nodejs-fork
       vars:
         node_version: 20
+      become: yes
     - role: ensure-cws-upload
       version: "2.1.0"
+      become: yes
