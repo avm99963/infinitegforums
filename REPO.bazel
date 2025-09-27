@@ -1,0 +1,7 @@
+ignore_directories([
+    # rules_js says: "We recommend that all node_modules folders in
+    # the source tree be ignored, to avoid Bazel printing confusing
+    # error messages."
+    "**/node_modules",
+    ".jj",
+])

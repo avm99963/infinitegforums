@@ -1,8 +1,18 @@
+load("@aspect_bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
 load("@npm//:@lit/localize-tools/package_json.bzl", "bin")
+
+copy_to_bin(
+    name = "interchange_files",
+    srcs = glob(["source/*.xlf"]),
+    visibility = ["//tools/syncTranslations:__pkg__"],
+)
 
 bin.lit_localize(
     name = "lit-locales",
-    srcs = glob(["source/*.xlf"]) + ["//:lit-localize"],
+    srcs = [
+        ":interchange_files",
+        "//:lit-localize",
+    ],
     args = ["build"],
     out_dirs = ["generated"],
     progress_message = "Building lit-locales files",

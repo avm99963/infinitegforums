@@ -1,5 +1,5 @@
 load("@aspect_bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
-load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
+load("@aspect_rules_ts//ts:defs.bzl", "ts_config", "ts_project")
 load("@fremtind_rules_vitest//vitest:defs.bzl", "vitest_test")
 load("@npm//:defs.bzl", "npm_link_all_packages")
 load("@npm//:renovate/package_json.bzl", renovate_bin = "bin")
@@ -29,13 +29,19 @@ pkg_zip(
     visibility = ["//visibility:public"],
 )
 
+ts_config(
+    name = "tsconfig",
+    src = "tsconfig.json",
+    visibility = ["//:__subpackages__"],
+)
+
 ts_project(
     name = "vitest_config",
     srcs = ["vitest.config.ts"],
     allow_js = True,
     source_map = True,
     transpiler = "tsc",
-    tsconfig = "tsconfig.json",
+    tsconfig = ":tsconfig",
     deps = [
         ":node_modules/@types/node",
         ":node_modules/vitest",

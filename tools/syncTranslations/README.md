@@ -13,7 +13,7 @@ translations will not be overriden.
 This tool should be run manually using:
 
 ```sh
-make sync_translations
+bazel run //tools/syncTranslations
 ```
 
 Then, commit the changes made by the synchronization.

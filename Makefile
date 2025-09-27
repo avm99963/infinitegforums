@@ -33,9 +33,6 @@ lit_localize_build:
 
 lit_localize_all: lit_localize_extract lit_localize_build
 
-sync_translations:
-	pnpm ts-node tools/syncTranslations/syncTranslations.ts
-
 # Experimental target which will be renamed to serve_chromium to substitute
 # serve_chromium_mv3.
 .PHONY: bazel_serve_chromium

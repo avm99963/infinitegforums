@@ -1,0 +1,41 @@
+load("@aspect_rules_js//js:defs.bzl", "js_binary")
+load("@aspect_rules_ts//ts:defs.bzl", "ts_config", "ts_project")
+load("@npm//:defs.bzl", "npm_link_all_packages")
+
+npm_link_all_packages(
+    name = "node_modules",
+)
+
+ts_config(
+    name = "tsconfig",
+    src = ":tsconfig.json",
+    deps = ["//:tsconfig"],
+)
+
+ts_project(
+    name = "project",
+    srcs = glob(
+        ["**/*.ts"],
+        exclude = ["**/*.test.ts"],
+    ),
+    source_map = True,
+    transpiler = "tsc",
+    tsconfig = ":tsconfig",
+    deps = [
+        ":node_modules/@babel/parser",
+        ":node_modules/@babel/traverse",
+        ":node_modules/@babel/types",
+        ":node_modules/@types/babel__traverse",
+        ":node_modules/@types/node",
+        ":node_modules/@xmldom/xmldom",
+    ],
+)
+
+js_binary(
+    name = "syncTranslations",
+    data = [
+        ":project",
+        "//src/lit-locales:interchange_files",
+    ],
+    entry_point = "syncTranslations.js",
+)

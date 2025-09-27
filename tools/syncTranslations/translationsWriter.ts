@@ -4,14 +4,34 @@ import * as path from 'path';
 import { DOMParser, XMLSerializer, Document, Element } from '@xmldom/xmldom';
 import { LANGUAGE_TRANSFORMATIONS, SYNC_TRANSLATIONS } from './config';
 
-const OUTPUT_DIR = 'sourceFiles';
-const XLIFF_DIR = '../../src/lit-locales/source';
+const NEEDED_ENV_VARS = ['JS_BINARY__RUNFILES', 'BUILD_WORKSPACE_DIRECTORY'];
+for (const envVar of NEEDED_ENV_VARS) {
+  if (!process.env[envVar]) {
+    console.error(
+      `ERROR: ${envVar} env variable is empty. This script should be run with Bazel.`,
+    );
+    process.exit(1);
+  }
+}
+
+const OUTPUT_DIR = path.join(process.env.JS_BINARY__RUNFILES, 'sourceFiles');
+
+const RELATIVE_XLIFF_DIR = 'src/lit-locales/source';
+const RUNFILES_XLIFF_DIR = path.join(
+  process.env.JS_BINARY__RUNFILES,
+  '_main',
+  RELATIVE_XLIFF_DIR,
+);
+const WORKSPACE_XLIFF_DIR = path.join(
+  process.env.BUILD_WORKSPACE_DIRECTORY,
+  RELATIVE_XLIFF_DIR,
+);
 
 /**
  * Main function to write JSON and update XLIFF files.
  */
 export function writeTranslations(extractedData: ExtractedDataItem[]): void {
-  const outputDir = path.join(__dirname, OUTPUT_DIR);
+  const outputDir = OUTPUT_DIR;
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir);
   }
@@ -48,22 +68,25 @@ function processXliffFiles(extractedData: ExtractedDataItem[]): void {
       continue;
     }
 
-    const xlfFilePath = path.join(
-      __dirname,
-      XLIFF_DIR,
+    const sourceXlfFilePath = path.join(
+      RUNFILES_XLIFF_DIR,
       `${destinationLanguage}.xlf`,
     );
-    if (!fs.existsSync(xlfFilePath)) {
+    if (!fs.existsSync(sourceXlfFilePath)) {
       console.error(
-        `XLIFF file not found for language ${destinationLanguage}: ${xlfFilePath}`,
+        `XLIFF file not found for language ${destinationLanguage}: ${sourceXlfFilePath}`,
       );
       continue;
     }
+    const outputXlfFilePath = path.join(
+      WORKSPACE_XLIFF_DIR,
+      `${destinationLanguage}.xlf`,
+    );
 
     try {
-      processSingleXliffFile(item, xlfFilePath);
+      processSingleXliffFile(item, sourceXlfFilePath, outputXlfFilePath);
     } catch (error) {
-      console.error(`Error processing XLIFF file ${xlfFilePath}:`, error);
+      console.error(`Error processing XLIFF file ${sourceXlfFilePath}:`, error);
     }
   }
 }
@@ -73,9 +96,10 @@ function processXliffFiles(extractedData: ExtractedDataItem[]): void {
  */
 function processSingleXliffFile(
   item: ExtractedDataItem,
-  xlfFilePath: string,
+  sourceXlfFilePath: string,
+  outputXlfFilePath: string,
 ): void {
-  const xlfContent = fs.readFileSync(xlfFilePath, 'utf8');
+  const xlfContent = fs.readFileSync(sourceXlfFilePath, 'utf8');
   const parser = new DOMParser();
   const doc = parser.parseFromString(xlfContent, 'text/xml');
 
@@ -100,10 +124,10 @@ function processSingleXliffFile(
   if (isUpdated) {
     const serializer = new XMLSerializer();
     const newXlfContent = serializer.serializeToString(doc);
-    fs.writeFileSync(xlfFilePath, newXlfContent + "\n", 'utf8');
-    console.log(`Successfully updated XLIFF file: ${xlfFilePath}`);
+    fs.writeFileSync(outputXlfFilePath, newXlfContent + '\n', 'utf8');
+    console.log(`Successfully updated XLIFF file: ${outputXlfFilePath}`);
   } else {
-    console.log(`No updates needed for ${xlfFilePath}.`);
+    console.log(`No updates needed for ${outputXlfFilePath}.`);
   }
 }
 
