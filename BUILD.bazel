@@ -55,6 +55,7 @@ vitest_test(
         ":node_modules/@material/tooltip",
         ":node_modules/@testing-library/dom",
         ":node_modules/poll-until-promise",
+        "//src/common/options",
     ],
     node_modules = ":node_modules",
 )
@@ -153,4 +154,11 @@ copy_to_bin(
     name = "lit-localize",
     srcs = ["lit-localize.json"],
     visibility = ["//src/lit-locales:__pkg__"],
+)
+
+ts_config(
+    name = "tsconfig_pkg",
+    src = "tsconfig.pkg.json",
+    visibility = ["//:__subpackages__"],
+    deps = [":tsconfig"],
 )

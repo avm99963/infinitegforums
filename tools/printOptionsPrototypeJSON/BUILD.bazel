@@ -1,0 +1,33 @@
+load("@aspect_rules_js//js:defs.bzl", "js_binary")
+load("@aspect_rules_ts//ts:defs.bzl", "ts_config")
+load("@npm//:defs.bzl", "npm_link_all_packages")
+load("//tools:common_ts_project.bzl", "common_ts_project")
+
+npm_link_all_packages(
+    name = "node_modules",
+)
+
+ts_config(
+    name = "tsconfig",
+    src = ":tsconfig.json",
+    deps = ["//:tsconfig"],
+)
+
+common_ts_project(
+    name = "project",
+    source_map = True,
+    transpiler = "tsc",
+    tsconfig = ":tsconfig",
+    deps = [
+        ":node_modules/@types/node",
+        "//src/common/options",
+    ],
+)
+
+js_binary(
+    name = "printOptionsPrototypeJSON",
+    data = [
+        ":project",
+    ],
+    entry_point = "printOptionsPrototypeJSON.js",
+)

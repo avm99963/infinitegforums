@@ -1,12 +1,29 @@
+load("@aspect_rules_js//js:defs.bzl", "js_info_files")
 load("@aspect_rules_webpack//webpack:defs.bzl", "webpack_bundle")
 
 def extension_bundle(name, **kwargs):
+    # TODO(https://iavm.xyz/b/twpowertools/256): move this directly to srcs once
+    # there is no longer raw typescript code being loaded into Webpack.
+    #
+    # We need this now because type declaration files should be included so that
+    # ts-loader in Webpack can compile remaining non-compiled Typescript code.
+    # Otherwise, the types are not available to ts-loader.
+    transpiled_ts_sources_target = "{}_transpiled_typescript_sources".format(name)
+    js_info_files(
+        name = transpiled_ts_sources_target,
+        srcs = [
+            "//src/common/options",
+        ],
+        include_types = True,
+    )
+
     webpack_bundle(
         name = name,
         srcs = native.glob([
             "src/**",
             "tsconfig.json",
         ]) + [
+            ":{}".format(transpiled_ts_sources_target),
             "//src/lit-locales",
             # TODO(https://iavm.xyz/b/twpowertools/256): Move this out of the static
             # folder.
@@ -72,7 +89,6 @@ def extension_bundle(name, **kwargs):
             ":node_modules/sw-xhr",
             ":node_modules/terser-webpack-plugin",
             ":node_modules/ts-loader",
-            ":node_modules/ts-node",
             ":node_modules/typescript",
             ":node_modules/typescript-eslint",
             ":node_modules/vitest",

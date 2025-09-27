@@ -1,0 +1,30 @@
+load("@aspect_rules_js//js:defs.bzl", "js_info_files", "js_library")
+load("//tools:common_ts_project.bzl", "common_ts_project")
+
+common_ts_project(
+    name = "ts_project",
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = "tsc",
+    tsconfig = "//:tsconfig_pkg",
+    visibility = [
+        "//:__pkg__",
+        "//tools/printOptionsPrototypeJSON:__pkg__",
+    ],
+)
+
+js_library(
+    name = "options",
+    srcs = [":ts_project"] + glob(
+        [
+            "**/*.js",
+            "**/*.json5",
+        ],
+        exclude = ["**/*.test.js"],
+    ),
+    visibility = [
+        "//:__pkg__",
+        "//tools/printOptionsPrototypeJSON:__pkg__",
+    ],
+)
