@@ -89,6 +89,12 @@ some code based on whether the dependencies are defined or not.
   console.debug('No experiments are enabled.');
   ```
 
+### Bazel macro
+
+In this repo, the best way to use the preprocessor is via the `preprocessor`
+bazel macro defined at
+[//tools/preprocessor:bzl/preprocessor.bzl](./bzl/preprocessor.bzl).
+
 ## More examples
 
 You can find more examples in the [test\_data](./test_data) directory.
