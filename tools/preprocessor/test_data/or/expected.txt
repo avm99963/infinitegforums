@@ -1,0 +1,8 @@
+const foo = 'bar';
+
+// Foo is awesome or perfect
+
+// Foo is awesome or awesome
+
+
+// The end

@@ -1,0 +1,5 @@
+const foo = 'bar';
+
+const isFooAwesome = true;
+
+const isFooPerfect = false;

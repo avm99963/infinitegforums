@@ -1,0 +1,23 @@
+const foo = 'bar';
+
+// #!if defined(foo_is_awesome) && !defined(foo_is_perfect)
+// This should be printed.
+// #!endif
+
+// #!if !defined(foo_is_awesome) && defined(foo_is_perfect)
+// This should NOT be printed.
+// #!endif
+
+// #!if defined(foo_is_awesome) || !defined(foo_is_awesome)
+// This should be printed.
+// #!endif
+
+// #!if !defined(foo_is_awesome) || defined(foo_is_perfect)
+// This should NOT be printed.
+// #!endif
+
+// #!if defined(foo_is_awesome) || (defined(foo_is_perfect) && defined(foo_is_perfect))
+// This should be printed.
+// #!endif
+
+// The end.

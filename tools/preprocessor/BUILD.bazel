@@ -1,0 +1,26 @@
+load("@rules_go//go:def.bzl", "go_binary", "go_library", "go_test")
+
+go_library(
+    name = "preprocessor_lib",
+    srcs = [
+        "main.go",
+        "preprocessor.go",
+        "queryparser.go",
+        "satisfiable.go",
+    ],
+    importpath = "infinitegforums/tools/preprocessor",
+)
+
+go_binary(
+    name = "preprocessor",
+    embed = [":preprocessor_lib"],
+    visibility = ["//:__subpackages__"],
+)
+
+go_test(
+    name = "preprocessor_test",
+    size = "small",
+    srcs = ["preprocessor_test.go"],
+    data = glob(["test_data/**"]),
+    embed = [":preprocessor_lib"],
+)

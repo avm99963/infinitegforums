@@ -1,0 +1,6 @@
+const foo = 'bar';
+
+const isFooAwesome = true;
+
+
+// The end

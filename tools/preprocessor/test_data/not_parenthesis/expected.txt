@@ -1,0 +1,8 @@
+const foo = 'bar';
+
+
+// Foo is not perfect
+
+// It is not true that foo is perfect and awesome at the same time
+
+// The end

@@ -1,0 +1,15 @@
+const foo = 'bar';
+
+// #!if defined(foo_is_awesome) && defined(foo_is_perfect)
+// Foo is awesome and perfect
+// #!endif
+
+// #!if defined(foo_is_awesome) && defined(foo_is_awesome)
+// Foo is awesome and awesome
+// #!endif
+
+// #!if defined(foo_is_perfect) && defined(foo_is_perfect)
+// Foo is perfect and perfect
+// #!endif
+
+// The end

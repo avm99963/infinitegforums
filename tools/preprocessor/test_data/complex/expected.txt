@@ -1,0 +1,11 @@
+const foo = 'bar';
+
+// This should be printed.
+
+
+// This should be printed.
+
+
+// This should be printed.
+
+// The end.

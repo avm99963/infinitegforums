@@ -1,0 +1,7 @@
+const foo = 'bar';
+
+
+// Foo is awesome and awesome
+
+
+// The end
