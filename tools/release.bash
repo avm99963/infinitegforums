@@ -71,7 +71,7 @@ CHANNEL="$channel"
 BROWSER="$browser"
 MANIFEST_FILE="dist/$browser/manifest.json"
 
-STABLE_RAW_GIT_VERSION="$(git describe --always --tags --dirty)"
+RAW_GIT_VERSION="$(git describe --always --tags --dirty)"
 generate_version_vars
 
 set_manifest_field "version" "$VERSION"
@@ -81,9 +81,9 @@ set_other_manifest_fields
 
 # Create ZIP file for upload to the Chrome Web Store
 mkdir -p out
-rm -rf out/twpowertools-$version-$browser-$channel.zip
+rm -rf out/twpowertools-$RAW_GIT_VERSION-$browser-$channel.zip
 (cd dist/$browser &&
-  zip -rq ../../out/twpowertools-$version-$browser-$channel.zip * -x "*/.git*" \
+  zip -rq ../../out/twpowertools-$RAW_GIT_VERSION-$browser-$channel.zip * -x "*/.git*" \
     -x "*/\.DS_Store" -x "*/OWNERS")
 
 echo "Done!"

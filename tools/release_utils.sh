@@ -1,7 +1,7 @@
 # Generates the VERSION and VERSION_NAME vars according to
 # RAW_GIT_VERSION.
 function generate_version_vars() {
-  if [ -n "${RAW_GIT_VERSION}" ]; then
+  if [ -z "${RAW_GIT_VERSION-}" ]; then
     echo 2&>1 "ERROR: RAW_GIT_VERSION is not set or empty."
   fi
 
