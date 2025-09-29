@@ -7,6 +7,9 @@
 # NOTE: This is a legacy script. Bazel doesn't use it.
 # TODO(https://iavm.xyz/b/twpowertools/256): Delete it.
 
+set -uo pipefail
+set -e
+
 progname=$(basename "$0")
 
 # Prints help text
@@ -37,7 +40,7 @@ channel=stable
 browser=chromium_mv3
 
 while true; do
-  case "$1" in
+  case "${1-}" in
     -h | --help)
       usage
       exit
