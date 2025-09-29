@@ -2,6 +2,17 @@ load("@aspect_rules_js//js:defs.bzl", "js_library")
 load("//tools:bazel/swc.bzl", "swc_pkg")
 load("//tools:common_js_project.bzl", "common_js_project")
 load("//tools:common_ts_project.bzl", "common_ts_project")
+load("//tools/preprocessor:bzl/preprocessor.bzl", "preprocessor")
+
+preprocessor(
+    name = "options_utils",
+    src = "optionsUtils.pre.js",
+    out = "optionsUtils.js",
+    defined_dependencies = select({
+        "//:production": ["PRODUCTION"],
+        "//conditions:default": [],
+    }),
+)
 
 common_ts_project(
     name = "ts",
@@ -14,6 +25,10 @@ common_ts_project(
 
 common_js_project(
     name = "js",
+    srcs = glob(
+        ["**/*.js"],
+        exclude = ["**/*.test.js"],
+    ) + [":options_utils"],
     deps = [":ts"],
 )
 

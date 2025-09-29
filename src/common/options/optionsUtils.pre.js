@@ -34,7 +34,7 @@ export function cleanUpOptions(options, dryRun = false) {
   return options;
 }
 
-// #!if !production
+// #!if !defined(PRODUCTION)
 let timerId = 0;
 let randomId = btoa(Math.random().toString()).substr(10, 5);
 // #!endif
@@ -53,7 +53,7 @@ let randomId = btoa(Math.random().toString()).substr(10, 5);
  * @deprecated Use OptionsProviderPort.
  */
 export function getOptions(options, requireOptionalPermissions = true) {
-  // #!if !production
+  // #!if !defined(PRODUCTION)
   const timeLabel = 'getOptions--' + randomId + '-' + (timerId++);
   const startMark = `mark_start_get_options_${timeLabel}`;
   const endMark = `mark_end_get_options_${timeLabel}`;
@@ -87,7 +87,7 @@ export function getOptions(options, requireOptionalPermissions = true) {
              return resolve(items);
            });
          })
-      // #!if !production
+      // #!if !defined(PRODUCTION)
       .then(items => {
         window.performance.mark(endMark, {detail: {options}});
         window.performance.measure(measureName, {

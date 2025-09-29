@@ -123,6 +123,14 @@ config_setting(
 )
 
 config_setting(
+    name = "production",
+    values = {
+        "compilation_mode": "opt",
+    },
+    visibility = ["//:__subpackages__"],
+)
+
+config_setting(
     name = "should_web_ext_lint",
     flag_values = {
         ":browser": "GECKO",
