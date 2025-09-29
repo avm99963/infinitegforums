@@ -36,8 +36,8 @@ source "manifest/manifest_utils.sh"
 opts=$(getopt -l "help,channel:,browser:" -o "hc:b:" -n "$progname" -- "$@")
 eval set -- "$opts"
 
-channel=stable
-browser=chromium_mv3
+CHANNEL=stable
+BROWSER=chromium_mv3
 
 while true; do
   case "${1-}" in
@@ -46,36 +46,33 @@ while true; do
       exit
       ;;
     -c | --channel)
-      channel="$2"
+      CHANNEL="$2"
       shift 2
       ;;
     -b | --browser)
-      browser="$2"
+      BROWSER="$2"
       shift 2
       ;;
     *) break ;;
   esac
 done
 
-if [[ $channel != "stable" && $channel != "beta" && \
-  $channel != "canary" ]]; then
+if [[ $CHANNEL != "stable" && $CHANNEL != "beta" && \
+  $CHANNEL != "canary" ]]; then
   echo "channel parameter value is incorrect." >&2
   usage
   exit
 fi
 
-if [[ $browser != "gecko" && $browser != "chromium_mv3" ]]; then
-  echo "browser parameter value is incorrect." >&2
+if [[ $BROWSER != "gecko" && $BROWSER != "chromium_mv3" ]]; then
+  echo "BROWSER parameter value is incorrect." >&2
   usage
   exit
 fi
 
 echo "Started building release..."
 
-CHANNEL="$channel"
-BROWSER="$browser"
-MANIFEST_FILE="dist/$browser/manifest.json"
-
+MANIFEST_FILE="dist/$BROWSER/manifest.json"
 RAW_GIT_VERSION="$(git describe --always --tags --dirty)"
 generate_version_vars
 
@@ -86,9 +83,9 @@ set_other_manifest_fields
 
 # Create ZIP file for upload to the Chrome Web Store
 mkdir -p out
-rm -rf out/twpowertools-$RAW_GIT_VERSION-$browser-$channel.zip
-(cd dist/$browser &&
-  zip -rq ../../out/twpowertools-$RAW_GIT_VERSION-$browser-$channel.zip * -x "*/.git*" \
+rm -rf out/twpowertools-$RAW_GIT_VERSION-$BROWSER-$CHANNEL.zip
+(cd dist/$BROWSER &&
+  zip -rq ../../out/twpowertools-$RAW_GIT_VERSION-$BROWSER-$CHANNEL.zip * -x "*/.git*" \
     -x "*/\.DS_Store" -x "*/OWNERS")
 
 echo "Done!"
