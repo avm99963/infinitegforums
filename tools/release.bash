@@ -7,6 +7,8 @@
 # NOTE: This is a legacy script. Bazel doesn't use it.
 # TODO(https://iavm.xyz/b/twpowertools/256): Delete it.
 
+progname=$(basename "$0")
+
 # Prints help text
 function usage() {
   cat <<END
