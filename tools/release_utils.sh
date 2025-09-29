@@ -2,7 +2,8 @@
 # RAW_GIT_VERSION.
 function generate_version_vars() {
   if [ -z "${RAW_GIT_VERSION-}" ]; then
-    echo 2&>1 "ERROR: RAW_GIT_VERSION is not set or empty."
+    echo >&2 "ERROR: RAW_GIT_VERSION is not set or empty."
+    return 1
   fi
 
   # If the raw git version name contains a hyphen then it isn't a
