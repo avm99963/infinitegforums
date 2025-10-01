@@ -120,7 +120,7 @@ importers:
         specifier: 4.0.2
         version: 4.0.2(webpack@5.101.3)
       renovate:
-        specifier: ^41.131.5
+        specifier: 41.131.5
         version: 41.131.5(typanion@3.14.0)
       sass:
         specifier: 1.93.2
