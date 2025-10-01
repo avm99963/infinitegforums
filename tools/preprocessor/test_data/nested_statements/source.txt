@@ -1,0 +1,10 @@
+// #!if defined(foo_is_awesome)
+// #!if ()
+console.debug('foo is awesome');
+// #!endif
+// #!if defined(foo_is_perfect)
+console.debug('foo is awesome and perfect');
+// #!endif
+// #!else
+console.debug('foo is not awesome :/');
+// #!endif

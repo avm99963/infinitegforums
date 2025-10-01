@@ -51,6 +51,10 @@ func TestPreprocessor(t *testing.T) {
 			testDataFolder: "not_parenthesis",
 		},
 		{
+			name:           "NestedStatements",
+			testDataFolder: "nested_statements",
+		},
+		{
 			name:           "Complex",
 			testDataFolder: "complex",
 		},

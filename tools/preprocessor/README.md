@@ -76,8 +76,8 @@ some code based on whether the dependencies are defined or not.
 - The output will be what you expect: the lines which match the conditions set
   out in statements.
 
-  For instance, for the last example, if the defined dependencies are `NEW_BAR,
-  NOTIFY`, the preprocessor outputs:
+  For instance, for the last example, if the defined dependencies are
+  `NEW_BAR`, `NOTIFY`, the preprocessor outputs:
 
   ```ts
   console.debug('The NEW_BAR experiment is enabled.');

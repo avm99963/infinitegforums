@@ -1,0 +1,1 @@
+console.debug('foo is awesome');
