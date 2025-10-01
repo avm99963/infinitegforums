@@ -27,28 +27,6 @@ export enum ScriptPage {
   CommunityConsole,
 }
 
-/**
- * @deprecated
- */
-export const ScriptRunPhaseToRunTime: Record<
-  ScriptRunPhase,
-  chrome.extensionTypes.RunAt
-> = {
-  [ScriptRunPhase.Start]: 'document_start',
-  [ScriptRunPhase.Main]: 'document_idle',
-};
-
-/**
- * @deprecated
- */
-export const ScriptEnvironmentToExecutionWorld: Record<
-  ScriptEnvironment,
-  chrome.scripting.ExecutionWorld
-> = {
-  [ScriptEnvironment.ContentScript]: 'ISOLATED',
-  [ScriptEnvironment.InjectedScript]: 'MAIN',
-};
-
 export type ConcreteScript = { new (...args: unknown[]): Script };
 
 export default abstract class Script {
