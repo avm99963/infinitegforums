@@ -1,7 +1,7 @@
 import { describe, test as baseTest, vi, expect, beforeEach } from 'vitest';
 import MWI18nClient from './Client';
 import MWI18nServer from './Server';
-import { fixPostMessage } from '../base/commonTestUtils';
+import { fixPostMessage } from '../base/tests/commonTestUtils';
 
 const dummyLanguage = 'ca';
 const dummyExtensionId = 'mljnbcpelaobbaklbmfbikpdjbakohpa';

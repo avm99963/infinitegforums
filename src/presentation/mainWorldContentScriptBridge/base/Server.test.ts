@@ -9,7 +9,7 @@ import {
   dummyFooResponse,
   MW_TARGET,
   simulateSentMessage,
-} from './commonTestUtils';
+} from './tests/commonTestUtils';
 import MainWorldContentScriptBridgeServer, {
   Handlers as BaseHandlers,
 } from './Server';

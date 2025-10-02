@@ -1,7 +1,7 @@
 /* v8 ignore file -- @preserve This file includes utilities for tests. */
 
 import { vi } from 'vitest';
-import { ActionPayload, RequestData, ResponseData } from './types';
+import { ActionPayload, RequestData, ResponseData } from '../types';
 
 export const MW_TARGET = 'mw-target';
 export const CS_TARGET = 'cs-target';

@@ -10,7 +10,7 @@ import {
   isUuid,
   MW_TARGET,
   simulateSentMessage,
-} from './commonTestUtils';
+} from './tests/commonTestUtils';
 import { ResponseData } from './types';
 
 const BaseBridge = MainWorldContentScriptBridgeClient<
