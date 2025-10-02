@@ -71,6 +71,7 @@ js_library(
         "//src/common/options",
         "//src/presentation/mainWorldContentScriptBridge/base",
         "//src/presentation/mainWorldContentScriptBridge/base/tests",
+        "//src/presentation/mainWorldContentScriptBridge/i18n",
         # keep-sorted end
     ],
 )
