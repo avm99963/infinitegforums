@@ -1,6 +1,40 @@
 load("@aspect_bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
 load("@aspect_rules_js//js:defs.bzl", "js_library")
 
+package_group(
+    name = "entrypoint",
+    packages = [
+    ],
+)
+
+package_group(
+    name = "presentation",
+    packages = [
+    ],
+)
+
+package_group(
+    name = "ui",
+    packages = [],
+)
+
+package_group(
+    name = "infrastructure_presentation",
+    packages = [
+    ],
+)
+
+package_group(
+    name = "infrastructure_repositories",
+    packages = [
+    ],
+)
+
+package_group(
+    name = "core",
+    packages = [],
+)
+
 # Source code which is part of the src package, and hasn't yet been added to a
 # package built with common_ts_project in Bazel.
 #
