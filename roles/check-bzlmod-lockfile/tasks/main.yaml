@@ -1,0 +1,6 @@
+- name: Check bzlmod lockfile
+  ansible.builtin.shell: |
+    export PATH="{{ ansible_user_dir }}/.local/bin:$PATH"
+    bazelisk mod deps --lockfile_mode=error
+  args:
+    chdir: '{{ zuul_work_dir }}'
