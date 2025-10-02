@@ -17,6 +17,7 @@ filegroup(
     srcs = [
         # TODO(https://iavm.xyz/b/twpowertools/256): Remove the following line.
         "//src:non_compiled_source",
+        "//src/options/presentation/utils",
         "//src/presentation/i18n",
     ],
 )

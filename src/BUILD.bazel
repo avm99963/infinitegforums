@@ -28,6 +28,7 @@ package_group(
 package_group(
     name = "infrastructure_repositories",
     packages = [
+        "//src/options/infrastructure/repositories/...",
     ],
 )
 
@@ -87,6 +88,9 @@ js_library(
         "//src/lit-locales",
         "//src/models",
         "//src/models/enums",
+        "//src/options/infrastructure/repositories",
+        "//src/options/presentation/models",
+        "//src/options/presentation/utils",
         "//src/options/repositories",
         "//src/presentation/i18n",
         "//src/presentation/mainWorldContentScriptBridge/base",
