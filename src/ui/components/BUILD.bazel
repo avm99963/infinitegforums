@@ -1,8 +1,9 @@
+load("@fremtind_rules_vitest//vitest:defs.bzl", "vitest_test")
 load("//tools:bazel/swc.bzl", "swc_pkg")
 load("//tools:common_ts_project.bzl", "common_ts_project")
 
 common_ts_project(
-    name = "injectors",
+    name = "components",
     allow_js = True,
     declaration = True,
     source_map = True,
@@ -13,6 +14,9 @@ common_ts_project(
         # package from the list.
         "//src:__pkg__",
         "//src:ui",
-        "//src/contentScripts/communityConsole/utils:__subpackages__",
+        "//src:presentation",
+    ],
+    deps = [
+        "//src/ui/components/forumDestinationPicker",
     ],
 )

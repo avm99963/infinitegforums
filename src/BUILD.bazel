@@ -11,13 +11,19 @@ package_group(
     name = "presentation",
     packages = [
         "//src/features/autoRefresh/presentation/...",
+        "//src/features/bulkMove/presentation/...",
         "//src/presentation/...",
     ],
 )
 
 package_group(
     name = "ui",
-    packages = [],
+    packages = [
+        "//src/features/bulkMove/infrastructure/ui/...",
+        "//src/features/bulkMove/ui/...",
+        "//src/infrastructure/ui/...",
+        "//src/ui/...",
+    ],
 )
 
 package_group(
@@ -101,6 +107,14 @@ js_library(
         "//src/features/autoRefresh/presentation/nodeWatcherHandlers",
         "//src/features/autoRefresh/presentation/options",
         "//src/features/autoRefresh/presentation/scripts",
+        "//src/features/bulkMove/infrastructure/factories",
+        "//src/features/bulkMove/infrastructure/repositories/api",
+        "//src/features/bulkMove/infrastructure/ui/injectors",
+        "//src/features/bulkMove/presentation/nodeWatchHandlers",
+        "//src/features/bulkMove/presentation/options",
+        "//src/features/bulkMove/ui/components",
+        "//src/features/bulkMove/ui/injectors",
+        "//src/features/bulkMove/ui/ports",
         "//src/infrastructure/presentation/nodeWatcher",
         "//src/infrastructure/presentation/nodeWatcher/handlers",
         "//src/infrastructure/presentation/scripts",
@@ -127,6 +141,8 @@ js_library(
         "//src/presentation/scripts/errors",
         "//src/services/communityConsole",
         "//src/services/options",
+        "//src/ui/components",
+        "//src/ui/components/forumDestinationPicker",
         "//src/ui/errors",
         "//src/ui/i18n",
         "//src/ui/injectors",

@@ -20,6 +20,9 @@ filegroup(
         "//src/options/presentation/utils",
         "//src/presentation/i18n",
         "//src/features/autoRefresh/presentation/options",
+        "//src/features/bulkMove/presentation/options",
+        "//src/features/bulkMove/ui/components:source_code",
+        "//src/ui/components/forumDestinationPicker:source_code",
     ],
 )
 
