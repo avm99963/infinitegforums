@@ -14,6 +14,13 @@ def extension_bundle(name, **kwargs):
         srcs = [
             "//src:compiled_source",
             "//src/contentScripts",
+            "//src/entryPoints/communityConsole/contentScripts/main",
+            "//src/entryPoints/communityConsole/contentScripts/start",
+            "//src/entryPoints/communityConsole/injections/handleInstall",
+            "//src/entryPoints/communityConsole/injections/handleUpdate",
+            "//src/entryPoints/communityConsole/injections/main",
+            "//src/entryPoints/communityConsole/injections/start",
+            "//src/entryPoints/twBasic/thread/start",
             "//src/injections",
             "//src/options/old",
         ],

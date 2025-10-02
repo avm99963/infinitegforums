@@ -23,21 +23,37 @@ const localeOverrides = [
 module.exports = (env, args) => {
   const isBazelBuild = env.is_bazel_build == 'true';
 
+  TS_EXTENSION = '.ts';
+  /**
+   * @param {string} originalPath
+   */
+  const getTypescriptFilePath =
+      originalPath => {
+        if (!originalPath.endsWith(TS_EXTENSION)) {
+          throw new Error(
+              'getTypescriptFilePath only supports files that have the ".ts" extension.');
+        }
+
+        return originalPath.substring(
+                   0, originalPath.length - TS_EXTENSION.length) +
+            (isBazelBuild ? '.js' : '.ts')
+      }
+
   // NOTE: When adding an entry, add the corresponding source map file to
   // web_accessible_resources in //manifest/manifest.template.gjson.
   const entry = {
     // Content scripts
     communityConsoleMain:
-        './src/entryPoints/communityConsole/contentScripts/main.ts',
+        './src/entryPoints/communityConsole/contentScripts/main/main.ts',
     communityConsoleStart:
-        './src/entryPoints/communityConsole/contentScripts/start.ts',
+        './src/entryPoints/communityConsole/contentScripts/start/start.ts',
     communityConsoleInjectionMain:
-        './src/entryPoints/communityConsole/injections/main.ts',
+        './src/entryPoints/communityConsole/injections/main/main.ts',
     communityConsoleInjectionStart:
-        './src/entryPoints/communityConsole/injections/start.ts',
+        './src/entryPoints/communityConsole/injections/start/start.ts',
     publicForum: './src/contentScripts/publicForum.js',
     publicThread: './src/contentScripts/publicThread.js',
-    publicThreadStart: './src/entryPoints/twBasic/thread/start.ts',
+    publicThreadStart: './src/entryPoints/twBasic/thread/start/start.ts',
     publicGuide: './src/contentScripts/publicGuide.js',
     publicGuideStart: './src/contentScripts/publicGuideStart.js',
     publicProfile: './src/contentScripts/publicProfile.js',
@@ -45,8 +61,10 @@ module.exports = (env, args) => {
     profileIndicator: './src/contentScripts/profileIndicator.js',
 
     // Programatically injected content scripts
-    handleInstall: './src/entryPoints/communityConsole/injections/handleInstall.ts',
-    handleUpdate: './src/entryPoints/communityConsole/injections/handleUpdate.ts',
+    handleInstall:
+        './src/entryPoints/communityConsole/injections/handleInstall/handleInstall.ts',
+    handleUpdate:
+        './src/entryPoints/communityConsole/injections/handleUpdate/handleUpdate.ts',
 
     // Injected JS
     profileIndicatorInject: './src/injections/profileIndicator.js',
@@ -60,7 +78,7 @@ module.exports = (env, args) => {
     optionsCommonOld: './src/options/old/optionsCommon.js',
 
     // New options page
-    optionsScript: './src/options/presentation/scripts/options' + (isBazelBuild ? '.js' : '.ts'),
+    optionsScript: './src/options/presentation/scripts/options.ts',
 
     // Workflow manager
     workflowManager: './src/features/workflows/ui/components/manager/index.js',
@@ -69,12 +87,26 @@ module.exports = (env, args) => {
     mdcStyles: './src/ui/styles/mdc/index.js',
 
     // Compiled Sass
-    ...(!isBazelBuild ? {'cc_dark_theme_styles/main': './src/features/ccDarkTheme/ui/styles/main.bundle.scss?asCSSFile'} : {}),
-    ...(!isBazelBuild ? {'options_styles/main': './src/options/ui/styles/main.bundle.scss?asCSSFile'} : {}),
+    ...(!isBazelBuild ? {
+      'cc_dark_theme_styles/main':
+          './src/features/ccDarkTheme/ui/styles/main.bundle.scss?asCSSFile'
+    } :
+                        {}),
+    ...(!isBazelBuild ? {
+      'options_styles/main':
+          './src/options/ui/styles/main.bundle.scss?asCSSFile'
+    } :
+                        {}),
 
     // Background script (or service worker for MV3)
     bg: './src/bg.js',
   };
+
+  for (const [name, scriptPath] of Object.entries(entry)) {
+    if (scriptPath.endsWith(TS_EXTENSION)) {
+      entry[name] = getTypescriptFilePath(scriptPath);
+    }
+  }
 
   // NOTE: When adding an entry, add the corresponding source map file to
   // web_accessible_resources in //manifest/manifest.template.gjson.

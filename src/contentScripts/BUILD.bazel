@@ -4,6 +4,7 @@ common_js_project(
     name = "contentScripts",
     visibility = [
         "//:__pkg__",
+        "//src:entrypoint",
     ],
     deps = [
         "//src/common",
