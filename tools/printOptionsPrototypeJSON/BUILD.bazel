@@ -34,3 +34,12 @@ js_binary(
     ],
     entry_point = "printOptionsPrototypeJSON.js",
 )
+
+sh_test(
+    name = "smoke_test",
+    size = "small",
+    testonly = True,
+    srcs = ["smoke_test.sh"],
+    args = ["$(location :printOptionsPrototypeJSON)"],
+    data = [":printOptionsPrototypeJSON"],
+)
