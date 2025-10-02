@@ -84,6 +84,13 @@
     "sw-xhr": "^0.0.3"
   },
   "pnpm": {
-    "onlyBuiltDependencies": []
+    "onlyBuiltDependencies": [],
+    "packageExtensions": {
+      "@material/web": {
+        "peerDependencies": {
+          "lit-html": "*"
+        }
+      }
+    }
   }
 }

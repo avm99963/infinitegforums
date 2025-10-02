@@ -4,6 +4,8 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+packageExtensionsChecksum: 2b3f297109aafda05f9fb63d01980639
+
 importers:
 
   .:
@@ -28,7 +30,7 @@ importers:
         version: 14.0.0
       '@material/web':
         specifier: ^2.0.0
-        version: 2.4.1
+        version: 2.4.1(lit-html@3.3.1)
       '@stdlib/utils-escape-regexp-string':
         specifier: ^0.2.0
         version: 0.2.2
@@ -985,6 +987,8 @@ packages:
 
   '@material/web@2.4.1':
     resolution: {integrity: sha512-0sk9t25acJ72Qv3r0n9r0lgDbPaAKnpm0p+QmEAAwYyZomHxuVbgrrAdtNXaRm7jFyGh+WsTr8bhtvCnpPRFjw==}
+    peerDependencies:
+      lit-html: '*'
 
   '@mdn/browser-compat-data@7.1.15':
     resolution: {integrity: sha512-njPXYbxog+meuYAFsVygS6TfIj3/Pi6r0T9wZ+1MIV3/P+L7qlfnIVW5kPNKIHr4WQhvEnsmAXx+KPCKi+kVrA==}
@@ -7402,9 +7406,10 @@ snapshots:
       '@material/theme': 14.0.0-canary.53b3cad2f.0
       tslib: 2.8.1
 
-  '@material/web@2.4.1':
+  '@material/web@2.4.1(lit-html@3.3.1)':
     dependencies:
       lit: 3.3.1
+      lit-html: 3.3.1
       tslib: 2.8.1
 
   '@mdn/browser-compat-data@7.1.15': {}
