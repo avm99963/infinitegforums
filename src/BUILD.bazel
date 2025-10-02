@@ -34,6 +34,12 @@ package_group(
 )
 
 package_group(
+    name = "infrastructure_services",
+    packages = [
+    ],
+)
+
+package_group(
     name = "core",
     packages = [],
 )
@@ -105,6 +111,7 @@ js_library(
         "//src/presentation/nodeWatcher",
         "//src/presentation/scripts",
         "//src/presentation/scripts/errors",
+        "//src/services/communityConsole",
         "//src/services/options",
         "//src/ui/i18n",
         # keep-sorted end
