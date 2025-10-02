@@ -52,6 +52,9 @@ filegroup(
     name = "non_compiled_source",
     srcs = [
         ":non_packaged_source",
+        # keep-sorted start
+        "//src/common/architecture/dependenciesProvider",
+        # keep-sorted end
     ],
     visibility = [
         "//:__pkg__",
