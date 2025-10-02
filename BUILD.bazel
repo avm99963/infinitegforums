@@ -55,7 +55,7 @@ vitest_test(
         ":node_modules/@material/tooltip",
         ":node_modules/@testing-library/dom",
         ":node_modules/poll-until-promise",
-        "//src:non_packaged_source",
+        "//src:non_compiled_source",
         "//src/common/options",
     ],
     node_modules = ":node_modules",

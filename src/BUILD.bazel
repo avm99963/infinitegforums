@@ -46,6 +46,13 @@ copy_to_bin(
         ["**"],
         exclude = ["BUILD.bazel"],
     ),
+)
+
+filegroup(
+    name = "non_compiled_source",
+    srcs = [
+        ":non_packaged_source",
+    ],
     visibility = ["//:__pkg__"],
 )
 
@@ -57,7 +64,7 @@ copy_to_bin(
 # TODO(https://iavm.xyz/b/twpowertools/256): this shouldn't be needed anymore.
 # Remove it.
 js_library(
-    name = "packaged_source",
+    name = "compiled_source",
     visibility = ["//:__pkg__"],
     deps = [
         "//src/common/options",

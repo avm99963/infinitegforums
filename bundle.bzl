@@ -11,7 +11,7 @@ def extension_bundle(name, **kwargs):
     transpiled_ts_sources_target = "{}_transpiled_typescript_sources".format(name)
     js_info_files(
         name = transpiled_ts_sources_target,
-        srcs = ["//src:packaged_source"],
+        srcs = ["//src:compiled_source"],
         include_types = True,
         include_transitive_types = True,
     )
@@ -22,7 +22,7 @@ def extension_bundle(name, **kwargs):
             ":tsconfig.json",
             ":{}".format(transpiled_ts_sources_target),
             # TODO(https://iavm.xyz/b/twpowertools/256): Remove this
-            "//src:non_packaged_source",
+            "//src:non_compiled_source",
             "//src/lit-locales",
             # TODO(https://iavm.xyz/b/twpowertools/256): Move this out of the static
             # folder.
