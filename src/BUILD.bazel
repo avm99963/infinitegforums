@@ -10,6 +10,7 @@ package_group(
 package_group(
     name = "presentation",
     packages = [
+        "//src/presentation/...",
     ],
 )
 
@@ -91,6 +92,8 @@ js_library(
         "//src/presentation/mainWorldContentScriptBridge/base",
         "//src/presentation/mainWorldContentScriptBridge/base/tests",
         "//src/presentation/mainWorldContentScriptBridge/i18n",
+        "//src/presentation/mainWorldContentScriptBridge/optionsConfigurationRepository",
+        "//src/presentation/mainWorldContentScriptBridge/optionsWatcher",
         "//src/services/options",
         "//src/ui/i18n",
         # keep-sorted end
