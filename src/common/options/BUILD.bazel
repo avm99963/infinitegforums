@@ -1,16 +1,31 @@
-load("@aspect_rules_js//js:defs.bzl", "js_info_files", "js_library")
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+load("//tools:common_js_project.bzl", "common_js_project")
 load("//tools:common_ts_project.bzl", "common_ts_project")
 
 common_ts_project(
-    name = "options",
-    additional_js_library_srcs = glob(["**/*.json5"]),
+    name = "ts",
     allow_js = True,
     declaration = True,
     source_map = True,
     transpiler = "tsc",
     tsconfig = "//:tsconfig_pkg",
+)
+
+common_js_project(
+    name = "js",
+    deps = [":ts"],
+)
+
+js_library(
+    name = "options",
     visibility = [
+        # TODO: Delete the following package from the list.
         "//:__pkg__",
+        "//src:__subpackages__",
         "//tools/printOptionsPrototypeJSON:__pkg__",
+    ],
+    deps = [
+        ":js",
+        ":ts",
     ],
 )

@@ -1,4 +1,6 @@
 load("@aspect_bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+
 # Source code which is part of the src package, and hasn't yet been added to a
 # package built with common_ts_project in Bazel.
 #
@@ -11,4 +13,19 @@ copy_to_bin(
         exclude = ["BUILD.bazel"],
     ),
     visibility = ["//:__pkg__"],
+)
+
+# This includes all the JS libraries from packages compiled with
+# common_ts_project in Bazel. It is helpful to group them since we want to make
+# all these libraries available to Webpack, since ts-loader compiles the source
+# code included in :non_packaged_source, which may depend on these libraries.
+#
+# TODO(https://iavm.xyz/b/twpowertools/256): this shouldn't be needed anymore.
+# Remove it.
+js_library(
+    name = "packaged_source",
+    visibility = ["//:__pkg__"],
+    deps = [
+        "//src/common/options",
+    ],
 )

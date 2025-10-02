@@ -1,5 +1,11 @@
 import {optionsPrototype} from './optionsPrototype';
-import specialOptions from './specialOptions.json5';
+
+const specialOptions = [
+  'profileindicatoralt_months',
+  'ccdarktheme_mode',
+  'ccdarktheme_switch_status',
+  'interopthreadpage_mode',
+];
 
 export {optionsPrototype, specialOptions};
 

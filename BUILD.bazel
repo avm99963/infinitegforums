@@ -163,3 +163,10 @@ ts_config(
     visibility = ["//:__subpackages__"],
     deps = [":tsconfig"],
 )
+
+ts_config(
+    name = "tsconfig_pkg_js",
+    src = "tsconfig.pkg_js.json",
+    visibility = ["//:__subpackages__"],
+    deps = [":tsconfig"],
+)
