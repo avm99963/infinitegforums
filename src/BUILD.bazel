@@ -10,6 +10,7 @@ package_group(
 package_group(
     name = "presentation",
     packages = [
+        "//src/features/autoRefresh/presentation/...",
         "//src/presentation/...",
     ],
 )
@@ -96,6 +97,10 @@ js_library(
         "//src/common/styles",
         "//src/contentScripts/communityConsole/utils",
         "//src/domain",
+        "//src/features/autoRefresh/core",
+        "//src/features/autoRefresh/presentation/nodeWatcherHandlers",
+        "//src/features/autoRefresh/presentation/options",
+        "//src/features/autoRefresh/presentation/scripts",
         "//src/infrastructure/presentation/nodeWatcher",
         "//src/infrastructure/presentation/nodeWatcher/handlers",
         "//src/infrastructure/presentation/scripts",

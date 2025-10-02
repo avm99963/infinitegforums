@@ -19,6 +19,7 @@ filegroup(
         "//src:non_compiled_source",
         "//src/options/presentation/utils",
         "//src/presentation/i18n",
+        "//src/features/autoRefresh/presentation/options",
     ],
 )
 
