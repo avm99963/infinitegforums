@@ -1,6 +1,10 @@
-import ThreadModel from './Thread.ts';
+import ThreadModel from './Thread';
 
 export default class GapModel {
+  /**
+   * @param {*} [data] Protobuf message for the gap.
+   * @param {*} [thread] Thread that contains this gap.
+   */
   constructor(data, thread) {
     this.data = data ?? {};
     this.thread = thread ?? new ThreadModel();

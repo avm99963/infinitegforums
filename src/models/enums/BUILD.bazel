@@ -1,0 +1,15 @@
+load("//tools:common_ts_project.bzl", "common_ts_project")
+
+common_ts_project(
+    name = "enums",
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = "tsc",
+    tsconfig = "//:tsconfig_pkg",
+    # This is a legacy package (read ../README.md), so we're making it visible
+    # everywhere.
+    visibility = [
+        "//src:__subpackages__",
+    ],
+)

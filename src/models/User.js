@@ -1,4 +1,4 @@
-import {kUserRoleEnum, kUserRoleRank} from './enums/UserRole.js';
+import {kUserRoleEnum, kUserRoleRank} from './enums/UserRole';
 import StartupData from './StartupData.js';
 
 export default class UserModel {

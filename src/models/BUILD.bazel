@@ -1,0 +1,38 @@
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+load("//tools:common_js_project.bzl", "common_js_project")
+load("//tools:common_ts_project.bzl", "common_ts_project")
+
+common_js_project(
+    name = "js",
+    deps = [
+        "//src/common/protojs",
+        "//src/models/enums",
+    ],
+)
+
+common_ts_project(
+    name = "ts",
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = "tsc",
+    tsconfig = "//:tsconfig_pkg",
+    deps = [
+        ":js",
+        "//src/common/protojs",
+        "//src/models/enums",
+    ],
+)
+
+js_library(
+    name = "models",
+    # This is a legacy package (read README.md), so we're making it visible
+    # everywhere.
+    visibility = [
+        "//src:__subpackages__",
+    ],
+    deps = [
+        "js",
+        "ts",
+    ],
+)

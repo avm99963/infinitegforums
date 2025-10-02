@@ -70,6 +70,8 @@ js_library(
         # keep-sorted start
         "//src/common/options",
         "//src/common/protojs",
+        "//src/models",
+        "//src/models/enums",
         "//src/presentation/mainWorldContentScriptBridge/base",
         "//src/presentation/mainWorldContentScriptBridge/base/tests",
         "//src/presentation/mainWorldContentScriptBridge/i18n",
