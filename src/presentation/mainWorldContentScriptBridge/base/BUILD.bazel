@@ -1,0 +1,31 @@
+load("@fremtind_rules_vitest//vitest:defs.bzl", "vitest_test")
+load("//tools:common_ts_project.bzl", "common_ts_project")
+
+common_ts_project(
+    name = "base",
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = "tsc",
+    tsconfig = "//:tsconfig_pkg",
+    visibility = [
+        # TODO(https://iavm.xyz/b/twpowertools/256): remove this.
+        "//src:__pkg__",
+        "//src/presentation/mainWorldContentScriptBridge:__subpackages__",
+    ],
+    deps = [
+        "//:node_modules/@types/chrome",
+    ],
+)
+
+vitest_test(
+    name = "test",
+    config = "//:vitest.config.js",
+    data = glob([
+        "**/*.ts",
+        "**/*.test.ts",
+    ]) + [
+        "//src/presentation/mainWorldContentScriptBridge/base/tests",
+    ],
+    node_modules = "//:node_modules",
+)

@@ -67,6 +67,10 @@ js_library(
     name = "compiled_source",
     visibility = ["//:__pkg__"],
     deps = [
+        # keep-sorted start
         "//src/common/options",
+        "//src/presentation/mainWorldContentScriptBridge/base",
+        "//src/presentation/mainWorldContentScriptBridge/base/tests",
+        # keep-sorted end
     ],
 )

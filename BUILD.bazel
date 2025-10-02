@@ -42,6 +42,7 @@ ts_project(
     source_map = True,
     transpiler = "tsc",
     tsconfig = ":tsconfig",
+    visibility = ["//:__subpackages__"],
     deps = [
         ":node_modules/@types/node",
         ":node_modules/vitest",
@@ -55,6 +56,7 @@ vitest_test(
         ":node_modules/@material/tooltip",
         ":node_modules/@testing-library/dom",
         ":node_modules/poll-until-promise",
+        "//src:compiled_source",
         "//src:non_compiled_source",
         "//src/common/options",
     ],
