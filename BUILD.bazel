@@ -11,17 +11,6 @@ load("defs.bzl", "browser", "channel")
 
 npm_link_all_packages()
 
-# Source code which is part of the root package, and hasn't yet been added to a
-# package.
-#
-# TODO(https://iavm.xyz/b/twpowertools/256): this shouldn't include code
-# anymore. Remove it.
-filegroup(
-    name = "root_pkg_source",
-    srcs = glob(["src/**"]),
-    visibility = ["//:__subpackages__"],
-)
-
 extension_bundle(
     name = "webpack_bundle",
 )
@@ -62,10 +51,11 @@ ts_project(
 vitest_test(
     name = "test",
     config = "vitest.config.js",
-    data = glob(["src/**"]) + [
+    data = [
         ":node_modules/@material/tooltip",
         ":node_modules/@testing-library/dom",
         ":node_modules/poll-until-promise",
+        "//src:non_packaged_source",
         "//src/common/options",
     ],
     node_modules = ":node_modules",

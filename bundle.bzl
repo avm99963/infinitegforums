@@ -20,9 +20,9 @@ def extension_bundle(name, **kwargs):
     webpack_bundle(
         name = name,
         srcs = [
-            ":root_pkg_source",
             ":tsconfig.json",
             ":{}".format(transpiled_ts_sources_target),
+            "//src:non_packaged_source",
             "//src/lit-locales",
             # TODO(https://iavm.xyz/b/twpowertools/256): Move this out of the static
             # folder.

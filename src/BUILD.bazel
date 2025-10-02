@@ -1,0 +1,14 @@
+load("@aspect_bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
+# Source code which is part of the src package, and hasn't yet been added to a
+# package built with common_ts_project in Bazel.
+#
+# TODO(https://iavm.xyz/b/twpowertools/256): this shouldn't include code
+# anymore. Remove it.
+copy_to_bin(
+    name = "non_packaged_source",
+    srcs = glob(
+        ["**"],
+        exclude = ["BUILD.bazel"],
+    ),
+    visibility = ["//:__pkg__"],
+)
