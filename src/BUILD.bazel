@@ -86,6 +86,7 @@ js_library(
         "//src/lit-locales",
         "//src/models",
         "//src/models/enums",
+        "//src/options/repositories",
         "//src/presentation/i18n",
         "//src/presentation/mainWorldContentScriptBridge/base",
         "//src/presentation/mainWorldContentScriptBridge/base/tests",
