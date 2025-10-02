@@ -74,7 +74,12 @@ js_library(
     visibility = ["//:__pkg__"],
     deps = [
         # keep-sorted start
+        "//src/common",
         "//src/common/architecture/abortable",
+        "//src/common/architecture/scripts",
+        "//src/common/architecture/scripts/stylesheet",
+        "//src/common/components",
+        "//src/common/dataStructures",
         "//src/common/options",
         "//src/common/protojs",
         "//src/common/styles",
@@ -85,6 +90,7 @@ js_library(
         "//src/presentation/mainWorldContentScriptBridge/base",
         "//src/presentation/mainWorldContentScriptBridge/base/tests",
         "//src/presentation/mainWorldContentScriptBridge/i18n",
+        "//src/services/options",
         "//src/ui/i18n",
         # keep-sorted end
     ],

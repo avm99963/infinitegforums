@@ -1,0 +1,35 @@
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+load("//tools:bazel/swc.bzl", "swc_pkg")
+load("//tools:common_js_project.bzl", "common_js_project")
+load("//tools:common_ts_project.bzl", "common_ts_project")
+
+# TODO: The files in the root of this folder should be moved to other folders
+# with more appropriate visibility.
+common_js_project(
+    name = "js",
+)
+
+common_ts_project(
+    name = "ts",
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = swc_pkg,
+    tsconfig = "//:tsconfig_pkg",
+    deps = [
+        "//:node_modules/@material/tooltip",
+        "//:node_modules/@stdlib/utils-escape-regexp-string",
+        "//:node_modules/@types/chrome",
+    ],
+)
+
+js_library(
+    name = "common",
+    visibility = [
+        "//src:__subpackages__",
+    ],
+    deps = [
+        ":js",
+        ":ts",
+    ],
+)

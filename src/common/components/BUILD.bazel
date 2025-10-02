@@ -1,0 +1,11 @@
+load("//tools:common_js_project.bzl", "common_js_project")
+
+common_js_project(
+    name = "components",
+    visibility = [
+        "//src:presentation",
+        "//src:ui",
+        # TODO(https://iavm.xyz/b/twpowertools/256): remove this.
+        "//src:__pkg__",
+    ],
+)
