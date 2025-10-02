@@ -49,7 +49,6 @@ def extension_bundle(name, **kwargs):
         output_dir = True,
         webpack_config = ":webpack.config.js",
         deps = [
-            ":node_modules/@datastructures-js/queue",
             ":node_modules/@lit-labs/motion",
             ":node_modules/@lit/localize",
             ":node_modules/@lit/localize-tools",

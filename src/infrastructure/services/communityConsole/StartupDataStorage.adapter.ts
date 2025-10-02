@@ -1,4 +1,4 @@
-import { Queue } from '@datastructures-js/queue';
+import { Queue } from '../../../common/dataStructures/queue';
 import StartupDataModel from '../../../models/StartupData';
 import {
   StartupDataModification,
