@@ -98,6 +98,8 @@ js_library(
         "//src/presentation/mainWorldContentScriptBridge/i18n",
         "//src/presentation/mainWorldContentScriptBridge/optionsConfigurationRepository",
         "//src/presentation/mainWorldContentScriptBridge/optionsWatcher",
+        "//src/presentation/scripts",
+        "//src/presentation/scripts/errors",
         "//src/services/options",
         "//src/ui/i18n",
         # keep-sorted end
