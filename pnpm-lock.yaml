@@ -99,8 +99,8 @@ importers:
         specifier: 5.6.4
         version: 5.6.4(webpack@5.102.0)
       jsdom:
-        specifier: 27.0.0
-        version: 27.0.0(postcss@8.5.6)
+        specifier: 27.0.1
+        version: 27.0.1(postcss@8.5.6)
       json5:
         specifier: 2.2.3
         version: 2.2.3
@@ -142,7 +142,7 @@ importers:
         version: 8.45.0(eslint@9.36.0)(typescript@5.9.3)
       vitest:
         specifier: 3.2.4
-        version: 3.2.4(@types/node@20.19.23)(jsdom@27.0.0)(sass@1.93.2)
+        version: 3.2.4(@types/node@20.19.23)(jsdom@27.0.1)(sass@1.93.2)
       web-ext:
         specifier: 9.0.0
         version: 9.0.0
@@ -213,8 +213,8 @@ packages:
       lru-cache: 11.2.2
     dev: true
 
-  /@asamuzakjp/dom-selector@6.5.6:
-    resolution: {integrity: sha512-Mj3Hu9ymlsERd7WOsUKNUZnJYL4IZ/I9wVVYgtvOsWYiEFbkQ4G7VRIh2USxTVW4BBDIsLG+gBUgqOqf2Kvqow==}
+  /@asamuzakjp/dom-selector@6.7.2:
+    resolution: {integrity: sha512-ccKogJI+0aiDhOahdjANIc9SDixSud1gbwdVrhn7kMopAtLXqsz9MKmQQtIl6Y5aC2IYq+j4dz/oedL2AVMmVQ==}
     dependencies:
       '@asamuzakjp/nwsapi': 2.3.9
       bidi-js: 1.0.3
@@ -4326,7 +4326,7 @@ packages:
       magicast: 0.3.5
       test-exclude: 7.0.1
       tinyrainbow: 2.0.0
-      vitest: 3.2.4(@types/node@20.19.23)(jsdom@27.0.0)(sass@1.93.2)
+      vitest: 3.2.4(@types/node@20.19.23)(jsdom@27.0.1)(sass@1.93.2)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4353,7 +4353,7 @@ packages:
       std-env: 3.9.0
       test-exclude: 7.0.1
       tinyrainbow: 2.0.0
-      vitest: 3.2.4(@types/node@20.19.23)(jsdom@27.0.0)(sass@1.93.2)
+      vitest: 3.2.4(@types/node@20.19.23)(jsdom@27.0.1)(sass@1.93.2)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4375,7 +4375,7 @@ packages:
       '@typescript-eslint/utils': 8.46.2(eslint@9.36.0)(typescript@5.9.3)
       eslint: 9.36.0
       typescript: 5.9.3
-      vitest: 3.2.4(@types/node@20.19.23)(jsdom@27.0.0)(sass@1.93.2)
+      vitest: 3.2.4(@types/node@20.19.23)(jsdom@27.0.1)(sass@1.93.2)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -7699,8 +7699,8 @@ packages:
       argparse: 2.0.1
     dev: true
 
-  /jsdom@27.0.0(postcss@8.5.6):
-    resolution: {integrity: sha512-lIHeR1qlIRrIN5VMccd8tI2Sgw6ieYXSVktcSHaNe3Z5nE/tcPQYQWOq00wxMvYOsz+73eAkNenVvmPC6bba9A==}
+  /jsdom@27.0.1(postcss@8.5.6):
+    resolution: {integrity: sha512-SNSQteBL1IlV2zqhwwolaG9CwhIhTvVHWg3kTss/cLE7H/X4644mtPQqYvCfsSrGQWt9hSZcgOXX8bOZaMN+kA==}
     engines: {node: '>=20'}
     peerDependencies:
       canvas: ^3.0.0
@@ -7708,7 +7708,7 @@ packages:
       canvas:
         optional: true
     dependencies:
-      '@asamuzakjp/dom-selector': 6.5.6
+      '@asamuzakjp/dom-selector': 6.7.2
       cssstyle: 5.3.1(postcss@8.5.6)
       data-urls: 6.0.0
       decimal.js: 10.6.0
@@ -7716,7 +7716,7 @@ packages:
       http-proxy-agent: 7.0.2
       https-proxy-agent: 7.0.6
       is-potential-custom-element-name: 1.0.1
-      parse5: 7.3.0
+      parse5: 8.0.0
       rrweb-cssom: 0.8.0
       saxes: 6.0.0
       symbol-tree: 3.2.4
@@ -9221,6 +9221,12 @@ packages:
 
   /parse5@7.3.0:
     resolution: {integrity: sha512-IInvU7fabl34qmi9gY8XOVxhYyMyuH2xUNpb2q8/Y+7552KlejkRvqvD19nMoUW/uQGGbqNpA6Tufu5FL5BZgw==}
+    dependencies:
+      entities: 6.0.1
+    dev: true
+
+  /parse5@8.0.0:
+    resolution: {integrity: sha512-9m4m5GSgXjL4AjumKzq1Fgfp3Z8rsvjRNbnkVwfu2ImRqE5D0LnY2QfDen18FSY9C573YU5XxSapdHZTZ2WolA==}
     dependencies:
       entities: 6.0.1
     dev: true
@@ -11281,7 +11287,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitest@3.2.4(@types/node@20.19.23)(jsdom@27.0.0)(sass@1.93.2):
+  /vitest@3.2.4(@types/node@20.19.23)(jsdom@27.0.1)(sass@1.93.2):
     resolution: {integrity: sha512-LUCP5ev3GURDysTWiP47wRRUpLKMOfPh+yKTx3kVIEiu5KOMeqzpnYNsKyOoVrULivR8tLcks4+lga33Whn90A==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
@@ -11321,7 +11327,7 @@ packages:
       chai: 5.3.3
       debug: 4.4.3
       expect-type: 1.2.2
-      jsdom: 27.0.0(postcss@8.5.6)
+      jsdom: 27.0.1(postcss@8.5.6)
       magic-string: 0.30.19
       pathe: 2.0.3
       picomatch: 4.0.3
