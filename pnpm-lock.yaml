@@ -72,8 +72,8 @@ importers:
         specifier: 10.4.1
         version: 10.4.1
       '@types/chrome':
-        specifier: 0.1.16
-        version: 0.1.16
+        specifier: 0.1.24
+        version: 0.1.24
       '@types/node':
         specifier: 20.19.17
         version: 20.19.17
@@ -3942,8 +3942,8 @@ packages:
       '@types/deep-eql': 4.0.2
     dev: true
 
-  /@types/chrome@0.1.16:
-    resolution: {integrity: sha512-GvK2s58ElQ/1hJEHcdRj798VhVgBV1Xt0u8fOBG1dILV3ATTOc2qabr3P2SG39l3ISiWWFG6Glt4IkOXz6eDCw==}
+  /@types/chrome@0.1.24:
+    resolution: {integrity: sha512-9iO9HL2bMeGS4C8m6gNFWUyuPE5HEUFk+rGh+7oriUjg+ata4Fc9PoVlu8xvGm7yoo3AmS3J6fAjoFj61NL2rw==}
     dependencies:
       '@types/filesystem': 0.0.36
       '@types/har-format': 1.2.16
