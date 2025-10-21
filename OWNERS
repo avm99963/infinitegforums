@@ -1,3 +1,6 @@
 me@avm99963.com
+per-file .bazelversion=renovate-bot@avm99963.com
+per-file MODULE.bazel=renovate-bot@avm99963.com
+per-file MODULE.bazel.lock=renovate-bot@avm99963.com
 per-file package.json=renovate-bot@avm99963.com
 per-file pnpm-lock.yaml=renovate-bot@avm99963.com
