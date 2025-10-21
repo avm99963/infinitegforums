@@ -2,8 +2,6 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "declaration": true,
-    "emitDeclarationOnly": true,
-    "module": "commonjs",
-    "moduleResolution": "node10"
+    "emitDeclarationOnly": true
   }
 }
