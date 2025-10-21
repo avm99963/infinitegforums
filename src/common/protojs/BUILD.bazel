@@ -1,0 +1,39 @@
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+load("@fremtind_rules_vitest//vitest:defs.bzl", "vitest_test")
+load("//tools:common_js_project.bzl", "common_js_project")
+load("//tools:common_ts_project.bzl", "common_ts_project")
+
+common_ts_project(
+    name = "ts",
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = "tsc",
+    tsconfig = "//:tsconfig_pkg",
+)
+
+common_js_project(
+    name = "js",
+)
+
+js_library(
+    name = "protojs",
+    visibility = [
+        "//src:__subpackages__",
+    ],
+    deps = [
+        "js",
+        "ts",
+    ],
+)
+
+vitest_test(
+    name = "test",
+    config = "//:vitest.config.js",
+    data = [
+        "protojs.js",
+        "protojs.test.ts",
+        "protojs.types.ts",
+    ],
+    node_modules = "//:node_modules",
+)

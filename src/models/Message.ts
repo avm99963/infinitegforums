@@ -1,4 +1,7 @@
-import { ProtobufNumber, ProtobufObject } from '../common/protojs.types.js';
+import {
+  ProtobufNumber,
+  ProtobufObject,
+} from '../common/protojs/protojs.types.js';
 import ItemMetadataState from './enums/ItemMetadataState.js';
 import GapModel from './Gap.js';
 import ThreadModel from './Thread';

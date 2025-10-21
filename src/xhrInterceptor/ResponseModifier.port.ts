@@ -1,4 +1,4 @@
-import { ProtobufObject } from '../common/protojs.types';
+import { ProtobufObject } from '../common/protojs/protojs.types';
 
 export interface ResponseModifierPort {
   intercept(interception: InterceptedResponse): Promise<Result>;

@@ -1,4 +1,4 @@
-import { ProtobufObject } from '../../../../common/protojs.types';
+import { ProtobufObject } from '../../../../common/protojs/protojs.types';
 import {
   Category,
   Detail,

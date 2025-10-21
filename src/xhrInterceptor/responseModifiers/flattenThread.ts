@@ -1,4 +1,7 @@
-import { ProtobufNumber, ProtobufObject } from '../../common/protojs.types';
+import {
+  ProtobufNumber,
+  ProtobufObject,
+} from '../../common/protojs/protojs.types';
 import { kAdditionalInfoClass } from '../../features/flattenThreads/core/flattenThreads.js';
 import GapModel from '../../models/Gap';
 import MessageModel from '../../models/Message';

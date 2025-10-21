@@ -1,4 +1,4 @@
-import {correctArrayKeys, inverseCorrectArrayKeys} from '../common/protojs';
+import {correctArrayKeys, inverseCorrectArrayKeys} from '../common/protojs/protojs';
 
 import xhrInterceptors from './interceptors/interceptors';
 

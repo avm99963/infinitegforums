@@ -1,6 +1,6 @@
 import { CCApi } from '../../common/api.js';
 import { getAuthUser } from '../../common/communityConsoleUtils.js';
-import { ProtobufNumber } from '../../common/protojs.types.js';
+import { ProtobufNumber } from '../../common/protojs/protojs.types.js';
 import GapModel from '../../models/Gap.js';
 import MessageModel from '../../models/Message';
 import ThreadModel from '../../models/Thread';

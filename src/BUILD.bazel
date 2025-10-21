@@ -69,6 +69,7 @@ js_library(
     deps = [
         # keep-sorted start
         "//src/common/options",
+        "//src/common/protojs",
         "//src/presentation/mainWorldContentScriptBridge/base",
         "//src/presentation/mainWorldContentScriptBridge/base/tests",
         "//src/presentation/mainWorldContentScriptBridge/i18n",

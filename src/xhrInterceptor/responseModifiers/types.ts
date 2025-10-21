@@ -2,7 +2,7 @@ import {
   OptionCodename,
   OptionsValues,
 } from '../../common/options/optionsPrototype';
-import { ProtobufObject } from '../../common/protojs.types';
+import { ProtobufObject } from '../../common/protojs/protojs.types';
 
 export interface Modifier {
   urlRegex: RegExp;

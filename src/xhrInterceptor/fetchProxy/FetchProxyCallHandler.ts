@@ -2,8 +2,8 @@ import { XClientHeader, XClientValue } from '../../common/api';
 import {
   correctArrayKeys,
   inverseCorrectArrayKeys,
-} from '../../common/protojs';
-import { ProtobufObject } from '../../common/protojs.types';
+} from '../../common/protojs/protojs';
+import { ProtobufObject } from '../../common/protojs/protojs.types';
 import { InterceptorHandlerPort } from '../interceptors/InterceptorHandler.port';
 import MessageIdTracker from '../MessageIdTracker';
 import { ResponseModifierPort } from '../ResponseModifier.port';

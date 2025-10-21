@@ -1,6 +1,6 @@
 import {waitFor} from 'poll-until-promise';
 
-import {correctArrayKeys} from '../common/protojs';
+import {correctArrayKeys} from '../common/protojs/protojs';
 import * as utils from '../xhrInterceptor/utils.js';
 
 const kSpecialEvents = ['load', 'loadend'];

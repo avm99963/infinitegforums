@@ -1,6 +1,6 @@
 import rescape from '@stdlib/utils-escape-regexp-string';
 
-import {correctArrayKeys} from './protojs';
+import {correctArrayKeys} from './protojs/protojs';
 
 export function parseView(viewVar) {
   const escapedViewVar = rescape(viewVar);
