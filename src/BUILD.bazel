@@ -53,7 +53,10 @@ filegroup(
     srcs = [
         ":non_packaged_source",
     ],
-    visibility = ["//:__pkg__"],
+    visibility = [
+        "//:__pkg__",
+        "//src/lit-locales:__subpackages__",
+    ],
 )
 
 # This includes all the JS libraries from packages compiled with

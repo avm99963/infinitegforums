@@ -1,0 +1,37 @@
+{
+  "$schema": "https://raw.githubusercontent.com/lit/lit/main/packages/localize-tools/config.schema.json",
+  "sourceLocale": "en",
+  "targetLocales": [
+    "ar",
+    "ca",
+    "de",
+    "es",
+    "fr",
+    "id",
+    "it",
+    "ja",
+    "ko",
+    "pl",
+    "pt_BR",
+    "ru",
+    "th",
+    "tr",
+    "vi"
+  ],
+  "inputFiles": [
+    "src/**/components/**/*.(js|ts)",
+    "src/features/**/presentation/options/*.ts",
+    "src/common/litI18nUtils.js",
+    "src/options/presentation/featureCategories.ts",
+    "src/options/presentation/utils/featureUtils.ts"
+  ],
+  "output": {
+    "mode": "runtime",
+    "outputDir": "{OUTPUT_DIR}",
+    "localeCodesModule": "{OUTPUT_DIR}/locales.js"
+  },
+  "interchange": {
+    "format": "xliff",
+    "xliffDir": "{SOURCE_DIR}"
+  }
+}

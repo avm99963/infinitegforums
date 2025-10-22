@@ -1,5 +1,5 @@
 load("@aspect_bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
-load("@npm//:@lit/localize-tools/package_json.bzl", "bin")
+load(":defs.bzl", "lit_localize")
 
 copy_to_bin(
     name = "interchange_files",
@@ -7,14 +7,19 @@ copy_to_bin(
     visibility = ["//tools/syncTranslations:__pkg__"],
 )
 
-bin.lit_localize(
-    name = "lit-locales",
+# Source code that uses msg() to localize strings.
+filegroup(
+    name = "localized_code",
     srcs = [
-        ":interchange_files",
-        "//:lit-localize",
+        "//src:non_compiled_source",
     ],
-    args = ["build"],
-    out_dirs = ["generated"],
-    progress_message = "Building lit-locales files",
-    visibility = ["//:__pkg__"],
+)
+
+lit_localize(
+    name = "lit-locales",
+    operation = "build",
+    visibility = [
+        "//:__pkg__",
+        "//src:__subpackages__",
+    ],
 )
