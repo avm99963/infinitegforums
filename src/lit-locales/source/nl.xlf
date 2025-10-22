@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+<file target-language="nl" source-language="en" original="lit-localize-inputs" datatype="plaintext">
+<body>
+<trans-unit id="languages.ar">
+  <source>Arabic</source>
+</trans-unit>
+<trans-unit id="languages.bg">
+  <source>Bulgarian</source>
+</trans-unit>
+<trans-unit id="languages.ca">
+  <source>Catalan</source>
+</trans-unit>
+<trans-unit id="languages.cs">
+  <source>Czech</source>
+</trans-unit>
+<trans-unit id="languages.da">
+  <source>Danish</source>
+</trans-unit>
+<trans-unit id="languages.de">
+  <source>German</source>
+</trans-unit>
+<trans-unit id="languages.el">
+  <source>Greek</source>
+</trans-unit>
+<trans-unit id="languages.en">
+  <source>English</source>
+</trans-unit>
+<trans-unit id="languages.en-AU">
+  <source>English (Australia)</source>
+</trans-unit>
+<trans-unit id="languages.en-GB">
+  <source>English (UK)</source>
+</trans-unit>
+<trans-unit id="languages.es">
+  <source>Spanish</source>
+</trans-unit>
+<trans-unit id="languages.es-419">
+  <source>Spanish (Latin America)</source>
+</trans-unit>
+<trans-unit id="languages.et">
+  <source>Estonian</source>
+</trans-unit>
+<trans-unit id="languages.fi">
+  <source>Finnish</source>
+</trans-unit>
+<trans-unit id="languages.fil">
+  <source>Filipino</source>
+</trans-unit>
+<trans-unit id="languages.fr">
+  <source>French</source>
+</trans-unit>
+<trans-unit id="languages.hi">
+  <source>Hindi</source>
+</trans-unit>
+<trans-unit id="languages.hr">
+  <source>Croatian</source>
+</trans-unit>
+<trans-unit id="languages.hu">
+  <source>Hungarian</source>
+</trans-unit>
+<trans-unit id="languages.id">
+  <source>Indonesian</source>
+</trans-unit>
+<trans-unit id="languages.it">
+  <source>Italian</source>
+</trans-unit>
+<trans-unit id="languages.iw">
+  <source>Hebrew</source>
+</trans-unit>
+<trans-unit id="languages.ja">
+  <source>Japanese</source>
+</trans-unit>
+<trans-unit id="languages.ko">
+  <source>Korean</source>
+</trans-unit>
+<trans-unit id="languages.lt">
+  <source>Lithuanian</source>
+</trans-unit>
+<trans-unit id="languages.lv">
+  <source>Latvian</source>
+</trans-unit>
+<trans-unit id="languages.ms">
+  <source>Malay</source>
+</trans-unit>
+<trans-unit id="languages.nl">
+  <source>Dutch</source>
+</trans-unit>
+<trans-unit id="languages.no">
+  <source>Norwegian (Bokmal)</source>
+</trans-unit>
+<trans-unit id="languages.pl">
+  <source>Polish</source>
+</trans-unit>
+<trans-unit id="languages.pt-BR">
+  <source>Portuguese (Brazil)</source>
+</trans-unit>
+<trans-unit id="languages.pt-PT">
+  <source>Portuguese (Portugal)</source>
+</trans-unit>
+<trans-unit id="languages.ro">
+  <source>Romanian</source>
+</trans-unit>
+<trans-unit id="languages.ru">
+  <source>Russian</source>
+</trans-unit>
+<trans-unit id="languages.sk">
+  <source>Slovak</source>
+</trans-unit>
+<trans-unit id="languages.sl">
+  <source>Slovenian</source>
+</trans-unit>
+<trans-unit id="languages.sr">
+  <source>Serbian</source>
+</trans-unit>
+<trans-unit id="languages.sv">
+  <source>Swedish</source>
+</trans-unit>
+<trans-unit id="languages.th">
+  <source>Thai</source>
+</trans-unit>
+<trans-unit id="languages.tr">
+  <source>Turkish</source>
+</trans-unit>
+<trans-unit id="languages.uk">
+  <source>Ukrainian</source>
+</trans-unit>
+<trans-unit id="languages.vi">
+  <source>Vietnamese</source>
+</trans-unit>
+<trans-unit id="languages.zh-CN">
+  <source>Chinese (Simplified)</source>
+</trans-unit>
+<trans-unit id="languages.zh-HK">
+  <source>Chinese (Hong Kong)</source>
+</trans-unit>
+<trans-unit id="languages.zh-TW">
+  <source>Chinese (Traditional)</source>
+</trans-unit>
+<trans-unit id="s79ad81a9d63904fc">
+  <source>You're testing the new options page.</source>
+</trans-unit>
+<trans-unit id="h75ff4c12afaffb0c">
+  <source>Please leave feedback and report bugs in our <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;"/>discussion group<x id="1" equiv-text="&lt;/a&gt;"/>. Thanks for testing!</source>
+</trans-unit>
+<trans-unit id="s6b0ed0c74667d28c">
+  <source><x id="0" equiv-text="${authorName}"/> said:</source>
+</trans-unit>
+<trans-unit id="s7d06ea4f1ccd5f6f">
+  <source>The old thread page design is partially broken, but this feature is kept since some PEs rely on it to access some features that are missing in the new design.</source>
+  <note from="lit-localize">Additional information shown in the options page about the "Change thread page design" feature.</note>
+</trans-unit>
+<trans-unit id="sa5ef80b4bb9b39f8">
+  <source>Less</source>
+  <note from="lit-localize">Button to collapse the quote message (used in the flatten threads feature).</note>
+</trans-unit>
+<trans-unit id="s37a9e8aec5713460">
+  <source>More</source>
+  <note from="lit-localize">Button to expand the quote message (used in the flatten threads feature).</note>
+</trans-unit>
+<trans-unit id="s0b7ae9543c001867">
+  <source>Reply</source>
+  <note from="lit-localize">Button which is used to open the reply box.</note>
+</trans-unit>
+<trans-unit id="sd5b6130b4937488c">
+  <source>Reload</source>
+  <note from="lit-localize">Button which reloads the current page.</note>
+</trans-unit>
+<trans-unit id="bulkReportControls.offTopicChip.sendingLabel">
+  <source>Marking as off-topic…</source>
+  <note from="lit-localize">Chip label shown when sending the report.</note>
+</trans-unit>
+<trans-unit id="bulkReportControls.abuseChip.sendingLabel">
+  <source>Marking as abuse…</source>
+  <note from="lit-localize">Chip label shown when sending the report.</note>
+</trans-unit>
+<trans-unit id="bulkReportControls.offTopicChip.successLabel">
+  <source>Marked as off-topic</source>
+  <note from="lit-localize">Chip label shown when the report succeeded.</note>
+</trans-unit>
+<trans-unit id="bulkReportControls.abuseChip.successLabel">
+  <source>Marked as abuse</source>
+  <note from="lit-localize">Chip label shown when the report succeeded.</note>
+</trans-unit>
+<trans-unit id="bulkReportControls.offTopicChip.defaultLabel">
+  <source>Mark as off-topic</source>
+  <note from="lit-localize">Chip shown to report a reply in a thread.</note>
+</trans-unit>
+<trans-unit id="bulkReportControls.abuseChip.defaultLabel">
+  <source>Mark as abuse</source>
+  <note from="lit-localize">Chip shown to report a reply in a thread.</note>
+</trans-unit>
+<trans-unit id="h9a0810c202cacc55">
+  <source>
+              One or more features have been disabled remotely for everyone.
+              <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>
+                Learn why in our discussion group.
+              <x id="1" equiv-text="&lt;/a&gt;&#10;            "/></source>
+  <note from="lit-localize">Content of the banner which lets users know that a feature was remotely disabled in the options page.</note>
+</trans-unit>
+<trans-unit id="components.additionalDetailsPicker.detailNotSelected">
+  <source>Not selected</source>
+  <note from="lit-localize">Default option which lets the user not select any option in a thread detail select, inside the additional details picker.</note>
+</trans-unit>
+<trans-unit id="sb6bc2f903f58c1e7">
+  <source>Shows avatars of participants next to each thread.</source>
+  <note from="lit-localize">Description of the "Avatars" feature.</note>
+</trans-unit>
+<trans-unit id="s94477c001fc4600a">
+  <source>Blocks saving drafts of your replies as you type to Google servers in the Community Console.</source>
+  <note from="lit-localize">Description of the "Block saving drafts" feature.</note>
+</trans-unit>
+<trans-unit id="sf11e849c4f7e174d">
+  <source>Adds a button to lock all selected threads at once.</source>
+  <note from="lit-localize">Description of the "Bulk lock" feature.</note>
+</trans-unit>
+<trans-unit id="sbccd6eedc254fbc7">
+  <source>Adds a button to move all selected threads at once.</source>
+  <note from="lit-localize">Description of the "Bulk move" feature.</note>
+</trans-unit>
+<trans-unit id="s9347ba024909ae4e">
+  <source>Forces showing the new or old thread page design.</source>
+  <note from="lit-localize">Description of the "Change thread page design" feature.</note>
+</trans-unit>
+<trans-unit id="s7242cc88574abf53">
+  <source>Reduce the whitespace in the UI.</source>
+  <note from="lit-localize">Description of the "Compact mode" feature.</note>
+</trans-unit>
+<trans-unit id="sc6c94bb8a8efddf1">
+  <source>Enables choosing between a custom-built dark theme and the vanilla light theme in the Community Console.</source>
+  <note from="lit-localize">Description of the "Dark theme" feature.</note>
+</trans-unit>
+<trans-unit id="s942248eeba34045f">
+  <source>Allows to drag and drop links to the text editor while preserving the link text.</source>
+  <note from="lit-localize">Description of the "Fix drag and dropping links" feature.</note>
+</trans-unit>
+<trans-unit id="s4c92f48e04b9ef0e">
+  <source>Patches the bug that incorrectly opens the link dialog multiple times when adding or editing a link.</source>
+  <note from="lit-localize">Description of the "Fix link dialog" feature.</note>
+</trans-unit>
+<trans-unit id="sb43c89f7dbcda0eb">
+  <source>Shows a toggle which lets you disable nested view to display the replies flattened.</source>
+  <note from="lit-localize">Description of the "Flatten replies" feature.</note>
+</trans-unit>
+<trans-unit id="sc94b61f0d59d93fa">
+  <source>Hides the sidebar when opening the Community Console.</source>
+  <note from="lit-localize">Description of the "Hide sidebar by default" feature.</note>
+</trans-unit>
+<trans-unit id="se1b156e30d3f6827">
+  <source>Shows more prominently the dot that appears in the Community Console when Googlers publish a new announcement.</source>
+  <note from="lit-localize">Description of the "Highlight announcements notification dot" feature.</note>
+</trans-unit>
+<trans-unit id="s6ce91fd240036df3">
+  <source>Increases contrast between the background of read and unread threads.</source>
+  <note from="lit-localize">Description of the "Increase contrast" feature.</note>
+</trans-unit>
+<trans-unit id="sf79eb8af612719a2">
+  <source>Automatically loads more threads when scrolling down.</source>
+  <note from="lit-localize">Description of the "Infinite Scroll" feature in thread lists.</note>
+</trans-unit>
+<trans-unit id="sd328bf8e2e2f6119">
+  <source>Automatically loads more replies when scrolling down.</source>
+  <note from="lit-localize">Description of the "Infinite Scroll" feature in threads.</note>
+</trans-unit>
+<trans-unit id="sb7ef17ca1ed43552">
+  <source>Prevents inline images in messages from being taller than the current window.</source>
+  <note from="lit-localize">Description of the "Limit image size" feature.</note>
+</trans-unit>
+<trans-unit id="hd6ef3603ca3544c3">
+  <source>
+      Enables the
+      <x id="0" equiv-text="&lt;code&gt;"/>enableLoadingDraftMessages<x id="1" equiv-text="&lt;/code&gt;"/>
+      Community Console flag, which enables recovering an existing draft saved
+      in the Google servers when you start a new reply.
+    </source>
+  <note from="lit-localize">Description of the "Load draft messages when replying" feature.</note>
+</trans-unit>
+<trans-unit id="s7d9104ef3d3b4273">
+  <source>Shows a non-intrusive notification when a thread list has new updates.</source>
+  <note from="lit-localize">Description of the "Notify updates" feature.</note>
+</trans-unit>
+<trans-unit id="s186c89b0df27cf80">
+  <source>Shows a badge next to the OP's username with the number of messages posted by them.</source>
+  <note from="lit-localize">Description of the "OP messages count" feature.</note>
+</trans-unit>
+<trans-unit id="s56f5d6f9019b5601">
+  <source>Shows a per-forum activity chart in profiles.</source>
+  <note from="lit-localize">Description of the "Per-forum activity" feature.</note>
+</trans-unit>
+<trans-unit id="s5c8548c650ea28ac">
+  <source>Places the "expand thread" button all the way to the left.</source>
+  <note from="lit-localize">Description of the "Place expand button in the left" feature.</note>
+</trans-unit>
+<trans-unit id="sec94d5c0e05e4c7a">
+  <source>Shows a "previous posts" link in user profiles.</source>
+  <note from="lit-localize">Description of the "Previous posts" feature.</note>
+</trans-unit>
+<trans-unit id="sa244dcf39d9d765a">
+  <source>Redirects all threads opened in Tailwind Basic to the Community Console.</source>
+  <note from="lit-localize">Description of the "Redirect to the Community Console" feature.</note>
+</trans-unit>
+<trans-unit id="s75e5d910d8a301be">
+  <source>Adds quick report buttons to all replies, so you can report each one with a single click.</source>
+  <note from="lit-localize">Description of the "Report replies quickly" feature.</note>
+</trans-unit>
+<trans-unit id="s3c671990138ef1d5">
+  <source>Makes the toolbar not disappear when scrolling down.</source>
+  <note from="lit-localize">Description of the "Sticky bulk actions toolbar" feature.</note>
+</trans-unit>
+<trans-unit id="s62398db1c3d787c0">
+  <source>Makes the headers of the collapsible sections in the sidebar sticky so they don't disappear when scrolling down.</source>
+  <note from="lit-localize">Description of the "Sticky sidebar headers" feature.</note>
+</trans-unit>
+<trans-unit id="h484816adcf825576">
+  <source>
+        These features only affect the Community Console's old message composer,
+        which is shown when creating a new thread or canned response, when
+        pressing
+        <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/>
+        inside a thread, or when creating a new reply in the old thread view.
+        The new message composer doesn't suffer from these issues.
+      </source>
+  <note from="lit-localize">Explanatory note for the features that relate to the old reply editor in the Community Console.</note>
+</trans-unit>
+<trans-unit id="sc3d18c5d40ce8aa0">
+  <source>Close menu with feature categories</source>
+  <note from="lit-localize">Label for the button that closes the list of feature categories in the options page.</note>
+</trans-unit>
+<trans-unit id="s1d76b4fc9e0c9f06">
+  <source>Open menu with feature categories</source>
+  <note from="lit-localize">Label for the button that opens the list of feature categories in the options page.</note>
+</trans-unit>
+<trans-unit id="sd8c7f380694a123e">
+  <source>Enable "<x id="0" equiv-text="${this.feature.name}"/>" feature</source>
+  <note from="lit-localize">Label for the checkbox that lets a user enable a specific feature in the options page (ex: 'Enable "Dark theme" feature')</note>
+</trans-unit>
+<trans-unit id="components.forumPicker.communityForum">
+  <source>Community Forum</source>
+  <note from="lit-localize">Label for the forum select in the forum picker.</note>
+</trans-unit>
+<trans-unit id="components.forumPicker.language">
+  <source>Language</source>
+  <note from="lit-localize">Label for the language select in the forum picker.</note>
+</trans-unit>
+<trans-unit id="secf1350a6da28533">
+  <source>Experiments</source>
+  <note from="lit-localize">Label for the link to the experiments page.</note>
+</trans-unit>
+<trans-unit id="s0a9a5319eed5087a">
+  <source>Help translate the extension</source>
+  <note from="lit-localize">Label for the link to Weblate.</note>
+</trans-unit>
+<trans-unit id="sd13e01f2878f6e80">
+  <source>List of feature categories</source>
+  <note from="lit-localize">Label for the sidebar of the options page that lets the user select which category to be shown.</note>
+</trans-unit>
+<trans-unit id="s98a0ccd6f423421f">
+  <source>Nested view</source>
+  <note from="lit-localize">Label for the switch which lets users enable/disable the nested view in a thread.</note>
+</trans-unit>
+<trans-unit id="components.additionalDetailsPicker.category">
+  <source>Category</source>
+  <note from="lit-localize">Label for the thread category select in the additional details picker.</note>
+</trans-unit>
+<trans-unit id="s0f92c01a67197f53">
+  <source>The TW Power Tools extension has been installed. Please reload this page so that it is activated.</source>
+  <note from="lit-localize">Message shown as a banner when the extension has been installed, to let the user know that they should reload the page.</note>
+</trans-unit>
+<trans-unit id="sb2c523c904424868">
+  <source>The TW Power Tools extension has been updated. Please reload this page so that it continues to work properly.</source>
+  <note from="lit-localize">Message shown as a banner when the extension has been updated, to let the user know that they should reload the page.</note>
+</trans-unit>
+<trans-unit id="s9f87b689a748b55a">
+  <source>Bulk actions</source>
+  <note from="lit-localize">Name of a generic section of features that let users perform actions to many threads at once.</note>
+</trans-unit>
+<trans-unit id="s275ffb8ac7b2973f">
+  <source>Minor UI enhancements</source>
+  <note from="lit-localize">Name of a generic section of features, which includes features that minimally enhance the user interface of the forums platform.</note>
+</trans-unit>
+<trans-unit id="saab875d8cfcfe712">
+  <source>Theme</source>
+  <note from="lit-localize">Name of a suboption of the "Dark theme" feature.</note>
+</trans-unit>
+<trans-unit id="s3ac6d6bc5baddf30">
+  <source>Dark theme</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s1c6025c89f081afd">
+  <source>Redirect to the Community Console</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s56972a20e50faa59">
+  <source>Compact mode</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s45c4dfb19d1893dc">
+  <source>Sticky sidebar headers</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s3faaa7838e5c3fbf">
+  <source>Hide sidebar by default</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s5620911a370a2355">
+  <source>Highlight announcements notification dot</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="sb8e4edaea6f1d935">
+  <source>Avatars</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s077f1115c8cb6492">
+  <source>Notify updates</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="sef7cb1d8a92135c6">
+  <source>Infinite scroll</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="sc8cd255eb973bbe0">
+  <source>Bulk lock</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="sf53f535371b485ce">
+  <source>Bulk move</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s68ec92f1167241ee">
+  <source>Sticky bulk actions toolbar</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="scfffb3f9d0ff36f5">
+  <source>Place expand button in the left</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s832d9d09497d5821">
+  <source>Increase contrast</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s5f5f4dde977a84f1">
+  <source>Flatten replies</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s95c6b373633d4a2f">
+  <source>Report replies quickly</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s07dcf88dcc1d021d">
+  <source>OP messages count</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s2e3ae8ef1d0d3d34">
+  <source>Change thread page design</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="sfc204caf671903ba">
+  <source>Limit image size</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s1f5af7657c1fb644">
+  <source>Block saving drafts</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s30d762b6c0d27066">
+  <source>Load draft messages when replying</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s7d7a69fc2d6e11cd">
+  <source>Fix drag and dropping links</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s5b315a07b3168a91">
+  <source>Per-forum activity</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="sac84048ce43a8813">
+  <source>Previous posts</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="sa5ebc8ee802beea8">
+  <source>Fix link dialog</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="s30ae03472b93dc47">
+  <source>Profiles</source>
+  <note from="lit-localize">Name of the category of extension features related to profiles.</note>
+</trans-unit>
+<trans-unit id="scec7442ea759dba6">
+  <source>Message composer</source>
+  <note from="lit-localize">Name of the category of extension features related to the message composer.</note>
+</trans-unit>
+<trans-unit id="s55cec32fb241f2f5">
+  <source>Old message composer</source>
+  <note from="lit-localize">Name of the category of extension features related to the old message composer.</note>
+</trans-unit>
+<trans-unit id="s6163ba50e1af9788">
+  <source>Thread lists</source>
+  <note from="lit-localize">Name of the category of extension features related to thread lists.</note>
+</trans-unit>
+<trans-unit id="s8b60bf2db1580306">
+  <source>Threads</source>
+  <note from="lit-localize">Name of the category of extension features related to threads.</note>
+</trans-unit>
+<trans-unit id="sc3ac225273c8316b">
+  <source>General</source>
+  <note from="lit-localize">Name of the category of extension features that apply to multiple areas of the forums platform.</note>
+</trans-unit>
+<trans-unit id="s7632fc9aa12bf382">
+  <source>Months</source>
+  <note from="lit-localize">Name of the suboption which lets you choose the number of months to show in the OP messages count badge.</note>
+</trans-unit>
+<trans-unit id="s3dd06b20bd5b28c4">
+  <source>The Community Console already has this feature built-in without the need of the extension.</source>
+  <note from="lit-localize">Note for the "Infinite scroll" feature for thread lists.</note>
+</trans-unit>
+<trans-unit id="hc6a96bb38b498270">
+  <source>
+      <x id="0" equiv-text="&lt;i&gt;${automaticOptionLabel}"/>:<x id="1" equiv-text="&lt;/i&gt;"/>
+      will use the theme defined in the system settings.
+      <x id="2" equiv-text="&lt;br&gt;&#10;      &lt;i&gt;${manualOptionLabel}"/>:<x id="3" equiv-text="&lt;/i&gt;"/>
+      will add a button to the Community Console that lets you switch the theme.
+    </source>
+  <note from="lit-localize">Note for the "Theme" feature.</note>
+</trans-unit>
+<trans-unit id="s9a0167b14ce5b9b1">
+  <source>Bulk report replies</source>
+  <note from="lit-localize">Option shown in the settings menu of the thread toolbar which enables the "bulk report replies" feature.</note>
+</trans-unit>
+<trans-unit id="s5534d887d865e194">
+  <source>Old design</source>
+  <note from="lit-localize">Selectable option for the "Design to show" suboption of the "Change thread page design" feature.</note>
+</trans-unit>
+<trans-unit id="sb7caaf7e7ac078b1">
+  <source>New design</source>
+  <note from="lit-localize">Selectable option for the "Design to show" suboption of the "Change thread page design" feature.</note>
+</trans-unit>
+<trans-unit id="sd200028b9f6015e4">
+  <source>Automatic</source>
+  <note from="lit-localize">Selectable option for the "Theme" suboption of the "Dark theme" feature.</note>
+</trans-unit>
+<trans-unit id="s956c5a9fb7ee0b23">
+  <source>Manual</source>
+  <note from="lit-localize">Selectable option for the "Theme" suboption of the "Dark theme" feature.</note>
+</trans-unit>
+<trans-unit id="bulkMove.progressDialog.status.error">
+  <source>Error</source>
+  <note from="lit-localize">Status of a thread which has been attempted to move, but failed.</note>
+</trans-unit>
+<trans-unit id="bulkMove.progressDialog.status.success">
+  <source>Success</source>
+  <note from="lit-localize">Status of a thread which has been moved successfully.</note>
+</trans-unit>
+<trans-unit id="bulkMove.progressDialog.status.loading">
+  <source>Loading</source>
+  <note from="lit-localize">Status of a thread which is in the process of being moved.</note>
+</trans-unit>
+<trans-unit id="bulkMove.progressDialog.status.waiting">
+  <source>Waiting</source>
+  <note from="lit-localize">Status of a thread which is waiting to be moved.</note>
+</trans-unit>
+<trans-unit id="se9b6b34d60e86c7d">
+  <source>Design to show</source>
+  <note from="lit-localize">Suboption for the "Change thread page design" feature.</note>
+</trans-unit>
+<trans-unit id="s164a95895c17e807">
+  <source>Tailwind Basic</source>
+  <note from="lit-localize">Tag shown in the options page for features that work in Tailwind Basic.</note>
+</trans-unit>
+<trans-unit id="s11978a20450b4dd3">
+  <source>Community Console</source>
+  <note from="lit-localize">Tag shown in the options page for features that work in the Community Console.</note>
+</trans-unit>
+<trans-unit id="s457d59d649765619">
+  <source>Skip to main content</source>
+  <note from="lit-localize">Text for the button that lets users skip directly to the main content in a page.</note>
+</trans-unit>
+<trans-unit id="bulkMove.dialog.cancel">
+  <source>Cancel</source>
+  <note from="lit-localize">Text of the button in the bulk move threads dialog to close and reset the modal.</note>
+</trans-unit>
+<trans-unit id="bulkMove.progressDialog.close">
+  <source>Close</source>
+  <note from="lit-localize">Text of the button in the bulk move threads dialog which closes the dialog.</note>
+</trans-unit>
+<trans-unit id="bulkMove.dialog.move">
+  <source>Move</source>
+  <note from="lit-localize">Text of the button in the bulk move threads dialog which will perform the action.</note>
+</trans-unit>
+<trans-unit id="s9c0adc97ce1e614c">
+  <source>(Alt + R)</source>
+  <note from="lit-localize">Text shown below the "bulk report replies" toggle, to let the user know that they can use this keyboard shortcut to toggle it.</note>
+</trans-unit>
+<trans-unit id="s23d50c510d921290">
+  <source>(⌥ + R)</source>
+  <note from="lit-localize">Text shown to Mac users below the "bulk report replies" toggle, to let them know that they can use this keyboard shortcut to toggle it.</note>
+</trans-unit>
+<trans-unit id="h74e97b4e6e3628b4">
+  <source>
+            This feature has been disabled remotely for everyone.
+            <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>
+              Learn why.
+            <x id="1" equiv-text="&lt;/a&gt;&#10;          "/></source>
+  <note from="lit-localize">Text that appears in a feature card in the options page when the feature has been disabled remotely (i.e., the feature kill switch is active).</note>
+</trans-unit>
+<trans-unit id="sd51b2f371fbec9c6">
+  <source>TW Power Tools</source>
+  <note from="lit-localize">The extension name.</note>
+</trans-unit>
+<trans-unit id="s4159a5f1849a41c3">
+  <source>Kill switch active</source>
+  <note from="lit-localize">Title of the banner which lets users know that a feature was remotely disabled in the options page.</note>
+</trans-unit>
+<trans-unit id="bulkMove.dialogsTitle">
+  <source>Move threads</source>
+  <note from="lit-localize">Title of the bulk move threads dialogs.</note>
+</trans-unit>
+<trans-unit id="components.forumDestinationPicker.destinationForum">
+  <source>Destination forum</source>
+  <note from="lit-localize">Title of the section in the forum destination picker which contains the destination forum and language selects.</note>
+</trans-unit>
+<trans-unit id="components.forumDestinationPicker.additionalDetails">
+  <source>Additional details</source>
+  <note from="lit-localize">Title of the section in the forum destination picker with the category/details selects.</note>
+</trans-unit>
+</body>
+</file>
+</xliff>
