@@ -1,5 +1,8 @@
 load("@aspect_bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
+load("@aspect_bazel_lib//lib:write_source_files.bzl", "write_source_files")
+load("@npm//:@lit/localize-tools/package_json.bzl", lit_localize_bin = "bin")
 load(":defs.bzl", "lit_localize")
+load(":target_locales.bzl", "get_interchange_file_path", "get_interchange_files_list", "target_locales")
 
 copy_to_bin(
     name = "interchange_files",
@@ -8,6 +11,7 @@ copy_to_bin(
 )
 
 # Source code that uses msg() to localize strings.
+# TODO(https://iavm.xyz/b/twpowertools/255): Change to consume just the required modules.
 filegroup(
     name = "localized_code",
     srcs = [
@@ -22,4 +26,56 @@ lit_localize(
         "//:__pkg__",
         "//src:__subpackages__",
     ],
+)
+
+lit_localize(
+    name = "source_golden_files",
+    operation = "extract",
+)
+
+write_source_files(
+    name = "extract",
+    diff_test = True,
+    diff_test_failure_message = """
+
+The lit-localize interchange XLIFF files are not up to date with
+the messages in the source code.
+
+To fix this, update this and other interchange files by running:
+
+    bazel run {{SUGGESTED_UPDATE_TARGET}}
+
+To update *only* the file that needs updating, run:
+
+    bazel run {{TARGET}}
+
+""",
+    file_missing_failure_message = """
+
+One or more new languages have been added to lit-localize's targetLocales
+but their corresponding interchange XLIFF files don't exist.
+
+To fix this, generate this and other missing files by running:
+
+    bazel run {{SUGGESTED_UPDATE_TARGET}}
+
+To generate *only* the file that needs creation, run:
+
+    bazel run {{TARGET}}
+
+""",
+    files = {
+        get_interchange_file_path(
+            locale,
+            directory = "source",
+        ): get_interchange_file_path(
+            locale,
+            directory = "source_golden",
+        )
+        for locale in target_locales
+    },
+)
+
+lit_localize_bin.lit_localize_binary(
+    name = "lit_localize",
 )
