@@ -1,3 +1,4 @@
+load("//tools:bazel/swc.bzl", "swc_pkg")
 load("//tools:common_ts_project.bzl", "common_ts_project")
 
 common_ts_project(
@@ -5,7 +6,7 @@ common_ts_project(
     allow_js = True,
     declaration = True,
     source_map = True,
-    transpiler = "tsc",
+    transpiler = swc_pkg,
     tsconfig = "//:tsconfig_pkg",
     # This is a legacy package (read ../README.md), so we're making it visible
     # everywhere.

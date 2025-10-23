@@ -1,4 +1,5 @@
 load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
+load("//tools:bazel/swc.bzl", "swc_pkg")
 
 def common_js_project(name, srcs = None, **kwargs):
     ts_project(
@@ -18,7 +19,7 @@ def common_js_project(name, srcs = None, **kwargs):
         declaration = True,
         emit_declaration_only = True,
         source_map = True,
-        transpiler = "tsc",
+        transpiler = swc_pkg,
         tsconfig = "//:tsconfig_pkg_js",
         **kwargs
     )

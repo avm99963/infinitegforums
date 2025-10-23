@@ -1,15 +1,21 @@
+load("@aspect_bazel_lib//lib:testing.bzl", "assert_json_matches")
 load("@aspect_rules_ts//ts:defs.bzl", "ts_config", "ts_project")
 load("@fremtind_rules_vitest//vitest:defs.bzl", "vitest_test")
 load("@npm//:defs.bzl", "npm_link_all_packages")
 load("@npm//:renovate/package_json.bzl", renovate_bin = "bin")
 load("@npm//:web-ext/package_json.bzl", web_ext_bin = "bin")
 load("@rules_pkg//pkg/private/zip:zip.bzl", "pkg_zip")
+load("//tools:bazel/swc.bzl", "swc_pkg")
 load("bundle.bzl", "extension_bundle")
 load("copy_pkg.bzl", "copy_extension_package_to_directory")
 load("defs.bzl", "browser", "channel")
 load("lit_localize.bzl", "expand_lit_localize_config_templates")
 
 npm_link_all_packages()
+
+exports_files([
+    ".swcrc_pkg",
+])
 
 extension_bundle(
     name = "webpack_bundle",
@@ -40,7 +46,7 @@ ts_project(
     srcs = ["vitest.config.ts"],
     allow_js = True,
     source_map = True,
-    transpiler = "tsc",
+    transpiler = swc_pkg,
     tsconfig = ":tsconfig",
     visibility = ["//:__subpackages__"],
     deps = [
@@ -169,4 +175,13 @@ ts_config(
     src = "tsconfig.pkg_js.json",
     visibility = ["//:__subpackages__"],
     deps = [":tsconfig"],
+)
+
+# See https://github.com/aspect-build/rules_swc/blob/f35b63d621f6ff7cd7ca194a1061f7cdd59af07e/docs/tsconfig.md#maintain-two-files
+assert_json_matches(
+    name = "ensure_swcrc_pkg_is_synced_test",
+    file1 = "tsconfig.pkg.json",
+    file2 = ".swcrc_pkg",
+    filter1 = ".compilerOptions.paths",
+    filter2 = ".jsc.paths",
 )

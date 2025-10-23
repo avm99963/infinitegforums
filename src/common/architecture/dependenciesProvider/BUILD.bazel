@@ -17,8 +17,7 @@ copy_to_bin(
 #    allow_js = True,
 #    declaration = True,
 #    source_map = True,
-#    transpiler = "tsc",
-#    tsconfig = "//:tsconfig_pkg",
+#    transpiler = swc_pkg,
 #    # Only entrypoint packages should use the dependencies provider, since the
 #    # only place where dependencies should be injected is the composition root,
 #    # which is located in the entrypoint. However, a lot of legacy code still
