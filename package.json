@@ -51,7 +51,7 @@
     "raw-loader": "4.0.2",
     "renovate": "41.158.0",
     "sass": "1.93.2",
-    "sass-loader": "16.0.5",
+    "sass-loader": "16.0.6",
     "style-loader": "4.0.0",
     "terser-webpack-plugin": "5.3.14",
     "ts-loader": "9.5.4",
