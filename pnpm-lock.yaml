@@ -117,8 +117,8 @@ importers:
         specifier: 4.0.2
         version: 4.0.2(webpack@5.102.1)
       renovate:
-        specifier: 41.160.1
-        version: 41.160.1(typanion@3.14.0)
+        specifier: 41.162.2
+        version: 41.162.2(typanion@3.14.0)
       sass:
         specifier: 1.93.2
         version: 1.93.2
@@ -9681,8 +9681,8 @@ packages:
       strip-ansi: 6.0.1
     dev: true
 
-  /renovate@41.160.1(typanion@3.14.0):
-    resolution: {integrity: sha512-t90h5WQPE3Eojf2j8y3CVB2y70+dpywOqbvmcoglj3wys8lM94Dg1KejHWzC41T9urcZe5pEH3MMAYwJBHGLEg==}
+  /renovate@41.162.2(typanion@3.14.0):
+    resolution: {integrity: sha512-nRwCqCOo/kwSby8U09u2l3GOM/lopSqHLUNDhlcO38hcwPHpTCfSZ6U5pXGkKq+IhU0//wyoKcAdNfBJU6kCgQ==}
     engines: {node: ^22.13.0, pnpm: ^10.0.0}
     hasBin: true
     dependencies:
