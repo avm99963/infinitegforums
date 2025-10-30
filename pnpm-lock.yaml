@@ -117,8 +117,8 @@ importers:
         specifier: 4.0.2
         version: 4.0.2(webpack@5.102.1)
       renovate:
-        specifier: 41.165.4
-        version: 41.165.4(typanion@3.14.0)
+        specifier: 41.165.5
+        version: 41.165.5(typanion@3.14.0)
       sass:
         specifier: 1.93.2
         version: 1.93.2
@@ -3003,47 +3003,47 @@ packages:
       '@babel/runtime-corejs3': 7.28.4
     dev: true
 
-  /@redis/bloom@5.8.3(@redis/client@5.8.3):
-    resolution: {integrity: sha512-1eldTzHvdW3Oi0TReb8m1yiFt8ZwyF6rv1NpZyG5R4TpCwuAdKQetBKoCw7D96tNFgsVVd6eL+NaGZZCqhRg4g==}
+  /@redis/bloom@5.9.0(@redis/client@5.9.0):
+    resolution: {integrity: sha512-W9D8yfKTWl4tP8lkC3MRYkMz4OfbuzE/W8iObe0jFgoRmgMfkBV+Vj38gvIqZPImtY0WB34YZkX3amYuQebvRQ==}
     engines: {node: '>= 18'}
     peerDependencies:
-      '@redis/client': ^5.8.3
+      '@redis/client': ^5.9.0
     dependencies:
-      '@redis/client': 5.8.3
+      '@redis/client': 5.9.0
     dev: true
 
-  /@redis/client@5.8.3:
-    resolution: {integrity: sha512-MZVUE+l7LmMIYlIjubPosruJ9ltSLGFmJqsXApTqPLyHLjsJUSAbAJb/A3N34fEqean4ddiDkdWzNu4ZKPvRUg==}
+  /@redis/client@5.9.0:
+    resolution: {integrity: sha512-EI0Ti5pojD2p7TmcS7RRa+AJVahdQvP/urpcSbK/K9Rlk6+dwMJTQ354pCNGCwfke8x4yKr5+iH85wcERSkwLQ==}
     engines: {node: '>= 18'}
     dependencies:
       cluster-key-slot: 1.1.2
     dev: true
 
-  /@redis/json@5.8.3(@redis/client@5.8.3):
-    resolution: {integrity: sha512-DRR09fy/u8gynHGJ4gzXYeM7D8nlS6EMv5o+h20ndTJiAc7RGR01fdk2FNjnn1Nz5PjgGGownF+s72bYG4nZKQ==}
+  /@redis/json@5.9.0(@redis/client@5.9.0):
+    resolution: {integrity: sha512-Bm2jjLYaXdUWPb9RaEywxnjmzw7dWKDZI4MS79mTWPV16R982jVWBj6lY2ZGelJbwxHtEVg4/FSVgYDkuO/MxA==}
     engines: {node: '>= 18'}
     peerDependencies:
-      '@redis/client': ^5.8.3
+      '@redis/client': ^5.9.0
     dependencies:
-      '@redis/client': 5.8.3
+      '@redis/client': 5.9.0
     dev: true
 
-  /@redis/search@5.8.3(@redis/client@5.8.3):
-    resolution: {integrity: sha512-EMIvEeGRR2I0BJEz4PV88DyCuPmMT1rDtznlsHY3cKSDcc9vj0Q411jUnX0iU2vVowUgWn/cpySKjpXdZ8m+5g==}
+  /@redis/search@5.9.0(@redis/client@5.9.0):
+    resolution: {integrity: sha512-jdk2csmJ29DlpvCIb2ySjix2co14/0iwIT3C0I+7ZaToXgPbgBMB+zfEilSuncI2F9JcVxHki0YtLA0xX3VdpA==}
     engines: {node: '>= 18'}
     peerDependencies:
-      '@redis/client': ^5.8.3
+      '@redis/client': ^5.9.0
     dependencies:
-      '@redis/client': 5.8.3
+      '@redis/client': 5.9.0
     dev: true
 
-  /@redis/time-series@5.8.3(@redis/client@5.8.3):
-    resolution: {integrity: sha512-5Jwy3ilsUYQjzpE7WZ1lEeG1RkqQ5kHtwV1p8yxXHSEmyUbC/T/AVgyjMcm52Olj/Ov/mhDKjx6ndYUi14bXsw==}
+  /@redis/time-series@5.9.0(@redis/client@5.9.0):
+    resolution: {integrity: sha512-W6ILxcyOqhnI7ELKjJXOktIg3w4+aBHugDbVpgVLPZ+YDjObis1M0v7ZzwlpXhlpwsfePfipeSK+KWNuymk52w==}
     engines: {node: '>= 18'}
     peerDependencies:
-      '@redis/client': ^5.8.3
+      '@redis/client': ^5.9.0
     dependencies:
-      '@redis/client': 5.8.3
+      '@redis/client': 5.9.0
     dev: true
 
   /@renovatebot/detect-tools@1.2.4:
@@ -9634,15 +9634,15 @@ packages:
       strip-indent: 3.0.0
     dev: true
 
-  /redis@5.8.3:
-    resolution: {integrity: sha512-MfSrfV6+tEfTw8c4W0yFp6XWX8Il4laGU7Bx4kvW4uiYM1AuZ3KGqEGt1LdQHeD1nEyLpIWetZ/SpY3kkbgrYw==}
+  /redis@5.9.0:
+    resolution: {integrity: sha512-E8dQVLSyH6UE/C9darFuwq4usOPrqfZ1864kI4RFbr5Oj9ioB9qPF0oJMwX7s8mf6sPYrz84x/Dx1PGF3/0EaQ==}
     engines: {node: '>= 18'}
     dependencies:
-      '@redis/bloom': 5.8.3(@redis/client@5.8.3)
-      '@redis/client': 5.8.3
-      '@redis/json': 5.8.3(@redis/client@5.8.3)
-      '@redis/search': 5.8.3(@redis/client@5.8.3)
-      '@redis/time-series': 5.8.3(@redis/client@5.8.3)
+      '@redis/bloom': 5.9.0(@redis/client@5.9.0)
+      '@redis/client': 5.9.0
+      '@redis/json': 5.9.0(@redis/client@5.9.0)
+      '@redis/search': 5.9.0(@redis/client@5.9.0)
+      '@redis/time-series': 5.9.0(@redis/client@5.9.0)
     dev: true
 
   /registry-auth-token@5.1.0:
@@ -9728,8 +9728,8 @@ packages:
       strip-ansi: 6.0.1
     dev: true
 
-  /renovate@41.165.4(typanion@3.14.0):
-    resolution: {integrity: sha512-8/7MLmsjvma5Jcy7bjoS84ey7418cfh8ftFw4kYrLzXsWJQX/HKRg361eAPa+/JkuxwMqXsHDVw6IbMkm61UTA==}
+  /renovate@41.165.5(typanion@3.14.0):
+    resolution: {integrity: sha512-ieHG7Z1qteG/tYXcnPrh/oSA6B84MxotAABYH8XenQrR59h+Zm8ZVbK9a8dgMuPjUk8BY5mpvYpk/BDHgMgIJw==}
     engines: {node: ^22.13.0 || ^24.10.0, pnpm: ^10.0.0}
     hasBin: true
     dependencies:
@@ -9829,7 +9829,7 @@ packages:
       prettier: 3.6.2
       protobufjs: 7.5.4
       punycode: 2.3.1
-      redis: 5.8.3
+      redis: 5.9.0
       remark: 15.0.1
       remark-gfm: 4.0.1
       remark-github: 12.0.0
