@@ -120,11 +120,11 @@ importers:
         specifier: 41.167.2
         version: 41.167.2(typanion@3.14.0)
       sass:
-        specifier: 1.93.2
-        version: 1.93.2
+        specifier: 1.93.3
+        version: 1.93.3
       sass-loader:
         specifier: 16.0.6
-        version: 16.0.6(sass@1.93.2)(webpack@5.102.1)
+        version: 16.0.6(sass@1.93.3)(webpack@5.102.1)
       style-loader:
         specifier: 4.0.0
         version: 4.0.0(webpack@5.102.1)
@@ -142,7 +142,7 @@ importers:
         version: 8.46.2(eslint@9.38.0)(typescript@5.9.3)
       vitest:
         specifier: 4.0.6
-        version: 4.0.6(@types/node@20.19.23)(jsdom@27.1.0)(sass@1.93.2)
+        version: 4.0.6(@types/node@20.19.23)(jsdom@27.1.0)(sass@1.93.3)
       web-ext:
         specifier: 9.1.0
         version: 9.1.0
@@ -4289,7 +4289,7 @@ packages:
       istanbul-reports: 3.2.0
       magicast: 0.3.5
       tinyrainbow: 3.0.3
-      vitest: 4.0.6(@types/node@20.19.23)(jsdom@27.1.0)(sass@1.93.2)
+      vitest: 4.0.6(@types/node@20.19.23)(jsdom@27.1.0)(sass@1.93.3)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4314,7 +4314,7 @@ packages:
       magicast: 0.3.5
       std-env: 3.9.0
       tinyrainbow: 3.0.3
-      vitest: 4.0.6(@types/node@20.19.23)(jsdom@27.1.0)(sass@1.93.2)
+      vitest: 4.0.6(@types/node@20.19.23)(jsdom@27.1.0)(sass@1.93.3)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4336,7 +4336,7 @@ packages:
       '@typescript-eslint/utils': 8.46.2(eslint@9.38.0)(typescript@5.9.3)
       eslint: 9.38.0
       typescript: 5.9.3
-      vitest: 4.0.6(@types/node@20.19.23)(jsdom@27.1.0)(sass@1.93.2)
+      vitest: 4.0.6(@types/node@20.19.23)(jsdom@27.1.0)(sass@1.93.3)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4366,7 +4366,7 @@ packages:
       '@vitest/spy': 4.0.6
       estree-walker: 3.0.3
       magic-string: 0.30.19
-      vite: 7.1.7(@types/node@20.19.23)(sass@1.93.2)
+      vite: 7.1.7(@types/node@20.19.23)(sass@1.93.3)
     dev: true
 
   /@vitest/pretty-format@4.0.6:
@@ -10037,7 +10037,7 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: true
 
-  /sass-loader@16.0.6(sass@1.93.2)(webpack@5.102.1):
+  /sass-loader@16.0.6(sass@1.93.3)(webpack@5.102.1):
     resolution: {integrity: sha512-sglGzId5gmlfxNs4gK2U3h7HlVRfx278YK6Ono5lwzuvi1jxig80YiuHkaDBVsYIKFhx8wN7XSCI0M2IDS/3qA==}
     engines: {node: '>= 18.12.0'}
     peerDependencies:
@@ -10059,12 +10059,12 @@ packages:
         optional: true
     dependencies:
       neo-async: 2.6.2
-      sass: 1.93.2
+      sass: 1.93.3
       webpack: 5.102.1(webpack-cli@6.0.1)
     dev: true
 
-  /sass@1.93.2:
-    resolution: {integrity: sha512-t+YPtOQHpGW1QWsh1CHQ5cPIr9lbbGZLZnbihP/D/qZj/yuV68m8qarcV17nvkOX81BCrvzAlq2klCQFZghyTg==}
+  /sass@1.93.3:
+    resolution: {integrity: sha512-elOcIZRTM76dvxNAjqYrucTSI0teAF/L2Lv0s6f6b7FOwcwIuA357bIE871580AjHJuSvLIRUosgV+lIWx6Rgg==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
@@ -11138,7 +11138,7 @@ packages:
       vfile-message: 4.0.3
     dev: true
 
-  /vite@7.1.7(@types/node@20.19.23)(sass@1.93.2):
+  /vite@7.1.7(@types/node@20.19.23)(sass@1.93.3):
     resolution: {integrity: sha512-VbA8ScMvAISJNJVbRDTJdCwqQoAareR/wutevKanhR2/1EkoXVZVkkORaYm/tNVCjP/UDTKtcw3bAkwOUdedmA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
@@ -11184,13 +11184,13 @@ packages:
       picomatch: 4.0.3
       postcss: 8.5.6
       rollup: 4.52.2
-      sass: 1.93.2
+      sass: 1.93.3
       tinyglobby: 0.2.15
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
 
-  /vitest@4.0.6(@types/node@20.19.23)(jsdom@27.1.0)(sass@1.93.2):
+  /vitest@4.0.6(@types/node@20.19.23)(jsdom@27.1.0)(sass@1.93.3):
     resolution: {integrity: sha512-gR7INfiVRwnEOkCk47faros/9McCZMp5LM+OMNWGLaDBSvJxIzwjgNFufkuePBNaesGRnLmNfW+ddbUJRZn0nQ==}
     engines: {node: ^20.0.0 || ^22.0.0 || >=24.0.0}
     hasBin: true
@@ -11244,7 +11244,7 @@ packages:
       tinyexec: 0.3.2
       tinyglobby: 0.2.15
       tinyrainbow: 3.0.3
-      vite: 7.1.7(@types/node@20.19.23)(sass@1.93.2)
+      vite: 7.1.7(@types/node@20.19.23)(sass@1.93.3)
       why-is-node-running: 2.3.0
     transitivePeerDependencies:
       - jiti
