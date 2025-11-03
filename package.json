@@ -56,7 +56,7 @@
     "terser-webpack-plugin": "5.3.14",
     "ts-loader": "9.5.4",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.46.2",
+    "typescript-eslint": "8.46.3",
     "vitest": "4.0.6",
     "web-ext": "9.1.0",
     "webpack": "5.102.1",
