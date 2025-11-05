@@ -117,8 +117,8 @@ importers:
         specifier: 4.0.2
         version: 4.0.2(webpack@5.102.1)
       renovate:
-        specifier: 41.171.4
-        version: 41.171.4(typanion@3.14.0)
+        specifier: 41.171.5
+        version: 41.171.5(typanion@3.14.0)
       sass:
         specifier: 1.93.3
         version: 1.93.3
@@ -7359,9 +7359,9 @@ packages:
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dev: true
 
-  /ini@5.0.0:
-    resolution: {integrity: sha512-+N0ngpO3e7cRUWOJAS7qw0IZIVc6XPrW4MlFBdD066F2L4k1L6ker3hLqSq7iXxU5tgS4WGkIUElWn5vogAEnw==}
-    engines: {node: ^18.17.0 || >=20.5.0}
+  /ini@6.0.0:
+    resolution: {integrity: sha512-IBTdIkzZNOpqm7q3dRqJvMaldXjDHWkEDfrwGEQTs5eaQMWV+djAhR+wahyNNMAa+qpbDUhBMVt4ZKNwpPm7xQ==}
+    engines: {node: ^20.17.0 || >=22.9.0}
     dev: true
 
   /install-artifact-from-github@1.4.0:
@@ -9813,8 +9813,8 @@ packages:
       strip-ansi: 6.0.1
     dev: true
 
-  /renovate@41.171.4(typanion@3.14.0):
-    resolution: {integrity: sha512-AjrJzue7RKB7+UBCozZ2HD8jmAF1k42svjQmRq23R60VKi/EtkALp4C91z2Mxcs3ltDTvpTOxClcrh2FvlUQRg==}
+  /renovate@41.171.5(typanion@3.14.0):
+    resolution: {integrity: sha512-ek4rERXs5Fk2VWZAB/XKghBXzSL+S3DjDdm4jXZYTiccpeK3nNEcfz3rRXuWiDfMOO643mLkc1giMGWusX1NbA==}
     engines: {node: ^22.13.0 || ^24.10.0, pnpm: ^10.0.0}
     hasBin: true
     dependencies:
@@ -9890,7 +9890,7 @@ packages:
       graph-data-structure: 4.5.0
       handlebars: 4.7.8
       ignore: 7.0.5
-      ini: 5.0.0
+      ini: 6.0.0
       json-dup-key-validator: 1.0.3
       json-stringify-pretty-compact: 4.0.0
       json5: 2.2.3
@@ -9932,7 +9932,7 @@ packages:
       tslib: 2.8.1
       upath: 2.0.1
       url-join: 5.0.0
-      validate-npm-package-name: 6.0.2
+      validate-npm-package-name: 7.0.0
       xmldoc: 2.0.2
       yaml: 2.8.1
       zod: 3.25.76
@@ -11200,9 +11200,9 @@ packages:
       builtins: 5.1.0
     dev: true
 
-  /validate-npm-package-name@6.0.2:
-    resolution: {integrity: sha512-IUoow1YUtvoBBC06dXs8bR8B9vuA3aJfmQNKMoaPG/OFsPmoQvw8xh+6Ye25Gx9DQhoEom3Pcu9MKHerm/NpUQ==}
-    engines: {node: ^18.17.0 || >=20.5.0}
+  /validate-npm-package-name@7.0.0:
+    resolution: {integrity: sha512-bwVk/OK+Qu108aJcMAEiU4yavHUI7aN20TgZNBj9MR2iU1zPUl1Z1Otr7771ExfYTPTvfN8ZJ1pbr5Iklgt4xg==}
+    engines: {node: ^20.17.0 || >=22.9.0}
     dev: true
 
   /vfile-message@4.0.3:
