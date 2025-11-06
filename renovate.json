@@ -21,6 +21,15 @@
       "automerge": true,
       "automergeType": "pr",
       "autoApprove": true
+    },
+    {
+      "description": "Automerge all updates to renovate",
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["renovate"],
+      "matchUpdateTypes": ["major", "minor", "patch", "pin"],
+      "automerge": true,
+      "automergeType": "pr",
+      "autoApprove": true
     }
   ],
   "schedule": ["every weekend"],
