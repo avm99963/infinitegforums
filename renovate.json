@@ -21,14 +21,9 @@
       "automerge": true,
       "automergeType": "pr",
       "autoApprove": true
-    },
-    {
-      "description": "Only update @types/chrome and @types/node on weekends",
-      "matchDatasources": ["npm"],
-      "matchPackageNames": ["@types/chrome", "@types/node"],
-      "schedule": ["every weekend"]
     }
   ],
+  "schedule": ["every weekend"],
   "postUpgradeTasks": {
     "commands": ["bazel mod tidy", "bazel run //tools:preset.update"],
     "fileFilters": ["MODULE.bazel.lock", "tools/preset.bazelrc"],
