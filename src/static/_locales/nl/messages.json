@@ -1,0 +1,14 @@
+{
+    "appName": {
+        "message": "TW Power Tools"
+    },
+    "appNameBeta": {
+        "message": "TW Power Tools (beta)"
+    },
+    "appNameCanary": {
+        "message": "TW Power Tools (canary)"
+    },
+    "appNameGecko": {
+        "message": "TW Power Tools"
+    }
+}
