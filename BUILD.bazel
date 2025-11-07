@@ -52,6 +52,7 @@ ts_project(
 
 vitest_test(
     name = "test",
+    size = "medium",
     config = "vitest.config.js",
     data = [
         ":node_modules/@material/tooltip",
@@ -61,7 +62,6 @@ vitest_test(
         "//src:non_compiled_source",
         "//src/common/options",
     ],
-    size = "medium",
     node_modules = ":node_modules",
 )
 
@@ -130,13 +130,10 @@ web_ext_bin.web_ext_binary(
 )
 
 sh_test(
-    name = "maybe_web_ext_lint",
+    name = "web_ext_lint",
     size = "small",
     srcs = [":web_ext_lint.sh"],
-    args = ["$(location :web_ext)"] + select({
-        "//:should_web_ext_lint": [""],
-        "//conditions:default": ["DO_NOT_RUN"],
-    }),
+    args = ["$(location :web_ext)"],
     data = [
         ":unpacked_pkg",
         ":web_ext",
@@ -144,6 +141,10 @@ sh_test(
     env = {
         "NO_UPDATE_NOTIFIER": "true",
     },
+    target_compatible_with = select({
+        "//:should_web_ext_lint": [],
+        "//conditions:default": ["//tools/platforms:incompatible"],
+    }),
     deps = [
         "@rules_shell//shell/runfiles",
     ],

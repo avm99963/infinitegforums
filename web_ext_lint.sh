@@ -13,11 +13,4 @@ source "${RUNFILES_DIR:-/dev/null}/$f" 2>/dev/null || \
 # --- end runfiles.bash initialization v3 ---
 
 web_ext=$1
-
-if [[ ${2-} == "DO_NOT_RUN" ]]; then
-    echo 2>&1 "Skipping web-ext lint."
-    echo 2>&1 "It only runs when compilation_mode=\"opt\" and browser=\"gecko\"."
-    exit 0
-fi
-
 ${web_ext} lint --no-input --source-dir=$(rlocation _main/unpacked_pkg)

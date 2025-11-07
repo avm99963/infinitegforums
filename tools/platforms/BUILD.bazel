@@ -1,0 +1,13 @@
+# This lets us define incompatibility for specific targets.
+#
+# See https://bazel.build/extending/platforms#expressive-constraints for more
+# details.
+#
+# This definition is hosted in the platforms module, but we don't want to depend
+# on it just for this definition. Thus, we implement it here ad-hoc.
+constraint_setting(name = "incompatible_setting")
+
+constraint_value(
+    name = "incompatible",
+    constraint_setting = ":incompatible_setting",
+)
