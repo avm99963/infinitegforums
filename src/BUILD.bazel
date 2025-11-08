@@ -74,6 +74,7 @@ js_library(
     visibility = ["//:__pkg__"],
     deps = [
         # keep-sorted start
+        "//src/common/architecture/abortable",
         "//src/common/options",
         "//src/common/protojs",
         "//src/common/styles",

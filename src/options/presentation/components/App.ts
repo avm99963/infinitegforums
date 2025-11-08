@@ -10,7 +10,7 @@ import './NavDrawer';
 import './TopAppBar';
 import '../styles/styles.scss';
 import { OptionsConfiguration } from '../../../common/options/OptionsConfiguration';
-import { makeAbortable, PromiseAbortError } from '../../../common/abortable';
+import { makeAbortable, PromiseAbortError } from '../../../common/architecture/abortable';
 import { OptionChangedEvent } from '../events/events';
 import { optionCodenames } from '../../../common/options/optionsPrototype';
 import { FeatureCategory } from '../models/category';
