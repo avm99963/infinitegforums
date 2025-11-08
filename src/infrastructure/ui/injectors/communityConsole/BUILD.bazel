@@ -1,0 +1,39 @@
+load("@fremtind_rules_vitest//vitest:defs.bzl", "vitest_test")
+load("//tools:bazel/swc.bzl", "swc_pkg")
+load("//tools:common_ts_project.bzl", "common_ts_project")
+
+common_ts_project(
+    name = "communityConsole",
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = swc_pkg,
+    tsconfig = "//:tsconfig_pkg",
+    visibility = [
+        # TODO(https://iavm.xyz/b/twpowertools/256): Delete the following
+        # package from the list.
+        "//src:__pkg__",
+        "//src:entrypoint",
+    ],
+    deps = [
+        "//src/common",
+        "//src/contentScripts/communityConsole/utils",
+        "//src/ui/injectors",
+    ],
+)
+
+vitest_test(
+    name = "test",
+    config = "//:vitest.config.js",
+    data = [
+        "threadListAction.injector.adapter.test.ts",
+        "threadListAction.injector.adapter.ts",
+        "threadListGenericActionButton.injector.adapter.test.ts",
+        "threadListGenericActionButton.injector.adapter.ts",
+        "//:node_modules/@testing-library/dom",
+        "//src/common",
+        "//src/contentScripts/communityConsole/utils",
+        "//src/ui/injectors",
+    ],
+    node_modules = "//:node_modules",
+)

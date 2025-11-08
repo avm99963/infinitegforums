@@ -12,6 +12,7 @@ common_ts_project(
         # TODO(https://iavm.xyz/b/twpowertools/256): Delete the following
         # package from the list.
         "//src:__pkg__",
+        "//src/infrastructure/ui/injectors:__subpackages__",
         "//src/contentScripts/communityConsole/utils:__subpackages__",
     ],
 )
