@@ -1,0 +1,16 @@
+load("//tools:common_js_project.bzl", "common_js_project")
+
+common_js_project(
+    name = "utils",
+    visibility = [
+        # NOTE: making it visible almost everywhere since it is a legacy package.
+        "//src:__subpackages__",
+    ],
+    deps = [
+        "//:node_modules/@material/tooltip",
+        "//:node_modules/poll-until-promise",
+        "//src/common",
+        "//src/infrastructure/ui/services/communityConsole",
+        "//src/ui/injectors",
+    ],
+)

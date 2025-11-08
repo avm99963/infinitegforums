@@ -94,6 +94,7 @@ js_library(
         "//src/common/options",
         "//src/common/protojs",
         "//src/common/styles",
+        "//src/contentScripts/communityConsole/utils",
         "//src/domain",
         "//src/infrastructure/presentation/nodeWatcher",
         "//src/infrastructure/presentation/nodeWatcher/handlers",
