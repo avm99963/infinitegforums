@@ -23,7 +23,6 @@ def extension_bundle(name, **kwargs):
             ":{}".format(transpiled_ts_sources_target),
             # TODO(https://iavm.xyz/b/twpowertools/256): Remove this
             "//src:non_compiled_source",
-            "//src/lit-locales",
             # TODO(https://iavm.xyz/b/twpowertools/256): Move this out of the static
             # folder.
             "//src/static:common_console_styles",

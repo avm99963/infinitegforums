@@ -77,6 +77,7 @@ js_library(
         "//src/common/options",
         "//src/common/protojs",
         "//src/common/styles",
+        "//src/lit-locales",
         "//src/models",
         "//src/models/enums",
         "//src/presentation/mainWorldContentScriptBridge/base",

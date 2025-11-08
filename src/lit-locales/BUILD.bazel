@@ -1,6 +1,7 @@
 load("@aspect_bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
 load("@aspect_bazel_lib//lib:write_source_files.bzl", "write_source_files")
 load("@npm//:@lit/localize-tools/package_json.bzl", lit_localize_bin = "bin")
+load("//tools:common_js_project.bzl", "common_js_project")
 load(":defs.bzl", "lit_localize")
 load(":target_locales.bzl", "get_interchange_file_path", "target_locales")
 
@@ -20,10 +21,16 @@ filegroup(
 )
 
 lit_localize(
-    name = "lit-locales",
+    name = "generated_files",
     operation = "build",
+)
+
+common_js_project(
+    name = "lit-locales",
+    srcs = [
+        ":generated_files",
+    ],
     visibility = [
-        "//:__pkg__",
         "//src:__subpackages__",
     ],
 )
