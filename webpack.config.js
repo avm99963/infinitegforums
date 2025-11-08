@@ -162,7 +162,7 @@ module.exports = (env, args) => {
       }),
       !isBazelBuild ? new WebpackShellPluginNext({
         onBuildStart: {
-          scripts: ['make lit_localize_build'],
+          scripts: ['npx lit-localize build'],
           blocking: true,
         },
       }) :

@@ -1,4 +1,4 @@
-.PHONY: node_deps clean_dist deps clean_deps lit_localize_extract lit_localize_build lit_localize_all serve_chromium_mv3 serve_gecko release release_chromium_stable release_chromium_beta release_chromium_canary release_gecko_stable build_test_extension clean_releases test clean trigger_nightly_build
+.PHONY: node_deps clean_dist deps clean_deps serve_chromium_mv3 serve_gecko release release_chromium_stable release_chromium_beta release_chromium_canary release_gecko_stable build_test_extension clean_releases test clean trigger_nightly_build
 
 WEBPACK := ./node_modules/webpack-cli/bin/cli.js
 VITEST := pnpm exec vitest
@@ -25,13 +25,11 @@ deps: node_deps
 clean_deps:
 	rm -rf node_modules
 
+.PHONY: lit_localize_extract
 lit_localize_extract:
-	npx lit-localize extract
-
-lit_localize_build:
-	npx lit-localize build
-
-lit_localize_all: lit_localize_extract lit_localize_build
+	@echo -e "\e[33mWARNING:\e[0m Calling make lit_localize_extract is deprecated."
+	@echo "         Instead, run: bazel run //src/lit-locales:extract"
+	bazel run //src/lit-locales:extract
 
 # Experimental target which will be renamed to serve_chromium to substitute
 # serve_chromium_mv3.
