@@ -2,7 +2,7 @@ import { msg } from '@lit/localize';
 import { css, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { DISCUSS_GROUP_URL } from '../../../common/consts';
-import { I18nLitElement } from '../../../common/litI18nUtils';
+import { I18nLitElement } from '../../../ui/i18n/i18nLitElement';
 
 import '@material/web/icon/icon.js';
 

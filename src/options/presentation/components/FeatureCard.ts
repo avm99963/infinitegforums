@@ -1,5 +1,5 @@
 import { customElement, property, state } from 'lit/decorators.js';
-import { I18nLitElement } from '../../../common/litI18nUtils';
+import { I18nLitElement } from '../../../ui/i18n/i18nLitElement';
 import { css, html, nothing } from 'lit';
 
 import './HintText';

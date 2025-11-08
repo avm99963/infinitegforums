@@ -1,6 +1,6 @@
 import { css, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import { I18nLitElement } from '../../../common/litI18nUtils';
+import { I18nLitElement } from '../../../ui/i18n/i18nLitElement';
 import { DISCUSS_GROUP_URL } from '../../../common/consts';
 import { msg } from '@lit/localize';
 

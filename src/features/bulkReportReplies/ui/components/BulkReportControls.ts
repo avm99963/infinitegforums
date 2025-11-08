@@ -2,7 +2,7 @@ import '@material/web/chips/assist-chip.js';
 import '@material/web/chips/chip-set.js';
 import '@material/web/icon/icon.js';
 import { customElement, property } from 'lit/decorators.js';
-import { I18nLitElement } from '../../../../common/litI18nUtils';
+import { I18nLitElement } from '../../../../ui/i18n/i18nLitElement';
 import { css, html } from 'lit';
 import { SHARED_MD3_STYLES } from '../../../../common/styles/md3';
 import { map } from 'lit/directives/map.js';

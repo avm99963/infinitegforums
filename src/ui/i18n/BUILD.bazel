@@ -1,0 +1,26 @@
+load("//tools:bazel/swc.bzl", "swc_pkg")
+load("//tools:common_ts_project.bzl", "common_ts_project")
+
+common_ts_project(
+    name = "i18n",
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = swc_pkg,
+    tsconfig = "//:tsconfig_pkg",
+    visibility = [
+        # TODO(https://iavm.xyz/b/twpowertools/256): Delete the following
+        # package from the list.
+        "//src:__pkg__",
+        "//src:presentation",
+        "//src:ui",
+        "//src/lit-locales:__subpackages__",
+    ],
+    deps = [
+        "//:node_modules/@lit/localize",
+        "//:node_modules/@types/chrome",
+        "//:node_modules/lit",
+        "//src/lit-locales",
+        "//src/presentation/mainWorldContentScriptBridge/i18n",
+    ],
+)

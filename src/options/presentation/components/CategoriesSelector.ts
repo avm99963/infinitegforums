@@ -2,7 +2,7 @@ import { css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { FeatureCategory } from '../models/category';
 import { map } from 'lit/directives/map.js';
-import { I18nLitElement } from '../../../common/litI18nUtils';
+import { I18nLitElement } from '../../../ui/i18n/i18nLitElement';
 
 import '@material/web/focus/md-focus-ring.js';
 import '@material/web/icon/icon.js';

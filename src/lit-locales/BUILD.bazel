@@ -12,11 +12,12 @@ copy_to_bin(
 )
 
 # Source code that uses msg() to localize strings.
-# TODO(https://iavm.xyz/b/twpowertools/255): Change to consume just the required modules.
 filegroup(
     name = "localized_code",
     srcs = [
+        # TODO(https://iavm.xyz/b/twpowertools/256): Remove the following line.
         "//src:non_compiled_source",
+        "//src/presentation/i18n",
     ],
 )
 

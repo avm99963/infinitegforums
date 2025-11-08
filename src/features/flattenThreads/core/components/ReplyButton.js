@@ -3,7 +3,7 @@ import '@material/web/button/outlined-button.js';
 import {msg, str} from '@lit/localize';
 import {css, html} from 'lit';
 
-import {I18nLitElement} from '../../../../common/litI18nUtils.js';
+import {I18nLitElement} from '../../../../ui/i18n/i18nLitElement';
 import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
 import {openReplyEditor} from '../../../../contentScripts/communityConsole/utils/common.js';
 import {getExtraInfoNodes} from '../flattenThreads.js';

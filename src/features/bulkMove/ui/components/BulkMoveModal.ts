@@ -1,6 +1,6 @@
 import { css, html } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import { I18nLitElement } from '../../../../common/litI18nUtils';
+import { I18nLitElement } from '../../../../ui/i18n/i18nLitElement';
 import { SHARED_MD3_STYLES } from '../../../../common/styles/md3';
 import { Forum } from '../../../../domain/forum';
 import { ThreadProperty } from '../../../../domain/threadProperty';

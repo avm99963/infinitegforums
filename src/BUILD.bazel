@@ -80,9 +80,11 @@ js_library(
         "//src/lit-locales",
         "//src/models",
         "//src/models/enums",
+        "//src/presentation/i18n",
         "//src/presentation/mainWorldContentScriptBridge/base",
         "//src/presentation/mainWorldContentScriptBridge/base/tests",
         "//src/presentation/mainWorldContentScriptBridge/i18n",
+        "//src/ui/i18n",
         # keep-sorted end
     ],
 )

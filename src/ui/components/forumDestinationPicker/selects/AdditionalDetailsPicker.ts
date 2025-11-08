@@ -1,12 +1,8 @@
 import { customElement, property } from 'lit/decorators.js';
-import { I18nLitElement } from '../../../../common/litI18nUtils';
+import { I18nLitElement } from '../../../i18n/i18nLitElement';
 import { html } from 'lit';
 import { SHARED_MD3_STYLES } from '../../../../common/styles/md3';
-import {
-  Detail,
-  Forum,
-  LanguageConfiguration,
-} from '../../../../domain/forum';
+import { Detail, Forum, LanguageConfiguration } from '../../../../domain/forum';
 import { repeat } from 'lit/directives/repeat.js';
 
 import '@material/web/select/outlined-select.js';

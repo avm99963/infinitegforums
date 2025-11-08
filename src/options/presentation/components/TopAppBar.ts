@@ -12,11 +12,11 @@ import { customElement, property } from 'lit/decorators.js';
 import { live } from 'lit/directives/live.js';
 import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles';
 import { SKIP_TO_MAIN_EVENT } from './consts';
+import { I18nLitElement } from '../../../ui/i18n/i18nLitElement';
 import {
   EXTENSION_NAME,
-  I18nLitElement,
   SKIP_TO_MAIN_CONTENT,
-} from '../../../common/litI18nUtils.js';
+} from '../../../presentation/i18n/commonMessages';
 import { msg } from '@lit/localize';
 
 import '@material/web/focus/md-focus-ring.js';

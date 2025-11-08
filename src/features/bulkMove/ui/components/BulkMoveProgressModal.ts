@@ -2,7 +2,7 @@ import { css, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
 import { styleMap } from 'lit/directives/style-map.js';
-import { I18nLitElement } from '../../../../common/litI18nUtils';
+import { I18nLitElement } from '../../../../ui/i18n/i18nLitElement';
 import { SHARED_MD3_STYLES } from '../../../../common/styles/md3';
 import { COMPLETE_STATES, Status, ThreadProgress } from './dataStructures';
 

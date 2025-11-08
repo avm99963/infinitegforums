@@ -12,7 +12,7 @@ import {css, html, nothing, unsafeCSS} from 'lit';
 import {map} from 'lit/directives/map.js';
 import {createRef, ref} from 'lit/directives/ref.js';
 
-import {I18nLitElement} from '../../../../common/litI18nUtils.js';
+import {I18nLitElement} from '../../../../ui/i18n/i18nLitElement';
 import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
 import {kEventOptionUpdatedFromToolbar} from '../constants';
 

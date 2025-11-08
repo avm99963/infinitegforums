@@ -2,7 +2,7 @@ import { css, html } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { createRef, ref, Ref } from 'lit/directives/ref.js';
 import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles.js';
-import { I18nLitElement } from '../../../common/litI18nUtils';
+import { I18nLitElement } from '../../i18n/i18nLitElement';
 import { Forum, LanguageConfiguration } from '../../../domain/forum';
 import { ThreadProperty } from '../../../domain/threadProperty';
 import { SHARED_MD3_STYLES } from '../../../common/styles/md3';

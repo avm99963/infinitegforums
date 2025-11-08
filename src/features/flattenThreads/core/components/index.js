@@ -11,7 +11,7 @@ import {css, html} from 'lit';
 import {classMap} from 'lit/directives/class-map.js';
 import {unsafeHTML} from 'lit/directives/unsafe-html.js';
 
-import {I18nLitElement} from '../../../../common/litI18nUtils.js';
+import {I18nLitElement} from '../../../../ui/i18n/i18nLitElement';
 import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
 
 export default class TwptFlattenThreadQuote extends I18nLitElement {
