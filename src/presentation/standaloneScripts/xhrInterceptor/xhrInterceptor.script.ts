@@ -9,11 +9,11 @@ import interceptors from '../../../xhrInterceptor/interceptors/interceptors';
 import {
   KILL_SWITCH_LOCALSTORAGE_KEY,
   KILL_SWITCH_LOCALSTORAGE_VALUE,
-} from '../../../xhrInterceptor/killSwitchHandler';
-import MessageIdTracker from '../../../xhrInterceptor/MessageIdTracker';
-import ResponseModifierAdapter from '../../../xhrInterceptor/ResponseModifier.adapter';
-import { Modifier } from '../../../xhrInterceptor/responseModifiers/types';
-import XHRProxy from '../../../xhrInterceptor/XHRProxy';
+} from '../../../xhrInterceptor/killSwitchHandler/killSwitchHandler';
+import MessageIdTracker from '../../../xhrInterceptor/messageIdTracker/MessageIdTracker';
+import ResponseModifierAdapter from '../../../xhrInterceptor/responseModifier/ResponseModifier.adapter';
+import { Modifier } from '../../../xhrInterceptor/responseModifier/types';
+import XHRProxy from '../../../xhrInterceptor/xhrProxy/XHRProxy';
 
 export default class XHRInterceptorScript extends Script {
   page = ScriptPage.CommunityConsole;

@@ -1,0 +1,46 @@
+load("@fremtind_rules_vitest//vitest:defs.bzl", "vitest_test")
+load("//tools:bazel/swc.bzl", "swc_pkg")
+load("//tools:common_ts_project.bzl", "common_ts_project")
+
+common_ts_project(
+    name = "fetchProxy",
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = swc_pkg,
+    tsconfig = "//:tsconfig_pkg",
+    visibility = [
+        # TODO(https://iavm.xyz/b/twpowertools/256): Delete the following
+        # package from the list.
+        "//src:__pkg__",
+    ],
+    deps = [
+        "//:node_modules/@types/node",
+        "//src/common",
+        "//src/xhrInterceptor/interceptors",
+        "//src/xhrInterceptor/messageIdTracker",
+        "//src/xhrInterceptor/responseModifier",
+    ],
+)
+
+vitest_test(
+    name = "test",
+    config = "//:vitest.config.js",
+    data = [
+        "FetchBody.ts",
+        "FetchHeaders.test.ts",
+        "FetchHeaders.ts",
+        "FetchInput.test.ts",
+        "FetchInput.ts",
+        "FetchProxy.test.ts",
+        "FetchProxy.ts",
+        "FetchProxyCallHandler.ts",
+        "//:node_modules/@types/node",
+        "//src/common",
+        "//src/xhrInterceptor/interceptors",
+        "//src/xhrInterceptor/interceptors/__mocks__",
+        "//src/xhrInterceptor/messageIdTracker",
+        "//src/xhrInterceptor/responseModifier",
+    ],
+    node_modules = "//:node_modules",
+)

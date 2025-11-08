@@ -7,7 +7,7 @@ import GapModel from '../../models/Gap';
 import MessageModel from '../../models/Message';
 import StartupDataModel from '../../models/StartupData';
 import ThreadModel from '../../models/Thread';
-import { Modifier } from './types';
+import { Modifier } from '../responseModifier/types';
 
 const currentUser = StartupDataModel.buildFromCCDOM().getCurrentUserModel();
 

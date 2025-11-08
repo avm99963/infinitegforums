@@ -1,17 +1,16 @@
+load("//tools:bazel/swc.bzl", "swc_pkg")
 load("//tools:common_js_project.bzl", "common_js_project")
 
 common_js_project(
-    name = "killSwitch",
+    name = "xhrProxy",
     visibility = [
         # TODO(https://iavm.xyz/b/twpowertools/256): Delete the following
         # package from the list.
         "//src:__pkg__",
-        "//src/xhrInterceptor/killSwitchHandler:__subpackages__",
     ],
     deps = [
-        "//:node_modules/semver",
-        "//src/common",
-        "//src/common/options",
-        "//src/killSwitch/api_proto",
+        "//:node_modules/poll-until-promise",
+        "//src/common/protojs",
+        "//src/xhrInterceptor/interceptors",
     ],
 )

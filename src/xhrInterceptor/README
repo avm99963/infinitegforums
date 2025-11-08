@@ -1,0 +1,3 @@
+TODO(https://iavm.xyz/226): convert to the new DI architecture. Packages should
+be visible to the entrypoints instead of the xhrInterceptor standalone scripts
+which implement the control freak anti-pattern.

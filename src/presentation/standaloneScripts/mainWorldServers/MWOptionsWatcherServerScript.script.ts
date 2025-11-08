@@ -7,7 +7,7 @@ import MWOptionsWatcherServer from '../../mainWorldContentScriptBridge/optionsWa
 import {
   kCSTarget,
   kMWTarget,
-} from '../../../xhrInterceptor/ResponseModifier.adapter';
+} from '../../../xhrInterceptor/responseModifier/ResponseModifier.adapter';
 
 export default class MWOptionsWatcherServerScript extends Script {
   // The server should be available as soon as possible, since e.g. the

@@ -4,7 +4,7 @@ import { ProtobufNumber } from '../../common/protojs/protojs.types.js';
 import GapModel from '../../models/Gap.js';
 import MessageModel from '../../models/Message';
 import ThreadModel from '../../models/Thread';
-import { Modifier } from './types.js';
+import { Modifier } from '../responseModifier/types.js';
 
 const authuser = getAuthUser();
 

@@ -5,8 +5,8 @@ import {
 } from '../../common/protojs/protojs';
 import { ProtobufObject } from '../../common/protojs/protojs.types';
 import { InterceptorHandlerPort } from '../interceptors/InterceptorHandler.port';
-import MessageIdTracker from '../MessageIdTracker';
-import { ResponseModifierPort } from '../ResponseModifier.port';
+import MessageIdTracker from '../messageIdTracker/MessageIdTracker';
+import { ResponseModifierPort } from '../responseModifier/ResponseModifier.port';
 import FetchBody from './FetchBody';
 import FetchHeaders from './FetchHeaders';
 import FetchInput from './FetchInput';

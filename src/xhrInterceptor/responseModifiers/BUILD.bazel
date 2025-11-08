@@ -2,20 +2,24 @@ load("//tools:bazel/swc.bzl", "swc_pkg")
 load("//tools:common_ts_project.bzl", "common_ts_project")
 
 common_ts_project(
-    name = "optionsWatcher",
+    name = "responseModifiers",
     allow_js = True,
     declaration = True,
     source_map = True,
     transpiler = swc_pkg,
     tsconfig = "//:tsconfig_pkg",
     visibility = [
-        # TODO(https://iavm.xyz/b/twpowertools/256): remove this.
+        # TODO(https://iavm.xyz/b/twpowertools/256): Delete the following
+        # package from the list.
         "//src:__pkg__",
-        "//src:infrastructure_presentation",
         "//src/xhrInterceptor:__subpackages__",
     ],
     deps = [
+        "//src/common",
         "//src/common/options",
-        "//src/presentation/mainWorldContentScriptBridge/base",
+        "//src/common/protojs",
+        "//src/features/flattenThreads/core",
+        "//src/models",
+        "//src/xhrInterceptor/responseModifier",
     ],
 )

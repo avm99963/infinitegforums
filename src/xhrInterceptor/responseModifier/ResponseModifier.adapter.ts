@@ -1,15 +1,15 @@
-import MWOptionsWatcherClient from '../presentation/mainWorldContentScriptBridge/optionsWatcher/Client';
+import MWOptionsWatcherClient from '../../presentation/mainWorldContentScriptBridge/optionsWatcher/Client';
 import {
   OptionCodename,
   OptionsValues,
-} from '../common/options/optionsPrototype.js';
+} from '../../common/options/optionsPrototype.js';
 import {
   InterceptedResponse,
   ResponseModifierPort,
   Result,
 } from './ResponseModifier.port.js';
 
-import { Modifier } from './responseModifiers/types.js';
+import { Modifier } from './types.js';
 
 // Content script target
 export const kCSTarget = 'TWPT-XHRInterceptorOptionsWatcher-CS';

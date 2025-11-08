@@ -8,6 +8,7 @@ common_js_project(
         "//src:__pkg__",
         "//src/common/architecture/dependenciesProvider:__subpackages__",
         "//src/features/flattenThreads:__subpackages__",
+        "//src/xhrInterceptor/responseModifiers:__subpackages__",
     ],
     deps = [
         "//:node_modules/poll-until-promise",

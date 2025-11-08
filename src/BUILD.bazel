@@ -155,6 +155,13 @@ js_library(
         "//src/ui/i18n",
         "//src/ui/injectors",
         "//src/ui/services",
+        "//src/xhrInterceptor/fetchProxy",
+        "//src/xhrInterceptor/interceptors",
+        "//src/xhrInterceptor/killSwitchHandler",
+        "//src/xhrInterceptor/messageIdTracker",
+        "//src/xhrInterceptor/responseModifier",
+        "//src/xhrInterceptor/responseModifiers",
+        "//src/xhrInterceptor/xhrProxy",
         # keep-sorted end
     ],
 )

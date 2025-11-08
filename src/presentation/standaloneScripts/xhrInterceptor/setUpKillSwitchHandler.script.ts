@@ -3,7 +3,7 @@ import Script, {
   ScriptPage,
   ScriptRunPhase,
 } from '../../../common/architecture/scripts/Script';
-import XHRProxyKillSwitchHandler from '../../../xhrInterceptor/killSwitchHandler';
+import XHRProxyKillSwitchHandler from '../../../xhrInterceptor/killSwitchHandler/killSwitchHandler';
 
 export default class XHRInterceptorSetUpKillSwitchHandler extends Script {
   page = ScriptPage.CommunityConsole;

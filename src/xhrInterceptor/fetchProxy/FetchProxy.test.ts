@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import FetchProxy from './FetchProxy';
-import MessageIdTracker from '../MessageIdTracker';
-import { ResponseModifierPort } from '../ResponseModifier.port';
+import MessageIdTracker from '../messageIdTracker/MessageIdTracker';
+import { ResponseModifierPort } from '../responseModifier/ResponseModifier.port';
 import {
   InterceptorHandlerMock,
   matchInterceptorsMock,

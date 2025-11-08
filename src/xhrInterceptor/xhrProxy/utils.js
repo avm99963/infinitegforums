@@ -1,6 +1,6 @@
-import {correctArrayKeys, inverseCorrectArrayKeys} from '../common/protojs/protojs';
+import {correctArrayKeys, inverseCorrectArrayKeys} from '../../common/protojs/protojs';
 
-import xhrInterceptors from './interceptors/interceptors';
+import xhrInterceptors from '../interceptors/interceptors';
 
 /**
  * @deprecated Use `InterceptorHandler`.

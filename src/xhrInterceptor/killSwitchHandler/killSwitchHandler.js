@@ -1,4 +1,4 @@
-import InternalKillSwitchWatcher from '../killSwitch/internalKillSwitchWatcher.js';
+import InternalKillSwitchWatcher from '../../killSwitch/internalKillSwitchWatcher.js';
 
 export const KILL_SWITCH = 'killswitch_xhrproxy';
 export const KILL_SWITCH_LOCALSTORAGE_KEY = 'TWPTKillSwitchXHRProxyEnabled';
