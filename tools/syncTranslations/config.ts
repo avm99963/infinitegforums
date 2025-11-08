@@ -18,6 +18,7 @@ export const LANGUAGE_TRANSFORMATIONS = new Map([
   ['it', 'it'],
   ['ja', 'ja'],
   ['ko', 'ko'],
+  ['nl', 'nl'],
   ['pl', 'pl'],
   ['pt_BR', 'pt_BR'],
   ['ru', 'ru'],

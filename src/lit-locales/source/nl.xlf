@@ -3,139 +3,139 @@
 <file target-language="nl" source-language="en" original="lit-localize-inputs" datatype="plaintext">
 <body>
 <trans-unit id="languages.ar">
-  <source>Arabic</source>
+  <source>Arabic</source><target>Arabisch</target>
 </trans-unit>
 <trans-unit id="languages.bg">
-  <source>Bulgarian</source>
+  <source>Bulgarian</source><target>Bulgaars</target>
 </trans-unit>
 <trans-unit id="languages.ca">
-  <source>Catalan</source>
+  <source>Catalan</source><target>Catalaans</target>
 </trans-unit>
 <trans-unit id="languages.cs">
-  <source>Czech</source>
+  <source>Czech</source><target>Tsjechisch</target>
 </trans-unit>
 <trans-unit id="languages.da">
-  <source>Danish</source>
+  <source>Danish</source><target>Deens</target>
 </trans-unit>
 <trans-unit id="languages.de">
-  <source>German</source>
+  <source>German</source><target>Duits</target>
 </trans-unit>
 <trans-unit id="languages.el">
-  <source>Greek</source>
+  <source>Greek</source><target>Grieks</target>
 </trans-unit>
 <trans-unit id="languages.en">
-  <source>English</source>
+  <source>English</source><target>Engels</target>
 </trans-unit>
 <trans-unit id="languages.en-AU">
-  <source>English (Australia)</source>
+  <source>English (Australia)</source><target>Engels (Australië)</target>
 </trans-unit>
 <trans-unit id="languages.en-GB">
-  <source>English (UK)</source>
+  <source>English (UK)</source><target>Engels (VK)</target>
 </trans-unit>
 <trans-unit id="languages.es">
-  <source>Spanish</source>
+  <source>Spanish</source><target>Spaans</target>
 </trans-unit>
 <trans-unit id="languages.es-419">
-  <source>Spanish (Latin America)</source>
+  <source>Spanish (Latin America)</source><target>Spaans (Latijns-Amerika)</target>
 </trans-unit>
 <trans-unit id="languages.et">
-  <source>Estonian</source>
+  <source>Estonian</source><target>Estlands</target>
 </trans-unit>
 <trans-unit id="languages.fi">
-  <source>Finnish</source>
+  <source>Finnish</source><target>Fins</target>
 </trans-unit>
 <trans-unit id="languages.fil">
-  <source>Filipino</source>
+  <source>Filipino</source><target>Filipijns</target>
 </trans-unit>
 <trans-unit id="languages.fr">
-  <source>French</source>
+  <source>French</source><target>Frans</target>
 </trans-unit>
 <trans-unit id="languages.hi">
-  <source>Hindi</source>
+  <source>Hindi</source><target>Hindi</target>
 </trans-unit>
 <trans-unit id="languages.hr">
-  <source>Croatian</source>
+  <source>Croatian</source><target>Kroatisch</target>
 </trans-unit>
 <trans-unit id="languages.hu">
-  <source>Hungarian</source>
+  <source>Hungarian</source><target>Hongaars</target>
 </trans-unit>
 <trans-unit id="languages.id">
-  <source>Indonesian</source>
+  <source>Indonesian</source><target>Indonesisch</target>
 </trans-unit>
 <trans-unit id="languages.it">
-  <source>Italian</source>
+  <source>Italian</source><target>Italiaans</target>
 </trans-unit>
 <trans-unit id="languages.iw">
-  <source>Hebrew</source>
+  <source>Hebrew</source><target>Hebreeuws</target>
 </trans-unit>
 <trans-unit id="languages.ja">
-  <source>Japanese</source>
+  <source>Japanese</source><target>Japans</target>
 </trans-unit>
 <trans-unit id="languages.ko">
-  <source>Korean</source>
+  <source>Korean</source><target>Koreaans</target>
 </trans-unit>
 <trans-unit id="languages.lt">
-  <source>Lithuanian</source>
+  <source>Lithuanian</source><target>Litouws</target>
 </trans-unit>
 <trans-unit id="languages.lv">
-  <source>Latvian</source>
+  <source>Latvian</source><target>Lets</target>
 </trans-unit>
 <trans-unit id="languages.ms">
-  <source>Malay</source>
+  <source>Malay</source><target>Maleis</target>
 </trans-unit>
 <trans-unit id="languages.nl">
-  <source>Dutch</source>
+  <source>Dutch</source><target>Nederlands</target>
 </trans-unit>
 <trans-unit id="languages.no">
-  <source>Norwegian (Bokmal)</source>
+  <source>Norwegian (Bokmal)</source><target>Noors (Bokmal)</target>
 </trans-unit>
 <trans-unit id="languages.pl">
-  <source>Polish</source>
+  <source>Polish</source><target>Pools</target>
 </trans-unit>
 <trans-unit id="languages.pt-BR">
-  <source>Portuguese (Brazil)</source>
+  <source>Portuguese (Brazil)</source><target>Portugees (Brazilië)</target>
 </trans-unit>
 <trans-unit id="languages.pt-PT">
-  <source>Portuguese (Portugal)</source>
+  <source>Portuguese (Portugal)</source><target>Portugees (Portugal)</target>
 </trans-unit>
 <trans-unit id="languages.ro">
-  <source>Romanian</source>
+  <source>Romanian</source><target>Roemeens</target>
 </trans-unit>
 <trans-unit id="languages.ru">
-  <source>Russian</source>
+  <source>Russian</source><target>Russisch</target>
 </trans-unit>
 <trans-unit id="languages.sk">
-  <source>Slovak</source>
+  <source>Slovak</source><target>Slowaaks</target>
 </trans-unit>
 <trans-unit id="languages.sl">
-  <source>Slovenian</source>
+  <source>Slovenian</source><target>Sloveens</target>
 </trans-unit>
 <trans-unit id="languages.sr">
-  <source>Serbian</source>
+  <source>Serbian</source><target>Servisch</target>
 </trans-unit>
 <trans-unit id="languages.sv">
-  <source>Swedish</source>
+  <source>Swedish</source><target>Zweeds</target>
 </trans-unit>
 <trans-unit id="languages.th">
-  <source>Thai</source>
+  <source>Thai</source><target>Thais</target>
 </trans-unit>
 <trans-unit id="languages.tr">
-  <source>Turkish</source>
+  <source>Turkish</source><target>Turks</target>
 </trans-unit>
 <trans-unit id="languages.uk">
-  <source>Ukrainian</source>
+  <source>Ukrainian</source><target>Oekraïens</target>
 </trans-unit>
 <trans-unit id="languages.vi">
-  <source>Vietnamese</source>
+  <source>Vietnamese</source><target>Vietnamees</target>
 </trans-unit>
 <trans-unit id="languages.zh-CN">
-  <source>Chinese (Simplified)</source>
+  <source>Chinese (Simplified)</source><target>Vereenvoudigd Chinees</target>
 </trans-unit>
 <trans-unit id="languages.zh-HK">
-  <source>Chinese (Hong Kong)</source>
+  <source>Chinese (Hong Kong)</source><target>Chinees (Hongkong)</target>
 </trans-unit>
 <trans-unit id="languages.zh-TW">
-  <source>Chinese (Traditional)</source>
+  <source>Chinese (Traditional)</source><target>Traditioneel Chinees</target>
 </trans-unit>
 <trans-unit id="s79ad81a9d63904fc">
   <source>You're testing the new options page.</source>
@@ -335,11 +335,11 @@
   <note from="lit-localize">Label for the checkbox that lets a user enable a specific feature in the options page (ex: 'Enable "Dark theme" feature')</note>
 </trans-unit>
 <trans-unit id="components.forumPicker.communityForum">
-  <source>Community Forum</source>
+  <source>Community Forum</source><target>Communityforum</target>
   <note from="lit-localize">Label for the forum select in the forum picker.</note>
 </trans-unit>
 <trans-unit id="components.forumPicker.language">
-  <source>Language</source>
+  <source>Language</source><target>Taal</target>
   <note from="lit-localize">Label for the language select in the forum picker.</note>
 </trans-unit>
 <trans-unit id="secf1350a6da28533">
@@ -359,7 +359,7 @@
   <note from="lit-localize">Label for the switch which lets users enable/disable the nested view in a thread.</note>
 </trans-unit>
 <trans-unit id="components.additionalDetailsPicker.category">
-  <source>Category</source>
+  <source>Category</source><target>Categorie</target>
   <note from="lit-localize">Label for the thread category select in the additional details picker.</note>
 </trans-unit>
 <trans-unit id="s0f92c01a67197f53">
@@ -576,15 +576,15 @@
   <note from="lit-localize">Text for the button that lets users skip directly to the main content in a page.</note>
 </trans-unit>
 <trans-unit id="bulkMove.dialog.cancel">
-  <source>Cancel</source>
+  <source>Cancel</source><target>Annuleren</target>
   <note from="lit-localize">Text of the button in the bulk move threads dialog to close and reset the modal.</note>
 </trans-unit>
 <trans-unit id="bulkMove.progressDialog.close">
-  <source>Close</source>
+  <source>Close</source><target>Sluiten</target>
   <note from="lit-localize">Text of the button in the bulk move threads dialog which closes the dialog.</note>
 </trans-unit>
 <trans-unit id="bulkMove.dialog.move">
-  <source>Move</source>
+  <source>Move</source><target>Verplaatsen</target>
   <note from="lit-localize">Text of the button in the bulk move threads dialog which will perform the action.</note>
 </trans-unit>
 <trans-unit id="s9c0adc97ce1e614c">
@@ -616,11 +616,11 @@
   <note from="lit-localize">Title of the bulk move threads dialogs.</note>
 </trans-unit>
 <trans-unit id="components.forumDestinationPicker.destinationForum">
-  <source>Destination forum</source>
+  <source>Destination forum</source><target>Forum van bestemming</target>
   <note from="lit-localize">Title of the section in the forum destination picker which contains the destination forum and language selects.</note>
 </trans-unit>
 <trans-unit id="components.forumDestinationPicker.additionalDetails">
-  <source>Additional details</source>
+  <source>Additional details</source><target>Aanvullende informatie</target>
   <note from="lit-localize">Title of the section in the forum destination picker with the category/details selects.</note>
 </trans-unit>
 </body>
