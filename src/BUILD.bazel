@@ -117,7 +117,10 @@ js_library(
         "//src/presentation/scripts/errors",
         "//src/services/communityConsole",
         "//src/services/options",
+        "//src/ui/errors",
         "//src/ui/i18n",
+        "//src/ui/injectors",
+        "//src/ui/services",
         # keep-sorted end
     ],
 )
