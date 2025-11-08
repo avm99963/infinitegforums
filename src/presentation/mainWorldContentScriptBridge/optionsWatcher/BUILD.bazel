@@ -12,6 +12,7 @@ common_ts_project(
         # TODO(https://iavm.xyz/b/twpowertools/256): remove this.
         "//src:__pkg__",
         "//src:infrastructure_presentation",
+        "//src:presentation",
         "//src/xhrInterceptor:__subpackages__",
     ],
     deps = [

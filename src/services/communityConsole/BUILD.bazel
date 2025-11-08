@@ -13,6 +13,7 @@ common_ts_project(
         # package from the list.
         "//src:__pkg__",
         "//src:infrastructure_services",
+        "//src:presentation",
         "//src:ui",
     ],
     deps = [

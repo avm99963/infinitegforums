@@ -13,6 +13,7 @@ common_ts_project(
         "//src:__pkg__",
         "//src:infrastructure_presentation",
         "//src:infrastructure_repositories",
+        "//src:presentation",
     ],
     deps = [
         "//src/common/options",
