@@ -1,0 +1,37 @@
+load("@fremtind_rules_vitest//vitest:defs.bzl", "vitest_test")
+load("//tools:bazel/swc.bzl", "swc_pkg")
+load("//tools:common_ts_project.bzl", "common_ts_project")
+
+common_ts_project(
+    name = "communityConsole",
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = swc_pkg,
+    tsconfig = "//:tsconfig_pkg",
+    visibility = [
+        # TODO(https://iavm.xyz/b/twpowertools/256): Delete the following
+        # package from the list.
+        "//src:__pkg__",
+        "//src:entrypoint",
+    ],
+    deps = [
+        "//src/ui/errors",
+        "//src/ui/services",
+    ],
+)
+
+vitest_test(
+    name = "test",
+    config = "//:vitest.config.js",
+    data = [
+        "getSelectedThreads.service.adapter.test.ts",
+        "getSelectedThreads.service.adapter.ts",
+        "urlThreadDataParser.service.adapter.test.ts",
+        "urlThreadDataParser.service.adapter.ts",
+        "//src/infrastructure/ui/services/communityConsole/__fixtures__",
+        "//src/ui/errors",
+        "//src/ui/services",
+    ],
+    node_modules = "//:node_modules",
+)

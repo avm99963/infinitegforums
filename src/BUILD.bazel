@@ -37,6 +37,7 @@ package_group(
     name = "infrastructure_services",
     packages = [
         "//src/infrastructure/services/...",
+        "//src/infrastructure/ui/services/...",
     ],
 )
 
@@ -99,6 +100,7 @@ js_library(
         "//src/infrastructure/presentation/scripts",
         "//src/infrastructure/services/communityConsole",
         "//src/infrastructure/services/options",
+        "//src/infrastructure/ui/services/communityConsole",
         "//src/lit-locales",
         "//src/models",
         "//src/models/enums",
