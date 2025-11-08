@@ -4,10 +4,10 @@
   "targetLocales": ["{TARGET_LOCALES}"],
   "inputFiles": [
     "src/**/components/**/*.(js|ts)",
-    "src/features/**/presentation/options/*.ts",
-    "src/presentation/i18n/commonMessages.js",
-    "src/options/presentation/featureCategories.ts",
-    "src/options/presentation/utils/featureUtils.ts"
+    "src/features/**/presentation/options/*.(js|ts)",
+    "src/presentation/i18n/commonMessages.(js|ts)",
+    "src/options/presentation/featureCategories.(js|ts)",
+    "src/options/presentation/utils/featureUtils.(js|ts)"
   ],
   "output": {
     "mode": "runtime",
