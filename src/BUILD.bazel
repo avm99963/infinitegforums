@@ -103,6 +103,7 @@ js_library(
         "//src/infrastructure/services/options",
         "//src/infrastructure/ui/injectors/communityConsole",
         "//src/infrastructure/ui/services/communityConsole",
+        "//src/killSwitch",
         "//src/lit-locales",
         "//src/models",
         "//src/models/enums",
