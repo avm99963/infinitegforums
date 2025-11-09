@@ -37,7 +37,7 @@
     "@types/node": "20.19.24",
     "@vitest/coverage-istanbul": "4.0.8",
     "@vitest/coverage-v8": "4.0.8",
-    "@vitest/eslint-plugin": "1.4.1",
+    "@vitest/eslint-plugin": "1.4.2",
     "copy-webpack-plugin": "13.0.1",
     "css-loader": "7.1.2",
     "eslint": "9.39.1",

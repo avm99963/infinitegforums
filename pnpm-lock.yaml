@@ -79,8 +79,8 @@ importers:
         specifier: 4.0.8
         version: 4.0.8(vitest@4.0.8(@types/debug@4.1.12)(@types/node@20.19.24)(jsdom@27.1.0(postcss@8.5.6))(sass@1.93.3)(terser@5.44.0)(yaml@2.8.1))
       '@vitest/eslint-plugin':
-        specifier: 1.4.1
-        version: 1.4.1(eslint@9.39.1)(typescript@5.9.3)(vitest@4.0.8(@types/debug@4.1.12)(@types/node@20.19.24)(jsdom@27.1.0(postcss@8.5.6))(sass@1.93.3)(terser@5.44.0)(yaml@2.8.1))
+        specifier: 1.4.2
+        version: 1.4.2(eslint@9.39.1)(typescript@5.9.3)(vitest@4.0.8(@types/debug@4.1.12)(@types/node@20.19.24)(jsdom@27.1.0(postcss@8.5.6))(sass@1.93.3)(terser@5.44.0)(yaml@2.8.1))
       copy-webpack-plugin:
         specifier: 13.0.1
         version: 13.0.1(webpack@5.102.1)
@@ -1990,8 +1990,8 @@ packages:
       '@vitest/browser':
         optional: true
 
-  '@vitest/eslint-plugin@1.4.1':
-    resolution: {integrity: sha512-eBMCLeUhKvQxH7nPihmLUJUWXxqKovVFEmxbGKqkY/aN6hTAXGiRid8traRUOvgr82NJFJL3KPpE19fElOR7bg==}
+  '@vitest/eslint-plugin@1.4.2':
+    resolution: {integrity: sha512-7rENIOOk6eqgtf2FsQWilgfQheeuGRiU3lB2H+pmtbcA4jOdtBfQHVqS7f/KCOJ2JKjrIJgow8yUeANi34rj9w==}
     engines: {node: '>=18'}
     peerDependencies:
       eslint: '>=8.57.0'
@@ -8538,7 +8538,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/eslint-plugin@1.4.1(eslint@9.39.1)(typescript@5.9.3)(vitest@4.0.8(@types/debug@4.1.12)(@types/node@20.19.24)(jsdom@27.1.0(postcss@8.5.6))(sass@1.93.3)(terser@5.44.0)(yaml@2.8.1))':
+  '@vitest/eslint-plugin@1.4.2(eslint@9.39.1)(typescript@5.9.3)(vitest@4.0.8(@types/debug@4.1.12)(@types/node@20.19.24)(jsdom@27.1.0(postcss@8.5.6))(sass@1.93.3)(terser@5.44.0)(yaml@2.8.1))':
     dependencies:
       '@typescript-eslint/scope-manager': 8.46.3
       '@typescript-eslint/utils': 8.46.3(eslint@9.39.1)(typescript@5.9.3)
