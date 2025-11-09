@@ -1,39 +1,39 @@
 import { msg } from '@lit/localize';
-import { FeatureCategory } from './models/category';
-import { FeatureSection } from './models/section';
-import { ccDarkThemeFeature } from '../../features/ccDarkTheme/presentation/options/feature';
-import { redirectFeature } from '../../features/redirect/presentation/options/feature';
-import { uiSpacingFeature } from '../../features/uiSpacing/presentation/options/feature';
-import { stickySidebarHeadersFeature } from '../../features/stickySidebarHeaders/presentation/options/feature';
-import { ccForceHideDrawerFeature } from '../../features/ccForceHideDrawer/presentation/options/feature';
-import { enhancedAnnouncementsDotFeature } from '../../features/enhancedAnnouncementsDot/presentation/options/feature';
-import { avatarsFeature } from '../../features/avatars/presentation/options/feature';
-import { autoRefreshFeature } from '../../features/autoRefresh/presentation/options/feature';
+import { FeatureCategory } from '../models/category';
+import { FeatureSection } from '../models/section';
+import { ccDarkThemeFeature } from '../../../features/ccDarkTheme/presentation/options/feature';
+import { redirectFeature } from '../../../features/redirect/presentation/options/feature';
+import { uiSpacingFeature } from '../../../features/uiSpacing/presentation/options/feature';
+import { stickySidebarHeadersFeature } from '../../../features/stickySidebarHeaders/presentation/options/feature';
+import { ccForceHideDrawerFeature } from '../../../features/ccForceHideDrawer/presentation/options/feature';
+import { enhancedAnnouncementsDotFeature } from '../../../features/enhancedAnnouncementsDot/presentation/options/feature';
+import { avatarsFeature } from '../../../features/avatars/presentation/options/feature';
+import { autoRefreshFeature } from '../../../features/autoRefresh/presentation/options/feature';
 import {
   threadListsInfiniteScrollFeature,
   threadsInfiniteScrollAllAtOnceFeature,
   threadsInfiniteScrollInBatchesFeature,
-} from '../../features/infiniteScroll/presentation/options/feature';
-import { batchLockFeature } from '../../features/batchLock/presentation/options/feature';
-import { bulkMoveFeature } from '../../features/bulkMove/presentation/options/feature';
-import { fixedToolbarFeature } from '../../features/fixedToolbar/presentation/options/feature';
-import { repositionExpandThreadFeature } from '../../features/repositionExpandThread/presentation/options/feature';
-import { increaseContrastFeature } from '../../features/increaseContrast/presentation/options/feature';
-import { flattenThreadsFeature } from '../../features/flattenThreads/presentation/options/feature';
-import { bulkReportRepliesFeature } from '../../features/bulkReportReplies/presentation/options/feature';
+} from '../../../features/infiniteScroll/presentation/options/feature';
+import { batchLockFeature } from '../../../features/batchLock/presentation/options/feature';
+import { bulkMoveFeature } from '../../../features/bulkMove/presentation/options/feature';
+import { fixedToolbarFeature } from '../../../features/fixedToolbar/presentation/options/feature';
+import { repositionExpandThreadFeature } from '../../../features/repositionExpandThread/presentation/options/feature';
+import { increaseContrastFeature } from '../../../features/increaseContrast/presentation/options/feature';
+import { flattenThreadsFeature } from '../../../features/flattenThreads/presentation/options/feature';
+import { bulkReportRepliesFeature } from '../../../features/bulkReportReplies/presentation/options/feature';
 import {
   profileIndicatorDotFeature,
   profileIndicatorFeature,
-} from '../../features/profileIndicator/presentation/options/feature';
-import { interopThreadPageFeature } from '../../features/interopThreadPage/presentation/options/feature';
-import { imageMaxHeightFeature } from '../../features/imageMaxHeight/presentation/options/feature';
-import { blockDraftsFeature } from '../../features/blockDrafts/presentation/options/feature';
-import { loadDraftsFeature } from '../../features/loadDrafts/presentation/options/feature';
-import { ccDragAndDropFixFeature } from '../../features/ccDragAndDropFix/presentation/options/feature';
+} from '../../../features/profileIndicator/presentation/options/feature';
+import { interopThreadPageFeature } from '../../../features/interopThreadPage/presentation/options/feature';
+import { imageMaxHeightFeature } from '../../../features/imageMaxHeight/presentation/options/feature';
+import { blockDraftsFeature } from '../../../features/blockDrafts/presentation/options/feature';
+import { loadDraftsFeature } from '../../../features/loadDrafts/presentation/options/feature';
+import { ccDragAndDropFixFeature } from '../../../features/ccDragAndDropFix/presentation/options/feature';
 import { html } from 'lit';
-import { perForumActivityFeature } from '../../features/extraInfo/presentation/options/feature';
-import { previousPostsFeature } from '../../features/previousPosts/presentation/options/feature';
-import { fixLinkDialogFeature } from '../../features/linkDialogFix/presentation/options/feature';
+import { perForumActivityFeature } from '../../../features/extraInfo/presentation/options/feature';
+import { previousPostsFeature } from '../../../features/previousPosts/presentation/options/feature';
+import { fixLinkDialogFeature } from '../../../features/linkDialogFix/presentation/options/feature';
 
 const minorUIEnhancementsSectionName = () =>
   msg('Minor UI enhancements', {

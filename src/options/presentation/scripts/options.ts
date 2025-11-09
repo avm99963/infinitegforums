@@ -1,6 +1,6 @@
 import { OptionsModifierAdapter } from '../../../infrastructure/services/options/OptionsModifier.adapter';
 import OptionsProviderAdapter from '../../../infrastructure/services/options/OptionsProvider.adapter';
-import { getFeatureCategories } from '../featureCategories';
+import { getFeatureCategories } from '../data/featureCategories';
 import '../components/App';
 import { isProdVersion } from '../../../common/extUtils';
 import { OptionsConfigurationRepositoryAdapter } from '../../infrastructure/repositories/OptionsConfiguration.repository.adapter';

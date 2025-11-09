@@ -6,7 +6,7 @@
     "src/**/components/**/*.(js|ts)",
     "src/features/**/presentation/options/*.(js|ts)",
     "src/presentation/i18n/commonMessages.(js|ts)",
-    "src/options/presentation/featureCategories.(js|ts)",
+    "src/options/presentation/data/featureCategories.(js|ts)",
     "src/options/presentation/utils/featureUtils.(js|ts)"
   ],
   "output": {
