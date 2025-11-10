@@ -158,6 +158,7 @@ js_library(
         "//src/ui/i18n",
         "//src/ui/injectors",
         "//src/ui/services",
+        "//src/updateNotifier",
         "//src/xhrInterceptor/fetchProxy",
         "//src/xhrInterceptor/interceptors",
         "//src/xhrInterceptor/killSwitchHandler",
