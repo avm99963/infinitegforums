@@ -1,3 +1,3 @@
-import {redirectIfApplicable} from '../redirect/index.js';
+import {redirectIfApplicable} from '../features/redirect/core/index.js';
 
 redirectIfApplicable();

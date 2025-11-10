@@ -1,3 +1,3 @@
-import { setUpRedirectIfEnabled } from "../redirect/setup";
+import { setUpRedirectIfEnabled } from "../features/redirect/core/setup";
 
 setUpRedirectIfEnabled();

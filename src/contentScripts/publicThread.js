@@ -1,6 +1,6 @@
 import {injectStylesheet} from '../common/contentScriptsUtils';
 import {getOptions} from '../common/options/optionsUtils.js';
-import {redirectIfApplicable} from '../redirect/index.js';
+import {redirectIfApplicable} from '../features/redirect/core/index.js';
 
 const kLoadMoreButtons = [
   {
