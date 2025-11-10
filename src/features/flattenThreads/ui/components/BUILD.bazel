@@ -1,0 +1,29 @@
+load("@aspect_bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
+load("//tools:common_js_project.bzl", "common_js_project")
+
+common_js_project(
+    name = "components",
+    visibility = [
+        # TODO(https://iavm.xyz/b/twpowertools/256): Delete the following
+        # package from the list.
+        "//src:__pkg__",
+    ],
+    deps = [
+        "//:node_modules/@lit/localize",
+        "//:node_modules/@material/web",
+        "//:node_modules/dompurify",
+        "//:node_modules/lit",
+        "//src/common/styles",
+        "//src/contentScripts/communityConsole/utils",
+        "//src/ui/i18n",
+    ],
+)
+
+copy_to_bin(
+    name = "source_code",
+    srcs = glob(
+        ["**"],
+        exclude = ["BUILD.bazel"],
+    ),
+    visibility = ["//src/lit-locales:__subpackages__"],
+)
