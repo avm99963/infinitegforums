@@ -1,0 +1,19 @@
+load("@gzgz_rules_sass//sass:defs.bzl", "sass_binary")
+
+sass_binary(
+    name = "styles",
+    src = "main.scss",
+    output_style = "compressed",
+    sourcemap = True,
+    sourcemap_embed_sources = True,
+    visibility = [
+        "//:__pkg__",
+    ],
+    deps = [
+        "//src/features/ccDarkTheme/ui/styles/abstracts",
+        "//src/features/ccDarkTheme/ui/styles/base",
+        "//src/features/ccDarkTheme/ui/styles/components",
+        "//src/features/ccDarkTheme/ui/styles/layout",
+        "//src/features/ccDarkTheme/ui/styles/vendors",
+    ],
+)

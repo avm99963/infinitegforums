@@ -22,6 +22,7 @@ package_group(
     packages = [
         "//src/features/bulkMove/infrastructure/ui/...",
         "//src/features/bulkMove/ui/...",
+        "//src/features/ccDarkTheme/ui/...",
         "//src/features/flattenThreads/ui/...",
         "//src/infrastructure/ui/...",
         "//src/ui/...",

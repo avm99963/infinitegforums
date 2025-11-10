@@ -1,0 +1,17 @@
+load("@gzgz_rules_sass//sass:defs.bzl", "sass_library")
+
+sass_library(
+    name = "components",
+    srcs = glob(["**/*.scss"]),
+    visibility = [
+        "//src/features/ccDarkTheme/ui/styles:__subpackages__",
+    ],
+    deps = [
+        "//src/features/ccDarkTheme/ui/styles/components/buttons",
+        "//src/features/ccDarkTheme/ui/styles/components/custom",
+        "//src/features/ccDarkTheme/ui/styles/components/dialogs",
+        "//src/features/ccDarkTheme/ui/styles/components/inputs",
+        "//src/features/ccDarkTheme/ui/styles/components/notifications",
+        "//src/features/ccDarkTheme/ui/styles/components/popups",
+    ],
+)

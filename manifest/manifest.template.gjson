@@ -109,7 +109,6 @@
         "extraInfoInject.bundle.js",
         "litComponentsInject.bundle.js",
         "updateHandlerLitComponents.bundle.js",
-        "ccDarkTheme.bundle.css",
 
         "css/profileindicator_inject.css",
         "css/batchlock_inject.css",
@@ -130,6 +129,8 @@
         "css/increase_contrast.css",
         "css/sticky_sidebar_headers.css",
         "css/bulk_report_replies.css",
+        "cc_dark_theme_styles/main.css",
+        "cc_dark_theme_styles/main.css.map",
 
         "communityConsoleMain.bundle.js.map",
         "communityConsoleStart.bundle.js.map",

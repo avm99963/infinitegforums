@@ -1,0 +1,12 @@
+load("@gzgz_rules_sass//sass:defs.bzl", "sass_library")
+
+sass_library(
+    name = "vendors",
+    srcs = glob(["**/*.scss"]),
+    visibility = [
+        "//src/features/ccDarkTheme/ui/styles:__subpackages__",
+    ],
+    deps = [
+        "//src/features/ccDarkTheme/ui/styles/vendors/google",
+    ],
+)

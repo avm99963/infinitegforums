@@ -81,6 +81,8 @@
     "https://bcr.bazel.build/modules/googletest/1.14.0.bcr.1/MODULE.bazel": "22c31a561553727960057361aa33bf20fb2e98584bc4fec007906e27053f80c6",
     "https://bcr.bazel.build/modules/googletest/1.14.0.bcr.1/source.json": "41e9e129f80d8c8bf103a7acc337b76e54fad1214ac0a7084bf24f4cd924b8b4",
     "https://bcr.bazel.build/modules/googletest/1.14.0/MODULE.bazel": "cfbcbf3e6eac06ef9d85900f64424708cc08687d1b527f0ef65aa7517af8118f",
+    "https://bcr.bazel.build/modules/gzgz_rules_sass/1.0.4/MODULE.bazel": "88a4e5e488e5d264d95eac31d5c02da35b99894224ee48983f38624725925cf1",
+    "https://bcr.bazel.build/modules/gzgz_rules_sass/1.0.4/source.json": "db481d34c24aa488b35586e50865f38163b22c195b5f20726da7211a62693955",
     "https://bcr.bazel.build/modules/jq.bzl/0.1.0/MODULE.bazel": "2ce69b1af49952cd4121a9c3055faa679e748ce774c7f1fda9657f936cae902f",
     "https://bcr.bazel.build/modules/jq.bzl/0.1.0/source.json": "746bf13cac0860f091df5e4911d0c593971cd8796b5ad4e809b2f8e133eee3d5",
     "https://bcr.bazel.build/modules/jsoncpp/1.9.5/MODULE.bazel": "31271aedc59e815656f5736f282bb7509a97c7ecb43e927ac1a37966e0578075",
@@ -530,6 +532,86 @@
             "aspect_tools_telemetry+",
             "bazel_skylib",
             "bazel_skylib+"
+          ]
+        ]
+      }
+    },
+    "@@gzgz_rules_sass+//sass:extensions.bzl%sass": {
+      "general": {
+        "bzlTransitiveDigest": "jmkYzkg+aJewPuGQmuAl1rQ5rSyvracbR2+hPwWeoPo=",
+        "usagesDigest": "1YTGU/ZWrRbzw54gRt5M9S6BBaxCTLWbs3yOOoKb2rM=",
+        "recordedFileInputs": {},
+        "recordedDirentsInputs": {},
+        "envVariables": {},
+        "generatedRepoSpecs": {
+          "sass_x86_64-apple-darwin": {
+            "repoRuleId": "@@gzgz_rules_sass+//sass:repositories.bzl%sass_repositories",
+            "attributes": {
+              "platform": "x86_64-apple-darwin",
+              "sass_version": "1.89.1"
+            }
+          },
+          "sass_aarch64-apple-darwin": {
+            "repoRuleId": "@@gzgz_rules_sass+//sass:repositories.bzl%sass_repositories",
+            "attributes": {
+              "platform": "aarch64-apple-darwin",
+              "sass_version": "1.89.1"
+            }
+          },
+          "sass_x86_64-unknown-linux": {
+            "repoRuleId": "@@gzgz_rules_sass+//sass:repositories.bzl%sass_repositories",
+            "attributes": {
+              "platform": "x86_64-unknown-linux",
+              "sass_version": "1.89.1"
+            }
+          },
+          "sass_aarch64-unknown-linux": {
+            "repoRuleId": "@@gzgz_rules_sass+//sass:repositories.bzl%sass_repositories",
+            "attributes": {
+              "platform": "aarch64-unknown-linux",
+              "sass_version": "1.89.1"
+            }
+          },
+          "sass_aarch32-unknown-linux": {
+            "repoRuleId": "@@gzgz_rules_sass+//sass:repositories.bzl%sass_repositories",
+            "attributes": {
+              "platform": "aarch32-unknown-linux",
+              "sass_version": "1.89.1"
+            }
+          },
+          "sass_i386-unknown-linux": {
+            "repoRuleId": "@@gzgz_rules_sass+//sass:repositories.bzl%sass_repositories",
+            "attributes": {
+              "platform": "i386-unknown-linux",
+              "sass_version": "1.89.1"
+            }
+          },
+          "sass_x86_64-pc-windows": {
+            "repoRuleId": "@@gzgz_rules_sass+//sass:repositories.bzl%sass_repositories",
+            "attributes": {
+              "platform": "x86_64-pc-windows",
+              "sass_version": "1.89.1"
+            }
+          },
+          "sass_i386-pc-windows": {
+            "repoRuleId": "@@gzgz_rules_sass+//sass:repositories.bzl%sass_repositories",
+            "attributes": {
+              "platform": "i386-pc-windows",
+              "sass_version": "1.89.1"
+            }
+          },
+          "sass_toolchains": {
+            "repoRuleId": "@@gzgz_rules_sass+//sass/private:toolchains_repo.bzl%toolchains_repo",
+            "attributes": {
+              "user_repository_name": "sass"
+            }
+          }
+        },
+        "recordedRepoMappingEntries": [
+          [
+            "gzgz_rules_sass+",
+            "bazel_tools",
+            "bazel_tools"
           ]
         ]
       }

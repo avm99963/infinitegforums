@@ -1,0 +1,12 @@
+load("@gzgz_rules_sass//sass:defs.bzl", "sass_library")
+
+sass_library(
+    name = "abstracts",
+    srcs = glob(["**/*.scss"]),
+    visibility = [
+        "//src/features/ccDarkTheme/ui/styles:__subpackages__",
+    ],
+    deps = [
+        "//src/ui/styles/md3:library",
+    ],
+)

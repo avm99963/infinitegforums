@@ -1,0 +1,9 @@
+load("@gzgz_rules_sass//sass:defs.bzl", "sass_library")
+
+sass_library(
+    name = "base",
+    srcs = glob(["**/*.scss"]),
+    visibility = [
+        "//src/features/ccDarkTheme/ui/styles:__subpackages__",
+    ],
+)

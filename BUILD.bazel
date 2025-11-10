@@ -1,3 +1,4 @@
+load("@aspect_bazel_lib//lib:copy_to_directory.bzl", "copy_to_directory")
 load("@aspect_bazel_lib//lib:testing.bzl", "assert_json_matches")
 load("@aspect_rules_ts//ts:defs.bzl", "ts_config", "ts_project")
 load("@fremtind_rules_vitest//vitest:defs.bzl", "vitest_test")
@@ -19,6 +20,14 @@ exports_files([
 
 extension_bundle(
     name = "webpack_bundle",
+)
+
+copy_to_directory(
+    name = "cc_dark_theme_styles",
+    srcs = ["//src/features/ccDarkTheme/ui/styles"],
+    replace_prefixes = {
+        "src/features/ccDarkTheme/ui/styles": "",
+    },
 )
 
 copy_extension_package_to_directory(

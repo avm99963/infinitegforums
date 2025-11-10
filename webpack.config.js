@@ -21,6 +21,8 @@ const localeOverrides = [
 ];
 
 module.exports = (env, args) => {
+  const isBazelBuild = env.is_bazel_build == 'true';
+
   // NOTE: When adding an entry, add the corresponding source map file to
   // web_accessible_resources in //manifest/manifest.template.gjson.
   const entry = {
@@ -67,7 +69,7 @@ module.exports = (env, args) => {
     mdcStyles: './src/ui/styles/mdc/index.js',
 
     // Compiled Sass
-    ccDarkTheme: './src/features/ccDarkTheme/core/styles/main.scss?asCSSFile',
+    ...(!isBazelBuild ? {'cc_dark_theme_styles/main': './src/features/ccDarkTheme/ui/styles/main.scss?asCSSFile'} : {}),
 
     // Background script (or service worker for MV3)
     bg: './src/bg.js',
@@ -122,7 +124,6 @@ module.exports = (env, args) => {
   ];
 
   const isCanaryBuild = env.canary == 'true';
-  const isBazelBuild = env.is_bazel_build == 'true';
 
   const outputPath = path.join(__dirname, 'dist', env.browser_target);
 
