@@ -8,7 +8,7 @@ import { SHARED_MD3_STYLES } from '../../../../common/styles/md3';
 import { map } from 'lit/directives/map.js';
 import { ReportStatus, ReportStatusValues } from '../../domain/reportStatus';
 import { ReportType, ReportTypeValues } from '../../domain/reportType';
-import { kEventReportReply } from '../events';
+import { kEventReportReply } from '../events/events';
 import { msg } from '@lit/localize';
 
 interface ReportButton {

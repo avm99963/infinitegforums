@@ -1,4 +1,4 @@
-import { ReportType } from "../domain/reportType";
+import { ReportType } from '../../domain/reportType';
 
 export const kEventReportReply = 'twpt-bulk-report-replies-report-reply';
 

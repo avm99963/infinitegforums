@@ -1,6 +1,6 @@
 import { ReportTypeValues } from '../../../domain/reportType';
 import BulkReportControls from '../../../ui/components/BulkReportControls';
-import { kEventReportReply } from '../../../ui/events';
+import { kEventReportReply } from '../../../ui/events/events';
 import { BulkReportControlsInjectorPort } from '../../../ui/injectors/bulkReportControls.injector.port';
 
 export interface MessageInfo {

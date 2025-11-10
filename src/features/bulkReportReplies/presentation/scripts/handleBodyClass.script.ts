@@ -2,7 +2,7 @@ import Script from '../../../../common/architecture/scripts/Script';
 import { OptionsConfiguration } from '../../../../common/options/OptionsConfiguration';
 import { OptionsProviderPort } from '../../../../services/options/OptionsProvider';
 import { IsBulkReportRepliesFeatureEnabledService } from '../../services/isFeatureEnabled.service';
-import { bulkReportRepliesEnabledClassName } from '../consts';
+import { bulkReportRepliesEnabledClassName } from '../consts/consts';
 
 export default class BulkReportRepliesHandleBodyClassScript extends Script {
   page: never;
