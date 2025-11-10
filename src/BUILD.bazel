@@ -12,6 +12,7 @@ package_group(
     packages = [
         "//src/features/autoRefresh/presentation/...",
         "//src/features/bulkMove/presentation/...",
+        "//src/features/flattenThreads/presentation/...",
         "//src/presentation/...",
     ],
 )
@@ -116,6 +117,10 @@ js_library(
         "//src/features/bulkMove/ui/components",
         "//src/features/bulkMove/ui/injectors",
         "//src/features/bulkMove/ui/ports",
+        "//src/features/flattenThreads/core",
+        "//src/features/flattenThreads/presentation/nodeWatcherHandlers",
+        "//src/features/flattenThreads/presentation/options",
+        "//src/features/flattenThreads/presentation/scripts",
         "//src/features/flattenThreads/ui/components",
         "//src/infrastructure/presentation/nodeWatcher",
         "//src/infrastructure/presentation/nodeWatcher/handlers",
