@@ -141,6 +141,7 @@ js_library(
         "//src/presentation/nodeWatcher",
         "//src/presentation/scripts",
         "//src/presentation/scripts/errors",
+        "//src/presentation/standaloneScripts/litComponents",
         "//src/services/communityConsole",
         "//src/services/options",
         "//src/ui/components",
