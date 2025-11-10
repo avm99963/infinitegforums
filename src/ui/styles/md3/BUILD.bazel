@@ -1,0 +1,11 @@
+load("@aspect_bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
+
+copy_to_bin(
+    name = "md3",
+    srcs = [
+        "theme.scss",
+    ],
+    visibility = [
+        "//:__pkg__",
+    ],
+)

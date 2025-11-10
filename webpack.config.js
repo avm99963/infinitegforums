@@ -64,7 +64,7 @@ module.exports = (env, args) => {
     workflowManager: './src/features/workflows/core/manager/index.js',
 
     // Common CSS
-    mdcStyles: './src/mdc/index.js',
+    mdcStyles: './src/ui/styles/mdc/index.js',
 
     // Compiled Sass
     ccDarkTheme: './src/features/ccDarkTheme/core/styles/main.scss?asCSSFile',

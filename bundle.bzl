@@ -26,6 +26,7 @@ def extension_bundle(name, **kwargs):
             # TODO(https://iavm.xyz/b/twpowertools/256): Move this out of the static
             # folder.
             "//src/static:common_console_styles",
+            "//src/ui/styles/md3",
         ],
         # TODO(https://iavm.xyz/b/twpowertools/256): Remove is_bazel_build once Bazel
         # replaces Webpack as the build system.

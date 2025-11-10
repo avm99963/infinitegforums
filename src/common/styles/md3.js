@@ -4,7 +4,7 @@ import {css} from 'lit';
 // theme color scheme (it's defined in variables prefixed with --TWPT).
 export const SHARED_MD3_STYLES = css`
   :host {
-    /* Adapted from //src/md3/theme.scss */
+    /* Adapted from //src/ui/styles/md3/theme.scss */
     --md-sys-color-primary: var(--TWPT-md-sys-color-primary, rgb(0 106 96));
     --md-sys-color-surface-tint: var(--TWPT-md-sys-color-surface-tint, rgb(0 106 96));
     --md-sys-color-on-primary: var(--TWPT-md-sys-color-on-primary, rgb(255 255 255));
