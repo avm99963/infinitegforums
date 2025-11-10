@@ -11,6 +11,7 @@ package_group(
     name = "presentation",
     packages = [
         "//src/features/autoRefresh/presentation/...",
+        "//src/features/avatars/presentation/...",
         "//src/features/bulkMove/presentation/...",
         "//src/features/flattenThreads/presentation/...",
         "//src/presentation/...",
@@ -110,6 +111,10 @@ js_library(
         "//src/features/autoRefresh/presentation/nodeWatcherHandlers",
         "//src/features/autoRefresh/presentation/options",
         "//src/features/autoRefresh/presentation/scripts",
+        "//src/features/avatars/core",
+        "//src/features/avatars/presentation/nodeWatcherHandlers",
+        "//src/features/avatars/presentation/options",
+        "//src/features/avatars/presentation/scripts",
         "//src/features/bulkMove/infrastructure/factories",
         "//src/features/bulkMove/infrastructure/repositories/api",
         "//src/features/bulkMove/infrastructure/ui/injectors",
