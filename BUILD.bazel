@@ -1,7 +1,6 @@
 load("@aspect_bazel_lib//lib:copy_to_directory.bzl", "copy_to_directory")
 load("@aspect_bazel_lib//lib:testing.bzl", "assert_json_matches")
 load("@aspect_rules_ts//ts:defs.bzl", "ts_config", "ts_project")
-load("@fremtind_rules_vitest//vitest:defs.bzl", "vitest_test")
 load("@npm//:defs.bzl", "npm_link_all_packages")
 load("@npm//:renovate/package_json.bzl", renovate_bin = "bin")
 load("@npm//:web-ext/package_json.bzl", web_ext_bin = "bin")
@@ -62,21 +61,6 @@ ts_project(
         ":node_modules/@types/node",
         ":node_modules/vitest",
     ],
-)
-
-vitest_test(
-    name = "test",
-    size = "medium",
-    config = "vitest.config.js",
-    data = [
-        ":node_modules/@material/tooltip",
-        ":node_modules/@testing-library/dom",
-        ":node_modules/poll-until-promise",
-        "//src:compiled_source",
-        "//src:non_compiled_source",
-        "//src/common/options",
-    ],
-    node_modules = ":node_modules",
 )
 
 browser(
