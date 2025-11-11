@@ -5,7 +5,7 @@
 import '../features/workflows/ui/components/communityConsole/index.js';
 import '../features/threadToolbar/ui/components/index.js';
 import '../features/flattenThreads/ui/components/index.js';
-import '../contentScripts/communityConsole/updateHandler/banner/components/index.js';
+import '../updateNotifier/ui/components/UpdateBanner';
 import '../features/bulkReportReplies/ui/components/index';
 import '../features/bulkMove/ui/components/index';
 import '../ui/components';

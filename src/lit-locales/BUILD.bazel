@@ -50,6 +50,7 @@ filegroup(
         "//src/options/presentation/utils",
         "//src/presentation/i18n",
         "//src/ui/components/forumDestinationPicker:source_code",
+        "//src/updateNotifier/ui/components:source_code",
     ],
 )
 

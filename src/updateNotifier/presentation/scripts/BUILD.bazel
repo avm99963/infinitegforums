@@ -2,7 +2,7 @@ load("//tools:bazel/swc.bzl", "swc_pkg")
 load("//tools:common_ts_project.bzl", "common_ts_project")
 
 common_ts_project(
-    name = "mainWorldServers",
+    name = "scripts",
     allow_js = True,
     declaration = True,
     source_map = True,
@@ -13,14 +13,12 @@ common_ts_project(
         # package from the list.
         "//src:__pkg__",
         "//src:entrypoint",
-        "//src/updateNotifier/presentation/scripts:__subpackages__",
     ],
     deps = [
+        "//:node_modules/@types/chrome",
+        "//src/common",
         "//src/common/architecture/scripts",
-        "//src/options/repositories",
-        "//src/presentation/mainWorldContentScriptBridge/i18n",
-        "//src/presentation/mainWorldContentScriptBridge/optionsConfigurationRepository",
-        "//src/presentation/mainWorldContentScriptBridge/optionsWatcher",
-        "//src/xhrInterceptor/responseModifier",
+        "//src/presentation/standaloneScripts/mainWorldServers",
+        "//src/updateNotifier/ui/injectors",
     ],
 )

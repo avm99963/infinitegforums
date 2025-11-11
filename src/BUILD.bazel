@@ -41,6 +41,7 @@ package_group(
         "//src/features/uiSpacing/presentation/...",
         "//src/features/workflows/presentation/...",
         "//src/presentation/...",
+        "//src/updateNotifier/presentation/...",
     ],
 )
 
@@ -59,6 +60,8 @@ package_group(
         "//src/features/workflows/ui/...",
         "//src/infrastructure/ui/...",
         "//src/ui/...",
+        "//src/updateNotifier/infrastructure/ui/...",
+        "//src/updateNotifier/ui/...",
     ],
 )
 
@@ -278,7 +281,12 @@ js_library(
         "//src/ui/injectors",
         "//src/ui/services",
         "//src/ui/styles/mdc",
-        "//src/updateNotifier",
+        "//src/updateNotifier/infrastructure/ui/injectors",
+        "//src/updateNotifier/presentation/bg",
+        "//src/updateNotifier/presentation/scripts",
+        "//src/updateNotifier/ui",
+        "//src/updateNotifier/ui/components",
+        "//src/updateNotifier/ui/injectors",
         "//src/xhrInterceptor/fetchProxy",
         "//src/xhrInterceptor/interceptors",
         "//src/xhrInterceptor/killSwitchHandler",

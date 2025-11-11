@@ -1,4 +1,4 @@
-import '../contentScripts/communityConsole/updateHandler/banner/components/index.js';
+import '../updateNotifier/ui/components/UpdateBanner';
 
 import {injectStylesheet} from '../common/contentScriptsUtils';
 

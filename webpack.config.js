@@ -45,8 +45,8 @@ module.exports = (env, args) => {
     profileIndicator: './src/contentScripts/profileIndicator.js',
 
     // Programatically injected content scripts
-    handleInstall: './src/contentScripts/communityConsole/handleInstall.js',
-    handleUpdate: './src/contentScripts/communityConsole/handleUpdate.js',
+    handleInstall: './src/entryPoints/communityConsole/injections/handleInstall.ts',
+    handleUpdate: './src/entryPoints/communityConsole/injections/handleUpdate.ts',
 
     // Injected JS
     profileIndicatorInject: './src/injections/profileIndicator.js',
@@ -243,6 +243,11 @@ module.exports = (env, args) => {
           use: [
             preprocessorLoader,
           ],
+        },
+        {
+          test: /\.css$/i,
+          resourceQuery: /string/,
+          use: ['css-loader'],
         },
         {
           test: /\.s[ac]ss$/i,
