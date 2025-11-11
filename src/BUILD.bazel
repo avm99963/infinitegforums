@@ -114,9 +114,6 @@ filegroup(
     name = "non_compiled_source",
     srcs = [
         ":non_packaged_source",
-        # keep-sorted start
-        "//src/common/architecture/dependenciesProvider",
-        # keep-sorted end
     ],
     visibility = [
         "//:__pkg__",
@@ -137,6 +134,7 @@ js_library(
     deps = [
         "//src/common",
         "//src/common/architecture/abortable",
+        "//src/common/architecture/dependenciesProvider",
         "//src/common/architecture/scripts",
         "//src/common/architecture/scripts/stylesheet",
         "//src/common/components",
