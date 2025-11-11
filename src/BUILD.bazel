@@ -208,6 +208,7 @@ js_library(
         "//src/features/previousPosts/presentation/handlers",
         "//src/features/previousPosts/presentation/options",
         "//src/features/profileIndicator/presentation/options",
+        "//src/features/redirect/core",
         "//src/features/redirect/presentation/options",
         "//src/features/repositionExpandThread/presentation/options",
         "//src/features/repositionExpandThread/presentation/scripts",
