@@ -27,6 +27,7 @@ filegroup(
         "//src/features/bulkMove/ui/components:source_code",
         "//src/features/bulkReportReplies/presentation/options",
         "//src/features/bulkReportReplies/ui/components:source_code",
+        "//src/features/ccDarkTheme/presentation/options",
         "//src/features/flattenThreads/ui/components:source_code",
         "//src/features/flattenThreads/presentation/options",
         "//src/ui/components/forumDestinationPicker:source_code",
