@@ -1,5 +1,5 @@
-import Script from '../../../common/architecture/scripts/Script';
-import { OptionsProviderPort } from '../../../services/options/OptionsProvider';
+import Script from '../../../../common/architecture/scripts/Script';
+import { OptionsProviderPort } from '../../../../services/options/OptionsProvider';
 
 export default class CCForceHideDrawerScript extends Script {
   page: never;

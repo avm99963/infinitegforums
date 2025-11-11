@@ -73,7 +73,7 @@ import { GetSelectedThreadsServiceAdapter } from '../../../infrastructure/ui/ser
 import { UrlThreadDataParserServiceAdapter } from '../../../infrastructure/ui/services/communityConsole/urlThreadDataParser.service.adapter';
 import { BulkMoveThreadsRepositoryAdapter } from '../../../features/bulkMove/infrastructure/repositories/api/moveThread.repository.adapter';
 import { ViewSoftRefresherServiceAdapter } from '../../../infrastructure/ui/services/communityConsole/viewSoftRefresher.service.adapter';
-import CCForceHideDrawerScript from '../../../features/ccForceHideDrawer/presentation/hideDrawer.script';
+import CCForceHideDrawerScript from '../../../features/ccForceHideDrawer/presentation/scripts/hideDrawer.script';
 // #!if browser_target == 'chromium_mv3'
 import CCDragAndDropFixTextEditorHandler from '../../../features/ccDragAndDropFix/presentation/nodeWatcherHandlers/fixTextEditor.handler';
 // #!endif
