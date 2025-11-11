@@ -69,7 +69,7 @@ module.exports = (env, args) => {
     mdcStyles: './src/ui/styles/mdc/index.js',
 
     // Compiled Sass
-    ...(!isBazelBuild ? {'cc_dark_theme_styles/main': './src/features/ccDarkTheme/ui/styles/main.scss?asCSSFile'} : {}),
+    ...(!isBazelBuild ? {'cc_dark_theme_styles/main': './src/features/ccDarkTheme/ui/styles/main.bundle.scss?asCSSFile'} : {}),
 
     // Background script (or service worker for MV3)
     bg: './src/bg.js',

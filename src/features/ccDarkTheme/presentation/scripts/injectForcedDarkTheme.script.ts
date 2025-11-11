@@ -2,7 +2,7 @@ import { ScriptPage } from '../../../../common/architecture/scripts/Script';
 import StylesheetScript from '../../../../common/architecture/scripts/stylesheet/StylesheetScript';
 
 export default class CCDarkThemeInjectForcedDarkTheme extends StylesheetScript {
-  stylesheet = 'cc_dark_theme_styles/main.css';
+  stylesheet = 'cc_dark_theme_styles/main.bundle.css';
   page = ScriptPage.CommunityConsole;
 
   async shouldBeInjected(): Promise<boolean> {

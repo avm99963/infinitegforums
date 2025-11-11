@@ -2,7 +2,7 @@ load("@gzgz_rules_sass//sass:defs.bzl", "sass_binary")
 
 sass_binary(
     name = "styles",
-    src = "main.scss",
+    src = "main.bundle.scss",
     output_style = "compressed",
     sourcemap = True,
     sourcemap_embed_sources = True,
