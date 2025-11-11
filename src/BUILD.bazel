@@ -195,6 +195,8 @@ js_library(
         "//src/features/imageMaxHeight/presentation/scripts",
         "//src/features/increaseContrast/presentation/options",
         "//src/features/increaseContrast/presentation/scripts",
+        "//src/features/infiniteScroll/core",
+        "//src/features/infiniteScroll/presentation/nodeWatcherHandlers",
         "//src/features/infiniteScroll/presentation/options",
         "//src/features/interopThreadPage/presentation/options",
         "//src/features/linkDialogFix/presentation/options",
