@@ -2,7 +2,7 @@ load("//tools:bazel/swc.bzl", "swc_pkg")
 load("//tools:common_ts_project.bzl", "common_ts_project")
 
 common_ts_project(
-    name = "models",
+    name = "events",
     allow_js = True,
     declaration = True,
     source_map = True,
@@ -12,12 +12,9 @@ common_ts_project(
         # TODO(https://iavm.xyz/b/twpowertools/256): Delete the following
         # package from the list.
         "//src:__pkg__",
-        "//src:presentation",
-        "//src/options/presentation/data:__subpackages__",
-        "//src/options/ui:__subpackages__",
+        "//src/options/ui/components:__subpackages__",
     ],
     deps = [
-        "//:node_modules/lit",
         "//src/common/options",
     ],
 )

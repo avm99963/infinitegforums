@@ -1,0 +1,21 @@
+load("//tools:bazel/swc.bzl", "swc_pkg")
+load("//tools:common_ts_project.bzl", "common_ts_project")
+
+common_ts_project(
+    name = "scripts",
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = swc_pkg,
+    tsconfig = "//:tsconfig_pkg",
+    visibility = [
+        "//:__pkg__",
+    ],
+    deps = [
+        "//src/common",
+        "//src/infrastructure/services/options",
+        "//src/options/infrastructure/repositories",
+        "//src/options/presentation/data",
+        "//src/options/ui/components",
+    ],
+)

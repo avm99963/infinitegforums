@@ -6,6 +6,7 @@ package_group(
     packages = [
         "//src/contentScripts",
         "//src/injections",
+        "//src/options/presentation/scripts",
     ],
 )
 
@@ -42,6 +43,7 @@ package_group(
         "//src/features/threadToolbar/presentation/...",
         "//src/features/uiSpacing/presentation/...",
         "//src/features/workflows/presentation/...",
+        "//src/options/presentation/...",
         "//src/presentation/...",
         "//src/updateNotifier/presentation/...",
     ],
@@ -61,6 +63,7 @@ package_group(
         "//src/features/threadToolbar/ui/...",
         "//src/features/workflows/ui/...",
         "//src/infrastructure/ui/...",
+        "//src/options/ui/...",
         "//src/ui/...",
         "//src/updateNotifier/infrastructure/ui/...",
         "//src/updateNotifier/ui/...",
@@ -257,10 +260,14 @@ js_library(
         "//src/lit-locales",
         "//src/models",
         "//src/models/enums",
+        "//src/options/bgHandler",
         "//src/options/infrastructure/repositories",
+        "//src/options/presentation/data",
         "//src/options/presentation/models",
         "//src/options/presentation/utils",
         "//src/options/repositories",
+        "//src/options/ui/components",
+        "//src/options/ui/events",
         "//src/presentation/i18n",
         "//src/presentation/mainWorldContentScriptBridge/base",
         "//src/presentation/mainWorldContentScriptBridge/base/tests",

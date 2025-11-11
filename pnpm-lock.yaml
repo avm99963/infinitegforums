@@ -4,7 +4,7 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-packageExtensionsChecksum: c8de9634fa49ee7fdcb980a7397ac5fc
+packageExtensionsChecksum: a86b32ff5f92dd92ad5a6e57fb539117
 
 importers:
 
@@ -12,7 +12,7 @@ importers:
     dependencies:
       '@lit-labs/motion':
         specifier: ^1.0.9
-        version: 1.0.9
+        version: 1.0.9(lit-html@3.3.1)
       '@lit/localize':
         specifier: ^0.12.0
         version: 0.12.2
@@ -839,6 +839,8 @@ packages:
 
   '@lit-labs/motion@1.0.9':
     resolution: {integrity: sha512-oUdZpZDyf9UKAW/im5nkXY6W4cpsMlDgzN99j0FcdPiAOsGclxJpRYbvQz9/eQrPlXpywnr4SkzS9WsSeKILRA==}
+    peerDependencies:
+      lit-html: '*'
 
   '@lit-labs/ssr-dom-shim@1.4.0':
     resolution: {integrity: sha512-ficsEARKnmmW5njugNYKipTm4SFnbik7CXtoencDZzmzo/dQ+2Q0bgkzJuoJP20Aj0F+izzJjOqsnkd6F/o1bw==}
@@ -7071,9 +7073,10 @@ snapshots:
 
   '@kwsites/promise-deferred@1.1.1': {}
 
-  '@lit-labs/motion@1.0.9':
+  '@lit-labs/motion@1.0.9(lit-html@3.3.1)':
     dependencies:
       lit: 3.3.1
+      lit-html: 3.3.1
 
   '@lit-labs/ssr-dom-shim@1.4.0': {}
 

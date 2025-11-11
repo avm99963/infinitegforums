@@ -60,7 +60,7 @@ module.exports = (env, args) => {
     optionsCommonOld: './src/options/old/optionsCommon.js',
 
     // New options page
-    optionsScript: './src/options/presentation/scripts/options.ts',
+    optionsScript: './src/options/presentation/scripts/options' + (isBazelBuild ? '.js' : '.ts'),
 
     // Workflow manager
     workflowManager: './src/features/workflows/ui/components/manager/index.js',
@@ -70,6 +70,7 @@ module.exports = (env, args) => {
 
     // Compiled Sass
     ...(!isBazelBuild ? {'cc_dark_theme_styles/main': './src/features/ccDarkTheme/ui/styles/main.bundle.scss?asCSSFile'} : {}),
+    ...(!isBazelBuild ? {'options_styles/main': './src/options/ui/styles/main.bundle.scss?asCSSFile'} : {}),
 
     // Background script (or service worker for MV3)
     bg: './src/bg.js',

@@ -1,0 +1,15 @@
+load("//tools:common_js_project.bzl", "common_js_project")
+
+common_js_project(
+    name = "old",
+    assets = [
+        "optionsPage.json5",
+    ],
+    visibility = [
+        "//:__pkg__",
+    ],
+    deps = [
+        "//src/common",
+        "//src/common/options",
+    ],
+)

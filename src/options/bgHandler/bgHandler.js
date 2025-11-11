@@ -6,7 +6,7 @@
 // An example is the "blockdrafts" feature, which when enabled should enable the
 // static ruleset blocking *DraftMessages requests.
 
-import {isOptionEnabled} from '../common/options/optionsUtils.js';
+import {isOptionEnabled} from '../../common/options/optionsUtils.js';
 
 // List of features controled in the background:
 export var bgFeatures = [

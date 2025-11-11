@@ -8,9 +8,11 @@ import './FeatureCategory';
 import './KillSwitchEnabledBanner';
 import './NavDrawer';
 import './TopAppBar';
-import '../styles/main.bundle.scss';
 import { OptionsConfiguration } from '../../../common/options/OptionsConfiguration';
-import { makeAbortable, PromiseAbortError } from '../../../common/architecture/abortable';
+import {
+  makeAbortable,
+  PromiseAbortError,
+} from '../../../common/architecture/abortable';
 import { OptionChangedEvent } from '../events/events';
 import { optionCodenames } from '../../../common/options/optionsPrototype';
 import { FeatureCategory } from '../../presentation/models/category';

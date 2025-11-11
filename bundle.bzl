@@ -15,6 +15,7 @@ def extension_bundle(name, **kwargs):
             "//src:compiled_source",
             "//src/contentScripts",
             "//src/injections",
+            "//src/options/old",
         ],
         include_types = True,
         include_transitive_types = True,
@@ -32,6 +33,8 @@ def extension_bundle(name, **kwargs):
             "//src/static:common_console_styles",
             "//src/ui/styles/md3",
             "//src/features/workflows/presentation/templates",
+            "//src/options/presentation/scripts",
+            "//src/options/presentation/templates",
         ],
         # TODO(https://iavm.xyz/b/twpowertools/256): Remove is_bazel_build once Bazel
         # replaces Webpack as the build system.

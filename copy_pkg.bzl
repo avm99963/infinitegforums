@@ -7,6 +7,7 @@ def copy_extension_package_to_directory(name, webpack_bundle, out):
         srcs = [
             webpack_bundle,
             Label(":cc_dark_theme_styles"),
+            Label(":options_styles"),
             "//src/icons",
             "//src/static",
             "//manifest",

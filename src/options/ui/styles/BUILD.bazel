@@ -1,0 +1,15 @@
+load("@gzgz_rules_sass//sass:defs.bzl", "sass_binary")
+
+sass_binary(
+    name = "styles",
+    src = "main.bundle.scss",
+    output_style = "compressed",
+    sourcemap = True,
+    sourcemap_embed_sources = True,
+    visibility = [
+        "//:__pkg__",
+    ],
+    deps = [
+        "//src/ui/styles/md3:library",
+    ],
+)

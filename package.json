@@ -92,6 +92,11 @@
           "lit-html": "*"
         }
       },
+      "@lit-labs/motion": {
+        "peerDependencies": {
+          "lit-html": "*"
+        }
+      },
       "@material/mwc-dialog": {
         "peerDependencies": {
           "lit-html": "*"

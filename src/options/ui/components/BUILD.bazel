@@ -1,0 +1,41 @@
+load("@aspect_bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
+load("//tools:bazel/swc.bzl", "swc_pkg")
+load("//tools:common_ts_project.bzl", "common_ts_project")
+
+common_ts_project(
+    name = "components",
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = swc_pkg,
+    tsconfig = "//:tsconfig_pkg",
+    visibility = [
+        # TODO(https://iavm.xyz/b/twpowertools/256): Delete the following
+        # package from the list.
+        "//src:__pkg__",
+        "//src/options/presentation:__subpackages__",
+    ],
+    deps = [
+        "//:node_modules/@lit-labs/motion",
+        "//:node_modules/@lit/localize",
+        "//:node_modules/@material/web",
+        "//:node_modules/lit",
+        "//src/common",
+        "//src/common/architecture/abortable",
+        "//src/common/options",
+        "//src/options/presentation/models",
+        "//src/options/ui/events",
+        "//src/presentation/i18n",
+        "//src/services/options",
+        "//src/ui/i18n",
+    ],
+)
+
+copy_to_bin(
+    name = "source_code",
+    srcs = glob(
+        ["**"],
+        exclude = ["BUILD.bazel"],
+    ),
+    visibility = ["//src/lit-locales:__subpackages__"],
+)

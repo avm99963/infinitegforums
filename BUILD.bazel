@@ -29,6 +29,14 @@ copy_to_directory(
     },
 )
 
+copy_to_directory(
+    name = "options_styles",
+    srcs = ["//src/options/ui/styles"],
+    replace_prefixes = {
+        "src/options/ui/styles": "",
+    },
+)
+
 copy_extension_package_to_directory(
     name = "unpacked_pkg",
     out = "unpacked_pkg",

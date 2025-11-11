@@ -5,7 +5,6 @@ import './HintText';
 import './KillSwitchEnabledBanner';
 import { Feature } from '../../presentation/models/feature';
 import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles';
-import '../styles/main.bundle.scss';
 import { OptionsConfiguration } from '../../../common/options/OptionsConfiguration';
 import { FeatureCategory } from '../../presentation/models/category';
 import { FeatureSection } from '../../presentation/models/section';
