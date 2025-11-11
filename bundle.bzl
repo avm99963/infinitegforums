@@ -11,7 +11,10 @@ def extension_bundle(name, **kwargs):
     transpiled_ts_sources_target = "{}_transpiled_typescript_sources".format(name)
     js_info_files(
         name = transpiled_ts_sources_target,
-        srcs = ["//src:compiled_source"],
+        srcs = [
+            "//src:compiled_source",
+            "//src/contentScripts",
+        ],
         include_types = True,
         include_transitive_types = True,
     )

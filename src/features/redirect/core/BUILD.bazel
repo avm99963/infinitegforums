@@ -7,6 +7,7 @@ common_js_project(
         # package from the list.
         "//src:__pkg__",
         "//src/features/redirect:__subpackages__",
+        "//src/contentScripts:__subpackages__",
     ],
     deps = [
         "//src/common",

@@ -4,6 +4,7 @@ load("@aspect_rules_js//js:defs.bzl", "js_library")
 package_group(
     name = "entrypoint",
     packages = [
+        "//src/contentScripts",
     ],
 )
 
