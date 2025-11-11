@@ -14,11 +14,10 @@ copy_to_bin(
 # Source code that uses msg() to localize strings.
 filegroup(
     name = "localized_code",
+    # TODO(https://iavm.xyz/b/twpowertools/256): Remove the
+    # //src:non_compiled_source src.
     srcs = [
-        # TODO(https://iavm.xyz/b/twpowertools/256): Remove the following line.
         "//src:non_compiled_source",
-        "//src/options/presentation/utils",
-        "//src/presentation/i18n",
         "//src/features/autoRefresh/presentation/options",
         "//src/features/avatars/presentation/options",
         "//src/features/batchLock/presentation/options",
@@ -29,8 +28,26 @@ filegroup(
         "//src/features/bulkReportReplies/ui/components:source_code",
         "//src/features/ccDarkTheme/presentation/options",
         "//src/features/ccDragAndDropFix/presentation/options",
-        "//src/features/flattenThreads/ui/components:source_code",
+        "//src/features/ccForceHideDrawer/presentation/options",
+        "//src/features/enhancedAnnouncementsDot/presentation/options",
+        "//src/features/extraInfo/presentation/options",
+        "//src/features/fixedToolbar/presentation/options",
         "//src/features/flattenThreads/presentation/options",
+        "//src/features/flattenThreads/ui/components:source_code",
+        "//src/features/imageMaxHeight/presentation/options",
+        "//src/features/increaseContrast/presentation/options",
+        "//src/features/infiniteScroll/presentation/options",
+        "//src/features/interopThreadPage/presentation/options",
+        "//src/features/linkDialogFix/presentation/options",
+        "//src/features/loadDrafts/presentation/options",
+        "//src/features/previousPosts/presentation/options",
+        "//src/features/profileIndicator/presentation/options",
+        "//src/features/redirect/presentation/options",
+        "//src/features/repositionExpandThread/presentation/options",
+        "//src/features/stickySidebarHeaders/presentation/options",
+        "//src/features/uiSpacing/presentation/options",
+        "//src/options/presentation/utils",
+        "//src/presentation/i18n",
         "//src/ui/components/forumDestinationPicker:source_code",
     ],
 )
