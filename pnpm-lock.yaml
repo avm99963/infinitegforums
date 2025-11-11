@@ -4,7 +4,7 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-packageExtensionsChecksum: 2b3f297109aafda05f9fb63d01980639
+packageExtensionsChecksum: c8de9634fa49ee7fdcb980a7397ac5fc
 
 importers:
 
@@ -24,7 +24,7 @@ importers:
         version: 0.27.0
       '@material/mwc-dialog':
         specifier: ^0.27.0
-        version: 0.27.0
+        version: 0.27.0(lit-html@3.3.1)
       '@material/tooltip':
         specifier: ^14.0.0
         version: 14.0.0
@@ -928,6 +928,8 @@ packages:
   '@material/mwc-dialog@0.27.0':
     resolution: {integrity: sha512-rkOEmCroVs0wBQbj87vH79SvSHHZ61QRCTUYsU2rHGZCvdzlmvHjWdoyKjJER6WwwM3rrT8xthfecmjICI28CA==}
     deprecated: MWC beta is longer supported. Please upgrade to @material/web
+    peerDependencies:
+      lit-html: '*'
 
   '@material/mwc-icon@0.27.0':
     resolution: {integrity: sha512-Sul44I37M9Ewynn0A9DjkEBrmll2VtNbth6Pxj7I1A/EAwEfaCrPvryyGqfIu1T2hTsRcaojzQx6QjF+B5QW9A==}
@@ -7277,7 +7279,7 @@ snapshots:
       lit: 2.8.0
       tslib: 2.8.1
 
-  '@material/mwc-dialog@0.27.0':
+  '@material/mwc-dialog@0.27.0(lit-html@3.3.1)':
     dependencies:
       '@material/dialog': 14.0.0-canary.53b3cad2f.0
       '@material/dom': 14.0.0-canary.53b3cad2f.0
@@ -7285,6 +7287,7 @@ snapshots:
       '@material/mwc-button': 0.27.0
       blocking-elements: 0.1.1
       lit: 2.8.0
+      lit-html: 3.3.1
       tslib: 2.8.1
       wicg-inert: 3.1.3
 

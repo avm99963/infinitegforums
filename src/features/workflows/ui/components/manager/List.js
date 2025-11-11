@@ -8,7 +8,7 @@ import {css, html, LitElement, nothing} from 'lit';
 import {map} from 'lit/directives/map.js';
 import {createRef, ref} from 'lit/directives/ref.js';
 
-import WorkflowsStorage from '../../workflowsStorage.js';
+import WorkflowsStorage from '../../../core/workflowsStorage/workflowsStorage.js';
 
 export default class WFList extends LitElement {
   static properties = {

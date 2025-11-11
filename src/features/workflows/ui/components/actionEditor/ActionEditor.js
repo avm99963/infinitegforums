@@ -6,8 +6,8 @@ import {html, LitElement, nothing} from 'lit';
 import {map} from 'lit/directives/map.js';
 import {createRef, ref} from 'lit/directives/ref.js';
 
-import * as pb from '../../proto/main_pb.js';
-import {kActionHeadings, kActionStyles, kSupportedActions} from '../shared/actions.js';
+import * as pb from '../../../core/proto/main_pb.js';
+import {kActionHeadings, kActionStyles, kSupportedActions} from './actions.js';
 
 const actionCases = Object.entries(pb.workflows.Action.ActionCase);
 

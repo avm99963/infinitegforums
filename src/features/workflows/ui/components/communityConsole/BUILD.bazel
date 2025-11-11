@@ -1,0 +1,22 @@
+load("//tools:common_js_project.bzl", "common_js_project")
+
+common_js_project(
+    name = "communityConsole",
+    assets = [
+        "//src/static:common_console_styles",
+    ],
+    visibility = [
+        # TODO(https://iavm.xyz/b/twpowertools/256): Delete the following
+        # package from the list.
+        "//src:__pkg__",
+        "//src/features/workflows:__subpackages__",
+    ],
+    deps = [
+        "//:node_modules/@material/web",
+        "//:node_modules/lit",
+        "//src/common/styles",
+        "//src/features/workflows/core/communityConsole/runner",
+        "//src/features/workflows/core/workflowsStorage",
+        "//src/features/workflows/ui/components/actionEditor",
+    ],
+)

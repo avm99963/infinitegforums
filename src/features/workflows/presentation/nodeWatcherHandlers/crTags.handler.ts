@@ -1,6 +1,6 @@
 import CssSelectorNodeWatcherHandler from '../../../../infrastructure/presentation/nodeWatcher/handlers/CssSelectorHandler.adapter';
 import { NodeMutation } from '../../../../presentation/nodeWatcher/NodeWatcherHandler';
-import WorkflowsImport from '../../core/communityConsole/import';
+import WorkflowsImport from '../../core/communityConsole/import/import';
 
 /**
  * Injects the button to import a canned response next to each CR.

@@ -1,6 +1,6 @@
 import {css} from 'lit';
 
-import * as pb from '../../proto/main_pb.js';
+import * as pb from '../../../core/proto/main_pb.js';
 
 // TODO: remove this and substitute it with proper localization.
 export const kActionHeadings = {

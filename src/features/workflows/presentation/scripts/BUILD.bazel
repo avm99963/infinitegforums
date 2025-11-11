@@ -1,0 +1,23 @@
+load("//tools:bazel/swc.bzl", "swc_pkg")
+load("//tools:common_ts_project.bzl", "common_ts_project")
+
+common_ts_project(
+    name = "scripts",
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = swc_pkg,
+    tsconfig = "//:tsconfig_pkg",
+    visibility = [
+        # TODO(https://iavm.xyz/b/twpowertools/256): Delete the following
+        # package from the list.
+        "//src:__pkg__",
+        "//src:entrypoint",
+    ],
+    deps = [
+        "//:node_modules/@types/chrome",
+        "//src/common",
+        "//src/common/architecture/scripts",
+        "//src/features/workflows/core/communityConsole/import",
+    ],
+)

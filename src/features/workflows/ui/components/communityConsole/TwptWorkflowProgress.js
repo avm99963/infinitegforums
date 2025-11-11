@@ -2,7 +2,7 @@ import '@material/mwc-dialog/mwc-dialog.js';
 import '@material/web/button/filled-button.js';
 import '@material/web/button/text-button.js';
 
-import '../../manager/components/ActionEditor.js';
+import '../actionEditor/ActionEditor.js';
 
 import {css, html, LitElement} from 'lit';
 import {map} from 'lit/directives/map.js';

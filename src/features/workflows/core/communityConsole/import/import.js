@@ -1,8 +1,7 @@
 import {waitFor} from 'poll-until-promise';
 
-import {recursiveParentElement} from '../../../../common/commonUtils.js';
-import {injectStylesheet} from '../../../../common/contentScriptsUtils';
-import {isOptionEnabled} from '../../../../common/options/optionsUtils.js';
+import {recursiveParentElement} from '../../../../../common/commonUtils.js';
+import {isOptionEnabled} from '../../../../../common/options/optionsUtils.js';
 
 const kListCannedResponsesResponse = 'TWPT_ListCannedResponsesResponse';
 

@@ -1,0 +1,17 @@
+load("//tools:common_js_project.bzl", "common_js_project")
+
+common_js_project(
+    name = "actionEditor",
+    visibility = [
+        # TODO(https://iavm.xyz/b/twpowertools/256): Delete the following
+        # package from the list.
+        "//src:__pkg__",
+        "//src/features/workflows:__subpackages__",
+    ],
+    deps = [
+        "//:node_modules/@material/mwc-circular-progress",
+        "//:node_modules/lit",
+        "//src/features/workflows/core/proto",
+        "//src/features/workflows/ui/components/actionEditor/actions",
+    ],
+)

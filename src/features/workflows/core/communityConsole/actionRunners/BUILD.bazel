@@ -1,0 +1,14 @@
+load("//tools:common_js_project.bzl", "common_js_project")
+
+common_js_project(
+    name = "actionRunners",
+    visibility = [
+        # TODO(https://iavm.xyz/b/twpowertools/256): Delete the following
+        # package from the list.
+        "//src:__pkg__",
+        "//src/features/workflows/core/communityConsole/runner:__subpackages__",
+    ],
+    deps = [
+        "//src/common",
+    ],
+)

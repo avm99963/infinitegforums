@@ -7,7 +7,7 @@ import {css, html, LitElement, nothing} from 'lit';
 import {createRef, ref} from 'lit/directives/ref.js';
 
 import {SHARED_MD3_STYLES} from '../../../../../../common/styles/md3.js';
-import * as pb from '../../../proto/main_pb.js';
+import * as pb from '../../../../core/proto/main_pb.js';
 import { FORM_STYLES } from './common.js';
 
 export default class WFActionReplyWithCR extends LitElement {

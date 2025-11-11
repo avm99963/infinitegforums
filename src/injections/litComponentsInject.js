@@ -2,7 +2,7 @@
 // use LitElement (and thus custom web elements). This is done by injecting this
 // javascript file instead of placing this code directly in the content script
 // because `window.customElements` doesn't exist in content scripts.
-import '../features/workflows/core/communityConsole/components/index.js';
+import '../features/workflows/ui/components/communityConsole/index.js';
 import '../features/threadToolbar/ui/components/index.js';
 import '../features/flattenThreads/ui/components/index.js';
 import '../contentScripts/communityConsole/updateHandler/banner/components/index.js';

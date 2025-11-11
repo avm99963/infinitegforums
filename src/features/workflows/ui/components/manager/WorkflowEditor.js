@@ -1,14 +1,14 @@
 import '@material/web/button/outlined-button.js';
 import '@material/web/icon/icon.js';
 import '@material/web/textfield/filled-text-field.js';
-import './ActionEditor.js';
+import '../actionEditor/ActionEditor.js';
 
 import {css, html, LitElement, nothing} from 'lit';
 import {createRef, ref} from 'lit/directives/ref.js';
 import {repeat} from 'lit/directives/repeat.js';
 
-import * as pb from '../../proto/main_pb.js';
-import WorkflowsStorage from '../../workflowsStorage.js';
+import * as pb from '../../../core/proto/main_pb.js';
+import WorkflowsStorage from '../../../core/workflowsStorage/workflowsStorage.js';
 
 export default class WFWorkflowEditor extends LitElement {
   static properties = {

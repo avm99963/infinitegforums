@@ -6,7 +6,7 @@ import {css, html, LitElement} from 'lit';
 import {createRef, ref} from 'lit/directives/ref.js';
 
 import {SHARED_MD3_STYLES} from '../../../../../common/styles/md3.js';
-import WorkflowRunner from '../runner.js';
+import WorkflowRunner from '../../../core/communityConsole/runner/runner.js';
 
 export default class TwptWorkflowDialog extends LitElement {
   static properties = {

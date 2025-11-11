@@ -1,5 +1,5 @@
 import {arrayBufferToBase64} from './common.js';
-import * as pb from './proto/main_pb.js';
+import * as pb from '../proto/main_pb.js';
 
 export const kWorkflowsDataKey = 'workflowsData';
 

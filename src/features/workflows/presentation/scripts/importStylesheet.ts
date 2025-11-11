@@ -1,6 +1,6 @@
 import Script from '../../../../common/architecture/scripts/Script';
 import { injectStylesheet } from '../../../../common/contentScriptsUtils';
-import { kImportParam } from '../../core/communityConsole/import';
+import { kImportParam } from '../../core/communityConsole/import/import';
 
 export default class WorkflowsImportStylesheetScript extends Script {
   page: never;

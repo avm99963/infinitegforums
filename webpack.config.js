@@ -63,7 +63,7 @@ module.exports = (env, args) => {
     optionsScript: './src/options/presentation/scripts/options.ts',
 
     // Workflow manager
-    workflowManager: './src/features/workflows/core/manager/index.js',
+    workflowManager: './src/features/workflows/ui/components/manager/index.js',
 
     // Common CSS
     mdcStyles: './src/ui/styles/mdc/index.js',

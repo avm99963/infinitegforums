@@ -90,6 +90,11 @@
         "peerDependencies": {
           "lit-html": "*"
         }
+      },
+      "@material/mwc-dialog": {
+        "peerDependencies": {
+          "lit-html": "*"
+        }
       }
     }
   }

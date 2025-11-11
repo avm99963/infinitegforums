@@ -1,5 +1,5 @@
 import {isOptionEnabled} from '../../../../common/options/optionsUtils.js';
-import WorkflowsStorage from '../workflowsStorage.js';
+import WorkflowsStorage from '../workflowsStorage/workflowsStorage.js';
 import {addElementToThreadListActions, shouldAddBtnToActionBar} from '../../../../contentScripts/communityConsole/utils/common.js';
 
 const wfDebugId = 'twpt-workflows';

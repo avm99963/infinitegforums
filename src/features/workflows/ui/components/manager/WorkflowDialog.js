@@ -6,7 +6,7 @@ import './WorkflowEditor.js';
 import {css, html, LitElement} from 'lit';
 import {createRef, ref} from 'lit/directives/ref.js';
 
-import * as pb from '../../proto/main_pb.js';
+import * as pb from '../../../core/proto/main_pb.js';
 
 export default class WFWorkflowDialog extends LitElement {
   static properties = {

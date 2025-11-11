@@ -1,10 +1,10 @@
-import {recursiveParentElement} from '../../../../common/commonUtils.js';
-import * as pb from '../proto/main_pb.js';
+import {recursiveParentElement} from '../../../../../common/commonUtils.js';
+import * as pb from '../../proto/main_pb.js';
 
-import AttributeRunner from './actionRunners/attribute.js';
-import ReadStateRunner from './actionRunners/readState.js';
-import CRRunner from './actionRunners/replyWithCR.js';
-import Thread from './models/thread.js';
+import AttributeRunner from '../actionRunners/attribute.js';
+import ReadStateRunner from '../actionRunners/readState.js';
+import CRRunner from '../actionRunners/replyWithCR.js';
+import Thread from '../models/thread.js';
 
 export default class WorkflowRunner {
   constructor(workflow, updateCallback) {
