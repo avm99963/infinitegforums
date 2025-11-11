@@ -205,6 +205,7 @@ js_library(
         "//src/features/linkDialogFix/presentation/options",
         "//src/features/loadDrafts/presentation/options",
         "//src/features/loadDrafts/presentation/scripts",
+        "//src/features/previousPosts/presentation/handlers",
         "//src/features/previousPosts/presentation/options",
         "//src/features/profileIndicator/presentation/options",
         "//src/features/redirect/presentation/options",
