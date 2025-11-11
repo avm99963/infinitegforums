@@ -1,0 +1,35 @@
+load("@aspect_bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
+load("//tools:bazel/swc.bzl", "swc_pkg")
+load("//tools:common_js_project.bzl", "common_js_project")
+
+copy_to_bin(
+    name = "source_code",
+    srcs = glob(
+        ["**"],
+        exclude = ["BUILD.bazel"],
+    ),
+    visibility = ["//src/lit-locales:__subpackages__"],
+)
+
+common_js_project(
+    name = "components",
+    assets = [
+        # TODO(https://iavm.xyz/b/twpowertools/256): Move this out of the
+        # static folder.
+        "//src/static:common_console_styles",
+    ],
+    visibility = [
+        # TODO(https://iavm.xyz/b/twpowertools/256): Delete the following
+        # package from the list.
+        "//src:__pkg__",
+    ],
+    deps = [
+        "//:node_modules/@lit/localize",
+        "//:node_modules/@material/web",
+        "//:node_modules/lit",
+        "//src/common/components",
+        "//src/common/styles",
+        "//src/features/threadToolbar/core",
+        "//src/ui/i18n",
+    ],
+)

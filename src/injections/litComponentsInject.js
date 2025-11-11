@@ -3,7 +3,7 @@
 // javascript file instead of placing this code directly in the content script
 // because `window.customElements` doesn't exist in content scripts.
 import '../features/workflows/core/communityConsole/components/index.js';
-import '../features/threadToolbar/core/components/index.js';
+import '../features/threadToolbar/ui/components/index.js';
 import '../features/flattenThreads/ui/components/index.js';
 import '../contentScripts/communityConsole/updateHandler/banner/components/index.js';
 import '../features/bulkReportReplies/ui/components/index';

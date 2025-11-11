@@ -45,6 +45,7 @@ filegroup(
         "//src/features/redirect/presentation/options",
         "//src/features/repositionExpandThread/presentation/options",
         "//src/features/stickySidebarHeaders/presentation/options",
+        "//src/features/threadToolbar/ui/components:source_code",
         "//src/features/uiSpacing/presentation/options",
         "//src/options/presentation/utils",
         "//src/presentation/i18n",

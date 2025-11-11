@@ -14,7 +14,7 @@ import {createRef, ref} from 'lit/directives/ref.js';
 
 import {I18nLitElement} from '../../../../ui/i18n/i18nLitElement';
 import {SHARED_MD3_STYLES} from '../../../../common/styles/md3.js';
-import {kEventOptionUpdatedFromToolbar} from '../constants';
+import {kEventOptionUpdatedFromToolbar} from '../../core/constants';
 
 const appleProductRegex = /(macos|macintosh|iphone|ipod|ipad)/i;
 const isMac = () => appleProductRegex.test(navigator.userAgentData?.platform) ||

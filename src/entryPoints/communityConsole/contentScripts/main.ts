@@ -77,7 +77,7 @@ import CCForceHideDrawerScript from '../../../features/ccForceHideDrawer/present
 // #!if browser_target == 'chromium_mv3'
 import CCDragAndDropFixTextEditorHandler from '../../../features/ccDragAndDropFix/presentation/nodeWatcherHandlers/fixTextEditor.handler';
 // #!endif
-import ThreadToolbarStylesScript from '../../../features/threadToolbar/presentation/nodeWatcherHandlers/styles.handler';
+import ThreadToolbarStylesScript from '../../../features/threadToolbar/presentation/scripts/styles.script';
 import PreviousPostsInjectHandler from '../../../features/previousPosts/presentation/handlers/inject.handler';
 import AvatarsInjectHandler from '../../../features/avatars/presentation/nodeWatcherHandlers/inject.script';
 import AvatarsStylesScript from '../../../features/avatars/presentation/scripts/styles.script';
