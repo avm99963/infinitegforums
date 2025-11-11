@@ -1,0 +1,18 @@
+load("//tools:common_js_project.bzl", "common_js_project")
+
+common_js_project(
+    name = "injections",
+    visibility = [
+        # TODO(https://iavm.xyz/b/twpowertools/256): Delete the following
+        # package from the list.
+        "//src:__pkg__",
+        "//src/features/extraInfo/core:__pkg__",
+    ],
+    deps = [
+        "//:node_modules/@material/tooltip",
+        "//src/common",
+        "//src/contentScripts/communityConsole/utils",
+        "//src/features/extraInfo/core:consts",
+        "//src/features/extraInfo/core/services",
+    ],
+)

@@ -16,8 +16,10 @@ export default class BaseExtraInfoInjection {
   /**
    * Method which actually injects the extra information. It should be
    * implemented by the extending class.
+   *
+   * @param {...*}
    */
-  inject() {
+  inject(..._) {
     shouldImplement('inject');
   }
 

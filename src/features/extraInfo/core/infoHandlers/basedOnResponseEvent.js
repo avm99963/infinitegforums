@@ -28,6 +28,8 @@ export default class ResponseEventBasedInfoHandler extends BaseInfoHandler {
    * This function should return a promise which resolves to a boolean
    * specifying whether this.info is the information related to the view that
    * the user is currently on.
+   *
+   * @returns {Promise<boolean>}
    */
   async isInfoCurrent(_injectionDetails) {
     shouldImplement('isInfoCurrent');
