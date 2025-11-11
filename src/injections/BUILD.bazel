@@ -1,0 +1,19 @@
+load("//tools:common_js_project.bzl", "common_js_project")
+
+common_js_project(
+    name = "injections",
+    visibility = [
+        "//:__pkg__",
+    ],
+    deps = [
+        "//src/common",
+        "//src/features/batchLock/infrastructure/ui/injectors",
+        "//src/features/bulkMove/ui/components",
+        "//src/features/bulkReportReplies/ui/components",
+        "//src/features/flattenThreads/ui/components",
+        "//src/features/threadToolbar/ui/components",
+        "//src/features/workflows/ui/components/communityConsole",
+        "//src/ui/components",
+        "//src/updateNotifier/ui/components",
+    ],
+)

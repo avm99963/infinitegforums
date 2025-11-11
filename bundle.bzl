@@ -14,6 +14,7 @@ def extension_bundle(name, **kwargs):
         srcs = [
             "//src:compiled_source",
             "//src/contentScripts",
+            "//src/injections",
         ],
         include_types = True,
         include_transitive_types = True,

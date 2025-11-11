@@ -5,6 +5,7 @@ package_group(
     name = "entrypoint",
     packages = [
         "//src/contentScripts",
+        "//src/injections",
     ],
 )
 
