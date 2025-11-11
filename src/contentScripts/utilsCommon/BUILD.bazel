@@ -1,0 +1,15 @@
+load("//tools:common_js_project.bzl", "common_js_project")
+
+common_js_project(
+    name = "utilsCommon",
+    visibility = [
+        # NOTE: making it visible almost everywhere since it is a legacy package.
+        "//src:__subpackages__",
+    ],
+    deps = [
+        "//:node_modules/@material/tooltip",
+        "//src/common",
+        "//src/common/options",
+        "//src/contentScripts/communityConsole/utils",
+    ],
+)
