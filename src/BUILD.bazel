@@ -177,6 +177,7 @@ js_library(
         "//src/features/ccForceHideDrawer/presentation/options",
         "//src/features/ccForceHideDrawer/presentation/scripts",
         "//src/features/enhancedAnnouncementsDot/presentation/options",
+        "//src/features/enhancedAnnouncementsDot/presentation/scripts",
         "//src/features/extraInfo/presentation/options",
         "//src/features/fixedToolbar/presentation/options",
         "//src/features/flattenThreads/core",
