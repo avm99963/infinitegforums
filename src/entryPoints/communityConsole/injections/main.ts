@@ -1,4 +1,4 @@
-import FixInsertLinkCommandHandler from '../../../features/linkDialogFix/nodeWatcherHandlers/fixInsertLinkCommand.handler';
+import FixInsertLinkCommandHandler from '../../../features/linkDialogFix/presentation/nodeWatcherHandlers/fixInsertLinkCommand.handler';
 import { NodeWatcherAdapter } from '../../../infrastructure/presentation/nodeWatcher/NodeWatcher.adapter';
 import NodeWatcherScriptAdapter from '../../../infrastructure/presentation/scripts/NodeWatcherScript.adapter';
 import ScriptRunner from '../../../infrastructure/presentation/scripts/ScriptRunner';

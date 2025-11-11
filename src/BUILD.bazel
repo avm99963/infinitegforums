@@ -200,6 +200,7 @@ js_library(
         "//src/features/infiniteScroll/presentation/options",
         "//src/features/interopThreadPage/presentation/options",
         "//src/features/interopThreadPage/presentation/scripts",
+        "//src/features/linkDialogFix/presentation/nodeWatcherHandlers",
         "//src/features/linkDialogFix/presentation/options",
         "//src/features/loadDrafts/presentation/options",
         "//src/features/loadDrafts/presentation/scripts",

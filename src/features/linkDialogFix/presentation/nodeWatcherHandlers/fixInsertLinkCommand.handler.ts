@@ -1,6 +1,6 @@
-import CssSelectorNodeWatcherHandler from '../../../infrastructure/presentation/nodeWatcher/handlers/CssSelectorHandler.adapter';
-import { NodeMutation } from '../../../presentation/nodeWatcher/NodeWatcherHandler';
-import { OptionsProviderPort } from '../../../services/options/OptionsProvider';
+import CssSelectorNodeWatcherHandler from '../../../../infrastructure/presentation/nodeWatcher/handlers/CssSelectorHandler.adapter';
+import { NodeMutation } from '../../../../presentation/nodeWatcher/NodeWatcherHandler';
+import { OptionsProviderPort } from '../../../../services/options/OptionsProvider';
 
 /**
  * Type that models Tailwind Basic's sc-tailwind-shared-rich-text-editor (only
