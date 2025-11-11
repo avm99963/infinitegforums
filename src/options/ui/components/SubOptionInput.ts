@@ -6,7 +6,7 @@ import '@material/web/select/outlined-select.js';
 import '@material/web/select/select-option.js';
 import '@material/web/textfield/outlined-text-field.js';
 import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles';
-import { SubOption } from '../models/subOption';
+import { SubOption } from '../../presentation/models/subOption';
 import { map } from 'lit/directives/map.js';
 import { OptionChangedEvent } from '../events/events';
 import { createRef, Ref, ref } from 'lit/directives/ref.js';

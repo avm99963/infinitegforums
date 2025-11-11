@@ -1,6 +1,6 @@
 import { css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { FeatureCategory } from '../models/category';
+import { FeatureCategory } from '../../presentation/models/category';
 import { map } from 'lit/directives/map.js';
 import { I18nLitElement } from '../../../ui/i18n/i18nLitElement';
 

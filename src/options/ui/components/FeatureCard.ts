@@ -12,7 +12,7 @@ import '@material/web/labs/card/filled-card.js';
 import '@material/web/icon/icon.js';
 import '@material/web/iconbutton/icon-button.js';
 import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles';
-import { Feature } from '../models/feature';
+import { Feature } from '../../presentation/models/feature';
 import { msg, str } from '@lit/localize';
 import { map } from 'lit/directives/map.js';
 import {

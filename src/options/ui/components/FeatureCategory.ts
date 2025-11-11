@@ -3,12 +3,12 @@ import { css, html, LitElement, nothing } from 'lit';
 import './FeatureCard';
 import './HintText';
 import './KillSwitchEnabledBanner';
-import { Feature } from '../models/feature';
+import { Feature } from '../../presentation/models/feature';
 import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles';
-import '../styles/styles.scss';
+import '../styles/main.bundle.scss';
 import { OptionsConfiguration } from '../../../common/options/OptionsConfiguration';
-import { FeatureCategory } from '../models/category';
-import { FeatureSection } from '../models/section';
+import { FeatureCategory } from '../../presentation/models/category';
+import { FeatureSection } from '../../presentation/models/section';
 import { map } from 'lit/directives/map.js';
 
 @customElement('feature-category-content')
