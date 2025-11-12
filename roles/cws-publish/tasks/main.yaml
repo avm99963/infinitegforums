@@ -1,24 +1,40 @@
 - name: Build extension
   include_role:
-    name: legacy-build-extension
+    name: build
   vars:
-    make_target: release_chromium_canary
+    browser: CHROMIUM
+    channel: CANARY
+    is_release: True
+    targets: "//:pkg_zip //:version_name"
 
-- name: Get name of the compiled ZIP file
+- name: Get size of the compiled ZIP package
   ansible.builtin.shell:
-    cmd: "ls -Art | tail -n 1"
-    chdir: "{{ zuul.project.src_dir }}/out"
-  register: zip_file
+    cmd: "stat --printf=\"%s\" twpowertools.zip"
+    chdir: "{{ zuul.project.src_dir }}/bazel-bin"
+  register: zip_size
 
-- name: Check the ZIP file name is non-empty
-  when: zip_file.stdout == ""
+- name: Check the ZIP package is non-empty
+  when: zip_size.stdout == "" or zip_size.stdout == "0"
   fail:
-    msg: "zip_file.stdout is empty"
+    msg: "twpowertools.zip is empty"
 
-- name: Print ZIP file name
-  when: not (zip_file.stdout == "")
-  debug:
-    msg: "zip_file.stdout is \"{{ zip_file.stdout }}\""
+- name: Get compiled version name
+  ansible.builtin.shell:
+    cmd: "cat VERSION_NAME"
+    chdir: "{{ zuul.project.src_dir }}/bazel-bin"
+  register: version_name
+
+- name: Get human size of the compiled ZIP package
+  ansible.builtin.shell:
+    cmd: "stat --printf=\"%s\" twpowertools.zip | numfmt --to=iec"
+    chdir: "{{ zuul.project.src_dir }}/bazel-bin"
+  register: zip_human_size
+
+- name: Print package information
+  ansible.builtin.debug:
+    msg: |
+      Version name: {{ version_name.stdout | trim }}
+      ZIP size: {{ zip_human_size.stdout | trim }}
 
 - when: not (dryRun|bool)
   include_role:
@@ -28,7 +44,7 @@
     clientId: "{{ credentials.clientId }}"
     clientSecret: "{{ credentials.clientSecret }}"
     refreshToken: "{{ credentials.refreshToken }}"
-    workingDirectory: "{{ zuul.project.src_dir }}/out"
-    zipFile: "{{ zip_file.stdout|quote }}"
+    workingDirectory: "{{ zuul.project.src_dir }}/bazel-bin"
+    zipFile: "twpowertools.zip"
     autopublish: true
     trustedTesters: true

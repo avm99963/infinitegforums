@@ -4,7 +4,6 @@
       become: yes
     - role: ensure-zip
       become: yes
-    - role: ensure-genmanifest
     - role: ensure-nodejs-fork
       vars:
         node_version: 20
@@ -12,3 +11,6 @@
     - role: ensure-cws-upload
       version: "2.1.0"
       become: yes
+    - role: ensure-bazelisk
+      vars:
+        bazelisk_version: v1.27.0
