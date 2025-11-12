@@ -1,0 +1,13 @@
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+
+sh_binary(
+    name = "stampVersionName",
+    srcs = ["stamp_version_name.sh"],
+    visibility = [
+        "//:__pkg__",
+    ],
+    deps = [
+        "//tools:release_utils",
+        "@rules_shell//shell/runfiles",
+    ],
+)

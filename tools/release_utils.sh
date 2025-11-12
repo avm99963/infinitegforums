@@ -1,3 +1,11 @@
+# Generates the RAW_GIT_VERSION var from Bazel's stable status file.
+function generate_raw_git_version_var() {
+  RAW_GIT_VERSION=
+  if [ -n "${BAZEL_STABLE_STATUS_FILE-}" ]; then
+    RAW_GIT_VERSION=$(sed --sandbox -n '0,/^STABLE_RAW_GIT_VERSION /{s/^STABLE_RAW_GIT_VERSION \(.*\)$/\1/p}' "${BAZEL_STABLE_STATUS_FILE}")
+  fi
+}
+
 # Generates the VERSION and VERSION_NAME vars according to
 # RAW_GIT_VERSION.
 function generate_version_vars() {

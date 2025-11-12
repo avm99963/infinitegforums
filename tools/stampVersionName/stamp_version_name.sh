@@ -13,31 +13,28 @@ source "${RUNFILES_DIR:-/dev/null}/$f" 2>/dev/null || \
 # --- end runfiles.bash initialization v3 ---
 
 source $(rlocation _main/tools/release_utils.sh)
-source $(rlocation _main/manifest/manifest_utils.sh)
 
 CHANNEL=$1
 BROWSER=$2
-template=$3
-MANIFEST_FILE=$4
+FILE_NAME=$3
 
 if [[ $CHANNEL != "stable" && $CHANNEL != "beta" && $CHANNEL != "canary" ]]; then
-  echo "ERROR: channel paramater value is incorrect." >&2
-  return 1
+  echo >&2 "ERROR: channel paramater value is incorrect."
+  exit 1
 fi
 
 if [[ $BROWSER != "chromium_mv3" && $BROWSER != "gecko" ]]; then
-  echo "ERROR: browser paramater value is incorrect." >&2
-  return 1
+  echo >&2 "ERROR: browser paramater value is incorrect."
+  exit 1
 fi
 
 generate_raw_git_version_var
 
-cp "$template" "$MANIFEST_FILE"
-
 if [ -n "${RAW_GIT_VERSION-}" ]; then
   generate_version_vars
-  set_manifest_field "version" "$VERSION"
-  set_manifest_field "version_name" "$VERSION_NAME"
+else
+  VERSION_NAME=dirty
 fi
 
-set_other_manifest_fields
+
+echo $VERSION_NAME > $FILE_NAME

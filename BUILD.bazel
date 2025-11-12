@@ -1,9 +1,7 @@
 load("@aspect_bazel_lib//lib:copy_to_directory.bzl", "copy_to_directory")
+load("@aspect_bazel_lib//lib:run_binary.bzl", "run_binary")
 load("@aspect_bazel_lib//lib:testing.bzl", "assert_json_matches")
 load("@aspect_rules_ts//ts:defs.bzl", "ts_config", "ts_project")
-
-# Creates a file with the version name.
-load("@jq.bzl", "jq")
 load("@npm//:defs.bzl", "npm_link_all_packages")
 load("@npm//:renovate/package_json.bzl", renovate_bin = "bin")
 load("@npm//:web-ext/package_json.bzl", web_ext_bin = "bin")
@@ -167,12 +165,21 @@ renovate_bin.renovate_config_validator_test(
 
 expand_lit_localize_config_templates()
 
-jq(
+run_binary(
     name = "version_name",
-    srcs = ["//manifest"],
-    out = "VERSION_NAME",
-    args = ["--raw-output"],
-    filter = ".version_name",
+    outs = ["VERSION_NAME"],
+    args = select({
+        "//:stable": ["stable"],
+        "//:beta": ["beta"],
+        "//:canary": ["canary"],
+    }) + select({
+        "//:chromium": ["chromium_mv3"],
+        "//:gecko": ["gecko"],
+    }) + [
+        "$(execpath VERSION_NAME)",
+    ],
+    stamp = -1,
+    tool = "//tools/stampVersionName",
 )
 
 ts_config(
