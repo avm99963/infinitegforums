@@ -1,7 +1,8 @@
 # Add a new feature
-All the features are hidden behind a switch, so users can turn them on or off as
-desired. This doc explains how to add this feature switch option to the options
-page, and some guidance on where should the feature be developed.
+
+Each feature is developed in a new folder under the `//src/features` folder.
+All features are hidden behind a switch, so users can turn them on or off as
+desired.
 
 ## Add an option
 Each feature has a boolean option "linked" to it, which determines whether the
@@ -16,18 +17,18 @@ feature will be enabled or not.
       users have to explicitly enable the option after they receive the
       extension update. Otherwise, it might cause confusion, because users
       wouldn't know if the feature was added by the extension or Google.
-3. Create a folder `//src/features/{{feature}}` where the name is the short
-   codename converted to camel case.
+3. As mentioned, create a folder `//src/features/{{feature}}` where the name is
+   the short codename converted to camel case.
 4. Create a new package `presentation/options` under the newly created feature
    folder, and define the option you created in step 2 (see how it is done for
    the other features). This will be used for the option to be shown in the
    options page.
-5. Go to `//src/options/presentation/featureCategories.ts`, and add the new
-   feature to the appropriate category where you want to show it.
+5. Go to `//src/options/presentation/data/featureCategories.ts`, and add the
+   new feature to the appropriate category where you want to show it.
 
 ### How to add additional options for the feature
-Apart from the feature switch option, additional options can be defined in order
-to further customize the behavior of a feature.
+Apart from the feature switch option, additional options can be defined in
+order to further customize the behavior of a feature.
 
 This is not usually the case, and it is preferred that the number of options is
 kept to a minimum so the extension is as simple as possible. In any case, this
@@ -65,3 +66,15 @@ options:
 
 ## Develop the feature
 TODO(issue #32): Write this section.
+
+For now, you can read the [extension's architecture][architecture] doc and
+check out the code for other features. Some good examples:
+
+- A simple feature: [linkDialogFix][linkDialogFix].
+- Features that leverage the new architecture: [bulkMove][bulkMove],
+  [bulkReportReplies][bulkReportReplies].
+
+[architecture]: ./architecture.md
+[linkDialogFix]: ../../src/features/linkDialogFix
+[bulkMove]: ../../src/features/bulkMove
+[bulkReportReplies]: ../../src/features/bulkReportReplies

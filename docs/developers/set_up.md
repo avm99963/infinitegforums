@@ -1,30 +1,24 @@
 # Set up the development environment
-Before starting to develop, you must set up your device. This is what you must
-do:
+Before starting to develop, you must set up your device. Thanks to our move to
+[Bazel][bazel], this is now easy peasy lemon squeezy :)
 
-1. [Install Go](https://golang.org/doc/install). On Mac, you can install it
-with [Homebrew](https://brew.sh/) by running `brew install go`.
-   - This is because the build script uses a Go program to generate the
-   manifest.
-1. Install the genmanifest Go program. In order to do this, run
-`go install gomodules.avm99963.com/webext/genmanifest@latest`.
-1. [Install PNPM](https://pnpm.io/installation).
-1. Now, you must clone the git repository to your device to retrieve the
-extension source code. To do that,
-[go here](https://gerrit.avm99963.com/admin/repos/infinitegforums) and execute
-the "clone with commit-msg hook" command listed there (if you sign in you'll see
-several options: cloning via anonymous HTTP, HTTP, or SSH).
-1. That's it! If you're using a Mac, you're out of luck, because you must
-perform some more steps.
+1. [Install Bazelisk][bazelisk-readme]. On Mac, you can install it with
+   [Homebrew][homebrew].
+1. Clone the git repository to your device to retrieve the extension source
+   code. To do that, [go here][clone-page] and execute the "clone with
+   commit-msg hook" command listed there (if you sign in you'll see several
+   options: cloning via anonymous HTTP, HTTP, or SSH).
+    - Alternatively (and I highly recommend this), use [JJ (Jujutsu)][jj]
+      instead of Git. It's the easiest way to contribute to a Gerrit project
+      thanks to its `jj gerrit upload` command. There is even a [guide on how
+      to use JJ to contribute in Gerrit][jj-gerrit].
+1. That's it! You can check if the build works correctly by running `bazel test
+   //...`. This will build all targets and run all tests, which might take some
+   time. After this, subsequent builds will be much faster thanks to caching!
 
-## Mac-specific configuration
-On a Mac, you must also follow these steps:
-
-1. [Install Brew](https://brew.sh/) if not installed already.
-1. Use Brew to install the following packages: `bash`, `gnu-getopt`, and
-`gnu-sed`. Basically we want to get an updated bash version, an updated version
-of the `getopt` command, and the GNU version of `sed`.
-1. Set Brew's bash as the default shell (or just make sure to use Brew's bash
-when compiling the extension).
-1. Include the directories where `getopt` and `gnu-sed` were installed to
-`$PATH`.
+[bazel]: https://bazel.build/
+[bazelisk-readme]: https://github.com/bazelbuild/bazelisk/blob/master/README.md
+[homebrew]: https://brew.sh/
+[clone-page]: https://gerrit.avm99963.com/admin/repos/infinitegforums
+[jj]: https://jj-vcs.github.io/jj/latest/
+[jj-gerrit]: https://jj-vcs.github.io/jj/latest/gerrit/

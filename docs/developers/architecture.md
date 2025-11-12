@@ -26,8 +26,13 @@ below).
   DI, and depend on the scripts found in the presentation layer to provide the
   actual logic.
 - **Presentation:** the first layer, used to present the feature to users.
-- **Ui:** layer which contains the UI components.
-- **Domain:** layer which contains the the entities/models.
+- **Ui:** layer which contains the UI logic. It consists of:
+    - **Components**: the UI components.
+    - **Injectors**: logic which adds components to the Community Console or
+      Tailwind.
+    - **Styles**: stylesheets used by injected components or to modify the forums
+      appearance.
+- **Domain:** layer which contains the entities/models.
 - **Services and repositories:** layer which holds the classes used to interact
   with the outside world.
 - **Core:** legacy layer used to hold the logic of features that were just

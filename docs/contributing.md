@@ -78,13 +78,8 @@ You can get started by reading the following docs:
 - [Submit changes for review](https://gerrit.avm99963.com/Documentation/intro-gerrit-walkthrough-github.html)
 - [How to test translations](https://developer.chrome.com/docs/extensions/reference/i18n/#how-to-set-browsers-locale)
 
-*** promo
-TODO(avm99963): add a link to webext's `manifest.gjson` documentation when it is
-created.
-***
-
 If you need any help, mentoring or anything else, send me an email at
-`me [at] avm99963.com` or create a thread in the
+`hi [at] avm99963.com` or create a thread in the
 [Google group](https://groups.google.com/g/twpowertools-discuss).
 I will be more than happy to help you :)
 

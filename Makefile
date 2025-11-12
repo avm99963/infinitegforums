@@ -1,4 +1,4 @@
-.PHONY: node_deps clean_dist deps clean_deps serve_chromium_mv3 serve_gecko release release_chromium_stable release_chromium_beta release_chromium_canary release_gecko_stable build_test_extension clean_releases test clean trigger_nightly_build
+.PHONY: node_deps clean_dist deps clean_deps build_test_extension clean_releases test clean trigger_nightly_build
 
 WEBPACK := ./node_modules/webpack-cli/bin/cli.js
 VITEST := pnpm exec vitest
@@ -31,73 +31,40 @@ lit_localize_extract:
 	@echo "         Instead, run: bazel run //src/lit-locales:extract"
 	bazel run //src/lit-locales:extract
 
-# Experimental target which will be renamed to serve_chromium to substitute
-# serve_chromium_mv3.
-.PHONY: bazel_serve_chromium
-bazel_serve_chromium:
+.PHONY: serve_chromium
+serve_chromium:
 	$(IBAZEL) -run_command_after_success "./tools/copy_pkg_to_writeable_dir.sh" build --compilation_mode=fastbuild --//:browser=CHROMIUM --//:channel=STABLE unpacked_pkg
 
-serve_chromium_mv3: deps
-	$(WEBPACK) --mode development --env browser_target=chromium_mv3 --watch
-
-# Experimental target which will be renamed to serve_chromium to substitute
-# serve_chromium_mv3.
-.PHONY: bazel_serve_gecko
-bazel_serve_gecko:
+.PHONY: serve_gecko
+serve_gecko:
 	$(IBAZEL) -run_command_after_success "./tools/copy_pkg_to_writeable_dir.sh" build --compilation_mode=fastbuild --//:browser=GECKO --//:channel=STABLE unpacked_pkg
 
-serve_gecko: deps
-	$(WEBPACK) --mode development --env browser_target=gecko --watch
+.PHONY: release
+release: release_chromium_stable release_chromium_beta release_gecko
 
-release: release_chromium_stable release_chromium_beta release_gecko_stable
-
-# Experimental target which will substitute release_chromium_stable.
-.PHONY: bazel_release_chromium_stable
-bazel_release_chromium_stable:
-	$(BAZEL) build --config=release --//:browser=CHROMIUM --//:channel=STABLE pkg_zip
+.PHONY: release_chromium_stable
+release_chromium_stable:
+	$(BAZEL) build --config=release --//:browser=CHROMIUM --//:channel=STABLE //:pkg_zip //:version_name
 	mkdir -p out
-	cp bazel-bin/twpowertools.zip out/twpowertools-chromium-stable.zip
+	cp bazel-bin/twpowertools.zip out/twpowertools-chromium-stable-$$(cat bazel-bin/VERSION_NAME).zip
 
-release_chromium_stable: deps
-	$(WEBPACK) --mode production --env browser_target=chromium_mv3
-	$(RELEASE_SCRIPT) -c stable -b chromium_mv3
-	rm -rf dist/chromium_mv3
-
-# Experimental target which will substitute release_chromium_beta.
-.PHONY: bazel_release_chromium_beta
-bazel_release_chromium_beta:
-	$(BAZEL) build --config=release --//:browser=CHROMIUM --//:channel=BETA pkg_zip
+.PHONY: release_chromium_beta
+release_chromium_beta:
+	$(BAZEL) build --config=release --//:browser=CHROMIUM --//:channel=BETA //:pkg_zip //:version_name
 	mkdir -p out
-	cp bazel-bin/twpowertools.zip out/twpowertools-chromium-beta.zip
+	cp bazel-bin/twpowertools.zip out/twpowertools-chromium-beta-$$(cat bazel-bin/VERSION_NAME).zip
 
-release_chromium_beta: deps
-	$(WEBPACK) --mode production --env browser_target=chromium_mv3
-	$(RELEASE_SCRIPT) -c beta -b chromium_mv3
-	rm -rf dist/chromium_mv3
-
-# Experimental target which will substitute release_chromium_canary.
-.PHONY: bazel_release_chromium_canary
-bazel_release_chromium_canary:
-	$(BAZEL) build --config=release --//:browser=CHROMIUM --//:channel=CANARY pkg_zip
+.PHONY: release_chromium_canary
+release_chromium_canary:
+	$(BAZEL) build --config=release --//:browser=CHROMIUM --//:channel=CANARY //:pkg_zip //:version_name
 	mkdir -p out
-	cp bazel-bin/twpowertools.zip out/twpowertools-chromium-canary.zip
+	cp bazel-bin/twpowertools.zip out/twpowertools-chromium-canary-$$(cat bazel-bin/VERSION_NAME).zip
 
-release_chromium_canary: deps
-	$(WEBPACK) --mode production --env browser_target=chromium_mv3 --env canary=true
-	$(RELEASE_SCRIPT) -c canary -b chromium_mv3
-	rm -rf dist/chromium_mv3
-
-# Experimental target which will substitute release_gecko.
-.PHONY: bazel_release_gecko
-bazel_release_gecko:
-	$(BAZEL) build --config=release --//:browser=GECKO --//:channel=STABLE pkg_zip
+.PHONY: release_gecko
+release_gecko:
+	$(BAZEL) build --config=release --//:browser=GECKO --//:channel=STABLE //:pkg_zip //:version_name
 	mkdir -p out
-	cp bazel-bin/twpowertools.zip out/twpowertools-gecko-stable.zip
-
-release_gecko_stable: deps
-	$(WEBPACK) --mode production --env browser_target=gecko
-	$(RELEASE_SCRIPT) -c stable -b gecko
-	rm -rf dist/gecko
+	cp bazel-bin/twpowertools.zip out/twpowertools-gecko-stable-$$(cat bazel-bin/VERSION_NAME).zip
 
 # Target to build the extension for webext lint in the Zuul Check Pipeline.
 build_test_extension: deps

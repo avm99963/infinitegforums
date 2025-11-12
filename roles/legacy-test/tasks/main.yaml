@@ -1,8 +1,0 @@
-- name: Run tests
-  shell:
-    cmd: |
-      set -euxo pipefail
-      CI=true make test |& tee out/vitest-log.txt
-    chdir: "{{ zuul.project.src_dir }}"
-    executable: /bin/bash
-  changed_when: false

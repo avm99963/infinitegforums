@@ -19,17 +19,19 @@ folder, which is where the release files are saved).
 Take a look at `Makefile`, you'll find other targets for _make_ which do other
 interesting things (like `clean`, for instance).
 
-## Build the extension continously with webpack development mode
+## Build the extension continously
 If you're developing the extension, you might want to load it into your browser
 without having to constantly build it manually after each change. In order to
-do that, you can run `make serve_chromium_mv3` or `make serve_gecko` depending
-on the type of continuous build you want.
+do that, you can run `make serve_chromium` or `make serve_gecko` depending on
+the type of continuous build you want.
 
-This will run webpack with watch mode and continuously serve a fresh version of
-the compiled extension at `dist/{BROWSER}`, where `{BROWSER}` depends on the
-target you selected for _make_. You can load this folder in Chrome by going to
-`chrome://extensions` and selecting "Load unpacked".
+This will run bazel-watcher and continuously serve a fresh version of the
+compiled extension at `dist`. You can load this folder in Chrome by going to
+`chrome://extensions` and selecting "Load unpacked". In Firefox, follow [this
+guide][firefox-unpacked-pkg].
 
 Keep in mind that while the extension is continuously built, it is not
-automatically being loaded into Chrome. You'll have to reload the extension
-manually in Chrome (but at least you won't have to both build and reload it).
+automatically being loaded into your browser. You'll have to reload the
+extension manually (but at least you won't have to both build and reload it).
+
+[firefox-unpacked-pkg]: https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/

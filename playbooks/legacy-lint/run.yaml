@@ -1,7 +1,0 @@
-- hosts: all
-  roles:
-    - role: legacy-build-extension
-      make_target: build_test_extension
-    - role: web-ext-lint
-      source_dir: "dist/gecko"
-    - role: legacy-test
