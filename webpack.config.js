@@ -99,7 +99,7 @@ module.exports = (env, args) => {
                         {}),
 
     // Background script (or service worker for MV3)
-    bg: './src/bg.js',
+    bg: './src/bg/bg.js',
   };
 
   for (const [name, scriptPath] of Object.entries(entry)) {

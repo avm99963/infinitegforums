@@ -1,0 +1,26 @@
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+load("//tools:common_js_project.bzl", "common_js_project")
+
+common_js_project(
+    name = "ts",
+    deps = [
+        "//src/common",
+        "//src/common/options",
+        "//src/killSwitch",
+        "//src/options/bgHandler",
+        "//src/updateNotifier/presentation/bg",
+    ],
+)
+
+# NOTE: We need to include sw-xhr here because the sw-xhr polyfill gives some
+# errors when compiling it with SWC.
+js_library(
+    name = "bg",
+    srcs = [
+        ":ts",
+        "//:node_modules/sw-xhr",
+    ],
+    visibility = [
+        "//:__pkg__",
+    ],
+)

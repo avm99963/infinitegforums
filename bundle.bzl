@@ -13,6 +13,7 @@ def extension_bundle(name, **kwargs):
         name = transpiled_ts_sources_target,
         srcs = [
             "//src:compiled_source",
+            "//src/bg",
             "//src/contentScripts",
             "//src/entryPoints/communityConsole/contentScripts/main",
             "//src/entryPoints/communityConsole/contentScripts/start",

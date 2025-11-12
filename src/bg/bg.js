@@ -2,11 +2,11 @@
 import XMLHttpRequest from 'sw-xhr';
 // #!endif
 
-import actionApi from './common/actionApi.js';
-import {cleanUpOptions} from './common/options/optionsUtils.js';
-import KillSwitchMechanism from './killSwitch/index.js';
-import {handleBgOptionChange, handleBgOptionsOnStart} from './options/bgHandler/bgHandler.js';
-import UpdateNotifier from './updateNotifier/presentation/bg/index.js';
+import actionApi from '../common/actionApi.js';
+import {cleanUpOptions} from '../common/options/optionsUtils.js';
+import KillSwitchMechanism from '../killSwitch/index.js';
+import {handleBgOptionChange, handleBgOptionsOnStart} from '../options/bgHandler/bgHandler.js';
+import UpdateNotifier from '../updateNotifier/presentation/bg/index.js';
 
 // #!if browser_target == 'chromium_mv3'
 // XMLHttpRequest is not present in service workers (MV3) and is required by the
