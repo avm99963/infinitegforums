@@ -14,10 +14,7 @@ copy_to_bin(
 # Source code that uses msg() to localize strings.
 filegroup(
     name = "localized_code",
-    # TODO(https://iavm.xyz/b/twpowertools/256): Remove the
-    # //src:non_compiled_source src.
     srcs = [
-        "//src:non_compiled_source",
         "//src/features/autoRefresh/presentation/options",
         "//src/features/avatars/presentation/options",
         "//src/features/batchLock/presentation/options",

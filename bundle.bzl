@@ -2,17 +2,10 @@ load("@aspect_rules_js//js:defs.bzl", "js_info_files")
 load("@aspect_rules_webpack//webpack:defs.bzl", "webpack_bundle")
 
 def extension_bundle(name, **kwargs):
-    # TODO(https://iavm.xyz/b/twpowertools/256): move this directly to srcs once
-    # there is no longer raw typescript code being loaded into Webpack.
-    #
-    # We need this now because type declaration files should be included so that
-    # ts-loader in Webpack can compile remaining non-compiled Typescript code.
-    # Otherwise, the types are not available to ts-loader.
-    transpiled_ts_sources_target = "{}_transpiled_typescript_sources".format(name)
-    js_info_files(
-        name = transpiled_ts_sources_target,
+    webpack_bundle(
+        name = name,
         srcs = [
-            "//src:compiled_source",
+            ":tsconfig.json",
             "//src/bg",
             "//src/contentScripts",
             "//src/entryPoints/communityConsole/contentScripts/main",
@@ -22,27 +15,16 @@ def extension_bundle(name, **kwargs):
             "//src/entryPoints/communityConsole/injections/main",
             "//src/entryPoints/communityConsole/injections/start",
             "//src/entryPoints/twBasic/thread/start",
+            "//src/features/workflows/presentation/templates",
+            "//src/features/workflows/ui/components/manager",
             "//src/injections",
             "//src/options/old",
-        ],
-        include_types = True,
-        include_transitive_types = True,
-    )
-
-    webpack_bundle(
-        name = name,
-        srcs = [
-            ":tsconfig.json",
-            ":{}".format(transpiled_ts_sources_target),
-            # TODO(https://iavm.xyz/b/twpowertools/256): Remove this
-            "//src:non_compiled_source",
+            "//src/options/presentation/scripts",
+            "//src/options/presentation/templates",
             # TODO(https://iavm.xyz/b/twpowertools/256): Move this out of the static
             # folder.
             "//src/static:common_console_styles",
-            "//src/ui/styles/md3",
-            "//src/features/workflows/presentation/templates",
-            "//src/options/presentation/scripts",
-            "//src/options/presentation/templates",
+            "//src/ui/styles/mdc",
         ],
         # TODO(https://iavm.xyz/b/twpowertools/256): Remove is_bazel_build once Bazel
         # replaces Webpack as the build system.
@@ -65,50 +47,19 @@ def extension_bundle(name, **kwargs):
         output_dir = True,
         webpack_config = ":webpack.config.js",
         deps = [
-            ":node_modules/@lit-labs/motion",
-            ":node_modules/@lit/localize",
-            ":node_modules/@lit/localize-tools",
-            ":node_modules/@material/banner",
-            ":node_modules/@material/mwc-circular-progress",
-            ":node_modules/@material/mwc-dialog",
-            ":node_modules/@material/tooltip",
-            ":node_modules/@material/web",
-            ":node_modules/@stdlib/utils-escape-regexp-string",
-            ":node_modules/@testing-library/dom",
-            ":node_modules/@types/chrome",
-            ":node_modules/@types/node",
-            ":node_modules/@vitest/coverage-v8",
-            ":node_modules/@vitest/eslint-plugin",
-            ":node_modules/async-mutex",
             ":node_modules/copy-webpack-plugin",
             ":node_modules/css-loader",
-            ":node_modules/dompurify",
-            ":node_modules/eslint",
-            ":node_modules/google-protobuf",
-            ":node_modules/grpc-web",
             ":node_modules/html-webpack-plugin",
-            ":node_modules/idb",
-            ":node_modules/jsdom",
             ":node_modules/json5",
-            ":node_modules/lit",
             ":node_modules/mini-css-extract-plugin",
             ":node_modules/path",
-            ":node_modules/poll-until-promise",
-            ":node_modules/prettier",
             ":node_modules/raw-loader",
             ":node_modules/sass",
             ":node_modules/sass-loader",
-            ":node_modules/semver",
             ":node_modules/style-loader",
-            ":node_modules/sw-xhr",
             ":node_modules/terser-webpack-plugin",
             ":node_modules/ts-loader",
-            ":node_modules/typescript",
-            ":node_modules/typescript-eslint",
-            ":node_modules/vitest",
-            ":node_modules/web-ext",
             ":node_modules/webpack",
-            ":node_modules/webpack-cli",
             ":node_modules/webpack-preprocessor-loader",
             ":node_modules/webpack-shell-plugin-next",
         ],
