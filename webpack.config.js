@@ -259,14 +259,15 @@ module.exports = (env, args) => {
             preprocessorLoader,
           ],
         },
-        {
+        ...(!isBazelBuild ? [{
           test: /\.tsx?$/,
           use: [
             'ts-loader',
             preprocessorLoader,
           ],
           exclude: /node_modules/,
-        },
+        }] :
+                            []),
         {
           test: /\.json5$/i,
           type: 'json',

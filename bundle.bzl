@@ -5,7 +5,6 @@ def extension_bundle(name, **kwargs):
     webpack_bundle(
         name = name,
         srcs = [
-            ":tsconfig.json",
             "//src/bg",
             "//src/contentScripts",
             "//src/entryPoints/communityConsole/contentScripts/main",
