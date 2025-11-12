@@ -255,9 +255,11 @@ module.exports = (env, args) => {
       rules: [
         {
           test: /\.js$/i,
+          extractSourceMap: isBazelBuild,
           use: [
             preprocessorLoader,
           ],
+          exclude: /node_modules/,
         },
         ...(!isBazelBuild ? [{
           test: /\.tsx?$/,

@@ -1,5 +1,6 @@
 {
   "sourceMaps": true,
+  "inlineSourcesContent": true,
   "module": {
     "type": "es6",
     "strictMode": true,
