@@ -10,7 +10,7 @@ load("@rules_pkg//pkg/private/zip:zip.bzl", "pkg_zip")
 load("//tools:bazel/swc.bzl", "swc_pkg")
 load("bundle.bzl", "extension_bundle")
 load("copy_pkg.bzl", "copy_extension_package_to_directory")
-load("defs.bzl", "browser", "channel")
+load("defs.bzl", "browser", "channel", "release")
 load("lit_localize.bzl", "expand_lit_localize_config_templates")
 
 npm_link_all_packages()
@@ -78,11 +78,6 @@ browser(
     build_setting_default = "CHROMIUM",
 )
 
-channel(
-    name = "channel",
-    build_setting_default = "STABLE",
-)
-
 config_setting(
     name = "chromium",
     flag_values = {
@@ -107,6 +102,11 @@ selects.config_setting_group(
     visibility = ["//:__subpackages__"],
 )
 
+channel(
+    name = "channel",
+    build_setting_default = "STABLE",
+)
+
 config_setting(
     name = "stable",
     flag_values = {
@@ -127,6 +127,19 @@ config_setting(
     name = "canary",
     flag_values = {
         ":channel": "CANARY",
+    },
+    visibility = ["//:__subpackages__"],
+)
+
+release(
+    name = "release",
+    build_setting_default = False,
+)
+
+config_setting(
+    name = "is_release",
+    flag_values = {
+        ":release": "true",
     },
     visibility = ["//:__subpackages__"],
 )

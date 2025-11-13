@@ -32,7 +32,7 @@ export function CCApi(
       authuser == '0' ? '' : '?authuser=' + encodeURIComponent(authuser);
 
   let context;
-  // #!if browser_target == 'gecko'
+  // #!if defined(GECKO)
   // See
   // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#xhr_and_fetch
   // and https://developer.mozilla.org/en-US/docs/Web/API/Window/content.

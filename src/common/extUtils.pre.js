@@ -3,7 +3,7 @@
  * beta version).
  */
 export function isProdVersion() {
-  // #!if production && !canary
+  // #!if defined(RELEASE) && !defined(CANARY)
   return true;
   // #!else
   return false;

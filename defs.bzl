@@ -34,3 +34,27 @@ channel = rule(
     ),
     build_setting = config.string(flag = True),
 )
+
+def _bool_option_impl(provider_factory):
+    def _impl(ctx):
+        raw_value = ctx.build_setting_value
+        if raw_value != False and raw_value != True:
+            fail(str(ctx.label) +
+                 " build setting should be a boolean, but was set to an unknown value \"" +
+                 str(raw_value) + "\".")
+        return provider_factory(raw_value)
+
+    return _impl
+
+ReleaseProvider = provider(
+    doc = """Whether the current build is destined to be released.
+
+This changes some behavior in the extension, such as hiding the link to the experiments page.""",
+    fields = ["is_release"],
+)
+release = rule(
+    implementation = _bool_option_impl(
+        provider_factory = lambda v: ReleaseProvider(is_release = v),
+    ),
+    build_setting = config.bool(flag = True),
+)

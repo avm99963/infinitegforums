@@ -2,11 +2,57 @@ load("@aspect_rules_js//js:defs.bzl", "js_library")
 load("//tools:bazel/swc.bzl", "swc_pkg")
 load("//tools:common_js_project.bzl", "common_js_project")
 load("//tools:common_ts_project.bzl", "common_ts_project")
+load("//tools/preprocessor:bzl/preprocessor.bzl", "preprocessor")
 
 # TODO: The files in the root of this folder should be moved to other folders
 # with more appropriate visibility.
+
+preprocessor(
+    name = "preprocessed_action_api",
+    src = "actionApi.pre.js",
+    out = "actionApi.js",
+    defined_dependencies = select({
+        "//:mv3": ["MV3"],
+        "//conditions:default": [],
+    }),
+)
+
+preprocessor(
+    name = "preprocessed_api",
+    src = "api.pre.js",
+    out = "api.js",
+    defined_dependencies = select({
+        "//:gecko": ["GECKO"],
+        "//conditions:default": [],
+    }),
+)
+
+preprocessor(
+    name = "preprocessed_ext_utils",
+    src = "extUtils.pre.js",
+    out = "extUtils.js",
+    defined_dependencies = select({
+        "//:is_release": ["RELEASE"],
+        "//conditions:default": [],
+    }) + select({
+        "//:canary": ["CANARY"],
+        "//conditions:default": [],
+    }),
+)
+
 common_js_project(
     name = "js",
+    srcs = glob(
+        ["**/*.js"],
+        exclude = [
+            "**/*.test.js",
+            "**/*.pre.js",
+        ],
+    ) + [
+        ":preprocessed_action_api",
+        ":preprocessed_api",
+        ":preprocessed_ext_utils",
+    ],
 )
 
 common_ts_project(
