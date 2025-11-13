@@ -1,7 +1,19 @@
 load("//tools:common_ts_project.bzl", "common_ts_project")
+load("//tools/preprocessor:bzl/preprocessor.bzl", "preprocessor")
+
+preprocessor(
+    name = "preprocessed_main",
+    src = "main.pre.ts",
+    out = "main.ts",
+    defined_dependencies = select({
+        "//:chromium": ["MV3"],
+        "//conditions:default": [],
+    }),
+)
 
 common_ts_project(
     name = "main",
+    srcs = [":preprocessed_main"],
     allow_js = True,
     declaration = True,
     source_map = True,

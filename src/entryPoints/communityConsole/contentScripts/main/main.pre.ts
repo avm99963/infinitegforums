@@ -74,7 +74,7 @@ import { UrlThreadDataParserServiceAdapter } from '../../../../infrastructure/ui
 import { BulkMoveThreadsRepositoryAdapter } from '../../../../features/bulkMove/infrastructure/repositories/api/moveThread.repository.adapter';
 import { ViewSoftRefresherServiceAdapter } from '../../../../infrastructure/ui/services/communityConsole/viewSoftRefresher.service.adapter';
 import CCForceHideDrawerScript from '../../../../features/ccForceHideDrawer/presentation/scripts/hideDrawer.script';
-// #!if browser_target == 'chromium_mv3'
+// #!if defined(MV3)
 import CCDragAndDropFixTextEditorHandler from '../../../../features/ccDragAndDropFix/presentation/nodeWatcherHandlers/fixTextEditor.handler';
 // #!endif
 import ThreadToolbarStylesScript from '../../../../features/threadToolbar/presentation/scripts/styles.script';
@@ -179,7 +179,7 @@ function createScriptRunner() {
               'ccDarkThemeUnifiedProfilesIframe',
               new CCDarkThemeUnifiedProfilesIframeHandler(optionsProvider),
             ],
-            // #!if browser_target == 'chromium_mv3'
+            // #!if defined(MV3)
             [
               'ccDragAndDropFixTextEditor',
               new CCDragAndDropFixTextEditorHandler(optionsProvider),
