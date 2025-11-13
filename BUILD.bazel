@@ -2,6 +2,7 @@ load("@aspect_bazel_lib//lib:copy_to_directory.bzl", "copy_to_directory")
 load("@aspect_bazel_lib//lib:run_binary.bzl", "run_binary")
 load("@aspect_bazel_lib//lib:testing.bzl", "assert_json_matches")
 load("@aspect_rules_ts//ts:defs.bzl", "ts_config", "ts_project")
+load("@bazel_skylib//lib:selects.bzl", "selects")
 load("@npm//:defs.bzl", "npm_link_all_packages")
 load("@npm//:renovate/package_json.bzl", renovate_bin = "bin")
 load("@npm//:web-ext/package_json.bzl", web_ext_bin = "bin")
@@ -95,6 +96,14 @@ config_setting(
     flag_values = {
         ":browser": "GECKO",
     },
+    visibility = ["//:__subpackages__"],
+)
+
+selects.config_setting_group(
+    name = "mv3",
+    match_any = [
+        ":chromium",
+    ],
     visibility = ["//:__subpackages__"],
 )
 

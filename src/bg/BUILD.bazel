@@ -1,8 +1,20 @@
 load("@aspect_rules_js//js:defs.bzl", "js_library")
 load("//tools:common_js_project.bzl", "common_js_project")
+load("//tools/preprocessor:bzl/preprocessor.bzl", "preprocessor")
+
+preprocessor(
+    name = "preprocessed_bg",
+    src = "bg.pre.js",
+    out = "bg.js",
+    defined_dependencies = select({
+        "//:mv3": ["MV3"],
+        "//conditions:default": [],
+    }),
+)
 
 common_js_project(
     name = "ts",
+    srcs = [":preprocessed_bg"],
     deps = [
         "//src/common",
         "//src/common/options",
