@@ -140,7 +140,7 @@ export const getFeatureCategories = () => [
       },
     ),
     features: [
-      // #!if browser_target == 'chromium_mv3'
+      // #!if defined(MV3)
       ccDragAndDropFixFeature(),
       blockDraftsFeature(),
       // #!endif

@@ -1,8 +1,20 @@
 load("//tools:bazel/swc.bzl", "swc_pkg")
 load("//tools:common_ts_project.bzl", "common_ts_project")
+load("//tools/preprocessor:bzl/preprocessor.bzl", "preprocessor")
+
+preprocessor(
+    name = "feature_categories",
+    src = "featureCategories.pre.ts",
+    out = "featureCategories.ts",
+    defined_dependencies = select({
+        "//:mv3": ["MV3"],
+        "//conditions:default": [],
+    }),
+)
 
 common_ts_project(
     name = "data",
+    srcs = [":feature_categories"],
     allow_js = True,
     declaration = True,
     source_map = True,
