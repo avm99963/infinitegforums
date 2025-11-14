@@ -23,7 +23,7 @@ export default class CRRunner {
           new Error('The action doesn\'t contain a valid CR id.'));
 
     const tags = await this._getCRTags(crId);
-    // #!if !enable_bulk_crs
+    // #!if !defined(ENABLE_BULK_CRS)
     if (!tags.some(tag => tag.trim() == kLicense)) {
       return Promise.reject(new Error('Bulk CRs are not allowed temporarily.'));
     }

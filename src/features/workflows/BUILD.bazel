@@ -1,0 +1,17 @@
+load(":config.bzl", "enable_bulk_crs")
+
+enable_bulk_crs(
+    name = "enable_bulk_crs",
+    build_setting_default = False,
+)
+
+config_setting(
+    name = "should_enable_bulk_crs",
+    flag_values = {
+        "//src/features/workflows:enable_bulk_crs": "true",
+    },
+    visibility = [
+        "//src/features/workflows:__subpackages__",
+        "//tools/preprocessor:__subpackages__",
+    ],
+)

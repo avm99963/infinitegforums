@@ -108,7 +108,7 @@ export default class WFActionReplyWithCR extends LitElement {
   }
 
   maybeRenderDisabledNotice() {
-    // #!if !enable_bulk_crs
+    // #!if !defined(ENABLE_BULK_CRS)
     return html`
       <div class="form-line disabled-notice">
         <md-icon>warning</md-icon>

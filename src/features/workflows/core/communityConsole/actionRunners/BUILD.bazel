@@ -1,7 +1,25 @@
 load("//tools:common_js_project.bzl", "common_js_project")
+load("//tools/preprocessor:bzl/preprocessor.bzl", "preprocessor")
+
+preprocessor(
+    name = "reply_with_cr",
+    src = "replyWithCR.pre.js",
+    out = "replyWithCR.js",
+    defined_dependencies = select({
+        "//src/features/workflows:should_enable_bulk_crs": ["ENABLE_BULK_CRS"],
+        "//conditions:default": [],
+    }),
+)
 
 common_js_project(
     name = "actionRunners",
+    srcs = glob(
+        ["**/*.js"],
+        exclude = [
+            "**/*.test.js",
+            "**/*.pre.js",
+        ],
+    ) + [":reply_with_cr"],
     visibility = [
         # TODO(https://iavm.xyz/b/twpowertools/256): Delete the following
         # package from the list.
