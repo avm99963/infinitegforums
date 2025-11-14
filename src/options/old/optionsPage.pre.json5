@@ -18,7 +18,7 @@
         {codename: 'bulkmove'},
         {codename: 'bulkreportreplies'},
         {codename: 'autorefreshlist'},
-        // #!if browser_target == 'chromium_mv3'
+        // #!if defined(MV3)
         {codename: 'blockdrafts'},
         // #!endif
       ],
@@ -40,7 +40,7 @@
         {codename: 'increasecontrast'},
         {codename: 'stickysidebarheaders'},
         {codename: 'ccforcehidedrawer'},
-        // #!if browser_target == 'chromium_mv3'
+        // #!if defined(MV3)
         {codename: 'ccdragndropfix'},
         // #!endif
         {codename: 'enhancedannouncementsdot'},

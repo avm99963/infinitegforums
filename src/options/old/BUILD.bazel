@@ -1,9 +1,20 @@
 load("//tools:common_js_project.bzl", "common_js_project")
+load("//tools/preprocessor:bzl/preprocessor.bzl", "preprocessor")
+
+preprocessor(
+    name = "options_page",
+    src = "optionsPage.pre.json5",
+    out = "optionsPage.json5",
+    defined_dependencies = select({
+        "//:mv3": ["MV3"],
+        "//conditions:default": [],
+    }),
+)
 
 common_js_project(
     name = "old",
     assets = [
-        "optionsPage.json5",
+        ":options_page",
     ],
     visibility = [
         "//:__pkg__",
