@@ -1,7 +1,25 @@
 load("//tools:common_js_project.bzl", "common_js_project")
+load("//tools/preprocessor:bzl/preprocessor.bzl", "preprocessor")
+
+preprocessor(
+    name = "index",
+    src = "index.pre.js",
+    out = "index.js",
+    defined_dependencies = select({
+        "//:gecko": ["GECKO"],
+        "//conditions:default": [],
+    }),
+)
 
 common_js_project(
     name = "killSwitch",
+    srcs = glob(
+        ["**/*.js"],
+        exclude = [
+            "**/*.test.js",
+            "**/*.pre.js",
+        ],
+    ) + [":index"],
     visibility = [
         # TODO(https://iavm.xyz/b/twpowertools/256): Delete the following
         # package from the list.

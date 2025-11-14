@@ -37,7 +37,7 @@ export default class KillSwitchMechanism {
   }
 
   getCurrentBrowser() {
-    // #!if browser_target == 'gecko'
+    // #!if defined(GECKO)
     return commonPb.Environment.Browser.BROWSER_GECKO;
     // #!else
     return commonPb.Environment.Browser.BROWSER_CHROMIUM;
