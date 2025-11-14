@@ -57,22 +57,6 @@ module.exports = (env, args) => {
     bg: './src/bg/bg.js',
   };
 
-  const isCanaryBuild = env.canary == 'true';
-
-  const outputPath = path.join(__dirname, 'dist', env.browser_target);
-
-  const preprocessorLoader = {
-    loader: 'webpack-preprocessor-loader',
-    options: {
-      params: {
-        browser_target: env.browser_target,
-        production: args.mode == 'production',
-        canary: isCanaryBuild,
-        enable_bulk_crs: env.enable_bulk_crs === 'true' ?? false,
-      },
-    },
-  };
-
   const sassLoaderOptions = {
     // Prefer `dart-sass`
     implementation: require('sass'),
@@ -85,7 +69,6 @@ module.exports = (env, args) => {
     entry,
     output: {
       filename: '[name].bundle.js',
-      path: outputPath,
       clean: true,
     },
     plugins: [
@@ -116,9 +99,6 @@ module.exports = (env, args) => {
         {
           test: /\.js$/i,
           extractSourceMap: true,
-          use: [
-            preprocessorLoader,
-          ],
           exclude: /node_modules/,
         },
         {
@@ -127,9 +107,6 @@ module.exports = (env, args) => {
           parser: {
             parse: json5.parse,
           },
-          use: [
-            preprocessorLoader,
-          ],
         },
         {
           test: /\.css$/i,

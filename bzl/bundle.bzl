@@ -25,21 +25,6 @@ def extension_bundle(name, **kwargs):
             "//src/static:common_console_styles",
             "//src/ui/styles/mdc",
         ],
-        args = select({
-            ":chromium": [
-                "--env=browser_target=chromium_mv3",
-            ],
-            ":gecko": [
-                "--env=browser_target=gecko",
-            ],
-        }) + select({
-            ":canary": [
-                "--env=canary=true",
-            ],
-            "//conditions:default": [
-                "--env=canary=false",
-            ],
-        }),
         node_modules = ":node_modules",
         output_dir = True,
         webpack_config = ":webpack.config.js",
@@ -56,7 +41,6 @@ def extension_bundle(name, **kwargs):
             ":node_modules/terser-webpack-plugin",
             ":node_modules/ts-loader",
             ":node_modules/webpack",
-            ":node_modules/webpack-preprocessor-loader",
         ],
         **kwargs
     )
