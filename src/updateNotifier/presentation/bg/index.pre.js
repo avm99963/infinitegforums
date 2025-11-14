@@ -11,7 +11,7 @@ export default class UpdateNotifier {
       for (const tab of tabs) {
         const script = reason === 'install' ? 'handleInstall.bundle.js' :
                                               'handleUpdate.bundle.js';
-        // #!if browser_target == 'chromium_mv3'
+        // #!if defined(MV3)
         chrome.scripting.executeScript({
           target: {tabId: tab.id},
           files: [script],
