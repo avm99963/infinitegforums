@@ -73,13 +73,7 @@ function loadGaps(
   });
 
   return Promise.all(messageOrGapPromises).then((res) => {
-    // #!if !production
-    console.time('mergeMessages');
-    // #!endif
     const mogs = ThreadModel.mergeMessageOrGapsMultiarray(res);
-    // #!if !production
-    console.timeEnd('mergeMessages');
-    // #!endif
 
     if (
       mogs.some((mog) => {

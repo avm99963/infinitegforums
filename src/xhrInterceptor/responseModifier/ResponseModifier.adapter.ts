@@ -48,17 +48,6 @@ export default class ResponseModifierAdapter implements ResponseModifierPort {
       Array.from(this.watchingFeatures(urlModifiers)),
     );
 
-    // #!if !production
-    if (Object.keys(featuresAreEnabled).length > 0) {
-      console.debug(
-        '[XHR Interceptor - Response Modifier] Requested features',
-        featuresAreEnabled,
-        'for request',
-        requestUrl,
-      );
-    }
-    // #!endif
-
     return urlModifiers.filter((modifier) => {
       // TODO(https://iavm.xyz/b/twpowertools/230): Fix the type assertion below.
       return (
