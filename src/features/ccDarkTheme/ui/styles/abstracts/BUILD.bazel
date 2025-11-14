@@ -7,6 +7,6 @@ sass_library(
         "//src/features/ccDarkTheme/ui/styles:__subpackages__",
     ],
     deps = [
-        "//src/ui/styles/md3:library",
+        "//src/ui/styles/md3",
     ],
 )

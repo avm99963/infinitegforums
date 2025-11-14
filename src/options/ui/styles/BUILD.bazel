@@ -10,6 +10,6 @@ sass_binary(
         "//:__pkg__",
     ],
     deps = [
-        "//src/ui/styles/md3:library",
+        "//src/ui/styles/md3",
     ],
 )

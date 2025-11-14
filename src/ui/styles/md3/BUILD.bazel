@@ -1,27 +1,9 @@
-load("@aspect_bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
 load("@gzgz_rules_sass//sass:defs.bzl", "sass_library")
 
-filegroup(
-    name = "source",
-    srcs = [
-        "theme.scss",
-    ],
-)
-
-copy_to_bin(
+sass_library(
     name = "md3",
     srcs = [
-        ":source",
-    ],
-    visibility = [
-        "//:__pkg__",
-    ],
-)
-
-sass_library(
-    name = "library",
-    srcs = [
-        ":source",
+        "theme.scss",
     ],
     visibility = [
         "//src:ui",
