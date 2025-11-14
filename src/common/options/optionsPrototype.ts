@@ -152,6 +152,11 @@ const rawOptionConfigs = {
     context: OptionContext.Options,
     killSwitchType: KillSwitchType.Option,
   },
+  logstartupdata: {
+    defaultValue: false,
+    context: OptionContext.Options,
+    killSwitchType: KillSwitchType.Option,
+  },
 
   // Experiments
   workflows: {

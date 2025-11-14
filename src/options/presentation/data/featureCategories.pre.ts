@@ -34,6 +34,7 @@ import { html } from 'lit';
 import { perForumActivityFeature } from '../../../features/extraInfo/presentation/options/feature';
 import { previousPostsFeature } from '../../../features/previousPosts/presentation/options/feature';
 import { fixLinkDialogFeature } from '../../../features/linkDialogFix/presentation/options/feature';
+import { logStartupDataFeature } from '../../../features/logStartupData/presentation/options/feature';
 
 const minorUIEnhancementsSectionName = () =>
   msg('Minor UI enhancements', {
@@ -154,4 +155,12 @@ export const getFeatureCategories = () => [
     }),
     features: [perForumActivityFeature(), previousPostsFeature()],
   }),
+  // #!if defined(NON_RELEASE)
+  new FeatureCategory({
+    id: 'debug',
+    name: 'Debug',
+    note: 'This section contains features useful for extension development. These do not show up in release builds.',
+    features: [logStartupDataFeature()],
+  }),
+  // #!endif
 ];

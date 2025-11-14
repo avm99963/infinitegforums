@@ -85,6 +85,7 @@ import AvatarsHandler from '../../../../features/avatars/core/avatars';
 import XHRInterceptorSetUpKillSwitchHandler from '../../../../presentation/standaloneScripts/xhrInterceptor/setUpKillSwitchHandler.script';
 import OptionsProviderAdapter from '../../../../infrastructure/services/options/OptionsProvider.adapter';
 import { OptionsConfigurationRepositoryAdapter } from '../../../../options/infrastructure/repositories/OptionsConfiguration.repository.adapter';
+import LogStartupDataScript from '../../../../features/logStartupData/presentation/scripts/logStartupData.script';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -287,6 +288,7 @@ function createScriptRunner() {
         new FixedToolbarStylesScript(optionsProvider),
         new ImageMaxHeightStylesScript(optionsProvider),
         new IncreaseContrastStylesScript(optionsProvider),
+        new LogStartupDataScript(optionsProvider, startupDataStorage),
         new RepositionExpandThreadStylesScript(optionsProvider),
         new StickySidebarHeadersStylesScript(optionsProvider),
         new ThreadToolbarStylesScript(optionsProvider),

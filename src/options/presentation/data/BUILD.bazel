@@ -9,6 +9,9 @@ preprocessor(
     defined_dependencies = select({
         "//:mv3": ["MV3"],
         "//conditions:default": [],
+    }) + select({
+        "//:is_release": [],
+        "//conditions:default": ["NON_RELEASE"],
     }),
 )
 
@@ -46,6 +49,7 @@ common_ts_project(
         "//src/features/interopThreadPage/presentation/options",
         "//src/features/linkDialogFix/presentation/options",
         "//src/features/loadDrafts/presentation/options",
+        "//src/features/logStartupData/presentation/options",
         "//src/features/previousPosts/presentation/options",
         "//src/features/profileIndicator/presentation/options",
         "//src/features/redirect/presentation/options",

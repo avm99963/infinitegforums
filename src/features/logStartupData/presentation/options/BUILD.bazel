@@ -2,18 +2,18 @@ load("//tools:bazel/swc.bzl", "swc_pkg")
 load("//tools:common_ts_project.bzl", "common_ts_project")
 
 common_ts_project(
-    name = "startupDataStorage",
+    name = "options",
     allow_js = True,
     declaration = True,
     source_map = True,
     transpiler = swc_pkg,
     tsconfig = "//:tsconfig_pkg",
     visibility = [
-        "//src:entrypoint",
-        "//src/features/logStartupData/presentation/scripts:__subpackages__",
+        "//src/options/presentation/data:__subpackages__",
     ],
     deps = [
-        "//src/common/architecture/scripts",
-        "//src/services/communityConsole",
+        "//:node_modules/lit",
+        "//src/options/presentation/models",
+        "//src/options/presentation/utils",
     ],
 )

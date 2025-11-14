@@ -58,6 +58,7 @@ common_ts_project(
         "//src/features/increaseContrast/presentation/scripts",
         "//src/features/infiniteScroll/core",
         "//src/features/infiniteScroll/presentation/nodeWatcherHandlers",
+        "//src/features/logStartupData/presentation/scripts",
         "//src/features/previousPosts/presentation/handlers",
         "//src/features/repositionExpandThread/presentation/scripts",
         "//src/features/stickySidebarHeaders/presentation/scripts",

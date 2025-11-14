@@ -35,6 +35,7 @@ package_group(
         "//src/features/interopThreadPage/presentation/...",
         "//src/features/linkDialogFix/presentation/...",
         "//src/features/loadDrafts/presentation/...",
+        "//src/features/logStartupData/presentation/...",
         "//src/features/previousPosts/presentation/...",
         "//src/features/profileIndicator/presentation/...",
         "//src/features/redirect/presentation/...",
