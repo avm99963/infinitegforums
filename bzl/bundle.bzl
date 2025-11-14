@@ -25,9 +25,7 @@ def extension_bundle(name, **kwargs):
             "//src/static:common_console_styles",
             "//src/ui/styles/mdc",
         ],
-        # TODO(https://iavm.xyz/b/twpowertools/256): Remove is_bazel_build once Bazel
-        # replaces Webpack as the build system.
-        args = ["--env=is_bazel_build=true"] + select({
+        args = select({
             ":chromium": [
                 "--env=browser_target=chromium_mv3",
             ],
@@ -46,7 +44,6 @@ def extension_bundle(name, **kwargs):
         output_dir = True,
         webpack_config = ":webpack.config.js",
         deps = [
-            ":node_modules/copy-webpack-plugin",
             ":node_modules/css-loader",
             ":node_modules/html-webpack-plugin",
             ":node_modules/json5",
@@ -60,7 +57,6 @@ def extension_bundle(name, **kwargs):
             ":node_modules/ts-loader",
             ":node_modules/webpack",
             ":node_modules/webpack-preprocessor-loader",
-            ":node_modules/webpack-shell-plugin-next",
         ],
         **kwargs
     )

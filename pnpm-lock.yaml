@@ -86,9 +86,6 @@ importers:
       '@vitest/eslint-plugin':
         specifier: 1.4.2
         version: 1.4.2(eslint@9.39.1)(typescript@5.9.3)(vitest@4.0.8(@types/debug@4.1.12)(@types/node@20.19.24)(jsdom@27.1.0(postcss@8.5.6))(sass@1.93.3)(terser@5.44.0)(yaml@2.8.1))
-      copy-webpack-plugin:
-        specifier: 13.0.1
-        version: 13.0.1(webpack@5.102.1)
       css-loader:
         specifier: 7.1.2
         version: 7.1.2(webpack@5.102.1)
@@ -155,9 +152,6 @@ importers:
       webpack-preprocessor-loader:
         specifier: 1.3.0
         version: 1.3.0
-      webpack-shell-plugin-next:
-        specifier: 2.3.3
-        version: 2.3.3(webpack@5.102.1)
 
   tools/printOptionsPrototypeJSON:
     devDependencies:
@@ -2614,12 +2608,6 @@ packages:
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
 
-  copy-webpack-plugin@13.0.1:
-    resolution: {integrity: sha512-J+YV3WfhY6W/Xf9h+J1znYuqTye2xkBUIGyTPWuBAT27qajBa5mR4f8WBmfDY3YjRftT2kqZZiLi1qf0H+UOFw==}
-    engines: {node: '>= 18.12.0'}
-    peerDependencies:
-      webpack: ^5.1.0
-
   core-js-pure@3.45.1:
     resolution: {integrity: sha512-OHnWFKgTUshEU8MK+lOs1H8kC8GkTi9Z1tvNkxrCcw9wl3MJIO7q2ld77wjWn4/xuGrVu2X+nME1iIIPBSdyEQ==}
 
@@ -4371,10 +4359,6 @@ packages:
     resolution: {integrity: sha512-p2W1sgqij3zMMyRC067Dg16bfzVH+w7hyegmpIvZ4JNjqtGOVAIvLmjBx3yP7YTe9vKJgkoNOPjwQGogDoMXFA==}
     engines: {node: '>=10'}
 
-  normalize-path@3.0.0:
-    resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
-    engines: {node: '>=0.10.0'}
-
   normalize-url@6.1.0:
     resolution: {integrity: sha512-DlL+XwOy3NxAQ8xuC0okPgK46iuVNAK01YN7RueYBqqFeGsBjV9XmCAzAdgt+667bCl5kPh9EqKKDwnaPG1I7A==}
     engines: {node: '>=10'}
@@ -5649,11 +5633,6 @@ packages:
   webpack-preprocessor-loader@1.3.0:
     resolution: {integrity: sha512-wvHkDvgU9lhKQ1OWIJsawPBT/0wr+J7dwC7DHy0KtmXR/thGOAWbKEErGeJ2aXGSpwgqQTolIRoETlwMzocK1g==}
     engines: {node: '>=6.11.5'}
-
-  webpack-shell-plugin-next@2.3.3:
-    resolution: {integrity: sha512-3TMY32HKeEiaKqv6o6MSM3sN/G2HgtPWldINI5YkTyY31XB7I/awarZICBoSusbCYwW13oowG+Xrw9zg3mfT7w==}
-    peerDependencies:
-      webpack: ^5.18.0
 
   webpack-sources@3.3.3:
     resolution: {integrity: sha512-yd1RBzSGanHkitROoPFd6qsrxt+oFhg/129YzheDGqeustzX0vTZJZsSsQjVQC4yzBQ56K55XU8gaNCtIzOnTg==}
@@ -9266,15 +9245,6 @@ snapshots:
 
   convert-source-map@2.0.0: {}
 
-  copy-webpack-plugin@13.0.1(webpack@5.102.1):
-    dependencies:
-      glob-parent: 6.0.2
-      normalize-path: 3.0.0
-      schema-utils: 4.3.2
-      serialize-javascript: 6.0.2
-      tinyglobby: 0.2.15
-      webpack: 5.102.1(webpack-cli@6.0.1)
-
   core-js-pure@3.45.1: {}
 
   core-util-is@1.0.3: {}
@@ -11344,8 +11314,6 @@ snapshots:
       semver: 7.7.3
       validate-npm-package-license: 3.0.4
 
-  normalize-path@3.0.0: {}
-
   normalize-url@6.1.0: {}
 
   nth-check@2.1.1:
@@ -12840,10 +12808,6 @@ snapshots:
       wildcard: 2.0.1
 
   webpack-preprocessor-loader@1.3.0: {}
-
-  webpack-shell-plugin-next@2.3.3(webpack@5.102.1):
-    dependencies:
-      webpack: 5.102.1(webpack-cli@6.0.1)
 
   webpack-sources@3.3.3: {}
 
