@@ -4,8 +4,6 @@ function set_manifest_field() {
 }
 
 # Updates all the manifest.json fields not related to versioning
-# TODO(https://iavm.xyz/b/twpowertools/256): move this to
-# stamp_manifest.sh.
 function set_other_manifest_fields() {
   if [[ $CHANNEL == "canary" ]]; then
     # Change manifest.json to label the release as canary
