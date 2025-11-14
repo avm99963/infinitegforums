@@ -6,7 +6,6 @@ filegroup(
     visibility = ["//:__pkg__"],
 )
 
-# TODO(https://iavm.xyz/b/twpowertools/256): Move this out of the static folder.
 copy_to_bin(
     name = "common_console_styles",
     srcs = ["css/common/console.css"],

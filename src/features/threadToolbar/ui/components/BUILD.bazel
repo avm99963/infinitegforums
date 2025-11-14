@@ -14,8 +14,6 @@ copy_to_bin(
 common_js_project(
     name = "components",
     assets = [
-        # TODO(https://iavm.xyz/b/twpowertools/256): Move this out of the
-        # static folder.
         "//src/static:common_console_styles",
     ],
     visibility = [

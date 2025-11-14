@@ -20,8 +20,6 @@ def extension_bundle(name, **kwargs):
             "//src/options/old",
             "//src/options/presentation/scripts",
             "//src/options/presentation/templates",
-            # TODO(https://iavm.xyz/b/twpowertools/256): Move this out of the static
-            # folder.
             "//src/static:common_console_styles",
             "//src/ui/styles/mdc",
         ],
