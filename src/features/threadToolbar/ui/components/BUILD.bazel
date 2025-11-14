@@ -19,9 +19,6 @@ common_js_project(
         "//src/static:common_console_styles",
     ],
     visibility = [
-        # TODO(https://iavm.xyz/b/twpowertools/256): Delete the following
-        # package from the list.
-        "//src:__pkg__",
         "//src/injections:__subpackages__",
     ],
     deps = [

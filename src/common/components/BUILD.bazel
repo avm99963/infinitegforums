@@ -5,7 +5,5 @@ common_js_project(
     visibility = [
         "//src:presentation",
         "//src:ui",
-        # TODO(https://iavm.xyz/b/twpowertools/256): remove this.
-        "//src:__pkg__",
     ],
 )

@@ -9,14 +9,11 @@ common_ts_project(
     transpiler = swc_pkg,
     tsconfig = "//:tsconfig_pkg",
     visibility = [
-        # TODO(https://iavm.xyz/b/twpowertools/256): Delete the following
-        # package from the list.
-        "//src:__pkg__",
+        "//src/presentation/standaloneScripts/mainWorldServers:__subpackages__",
         "//src/presentation/standaloneScripts/xhrInterceptor:__subpackages__",
         "//src/xhrInterceptor/fetchProxy:__subpackages__",
-        "//src/xhrInterceptor/xhrProxy:__subpackages__",
         "//src/xhrInterceptor/responseModifiers:__subpackages__",
-        "//src/presentation/standaloneScripts/mainWorldServers:__subpackages__",
+        "//src/xhrInterceptor/xhrProxy:__subpackages__",
     ],
     deps = [
         "//src/common/options",

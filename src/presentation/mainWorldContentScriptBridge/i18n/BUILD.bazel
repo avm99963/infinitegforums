@@ -10,8 +10,6 @@ common_ts_project(
     transpiler = swc_pkg,
     tsconfig = "//:tsconfig_pkg",
     visibility = [
-        # TODO(https://iavm.xyz/b/twpowertools/256): remove this.
-        "//src:__pkg__",
         "//src:infrastructure_presentation",
         "//src:presentation",
         # TODO(https://iavm.xyz/b/twpowertools/226): remove this exception.

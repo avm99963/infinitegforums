@@ -21,9 +21,6 @@ common_js_project(
         ],
     ) + [":reply_with_cr"],
     visibility = [
-        # TODO(https://iavm.xyz/b/twpowertools/256): Delete the following
-        # package from the list.
-        "//src:__pkg__",
         "//src/features/workflows/core/communityConsole/runner:__subpackages__",
     ],
     deps = [

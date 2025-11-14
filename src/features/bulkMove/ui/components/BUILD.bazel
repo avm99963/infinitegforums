@@ -19,11 +19,8 @@ common_ts_project(
     transpiler = swc_pkg,
     tsconfig = "//:tsconfig_pkg",
     visibility = [
-        # TODO(https://iavm.xyz/b/twpowertools/256): Delete the following
-        # package from the list.
-        "//src:__pkg__",
-        "//src/features/bulkMove/presentation:__subpackages__",
         "//src/features/bulkMove/infrastructure/ui:__subpackages__",
+        "//src/features/bulkMove/presentation:__subpackages__",
         "//src/injections:__subpackages__",
     ],
     deps = [

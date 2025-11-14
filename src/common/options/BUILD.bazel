@@ -38,8 +38,6 @@ common_js_project(
 js_library(
     name = "options",
     visibility = [
-        # TODO: Delete the following package from the list.
-        "//:__pkg__",
         "//src:__subpackages__",
         "//tools/printOptionsPrototypeJSON:__pkg__",
     ],
