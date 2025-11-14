@@ -19,7 +19,7 @@ export function handleBgOptionChange(feature) {
   isOptionEnabled(feature)
       .then(enabled => {
         switch (feature) {
-          // #!if browser_target == 'chromium_mv3'
+          // #!if defined(MV3)
           case 'blockdrafts':
             chrome.declarativeNetRequest.getEnabledRulesets(rulesets => {
               if (rulesets === undefined) {

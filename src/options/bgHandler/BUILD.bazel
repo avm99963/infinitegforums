@@ -1,7 +1,19 @@
 load("//tools:common_js_project.bzl", "common_js_project")
+load("//tools/preprocessor:bzl/preprocessor.bzl", "preprocessor")
+
+preprocessor(
+    name = "preprocessed_bg_handler",
+    src = "bgHandler.pre.js",
+    out = "bgHandler.js",
+    defined_dependencies = select({
+        "//:mv3": ["MV3"],
+        "//conditions:default": [],
+    }),
+)
 
 common_js_project(
     name = "bgHandler",
+    srcs = [":preprocessed_bg_handler"],
     visibility = [
         # TODO(https://iavm.xyz/b/twpowertools/256): Delete the following
         # package from the list.
