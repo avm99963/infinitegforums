@@ -1,10 +1,6 @@
 load("@aspect_bazel_lib//lib:expand_template.bzl", "expand_template")
 load("//src/lit-locales:target_locales.bzl", "generated_locale_codes_file", "get_stringified_target_locales")
 
-# These templates are used when Bazel builds and extracts messages. Webpack
-# compilation still uses the legacy lit-localize.json file.
-# TODO(https://iavm.xyz/b/twpowertools/256): remove lit-localize.json.
-
 def expand_lit_localize_config_templates():
     stringified_target_locales = get_stringified_target_locales()
 
