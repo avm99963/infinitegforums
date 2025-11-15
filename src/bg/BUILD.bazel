@@ -9,6 +9,9 @@ preprocessor(
     defined_dependencies = select({
         "//:mv3": ["MV3"],
         "//conditions:default": [],
+    }) + select({
+        "//src/killSwitch:should_enable_kill_switch_mechanism": ["ENABLE_KILL_SWITCH_MECHANISM"],
+        "//conditions:default": [],
     }),
 )
 

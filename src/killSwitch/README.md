@@ -21,3 +21,12 @@ retrieve a list of force disabled features from the database.
 apply to the extension according to the linked criteria, it force disables
 those. If, on the contrary, a feature which was force disabled is no longer
 force disabled, the previous status is restored.
+
+## Developing the Kill Switch mechanism
+The kill switch mechanism is disabled in non-release (i.e., development)
+builds. To enable it, add the following line to a `user.bazelrc` file at the
+root of the repo:
+
+```
+common --//src/killSwitch:enable_kill_switch_mechanism
+```

@@ -1,5 +1,6 @@
 load("//tools:common_js_project.bzl", "common_js_project")
 load("//tools/preprocessor:bzl/preprocessor.bzl", "preprocessor")
+load(":config.bzl", "enable_kill_switch_mechanism")
 
 preprocessor(
     name = "index",
@@ -29,5 +30,21 @@ common_js_project(
         "//src/common",
         "//src/common/options",
         "//src/killSwitch/api_proto",
+    ],
+)
+
+enable_kill_switch_mechanism(
+    name = "enable_kill_switch_mechanism",
+    build_setting_default = True,
+)
+
+config_setting(
+    name = "should_enable_kill_switch_mechanism",
+    flag_values = {
+        "//src/killSwitch:enable_kill_switch_mechanism": "true",
+    },
+    visibility = [
+        "//src/bg:__subpackages__",
+        "//tools/preprocessor:__subpackages__",
     ],
 )

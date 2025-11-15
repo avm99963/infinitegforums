@@ -4,7 +4,9 @@ import XMLHttpRequest from 'sw-xhr';
 
 import actionApi from '../common/actionApi.js';
 import {cleanUpOptions} from '../common/options/optionsUtils.js';
+// #!if defined(ENABLE_KILL_SWITCH_MECHANISM)
 import KillSwitchMechanism from '../killSwitch/index.js';
+// #!endif
 import {handleBgOptionChange, handleBgOptionsOnStart} from '../options/bgHandler/bgHandler.js';
 import UpdateNotifier from '../updateNotifier/presentation/bg/index.js';
 
@@ -41,6 +43,7 @@ actionApi.onClicked.addListener(() => {
   chrome.runtime.openOptionsPage();
 });
 
+// #!if defined(ENABLE_KILL_SWITCH_MECHANISM)
 const killSwitchMechanism = new KillSwitchMechanism();
 
 chrome.alarms.get('updateKillSwitchStatus', alarm => {
@@ -59,6 +62,7 @@ chrome.alarms.onAlarm.addListener(alarm => {
 chrome.runtime.onStartup.addListener(() => {
   killSwitchMechanism.updateKillSwitchStatus();
 });
+// #!endif
 
 // When the extension is first installed or gets updated, set new options to
 // their default value, update the kill switch status and prompt the user to
@@ -69,7 +73,9 @@ chrome.runtime.onInstalled.addListener(details => {
       cleanUpOptions(options, false);
     });
 
+    // #!if defined(ENABLE_KILL_SWITCH_MECHANISM)
     killSwitchMechanism.updateKillSwitchStatus();
+    // #!endif
 
     const updateNotifier = new UpdateNotifier();
     updateNotifier.notify(details.reason);
