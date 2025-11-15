@@ -30,6 +30,22 @@
       "automerge": true,
       "automergeType": "pr",
       "autoApprove": true
+    },
+    {
+      "description": "Prompt to update the Node.JS version when updating rules_nodejs",
+      "matchPackageNames": ["rules_nodejs"],
+      "matchDatasources": ["bazel"],
+      "prBodyNotes": [
+        "⚠️ **IMPORTANT:** Please remember to update this CL with the latest LTS Node.JS version available in this rules_nodejs release. **[\[check available versions\]](https://raw.githubusercontent.com/bazel-contrib/rules_nodejs/refs/tags/{{newVersion}}/nodejs/private/node_versions.bzl#:~:text=%7D)"
+      ]
+    },
+    {
+      "description": "Prompt to update the Typescript version used by rules_ts when updating the typescript package",
+      "matchPackageNames": ["typescript"],
+      "matchDatasources": ["npm"],
+      "prBodyNotes": [
+        "⚠️ **IMPORTANT:** Please remember to sync the Typescript version in MODULES.bazel in this CL. **[\[view checksums\]](https://raw.githubusercontent.com/aspect-build/rules_ts/HEAD/ts/private/versions.bzl#:~:text=%7D)"
+      ]
     }
   ],
   "schedule": ["every weekend"],
