@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "@types/node": "20.19.25",
+    "@types/node": "24.10.1",
     "webpack": "5.102.1",
     "webpack-cli": "6.0.1"
   }
