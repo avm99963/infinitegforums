@@ -173,8 +173,8 @@
     "https://bcr.bazel.build/modules/rules_license/1.0.0/source.json": "a52c89e54cc311196e478f8382df91c15f7a2bfdf4c6cd0e2675cc2ff0b56efb",
     "https://bcr.bazel.build/modules/rules_nodejs/6.2.0/MODULE.bazel": "ec27907f55eb34705adb4e8257952162a2d4c3ed0f0b3b4c3c1aad1fac7be35e",
     "https://bcr.bazel.build/modules/rules_nodejs/6.3.0/MODULE.bazel": "45345e4aba35dd6e4701c1eebf5a4e67af4ed708def9ebcdc6027585b34ee52d",
-    "https://bcr.bazel.build/modules/rules_nodejs/6.6.1/MODULE.bazel": "e499aabe7cb796b784e9421be909c702eb79f664c20d21cbf120332a2a8dc378",
-    "https://bcr.bazel.build/modules/rules_nodejs/6.6.1/source.json": "c5eb6ed233d9ddadad77342e4aeefb836a4616f875acf2dbb181f98057c8c020",
+    "https://bcr.bazel.build/modules/rules_nodejs/6.6.2/MODULE.bazel": "9fdb5e1d50246a25761f150fcc820dc47e4052330a8408451e628804f9ca64a6",
+    "https://bcr.bazel.build/modules/rules_nodejs/6.6.2/source.json": "6e8c1ecc64ff8da147c1620f862ad77d7b19c5d1b52b3aa5e847d5b3d0de4cc3",
     "https://bcr.bazel.build/modules/rules_pkg/0.7.0/MODULE.bazel": "df99f03fc7934a4737122518bb87e667e62d780b610910f0447665a7e2be62dc",
     "https://bcr.bazel.build/modules/rules_pkg/1.0.1/MODULE.bazel": "5b1df97dbc29623bccdf2b0dcd0f5cb08e2f2c9050aab1092fd39a41e82686ff",
     "https://bcr.bazel.build/modules/rules_pkg/1.1.0/MODULE.bazel": "9db8031e71b6ef32d1846106e10dd0ee2deac042bd9a2de22b4761b0c3036453",
@@ -811,8 +811,8 @@
     },
     "@@rules_nodejs+//nodejs:extensions.bzl%node": {
       "general": {
-        "bzlTransitiveDigest": "Oex83HlYG4+sPr0oUbvldjyP3JnYazq0jAVgUXDx7yU=",
-        "usagesDigest": "Jnra9KWp+Ijl5+CGzS9AFNpDCMm0m9HL3TohEXtVRGg=",
+        "bzlTransitiveDigest": "NwcLXHrbh2hoorA/Ybmcpjxsn/6avQmewDglodkDrgo=",
+        "usagesDigest": "1FLeqv0fRp3UTjX2LtaDzajA7oZZ5yLF4rAEw97Vvmg=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
         "envVariables": {},
@@ -825,7 +825,7 @@
               "node_urls": [
                 "https://nodejs.org/dist/v{version}/{filename}"
               ],
-              "node_version": "24.11.0",
+              "node_version": "24.11.1",
               "include_headers": false,
               "platform": "linux_amd64"
             }
@@ -838,7 +838,7 @@
               "node_urls": [
                 "https://nodejs.org/dist/v{version}/{filename}"
               ],
-              "node_version": "24.11.0",
+              "node_version": "24.11.1",
               "include_headers": false,
               "platform": "linux_arm64"
             }
@@ -851,7 +851,7 @@
               "node_urls": [
                 "https://nodejs.org/dist/v{version}/{filename}"
               ],
-              "node_version": "24.11.0",
+              "node_version": "24.11.1",
               "include_headers": false,
               "platform": "linux_s390x"
             }
@@ -864,7 +864,7 @@
               "node_urls": [
                 "https://nodejs.org/dist/v{version}/{filename}"
               ],
-              "node_version": "24.11.0",
+              "node_version": "24.11.1",
               "include_headers": false,
               "platform": "linux_ppc64le"
             }
@@ -877,7 +877,7 @@
               "node_urls": [
                 "https://nodejs.org/dist/v{version}/{filename}"
               ],
-              "node_version": "24.11.0",
+              "node_version": "24.11.1",
               "include_headers": false,
               "platform": "darwin_amd64"
             }
@@ -890,7 +890,7 @@
               "node_urls": [
                 "https://nodejs.org/dist/v{version}/{filename}"
               ],
-              "node_version": "24.11.0",
+              "node_version": "24.11.1",
               "include_headers": false,
               "platform": "darwin_arm64"
             }
@@ -903,7 +903,7 @@
               "node_urls": [
                 "https://nodejs.org/dist/v{version}/{filename}"
               ],
-              "node_version": "24.11.0",
+              "node_version": "24.11.1",
               "include_headers": false,
               "platform": "windows_amd64"
             }
@@ -916,7 +916,7 @@
               "node_urls": [
                 "https://nodejs.org/dist/v{version}/{filename}"
               ],
-              "node_version": "24.11.0",
+              "node_version": "24.11.1",
               "include_headers": false,
               "platform": "windows_arm64"
             }
