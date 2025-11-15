@@ -6,7 +6,7 @@ preprocessor(
     src = "main.pre.ts",
     out = "main.ts",
     defined_dependencies = select({
-        "//:chromium": ["MV3"],
+        "//:mv3": ["MV3"],
         "//conditions:default": [],
     }),
 )
