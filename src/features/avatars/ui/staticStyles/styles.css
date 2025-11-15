@@ -55,5 +55,5 @@ html[dir="rtl"] .TWPT-avatars .TWPT-avatar:not(:first-child) {
  * styles. The second px value is the value substracted due to the avatars.
  */
 body.TWPT-threadlistavatars-enabled ec-thread-summary .main-header .action .header .header-content {
-  width: calc(100% - 160px - 98px);
+  width: calc(100% - 164px - 98px);
 }
