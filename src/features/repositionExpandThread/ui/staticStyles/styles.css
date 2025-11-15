@@ -8,14 +8,14 @@ ec-thread-summary .panel > .main-header > .action > .header {
 
 /* Adjusting padding for the bulk action checkbox */
 ec-thread-list ec-bulk-actions .selection {
-  padding-inline-start: 41px;
+  padding-inline-start: 45px;
 }
 
 /* Adjusting padding for the info in the expanded thread */
 ec-thread-summary .panel .main .content-wrapper > .content > .content {
-  padding-inline: 136px 8px;
+  padding-inline: 140px 8px;
 }
 
 ec-thread-summary .main .toolbelt .TWPT-extrainfo-container {
-  margin-inline-start: 156px!important;
+  margin-inline-start: 160px!important;
 }
