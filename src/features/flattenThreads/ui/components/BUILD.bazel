@@ -1,8 +1,21 @@
-load("@aspect_bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
+load("@bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
 load("//tools:common_js_project.bzl", "common_js_project")
+
+copy_to_bin(
+    name = "source_code",
+    srcs = glob(
+        ["**/*.js"],
+        exclude = [
+            "BUILD.bazel",
+            "**/*.test.js",
+        ],
+    ),
+    visibility = ["//src/lit-locales:__subpackages__"],
+)
 
 common_js_project(
     name = "components",
+    srcs = [":source_code"],
     visibility = [
         "//src/injections:__subpackages__",
     ],
@@ -15,13 +28,4 @@ common_js_project(
         "//src/contentScripts/communityConsole/utils",
         "//src/ui/i18n",
     ],
-)
-
-copy_to_bin(
-    name = "source_code",
-    srcs = glob(
-        ["**"],
-        exclude = ["BUILD.bazel"],
-    ),
-    visibility = ["//src/lit-locales:__subpackages__"],
 )

@@ -1,18 +1,22 @@
-load("@aspect_bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
+load("@bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
 load("//tools:bazel/swc.bzl", "swc_pkg")
 load("//tools:common_ts_project.bzl", "common_ts_project")
 
 copy_to_bin(
     name = "source_code",
     srcs = glob(
-        ["**"],
-        exclude = ["BUILD.bazel"],
+        ["**/*.ts"],
+        exclude = [
+            "BUILD.bazel",
+            "**/*.test.ts",
+        ],
     ),
     visibility = ["//src/lit-locales:__subpackages__"],
 )
 
 common_ts_project(
     name = "components",
+    srcs = [":source_code"],
     allow_js = True,
     assets = [
         "mdcStyles.scss",

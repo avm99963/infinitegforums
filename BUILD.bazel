@@ -1,8 +1,8 @@
-load("@aspect_bazel_lib//lib:copy_to_directory.bzl", "copy_to_directory")
-load("@aspect_bazel_lib//lib:run_binary.bzl", "run_binary")
-load("@aspect_bazel_lib//lib:testing.bzl", "assert_json_matches")
 load("@aspect_rules_ts//ts:defs.bzl", "ts_config", "ts_project")
+load("@bazel_lib//lib:copy_to_directory.bzl", "copy_to_directory")
+load("@bazel_lib//lib:run_binary.bzl", "run_binary")
 load("@bazel_skylib//lib:selects.bzl", "selects")
+load("@jq.bzl//jq:jq.bzl", "jq_test")
 load("@npm//:defs.bzl", "npm_link_all_packages")
 load("@npm//:renovate/package_json.bzl", renovate_bin = "bin")
 load("@npm//:web-ext/package_json.bzl", web_ext_bin = "bin")
@@ -227,7 +227,7 @@ ts_config(
 )
 
 # See https://github.com/aspect-build/rules_swc/blob/f35b63d621f6ff7cd7ca194a1061f7cdd59af07e/docs/tsconfig.md#maintain-two-files
-assert_json_matches(
+jq_test(
     name = "ensure_swcrc_pkg_is_synced_test",
     file1 = "tsconfig.pkg.json",
     file2 = ".swcrc_pkg",

@@ -1,4 +1,4 @@
-load("@aspect_bazel_lib//lib:run_binary.bzl", "run_binary")
+load("@bazel_lib//lib:run_binary.bzl", "run_binary")
 
 def _preprocessor_impl(name, visibility, src, out, defined_dependencies):
     run_binary(

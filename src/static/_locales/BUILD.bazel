@@ -1,4 +1,4 @@
-load("@aspect_bazel_lib//lib:copy_directory.bzl", "copy_directory")
+load("@bazel_lib//lib:copy_directory.bzl", "copy_directory")
 load("defs.bzl", "get_overriden_locale_path_mappings", "get_overriden_locale_paths")
 
 [

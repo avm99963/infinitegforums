@@ -1,4 +1,4 @@
-load("@aspect_bazel_lib//lib:expand_template.bzl", "expand_template")
+load("@bazel_lib//lib:expand_template.bzl", "expand_template")
 load("//src/lit-locales:target_locales.bzl", "generated_locale_codes_file", "get_stringified_target_locales")
 
 def expand_lit_localize_config_templates():
