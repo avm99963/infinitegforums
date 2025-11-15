@@ -45,16 +45,6 @@ const bulkActionsSectionName = () =>
     desc: 'Name of a generic section of features that let users perform actions to many threads at once.',
   });
 
-// TODO(https://iavm.xyz/b/twpowertools/250): place this category above the "Old
-// message composer" category when launching the fixLinkDialog feature.
-const _messageComposerCategory = new FeatureCategory({
-  id: 'messageComposer',
-  name: msg('Message composer', {
-    desc: 'Name of the category of extension features related to the message composer.',
-  }),
-  features: [fixLinkDialogFeature()],
-});
-
 export const getFeatureCategories = () => [
   new FeatureCategory({
     id: 'general',
@@ -121,6 +111,13 @@ export const getFeatureCategories = () => [
         features: [imageMaxHeightFeature()],
       }),
     ],
+  }),
+  new FeatureCategory({
+    id: 'messageComposer',
+    name: msg('Message composer', {
+      desc: 'Name of the category of extension features related to the message composer.',
+    }),
+    features: [fixLinkDialogFeature()],
   }),
   new FeatureCategory({
     id: 'oldMessageComposer',
