@@ -37,7 +37,6 @@ def extension_bundle(name, **kwargs):
             ":node_modules/sass-loader",
             ":node_modules/style-loader",
             ":node_modules/terser-webpack-plugin",
-            ":node_modules/ts-loader",
             ":node_modules/webpack",
         ],
         **kwargs
