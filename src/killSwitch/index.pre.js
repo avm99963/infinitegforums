@@ -20,7 +20,15 @@ export default class KillSwitchMechanism {
         new KillSwitchServicePromiseClient(KILL_SWITCH_HOST, null, null);
   }
 
-  setBadge(anyKillSwitchEnabled) {
+  updateBadge() {
+    chrome.storage.sync.get(
+        '_forceDisabledFeatures', ({_forceDisabledFeatures}) => {
+          let anyKillSwitchEnabled = _forceDisabledFeatures.length > 0;
+          this.#setBadge(anyKillSwitchEnabled);
+        });
+  }
+
+  #setBadge(anyKillSwitchEnabled) {
     if (anyKillSwitchEnabled) {
       actionApi.setBadgeBackgroundColor(
           {color: KILLSWITCH_BADGE_OPTIONS.bgColor});
@@ -90,7 +98,7 @@ export default class KillSwitchMechanism {
           chrome.storage.sync.set(
               {_forceDisabledFeatures: forceDisabledFeatures}, () => {
                 let anyKillSwitchEnabled = forceDisabledFeatures.length > 0;
-                this.setBadge(anyKillSwitchEnabled);
+                this.#setBadge(anyKillSwitchEnabled);
               });
         })
         .catch(err => {

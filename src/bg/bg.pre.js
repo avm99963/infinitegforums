@@ -45,6 +45,7 @@ actionApi.onClicked.addListener(() => {
 
 // #!if defined(ENABLE_KILL_SWITCH_MECHANISM)
 const killSwitchMechanism = new KillSwitchMechanism();
+killSwitchMechanism.updateBadge();
 
 chrome.alarms.get('updateKillSwitchStatus', alarm => {
   if (!alarm)
