@@ -58,7 +58,7 @@ export function getOptions(options, requireOptionalPermissions = true) {
   const startMark = `mark_start_get_options_${timeLabel}`;
   const endMark = `mark_end_get_options_${timeLabel}`;
   const measureName = `measure_get_options_${timeLabel}`;
-  window.performance.mark(startMark, {detail: {options}});
+  global.performance.mark(startMark, {detail: {options}});
   // #!endif
   // Once we only target MV3, this can be greatly simplified.
   return new Promise((resolve, reject) => {
@@ -89,8 +89,8 @@ export function getOptions(options, requireOptionalPermissions = true) {
          })
       // #!if !defined(PRODUCTION)
       .then(items => {
-        window.performance.mark(endMark, {detail: {options}});
-        window.performance.measure(measureName, {
+        global.performance.mark(endMark, {detail: {options}});
+        global.performance.measure(measureName, {
           detail: {options},
           start: startMark,
           end: endMark,
@@ -98,8 +98,8 @@ export function getOptions(options, requireOptionalPermissions = true) {
         return items;
       })
       .catch(err => {
-        window.performance.mark(endMark, {detail: {options}});
-        window.performance.measure(measureName, {
+        global.performance.mark(endMark, {detail: {options}});
+        global.performance.measure(measureName, {
           detail: {options},
           start: startMark,
           end: endMark,
