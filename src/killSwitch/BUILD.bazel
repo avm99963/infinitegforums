@@ -1,6 +1,13 @@
 load("//tools:common_js_project.bzl", "common_js_project")
 load("//tools/preprocessor:bzl/preprocessor.bzl", "preprocessor")
-load(":config.bzl", "enable_kill_switch_mechanism")
+load(":bzl/config.bzl", "enable_kill_switch_mechanism", "host")
+load(":bzl/config_file.bzl", "config_file")
+
+config_file(
+    name = "config",
+    out = "config.js",
+    host = ":host",
+)
 
 preprocessor(
     name = "index",
@@ -20,7 +27,10 @@ common_js_project(
             "**/*.test.js",
             "**/*.pre.js",
         ],
-    ) + [":index"],
+    ) + [
+        ":config",
+        ":index",
+    ],
     visibility = [
         "//src/bg:__subpackages__",
         "//src/xhrInterceptor/killSwitchHandler:__subpackages__",
@@ -47,4 +57,9 @@ config_setting(
         "//src/bg:__subpackages__",
         "//tools/preprocessor:__subpackages__",
     ],
+)
+
+host(
+    name = "host",
+    build_setting_default = "https://twpt-grpc-web.avm99963.com/",
 )

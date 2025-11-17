@@ -24,9 +24,10 @@ force disabled, the previous status is restored.
 
 ## Developing the Kill Switch mechanism
 The kill switch mechanism is disabled in non-release (i.e., development)
-builds. To enable it, add the following line to a `user.bazelrc` file at the
+builds. To enable it, add the following lines to a `user.bazelrc` file at the
 root of the repo:
 
 ```
 common --//src/killSwitch:enable_kill_switch_mechanism
+common --//src/killSwitch:host=http://localhost:8081
 ```

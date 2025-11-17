@@ -1,7 +1,7 @@
-def _string_option_impl(allowed_values, provider_factory):
+def _string_option_impl(provider_factory, allowed_values = None):
     def _impl(ctx):
         raw_value = ctx.build_setting_value
-        if raw_value not in allowed_values:
+        if allowed_values != None and raw_value not in allowed_values:
             fail(str(ctx.label) + " build setting allowed to take values {" +
                  ", ".join(allowed_values) +
                  "} but was set to unallowed value " + raw_value)
@@ -9,7 +9,7 @@ def _string_option_impl(allowed_values, provider_factory):
 
     return _impl
 
-def create_string_flag_rule(allowed_values, provider_factory):
+def create_string_flag_rule(provider_factory, allowed_values = None):
     return rule(
         implementation = _string_option_impl(
             allowed_values = allowed_values,

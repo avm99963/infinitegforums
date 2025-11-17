@@ -6,10 +6,7 @@ import {getSemVerExtVersion} from '../common/extUtils.js';
 import * as commonPb from './api_proto/common_pb.js';
 import {KillSwitchServicePromiseClient} from './api_proto/kill_switch_grpc_web_pb.js';
 import * as ksPb from './api_proto/kill_switch_pb.js';
-
-const host =
-    (PRODUCTION ? 'https://twpt-grpc-web.avm99963.com/' :
-                  'http://localhost:8081');
+import {KILL_SWITCH_HOST} from './config.js';
 
 const KILLSWITCH_BADGE_OPTIONS = {
   'iconTitleI18nKey': 'actionbadge_killswitch_enabled',
@@ -19,7 +16,8 @@ const KILLSWITCH_BADGE_OPTIONS = {
 
 export default class KillSwitchMechanism {
   constructor() {
-    this.client = new KillSwitchServicePromiseClient(host, null, null);
+    this.client =
+        new KillSwitchServicePromiseClient(KILL_SWITCH_HOST, null, null);
   }
 
   setBadge(anyKillSwitchEnabled) {
