@@ -1,12 +1,33 @@
-load("//tools:common_js_project.bzl", "common_js_project")
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+load("@rules_proto_grpc_js//:defs.bzl", "js_proto_library")
 
-common_js_project(
+proto_library(
+    name = "lib",
+    srcs = [
+        "main.proto",
+    ],
+    strip_import_prefix = "/src/features/workflows/core/proto",
+)
+
+js_proto_library(
+    name = "proto_generated",
+    options = {
+        "@rules_proto_grpc_js//:proto_plugin": [
+            "import_style=commonjs_strict",
+        ],
+    },
+    output_mode = "NO_PREFIX",
+    protos = [":lib"],
+)
+
+js_library(
     name = "proto",
     visibility = [
         "//src/features/workflows/core:__subpackages__",
         "//src/features/workflows/ui:__subpackages__",
     ],
     deps = [
-        "//:node_modules/google-protobuf",
+        ":proto_generated",
+        "//:node_modules/@types/google-protobuf",
     ],
 )
