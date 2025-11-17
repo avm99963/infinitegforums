@@ -1,7 +1,47 @@
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+load("@rules_proto_grpc_doc//:defs.bzl", "doc_markdown_compile")
+load("@rules_proto_grpc_js//:defs.bzl", "js_grpc_web_library")
 load("//tools:common_js_project.bzl", "common_js_project")
 load("//tools/preprocessor:bzl/preprocessor.bzl", "preprocessor")
 load(":bzl/config.bzl", "enable_kill_switch_mechanism", "host")
 load(":bzl/config_file.bzl", "config_file")
+
+proto_library(
+    name = "proto",
+    srcs = [
+        "api_proto/common.proto",
+        "api_proto/kill_switch.proto",
+        "api_proto/kill_switch_objects.proto",
+    ],
+    strip_import_prefix = "/src/killSwitch",
+    deps = ["@protobuf//:timestamp_proto"],
+)
+
+js_grpc_web_library(
+    name = "api_proto_generated",
+    options = {
+        "@rules_proto_grpc_js//:grpc_web_js_plugin": [
+            "import_style=commonjs+dts",
+            "mode=grpcwebtext",
+        ],
+        "@rules_proto_grpc_js//:proto_plugin": [
+            "import_style=commonjs_strict",
+        ],
+    },
+    output_mode = "NO_PREFIX",
+    protos = [":proto"],
+)
+
+# We add @types/google-protobuf so that
+# google-protobuf/google/protobuf/timestamp_pb is available to tsc when
+# typechecking.
+js_library(
+    name = "api_proto",
+    deps = [
+        ":api_proto_generated",
+        "//:node_modules/@types/google-protobuf",
+    ],
+)
 
 config_file(
     name = "config",
@@ -36,10 +76,10 @@ common_js_project(
         "//src/xhrInterceptor/killSwitchHandler:__subpackages__",
     ],
     deps = [
+        ":api_proto",
         "//:node_modules/semver",
         "//src/common",
         "//src/common/options",
-        "//src/killSwitch/api_proto",
     ],
 )
 
