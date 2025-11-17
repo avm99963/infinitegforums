@@ -10,6 +10,9 @@ build --flag_alias=release=//:release
 build --flag_alias=norelease=no//:release
 
 common:ci --test_env=CI=true
+# This simplifies our log in CI. curses is not useful since we can't view live
+# logs.
+common:ci --curses=no
 
 build:release --stamp
 build:release --workspace_status_command=./tools/bazel_stamp_vars.sh
