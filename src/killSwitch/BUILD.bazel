@@ -1,4 +1,5 @@
 load("@aspect_rules_js//js:defs.bzl", "js_library")
+load("@bazel_lib//lib:write_source_files.bzl", "write_source_file")
 load("@rules_proto_grpc_doc//:defs.bzl", "doc_markdown_compile")
 load("@rules_proto_grpc_js//:defs.bzl", "js_grpc_web_library")
 load("//tools:common_js_project.bzl", "common_js_project")
@@ -41,6 +42,17 @@ js_library(
         ":api_proto_generated",
         "//:node_modules/@types/google-protobuf",
     ],
+)
+
+doc_markdown_compile(
+    name = "proto_docs_golden",
+    protos = [":proto"],
+)
+
+write_source_file(
+    name = "proto_docs",
+    in_file = ":proto_docs_golden",
+    out_file = "docs/api_proto.md",
 )
 
 config_file(
