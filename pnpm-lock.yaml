@@ -117,8 +117,8 @@ importers:
         specifier: 4.0.2
         version: 4.0.2(webpack@5.103.0)
       renovate:
-        specifier: 42.26.11
-        version: 42.26.11(encoding@0.1.13)(typanion@3.14.0)
+        specifier: 42.27.0
+        version: 42.27.0(encoding@0.1.13)(typanion@3.14.0)
       sass:
         specifier: 1.94.2
         version: 1.94.2
@@ -4775,8 +4775,8 @@ packages:
   renderkid@3.0.0:
     resolution: {integrity: sha512-q/7VIQA8lmM1hF+jn+sFSPWGlMkSAeNYcPLmDQx2zzuiDfaLrOmumR8iaUKlenFgh0XRPIUeSPlH3A+AW3Z5pg==}
 
-  renovate@42.26.11:
-    resolution: {integrity: sha512-jl1pVlYsLfQfpSYktEAMNxyZdhZ6wqdCGJSULIvOxeyJ27m+Q+ii+u3uZYkAT4Qo3NfgybhNQc5o4o1OzLZWQQ==}
+  renovate@42.27.0:
+    resolution: {integrity: sha512-L0SXRD63GxNvL+j8SAt4S6XIckA+r7n92Lhq2DsS0O6Nb5KD/STQJELf/AxiHGo7/mfk+5yHenyIjdNzTriWrQ==}
     engines: {node: ^22.13.0 || ^24.11.0, pnpm: ^10.0.0}
     hasBin: true
 
@@ -11728,7 +11728,7 @@ snapshots:
       lodash: 4.17.21
       strip-ansi: 6.0.1
 
-  renovate@42.26.11(encoding@0.1.13)(typanion@3.14.0):
+  renovate@42.27.0(encoding@0.1.13)(typanion@3.14.0):
     dependencies:
       '@aws-sdk/client-codecommit': 3.922.0
       '@aws-sdk/client-ec2': 3.922.0
