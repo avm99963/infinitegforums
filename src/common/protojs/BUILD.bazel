@@ -30,7 +30,7 @@ js_library(
 
 vitest_test(
     name = "test",
-    config = "//:vitest.config.js",
+    config = "//:vitest_config",
     data = [
         "protojs.js",
         "protojs.test.ts",

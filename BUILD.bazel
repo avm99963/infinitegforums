@@ -1,4 +1,5 @@
-load("@aspect_rules_ts//ts:defs.bzl", "ts_config", "ts_project")
+load("@aspect_rules_ts//ts:defs.bzl", "ts_config")
+load("@bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
 load("@bazel_lib//lib:copy_to_directory.bzl", "copy_to_directory")
 load("@bazel_lib//lib:run_binary.bzl", "run_binary")
 load("@bazel_skylib//lib:selects.bzl", "selects")
@@ -59,18 +60,10 @@ ts_config(
     visibility = ["//:__subpackages__"],
 )
 
-ts_project(
+copy_to_bin(
     name = "vitest_config",
     srcs = ["vitest.config.ts"],
-    allow_js = True,
-    source_map = True,
-    transpiler = swc_pkg,
-    tsconfig = ":tsconfig",
     visibility = ["//:__subpackages__"],
-    deps = [
-        ":node_modules/@types/node",
-        ":node_modules/vitest",
-    ],
 )
 
 browser(

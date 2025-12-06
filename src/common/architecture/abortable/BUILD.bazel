@@ -16,7 +16,7 @@ common_ts_project(
 
 vitest_test(
     name = "test",
-    config = "//:vitest.config.js",
+    config = "//:vitest_config",
     data = glob([
         "abortable.ts",
         "abortable.test.ts",

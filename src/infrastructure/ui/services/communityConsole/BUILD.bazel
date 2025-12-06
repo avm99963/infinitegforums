@@ -21,7 +21,7 @@ common_ts_project(
 
 vitest_test(
     name = "test",
-    config = "//:vitest.config.js",
+    config = "//:vitest_config",
     data = [
         "getSelectedThreads.service.adapter.test.ts",
         "getSelectedThreads.service.adapter.ts",

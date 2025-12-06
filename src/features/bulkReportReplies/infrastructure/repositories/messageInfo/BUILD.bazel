@@ -19,7 +19,7 @@ common_ts_project(
 
 vitest_test(
     name = "test",
-    config = "//:vitest.config.js",
+    config = "//:vitest_config",
     data = [
         "messageInfo.repository.adapter.test.ts",
         "messageInfo.repository.adapter.ts",
