@@ -112,6 +112,11 @@ common --incompatible_modify_execution_info_additive
 common --incompatible_strict_action_env
 # Docs: https://registry.build/flag/bazel@8.4.2?filter=incompatible_strict_action_env
 
+# Fail the build if the MODULE.bazel.lock file is out of date.
+# Using this mode in ci prevents the lockfile from being out of date.
+common:ci --lockfile_mode="error"
+# Docs: https://registry.build/flag/bazel@8.4.2?filter=lockfile_mode
+
 # Add the CloudFlare mirror of BCR-referenced downloads.
 # Improves reliability of Bazel when CDNs are flaky, for example issues with ftp.gnu.org in 2025.
 common --module_mirrors="https://bcr.cloudflaremirrors.com"
