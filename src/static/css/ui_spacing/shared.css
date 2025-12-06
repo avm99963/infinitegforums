@@ -10,10 +10,6 @@
   padding: 1.5rem 1rem 1rem 1rem!important;
 }
 
-.scTailwindThreadQuestionQuestioncardhero {
-  margin: 1rem calc(-2*1.5rem) 0!important;
-}
-
 .scTailwindThreadQuestionQuestioncardsub-content {
   padding: 0 1rem 1rem!important;
 }
@@ -52,6 +48,10 @@ h3.scTailwindThreadMessageMessagelistheading {
 }
 
 @media (min-width: 37.5rem) {
+  .scTailwindThreadQuestionQuestioncardhero {
+    margin: 1rem calc(-2*1.5rem) 0!important;
+  }
+
   .scTailwindThreadMessageMessagecardcontent,
       .scTailwindThreadMessageMessagecardnested-reply {
     padding: 1rem 3rem!important;
