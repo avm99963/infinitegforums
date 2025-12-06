@@ -46,7 +46,7 @@
     "json5": "2.2.3",
     "mini-css-extract-plugin": "2.9.4",
     "path": "0.12.7",
-    "prettier": "3.7.3",
+    "prettier": "3.7.4",
     "raw-loader": "4.0.2",
     "renovate": "42.27.0",
     "sass": "1.94.2",
