@@ -537,7 +537,7 @@
         "bzlTransitiveDigest": "I+tE9vGTL3Se93kLUNxPQQZiIfYBgupRtrzLY383/Wk=",
         "usagesDigest": "Mem2kyOaMiJHdeSJx1G35ScvuPmIKWwRasdgyP76w4g=",
         "recordedFileInputs": {
-          "@@//package.json": "453ee3ac26336e08144c6e3640cd56c914eb10991c52fa34c01277b5f42e3cb8"
+          "@@//package.json": "39fa539cb1da9bfd6ae674828f36470aa2e990d45cdabd578c41a5156b20fea5"
         },
         "recordedDirentsInputs": {},
         "envVariables": {},
