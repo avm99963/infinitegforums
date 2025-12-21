@@ -34,8 +34,8 @@
     "https://bcr.bazel.build/modules/aspect_rules_js/2.8.3/source.json": "c35cb4e04f61a09c17f8c569894b80de884b1e3dee2d33829704786e3f778037",
     "https://bcr.bazel.build/modules/aspect_rules_swc/2.5.0/MODULE.bazel": "6b0e3c0089d030010e850d8ecbd543cd54ac1a85736e2804759cfdfa2b657899",
     "https://bcr.bazel.build/modules/aspect_rules_swc/2.5.0/source.json": "d4eff2ad34bb034d26b432b7efe7739ee655d767c52b2dfc6d8d817ec188b15c",
-    "https://bcr.bazel.build/modules/aspect_rules_ts/3.8.0/MODULE.bazel": "b1ab5a46cc68c11192613035703606482b115516969788b8c313ad583395366d",
-    "https://bcr.bazel.build/modules/aspect_rules_ts/3.8.0/source.json": "4f09c339618e33a9233393fac2ac8cb0eedab4598761f8b70310e5d7f555e09e",
+    "https://bcr.bazel.build/modules/aspect_rules_ts/3.8.1/MODULE.bazel": "796622c65ae3008374fc2d77c32ddb4ef6da9fe891826ce648f70033a48b3667",
+    "https://bcr.bazel.build/modules/aspect_rules_ts/3.8.1/source.json": "a7c4f332f5c21f4e63d073f8dda40bf278d5307499fb307b35058dba558f417a",
     "https://bcr.bazel.build/modules/aspect_rules_webpack/0.17.1/MODULE.bazel": "1b6b95b7261bb1907506e1d83bd6472baae7e4b3d0b41f656de14647ba8209a1",
     "https://bcr.bazel.build/modules/aspect_rules_webpack/0.17.1/source.json": "b49d2b76b39593b766a1cf44c477fb958013a4e4bf41229925a1b63b57069444",
     "https://bcr.bazel.build/modules/aspect_tools_telemetry/0.2.6/MODULE.bazel": "cafb8781ad591bc57cc765dca5fefab08cf9f65af363d162b79d49205c7f8af7",
@@ -534,7 +534,7 @@
     },
     "@@aspect_rules_ts+//ts:extensions.bzl%ext": {
       "general": {
-        "bzlTransitiveDigest": "vNLGL9GTi8PaP46e/11lxRuFDmmGkBjize7/iPfRypI=",
+        "bzlTransitiveDigest": "7k3bewVApw4Kc6Rpho1Rrs1nrW/5jphUA5Mh1iHE2U4=",
         "usagesDigest": "Mem2kyOaMiJHdeSJx1G35ScvuPmIKWwRasdgyP76w4g=",
         "recordedFileInputs": {
           "@@//package.json": "35e1961ba06b20d67316628dd06baac406033fc6a70806bd469749913fc45267"
@@ -571,7 +571,7 @@
     "@@aspect_tools_telemetry+//:extension.bzl%telemetry": {
       "general": {
         "bzlTransitiveDigest": "cl5A2O84vDL6Tt+Qga8FCj1DUDGqn+e7ly5rZ+4xvcc=",
-        "usagesDigest": "7MZOqxSqq0H9T/ZC7pqJx7C9mSApAKuLYCfmdczKoUY=",
+        "usagesDigest": "gYqc2u43m7G+pv1IYrwhuoyczVhfKf7YB4NiSQhUHh8=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
         "envVariables": {},
@@ -582,7 +582,7 @@
               "deps": {
                 "aspect_rules_js": "2.8.3",
                 "aspect_rules_swc": "2.5.0",
-                "aspect_rules_ts": "3.8.0",
+                "aspect_rules_ts": "3.8.1",
                 "aspect_tools_telemetry": "0.3.3"
               }
             }
