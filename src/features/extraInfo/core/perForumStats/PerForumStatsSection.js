@@ -1,6 +1,6 @@
 import {MDCTooltip} from '@material/tooltip';
 
-import {createExtBadge} from './common.js';
+import {createExtBadge} from '../../../../contentScripts/communityConsole/utils/common.js';
 
 // Each entry includes the following information in order:
 // - ID

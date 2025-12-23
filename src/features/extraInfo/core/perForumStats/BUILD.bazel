@@ -1,0 +1,15 @@
+load("//tools:common_js_project.bzl", "common_js_project")
+
+common_js_project(
+    name = "perForumStats",
+    visibility = [
+        "//src/features/extraInfo/core:__subpackages__",
+        # TODO(https://iavm.xyz/b/twpowertools/176): remove this package from
+        # the visibility list once code has been migrated to this package.
+        "//src/contentScripts:__subpackages__",
+    ],
+    deps = [
+        "//:node_modules/@material/tooltip",
+        "//src/contentScripts/communityConsole/utils",
+    ],
+)

@@ -1,5 +1,5 @@
 import {getDisplayLanguage} from '../../../../contentScripts/communityConsole/utils/common.js';
-import PerForumStatsSection from '../../../../contentScripts/communityConsole/utils/PerForumStatsSection.js';
+import PerForumStatsSection from '../perForumStats/PerForumStatsSection.js';
 
 import BaseExtraInfoInjection from './base.js';
 

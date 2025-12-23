@@ -10,6 +10,7 @@ common_js_project(
         "//src/common",
         "//src/contentScripts/communityConsole/utils",
         "//src/features/extraInfo/core:consts",
+        "//src/features/extraInfo/core/perForumStats",
         "//src/features/extraInfo/core/services",
     ],
 )

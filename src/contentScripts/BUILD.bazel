@@ -9,8 +9,8 @@ common_js_project(
     deps = [
         "//src/common",
         "//src/common/options",
-        "//src/contentScripts/communityConsole/utils",
         "//src/contentScripts/utilsCommon",
+        "//src/features/extraInfo/core/perForumStats",
         "//src/features/redirect/core",
     ],
 )
