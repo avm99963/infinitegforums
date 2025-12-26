@@ -1,9 +1,12 @@
-import MainWorldContentScriptBridgeServer, {
-  Handlers,
-} from '../base/Server';
+import MainWorldContentScriptBridgeServer, { Handlers } from '../base/Server';
 
 import { kCSTarget, kMWTarget } from './consts';
-import { I18nActionMap, I18nAction, GET_UI_LANGUAGE_ACTION } from './types';
+import {
+  I18nActionMap,
+  I18nAction,
+  GET_UI_LANGUAGE_ACTION,
+  GET_MESSAGE_ACTION,
+} from './types';
 
 /**
  * Main World i18n server (used in content scripts to be able to serve the
@@ -18,5 +21,7 @@ export default class MWI18nServer extends MainWorldContentScriptBridgeServer<
 
   protected handlers: Handlers<I18nAction, I18nActionMap> = {
     [GET_UI_LANGUAGE_ACTION]: () => chrome.i18n.getUILanguage(),
+    [GET_MESSAGE_ACTION]: (request) =>
+      chrome.i18n.getMessage(request.messageName, request.substitutions),
   };
 }

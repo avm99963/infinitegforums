@@ -1,7 +1,7 @@
 import MainWorldContentScriptBridgeClient from '../base/Client';
 
 import { kCSTarget, kMWTarget } from './consts';
-import { I18nActionMap, I18nAction, GET_UI_LANGUAGE_ACTION } from './types';
+import { I18nActionMap, I18nAction, GET_UI_LANGUAGE_ACTION, GetMessageRequest, GetMessageResponse, GET_MESSAGE_ACTION } from './types';
 
 /**
  * Main World i18n client (used in scripts injected into the Main World (MW) to
@@ -14,7 +14,11 @@ export default class MWI18nClient extends MainWorldContentScriptBridgeClient<
   protected CSTarget = kCSTarget;
   protected MWTarget = kMWTarget;
 
-  async getUILanguage(): Promise<string> {
+  getUILanguage(): Promise<string> {
     return this.sendRequest(GET_UI_LANGUAGE_ACTION, undefined);
+  }
+
+  getMessage(request: GetMessageRequest): Promise<GetMessageResponse> {
+    return this.sendRequest(GET_MESSAGE_ACTION, request);
   }
 }
