@@ -25,7 +25,6 @@ module.exports = (env, args) => {
     publicGuideStart: './src/contentScripts/publicGuideStart.js',
     publicProfile: './src/contentScripts/publicProfile.js',
     publicProfileStart: './src/contentScripts/publicProfileStart.js',
-    profileIndicator: './src/contentScripts/profileIndicator.js',
 
     // Programatically injected content scripts
     handleInstall:

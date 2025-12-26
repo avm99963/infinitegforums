@@ -15,5 +15,7 @@ common_ts_project(
         "//src/common",
         "//src/common/architecture/scripts",
         "//src/features/profileIndicator/core",
+        "//src/services/i18n/chrome",
+        "//src/services/options",
     ],
 )

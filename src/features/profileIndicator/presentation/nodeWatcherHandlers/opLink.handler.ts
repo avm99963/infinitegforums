@@ -7,6 +7,8 @@ import {
 } from '@/features/profileIndicator/core/profileIndicator';
 import CssSelectorNodeWatcherHandler from '@/infrastructure/presentation/nodeWatcher/handlers/CssSelectorHandler.adapter';
 import { NodeMutation } from '@/presentation/nodeWatcher/NodeWatcherHandler';
+import { ChromeI18nPort } from '@/services/i18n/chrome/ChromeI18n.port';
+import { OptionsProviderPort } from '@/services/options/OptionsProvider';
 
 const CC_PROFILE_REGEX =
   /^(?:https:\/\/support\.google\.com)?\/s\/community(?:\/forum\/[0-9]*)?\/user\/(?:[0-9]+)(?:\?.*)?$/;
@@ -19,7 +21,10 @@ abstract class BaseOPLinkProfileIndicatorHandler extends CssSelectorNodeWatcherH
   abstract ui: UI;
 
   // TODO(https://iavm.xyz/b/twpowertools/176): Add ContextPort, OptionsProvider or whatever.
-  constructor() {
+  constructor(
+    private readonly optionsProvider: OptionsProviderPort,
+    private readonly chromeI18n: ChromeI18nPort,
+  ) {
     super();
   }
 
@@ -34,7 +39,12 @@ abstract class BaseOPLinkProfileIndicatorHandler extends CssSelectorNodeWatcherH
     );
     const authuser = startup[2][1] || '0';
 
-    getOptionsAndHandleIndicators(nodeMutation.node, this.ui, authuser);
+    getOptionsAndHandleIndicators(nodeMutation.node, {
+      authuser,
+      i18n: this.chromeI18n,
+      optionsProvider: this.optionsProvider,
+      ui: this.ui,
+    });
   }
 
   private isProfileLink(node: HTMLElement): node is HTMLAnchorElement {

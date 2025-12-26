@@ -8,6 +8,8 @@ import { createImmuneLink } from '@/common/commonUtils.js';
 import { escapeUsername } from '@/common/communityConsoleUtils.js';
 import { ProtobufNumber } from '@/common/protojs/protojs.types';
 import { createPlainTooltip } from '@/common/tooltip.js';
+import { ChromeI18nPort } from '@/services/i18n/chrome/ChromeI18n.port';
+import { OptionsProviderPort } from '@/services/options/OptionsProvider';
 
 const OP_FIRST_POST = 0 as const;
 const OP_OTHER_POSTS_READ = 1 as const;
@@ -48,6 +50,18 @@ export type UI =
 type Options = {
   indicatorDot: boolean;
   numPosts: boolean;
+  numPostMonths: number;
+};
+
+type Context = {
+  authuser: ProtobufNumber;
+  i18n: ChromeI18nPort;
+  optionsProvider: OptionsProviderPort;
+  ui: UI;
+};
+
+type OurContext = Context & {
+  options: Options;
 };
 
 // Filter used as a workaround to speed up the ViewForum request.
@@ -75,7 +89,7 @@ function isInteropV2(ui: UI) {
 function getPosts(
   query: string,
   forumId: ProtobufNumber,
-  authuser: ProtobufNumber,
+  context: OurContext,
 ): Promise<any> {
   return CCApi(
     'ViewForum',
@@ -93,14 +107,14 @@ function getPosts(
       },
     },
     /* authenticated = */ true,
-    authuser,
+    context.authuser,
   );
 }
 
 function getProfile(
   userId: ProtobufNumber,
   forumId: ProtobufNumber,
-  authuser: ProtobufNumber,
+  context: OurContext,
 ): Promise<any> {
   return CCApi(
     'ViewUser',
@@ -113,47 +127,9 @@ function getProfile(
       },
     },
     /* authenticated = */ true,
-    authuser,
+    context.authuser,
   );
 }
-
-// Source:
-// https://stackoverflow.com/questions/33063774/communication-from-an-injected-script-to-the-content-script-with-a-response
-const contentScriptRequest = (function () {
-  let requestId = 0;
-  const prefix = 'TWPT-profileindicator';
-
-  function sendRequest(data: unknown) {
-    const id = requestId++;
-
-    return new Promise(function (resolve) {
-      const listener = function (
-        evt: MessageEvent<{ prefix: string; requestId: number; data: any }>,
-      ) {
-        if (
-          evt.source === window &&
-          evt.data &&
-          evt.data.prefix === prefix &&
-          evt.data.requestId == id
-        ) {
-          // Deregister self
-          window.removeEventListener('message', listener);
-          resolve(evt.data.data);
-        }
-      };
-
-      window.addEventListener('message', listener);
-
-      const payload = { data, id, prefix };
-
-      window.dispatchEvent(
-        new CustomEvent('TWPT_sendRequest', { detail: payload }),
-      );
-    });
-  }
-
-  return { sendRequest: sendRequest };
-})();
 
 // Inject the indicator dot/badge to the appropriate position.
 function injectIndicator(
@@ -177,14 +153,14 @@ function injectIndicator(
 function createIndicatorDot(
   sourceNode: HTMLAnchorElement,
   searchURL: string,
-  options: Options,
-  ui: UI,
+  context: OurContext,
 ) {
-  if (options.numPosts) return document.querySelector('.num-posts-indicator');
+  if (context.options.numPosts)
+    return document.querySelector('.num-posts-indicator');
   const dotContainer = document.createElement('div');
   dotContainer.classList.add('profile-indicator', 'profile-indicator--loading');
 
-  const dotLink = isCommunityConsole(ui)
+  const dotLink = isCommunityConsole(context.ui)
     ? createImmuneLink()
     : document.createElement('a');
   dotLink.classList.add(
@@ -195,13 +171,10 @@ function createIndicatorDot(
   dotLink.innerText = '●';
 
   dotContainer.appendChild(dotLink);
-  injectIndicator(sourceNode, dotContainer, ui);
+  injectIndicator(sourceNode, dotContainer, context.ui);
 
-  contentScriptRequest
-    .sendRequest({
-      action: 'geti18nMessage',
-      msg: 'inject_profileindicator_loading',
-    })
+  context.i18n
+    .getMessage({ messageName: 'inject_profileindicator_loading' })
     .then((string) => createPlainTooltip(dotContainer, string));
 
   return dotContainer;
@@ -211,9 +184,9 @@ function createIndicatorDot(
 function createNumPostsBadge(
   sourceNode: HTMLAnchorElement,
   searchURL: string,
-  ui: UI,
+  context: OurContext,
 ) {
-  const link = isCommunityConsole(ui)
+  const link = isCommunityConsole(context.ui)
     ? createImmuneLink()
     : document.createElement('a');
   link.classList.add(
@@ -233,13 +206,10 @@ function createNumPostsBadge(
 
   numPostsContainer.appendChild(numPostsSpan);
   link.appendChild(numPostsContainer);
-  injectIndicator(sourceNode, link, ui);
+  injectIndicator(sourceNode, link, context.ui);
 
-  contentScriptRequest
-    .sendRequest({
-      action: 'geti18nMessage',
-      msg: 'inject_profileindicator_loading',
-    })
+  context.i18n
+    .getMessage({ messageName: 'inject_profileindicator_loading' })
     .then((string) => createPlainTooltip(numPostsContainer, string));
 
   return numPostsContainer;
@@ -255,36 +225,44 @@ function setNumPostsBadge(badge: HTMLElement, text: string) {
 }
 
 // Get options and then handle all the indicators
-export function getOptionsAndHandleIndicators(
+export async function getOptionsAndHandleIndicators(
   sourceNode: HTMLAnchorElement,
-  ui: UI,
-  authuser: ProtobufNumber,
+  context: Context,
 ) {
-  contentScriptRequest
-    .sendRequest({ action: 'getProfileIndicatorOptions' })
-    .then((options) => handleIndicators(sourceNode, ui, options as Options, authuser));
+  const optionsConfiguration =
+    await context.optionsProvider.getOptionsConfiguration();
+  const options = {
+    numPosts: optionsConfiguration.isEnabled('profileindicatoralt') ?? false,
+    indicatorDot: optionsConfiguration.isEnabled('profileindicator') ?? false,
+    numPostMonths:
+      optionsConfiguration.getOptionValue('profileindicatoralt_months') ?? 12,
+  };
+
+  const ourContext: OurContext = {
+    authuser: context.authuser,
+    optionsProvider: context.optionsProvider,
+    ui: context.ui,
+    i18n: context.i18n,
+    options,
+  };
+  handleIndicators(sourceNode, ourContext);
 }
 
 // Handle the profile indicator dot
-function handleIndicators(
-  sourceNode: HTMLAnchorElement,
-  ui: UI,
-  options: Options,
-  authuser: ProtobufNumber,
-) {
+function handleIndicators(sourceNode: HTMLAnchorElement, context: OurContext) {
   let nameEl;
-  if (ui === UI_COMMUNITY_CONSOLE)
+  if (context.ui === UI_COMMUNITY_CONSOLE)
     nameEl = sourceNode.querySelector('.name-text');
-  if (ui === UI_TW_LEGACY) nameEl = sourceNode.querySelector('span');
-  if (isInteropV1(ui)) nameEl = sourceNode;
-  if (isInteropV2(ui))
+  if (context.ui === UI_TW_LEGACY) nameEl = sourceNode.querySelector('span');
+  if (isInteropV1(context.ui)) nameEl = sourceNode;
+  if (isInteropV2(context.ui))
     nameEl = sourceNode.querySelector(
       '.scTailwindThreadPost_headerUserinfoname',
     );
   const escapedUsername = escapeUsername(nameEl.textContent);
 
   let threadLink: string;
-  if (isCommunityConsole(ui)) {
+  if (isCommunityConsole(context.ui)) {
     threadLink = document.location.href;
   } else {
     const CCLink = document.getElementById('onebar-community-console');
@@ -322,61 +300,57 @@ function handleIndicators(
     forumId;
   const encodedQuery = encodeURIComponent(query);
   const authuserPart =
-    authuser == '0' ? '' : '?authuser=' + encodeURIComponent(authuser);
+    context.authuser == '0'
+      ? ''
+      : '?authuser=' + encodeURIComponent(context.authuser);
   const searchURL =
     'https://support.google.com/s/community/search/' +
     encodeURIComponent('query=' + encodedQuery) +
     authuserPart;
 
-  if (options.numPosts) {
+  if (context.options.numPosts) {
     const profileURL = new URL(sourceNode.href);
     const userId = profileURL.pathname
-      .split(isCommunityConsole(ui) ? 'user/' : 'profile/')[1]
+      .split(isCommunityConsole(context.ui) ? 'user/' : 'profile/')[1]
       .split('?')[0]
       .split('/')[0];
 
-    const numPostsContainer = createNumPostsBadge(sourceNode, searchURL, ui);
+    const numPostsContainer = createNumPostsBadge(
+      sourceNode,
+      searchURL,
+      context,
+    );
 
-    getProfile(userId, forumId, authuser)
+    getProfile(userId, forumId, context)
       .then((res) => {
         if (!('1' in res) || !('2' in res[1])) {
           throw new Error('Unexpected profile response.');
         }
 
-        contentScriptRequest
-          .sendRequest({ action: 'getNumPostMonths' })
-          .then((months) => {
-            if (!options.indicatorDot)
-              contentScriptRequest
-                .sendRequest({
-                  action: 'geti18nMessage',
-                  msg: 'inject_profileindicatoralt_numposts',
-                  placeholders: [months],
-                })
-                .then((string) =>
-                  createPlainTooltip(numPostsContainer, string),
-                );
+        if (!context.options.indicatorDot)
+          context.i18n
+            .getMessage({
+              messageName: 'inject_profileindicatoralt_numposts',
+              substitutions: [context.options.numPostMonths.toString()],
+            })
+            .then((string) => createPlainTooltip(numPostsContainer, string));
 
-            let numPosts = 0;
+        let numPosts = 0;
 
-            for (const index of numPostsForumArraysToSum) {
-              if (!(index in res[1][2])) {
-                throw new Error('Unexpected profile response.');
-              }
+        for (const index of numPostsForumArraysToSum) {
+          if (!(index in res[1][2])) {
+            throw new Error('Unexpected profile response.');
+          }
 
-              let i = 0;
-              for (const month of res[1][2][index].reverse()) {
-                if (i == months) break;
-                numPosts += month[3] || 0;
-                ++i;
-              }
-            }
+          let i = 0;
+          for (const month of res[1][2][index].reverse()) {
+            if (i == context.options.numPostMonths) break;
+            numPosts += month[3] || 0;
+            ++i;
+          }
+        }
 
-            setNumPostsBadge(numPostsContainer, numPosts.toString());
-          })
-          .catch((err) =>
-            console.error('[opindicator] Unexpected error.', err),
-          );
+        setNumPostsBadge(numPostsContainer, numPosts.toString());
       })
       .catch((err) => {
         console.error(
@@ -387,11 +361,11 @@ function handleIndicators(
       });
   }
 
-  if (options.indicatorDot) {
-    const dotContainer = createIndicatorDot(sourceNode, searchURL, options, ui);
+  if (context.options.indicatorDot) {
+    const dotContainer = createIndicatorDot(sourceNode, searchURL, context);
 
     // Query threads in order to see what state the indicator should be in
-    getPosts(query, forumId, authuser)
+    getPosts(query, forumId, context)
       .then((res) => {
         // Throw an error when the replies array is not present in the reply.
         if (!('1' in res) || !('2' in res['1'])) {
@@ -433,19 +407,18 @@ function handleIndicators(
           }
         }
 
-        const dotContainerPrefix = options.numPosts
+        const dotContainerPrefix = context.options.numPosts
           ? 'num-posts-indicator'
           : 'profile-indicator';
 
-        if (!options.numPosts)
+        if (!context.options.numPosts)
           dotContainer.classList.remove(dotContainerPrefix + '--loading');
         dotContainer.classList.add(
           dotContainerPrefix + '--' + OPClasses[OPStatus],
         );
-        contentScriptRequest
-          .sendRequest({
-            action: 'geti18nMessage',
-            msg: 'inject_profileindicator_' + OPi18n[OPStatus],
+        context.i18n
+          .getMessage({
+            messageName: 'inject_profileindicator_' + OPi18n[OPStatus],
           })
           .then((string) => createPlainTooltip(dotContainer, string));
       })

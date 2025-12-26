@@ -14,5 +14,8 @@ common_ts_project(
         "//src/contentScripts",
         "//src/features/profileIndicator/presentation/scripts",
         "//src/infrastructure/presentation/scripts",
+        "//src/infrastructure/services/i18n/chrome",
+        "//src/infrastructure/services/options",
+        "//src/options/infrastructure/repositories",
     ],
 )

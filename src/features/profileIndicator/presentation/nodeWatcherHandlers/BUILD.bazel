@@ -15,5 +15,7 @@ common_ts_project(
         "//src/features/profileIndicator/core",
         "//src/infrastructure/presentation/nodeWatcher/handlers",
         "//src/presentation/nodeWatcher",
+        "//src/services/i18n/chrome",
+        "//src/services/options",
     ],
 )

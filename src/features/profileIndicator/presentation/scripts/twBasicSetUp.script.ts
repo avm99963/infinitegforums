@@ -6,10 +6,12 @@ import {
   UI_TW_INTEROP_V2,
   UI_TW_LEGACY,
 } from '@/features/profileIndicator/core/profileIndicator';
+import { ChromeI18nPort } from '@/services/i18n/chrome/ChromeI18n.port';
+import { OptionsProviderPort } from '@/services/options/OptionsProvider';
 
 const TW_PROFILE_LINK_TYPES: Array<{
-  ui: UI,
-  nodeSelector: string,
+  ui: UI;
+  nodeSelector: string;
 }> = [
   {
     // Legacy
@@ -39,6 +41,13 @@ export default class ProfileIndicatorTwBasicSetUpScript extends Script {
   environment: never;
   runPhase: never;
 
+  constructor(
+    private readonly optionsProvider: OptionsProviderPort,
+    private readonly chromeI18n: ChromeI18nPort,
+  ) {
+    super();
+  }
+
   execute() {
     // TODO(https://iavm.xyz/b/twpowertools/176): Modify so it comes from ContextPort
     const authuser = new URL(location.href).searchParams.get('authuser') || '0';
@@ -48,7 +57,12 @@ export default class ProfileIndicatorTwBasicSetUpScript extends Script {
       const node = document.querySelector(linkType.nodeSelector);
       if (node !== null && node instanceof HTMLAnchorElement) {
         foundProfileLink = true;
-        getOptionsAndHandleIndicators(node, linkType.ui, authuser);
+        getOptionsAndHandleIndicators(node, {
+          authuser,
+          i18n: this.chromeI18n,
+          optionsProvider: this.optionsProvider,
+          ui: linkType.ui,
+        });
         break;
       }
     }

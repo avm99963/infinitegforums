@@ -66,12 +66,6 @@
       "run_at": "document_end"
     },
     {
-      "matches": ["https://support.google.com/s/community*", "https://support.google.com/*/thread/*"],
-      "exclude_matches": ["https://support.google.com/*/thread/new*"],
-      "js": ["profileIndicator.bundle.js"],
-      "run_at": "document_start"
-    },
-    {
       "matches": ["https://support.google.com/*/profile/*", "https://support.google.com/profile/*"],
       "all_frames": true,
       "js": ["publicProfileStart.bundle.js"],
@@ -139,7 +133,6 @@
         "publicThread.bundle.js.map",
         "publicThreadStart.bundle.js.map",
         "profile.bundle.js.map",
-        "profileIndicator.bundle.js.map",
         "batchLockInject.bundle.js.map",
         "extraInfoInject.bundle.js.map",
         "optionsCommonOld.bundle.js.map",

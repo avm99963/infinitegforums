@@ -14,5 +14,7 @@ common_ts_project(
     deps = [
         "//src/common",
         "//src/common/protojs",
+        "//src/services/i18n/chrome",
+        "//src/services/options",
     ],
 )

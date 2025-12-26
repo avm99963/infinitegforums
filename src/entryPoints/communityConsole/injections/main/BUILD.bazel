@@ -17,6 +17,7 @@ common_ts_project(
         "//src/infrastructure/presentation/scripts",
         "//src/infrastructure/services/options",
         "//src/options/infrastructure/repositories",
+        "//src/presentation/mainWorldContentScriptBridge/i18n",
         "//src/presentation/nodeWatcher",
     ],
 )
