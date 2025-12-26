@@ -1,5 +1,6 @@
 import {
   getOptionsAndHandleIndicators,
+  UI,
   UI_COMMUNITY_CONSOLE,
   UI_COMMUNITY_CONSOLE_INTEROP,
   UI_COMMUNITY_CONSOLE_INTEROP_V2,
@@ -15,7 +16,7 @@ abstract class BaseOPLinkProfileIndicatorHandler extends CssSelectorNodeWatcherH
   environment: never;
   runPhase: never;
 
-  abstract ui: number;
+  abstract ui: UI;
 
   // TODO(https://iavm.xyz/b/twpowertools/176): Add ContextPort, OptionsProvider or whatever.
   constructor() {
@@ -36,7 +37,7 @@ abstract class BaseOPLinkProfileIndicatorHandler extends CssSelectorNodeWatcherH
     getOptionsAndHandleIndicators(nodeMutation.node, this.ui, authuser);
   }
 
-  private isProfileLink(node: HTMLElement) {
+  private isProfileLink(node: HTMLElement): node is HTMLAnchorElement {
     return (
       node instanceof HTMLAnchorElement && CC_PROFILE_REGEX.test(node.href)
     );

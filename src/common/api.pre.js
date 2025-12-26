@@ -25,6 +25,9 @@ export const XClientValue = 'twpt';
 
 // Function to wrap calls to the Community Console API with intelligent error
 // handling.
+/**
+ * @param {number | string} [authuser=0]
+ */
 export function CCApi(
     method, data, authenticated, authuser = 0,
     returnUnauthorizedStatus = false) {

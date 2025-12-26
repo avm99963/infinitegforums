@@ -1,12 +1,16 @@
 import Script from '@/common/architecture/scripts/Script';
 import {
   getOptionsAndHandleIndicators,
+  UI,
   UI_TW_INTEROP,
   UI_TW_INTEROP_V2,
   UI_TW_LEGACY,
 } from '@/features/profileIndicator/core/profileIndicator';
 
-const TW_PROFILE_LINK_TYPES = [
+const TW_PROFILE_LINK_TYPES: Array<{
+  ui: UI,
+  nodeSelector: string,
+}> = [
   {
     // Legacy
     ui: UI_TW_LEGACY,
@@ -42,7 +46,7 @@ export default class ProfileIndicatorTwBasicSetUpScript extends Script {
     let foundProfileLink = false;
     for (const linkType of TW_PROFILE_LINK_TYPES) {
       const node = document.querySelector(linkType.nodeSelector);
-      if (node !== null) {
+      if (node !== null && node instanceof HTMLAnchorElement) {
         foundProfileLink = true;
         getOptionsAndHandleIndicators(node, linkType.ui, authuser);
         break;

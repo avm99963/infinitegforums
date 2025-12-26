@@ -1,11 +1,18 @@
-load("//tools:common_js_project.bzl", "common_js_project")
+load("//tools:bazel/swc.bzl", "swc_pkg")
+load("//tools:common_ts_project.bzl", "common_ts_project")
 
-common_js_project(
+common_ts_project(
     name = "core",
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = swc_pkg,
+    tsconfig = "//:tsconfig_pkg",
     visibility = [
         "//src/features/profileIndicator:__subpackages__",
     ],
     deps = [
         "//src/common",
+        "//src/common/protojs",
     ],
 )
