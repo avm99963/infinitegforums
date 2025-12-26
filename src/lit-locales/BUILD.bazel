@@ -47,7 +47,7 @@ filegroup(
         "//src/options/presentation/data",
         "//src/options/presentation/utils",
         "//src/options/ui/components:source_code",
-        "//src/presentation/i18n",
+        "//src/presentation/i18n/lit",
         "//src/ui/components/forumDestinationPicker:source_code",
         "//src/updateNotifier/ui/components:source_code",
     ],

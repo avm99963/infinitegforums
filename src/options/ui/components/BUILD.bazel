@@ -35,7 +35,7 @@ common_ts_project(
         "//src/common/options",
         "//src/options/presentation/models",
         "//src/options/ui/events",
-        "//src/presentation/i18n",
+        "//src/presentation/i18n/lit",
         "//src/services/options",
         "//src/ui/i18n",
     ],

@@ -16,7 +16,7 @@ import { I18nLitElement } from '../../../ui/i18n/i18nLitElement';
 import {
   EXTENSION_NAME,
   SKIP_TO_MAIN_CONTENT,
-} from '../../../presentation/i18n/commonMessages';
+} from '../../../presentation/i18n/lit/commonMessages';
 import { msg } from '@lit/localize';
 
 import '@material/web/focus/md-focus-ring.js';
