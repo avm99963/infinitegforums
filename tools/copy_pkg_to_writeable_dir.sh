@@ -10,7 +10,8 @@ DEST_DIR="dist/"
 rm -rf "$DEST_DIR"
 mkdir -p "$DEST_DIR"
 
-cp -rL --no-preserve=mode,ownership bazel-bin/unpacked_pkg/. "$DEST_DIR/"
+cp -RL bazel-bin/unpacked_pkg/. "$DEST_DIR/"
+chmod -R u+w "$DEST_DIR"
 
 NO_FORMAT="\033[0m"
 C_MAGENTA2="\033[38;5;200m"
