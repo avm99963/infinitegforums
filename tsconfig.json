@@ -8,7 +8,10 @@
     "target": "es2022",
     "moduleResolution": "bundler",
     "esModuleInterop": true,
-    "allowJs": true
+    "allowJs": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "exclude": [
     "node_modules",

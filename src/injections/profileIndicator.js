@@ -1,7 +1,7 @@
-import {CCApi} from '../common/api.js';
-import {createImmuneLink} from '../common/commonUtils.js';
-import {escapeUsername} from '../common/communityConsoleUtils.js';
-import {createPlainTooltip} from '../common/tooltip.js';
+import {CCApi} from '@/common/api.js';
+import {createImmuneLink} from '@/common/commonUtils.js';
+import {escapeUsername} from '@/common/communityConsoleUtils.js';
+import {createPlainTooltip} from '@/common/tooltip.js';
 
 var CCProfileRegex =
     /^(?:https:\/\/support\.google\.com)?\/s\/community(?:\/forum\/[0-9]*)?\/user\/(?:[0-9]+)(?:\?.*)?$/;

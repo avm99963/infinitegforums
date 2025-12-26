@@ -92,6 +92,9 @@ module.exports = (env, args) => {
     ],
     devtool: (args.mode == 'production' ? 'source-map' : 'inline-source-map'),
     resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "src"),
+      },
       extensions: ['.tsx', '.ts', '.js', '.json', '.wasm'],
     },
     module: {
