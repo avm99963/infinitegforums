@@ -1,0 +1,18 @@
+load("//tools:common_ts_project.bzl", "common_ts_project")
+
+common_ts_project(
+    name = "main",
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = "tsc",
+    tsconfig = "//:tsconfig_pkg",
+    visibility = [
+        "//:__pkg__",
+    ],
+    deps = [
+        "//src/contentScripts",
+        "//src/features/profileIndicator/presentation/scripts",
+        "//src/infrastructure/presentation/scripts",
+    ],
+)

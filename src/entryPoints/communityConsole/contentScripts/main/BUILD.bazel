@@ -60,6 +60,7 @@ common_ts_project(
         "//src/features/infiniteScroll/presentation/nodeWatcherHandlers",
         "//src/features/logStartupData/presentation/scripts",
         "//src/features/previousPosts/presentation/handlers",
+        "//src/features/profileIndicator/presentation/scripts",
         "//src/features/repositionExpandThread/presentation/scripts",
         "//src/features/stickySidebarHeaders/presentation/scripts",
         "//src/features/threadPageDesignWarning/presentation/nodeWatcherHandlers",

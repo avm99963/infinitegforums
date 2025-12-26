@@ -1,0 +1,11 @@
+load("//tools:common_js_project.bzl", "common_js_project")
+
+common_js_project(
+    name = "core",
+    visibility = [
+        "//src/features/profileIndicator:__subpackages__",
+    ],
+    deps = [
+        "//src/common",
+    ],
+)

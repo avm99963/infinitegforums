@@ -86,6 +86,7 @@ import XHRInterceptorSetUpKillSwitchHandler from '../../../../presentation/stand
 import OptionsProviderAdapter from '../../../../infrastructure/services/options/OptionsProvider.adapter';
 import { OptionsConfigurationRepositoryAdapter } from '../../../../options/infrastructure/repositories/OptionsConfiguration.repository.adapter';
 import LogStartupDataScript from '../../../../features/logStartupData/presentation/scripts/logStartupData.script';
+import ProfileIndicatorStylesScript from '@/features/profileIndicator/presentation/scripts/styles.script';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -289,6 +290,7 @@ function createScriptRunner() {
         new ImageMaxHeightStylesScript(optionsProvider),
         new IncreaseContrastStylesScript(optionsProvider),
         new LogStartupDataScript(optionsProvider, startupDataStorage),
+        new ProfileIndicatorStylesScript(),
         new RepositionExpandThreadStylesScript(optionsProvider),
         new StickySidebarHeadersStylesScript(optionsProvider),
         new ThreadToolbarStylesScript(optionsProvider),

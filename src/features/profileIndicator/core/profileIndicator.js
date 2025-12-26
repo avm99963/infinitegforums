@@ -1,11 +1,12 @@
+/**
+ * Code used in the main world of the Community Console and TW basic threads to
+ * inject and load the data for the profile indicator.
+ */
+
 import {CCApi} from '@/common/api.js';
 import {createImmuneLink} from '@/common/commonUtils.js';
 import {escapeUsername} from '@/common/communityConsoleUtils.js';
 import {createPlainTooltip} from '@/common/tooltip.js';
-
-var CCProfileRegex =
-    /^(?:https:\/\/support\.google\.com)?\/s\/community(?:\/forum\/[0-9]*)?\/user\/(?:[0-9]+)(?:\?.*)?$/;
-var CCRegex = /^https:\/\/support\.google\.com\/s\/community/;
 
 const OP_FIRST_POST = 0;
 const OP_OTHER_POSTS_READ = 1;
@@ -23,64 +24,18 @@ const OPi18n = {
   2: 'other_posts_unread',
 };
 
-const UI_COMMUNITY_CONSOLE = 0;
-const UI_TW_LEGACY = 1;
-const UI_TW_INTEROP = 2;
-const UI_COMMUNITY_CONSOLE_INTEROP = 3;
-const UI_TW_INTEROP_V2 = 4;
-const UI_COMMUNITY_CONSOLE_INTEROP_V2 = 5;
+export const UI_COMMUNITY_CONSOLE = 0;
+export const UI_TW_LEGACY = 1;
+export const UI_TW_INTEROP = 2;
+export const UI_COMMUNITY_CONSOLE_INTEROP = 3;
+export const UI_TW_INTEROP_V2 = 4;
+export const UI_COMMUNITY_CONSOLE_INTEROP_V2 = 5;
 
 // Filter used as a workaround to speed up the ViewForum request.
 const FILTER_ALL_LANGUAGES =
     'lang:(ar | bg | ca | "zh-hk" | "zh-cn" | "zh-tw" | hr | cs | da | nl | en | "en-au" | "en-gb" | et | fil | fi | fr | de | el | iw | hi | hu | id | it | ja | ko | lv | lt | ms | no | pl | "pt-br" | "pt-pt" | ro | ru | sr | sk | sl | es | "es-419" | sv | th | tr | uk | vi)';
 
 const numPostsForumArraysToSum = [3, 4];
-
-const CC_PROFILE_LINK_TYPES = [
-  {
-    // Legacy
-    ui: UI_COMMUNITY_CONSOLE,
-    nodeSelector: 'ec-question ec-message-header .name-section ec-user-link a',
-  },
-  {
-    // Interop (legacy)
-    ui: UI_COMMUNITY_CONSOLE_INTEROP,
-    nodeSelector: 'sc-tailwind-thread-question-question-card ' +
-        'sc-tailwind-thread-post_header-user-info ' +
-        '.scTailwindThreadPost_headerUserinfoname a',
-  },
-  {
-    // Interop v2
-    ui: UI_COMMUNITY_CONSOLE_INTEROP_V2,
-    nodeSelector: 'sc-tailwind-thread-question-question-card ' +
-        'sc-tailwind-thread-post_header-user-info > ' +
-        '.scTailwindThreadPost_headerUserinforoot > a',
-  },
-];
-
-const TW_PROFILE_LINK_TYPES = [
-  {
-    // Legacy
-    ui: UI_TW_LEGACY,
-    nodeSelector: '.thread-question a.user-info-display-name',
-  },
-  {
-    // Interop (legacy)
-    ui: UI_TW_INTEROP,
-    nodeSelector: 'sc-tailwind-thread-question-question-card ' +
-        'sc-tailwind-thread-post_header-user-info ' +
-        '.scTailwindThreadPost_headerUserinfoname a',
-  },
-  {
-    // Interop v2
-    ui: UI_TW_INTEROP_V2,
-    nodeSelector: 'sc-tailwind-thread-question-question-card ' +
-        'sc-tailwind-thread-post_header-user-info > ' +
-        '.scTailwindThreadPost_headerUserinforoot > a',
-  },
-];
-
-var authuser = null;
 
 function isCommunityConsole(ui) {
   return ui === UI_COMMUNITY_CONSOLE || ui === UI_COMMUNITY_CONSOLE_INTEROP ||
@@ -95,7 +50,7 @@ function isInteropV2(ui) {
   return ui === UI_TW_INTEROP_V2 || ui === UI_COMMUNITY_CONSOLE_INTEROP_V2;
 }
 
-function getPosts(query, forumId) {
+function getPosts(query, forumId, authuser) {
   return CCApi(
       'ViewForum', {
         '1': forumId,
@@ -113,7 +68,7 @@ function getPosts(query, forumId) {
       /* authenticated = */ true, authuser);
 }
 
-function getProfile(userId, forumId) {
+function getProfile(userId, forumId, authuser) {
   return CCApi(
       'ViewUser', {
         '1': userId,
@@ -234,13 +189,13 @@ function setNumPostsBadge(badge, text) {
 }
 
 // Get options and then handle all the indicators
-function getOptionsAndHandleIndicators(sourceNode, ui) {
+export function getOptionsAndHandleIndicators(sourceNode, ui, authuser) {
   contentScriptRequest.sendRequest({'action': 'getProfileIndicatorOptions'})
-      .then(options => handleIndicators(sourceNode, ui, options));
+      .then(options => handleIndicators(sourceNode, ui, options, authuser));
 }
 
 // Handle the profile indicator dot
-function handleIndicators(sourceNode, ui, options) {
+function handleIndicators(sourceNode, ui, options, authuser) {
   let nameEl;
   if (ui === UI_COMMUNITY_CONSOLE)
     nameEl = sourceNode.querySelector('.name-text');
@@ -289,7 +244,7 @@ function handleIndicators(sourceNode, ui, options) {
 
     var numPostsContainer = createNumPostsBadge(sourceNode, searchURL, ui);
 
-    getProfile(userId, forumId)
+    getProfile(userId, forumId, authuser)
         .then(res => {
           if (!('1' in res) || !('2' in res[1])) {
             throw new Error('Unexpected profile response.');
@@ -339,7 +294,7 @@ function handleIndicators(sourceNode, ui, options) {
     var dotContainer = createIndicatorDot(sourceNode, searchURL, options, ui);
 
     // Query threads in order to see what state the indicator should be in
-    getPosts(query, forumId)
+    getPosts(query, forumId, authuser)
         .then(res => {
           // Throw an error when the replies array is not present in the reply.
           if (!('1' in res) || !('2' in res['1'])) {
@@ -395,69 +350,4 @@ function handleIndicators(sourceNode, ui, options) {
                 '[opindicator] Unexpected error. Couldn\'t load recent posts.',
                 err));
   }
-}
-
-if (CCRegex.test(location.href)) {
-  // We are in the Community Console
-  var startup =
-      JSON.parse(document.querySelector('html').getAttribute('data-startup'));
-
-  authuser = startup[2][1] || '0';
-
-  // When the OP's username is found, call getOptionsAndHandleIndicators
-  var mutationCallback =
-      function(mutationList) {
-    mutationList.forEach((mutation) => {
-      if (mutation.type !== 'childList') return;
-
-      mutation.addedNodes.forEach(function(node) {
-        let isProfileLink = node.tagName == 'A' && ('href' in node) &&
-            CCProfileRegex.test(node.href);
-        if (!isProfileLink) return;
-
-        for (const linkType of CC_PROFILE_LINK_TYPES) {
-          if (node.matches(linkType.nodeSelector)) {
-            console.debug('Handling profile indicator via mutation callback.');
-            getOptionsAndHandleIndicators(node, linkType.ui);
-            break;
-          }
-        }
-      });
-    });
-  }
-
-  var observerOptions = {
-    childList: true,
-    subtree: true,
-  }
-
-  // Before starting the mutation Observer, check if the OP's username link is
-  // already part of the page
-  for (const linkType of CC_PROFILE_LINK_TYPES) {
-    let node = document.querySelector(linkType.nodeSelector);
-    if (node !== null) {
-      console.debug('Handling profile indicator via first check.');
-      getOptionsAndHandleIndicators(node, linkType.ui);
-      break;
-    }
-  }
-
-  var mutationObserver = new MutationObserver(mutationCallback);
-  mutationObserver.observe(document.body, observerOptions);
-} else {
-  // We are in TW
-  authuser = (new URL(location.href)).searchParams.get('authuser') || '0';
-
-  let foundProfileLink = false;
-  for (const linkType of TW_PROFILE_LINK_TYPES) {
-    let node = document.querySelector(linkType.nodeSelector);
-    if (node !== null) {
-      foundProfileLink = true;
-      getOptionsAndHandleIndicators(node, linkType.ui);
-      break;
-    }
-  }
-
-  if (!foundProfileLink)
-    console.error('[opindicator] Couldn\'t find username.');
 }

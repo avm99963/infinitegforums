@@ -13,6 +13,7 @@ def extension_bundle(name, **kwargs):
             "//src/entryPoints/communityConsole/injections/handleUpdate",
             "//src/entryPoints/communityConsole/injections/main",
             "//src/entryPoints/communityConsole/injections/start",
+            "//src/entryPoints/twBasic/thread/main",
             "//src/entryPoints/twBasic/thread/start",
             "//src/features/workflows/presentation/templates",
             "//src/features/workflows/ui/components/manager",

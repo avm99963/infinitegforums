@@ -12,6 +12,7 @@ common_ts_project(
     ],
     deps = [
         "//src/features/linkDialogFix/presentation/nodeWatcherHandlers",
+        "//src/features/profileIndicator/presentation/nodeWatcherHandlers",
         "//src/infrastructure/presentation/nodeWatcher",
         "//src/infrastructure/presentation/scripts",
         "//src/infrastructure/services/options",

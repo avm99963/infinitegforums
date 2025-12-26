@@ -1,5 +1,3 @@
-import {injectScript, injectStylesheet} from '../common/contentScriptsUtils';
-
 import {getOptions} from '../common/options/optionsUtils.js';
 
 // In order to pass i18n strings and settings values to the injected scripts,
@@ -48,6 +46,3 @@ export function setUpListener() {
   });
 }
 setUpListener();
-
-injectScript(chrome.runtime.getURL('profileIndicatorInject.bundle.js'));
-injectStylesheet(chrome.runtime.getURL('css/profileindicator_inject.css'));

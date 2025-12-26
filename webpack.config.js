@@ -19,7 +19,7 @@ module.exports = (env, args) => {
     communityConsoleInjectionStart:
         './src/entryPoints/communityConsole/injections/start/start.js',
     publicForum: './src/contentScripts/publicForum.js',
-    publicThread: './src/contentScripts/publicThread.js',
+    publicThread: './src/entryPoints/twBasic/thread/main/main.js',
     publicThreadStart: './src/entryPoints/twBasic/thread/start/start.js',
     publicGuide: './src/contentScripts/publicGuide.js',
     publicGuideStart: './src/contentScripts/publicGuideStart.js',
@@ -34,7 +34,6 @@ module.exports = (env, args) => {
         './src/entryPoints/communityConsole/injections/handleUpdate/handleUpdate.js',
 
     // Injected JS
-    profileIndicatorInject: './src/injections/profileIndicator.js',
     batchLockInject: './src/injections/batchLock.js',
     extraInfoInject: './src/injections/extraInfo.js',
     litComponentsInject: './src/injections/litComponentsInject.js',

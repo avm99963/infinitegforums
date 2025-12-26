@@ -1,3 +1,8 @@
+import {
+  InteropOPLinkProfileIndicatorHandler,
+  InteropV2OPLinkProfileIndicatorHandler,
+  LegacyOPLinkProfileIndicatorHandler,
+} from '@/features/profileIndicator/presentation/nodeWatcherHandlers/opLink.handler';
 import FixInsertLinkCommandHandler from '../../../../features/linkDialogFix/presentation/nodeWatcherHandlers/fixInsertLinkCommand.handler';
 import { NodeWatcherAdapter } from '../../../../infrastructure/presentation/nodeWatcher/NodeWatcher.adapter';
 import NodeWatcherScriptAdapter from '../../../../infrastructure/presentation/scripts/NodeWatcherScript.adapter';
@@ -25,6 +30,18 @@ function createScriptRunner() {
             [
               'fixInsertLinkCommand',
               new FixInsertLinkCommandHandler(optionsProvider),
+            ],
+            [
+              'legacyOpLinkProfileIndicator',
+              new LegacyOPLinkProfileIndicatorHandler(),
+            ],
+            [
+              'interopOpLinkProfileIndicator',
+              new InteropOPLinkProfileIndicatorHandler(),
+            ],
+            [
+              'interopV2OpLinkProfileIndicator',
+              new InteropV2OPLinkProfileIndicatorHandler(),
             ],
           ]),
         ),
