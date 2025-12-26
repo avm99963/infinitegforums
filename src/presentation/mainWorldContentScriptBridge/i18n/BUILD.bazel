@@ -17,6 +17,7 @@ common_ts_project(
     ],
     deps = [
         "//src/presentation/mainWorldContentScriptBridge/base",
+        "//src/services/i18n/chrome",
     ],
 )
 

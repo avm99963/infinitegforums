@@ -1,3 +1,4 @@
+import { ChromeI18nPort } from '@/services/i18n/chrome/ChromeI18n.port';
 import MainWorldContentScriptBridgeClient from '../base/Client';
 
 import { kCSTarget, kMWTarget } from './consts';
@@ -10,7 +11,7 @@ import { I18nActionMap, I18nAction, GET_UI_LANGUAGE_ACTION, GetMessageRequest, G
 export default class MWI18nClient extends MainWorldContentScriptBridgeClient<
   I18nAction,
   I18nActionMap
-> {
+> implements ChromeI18nPort {
   protected CSTarget = kCSTarget;
   protected MWTarget = kMWTarget;
 
