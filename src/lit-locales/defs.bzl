@@ -19,7 +19,7 @@ def lit_localize(name, operation, visibility = ["//visibility:private"]):
         cmds = [run_lit_localize_cmd]
     elif operation == "extract":
         cmds = [
-            "cp -L --no-preserve=mode,ownership $(execpaths {existing_xliff_files}) \"{out_xliff_dir}\"\n".format(
+            "install -m 644 $(execpaths {existing_xliff_files}) \"{out_xliff_dir}\"".format(
                 existing_xliff_files = Label(":interchange_files"),
                 out_xliff_dir = "$(RULEDIR)/" + output_dir,
             ),
