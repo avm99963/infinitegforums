@@ -1,4 +1,5 @@
 import { ProtobufObject } from '../../common/protojs/protojs.types';
+import { InterceptorEvent } from '../domain/event';
 import {
   Interceptor,
   InterceptorFilter,
@@ -16,7 +17,7 @@ export default class InterceptorHandlerAdapter
     });
   }
   triggerEvent(eventName: string, body: ProtobufObject, id: number): void {
-    const e = new CustomEvent('TWPT_' + eventName, {
+    const e: InterceptorEvent = new CustomEvent('TWPT_' + eventName, {
       detail: {
         body,
         id,

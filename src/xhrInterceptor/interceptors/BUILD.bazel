@@ -16,5 +16,6 @@ common_ts_project(
     ],
     deps = [
         "//src/common/protojs",
+        "//src/xhrInterceptor/domain",
     ],
 )
