@@ -1,4 +1,4 @@
-export function parseUrl(url) {
+export function parseUrl(url: string) {
   var forum_a = url.match(/forum\/([0-9]+)/i);
   var thread_a = url.match(/thread\/([0-9]+)/i);
   var message_a = url.match(/message\/([0-9]+)/i);
@@ -14,7 +14,7 @@ export function parseUrl(url) {
   };
 }
 
-export function isEmpty(obj) {
+export function isEmpty(obj: {}) {
   return Object.keys(obj).length === 0;
 }
 
@@ -27,8 +27,11 @@ export function createImmuneLink() {
   return a;
 }
 
-export function recursiveParentElement(el, tag) {
+export function recursiveParentElement(el: HTMLElement, tag: string) {
   while (el !== document.documentElement) {
+    if (!(el.parentNode instanceof HTMLElement)) {
+      throw Error('Parent of element is not an HTMLElement.');
+    }
     el = el.parentNode;
     if (el.tagName == tag) return el;
   }
@@ -39,7 +42,7 @@ export function recursiveParentElement(el, tag) {
  * Utility to indicate that a class method should be implemented (similarly to
  * abstract methods in Java).
  */
-export function shouldImplement(name) {
+export function shouldImplement(name: string) {
   throw new Error(
       `The ${name} method should be implemented by the extending class.`);
 }
