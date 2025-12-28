@@ -5,13 +5,13 @@ import BaseExtraInfoInjection from './base.js';
 
 export default class ProfilePerForumStatsExtraInfoInjection extends
     BaseExtraInfoInjection {
-  constructor(infoHandler, optionsWatcher) {
-    super(infoHandler, optionsWatcher);
+  constructor(infoHandler, optionsProvider) {
+    super(infoHandler, optionsProvider);
     this.displayLanguage = getDisplayLanguage();
   }
 
   async isEnabled() {
-    return await this.optionsWatcher.isEnabled('perforumstats');
+    return await this.optionsProvider.isEnabled('perforumstats');
   }
 
   inject(profileInfo, injectionDetails) {

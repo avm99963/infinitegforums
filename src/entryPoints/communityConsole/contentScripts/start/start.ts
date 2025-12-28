@@ -49,7 +49,7 @@ function createScriptRunner() {
   );
   const extraInfo = dependenciesProvider.getDependency(
     ExtraInfoDependency,
-    () => new ExtraInfo(),
+    () => new ExtraInfo(optionsProvider),
   );
   const startupDataStorage = dependenciesProvider.getDependency(
     StartupDataStorageDependency,

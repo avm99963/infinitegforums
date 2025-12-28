@@ -4,13 +4,13 @@ import {shouldImplement} from '../../../../common/commonUtils.js';
 import {createExtBadge} from '../../../../contentScripts/communityConsole/utils/common.js';
 
 export default class BaseExtraInfoInjection {
-  constructor(infoHandler, optionsWatcher) {
+  constructor(infoHandler, optionsProvider) {
     if (this.constructor == BaseExtraInfoInjection) {
       throw new Error('The base class cannot be instantiated.');
     }
 
     this.infoHandler = infoHandler;
-    this.optionsWatcher = optionsWatcher;
+    this.optionsProvider = optionsProvider;
   }
 
   /**
@@ -31,7 +31,7 @@ export default class BaseExtraInfoInjection {
   injectOnInfoRetrievalError() {}
 
   async isEnabled() {
-    return await this.optionsWatcher.isEnabled('extrainfo');
+    return await this.optionsProvider.isEnabled('extrainfo');
   }
 
   /**

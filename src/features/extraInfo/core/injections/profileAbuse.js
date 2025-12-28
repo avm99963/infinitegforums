@@ -4,8 +4,8 @@ import BaseExtraInfoInjection from './base.js';
 
 export default class ProfileAbuseExtraInfoInjection extends
     BaseExtraInfoInjection {
-  constructor(infoHandler, optionsWatcher) {
-    super(infoHandler, optionsWatcher);
+  constructor(infoHandler, optionsProvider) {
+    super(infoHandler, optionsProvider);
     this.unifiedUserView = undefined;
   }
 

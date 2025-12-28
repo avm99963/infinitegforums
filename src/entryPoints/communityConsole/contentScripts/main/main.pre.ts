@@ -97,6 +97,15 @@ const scriptRunner = createScriptRunner();
 scriptRunner.run();
 
 function createScriptRunner() {
+  const ccThreadListGenericActionButtonInjector =
+    new CCThreadListGenericActionButtonInjectorAdapter(
+      new CCThreadListActionInjectorAdapter(),
+    );
+  const optionsModifier = new OptionsModifierAdapter();
+  const optionsProvider = new OptionsProviderAdapter(
+    new OptionsConfigurationRepositoryAdapter(),
+  );
+
   const dependenciesProvider = DependenciesProviderSingleton.getInstance();
   const autoRefresh = dependenciesProvider.getDependency(
     AutoRefreshDependency,
@@ -104,7 +113,7 @@ function createScriptRunner() {
   );
   const extraInfo = dependenciesProvider.getDependency(
     ExtraInfoDependency,
-    () => new ExtraInfo(),
+    () => new ExtraInfo(optionsProvider),
   );
   const startupDataStorage = dependenciesProvider.getDependency(
     StartupDataStorageDependency,
@@ -117,15 +126,6 @@ function createScriptRunner() {
   const workflowsImport = dependenciesProvider.getDependency(
     WorkflowsImportDependency,
     () => new WorkflowsImport(),
-  );
-
-  const ccThreadListGenericActionButtonInjector =
-    new CCThreadListGenericActionButtonInjectorAdapter(
-      new CCThreadListActionInjectorAdapter(),
-    );
-  const optionsModifier = new OptionsModifierAdapter();
-  const optionsProvider = new OptionsProviderAdapter(
-    new OptionsConfigurationRepositoryAdapter(),
   );
 
   const avatarsHandler = new AvatarsHandler(optionsProvider);
