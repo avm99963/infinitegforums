@@ -55,8 +55,8 @@ pkg_zip(
 )
 
 ts_config(
-    name = "tsconfig",
-    src = "tsconfig.json",
+    name = "tsconfig_base",
+    src = "tsconfig.base.json",
     visibility = ["//:__subpackages__"],
 )
 
@@ -209,14 +209,14 @@ ts_config(
     name = "tsconfig_pkg",
     src = "tsconfig.pkg.json",
     visibility = ["//:__subpackages__"],
-    deps = [":tsconfig"],
+    deps = [":tsconfig_base"],
 )
 
 ts_config(
     name = "tsconfig_pkg_js",
     src = "tsconfig.pkg_js.json",
     visibility = ["//:__subpackages__"],
-    deps = [":tsconfig"],
+    deps = [":tsconfig_base"],
 )
 
 # See https://github.com/aspect-build/rules_swc/blob/f35b63d621f6ff7cd7ca194a1061f7cdd59af07e/docs/tsconfig.md#maintain-two-files

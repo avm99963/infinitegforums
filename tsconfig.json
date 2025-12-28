@@ -1,25 +1,15 @@
+// This tsconfig.json file is only used for LSPs, since this is the path
+// from which they load tsconfig by default.
+//
+// Please take a look into tsconfig.base.json and other files instead for the
+// actual configuration used in builds.
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "sourceMap": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "es2022",
-    "target": "es2022",
-    "moduleResolution": "bundler",
-    "esModuleInterop": true,
-    "allowJs": true,
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "exclude": [
-    "node_modules",
-    "dist",
-    "bazel-bin",
-    "bazel-infinitegforums",
-    "bazel-out",
-    "bazel-testlogs",
-    "bazel-*"
-  ]
+    "rootDirs": [
+      ".",
+      // So the LSP can see files built by Bazel (such as preprocessed files).
+      "./bazel-bin"
+    ]
+  }
 }
