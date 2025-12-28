@@ -6,6 +6,7 @@ import {
 import { ProtobufObject } from '../../common/protojs/protojs.types';
 import { InterceptorHandlerPort } from '../interceptors/InterceptorHandler.port';
 import MessageIdTracker from '../messageIdTracker/MessageIdTracker';
+import { RequestModifierPort } from '../requestModifier/RequestModifier.port';
 import { ResponseModifierPort } from '../responseModifier/ResponseModifier.port';
 import FetchBody from './FetchBody';
 import FetchHeaders from './FetchHeaders';
@@ -21,6 +22,7 @@ export default class FetchProxyCallHandler {
   private isArrayProto: boolean;
 
   constructor(
+    private requestModifier: RequestModifierPort,
     private responseModifier: ResponseModifierPort,
     private interceptorHandler: InterceptorHandlerPort,
     private messageIdTracker: MessageIdTracker,
@@ -32,8 +34,6 @@ export default class FetchProxyCallHandler {
     init?: RequestInit,
   ): Promise<Response> {
     this.fetchHeaders = new FetchHeaders(init?.headers);
-    this.fetchBody = new FetchBody(init?.body);
-    this.fetchInput = new FetchInput(input);
 
     const shouldIgnore = this.fetchHeaders.hasValue(
       XClientHeader,
@@ -53,22 +53,60 @@ export default class FetchProxyCallHandler {
     }
 
     this.messageId = this.messageIdTracker.getNewId();
+    this.fetchInput = new FetchInput(input);
     this.url = this.fetchInput.getUrl();
     this.isArrayProto = this.fetchHeaders.hasValue(
       'Content-Type',
       'application/json+protobuf',
     );
 
+    // We use a shallow clone instead of structuredClone since AbortSignal is
+    // not clonable.
+    const modifiedInit = init ? { ...init } : undefined;
+    await this.attemptToModifyRequest(modifiedInit);
+    this.fetchBody = new FetchBody(modifiedInit?.body);
+
     await this.attemptToSendRequestInterceptorEvent();
 
     const originalResponse: Response = await this.originalFetch.apply(global, [
       input,
-      init,
+      modifiedInit,
     ]);
 
-    const response = await this.handleResponse(originalResponse);
+    return await this.handleResponse(originalResponse);
+  }
 
-    return response;
+  private async attemptToModifyRequest(init?: RequestInit) {
+    if (!init?.body) return;
+
+    // We need a temporary FetchBody to read the current body
+    const tempFetchBody = new FetchBody(init.body);
+    const rawBody = await tempFetchBody.getJSONRequestBody();
+    if (!rawBody) return;
+
+    const normalizedBody = this.isArrayProto
+      ? correctArrayKeys(rawBody)
+      : rawBody;
+
+    try {
+      const result = await this.requestModifier.intercept({
+        url: this.url,
+        originalBody: normalizedBody,
+      });
+
+      if (result.wasModified) {
+        let json = result.modifiedBody;
+        if (this.isArrayProto) {
+          json = inverseCorrectArrayKeys(json);
+        }
+        init.body = JSON.stringify(json);
+      }
+    } catch (e) {
+      console.error(
+        `[Fetch Proxy] Couldn't modify the request for ${this.url}`,
+        e,
+      );
+    }
   }
 
   private async attemptToSendRequestInterceptorEvent() {

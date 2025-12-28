@@ -10,6 +10,7 @@ import {
 
 import { ResponseModifier } from './types.js';
 import { OptionsProviderPort } from '@/services/options/OptionsProvider';
+import ModifierMatcher from '../modifierMatcher/ModifierMatcher';
 
 // Content script target
 export const kCSTarget = 'TWPT-XHRInterceptorOptionsWatcher-CS';
@@ -17,27 +18,20 @@ export const kCSTarget = 'TWPT-XHRInterceptorOptionsWatcher-CS';
 export const kMWTarget = 'TWPT-XHRInterceptorOptionsWatcher-MW';
 
 export default class ResponseModifierAdapter implements ResponseModifierPort {
+  private modifierMatcher: ModifierMatcher;
+
   constructor(
     private readonly responseModifiers: ResponseModifier[],
     private readonly optionsProvider: OptionsProviderPort,
-  ) {}
+  ) {
+    this.modifierMatcher = new ModifierMatcher(optionsProvider);
+  }
 
   private async getMatchingModifiers(requestUrl: string) {
-    // First filter modifiers which match the request URL regex.
-    const urlModifiers = this.responseModifiers.filter((modifier) =>
-      requestUrl.match(modifier.urlRegex),
+    return this.modifierMatcher.getMatchingModifiers(
+      this.responseModifiers,
+      requestUrl,
     );
-
-    // Now filter modifiers which require a certain feature to be enabled
-    // (feature-gated modifiers).
-    const optionsConfiguration = await this.optionsProvider.getOptionsConfiguration();
-
-    return urlModifiers.filter((modifier) => {
-      // TODO(https://iavm.xyz/b/twpowertools/230): Fix the type assertion below.
-      return (
-        modifier.isEnabled(optionsConfiguration)
-      );
-    });
   }
 
   async intercept(interception: InterceptedResponse): Promise<Result> {

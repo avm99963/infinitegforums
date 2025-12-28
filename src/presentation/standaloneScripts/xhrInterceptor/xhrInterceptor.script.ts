@@ -12,6 +12,8 @@ import {
   KILL_SWITCH_LOCALSTORAGE_VALUE,
 } from '../../../xhrInterceptor/killSwitchHandler/killSwitchHandler';
 import MessageIdTracker from '../../../xhrInterceptor/messageIdTracker/MessageIdTracker';
+import RequestModifierAdapter from '../../../xhrInterceptor/requestModifier/RequestModifier.adapter';
+import { RequestModifier } from '../../../xhrInterceptor/requestModifier/types';
 import ResponseModifierAdapter from '../../../xhrInterceptor/responseModifier/ResponseModifier.adapter';
 import { ResponseModifier } from '../../../xhrInterceptor/responseModifier/types';
 import XHRProxy from '../../../xhrInterceptor/xhrProxy/XHRProxy';
@@ -22,6 +24,7 @@ export default class XHRInterceptorScript extends Script {
   runPhase = ScriptRunPhase.Start;
 
   constructor(
+    private readonly requestModifiers: RequestModifier[],
     private readonly responseModifiers: ResponseModifier[],
     private readonly optionsProvider: OptionsProviderPort,
   ) {
@@ -35,6 +38,10 @@ export default class XHRInterceptorScript extends Script {
       window.localStorage.getItem(KILL_SWITCH_LOCALSTORAGE_KEY) !==
       KILL_SWITCH_LOCALSTORAGE_VALUE
     ) {
+      const requestModifier = new RequestModifierAdapter(
+        this.requestModifiers,
+        this.optionsProvider,
+      );
       const responseModifier = new ResponseModifierAdapter(
         this.responseModifiers,
         this.optionsProvider,
@@ -44,9 +51,10 @@ export default class XHRInterceptorScript extends Script {
       );
       const messageIdTracker = new MessageIdTracker();
 
-      new XHRProxy(responseModifier, messageIdTracker);
+      new XHRProxy(requestModifier, responseModifier, messageIdTracker);
 
       const fetchProxy = new FetchProxy(
+        requestModifier,
         responseModifier,
         interceptorHandler,
         messageIdTracker,

@@ -2,18 +2,15 @@ load("//tools:bazel/swc.bzl", "swc_pkg")
 load("//tools:common_ts_project.bzl", "common_ts_project")
 
 common_ts_project(
-    name = "responseModifier",
+    name = "requestModifier",
     allow_js = True,
     declaration = True,
     source_map = True,
     transpiler = swc_pkg,
     tsconfig = "//:tsconfig_pkg",
     visibility = [
-        "//src/presentation/standaloneScripts/mainWorldServers:__subpackages__",
-        "//src/presentation/standaloneScripts/xhrInterceptor:__subpackages__",
-        "//src/xhrInterceptor/fetchProxy:__subpackages__",
-        "//src/xhrInterceptor/responseModifiers:__subpackages__",
-        "//src/xhrInterceptor/xhrProxy:__subpackages__",
+        "//src:presentation",
+        "//src/xhrInterceptor:__subpackages__",
     ],
     deps = [
         "//src/common/protojs",

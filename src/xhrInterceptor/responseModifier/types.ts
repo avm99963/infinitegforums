@@ -1,9 +1,6 @@
-import { OptionsConfiguration } from '@/common/options/OptionsConfiguration';
-import { OptionCodename } from '../../common/options/optionsPrototype';
 import { ProtobufObject } from '../../common/protojs/protojs.types';
+import { MatchableModifier } from '../modifierMatcher/types';
 
-export interface ResponseModifier {
-  urlRegex: RegExp;
-  isEnabled(options: OptionsConfiguration): Boolean;
+export interface ResponseModifier extends MatchableModifier {
   interceptor(response: ProtobufObject, url: string): Promise<ProtobufObject>;
 }

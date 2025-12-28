@@ -17,6 +17,7 @@ common_ts_project(
         "//src/common",
         "//src/xhrInterceptor/interceptors",
         "//src/xhrInterceptor/messageIdTracker",
+        "//src/xhrInterceptor/requestModifier",
         "//src/xhrInterceptor/responseModifier",
     ],
 )

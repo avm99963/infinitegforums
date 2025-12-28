@@ -18,6 +18,7 @@ common_ts_project(
         "//src/xhrInterceptor/interceptors",
         "//src/xhrInterceptor/killSwitchHandler",
         "//src/xhrInterceptor/messageIdTracker",
+        "//src/xhrInterceptor/requestModifier",
         "//src/xhrInterceptor/responseModifier",
         "//src/xhrInterceptor/responseModifiers",
         "//src/xhrInterceptor/xhrProxy",

@@ -11,15 +11,25 @@ import {
   Interceptor,
   InterceptorFilter,
 } from '../interceptors/InterceptorHandler.port';
+import { RequestModifierPort } from '../requestModifier/RequestModifier.port';
 
 vi.mock('../interceptors/InterceptorHandler.adapter');
 
-const interceptMock = vi.fn<ResponseModifierPort['intercept']>();
+const interceptRequestMock = vi.fn<RequestModifierPort['intercept']>();
+class MockRequestModifier implements RequestModifierPort {
+  async intercept(
+    ...args: Parameters<RequestModifierPort['intercept']>
+  ): ReturnType<RequestModifierPort['intercept']> {
+    return interceptRequestMock(...args);
+  }
+}
+
+const interceptResponseMock = vi.fn<ResponseModifierPort['intercept']>();
 class MockResponseModifier implements ResponseModifierPort {
   async intercept(
     ...args: Parameters<ResponseModifierPort['intercept']>
   ): ReturnType<ResponseModifierPort['intercept']> {
-    return interceptMock(...args);
+    return interceptResponseMock(...args);
   }
 }
 
@@ -35,7 +45,7 @@ beforeEach(() => {
 
   // Sensible defaults which can be overriden in each test.
   fetchMock.mockResolvedValue(dummyResponse);
-  interceptMock.mockResolvedValue({ wasModified: false });
+  interceptResponseMock.mockResolvedValue({ wasModified: false });
   matchInterceptorsMock.mockReturnValue([]);
   consoleErrorMock.mockImplementation(() => {});
 });
@@ -43,8 +53,11 @@ beforeEach(() => {
 describe('FetchProxy', () => {
   describe('when calling fetch after enabling interception', () => {
     const dummyUrl: string = 'https://dummy.avm99963.com/';
+    const dummyRequestBody = {
+      1: 'request',
+    };
     const dummyInit: RequestInit = {
-      body: '{"1":"request"}',
+      body: JSON.stringify(dummyRequestBody),
     };
     const dummyInitProtoJs = {
       body: '["dummy"]',
@@ -56,6 +69,7 @@ describe('FetchProxy', () => {
     let fetchProxy: FetchProxy;
     beforeEach(() => {
       fetchProxy = new FetchProxy(
+        new MockRequestModifier(),
         new MockResponseModifier(),
         new InterceptorHandlerMock(),
         new MessageIdTracker(),
@@ -156,7 +170,7 @@ describe('FetchProxy', () => {
     describe('regarding response modifiers', () => {
       const dummyModifiedResponse = { 99: 'modified' };
       beforeEach(() => {
-        interceptMock.mockResolvedValue({
+        interceptResponseMock.mockResolvedValue({
           wasModified: true,
           modifiedResponse: dummyModifiedResponse,
         });
@@ -170,8 +184,8 @@ describe('FetchProxy', () => {
 
         await window.fetch(dummyUrl, dummyInit);
 
-        expect(interceptMock).toHaveBeenCalledTimes(1);
-        expect(interceptMock).toHaveBeenCalledWith({
+        expect(interceptResponseMock).toHaveBeenCalledTimes(1);
+        expect(interceptResponseMock).toHaveBeenCalledWith({
           url: dummyUrl,
           originalResponse: dummyResponse,
         });
@@ -185,9 +199,9 @@ describe('FetchProxy', () => {
 
         await window.fetch(dummyUrl, dummyInitProtoJs);
 
-        expect(interceptMock).toHaveBeenCalledTimes(1);
+        expect(interceptResponseMock).toHaveBeenCalledTimes(1);
         const interceptedOriginalResponse =
-          interceptMock.mock.calls[0][0]?.originalResponse;
+          interceptResponseMock.mock.calls[0][0]?.originalResponse;
         expect(interceptedOriginalResponse).toBeDefined();
         expect(interceptedOriginalResponse[1]).toBe('response');
       });
@@ -200,11 +214,77 @@ describe('FetchProxy', () => {
       });
 
       it('should not reject when ResponseModifier throws an error', async () => {
-        interceptMock.mockImplementation(() => {
+        interceptResponseMock.mockImplementation(() => {
           throw new Error('dummy error');
         });
 
         await expect(window.fetch(dummyUrl, dummyInit)).resolves.toBeDefined();
+      });
+    });
+
+    describe('regarding request modifiers', () => {
+      const dummyModifiedBody = { 99: 'bye' };
+      beforeEach(() => {
+        interceptRequestMock.mockResolvedValue({
+          wasModified: true,
+          modifiedBody: dummyModifiedBody,
+        });
+      });
+
+      it('should not call RequestModifier if the request does not have a body', async () => {
+        await window.fetch(dummyUrl);
+
+        expect(interceptRequestMock).not.toHaveBeenCalled();
+      });
+
+      it('should pass the intercepted request body to RequestModifier', async () => {
+        await window.fetch(dummyUrl, dummyInit);
+
+        expect(interceptRequestMock).toHaveBeenCalledTimes(1);
+        expect(interceptRequestMock).toHaveBeenCalledWith({
+          url: dummyUrl,
+          originalBody: dummyRequestBody,
+        });
+      });
+
+      it('should not modify the init parameter passed to fetch', async () => {
+        const originalDummyInit: RequestInit = {
+          body: '{"1": "originalRequest"}',
+        };
+        const dummyInit = structuredClone(originalDummyInit);
+
+        await window.fetch(dummyUrl, dummyInit);
+
+        expect(dummyInit).toEqual(originalDummyInit);
+      });
+
+      it(`should pass the normalized protobuf request body to RequestModifier when the request is application/json+protobuf`, async () => {
+        await window.fetch(dummyUrl, dummyInitProtoJs);
+
+        expect(interceptRequestMock).toHaveBeenCalledTimes(1);
+        const interceptedOriginalRequest =
+          interceptRequestMock.mock.calls[0][0]?.originalBody;
+        expect(interceptedOriginalRequest).toBeDefined();
+        expect(interceptedOriginalRequest[1]).toBe('dummy');
+      });
+
+      it('should call fetch with the modified request when RequestModifier modifies it', async () => {
+        await window.fetch(dummyUrl, dummyInit);
+
+        expect(fetchMock).toHaveBeenCalledOnce();
+        const bodyPassedToFetch = fetchMock.mock.calls[0][1]?.body;
+        expect(bodyPassedToFetch).toBe(JSON.stringify(dummyModifiedBody));
+      });
+
+      it('should still call fetch with the original body when ResponseModifier throws an error', async () => {
+        interceptRequestMock.mockImplementation(() => {
+          throw new Error('dummy error');
+        });
+
+        await expect(window.fetch(dummyUrl, dummyInit)).resolves.toBeDefined();
+        expect(fetchMock).toHaveBeenCalledOnce();
+        const bodyPassedToFetch = fetchMock.mock.calls[0][1]?.body;
+        expect(bodyPassedToFetch).toBe(JSON.stringify(dummyRequestBody));
       });
     });
 

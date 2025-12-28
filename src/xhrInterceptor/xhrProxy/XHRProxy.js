@@ -1,13 +1,14 @@
 import {waitFor} from 'poll-until-promise';
 
-import {correctArrayKeys} from '../../common/protojs/protojs';
+import {correctArrayKeys, inverseCorrectArrayKeys} from '../../common/protojs/protojs';
+
 import * as utils from './utils.js';
 
 const kSpecialEvents = ['load', 'loadend'];
 const kErrorEvents = ['error', 'timeout', 'abort'];
 
 const kStandardMethods = [
-  'open', 'abort', 'setRequestHeader', 'send', 'getResponseHeader',
+  'open', 'abort', 'setRequestHeader', 'getResponseHeader',
   'getAllResponseHeaders', 'dispatchEvent', 'overrideMimeType'
 ];
 const kStandardScalars = [
@@ -55,14 +56,16 @@ function flattenOptions(options) {
  *
  * Slightly based in https://stackoverflow.com/a/24561614.
  *
+ * @param requestModifier
  * @param responseModifier
  * @param messageIdTracker
  */
 export default class XHRProxy {
-  constructor(responseModifier, messageIdTracker) {
+  constructor(requestModifier, responseModifier, messageIdTracker) {
     this.originalXMLHttpRequest = window.XMLHttpRequest;
 
     this.messageIdTracker = messageIdTracker;
+    this.requestModifier = requestModifier;
     this.responseModifier = responseModifier;
 
     this.#overrideXHRObject();
@@ -105,6 +108,7 @@ export default class XHRProxy {
 
   #overrideMethods() {
     this.#overrideStandardMethods();
+    this.#overrideSend();
     this.#overrideEventsMethods();
   }
 
@@ -123,6 +127,45 @@ export default class XHRProxy {
     kStandardMethods.forEach(method => {
       this.#overrideStandardMethod(method);
     });
+  }
+
+  #overrideSend() {
+    const XHRProxyInstance = this;
+    window.XMLHttpRequest.prototype.send = async function(body) {
+      let modifiedBody = body;
+      if (body) {
+        try {
+          let rawBody = body;
+          if (typeof (rawBody) === 'object' &&
+              (rawBody instanceof Object.getPrototypeOf(Uint8Array))) {
+            let dec = new TextDecoder('utf-8');
+            rawBody = dec.decode(rawBody);
+          }
+
+          if (typeof (rawBody) === 'string') {
+            let jsonBody = JSON.parse(rawBody);
+            if (this.$isArrayProto) jsonBody = correctArrayKeys(jsonBody);
+
+            const result = await XHRProxyInstance.requestModifier.intercept({
+              url: this.$TWPTRequestURL || location.href,
+              originalBody: jsonBody,
+            });
+
+            if (result.wasModified) {
+              let newJson = result.modifiedBody;
+              if (this.$isArrayProto)
+                newJson = inverseCorrectArrayKeys(newJson);
+              modifiedBody = JSON.stringify(newJson);
+            }
+          }
+        } catch (e) {
+          console.error('Error modifying XHR request', e);
+        }
+      }
+
+      this.$interceptSend(modifiedBody);
+      return this.xhr.send(modifiedBody);
+    };
   }
 
   #overrideEventsMethods() {

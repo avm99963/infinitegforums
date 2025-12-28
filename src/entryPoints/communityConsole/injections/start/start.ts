@@ -19,11 +19,11 @@ function createScriptRunner() {
   return new ScriptRunner(
     new SortedScriptsProviderAdapter(
       [
-        new XHRInterceptorScript([
-          loadMoreThread,
-          flattenThread,
-          createMessageRemoveParentRef,
-        ], optionsProvider),
+        new XHRInterceptorScript(
+          [],
+          [loadMoreThread, flattenThread, createMessageRemoveParentRef],
+          optionsProvider,
+        ),
       ],
       new ScriptSorterAdapter(),
     ).getScripts(),

@@ -10,5 +10,6 @@ common_js_project(
         "//:node_modules/poll-until-promise",
         "//src/common/protojs",
         "//src/xhrInterceptor/interceptors",
+        "//src/xhrInterceptor/requestModifier",
     ],
 )
