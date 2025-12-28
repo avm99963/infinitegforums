@@ -13,7 +13,7 @@ import {
 } from '../../../xhrInterceptor/killSwitchHandler/killSwitchHandler';
 import MessageIdTracker from '../../../xhrInterceptor/messageIdTracker/MessageIdTracker';
 import ResponseModifierAdapter from '../../../xhrInterceptor/responseModifier/ResponseModifier.adapter';
-import { Modifier } from '../../../xhrInterceptor/responseModifier/types';
+import { ResponseModifier } from '../../../xhrInterceptor/responseModifier/types';
 import XHRProxy from '../../../xhrInterceptor/xhrProxy/XHRProxy';
 
 export default class XHRInterceptorScript extends Script {
@@ -22,7 +22,7 @@ export default class XHRInterceptorScript extends Script {
   runPhase = ScriptRunPhase.Start;
 
   constructor(
-    private readonly responseModifiers: Modifier[],
+    private readonly responseModifiers: ResponseModifier[],
     private readonly optionsProvider: OptionsProviderPort,
   ) {
     super();

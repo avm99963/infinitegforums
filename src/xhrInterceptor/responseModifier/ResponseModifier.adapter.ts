@@ -8,7 +8,7 @@ import {
   Result,
 } from './ResponseModifier.port.js';
 
-import { Modifier } from './types.js';
+import { ResponseModifier } from './types.js';
 import { OptionsProviderPort } from '@/services/options/OptionsProvider';
 
 // Content script target
@@ -18,7 +18,7 @@ export const kMWTarget = 'TWPT-XHRInterceptorOptionsWatcher-MW';
 
 export default class ResponseModifierAdapter implements ResponseModifierPort {
   constructor(
-    private readonly responseModifiers: Modifier[],
+    private readonly responseModifiers: ResponseModifier[],
     private readonly optionsProvider: OptionsProviderPort,
   ) {}
 

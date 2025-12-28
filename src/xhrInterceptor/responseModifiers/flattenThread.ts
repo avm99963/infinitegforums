@@ -7,11 +7,11 @@ import GapModel from '../../models/Gap';
 import MessageModel from '../../models/Message';
 import StartupDataModel from '../../models/StartupData';
 import ThreadModel from '../../models/Thread';
-import { Modifier } from '../responseModifier/types';
+import { ResponseModifier } from '../responseModifier/types';
 
 const currentUser = StartupDataModel.buildFromCCDOM().getCurrentUserModel();
 
-const flattenThread: Modifier = {
+const flattenThread: ResponseModifier = {
   urlRegex: /api\/ViewThread/i,
   isEnabled(optionsConfiguration) {
     return (

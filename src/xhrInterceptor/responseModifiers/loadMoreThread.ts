@@ -4,11 +4,11 @@ import { ProtobufNumber } from '../../common/protojs/protojs.types.js';
 import GapModel from '../../models/Gap.js';
 import MessageModel from '../../models/Message';
 import ThreadModel from '../../models/Thread';
-import { Modifier } from '../responseModifier/types.js';
+import { ResponseModifier } from '../responseModifier/types.js';
 
 const authuser = getAuthUser();
 
-const loadMoreThread: Modifier = {
+const loadMoreThread: ResponseModifier = {
   urlRegex: /api\/ViewThread/i,
   isEnabled(optionsConfiguration) {
     return (

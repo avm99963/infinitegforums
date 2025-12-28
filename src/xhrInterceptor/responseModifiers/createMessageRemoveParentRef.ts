@@ -1,6 +1,6 @@
-import { Modifier } from '../responseModifier/types';
+import { ResponseModifier } from '../responseModifier/types';
 
-const createMessageRemoveParentRef: Modifier = {
+const createMessageRemoveParentRef: ResponseModifier = {
   urlRegex: /api\/CreateMessage/i,
   isEnabled(optionsConfiguration) {
     return (
