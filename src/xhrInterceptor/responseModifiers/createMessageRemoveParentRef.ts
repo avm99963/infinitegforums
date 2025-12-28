@@ -2,7 +2,6 @@ import { Modifier } from '../responseModifier/types';
 
 const createMessageRemoveParentRef: Modifier = {
   urlRegex: /api\/CreateMessage/i,
-  features: ['flattenthreads', 'flattenthreads_switch_enabled'],
   isEnabled(optionsConfiguration) {
     return (
       optionsConfiguration.isEnabled('flattenthreads') &&

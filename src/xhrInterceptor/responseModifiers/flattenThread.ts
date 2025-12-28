@@ -13,7 +13,6 @@ const currentUser = StartupDataModel.buildFromCCDOM().getCurrentUserModel();
 
 const flattenThread: Modifier = {
   urlRegex: /api\/ViewThread/i,
-  features: ['flattenthreads', 'flattenthreads_switch_enabled'],
   isEnabled(optionsConfiguration) {
     return (
       optionsConfiguration.isEnabled('flattenthreads') &&

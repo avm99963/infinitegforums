@@ -4,7 +4,6 @@ import { ProtobufObject } from '../../common/protojs/protojs.types';
 
 export interface Modifier {
   urlRegex: RegExp;
-  features: OptionCodename[];
   isEnabled(options: OptionsConfiguration): Boolean;
   interceptor(response: ProtobufObject, url: string): Promise<ProtobufObject>;
 }
