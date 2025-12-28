@@ -3,6 +3,7 @@ load("//tools:common_js_project.bzl", "common_js_project")
 common_js_project(
     name = "import",
     visibility = [
+        "//src:entrypoint",
         "//src/common/architecture/dependenciesProvider:__subpackages__",
         "//src/features/workflows/presentation:__subpackages__",
     ],

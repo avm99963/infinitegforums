@@ -16,6 +16,7 @@ common_js_project(
         "index.js",
     ],
     visibility = [
+        "//src:entrypoint",
         "//src/common/architecture/dependenciesProvider:__subpackages__",
         "//src/features/extraInfo:__subpackages__",
     ],

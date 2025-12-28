@@ -3,6 +3,7 @@ load("//tools:common_js_project.bzl", "common_js_project")
 common_js_project(
     name = "core",
     visibility = [
+        "//src:entrypoint",
         "//src/common/architecture/dependenciesProvider:__subpackages__",
         "//src/features/threadPageDesignWarning:__subpackages__",
     ],

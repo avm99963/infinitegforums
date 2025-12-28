@@ -35,6 +35,11 @@ type Dependencies = {
 
 export type Dependency = keyof typeof DependenciesToClass;
 
+/**
+ * Class that lets the composition root save and retrieve shared dependencies
+ * between scripts that run in multiple run times, but at the same context
+ * (sandbox or main world).
+ */
 class DependenciesProvider {
   private dependencies: Dependencies;
 
@@ -47,10 +52,17 @@ class DependenciesProvider {
   }
 
   /**
-   * Gets an instance of a dependency, and creates it beforehand if it doesn't exist yet.
+   * Get an instance of a dependency, and create it beforehand with `factory` if
+   * it doesn't exist yet.
    */
-  getDependency<T extends Dependency>(dependency: T): ClassFromDependency<T> {
-    this.setUpDependency(dependency);
+  getDependency<T extends Dependency>(
+    dependency: T,
+    factory: () => Dependencies[T],
+  ): ClassFromDependency<T> {
+    if (!this.hasDependency(dependency)) {
+      this.dependencies[dependency] = factory();
+    }
+
     const dep = this.dependencies[dependency];
     if (!dep) {
       throw new Error(`Dependency ${dependency} not found.`);
@@ -58,11 +70,8 @@ class DependenciesProvider {
     return dep;
   }
 
-  setUpDependency<T extends Dependency>(dependency: T): void {
-    if (!this.dependencies[dependency]) {
-      const dependencyClass = DependenciesToClass[dependency];
-      this.dependencies[dependency] = new dependencyClass() as Dependencies[T];
-    }
+  hasDependency(dependency: Dependency): boolean {
+    return this.dependencies[dependency] !== undefined;
   }
 }
 

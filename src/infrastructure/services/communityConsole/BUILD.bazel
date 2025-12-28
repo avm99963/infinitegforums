@@ -9,6 +9,7 @@ common_ts_project(
     transpiler = swc_pkg,
     tsconfig = "//:tsconfig_pkg",
     visibility = [
+        "//src:entrypoint",
         "//src/common/architecture/dependenciesProvider:__subpackages__",
     ],
     deps = [

@@ -26,28 +26,42 @@ import UiSpacingConsoleStylesScript from '../../../../features/uiSpacing/present
 import OptionsProviderAdapter from '../../../../infrastructure/services/options/OptionsProvider.adapter';
 import { OptionsConfigurationRepositoryAdapter } from '../../../../options/infrastructure/repositories/OptionsConfiguration.repository.adapter';
 import MWOptionsConfigurationRepositoryServerScript from '../../../../presentation/standaloneScripts/mainWorldServers/MWOptionsConfigurationRepositoryServerScript.script';
+import ExtraInfo from '@/features/extraInfo/core';
+import AutoRefresh from '@/features/autoRefresh/core/autoRefresh';
+import StartupDataStorageAdapter from '@/infrastructure/services/communityConsole/StartupDataStorage.adapter';
+import ThreadPageDesignWarning from '@/features/threadPageDesignWarning/core/threadPageDesignWarning';
+import WorkflowsImport from '@/features/workflows/core/communityConsole/import/import';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
 
 function createScriptRunner() {
-  const dependenciesProvider = DependenciesProviderSingleton.getInstance();
-  const autoRefresh = dependenciesProvider.getDependency(AutoRefreshDependency);
-  const extraInfo = dependenciesProvider.getDependency(ExtraInfoDependency);
-  const startupDataStorage = dependenciesProvider.getDependency(
-    StartupDataStorageDependency,
-  );
-  const threadPageDesignWarning = dependenciesProvider.getDependency(
-    ThreadPageDesignWarningDependency,
-  );
-  const workflowsImport = dependenciesProvider.getDependency(
-    WorkflowsImportDependency,
-  );
-
   const optionsConfigurationRepository =
     new OptionsConfigurationRepositoryAdapter();
   const optionsProvider = new OptionsProviderAdapter(
     optionsConfigurationRepository,
+  );
+
+  const dependenciesProvider = DependenciesProviderSingleton.getInstance();
+  const autoRefresh = dependenciesProvider.getDependency(
+    AutoRefreshDependency,
+    () => new AutoRefresh(),
+  );
+  const extraInfo = dependenciesProvider.getDependency(
+    ExtraInfoDependency,
+    () => new ExtraInfo(),
+  );
+  const startupDataStorage = dependenciesProvider.getDependency(
+    StartupDataStorageDependency,
+    () => new StartupDataStorageAdapter(),
+  );
+  const threadPageDesignWarning = dependenciesProvider.getDependency(
+    ThreadPageDesignWarningDependency,
+    () => new ThreadPageDesignWarning(),
+  );
+  const workflowsImport = dependenciesProvider.getDependency(
+    WorkflowsImportDependency,
+    () => new WorkflowsImport(),
   );
 
   return new ScriptRunner(

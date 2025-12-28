@@ -87,22 +87,36 @@ import OptionsProviderAdapter from '../../../../infrastructure/services/options/
 import { OptionsConfigurationRepositoryAdapter } from '../../../../options/infrastructure/repositories/OptionsConfiguration.repository.adapter';
 import LogStartupDataScript from '../../../../features/logStartupData/presentation/scripts/logStartupData.script';
 import ProfileIndicatorStylesScript from '@/features/profileIndicator/presentation/scripts/styles.script';
+import ExtraInfo from '@/features/extraInfo/core';
+import AutoRefresh from '@/features/autoRefresh/core/autoRefresh';
+import StartupDataStorageAdapter from '@/infrastructure/services/communityConsole/StartupDataStorage.adapter';
+import ThreadPageDesignWarning from '@/features/threadPageDesignWarning/core/threadPageDesignWarning';
+import WorkflowsImport from '@/features/workflows/core/communityConsole/import/import';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
 
 function createScriptRunner() {
   const dependenciesProvider = DependenciesProviderSingleton.getInstance();
-  const autoRefresh = dependenciesProvider.getDependency(AutoRefreshDependency);
-  const extraInfo = dependenciesProvider.getDependency(ExtraInfoDependency);
+  const autoRefresh = dependenciesProvider.getDependency(
+    AutoRefreshDependency,
+    () => new AutoRefresh(),
+  );
+  const extraInfo = dependenciesProvider.getDependency(
+    ExtraInfoDependency,
+    () => new ExtraInfo(),
+  );
   const startupDataStorage = dependenciesProvider.getDependency(
     StartupDataStorageDependency,
+    () => new StartupDataStorageAdapter(),
   );
   const threadPageDesignWarning = dependenciesProvider.getDependency(
     ThreadPageDesignWarningDependency,
+    () => new ThreadPageDesignWarning(),
   );
   const workflowsImport = dependenciesProvider.getDependency(
     WorkflowsImportDependency,
+    () => new WorkflowsImport(),
   );
 
   const ccThreadListGenericActionButtonInjector =
