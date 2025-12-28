@@ -2,12 +2,12 @@ import { waitFor } from 'poll-until-promise';
 
 import { CCApi } from '../../../common/api.js';
 import { parseUrl } from '../../../common/commonUtils.js';
-import PartialOptionsWatcher from '../../../common/options/partialOptionsWatcher.js';
 import { createPlainTooltip } from '../../../common/tooltip.js';
 
 import AvatarsDB from './AvatarsDB';
 import { AvatarsCacheEntry } from './dbSchema.js';
 import { ProtobufNumber } from '@/common/protojs/protojs.types.js';
+import { OptionsProviderPort } from '@/services/options/OptionsProvider.js';
 
 /** The avatars list could be retrieved. */
 const STATE_OK = 'ok' as const;
@@ -63,13 +63,11 @@ export default class AvatarsHandler {
   private isFilterSetUp: boolean;
   private privateForums: string[];
   private readonly db: AvatarsDB;
-  private optionsWatcher: PartialOptionsWatcher;
 
-  constructor() {
+  constructor(private readonly optionsProvider: OptionsProviderPort) {
     this.isFilterSetUp = false;
     this.privateForums = [];
     this.db = new AvatarsDB();
-    this.optionsWatcher = new PartialOptionsWatcher(['threadlistavatars']);
 
     // Preload whether the option is enabled or not. This is because in the case
     // avatars should be injected, if we don't preload this the layout will
@@ -83,7 +81,7 @@ export default class AvatarsHandler {
   // Returns a promise resolving to whether the threadlistavatars feature is
   // enabled.
   isEnabled(): Promise<boolean> {
-    return this.optionsWatcher.isEnabled('threadlistavatars');
+    return this.optionsProvider.isEnabled('threadlistavatars');
   }
 
   // Gets a list of private forums. If it is already cached, the cached list is

@@ -114,7 +114,7 @@ function createScriptRunner() {
     new OptionsConfigurationRepositoryAdapter(),
   );
 
-  const avatarsHandler = new AvatarsHandler();
+  const avatarsHandler = new AvatarsHandler(optionsProvider);
   const ccInfiniteScroll = new CCInfiniteScroll();
   const flattenThreads = new FlattenThreads();
 
