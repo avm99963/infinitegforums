@@ -1,4 +1,3 @@
-import MWOptionsWatcherClient from '../../presentation/mainWorldContentScriptBridge/optionsWatcher/Client';
 import {
   OptionCodename,
   OptionsValues,
@@ -10,6 +9,7 @@ import {
 } from './ResponseModifier.port.js';
 
 import { Modifier } from './types.js';
+import { OptionsProviderPort } from '@/services/options/OptionsProvider';
 
 // Content script target
 export const kCSTarget = 'TWPT-XHRInterceptorOptionsWatcher-CS';
@@ -17,24 +17,10 @@ export const kCSTarget = 'TWPT-XHRInterceptorOptionsWatcher-CS';
 export const kMWTarget = 'TWPT-XHRInterceptorOptionsWatcher-MW';
 
 export default class ResponseModifierAdapter implements ResponseModifierPort {
-  private optionsWatcher: MWOptionsWatcherClient;
-
-  constructor(private responseModifiers: Modifier[]) {
-    this.optionsWatcher = new MWOptionsWatcherClient(
-      Array.from(this.watchingFeatures(this.responseModifiers)),
-      kCSTarget,
-      kMWTarget,
-    );
-  }
-
-  private watchingFeatures(modifiers: Modifier[]): Set<OptionCodename> {
-    const union = new Set<OptionCodename>();
-    for (const m of modifiers) {
-      if (!m.featureGated) continue;
-      for (const feature of m.features) union.add(feature);
-    }
-    return union;
-  }
+  constructor(
+    private readonly responseModifiers: Modifier[],
+    private readonly optionsProvider: OptionsProviderPort,
+  ) {}
 
   private async getMatchingModifiers(requestUrl: string) {
     // First filter modifiers which match the request URL regex.
@@ -44,15 +30,12 @@ export default class ResponseModifierAdapter implements ResponseModifierPort {
 
     // Now filter modifiers which require a certain feature to be enabled
     // (feature-gated modifiers).
-    const featuresAreEnabled = await this.optionsWatcher.getOptions(
-      Array.from(this.watchingFeatures(urlModifiers)),
-    );
+    const optionsConfiguration = await this.optionsProvider.getOptionsConfiguration();
 
     return urlModifiers.filter((modifier) => {
       // TODO(https://iavm.xyz/b/twpowertools/230): Fix the type assertion below.
       return (
-        !modifier.featureGated ||
-        modifier.isEnabled(featuresAreEnabled as OptionsValues)
+        modifier.isEnabled(optionsConfiguration)
       );
     });
   }

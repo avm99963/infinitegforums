@@ -2,11 +2,11 @@ import { Modifier } from '../responseModifier/types';
 
 const createMessageRemoveParentRef: Modifier = {
   urlRegex: /api\/CreateMessage/i,
-  featureGated: true,
   features: ['flattenthreads', 'flattenthreads_switch_enabled'],
-  isEnabled(options) {
+  isEnabled(optionsConfiguration) {
     return (
-      options['flattenthreads'] && options['flattenthreads_switch_enabled']
+      optionsConfiguration.isEnabled('flattenthreads') &&
+      optionsConfiguration.isEnabled('flattenthreads_switch_enabled')
     );
   },
   async interceptor(response) {

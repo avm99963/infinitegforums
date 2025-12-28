@@ -13,6 +13,7 @@ common_ts_project(
     ],
     deps = [
         "//src/common/architecture/scripts",
+        "//src/services/options",
         "//src/xhrInterceptor/fetchProxy",
         "//src/xhrInterceptor/interceptors",
         "//src/xhrInterceptor/killSwitchHandler",

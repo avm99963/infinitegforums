@@ -1,13 +1,10 @@
-import {
-  OptionCodename,
-  OptionsValues,
-} from '../../common/options/optionsPrototype';
+import { OptionsConfiguration } from '@/common/options/OptionsConfiguration';
+import { OptionCodename } from '../../common/options/optionsPrototype';
 import { ProtobufObject } from '../../common/protojs/protojs.types';
 
 export interface Modifier {
   urlRegex: RegExp;
-  featureGated: Boolean;
   features: OptionCodename[];
-  isEnabled(options: OptionsValues): Boolean;
+  isEnabled(options: OptionsConfiguration): Boolean;
   interceptor(response: ProtobufObject, url: string): Promise<ProtobufObject>;
 }

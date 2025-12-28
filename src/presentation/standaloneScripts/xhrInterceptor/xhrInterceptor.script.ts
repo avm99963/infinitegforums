@@ -1,3 +1,4 @@
+import { OptionsProviderPort } from '@/services/options/OptionsProvider';
 import Script, {
   ScriptEnvironment,
   ScriptPage,
@@ -20,7 +21,10 @@ export default class XHRInterceptorScript extends Script {
   environment = ScriptEnvironment.InjectedScript;
   runPhase = ScriptRunPhase.Start;
 
-  constructor(private readonly responseModifiers: Modifier[]) {
+  constructor(
+    private readonly responseModifiers: Modifier[],
+    private readonly optionsProvider: OptionsProviderPort,
+  ) {
     super();
   }
 
@@ -33,6 +37,7 @@ export default class XHRInterceptorScript extends Script {
     ) {
       const responseModifier = new ResponseModifierAdapter(
         this.responseModifiers,
+        this.optionsProvider,
       );
       const interceptorHandler = new InterceptorHandlerAdapter(
         interceptors.interceptors,

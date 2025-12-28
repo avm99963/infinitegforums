@@ -1,3 +1,4 @@
+import OptionsProviderAdapter from '@/infrastructure/services/options/OptionsProvider.adapter';
 import ScriptRunner from '../../../../infrastructure/presentation/scripts/ScriptRunner';
 import ScriptSorterAdapter from '../../../../infrastructure/presentation/scripts/ScriptSorter.adapter';
 import { SortedScriptsProviderAdapter } from '../../../../infrastructure/presentation/scripts/SortedScriptsProvider.adapter';
@@ -5,11 +6,16 @@ import XHRInterceptorScript from '../../../../presentation/standaloneScripts/xhr
 import createMessageRemoveParentRef from '../../../../xhrInterceptor/responseModifiers/createMessageRemoveParentRef';
 import flattenThread from '../../../../xhrInterceptor/responseModifiers/flattenThread';
 import loadMoreThread from '../../../../xhrInterceptor/responseModifiers/loadMoreThread';
+import { MWOptionsConfigurationRepositoryAdapter } from '@/options/infrastructure/repositories/MWOptionsConfiguration.repository.adapter';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
 
 function createScriptRunner() {
+  const optionsProvider = new OptionsProviderAdapter(
+    new MWOptionsConfigurationRepositoryAdapter(),
+  );
+
   return new ScriptRunner(
     new SortedScriptsProviderAdapter(
       [
@@ -17,7 +23,7 @@ function createScriptRunner() {
           loadMoreThread,
           flattenThread,
           createMessageRemoveParentRef,
-        ]),
+        ], optionsProvider),
       ],
       new ScriptSorterAdapter(),
     ).getScripts(),

@@ -18,6 +18,6 @@ common_ts_project(
     deps = [
         "//src/common/options",
         "//src/common/protojs",
-        "//src/presentation/mainWorldContentScriptBridge/optionsWatcher",
+        "//src/services/options",
     ],
 )

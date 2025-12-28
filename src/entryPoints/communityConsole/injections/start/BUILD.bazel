@@ -12,6 +12,8 @@ common_ts_project(
     ],
     deps = [
         "//src/infrastructure/presentation/scripts",
+        "//src/infrastructure/services/options",
+        "//src/options/infrastructure/repositories",
         "//src/presentation/standaloneScripts/xhrInterceptor",
         "//src/xhrInterceptor/responseModifiers",
     ],
