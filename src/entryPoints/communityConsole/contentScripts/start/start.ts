@@ -16,7 +16,6 @@ import LoadDraftsSetupScript from '../../../../features/loadDrafts/presentation/
 import WorkflowsImportSetUpScript from '../../../../features/workflows/presentation/scripts/importSetUp.script';
 import CCExtraInfoSetUpScript from '../../../../features/extraInfo/presentation/scripts/ccExtraInfoSetUp.script';
 import MWI18nServerScript from '../../../../presentation/standaloneScripts/mainWorldServers/MWI18nServerScript.script';
-import MWOptionsWatcherServerScript from '../../../../presentation/standaloneScripts/mainWorldServers/MWOptionsWatcherServerScript.script';
 import ApplyStartupDataModificationsOnStartScript from '../../../../presentation/standaloneScripts/startupDataStorage/applyStartupDataModificationsOnStart.script';
 import ThreadPageDesignWarningSetUpScript from '../../../../features/threadPageDesignWarning/presentation/scripts/setUp.script';
 import FlattenThreadsSetUpReplyActionHandlerScript from '../../../../features/flattenThreads/presentation/scripts/setUpReplyActionHandler.script';
@@ -88,7 +87,6 @@ function createScriptRunner() {
         new MWOptionsConfigurationRepositoryServerScript(
           optionsConfigurationRepository,
         ),
-        new MWOptionsWatcherServerScript(),
       ],
       new ScriptSorterAdapter(),
     ).getScripts(),

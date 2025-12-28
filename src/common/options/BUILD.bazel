@@ -25,13 +25,7 @@ common_ts_project(
 
 common_js_project(
     name = "js",
-    srcs = glob(
-        ["**/*.js"],
-        exclude = [
-            "**/*.test.js",
-            "**/*.pre.js",
-        ],
-    ) + [":options_utils"],
+    srcs = [":options_utils"],
     deps = [":ts"],
 )
 

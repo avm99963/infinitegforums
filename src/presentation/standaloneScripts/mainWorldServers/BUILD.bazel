@@ -17,7 +17,6 @@ common_ts_project(
         "//src/options/repositories",
         "//src/presentation/mainWorldContentScriptBridge/i18n",
         "//src/presentation/mainWorldContentScriptBridge/optionsConfigurationRepository",
-        "//src/presentation/mainWorldContentScriptBridge/optionsWatcher",
         "//src/xhrInterceptor/responseModifier",
     ],
 )
