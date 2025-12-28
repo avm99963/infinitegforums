@@ -2,20 +2,17 @@ load("//tools:bazel/swc.bzl", "swc_pkg")
 load("//tools:common_ts_project.bzl", "common_ts_project")
 
 common_ts_project(
-    name = "responseModifier",
+    name = "responseModifiers",
     allow_js = True,
     declaration = True,
     source_map = True,
     transpiler = swc_pkg,
     tsconfig = "//:tsconfig_pkg",
     visibility = [
-        "//src:presentation",
-        "//src/xhrInterceptor/fetchProxy:__subpackages__",
-        "//src/xhrInterceptor/responseModifiers:__subpackages__",
-        "//src/xhrInterceptor/xhrProxy:__subpackages__",
+        "//src:entrypoint",
     ],
     deps = [
+        "//src/xhrInterceptor/responseModifier",
         "//src/common/protojs",
-        "//src/xhrInterceptor/modifierMatcher",
     ],
 )

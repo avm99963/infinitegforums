@@ -25,6 +25,7 @@ package_group(
         "//src/features/ccForceHideDrawer/presentation/...",
         "//src/features/enhancedAnnouncementsDot/presentation/...",
         "//src/features/extraInfo/presentation/...",
+        "//src/features/fixPEKB381989895/presentation/...",
         "//src/features/fixedToolbar/presentation/...",
         "//src/features/flattenThreads/core",
         "//src/features/flattenThreads/presentation/...",

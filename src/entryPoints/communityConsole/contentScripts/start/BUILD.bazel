@@ -17,6 +17,7 @@ common_ts_project(
         "//src/features/ccDarkTheme/presentation/scripts",
         "//src/features/extraInfo/core",
         "//src/features/extraInfo/presentation/scripts",
+        "//src/features/fixPEKB381989895/presentation/scripts",
         "//src/features/flattenThreads/core",
         "//src/features/flattenThreads/presentation/scripts",
         "//src/features/interopThreadPage/presentation/scripts",

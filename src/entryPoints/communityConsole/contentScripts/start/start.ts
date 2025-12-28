@@ -30,6 +30,7 @@ import AutoRefresh from '@/features/autoRefresh/core/autoRefresh';
 import StartupDataStorageAdapter from '@/infrastructure/services/communityConsole/StartupDataStorage.adapter';
 import ThreadPageDesignWarning from '@/features/threadPageDesignWarning/core/threadPageDesignWarning';
 import WorkflowsImport from '@/features/workflows/core/communityConsole/import/import';
+import FixStartupDataScript from '@/features/fixPEKB381989895/presentation/scripts/fixStartupData.script';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -71,6 +72,7 @@ function createScriptRunner() {
         new CCDarkThemeInjectAutoDarkTheme(optionsProvider),
         new CCDarkThemeInjectForcedDarkTheme(optionsProvider),
         new CCExtraInfoSetUpScript(extraInfo),
+        new FixStartupDataScript(optionsProvider, startupDataStorage),
         new FlattenThreadsSetUpReplyActionHandlerScript(
           new FlattenThreadsReplyActionHandler(optionsProvider),
         ),

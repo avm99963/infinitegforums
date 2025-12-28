@@ -162,6 +162,11 @@ const rawOptionConfigs = {
     context: OptionContext.Options,
     killSwitchType: KillSwitchType.Option,
   },
+  fixpekb381989895: {
+    defaultValue: false,
+    context: OptionContext.Options,
+    killSwitchType: KillSwitchType.Option,
+  },
 
   // Experiments
   workflows: {

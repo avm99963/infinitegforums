@@ -35,6 +35,7 @@ import { perForumActivityFeature } from '../../../features/extraInfo/presentatio
 import { previousPostsFeature } from '../../../features/previousPosts/presentation/options/feature';
 import { fixLinkDialogFeature } from '../../../features/linkDialogFix/presentation/options/feature';
 import { logStartupDataFeature } from '../../../features/logStartupData/presentation/options/feature';
+import { fixPEKB381989895Feature } from '@/features/fixPEKB381989895/presentation/options/feature';
 
 const minorUIEnhancementsSectionName = () =>
   msg('Minor UI enhancements', {
@@ -51,7 +52,12 @@ export const getFeatureCategories = () => [
     name: msg('General', {
       desc: 'Name of the category of extension features that apply to multiple areas of the forums platform.',
     }),
-    features: [ccDarkThemeFeature(), redirectFeature(), uiSpacingFeature()],
+    features: [
+      ccDarkThemeFeature(),
+      redirectFeature(),
+      uiSpacingFeature(),
+      fixPEKB381989895Feature(),
+    ],
     sections: [
       new FeatureSection({
         name: minorUIEnhancementsSectionName(),

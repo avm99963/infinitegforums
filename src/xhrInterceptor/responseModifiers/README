@@ -1,2 +1,3 @@
 TODO(https://iavm.xyz/b/twpowertools/176): the individual response modifiers
-should be saved in a package under //src/features.
+should be saved in a package under //src/features. Some of them are already
+there.

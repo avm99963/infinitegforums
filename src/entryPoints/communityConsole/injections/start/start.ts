@@ -7,6 +7,7 @@ import createMessageRemoveParentRef from '../../../../xhrInterceptor/responseMod
 import flattenThread from '../../../../xhrInterceptor/responseModifiers/flattenThread';
 import loadMoreThread from '../../../../xhrInterceptor/responseModifiers/loadMoreThread';
 import { MWOptionsConfigurationRepositoryAdapter } from '@/options/infrastructure/repositories/MWOptionsConfiguration.repository.adapter';
+import removeAbuseReviewTimestampsFromViewForum from '@/features/fixPEKB381989895/presentation/responseModifiers/viewForum/removeAbuseReviewTimestamps';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -21,7 +22,12 @@ function createScriptRunner() {
       [
         new XHRInterceptorScript(
           [],
-          [loadMoreThread, flattenThread, createMessageRemoveParentRef],
+          [
+            loadMoreThread,
+            flattenThread,
+            createMessageRemoveParentRef,
+            removeAbuseReviewTimestampsFromViewForum,
+          ],
           optionsProvider,
         ),
       ],
