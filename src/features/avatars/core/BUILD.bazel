@@ -1,7 +1,13 @@
-load("//tools:common_js_project.bzl", "common_js_project")
+load("//tools:bazel/swc.bzl", "swc_pkg")
+load("//tools:common_ts_project.bzl", "common_ts_project")
 
-common_js_project(
+common_ts_project(
     name = "core",
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = swc_pkg,
+    tsconfig = "//:tsconfig_pkg",
     visibility = [
         "//src:entrypoint",
         "//src/features/avatars:__subpackages__",
@@ -11,5 +17,7 @@ common_js_project(
         "//:node_modules/poll-until-promise",
         "//src/common",
         "//src/common/options",
+        "//src/common/protojs",
+        "//src/xhrInterceptor/domain",
     ],
 )
