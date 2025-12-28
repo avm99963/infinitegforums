@@ -19,8 +19,8 @@ preprocessor(
 
 preprocessor(
     name = "preprocessed_api",
-    src = "api.pre.js",
-    out = "api.js",
+    src = "api.pre.ts",
+    out = "api.ts",
     defined_dependencies = select({
         "//:gecko": ["GECKO"],
         "//conditions:default": [],
@@ -50,13 +50,21 @@ common_js_project(
         ],
     ) + [
         ":preprocessed_action_api",
-        ":preprocessed_api",
         ":preprocessed_ext_utils",
     ],
 )
 
 common_ts_project(
     name = "ts",
+    srcs = glob(
+        ["**/*.ts"],
+        exclude = [
+            "**/*.test.ts",
+            "**/*.pre.ts",
+        ],
+    ) + [
+        ":preprocessed_api",
+    ],
     allow_js = True,
     declaration = True,
     source_map = True,
