@@ -22,4 +22,10 @@ repeated).
 Deleting the field works because it doesn't seem to be used by the Community
 Console frontend for any purpose.
 
+Furthermore, we intercept the `ViewForum` requests which are used to show the
+unread message count in the sidebar chips (e.g. "Needs review (999+)"). These
+requests ask for 1000 messages and download the user profile for each of them,
+which exacerbates the memory issue. We modify these requests to ask for 0
+messages instead.
+
 [thread]: https://support.google.com/s/community/forum/51488989/thread/381989895

@@ -11,6 +11,7 @@ common_ts_project(
         "//:__pkg__",
     ],
     deps = [
+        "//src/features/fixPEKB381989895/presentation/requestModifiers",
         "//src/features/fixPEKB381989895/presentation/responseModifiers",
         "//src/infrastructure/presentation/scripts",
         "//src/infrastructure/services/options",

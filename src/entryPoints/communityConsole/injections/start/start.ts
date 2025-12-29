@@ -8,6 +8,7 @@ import flattenThread from '../../../../xhrInterceptor/responseModifiers/flattenT
 import loadMoreThread from '../../../../xhrInterceptor/responseModifiers/loadMoreThread';
 import { MWOptionsConfigurationRepositoryAdapter } from '@/options/infrastructure/repositories/MWOptionsConfiguration.repository.adapter';
 import removeAbuseReviewTimestampsFromViewForum from '@/features/fixPEKB381989895/presentation/responseModifiers/viewForum/removeAbuseReviewTimestamps';
+import limitViewForumMessages from '../../../../features/fixPEKB381989895/presentation/requestModifiers/viewForum/limitNumMessages'; // New import
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -21,7 +22,9 @@ function createScriptRunner() {
     new SortedScriptsProviderAdapter(
       [
         new XHRInterceptorScript(
-          [],
+          [
+            limitViewForumMessages,
+          ],
           [
             loadMoreThread,
             flattenThread,
