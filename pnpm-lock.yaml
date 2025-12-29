@@ -12,7 +12,7 @@ importers:
     dependencies:
       '@lit-labs/motion':
         specifier: ^1.0.9
-        version: 1.0.9(lit-html@3.3.2)
+        version: 1.1.0(lit-html@3.3.2)
       '@lit/localize':
         specifier: ^0.12.0
         version: 0.12.2
@@ -819,8 +819,8 @@ packages:
   '@kwsites/promise-deferred@1.1.1':
     resolution: {integrity: sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==}
 
-  '@lit-labs/motion@1.0.9':
-    resolution: {integrity: sha512-oUdZpZDyf9UKAW/im5nkXY6W4cpsMlDgzN99j0FcdPiAOsGclxJpRYbvQz9/eQrPlXpywnr4SkzS9WsSeKILRA==}
+  '@lit-labs/motion@1.1.0':
+    resolution: {integrity: sha512-ZIVr97dCfOCXWwHczsZ/46BCia+uEjZ15sDTo2cY9L61sWWjngvV80CXn2NPjcb/cl7LJpPJXhFOLYNlXKzKJA==}
     peerDependencies:
       lit-html: '*'
 
@@ -5692,6 +5692,9 @@ packages:
   winreg@0.0.12:
     resolution: {integrity: sha512-typ/+JRmi7RqP1NanzFULK36vczznSNN8kWVA9vIqXyv8GhghUlwhGp1Xj3Nms1FsPcNnsQrJOR10N58/nQ9hQ==}
 
+  wobble@1.5.1:
+    resolution: {integrity: sha512-vQD1uu0yXhZWfQJKVf2UVNb3AVnD0qXAbcIqG6Aw02ABLVm77xz6KcLuduWSwOiOMNh8TjZqouZsHTJWTdLwVQ==}
+
   word-wrap@1.2.5:
     resolution: {integrity: sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==}
     engines: {node: '>=0.10.0'}
@@ -7025,10 +7028,11 @@ snapshots:
 
   '@kwsites/promise-deferred@1.1.1': {}
 
-  '@lit-labs/motion@1.0.9(lit-html@3.3.2)':
+  '@lit-labs/motion@1.1.0(lit-html@3.3.2)':
     dependencies:
       lit: 3.3.2
       lit-html: 3.3.2
+      wobble: 1.5.1
 
   '@lit-labs/ssr-dom-shim@1.4.0': {}
 
@@ -12865,6 +12869,8 @@ snapshots:
   wildcard@2.0.1: {}
 
   winreg@0.0.12: {}
+
+  wobble@1.5.1: {}
 
   word-wrap@1.2.5: {}
 
