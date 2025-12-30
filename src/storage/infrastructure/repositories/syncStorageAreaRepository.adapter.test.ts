@@ -98,7 +98,7 @@ describe('when the storage area uses the latest schema available', () => {
       expect(result).toEqual(dummyItems);
     });
 
-    test('should retrieve all the items when the keys parameter is not supplied', async ({
+    test('should not return an item if it is not set in the keys parameter', async ({
       sut,
     }) => {
       chrome.storage.sync.clear();
