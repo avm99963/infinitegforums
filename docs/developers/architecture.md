@@ -25,13 +25,16 @@ below).
   the actual scripts that are injected. They are the composition root for pure
   DI, and depend on the scripts found in the presentation layer to provide the
   actual logic.
+    - The main entrypoints are defined in `//src/entryPoints`.
+    - However, to modularize entrypoints, common code can be saved in
+      `compositionRoot` folders.
 - **Presentation:** the first layer, used to present the feature to users.
 - **Ui:** layer which contains the UI logic. It consists of:
     - **Components**: the UI components.
     - **Injectors**: logic which adds components to the Community Console or
       Tailwind.
-    - **Styles**: stylesheets used by injected components or to modify the forums
-      appearance.
+    - **Styles**: stylesheets used by injected components or to modify the
+      forums appearance.
 - **Domain:** layer which contains the entities/models.
 - **Services and repositories:** layer which holds the classes used to interact
   with the outside world.
