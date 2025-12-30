@@ -759,6 +759,18 @@
   <source>Message composer</source>
   <note from="lit-localize">Name of the category of extension features related to the message composer.</note>
 </trans-unit>
+<trans-unit id="s45ee97a0bb6df8de">
+  <source>In batches</source>
+  <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
+</trans-unit>
+<trans-unit id="sd984a10a3a8f281e">
+  <source>All at once</source>
+  <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
+</trans-unit>
+<trans-unit id="s37cbecaec58e2192">
+  <source>Mode</source>
+  <note from="lit-localize">Suboption for the "Infinite scroll" (in threads) feature.</note>
+</trans-unit>
     </body>
   </file>
 </xliff>

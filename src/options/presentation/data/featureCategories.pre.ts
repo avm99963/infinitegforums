@@ -11,8 +11,7 @@ import { avatarsFeature } from '../../../features/avatars/presentation/options/f
 import { autoRefreshFeature } from '../../../features/autoRefresh/presentation/options/feature';
 import {
   threadListsInfiniteScrollFeature,
-  threadsInfiniteScrollAllAtOnceFeature,
-  threadsInfiniteScrollInBatchesFeature,
+  threadsInfiniteScrollFeature,
 } from '../../../features/infiniteScroll/presentation/options/feature';
 import { batchLockFeature } from '../../../features/batchLock/presentation/options/feature';
 import { bulkMoveFeature } from '../../../features/bulkMove/presentation/options/feature';
@@ -21,10 +20,7 @@ import { repositionExpandThreadFeature } from '../../../features/repositionExpan
 import { increaseContrastFeature } from '../../../features/increaseContrast/presentation/options/feature';
 import { flattenThreadsFeature } from '../../../features/flattenThreads/presentation/options/feature';
 import { bulkReportRepliesFeature } from '../../../features/bulkReportReplies/presentation/options/feature';
-import {
-  profileIndicatorDotFeature,
-  profileIndicatorFeature,
-} from '../../../features/profileIndicator/presentation/options/feature';
+import { profileIndicatorFeature } from '../../../features/profileIndicator/presentation/options/feature';
 import { interopThreadPageFeature } from '../../../features/interopThreadPage/presentation/options/feature';
 import { imageMaxHeightFeature } from '../../../features/imageMaxHeight/presentation/options/feature';
 import { blockDraftsFeature } from '../../../features/blockDrafts/presentation/options/feature';
@@ -102,9 +98,7 @@ export const getFeatureCategories = () => [
     features: [
       flattenThreadsFeature(),
       profileIndicatorFeature(),
-      profileIndicatorDotFeature(),
-      threadsInfiniteScrollInBatchesFeature(),
-      threadsInfiniteScrollAllAtOnceFeature(),
+      threadsInfiniteScrollFeature(),
       interopThreadPageFeature(),
     ],
     sections: [

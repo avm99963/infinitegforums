@@ -12,10 +12,10 @@ const rawOptionConfigs = {
     context: OptionContext.Options,
     killSwitchType: KillSwitchType.Option,
   },
-  threadall: {
-    defaultValue: true,
+  thread_mode: {
+    defaultValue: 'batches',
     context: OptionContext.Options,
-    killSwitchType: KillSwitchType.Option,
+    killSwitchType: KillSwitchType.Ignore,
   },
   fixedtoolbar: {
     defaultValue: false,
@@ -43,11 +43,6 @@ const rawOptionConfigs = {
     killSwitchType: KillSwitchType.Option,
   },
   stickysidebarheaders: {
-    defaultValue: false,
-    context: OptionContext.Options,
-    killSwitchType: KillSwitchType.Option,
-  },
-  profileindicator: {
     defaultValue: false,
     context: OptionContext.Options,
     killSwitchType: KillSwitchType.Option,
@@ -241,6 +236,16 @@ const rawOptionConfigs = {
     killSwitchType: KillSwitchType.Deprecated,
   },
   fixpekb269560789: {
+    defaultValue: false,
+    context: OptionContext.Deprecated,
+    killSwitchType: KillSwitchType.Deprecated,
+  },
+  threadall: {
+    defaultValue: true,
+    context: OptionContext.Deprecated,
+    killSwitchType: KillSwitchType.Deprecated,
+  },
+  profileindicator: {
     defaultValue: false,
     context: OptionContext.Deprecated,
     killSwitchType: KillSwitchType.Deprecated,
