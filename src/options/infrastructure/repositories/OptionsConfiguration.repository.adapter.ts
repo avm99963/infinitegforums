@@ -6,13 +6,12 @@ import {
 import {
   OptionsConfiguration,
   OptionsStatus,
-  OptionStatus,
 } from '../../../common/options/OptionsConfiguration';
 import {
   OptionCodename,
-  optionCodenames,
-  OptionsValues,
+  options,
 } from '../../../common/options/optionsPrototype';
+import { Option } from '@/common/options/Option';
 
 // Prioritize reads before writes of the cached optionsConfiguration.
 const kReadPriority = 10;
@@ -22,9 +21,7 @@ const kWritePriority = 0;
  * Implementation of the repository of OptionsConfiguration that reads the
  * options from the WebExtension storage via the chrome.storage api.
  */
-export class OptionsConfigurationRepositoryAdapter
-  implements OptionsConfigurationRepositoryPort
-{
+export class OptionsConfigurationRepositoryAdapter implements OptionsConfigurationRepositoryPort {
   private optionsConfiguration: OptionsConfiguration;
   private mutex: MutexInterface = withTimeout(new Mutex(), 60 * 1000);
   private listeners: Set<OptionsConfigurationChangeListener> = new Set();
@@ -83,19 +80,19 @@ export class OptionsConfigurationRepositoryAdapter
   }
 
   private async retrieveOptionsConfiguration() {
-    const options = await chrome.storage.sync.get();
-    const entries = optionCodenames.map(
-      <O extends OptionCodename>(codename: O): [O, OptionStatus<O>] => [
-        codename,
+    const items = await chrome.storage.sync.get();
+    const entries = options.map((option: Option<unknown>) => {
+      return [
+        option.codename,
         {
-          value: options[codename] as OptionsValues[O],
+          value: items[option.codename] ?? option.defaultValue,
           isKillSwitchEnabled: false,
         },
-      ],
-    );
+      ] as const;
+    });
     const optionsStatus = Object.fromEntries(entries) as OptionsStatus;
 
-    const forceDisabledFeatures = options._forceDisabledFeatures;
+    const forceDisabledFeatures = items._forceDisabledFeatures;
     if (Array.isArray(forceDisabledFeatures)) {
       this.addKillSwitchInformation(forceDisabledFeatures, optionsStatus);
     }
