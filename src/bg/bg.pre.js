@@ -1,6 +1,7 @@
 import OptionsProviderAdapter from '@/infrastructure/services/options/OptionsProvider.adapter.js';
 import {BgHandler} from '@/options/bgHandler/bgHandler';
 import {OptionsConfigurationRepositoryAdapter} from '@/options/infrastructure/repositories/OptionsConfiguration.repository.adapter.js';
+import {PERFORM_MIGRATION_MESSAGE_NAME} from '@/storage/infrastructure/services/syncStorageMigratorProxyToBg.js';
 // #!if defined(MV3)
 import XMLHttpRequest from 'sw-xhr';
 // #!endif
@@ -10,6 +11,9 @@ import {cleanUpOptions} from '../common/options/optionsUtils.js';
 // #!if defined(ENABLE_KILL_SWITCH_MECHANISM)
 import KillSwitchMechanism from '../killSwitch/index.js';
 // #!endif
+import {SyncStorageMigratorAdapter} from '../storage/infrastructure/services/syncStorageMigrator.adapter.js';
+import sortedMigrations from '../storage/migrations/index.js';
+import {getDefaultStorage, LATEST_SCHEMA_VERSION} from '../storage/schemas/index.js';
 import UpdateNotifier from '../updateNotifier/presentation/bg/index.js';
 
 // #!if defined(MV3)
@@ -97,7 +101,10 @@ chrome.storage.onChanged.addListener((_, areaName) => {
   bgHandler.handlePossibleOptionsChange();
 });
 
-chrome.runtime.onMessage.addListener((msg, sender) => {
+const storageMigrator = new SyncStorageMigratorAdapter(
+    sortedMigrations, LATEST_SCHEMA_VERSION, getDefaultStorage);
+
+chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (sender.id !== chrome.runtime.id)
     return console.warn(
         'An unknown sender (' + sender.id +
@@ -111,6 +118,18 @@ chrome.runtime.onMessage.addListener((msg, sender) => {
         url: chrome.runtime.getURL('workflows.html'),
       });
       break;
+
+    case PERFORM_MIGRATION_MESSAGE_NAME:
+      storageMigrator.migrate()
+          .then(() => {
+            sendResponse({});
+          })
+          .catch(err => {
+            console.error(
+                'Error while migrating storage schema (via proxy):', err);
+            sendResponse({error: err.message || err.toString()});
+          });
+      return true;
 
     default:
       console.warn('Unknown message "' + msg.message + '".');

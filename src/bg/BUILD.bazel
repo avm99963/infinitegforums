@@ -23,6 +23,9 @@ common_js_project(
         "//src/common/options",
         "//src/killSwitch",
         "//src/options/bgHandler",
+        "//src/storage/infrastructure/services",
+        "//src/storage/migrations",
+        "//src/storage/schemas",
         "//src/updateNotifier/presentation/bg",
     ],
 )
