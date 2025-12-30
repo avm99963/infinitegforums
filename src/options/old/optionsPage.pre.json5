@@ -48,6 +48,11 @@
         {codename: 'imagemaxheight'},
         {codename: 'interopthreadpage'},
         {codename: 'uispacing'},
+        {codename: 'fixlinkdialog', customHTML: '<div class="option"><input type="checkbox" id="fixlinkdialog"> <label for="fixlinkdialog">Fix link dialog: patches the bug that incorrectly opens the link dialog multiple times when adding or editing a link.</label></div>'},
+        {codename: 'fixpekb381989895', customHTML: '<div class="option"><input type="checkbox" id="fixpekb381989895"> <label for="fixpekb381989895">Attempt to fix performance issues: best-effort workaround for the issues discussed at <a href="https://support.google.com/s/community/forum/51488989/thread/381989895" target="_blank">pekb/381989895</a>.</label></div>'},
+        // #!if !defined(PRODUCTION)
+        {codename: 'logstartupdata', customHTML: '<div class="option"><input type="checkbox" id="logstartupdata"> <label for="logstartupdata">[DEBUG] Log startup data</label></div>'},
+        // #!endif
       ],
     },
   ],
