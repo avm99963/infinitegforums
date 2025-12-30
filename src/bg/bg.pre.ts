@@ -100,6 +100,9 @@ chrome.runtime.onStartup.addListener(() => {
 
 chrome.runtime.onInstalled.addListener((details) => {
   if (details.reason == 'install' || details.reason == 'update') {
+    // Running the migration preemptively.
+    storageMigrator.migrate();
+
     defaultOptionsCommitter.commit();
 
     // #!if defined(ENABLE_KILL_SWITCH_MECHANISM)
