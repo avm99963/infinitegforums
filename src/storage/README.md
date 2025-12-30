@@ -10,10 +10,9 @@ development of this project.
 Then, [migrations][migration] (saved in the `migrations` folder) define how to
 move from one version of the schema to the next one.
 
-In `repositories` we will define a port that lets its users access the storage
-area without having to care too much about the migration process (so callers
-can assume that the storage area has been migrated to the latest schema
-version).
+In `repositories` we define a port that lets its users access the storage area
+without having to care too much about the migration process (so callers can
+assume that the storage area has been migrated to the latest schema version).
 
 ## How migrations are executed
 
