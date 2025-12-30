@@ -1,0 +1,36 @@
+load("@fremtind_rules_vitest//vitest:defs.bzl", "vitest_test")
+load("//tools:bazel/swc.bzl", "swc_pkg")
+load("//tools:common_ts_project.bzl", "common_ts_project")
+
+main_deps = [
+    "//:node_modules/@types/chrome",
+    "//:node_modules/async-mutex",
+    "//src/storage/domain",
+    "//src/storage/schemas",
+    "//src/storage/services",
+]
+
+common_ts_project(
+    name = "services",
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = swc_pkg,
+    tsconfig = "//:tsconfig_pkg",
+    visibility = [
+        "//src:entrypoint",
+        "//src/bg:__subpackages__",
+    ],
+    deps = main_deps,
+)
+
+vitest_test(
+    name = "test",
+    config = "//:vitest_config",
+    data = [
+        "syncStorageMigrator.adapter.test.ts",
+        "syncStorageMigrator.adapter.ts",
+        "//src/tests/__mocks__",
+    ] + main_deps,
+    node_modules = "//:node_modules",
+)

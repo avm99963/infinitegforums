@@ -93,6 +93,7 @@ package_group(
     packages = [
         "//src/infrastructure/services/...",
         "//src/infrastructure/ui/services/...",
+        "//src/storage/infrastructure/services/...",
     ],
 )
 
