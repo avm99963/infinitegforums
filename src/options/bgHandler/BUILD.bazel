@@ -1,23 +1,31 @@
-load("//tools:common_js_project.bzl", "common_js_project")
+load("//tools:bazel/swc.bzl", "swc_pkg")
+load("//tools:common_ts_project.bzl", "common_ts_project")
 load("//tools/preprocessor:bzl/preprocessor.bzl", "preprocessor")
 
 preprocessor(
     name = "preprocessed_bg_handler",
-    src = "bgHandler.pre.js",
-    out = "bgHandler.js",
+    src = "bgHandler.pre.ts",
+    out = "bgHandler.ts",
     defined_dependencies = select({
         "//:mv3": ["MV3"],
         "//conditions:default": [],
     }),
 )
 
-common_js_project(
+common_ts_project(
     name = "bgHandler",
     srcs = [":preprocessed_bg_handler"],
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = swc_pkg,
+    tsconfig = "//:tsconfig_pkg",
     visibility = [
         "//src/bg:__subpackages__",
     ],
     deps = [
+        "//:node_modules/@types/chrome",
         "//src/common/options",
+        "//src/services/options",
     ],
 )

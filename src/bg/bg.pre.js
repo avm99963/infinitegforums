@@ -1,3 +1,6 @@
+import OptionsProviderAdapter from '@/infrastructure/services/options/OptionsProvider.adapter.js';
+import {BgHandler} from '@/options/bgHandler/bgHandler';
+import {OptionsConfigurationRepositoryAdapter} from '@/options/infrastructure/repositories/OptionsConfiguration.repository.adapter.js';
 // #!if defined(MV3)
 import XMLHttpRequest from 'sw-xhr';
 // #!endif
@@ -7,7 +10,6 @@ import {cleanUpOptions} from '../common/options/optionsUtils.js';
 // #!if defined(ENABLE_KILL_SWITCH_MECHANISM)
 import KillSwitchMechanism from '../killSwitch/index.js';
 // #!endif
-import {handleBgOptionChange, handleBgOptionsOnStart} from '../options/bgHandler/bgHandler.js';
 import UpdateNotifier from '../updateNotifier/presentation/bg/index.js';
 
 // #!if defined(MV3)
@@ -38,6 +40,9 @@ function setHasAlreadyStarted() {
     hasAlreadyStarted: true,
   });
 }
+
+const bgHandler = new BgHandler(
+    new OptionsProviderAdapter(new OptionsConfigurationRepositoryAdapter()));
 
 actionApi.onClicked.addListener(() => {
   chrome.runtime.openOptionsPage();
@@ -86,12 +91,10 @@ chrome.runtime.onInstalled.addListener(details => {
 // Clean up optional permissions and check that none are missing for enabled
 // features, and also handle background option changes as soon as the extension
 // starts and when the options change.
-chrome.storage.onChanged.addListener((changes, areaName) => {
+chrome.storage.onChanged.addListener((_, areaName) => {
   if (areaName !== 'sync') return;
 
-  for (let [key] of Object.entries(changes)) {
-    handleBgOptionChange(key);
-  }
+  bgHandler.handlePossibleOptionsChange();
 });
 
 chrome.runtime.onMessage.addListener((msg, sender) => {
@@ -117,7 +120,7 @@ chrome.runtime.onMessage.addListener((msg, sender) => {
 // This should only run once when the extension starts up.
 isExtensionStartup().then(isStartup => {
   if (isStartup) {
-    handleBgOptionsOnStart();
+    bgHandler.handlePossibleOptionsChange();
     setHasAlreadyStarted();
   }
 });
