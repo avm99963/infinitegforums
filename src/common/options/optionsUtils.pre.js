@@ -19,17 +19,12 @@ const syncStorageAreaRepository = getSyncStorageAreaRepository();
  * Returns a promise which returns the values of options |options| which are
  * stored in the sync storage area.
  *
- * |requireOptionalPermissions| will determine whether to check if the required
- * optional permissions have been granted or not to the options which have such
- * requirements. If it is true, features with missing permissions will have
- * their value set to false.
- *
  * When a kill switch is active, affected options always have their value set to
  * false.
  *
  * @deprecated Use OptionsProviderPort.
  */
-export async function getOptions(options, requireOptionalPermissions = true) {
+export async function getOptions(options) {
   // #!if !defined(PRODUCTION)
   console.debug('A call has been made to deprecated function getOptions().');
   // #!endif
@@ -68,11 +63,9 @@ export async function getOptions(options, requireOptionalPermissions = true) {
 }
 
 // Returns a promise which returns whether the |option| option/feature is
-// currently enabled. If the feature requires optional permissions to work,
-// |requireOptionalPermissions| will determine whether to check if the required
-// optional permissions have been granted or not.
-export function isOptionEnabled(option, requireOptionalPermissions = true) {
-  return getOptions(option, requireOptionalPermissions).then(options => {
+// currently enabled.
+export function isOptionEnabled(option) {
+  return getOptions(option).then(options => {
     return options?.[option] === true;
   });
 }
