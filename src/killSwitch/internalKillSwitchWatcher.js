@@ -25,7 +25,7 @@ export default class InternalKillSwitchWatcher {
     chrome.storage.onChanged.addListener((changes, areaName) => {
       const change = changes?.['_forceDisabledFeatures'];
       if (areaName !== 'sync' || change === undefined) return;
-      const newValue = change.newValue.includes(this.watchedKillSwitch);
+      const newValue = change.newValue?.includes(this.watchedKillSwitch) ?? false;
       const hasChanged = newValue !== this.isActive;
       this.isActive = newValue;
       if (hasChanged) this.callback(this.isActive);
