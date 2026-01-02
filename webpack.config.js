@@ -39,11 +39,11 @@ module.exports = (env, args) => {
     updateHandlerLitComponents:
         './src/injections/updateHandlerLitComponents.js',
 
-    // Old options page
-    optionsCommonOld: './src/options/old/optionsCommon.js',
-
-    // New options page
+    // Options page
     optionsScript: './src/options/presentation/scripts/options.js',
+
+    // Experiments page
+    experimentOptions: './src/options/presentation/scripts/experiments_old.js',
 
     // Workflow manager
     workflowManager: './src/features/workflows/ui/components/manager/index.js',

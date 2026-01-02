@@ -1,1 +1,0 @@
-window.CONTEXT = 'options';

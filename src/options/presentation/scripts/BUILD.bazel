@@ -1,16 +1,15 @@
+load("@aspect_rules_js//js:defs.bzl", "js_library")
 load("//tools:bazel/swc.bzl", "swc_pkg")
+load("//tools:common_js_project.bzl", "common_js_project")
 load("//tools:common_ts_project.bzl", "common_ts_project")
 
 common_ts_project(
-    name = "scripts",
+    name = "ts",
     allow_js = True,
     declaration = True,
     source_map = True,
     transpiler = swc_pkg,
     tsconfig = "//:tsconfig_pkg",
-    visibility = [
-        "//:__pkg__",
-    ],
     deps = [
         "//src/common",
         "//src/infrastructure/services/options",
@@ -18,5 +17,25 @@ common_ts_project(
         "//src/options/presentation/data",
         "//src/options/ui/components",
         "//src/storage/compositionRoot",
+    ],
+)
+
+common_js_project(
+    name = "js",
+    deps = [
+        "//src/common",
+        "//src/common/options",
+        "//src/storage/compositionRoot",
+    ],
+)
+
+js_library(
+    name = "scripts",
+    srcs = [
+        ":js",
+        ":ts",
+    ],
+    visibility = [
+        "//:__pkg__",
     ],
 )

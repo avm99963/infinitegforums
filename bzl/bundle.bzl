@@ -18,7 +18,6 @@ def extension_bundle(name, **kwargs):
             "//src/features/workflows/presentation/templates",
             "//src/features/workflows/ui/components/manager",
             "//src/injections",
-            "//src/options/old",
             "//src/options/presentation/scripts",
             "//src/options/presentation/templates",
             "//src/static:common_console_styles",
