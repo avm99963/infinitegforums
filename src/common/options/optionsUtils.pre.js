@@ -1,4 +1,5 @@
 import {optionsPrototype} from './optionsPrototype';
+import { getSyncStorageAreaRepository } from '@/storage/compositionRoot';
 
 const specialOptions = [
   'profileindicatoralt_months',
@@ -38,6 +39,11 @@ export function cleanUpOptions(options, dryRun = false) {
 let timerId = 0;
 let randomId = btoa(Math.random().toString()).substr(10, 5);
 // #!endif
+// NOTE: We are assuming that the functions inside this file are only called
+// from contexts with access to the chrome.storage API (i.e., no main world
+// script calls functions in this file).
+const syncStorageAreaRepository = getSyncStorageAreaRepository();
+
 /**
  * Returns a promise which returns the values of options |options| which are
  * stored in the sync storage area.
@@ -52,62 +58,42 @@ let randomId = btoa(Math.random().toString()).substr(10, 5);
  *
  * @deprecated Use OptionsProviderPort.
  */
-export function getOptions(options, requireOptionalPermissions = true) {
+export async function getOptions(options, requireOptionalPermissions = true) {
   // #!if !defined(PRODUCTION)
-  const timeLabel = 'getOptions--' + randomId + '-' + (timerId++);
-  const startMark = `mark_start_get_options_${timeLabel}`;
-  const endMark = `mark_end_get_options_${timeLabel}`;
-  const measureName = `measure_get_options_${timeLabel}`;
-  global.performance.mark(startMark, {detail: {options}});
+  console.debug('A call has been made to deprecated function getOptions().');
   // #!endif
-  // Once we only target MV3, this can be greatly simplified.
-  return new Promise((resolve, reject) => {
-           if (typeof options === 'string')
-             options = [options, '_forceDisabledFeatures'];
-           else if (Array.isArray(options))
-             options = [...options, '_forceDisabledFeatures'];
-           else if (options !== null)
-             return reject(new Error(
-                 'Unexpected |options| parameter of type ' + (typeof options) +
-                 ' (expected: string, array, or null).'));
 
-           chrome.storage.sync.get(options, items => {
-             if (chrome.runtime.lastError)
-               return reject(chrome.runtime.lastError);
+  // Detect if the assumption that we have access to the chrome.storage API was
+  // wrong.
+  if (chrome?.storage?.sync?.get === undefined) {
+    console.error('CRITICAL: chrome.storage is not accessible from this call to getOptions().');
+    // Safe fail so that the extension doesn't fully break, but all options are
+    // not set, so they will be treated as disabled (this is better than a full
+    // break).
+    return {};
+  }
 
-             // Handle applicable kill switches which force disable features
-             if (items?._forceDisabledFeatures) {
-               for (let feature of items._forceDisabledFeatures) {
-                 items[feature] = false;
-               }
+  if (typeof options === 'string')
+    options = [options, '_forceDisabledFeatures'];
+  else if (Array.isArray(options))
+    options = [...options, '_forceDisabledFeatures'];
+  else if (options !== null)
+    return reject(new Error(
+        'Unexpected |options| parameter of type ' + (typeof options) +
+        ' (expected: string, array, or null).'));
 
-               delete items._forceDisabledFeatures;
-             }
+  const items = await syncStorageAreaRepository.get(options);
 
-             return resolve(items);
-           });
-         })
-      // #!if !defined(PRODUCTION)
-      .then(items => {
-        global.performance.mark(endMark, {detail: {options}});
-        global.performance.measure(measureName, {
-          detail: {options},
-          start: startMark,
-          end: endMark,
-        });
-        return items;
-      })
-      .catch(err => {
-        global.performance.mark(endMark, {detail: {options}});
-        global.performance.measure(measureName, {
-          detail: {options},
-          start: startMark,
-          end: endMark,
-        });
-        throw err;
-      })
-      // #!endif
-      ;
+  // Handle applicable kill switches which force disable features
+  if (items?._forceDisabledFeatures) {
+    for (let feature of items._forceDisabledFeatures) {
+      items[feature] = false;
+    }
+
+    delete items._forceDisabledFeatures;
+  }
+
+  return items;
 }
 
 // Returns a promise which returns whether the |option| option/feature is

@@ -26,7 +26,10 @@ common_ts_project(
 common_js_project(
     name = "js",
     srcs = [":options_utils"],
-    deps = [":ts"],
+    deps = [
+        ":ts",
+        "//src/storage/compositionRoot",
+    ],
 )
 
 js_library(

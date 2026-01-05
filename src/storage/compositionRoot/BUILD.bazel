@@ -8,8 +8,11 @@ common_ts_project(
     source_map = True,
     transpiler = swc_pkg,
     tsconfig = "//:tsconfig_pkg",
+    # TODO(https://iavm.xyz/b/twpowertools/226): remove the visibility for
+    # legacy packages other than //src:entrypoint.
     visibility = [
         "//src:entrypoint",
+        "//src/common/options:__subpackages__",
     ],
     deps = [
         "//src/storage/infrastructure/repositories",
