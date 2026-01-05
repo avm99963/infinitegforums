@@ -14,6 +14,7 @@ common_ts_project(
         "//src/common",
         "//src/infrastructure/services/options",
         "//src/options/infrastructure/repositories",
+        "//src/options/infrastructure/services",
         "//src/options/presentation/data",
         "//src/options/ui/components",
         "//src/storage/compositionRoot",
