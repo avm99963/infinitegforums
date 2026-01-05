@@ -318,7 +318,7 @@ function createScriptRunner() {
         // Standalone scripts
         new ApplyStartupDataModificationsOnMainScript(startupDataStorage),
         new InjectLitComponentsScript(),
-        new XHRInterceptorSetUpKillSwitchHandler(),
+        new XHRInterceptorSetUpKillSwitchHandler(syncStorageAreaRepository),
       ],
       new ScriptSorterAdapter(),
     ).getScripts(),

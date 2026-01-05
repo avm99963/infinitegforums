@@ -1,3 +1,4 @@
+import { SyncStorageAreaRepositoryPort } from '@/storage/repositories/syncStorageAreaRepository.port';
 import Script, {
   ScriptEnvironment,
   ScriptPage,
@@ -7,12 +8,18 @@ import XHRProxyKillSwitchHandler from '../../../xhrInterceptor/killSwitchHandler
 
 export default class XHRInterceptorSetUpKillSwitchHandler extends Script {
   page = ScriptPage.CommunityConsole;
-  environment = ScriptEnvironment.InjectedScript;
+  environment = ScriptEnvironment.ContentScript;
   runPhase = ScriptRunPhase.Main;
 
-  // TODO: Refactor this to the DI architecture. It will need changes to the
-  // classes being initialized here.
+  constructor(
+    private readonly syncStorageAreaRepository: SyncStorageAreaRepositoryPort,
+  ) {
+    super();
+  }
+
+  // TODO(https://iavm.xyz/b/twpowertools/226): Refactor this to the DI
+  // architecture. It will need changes to the classes being initialized here.
   execute() {
-    new XHRProxyKillSwitchHandler();
+    new XHRProxyKillSwitchHandler(this.syncStorageAreaRepository);
   }
 }

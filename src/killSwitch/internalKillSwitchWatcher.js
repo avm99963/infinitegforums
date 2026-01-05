@@ -1,11 +1,12 @@
-import {getForceDisabledFeatures} from '../common/options/optionsUtils.js';
-
 /**
  * Watches for changes to an internal kill switch and calls a callback when a
  * change is detected.
  */
 export default class InternalKillSwitchWatcher {
   /**
+   * @param
+   *     {import('@/storage/repositories/syncStorageAreaRepository.port').SyncStorageAreaRepositoryPort}
+   *     syncStorageAreaRepository
    * @param {string} killSwitch - The internal kill switch codename.
    * @param {changeCallback} callback - The callback which is called when a
    *     change is detected.
@@ -13,10 +14,11 @@ export default class InternalKillSwitchWatcher {
    *     called after first loading which is the current state of the kill
    *     switch.
    */
-  constructor(killSwitch, callback, callbackOnFirstLoad = true) {
+  constructor(syncStorageAreaRepository, killSwitch, callback, callbackOnFirstLoad = true) {
     this.watchedKillSwitch = killSwitch;
     this.isActive = null;
     this.callback = callback;
+    this.syncStorageAreaRepository = syncStorageAreaRepository;
     this.#setChangeListener();
     this.#firstLoadGetValue(callbackOnFirstLoad);
   }
@@ -33,7 +35,10 @@ export default class InternalKillSwitchWatcher {
   }
 
   async #firstLoadGetValue(callbackOnFirstLoad) {
-    const activeKillSwitches = await getForceDisabledFeatures();
+    const activeKillSwitches =
+        (await this.syncStorageAreaRepository.get(['_forceDisabledFeatures'])
+             ?._forceDisabledFeatures) ??
+        [];
     this.isActive = activeKillSwitches.includes(this.watchedKillSwitch);
     if (callbackOnFirstLoad) this.callback(this.isActive);
   }

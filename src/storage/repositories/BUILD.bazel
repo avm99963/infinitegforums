@@ -11,6 +11,7 @@ common_ts_project(
     visibility = [
         "//src:infrastructure_repositories",
         "//src:infrastructure_services",
+        "//src:presentation",
     ],
     deps = [
         "//src/storage/schemas",

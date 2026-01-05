@@ -5,9 +5,14 @@ export const KILL_SWITCH_LOCALSTORAGE_KEY = 'TWPTKillSwitchXHRProxyEnabled';
 export const KILL_SWITCH_LOCALSTORAGE_VALUE = 'true';
 
 export default class XHRProxyKillSwitchHandler {
-  constructor() {
+  /**
+   * @param
+   *     {import('@/storage/repositories/syncStorageAreaRepository.port.js').SyncStorageAreaRepositoryPort}
+   *     syncStorageAreaRepository
+   */
+  constructor(syncStorageAreaRepository) {
     this.watcher =
-        new InternalKillSwitchWatcher(KILL_SWITCH, this.onChange, true);
+        new InternalKillSwitchWatcher(syncStorageAreaRepository, KILL_SWITCH, this.onChange, true);
   }
 
   onChange(isActive) {
