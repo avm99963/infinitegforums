@@ -19,129 +19,13 @@
     "message": "Get infinite scroll and other enhancements in the Google Forums and the Community Console",
     "description": "The extension's description"
   },
-  "options_killswitchwarning": {
-    "message": "One or more options have been force disabled because they might not be working properly. Please go to the <a href='https://groups.google.com/g/twpowertools-discuss' rel='noreferrer noopener' target='_blank'>twpowertools-discuss Google Group</a> to learn more about why some options have been force disabled.",
-    "description": "Warning shown in the options page if a feature has been remotely force disabled via the kill switch mechanism. This happens when a feature doesn't work properly and might be doing dangerous things, and the maintainer or an authorized user remotely force disables the feature."
+  "options_experiments_title": {
+    "message": "Experiments",
+    "description": "Title of the experiments page: a page where highly experimental options can be set."
   },
-  "options_killswitchenabled": {
-    "message": "The previous option has been force disabled due to an issue.",
-    "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
-  },
-  "options_optionalpermissionswarning_header": {
-    "message": "Some features need additional permissions to work. They have been highlighted below, click their checkboxes to grant the appropriate permissions.",
-    "description": "Warning shown at the top of the options page if a feature cannot be used because one or more required permissions haven't been granted to the extension."
-  },
-  "options_optionalpermissionswarning_label": {
-    "message": "The previous feature needs additional permissions to work.",
-    "description": "Warning shown in the options page below an option, when a feature needs more permissions to work."
-  },
-  "options_featuredoptions": {
-    "message": "Featured options",
-    "description": "Heading for several options that can be enabled in the options page."
-  },
-  "options_minorenhancements": {
-    "message": "Minor enhancements",
-    "description": "Heading for several options that can be enabled in the options page."
-  },
-  "options_list": {
-    "message": "Enable infinite scrolling in thread lists.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_thread": {
-    "message": "Automatically load batches of messages inside threads when scrolling down.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_threadall": {
-    "message": "Automatically load all messages at once inside threads when scrolling down.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_fixedtoolbar": {
-    "message": "Make the toolbar stick at the top of thread lists in the Community Console.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_redirect": {
-    "message": "Redirect all threads opened in TW to the Community Console.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_loaddrafts": {
-    "message": "Activate the <code class=\"help\" title=\"This flag allows the Community Console to load a previously autosaved reply when loading a thread and clicking the reply button.\">enableLoadingDraftMessages<\/code> Community Console flag.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_experimental_label": {
-    "message": "(experimental)",
-    "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
-  },
-  "options_history": {
-    "message": "Show a \"previous posts\" link in user profiles.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_stickysidebarheaders": {
-    "message": "Make the headers in the Community Console sidebar stick at the top (+info at <code>pekb/thread/60784834</code>).",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_increasecontrast":{
-    "message": "Increase contrast between read and unread threads in the Community Console.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccdarktheme": {
-    "message": "Enable the dark theme in the Community Console, controlled <span id='ccdarktheme_mode--container'></span>.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccdarktheme_mode_switch": {
-    "message": "with a switch in the CC",
-    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
-  },
-  "options_ccdarktheme_mode_system": {
-    "message": "by the OS dark mode setting",
-    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
-  },
-  "options_ccforcehidedrawer": {
-    "message": "Always hide the drawer (left column) in the Community Console.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccdragndropfix": {
-    "message": "Allow to drag and drop links to the Community Console text editor while preserving the text.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_batchlock": {
-    "message": "Add the option to lock multiple threads from the Community Console thread list.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_enhancedannouncementsdot": {
-    "message": "Show the announcements notification dot more prominently in the Community Console.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_repositionexpandthread": {
-    "message": "Place the \"expand thread\" button all the way to the left in the Community Console thread lists.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_threadlistavatars": {
-    "message": "Show avatars in thread lists in the Community Console.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_autorefreshlist": {
-    "message": "Show a notification in the Community Console when a thread list has new updates.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_imagemaxheight": {
-    "message": "Prevent inline images in messages from being taller than the current window.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_profileindicator_moreinfo": {
-    "message": "+info about the 2 previous options",
-    "description": "Link to learn more about the profile indicator feature"
-  },
-  "options_profileindicator": {
-    "message": "Show <span class=\"help\" title=\"If the OP has participated in other threads, a red dot will be shown next to their username. If the OP's most recent posts have been read, an orange dot will be shown instead. You can hover the dot with your mouse in order to show the meaning of its color.\">whether the OP has participated in other threads</span>.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_profileindicatoralt": {
-    "message": "Show the number of questions and replies written by the OP within the last <span id='profileindicatoralt_months--container'></span> months next to their username.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_blockdrafts": {
-    "message": "Block the sending of your replies as you type to Google servers in the Community Console.",
-    "description": "Feature checkbox in the options page"
+  "options_experiments_description": {
+    "message": "Welchrome! Below you'll a find a list of experiments: features which are in development, and are not quite ready for launch. They are highly experimental and so might break and/or cause issues, but if you're brave, please do enable the ones you're most interested in, and <a href='https://groups.google.com/g/twpowertools-discuss'>give feedback</a>!",
+    "description": "Description shown in the beginning of the experiments page, below the title."
   },
   "options_workflows": {
     "message": "Enable the workflows feature.",
@@ -155,42 +39,6 @@
     "message": "Show additional information in threads, profiles and the canned responses list.",
     "description": "Feature checkbox in the options page"
   },
-  "options_perforumstats": {
-    "message": "Show per-forum activity in profiles.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_interopthreadpage": {
-    "message": "Show <span id='interopthreadpage_mode--container'></span> in the Community Console.",
-    "description": "Feature checkbox in the options page. \"<span id='interopthreadpage_mode--container'></span>\" will be substituted with a selector which allows users to select whether they want the new thread page design or the old one."
-  },
-  "options_interopthreadpage_mode_previous": {
-    "message": "the old thread page design",
-    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
-  },
-  "options_interopthreadpage_mode_next": {
-    "message": "the new thread page design",
-    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
-  },
-  "options_uispacing": {
-    "message": "Reduce the whitespace in the Community Console and TW.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_flattenthreads": {
-    "message": "Show a toggle to enable/disable nested view in threads.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_fixpekb269560789": {
-    "message": "Tentative fix for CC slowness and high memory usage (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>).",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_bulkreportreplies": {
-    "message": "Enable the ability to bulk report replies.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_bulkmove": {
-    "message": "Add the option to move multiple threads from the Community Console thread list.",
-    "description": "Feature checkbox in the options page"
-  },
   "options_save": {
     "message": "Save",
     "description": "Button in the options page to save the settings"
@@ -198,14 +46,6 @@
   "options_saved": {
     "message": "Saved",
     "description": "Message which appears in the options page when the settings are saved"
-  },
-  "options_experiments_title": {
-    "message": "Experiments",
-    "description": "Title of the experiments page: a page where highly experimental options can be set."
-  },
-  "options_experiments_description": {
-    "message": "Welchrome! Below you'll a find a list of experiments: features which are in development, and are not quite ready for launch. They are highly experimental and so might break and/or cause issues, but if you're brave, please do enable the ones you're most interested in, and <a href='https://groups.google.com/g/twpowertools-discuss'>give feedback</a>!",
-    "description": "Description shown in the beginning of the experiments page, below the title."
   },
   "inject_links": {
     "message": "Links",

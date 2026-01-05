@@ -19,130 +19,6 @@
     "message": "Fes scroll infinit i obtén altres millores als Fòrums de Google i la Consola de la Comunitat",
     "description": "The extension's description"
   },
-  "options_killswitchwarning": {
-    "message": "Una o més opcions han sigut desactivades forçosament perquè podrien no estar funcionant correctament. Sisplau ves al <a href='https://groups.google.com/g/twpowertools-discuss' rel='noreferrer noopener' target='_blank'>grup twpowertools-discuss</a> per obtenir més informació sobre per què algunes opcions s'han desactivat forçosament.",
-    "description": "Warning shown in the options page if a feature has been remotely force disabled via the kill switch mechanism. This happens when a feature doesn't work properly and might be doing dangerous things, and the maintainer or an authorized user remotely force disables the feature."
-  },
-  "options_killswitchenabled": {
-    "message": "L'opció anterior està desactivada forçosament degut a un problema.",
-    "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
-  },
-  "options_optionalpermissionswarning_header": {
-    "message": "Algunes funcions necessiten permisos addicionals per funcionar. Estan destacades aquí sota, fes clic a les seves caselles de selecció per donar-lis els permisos adequats.",
-    "description": "Warning shown at the top of the options page if a feature cannot be used because one or more required permissions haven't been granted to the extension."
-  },
-  "options_optionalpermissionswarning_label": {
-    "message": "La funció anterior necessita permisos addicionals per funcionar.",
-    "description": "Warning shown in the options page below an option, when a feature needs more permissions to work."
-  },
-  "options_featuredoptions": {
-    "message": "Funcions destacades",
-    "description": "Heading for several options that can be enabled in the options page."
-  },
-  "options_minorenhancements": {
-    "message": "Millores menors",
-    "description": "Heading for several options that can be enabled in the options page."
-  },
-  "options_list": {
-    "message": "Activa el scroll infinit a les llistes de fils.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_thread": {
-    "message": "Carrega automàticament missatges en grups petits quan facis scroll per un fil.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_threadall": {
-    "message": "Carrega automàticament tots els missatges de cop quan facis scroll per un fil.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_fixedtoolbar": {
-    "message": "Mantén visible la barra d'eines de la llista de fils a la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_redirect": {
-    "message": "Redirigeix tots els fils oberts a TW a la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_loaddrafts": {
-    "message": "Activa la <i>flag</i> <code class=\"help\" title=\"Aquesta flag permet a la Consola de la Comunitat carregar una resposta automàticament desada anteriorment quan obres un fil i fas clic al botó de respondre.\">enableLoadingDraftMessages</code> de la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_experimental_label": {
-    "message": "(experimental)",
-    "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
-  },
-  "options_history": {
-    "message": "Mostra un enllaç \"historial de publicacions\" als perfils d'usuari.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_stickysidebarheaders": {
-    "message": "Fes que les capçaleres de la barra lateral de la Consola de la Comunitat es quedin enganxades a dalt (+info a <code>pekb/thread/60784834</code>).",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_increasecontrast": {
-    "message": "Incrementa el contrast entre els fils llegits i no llegits a la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccdarktheme": {
-    "message": "Activa el tema fosc a la Consola de la Comunitat, controlat per <span id='ccdarktheme_mode--container'></span>.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccdarktheme_mode_switch": {
-    "message": "un botó a la consola",
-    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
-  },
-  "options_ccdarktheme_mode_system": {
-    "message": "la configuració del mode fosc del SO",
-    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
-  },
-  "options_ccforcehidedrawer": {
-    "message": "Amaga sempre la barra lateral de l'esquerra a la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccdragndropfix": {
-    "message": "Permet arrossegar enllaços a l'editor de text de la Consola de la Comunitat preservant el seu text.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_batchlock": {
-    "message": "Afegeix l'opció per bloquejar diversos fils a la llista de fils de la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_enhancedannouncementsdot": {
-    "message": "Mostra el punt que notifica que hi ha anuncis sense llegir d'una manera més prominent a la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_repositionexpandthread": {
-    "message": "Posa el botó \"expandir fil\" a l'esquerra del tot en les llistes de fils de la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_threadlistavatars": {
-    "message": "Mostra fotos de perfil a les llistes de fils de la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_autorefreshlist": {
-    "message": "Mostra una notificació a la Consola de la Comunitat quan una llista de fils rep actualitzacions.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_imagemaxheight": {
-    "message": "Limita l'altura de les imatges dels missatges a l'altura de la finestra.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_profileindicator_moreinfo": {
-    "message": "+info sobre les 2 darreres opcions",
-    "description": "Link to learn more about the profile indicator feature"
-  },
-  "options_profileindicator": {
-    "message": "Mostra <span class=\"help\" title=\"Si l'autor ha participat a altres fils, es mostrarà un punt vermell al costat del seu nom d'usuari. Si les publicacions més recents han estat llegides, es mostrarà un punt taronja. Pots posar el teu ratolí a sobre del punt per mostrar què vol dir el seu color.\">si l'autor del fil ha participat a altres fils</span>.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_profileindicatoralt": {
-    "message": "Mostra el nombre de preguntes i respostes escrites per l'autor del fil durant els últims <span id='profileindicatoralt_months--container'></span> mesos al costat del seu nom d'usuari.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_blockdrafts": {
-    "message": "Bloqueja l'enviament de les teves respostes mentre les escrius als servidors de Google a la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
   "options_workflows": {
     "message": "Activar la funció de fluxes de treball.",
     "description": "Feature checkbox in the options page"
@@ -153,30 +29,6 @@
   },
   "options_extrainfo": {
     "message": "Mostra informació addicional als fils, perfils i la llista de respostes estàndard.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_perforumstats": {
-    "message": "Mostra la activitat separada per fòrums als perfils de la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_interopthreadpage": {
-    "message": "Mostra <span id='interopthreadpage_mode--container'></span> a la Consola de la Comunitat.",
-    "description": "Feature checkbox in the options page. \"<span id='interopthreadpage_mode--container'></span>\" will be substituted with a selector which allows users to select whether they want the new thread page design or the old one."
-  },
-  "options_interopthreadpage_mode_previous": {
-    "message": "el disseny vell dels fils",
-    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
-  },
-  "options_interopthreadpage_mode_next": {
-    "message": "el disseny nou dels fils",
-    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
-  },
-  "options_uispacing": {
-    "message": "Redueix l'espai en blanc a la Consola de la Comunitat i TW.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_flattenthreads": {
-    "message": "Mostra un selector per activar/desactivar la vista anidada als fils.",
     "description": "Feature checkbox in the options page"
   },
   "options_save": {
@@ -612,15 +464,5 @@
   "inject_extrainfo_message_state_generated_answer_adopted": {
     "message": "Adoptada la resposta generada",
     "description": "Thread/message state GENERATED_ANSWER_ADOPTED."
-  },
-  "options_fixpekb269560789": {
-    "message": "Possible solució per la lentitud de la CC i l'alt consum de memòria (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>).",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_bulkreportreplies": {
-    "message": "Activa poder informar diverses respostes alhora."
-  },
-  "options_bulkmove": {
-    "message": "Afegeix l'opció per moure diversos fils des de la llista de fils de la Consola de la Comunitat."
   }
 }

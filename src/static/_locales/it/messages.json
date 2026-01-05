@@ -19,130 +19,6 @@
     "message": "Scorrimento infinito e altri miglioramenti nei Forum e nella Community Console",
     "description": "The extension's description"
   },
-  "options_killswitchwarning": {
-    "message": "Una o più opzioni sono state forzatamente disabilitate perché potrebbero non funzionare correttamente. Vai sul <a href='https://groups.google.com/g/twpowertools-discuss' rel='noreferrer noopener' target='_blank'>gruppo Google twpowertools-discuss</a> per sapere di più sul perché alcune opzioni sono state disabilitate.",
-    "description": "Warning shown in the options page if a feature has been remotely force disabled via the kill switch mechanism. This happens when a feature doesn't work properly and might be doing dangerous things, and the maintainer or an authorized user remotely force disables the feature."
-  },
-  "options_killswitchenabled": {
-    "message": "L'opzione precedente è stata interrotta a causa di un problema.",
-    "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
-  },
-  "options_optionalpermissionswarning_header": {
-    "message": "Alcune funzionalità richiedono autorizzazioni aggiuntive per funzionare. Sono stati evidenziati di seguito, fai clic sulle loro caselle di controllo per concedere le autorizzazioni appropriate.",
-    "description": "Warning shown at the top of the options page if a feature cannot be used because one or more required permissions haven't been granted to the extension."
-  },
-  "options_optionalpermissionswarning_label": {
-    "message": "Questa operazione necessita di autorizzazioni aggiuntive per poter essere effettuata.",
-    "description": "Warning shown in the options page below an option, when a feature needs more permissions to work."
-  },
-  "options_featuredoptions": {
-    "message": "Opzioni in primo piano",
-    "description": "Heading for several options that can be enabled in the options page."
-  },
-  "options_minorenhancements": {
-    "message": "Miglioramenti minori",
-    "description": "Heading for several options that can be enabled in the options page."
-  },
-  "options_list": {
-    "message": "Abilita lo scorrimento infinito nella lista thread.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_thread": {
-    "message": "Carica automaticamente batch di messaggi all'interno dei thread durante lo scorrimento verso il basso.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_threadall": {
-    "message": "Carica tutti i messaggi all'interno dei thread contemporaneamente durante lo scorrimento verso il basso.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_fixedtoolbar": {
-    "message": "Fissa la barra degli strumenti nell'elenco di thread nella Console.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_redirect": {
-    "message": "Reindirizza tutti i thread aperti in tailwind alla Community Console.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_loaddrafts": {
-    "message": "Attiva il <code class=\"help\" title=\"Questa opzione consente alla Community Console di caricare una canned response quando si carica un thread e si fa clic sul pulsante di risposta.\">enableLoadingDraftMessages</code> Community Console flag.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_experimental_label": {
-    "message": "(sperimentale-beta)",
-    "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
-  },
-  "options_history": {
-    "message": "Mostra un link \"post precedenti\" nei profili utente.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_stickysidebarheaders": {
-    "message": "Fai in modo che le intestazioni nella barra laterale della Community Console rimangano in alto (più info su <code>pekb/thread/60784834</code>).",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_increasecontrast": {
-    "message": "Aumenta il contrasto tra i thread non letti e quelli letti nella Community Console.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccdarktheme": {
-    "message": "Abilita il tema scuro nella Community Console, controllato <span id='ccdarktheme_mode--container'></span>.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccdarktheme_mode_switch": {
-    "message": "con un'opzione nella console",
-    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
-  },
-  "options_ccdarktheme_mode_system": {
-    "message": "in base alle impostazioni del tuo sistema operativo",
-    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
-  },
-  "options_ccforcehidedrawer": {
-    "message": "Nascondi sempre la sidebar a sinistra (elenco forums) nella Community Console.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccdragndropfix": {
-    "message": "Consenti il copia-incolla di testo nelle tue risposte preservando i links se presenti.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_batchlock": {
-    "message": "Aggiungi l'opzione per chiudere più thread insieme nella home della Community Console.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_enhancedannouncementsdot": {
-    "message": "Mostra il le notifiche annunci in modo più evidente nella Console della community.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_repositionexpandthread": {
-    "message": "Sposta il pulsante \"Espandi thread\" a sinistra negli elenchi di thread della Community Console invece che al centro.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_threadlistavatars": {
-    "message": "Mostra gli avatar di chi risponde nella lista thread della Community Console.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_autorefreshlist": {
-    "message": "Mostra una notifica nella Community Console quando ci sono nuovi thread disponibili.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_imagemaxheight": {
-    "message": "Impedisci alle immagini nei post di superare l'altezza della finestra corrente.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_profileindicator_moreinfo": {
-    "message": "+info sulle 2 opzioni precedenti",
-    "description": "Link to learn more about the profile indicator feature"
-  },
-  "options_profileindicator": {
-    "message": "Mostra <span class=\"help\" title=\"lo storico delle richieste e dei messaggi dell'OP nelle community, verrà mostrato un punto rosso accanto al nome dell'utente. Se hai letto i post più recenti dell'OP, verrà invece visualizzato un punto arancione. Puoi passare sul punto colorato con il mouse per mostrare il significato del suo colore.\">se l'OP ha preso parte ad altri thread</span>.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_profileindicatoralt": {
-    "message": "Mostra il numero di domande e risposte dell'utente entro gli ultimi <span id='profileindicatoralt_months--container'></span> mesi dopo il nome utente dell'OP.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_blockdrafts": {
-    "message": "Impedisci l'invio delle tue risposte ai server di Google mentre stai scrivendo nella Community Console.",
-    "description": "Feature checkbox in the options page"
-  },
   "options_workflows": {
     "message": "Abilita la funzione \"workflows\".",
     "description": "Feature checkbox in the options page"
@@ -153,26 +29,6 @@
   },
   "options_extrainfo": {
     "message": "Mostra informazioni aggiuntive nei thread, nei profili e nell'elenco delle risposte predefinite.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_perforumstats": {
-    "message": "Mostra l'attività suddivisa per forum nei profili.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_interopthreadpage": {
-    "message": "Mostra <span id='interopthreadpage_mode--container'></span> nella Community Console.",
-    "description": "Feature checkbox in the options page. \"<span id='interopthreadpage_mode--container'></span>\" will be substituted with a selector which allows users to select whether they want the new thread page design or the old one."
-  },
-  "options_interopthreadpage_mode_previous": {
-    "message": "il vecchio design della pagina dei thread",
-    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
-  },
-  "options_interopthreadpage_mode_next": {
-    "message": "il nuovo design della pagina dei thread",
-    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
-  },
-  "options_uispacing": {
-    "message": "Riduci lo spazio bianco nella Community Console e TW.",
     "description": "Feature checkbox in the options page"
   },
   "options_save": {
@@ -580,17 +436,5 @@
   "actionbadge_permissions_requested": {
     "message": "Alcune funzioni necessitano di permessi aggiuntivi. Clicca per risolvere.",
     "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."
-  },
-  "options_flattenthreads": {
-    "message": "Mostra un'opzione per attivare il raggruppamento delle risposte nei thread."
-  },
-  "options_fixpekb269560789": {
-    "message": "Correzione provvisoria per la lentezza di CC e l'elevato utilizzo della memoria (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>)."
-  },
-  "options_bulkreportreplies": {
-    "message": "Abilita la possibilità di segnalare in blocco le risposte."
-  },
-  "options_bulkmove": {
-    "message": "Aggiungere l'opzione per spostare più thread dall'elenco dei thread della Community Console."
   }
 }

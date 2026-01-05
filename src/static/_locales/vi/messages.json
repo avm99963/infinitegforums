@@ -1,146 +1,35 @@
 {
-    "appNameBeta": {
-        "message": "TW Power Tools (beta)"
-    },
-    "appNameCanary": {
-        "message": "TW Power Tools (canary)"
-    },
-    "appName": {
-        "message": "TW Power Tools"
-    },
-    "appNameGecko": {
-        "message": "TW Power Tools"
-    },
-    "appDescription": {
-        "message": "Nhận cuộn vô hạn và các cải tiến khác trong Diễn đàn Google và Bảng điều khiển cộng đồng"
-    },
-    "options_killswitchenabled": {
-        "message": "Tùy chọn trước đó đã bị vô hiệu hóa do có sự cố."
-    },
-    "options_optionalpermissionswarning_label": {
-        "message": "Tính năng trước đó cần có thêm quyền để hoạt động."
-    },
-    "options_featuredoptions": {
-        "message": "Tùy chọn nổi bật"
-    },
-    "options_minorenhancements": {
-        "message": "Cải tiến nhỏ"
-    },
-    "options_list": {
-        "message": "Cho phép cuộn vô hạn trong danh sách chủ đề."
-    },
-    "options_thread": {
-        "message": "Tự động tải hàng loạt tin nhắn trong chuỗi khi cuộn xuống."
-    },
-    "options_fixedtoolbar": {
-        "message": "Tôi không biết phải làm gì khi tôi không biết chuyện gì đã xảy ra với mình."
-    },
-    "options_experimental_label": {
-        "message": "(thử nghiệm)"
-    },
-    "options_threadall": {
-        "message": "Tự động tải tất cả tin nhắn cùng lúc trong các chủ đề khi cuộn xuống."
-    },
-    "options_optionalpermissionswarning_header": {
-        "message": "Một số tính năng cần thêm quyền để hoạt động. Chúng được đánh dấu bên dưới, hãy nhấp vào hộp kiểm của chúng để cấp quyền phù hợp."
-    },
-    "options_redirect": {
-        "message": "Chuyển hướng tất cả các chủ đề đã mở trong TW tới Bảng điều khiển cộng đồng."
-    },
-    "options_ccdarktheme_mode_switch": {
-        "message": "với một công tắc trong CC"
-    },
-    "options_history": {
-        "message": "Hiển thị liên kết \"bài viết trước\" trong hồ sơ người dùng."
-    },
-    "options_increasecontrast": {
-        "message": "Tăng độ tương phản giữa các chủ đề đã đọc và chưa đọc trong Bảng điều khiển cộng đồng."
-    },
-    "options_ccdarktheme": {
-        "message": "Bật chủ đề tối trong Bảng điều khiển cộng đồng, được kiểm soát bởi <span id='ccdarktheme_mode--container'></span>."
-    },
-    "options_ccdarktheme_mode_system": {
-        "message": "bằng cài đặt chế độ tối của hệ điều hành"
-    },
-    "options_ccforcehidedrawer": {
-        "message": "Luôn ẩn ngăn kéo (cột bên trái) trong Bảng điều khiển cộng đồng."
-    },
-    "options_batchlock": {
-        "message": "Đã thêm tùy chọn khóa nhiều chủ đề từ danh sách chủ đề trên bảng điều khiển cộng đồng."
-    },
-    "options_enhancedannouncementsdot": {
-        "message": "Hiển thị dấu chấm thông báo nổi bật hơn trong Bảng điều khiển cộng đồng."
-    },
-    "options_threadlistavatars": {
-        "message": "Hiển thị ảnh đại diện trong danh sách chủ đề trong Bảng điều khiển cộng đồng."
-    },
-    "options_autorefreshlist": {
-        "message": "Hiển thị thông báo trong Bảng điều khiển cộng đồng khi danh sách chủ đề có bản cập nhật mới."
-    },
-    "options_imagemaxheight": {
-        "message": "Ngăn không cho hình ảnh nội tuyến trong tin nhắn cao hơn cửa sổ hiện tại."
-    },
-    "options_repositionexpandthread": {
-        "message": "Đặt nút \"mở rộng chủ đề\" ở phía bên trái trong danh sách chủ đề của Bảng điều khiển cộng đồng."
-    },
-    "options_ccdragndropfix": {
-        "message": "Cho phép kéo và thả liên kết vào trình soạn thảo văn bản của Community Console trong khi vẫn giữ nguyên văn bản."
-    },
-    "options_stickysidebarheaders": {
-        "message": "Đặt tiêu đề trong thanh bên của Bảng điều khiển cộng đồng ở trên cùng (+ thông tin tại <code>pekb/thread/60784834</code>)."
-    },
-    "options_profileindicator_moreinfo": {
-        "message": "+thông tin về 2 lựa chọn trước đó"
-    },
-    "options_workflows": {
-        "message": "Bật tính năng quy trình công việc."
-    },
-    "options_workflows_manage": {
-        "message": "Quản lý quy trình làm việc"
-    },
-    "options_extrainfo": {
-        "message": "Hiển thị thông tin bổ sung trong chủ đề, hồ sơ và danh sách phản hồi có sẵn."
-    },
-    "options_interopthreadpage_mode_next": {
-        "message": "thiết kế trang chủ đề mới"
-    },
-    "options_uispacing": {
-        "message": "Giảm khoảng trắng trong Bảng điều khiển cộng đồng và TW."
-    },
-    "options_bulkreportreplies": {
-        "message": "Cho phép khả năng báo cáo hàng loạt phản hồi."
-    },
-    "options_save": {
-        "message": "Cứu"
-    },
-    "options_saved": {
-        "message": "đã lưu"
-    },
-    "options_experiments_title": {
-        "message": "Thí nghiệm"
-    },
-    "options_profileindicatoralt": {
-        "message": "Hiển thị số lượng câu hỏi và câu trả lời do OP viết trong <span id='profileindicatoralt_months--container'></span> tháng gần đây bên cạnh tên người dùng của họ."
-    },
-    "options_blockdrafts": {
-        "message": "Chặn việc gửi phản hồi khi bạn nhập vào máy chủ Google trong Bảng điều khiển cộng đồng."
-    },
-    "options_interopthreadpage": {
-        "message": "Hiển thị <span id='interopthreadpage_mode--container'></span> trong Bảng điều khiển cộng đồng."
-    },
-    "options_perforumstats": {
-        "message": "Hiển thị hoạt động trên từng diễn đàn trong hồ sơ."
-    },
-    "options_interopthreadpage_mode_previous": {
-        "message": "thiết kế trang chủ đề cũ"
-    },
-    "options_flattenthreads": {
-        "message": "Hiển thị nút chuyển đổi để bật/tắt chế độ xem lồng nhau trong các luồng."
-    },
-    "options_fixpekb269560789": {
-        "message": "Bản sửa lỗi tạm thời cho tình trạng CC chậm và sử dụng nhiều bộ nhớ (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>)."
-    },
-    "options_bulkmove": {
-        "message": "Thêm tùy chọn di chuyển nhiều chủ đề từ danh sách chủ đề của Bảng điều khiển cộng đồng."
-    }
+  "appNameBeta": {
+    "message": "TW Power Tools (beta)"
+  },
+  "appNameCanary": {
+    "message": "TW Power Tools (canary)"
+  },
+  "appName": {
+    "message": "TW Power Tools"
+  },
+  "appNameGecko": {
+    "message": "TW Power Tools"
+  },
+  "appDescription": {
+    "message": "Nhận cuộn vô hạn và các cải tiến khác trong Diễn đàn Google và Bảng điều khiển cộng đồng"
+  },
+  "options_workflows": {
+    "message": "Bật tính năng quy trình công việc."
+  },
+  "options_workflows_manage": {
+    "message": "Quản lý quy trình làm việc"
+  },
+  "options_extrainfo": {
+    "message": "Hiển thị thông tin bổ sung trong chủ đề, hồ sơ và danh sách phản hồi có sẵn."
+  },
+  "options_save": {
+    "message": "Cứu"
+  },
+  "options_saved": {
+    "message": "đã lưu"
+  },
+  "options_experiments_title": {
+    "message": "Thí nghiệm"
+  }
 }

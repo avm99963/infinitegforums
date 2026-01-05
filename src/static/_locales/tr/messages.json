@@ -15,14 +15,6 @@
     "message": "TW Power Tools",
     "description": "The extension's name (with a 50 character limit for Gecko)"
   },
-  "options_experimental_label": {
-    "message": "(deneysel)",
-    "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
-  },
-  "options_history": {
-    "message": "Kullanıcı profillerinde \"önceki gönderiler\" bağlantısını göster.",
-    "description": "Feature checkbox in the options page"
-  },
   "options_save": {
     "message": "Kaydet",
     "description": "Button in the options page to save the settings"

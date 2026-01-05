@@ -19,130 +19,6 @@
     "message": "Haz scroll infinito y obtén otras mejoras en los Foros de Google y la Consola de la Comunidad",
     "description": "The extension's description"
   },
-  "options_killswitchwarning": {
-    "message": "Una o más opciones han sido desactivadas forzosamente porque podrían no estar funcionando correctamente. Por favor ve al <a href='https://groups.google.com/g/twpowertools-discuss' rel='noreferrer noopener' target='_blank'>grupo twpowertools-discuss</a> para obtener más información sobre por qué algunas opciones se han desactivado forzosamente.",
-    "description": "Warning shown in the options page if a feature has been remotely force disabled via the kill switch mechanism. This happens when a feature doesn't work properly and might be doing dangerous things, and the maintainer or an authorized user remotely force disables the feature."
-  },
-  "options_killswitchenabled": {
-    "message": "La opción anterior está desactivada forzosamente debido a un problema.",
-    "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
-  },
-  "options_optionalpermissionswarning_header": {
-    "message": "Algunas funciones necesitan permisos adicionales para funcionar. Están destacadas aquí abajo, haz clic en sus casillas de selección para darles los permisos adecuados.",
-    "description": "Warning shown at the top of the options page if a feature cannot be used because one or more required permissions haven't been granted to the extension."
-  },
-  "options_optionalpermissionswarning_label": {
-    "message": "La función anterior necesita permisos adicionales para funcionar.",
-    "description": "Warning shown in the options page below an option, when a feature needs more permissions to work."
-  },
-  "options_featuredoptions": {
-    "message": "Funciones destacadas",
-    "description": "Heading for several options that can be enabled in the options page."
-  },
-  "options_minorenhancements": {
-    "message": "Mejoras menores",
-    "description": "Heading for several options that can be enabled in the options page."
-  },
-  "options_list": {
-    "message": "Activa el scroll infinito en las listas de hilos.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_thread": {
-    "message": "Carga automáticamente mensajes en grupos pequeños cuando hagas scroll por un hilo.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_threadall": {
-    "message": "Carga automáticamente todos los mensajes a la vez cuando hagas scroll por un hilo.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_fixedtoolbar": {
-    "message": "Mantén visible la barra de herramientas de la lista de hilos en la Consola de la Comunidad.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_redirect": {
-    "message": "Redirige todos los hilos abiertos en TW a la Consola de la Comunidad.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_loaddrafts": {
-    "message": "Activa la <i>flag</i> <code class=\"help\" title=\"Esta flag permite a la Consola de la Comunidad cargar una respuesta previamente autoguardada cuando abres un hilo y haces clic en el botón de responder.\">enableLoadingDraftMessages</code> de la Consola de la Comunidad.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_experimental_label": {
-    "message": "(experimental)",
-    "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
-  },
-  "options_history": {
-    "message": "Muestra un enlace \"historial de publicaciones\" en los perfiles de usuario.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_stickysidebarheaders": {
-    "message": "Hacer que los encabezados de la barra lateral de la Consola de la Comunidad se queden pegados arriba (+info en <code>pekb/thread/60784834</code>).",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_increasecontrast": {
-    "message": "Incrementa el contraste entre los hilos leídos y no leídos en la Consola de la Comunidad.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccdarktheme": {
-    "message": "Activa el tema oscuro en la Consola de la Comunidad, controlado por <span id='ccdarktheme_mode--container'></span>.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccdarktheme_mode_switch": {
-    "message": "un botón en la consola",
-    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
-  },
-  "options_ccdarktheme_mode_system": {
-    "message": "la configuración del modo oscuro del SO",
-    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
-  },
-  "options_ccforcehidedrawer": {
-    "message": "Esconde siempre la barra lateral izquierda en la Consola de la Comunidad.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccdragndropfix": {
-    "message": "Permite arrastrar enlaces al editor de texto de la Consola de la Comunidad preservando su texto.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_batchlock": {
-    "message": "Añade la opción para bloquear varios hilos en la lista de hilos de la Consola de la Comunidad.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_enhancedannouncementsdot": {
-    "message": "Muestra el punto que notifica que hay anuncios sin leer de manera más prominente en la Consola de la Comunidad.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_repositionexpandthread": {
-    "message": "Pon el botón \"expandir hilo\" a la izquierda del todo en las listas de hilos de la Consola de la Comunidad.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_threadlistavatars": {
-    "message": "Muestra fotos de perfil en las listas de hilos de la Consola de la Comunidad.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_autorefreshlist": {
-    "message": "Muestra una notificación en la Consola de la Comunidad cuando una lista de hilos recibe actualizaciones.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_imagemaxheight": {
-    "message": "Limita la altura de las imágenes de los mensajes a la altura de la ventana.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_profileindicator_moreinfo": {
-    "message": "+info sobre las 2 opciones anteriores",
-    "description": "Link to learn more about the profile indicator feature"
-  },
-  "options_profileindicator": {
-    "message": "Muestra <span class=\"help\" title=\"Si el autor ha participado en otros hilos, se mostrará un punto rojo al lado de su nombre de usuario. Si las publicaciones más recientes se han leído, se mostrará un punto naranja. Puedes poner tu ratón encima del punto para mostrar qué quiere decir su color.\">si el autor del hilo ha participado en otros hilos</span>.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_profileindicatoralt": {
-    "message": "Muestra el número de preguntas y respuestas escritas por el autor del hilo durante los últimos <span id='profileindicatoralt_months--container'></span> meses al lado de su nombre de usuario.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_blockdrafts": {
-    "message": "Bloquea el envío de tus respuestas mientras las escribes a los servidores de Google en la Consola de la Comunidad.",
-    "description": "Feature checkbox in the options page"
-  },
   "options_workflows": {
     "message": "Activar la función de flujos de trabajo.",
     "description": "Feature checkbox in the options page"
@@ -153,30 +29,6 @@
   },
   "options_extrainfo": {
     "message": "Muestra información adicional en hilos, perfiles y la lista de respuestas enlatadas.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_perforumstats": {
-    "message": "Muestra la actividad separada por foros en los perfiles de la Consola de la Comunidad.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_interopthreadpage": {
-    "message": "Muestra <span id='interopthreadpage_mode--container'></span> en la Consola de la Comunidad.",
-    "description": "Feature checkbox in the options page. \"<span id='interopthreadpage_mode--container'></span>\" will be substituted with a selector which allows users to select whether they want the new thread page design or the old one."
-  },
-  "options_interopthreadpage_mode_previous": {
-    "message": "el diseño antiguo de los hilos",
-    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
-  },
-  "options_interopthreadpage_mode_next": {
-    "message": "el diseño nuevo de los hilos",
-    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
-  },
-  "options_uispacing": {
-    "message": "Reduce el espacio en blanco en la Consola de la Comunidad y TW.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_flattenthreads": {
-    "message": "Muestra un selector para activar/desactivar la vista anidada en los hilos.",
     "description": "Feature checkbox in the options page"
   },
   "options_save": {
@@ -612,15 +464,5 @@
   "inject_extrainfo_message_state_generated_answer_adopted": {
     "message": "Adoptada la respuesta generada",
     "description": "Thread/message state GENERATED_ANSWER_ADOPTED."
-  },
-  "options_fixpekb269560789": {
-    "message": "Posible solución para la lentitud de la CC y el alto consumo de memoria (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>).",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_bulkreportreplies": {
-    "message": "Activa poder informar varias respuestas a la vez."
-  },
-  "options_bulkmove": {
-    "message": "Añade la opción para mover varios hilos desde la lista de hilos de la Consola de la Comunidad."
   }
 }

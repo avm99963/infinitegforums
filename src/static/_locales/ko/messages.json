@@ -19,62 +19,6 @@
     "message": "Google 도움말 커뮤니티와 커뮤니티 콘솔에서 마음껏 스크롤하고 여러 기능들을 사용하세요",
     "description": "The extension's description"
   },
-  "options_killswitchwarning": {
-    "message": "일부 옵션이 정상적으로 작동하지 않을 가능성이 있어 강제로 사용 중지되었습니다. 사용 중지된 이유에 대한 자세한 내용은 <a href='https://groups.google.com/g/twpowertools-discuss' rel='noreferrer noopener' target='_blank'>twpowertools-discuss Google Group</a>에서 확인하세요.",
-    "description": "Warning shown in the options page if a feature has been remotely force disabled via the kill switch mechanism. This happens when a feature doesn't work properly and might be doing dangerous things, and the maintainer or an authorized user remotely force disables the feature."
-  },
-  "options_killswitchenabled": {
-    "message": "이전 옵션에서 문제가 발생하여 사용 중지되었습니다.",
-    "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
-  },
-  "options_optionalpermissionswarning_header": {
-    "message": "일부 기능은 제대로 동작하기 위해 추가 권한이 필요합니다. 해당하는 기능이 하이라이트되었으며, 체크박스를 클릭하여 적절한 권한을 부여해 주세요.",
-    "description": "Warning shown at the top of the options page if a feature cannot be used because one or more required permissions haven't been granted to the extension."
-  },
-  "options_optionalpermissionswarning_label": {
-    "message": "이전 기능이 제대로 동작하려면 추가 권한이 필요합니다.",
-    "description": "Warning shown in the options page below an option, when a feature needs more permissions to work."
-  },
-  "options_featuredoptions": {
-    "message": "주요 기능",
-    "description": "Heading for several options that can be enabled in the options page."
-  },
-  "options_minorenhancements": {
-    "message": "사소한 개선",
-    "description": "Heading for several options that can be enabled in the options page."
-  },
-  "options_list": {
-    "message": "게시글 목록에서 무한 스크롤 활성화.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_thread": {
-    "message": "스크롤할 때 게시글 내 메시지의 배치를 자동으로 불러오기.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_threadall": {
-    "message": "스크롤할 때 게시글 내 모든 메시지를 즉시 불러오기.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_fixedtoolbar": {
-    "message": "툴바를 커뮤니티 콘솔 상단에 고정하기.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_redirect": {
-    "message": "도움말 커뮤니티에서 열린 게시글을 커뮤니티 콘솔로 리디렉션하기.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_loaddrafts": {
-    "message": "커뮤니티 콘솔에서 <code class=\"help\" title=\"이 기능을 활성화하면 커뮤니티 콘솔에서 게시글을 열고 답장 버튼을 누를 때, 이전에 자동 저장된 답장을 불러옵니다.\">enableLoadingDraftMessages</code> 활성화.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_experimental_label": {
-    "message": "(실험적 기능)",
-    "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
-  },
-  "options_history": {
-    "message": "사용자 프로필에서 “이전 활동” 링크 표시하기.",
-    "description": "Feature checkbox in the options page"
-  },
   "inject_extrainfo_message_livereviewverdict_abuse": {
     "message": "악용",
     "description": "One of the actions of a live review."
@@ -98,22 +42,6 @@
   "actionbadge_permissions_requested": {
     "message": "특정 기능은 제대로 작동하기 위해 추가 권한이 필요합니다. 클릭하여 문제를 해결하세요.",
     "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."
-  },
-  "options_perforumstats": {
-    "message": "사용자 프로필에서 각 포럼별 활동 표시하기.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_interopthreadpage_mode_previous": {
-    "message": "이전 페이지 디자인",
-    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
-  },
-  "options_interopthreadpage_mode_next": {
-    "message": "신규 페이지 디자인",
-    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
-  },
-  "options_uispacing": {
-    "message": "커뮤니티 콘솔과 도움말 커뮤니티의 빈 여백 줄이기.",
-    "description": "Feature checkbox in the options page"
   },
   "options_save": {
     "message": "저장하기",
@@ -149,14 +77,6 @@
   },
   "options_extrainfo": {
     "message": "게시글, 사용자 프로필, 그리고 미리 준비된 답변(CR) 목록에서 추가 정보 표시하기.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_interopthreadpage": {
-    "message": "커뮤니티 콘솔에서 게시글을 <span id='interopthreadpage_mode--container'></span>으로 보기.",
-    "description": "Feature checkbox in the options page. \"<span id='interopthreadpage_mode--container'></span>\" will be substituted with a selector which allows users to select whether they want the new thread page design or the old one."
-  },
-  "options_flattenthreads": {
-    "message": "게시글에서 대화형식으로 보기 활성화/비활성화 버튼 표시하기.",
     "description": "Feature checkbox in the options page"
   },
   "options_experiments_title": {
@@ -529,62 +449,6 @@
     "message": "대화형식으로 보기가 활성화되어 있고 구 버전 페이지 디자인을 사용하고 있기 때문에, 이 게시글은 정상적으로 작동하지 않을 수 있습니다. TW Power Tools 옵션을 검토하여 문제를 해결할 수 있습니다.",
     "description": "Message showed above threads which might not work properly because of the fact that the old thread design is not compatible with nested replies."
   },
-  "options_stickysidebarheaders": {
-    "message": "커뮤니티 콘솔 사이드바의 카테고리를 상단에 고정하기 (+ <code>pekb/thread/60784834</code>에서 더 자세한 정보를 확인하세요).",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_increasecontrast": {
-    "message": "커뮤니티 콘솔에서 읽은 게시글과 읽지 않은 게시글의 구분을 더 명확하게 표시하기.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccdarktheme": {
-    "message": "<span id='ccdarktheme_mode--container'></span>, 커뮤니티 콘솔에 다크 모드 적용하기.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccdarktheme_mode_switch": {
-    "message": "콘솔의 설정을 변경하여",
-    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
-  },
-  "options_ccforcehidedrawer": {
-    "message": "카뮤니티 콘솔에서 좌측 메뉴 항상 숨기기.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccdarktheme_mode_system": {
-    "message": "OS의 다크 모드 설정에 따라",
-    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
-  },
-  "options_ccdragndropfix": {
-    "message": "링크를 커뮤니티 콘솔로 드래그 앤 드롭할 때 텍스트 유지하기.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_batchlock": {
-    "message": "커뮤니티 콘솔 게시글 목록에 다수의 게시글을 한 번에 잠그는 옵션 추가하기.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_repositionexpandthread": {
-    "message": "커뮤니티 콘솔 게시글 목록의 \"게시글 확장\" 버튼을 좌측으로 옮기기.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_threadlistavatars": {
-    "message": "커뮤니티 콘솔 게시글 목록에서 게시글의 아바타 표시하기.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_imagemaxheight": {
-    "message": "현재 창보다 크기가 큰 인라인 이미지를 작게 표시하기.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_profileindicator_moreinfo": {
-    "message": "+2개의 이전 옵션에 대한 정보",
-    "description": "Link to learn more about the profile indicator feature"
-  },
-  "options_profileindicatoralt": {
-    "message": "사용자 이름 옆에 OP가 지난 <span id='profileindicatoralt_months--container'></span>개월 동안 작성한 질문과 답변 수를 표시하기.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_blockdrafts": {
-    "message": "커뮤니티 콘솔에서 작성한 답변이 Google 서버로 자동 전송되는 것을 막기.",
-    "description": "Feature checkbox in the options page"
-  },
   "options_workflows": {
     "message": "워크플로 기능 활성화.",
     "description": "Feature checkbox in the options page"
@@ -600,27 +464,5 @@
   "inject_profileindicator_other_posts_unread": {
     "message": "OP가 이 포럼의 다른 스레드에 참여했으며, 일부를 아직 읽지 않았습니다.",
     "description": "Tooltip for the profile indicator dot."
-  },
-  "options_enhancedannouncementsdot": {
-    "message": "커뮤니티 콘솔의 공지사항 알림 점을 더 명확하게 표시하기.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_autorefreshlist": {
-    "message": "커뮤니티 콘솔 게시글 목록에 업데이트가 있을 때 알림 표시하기.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_profileindicator": {
-    "message": "<span class=\"help\" title=\"OP가 다른 스레드에 참여한 경우, 사용자 이름 옆에 빨간 점이 표시됩니다. OP의 최신 게시물을 이미 읽은 경우에는 대신 주황색 점이 표시됩니다. 마우스를 점 위에 올리면 해당 색상의 의미를 확인할 수 있습니다.\">OP가 다른 스레드에 참여했는지</span> 표시하기.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_fixpekb269560789": {
-    "message": "커뮤니티 콘솔의 메모리 사용량이 증가하여 페이지가 느려지는 문제에 대한 임시 수정사항 적용하기 (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>).",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_bulkreportreplies": {
-    "message": "댓글을 일괄 신고할 수 있는 기능 활성화."
-  },
-  "options_bulkmove": {
-    "message": "커뮤니티 콘솔의 게시글 목록에서 여러 게시글을 이동할 수 있는 옵션 추가하기."
   }
 }

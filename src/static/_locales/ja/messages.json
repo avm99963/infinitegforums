@@ -15,77 +15,13 @@
     "message": "TW Power Tools",
     "description": "The extension's name (with a 50 character limit for Gecko)"
   },
-  "options_killswitchwarning": {
-    "message": "1 つ以上のオプションが正しく動作していない可能性があるため、強制的に無効になっています。一部のオプションが強制的に無効になっている理由の詳細については、<a href='https://groups.google.com/g/twpowertools-discuss' rel='noreferrer noopener' target='_blank'>twpowertools-discuss Google グループ</a>にアクセスしてください。",
-    "description": "Warning shown in the options page if a feature has been remotely force disabled via the kill switch mechanism. This happens when a feature doesn't work properly and might be doing dangerous things, and the maintainer or an authorized user remotely force disables the feature."
-  },
   "appDescription": {
     "message": "Google フォーラムとコミュニティ コンソールで無限スクロールやその他の機能強化を実現します",
     "description": "The extension's description"
   },
-  "options_thread": {
-    "message": "下にスクロールすると、スレッド内のメッセージのバッチが自動的にロードされます。",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_threadall": {
-    "message": "下にスクロールすると、スレッド内ですべてのメッセージが一度に自動的にロードされます。",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_optionalpermissionswarning_header": {
-    "message": "一部の機能を動作させるには追加の権限が必要です。これらは以下で強調表示されています。チェックボックスをクリックして適切な権限を付与してください。",
-    "description": "Warning shown at the top of the options page if a feature cannot be used because one or more required permissions haven't been granted to the extension."
-  },
-  "options_optionalpermissionswarning_label": {
-    "message": "以前の機能を動作させるには追加の権限が必要です。",
-    "description": "Warning shown in the options page below an option, when a feature needs more permissions to work."
-  },
-  "options_featuredoptions": {
-    "message": "注目のオプション",
-    "description": "Heading for several options that can be enabled in the options page."
-  },
-  "options_minorenhancements": {
-    "message": "マイナーな機能強化",
-    "description": "Heading for several options that can be enabled in the options page."
-  },
-  "options_list": {
-    "message": "スレッドリストの無限スクロールを有効にします。",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_autorefreshlist": {
-    "message": "スレッド リストに新しい更新がある場合、コミュニティ コンソールに通知を表示します。",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_flattenthreads": {
-    "message": "スレッド内のネストされたビューを有効/無効にするトグルを表示します。",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_stickysidebarheaders": {
-    "message": "コミュニティ コンソールのサイドバーのヘッダーを上部に固定します (+情報 <code>pekb/thread/60784834</code>)。",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_loaddrafts": {
-    "message": "<code class=\"help\" title=\"このフラグにより、コミュニティ コンソールは、スレッドをロードして返信ボタンをクリックしたときに、以前に自動保存された返信を読み込むことができます。\">enableLoadingDraftMessages</code> コミュニティ コンソール フラグを有効にします。",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccforcehidedrawer": {
-    "message": "コミュニティ コンソールのドロワー (左の列) は常に非表示にしてください。",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_batchlock": {
-    "message": "コミュニティ コンソールのスレッド リストから複数のスレッドをロックするオプションを追加します。",
-    "description": "Feature checkbox in the options page"
-  },
   "inject_lockbtn": {
     "message": "スレッドのロック/ロック解除",
     "description": "Tooltip of the 'lock/unlock threads' icon shown when selecting multiple threads in the Community Console. Also the title for the dialog shown after clicking this icon."
-  },
-  "options_profileindicator": {
-    "message": "Show <span class=\"help\" title=\"OP が他のスレッドに参加している場合、ユーザー名の横に赤い点が表示されます。OP の最新の投稿が読まれている場合は、代わりにオレンジ色の点が表示されます。マウスでドットを移動すると、色の意味が表示されます。\">OP が他のスレッドに参加しているかどうか</span>。",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_interopthreadpage": {
-    "message": "コミュニティ コンソールに <span id='interopthreadpage_mode--container'></span> を表示します。",
-    "description": "Feature checkbox in the options page. \"<span id='interopthreadpage_mode--container'></span>\" will be substituted with a selector which allows users to select whether they want the new thread page design or the old one."
   },
   "options_experiments_description": {
     "message": "ようこそ！以下に実験のリストを示します。開発中であり、リリースの準備がまだ整っていない機能です。これらは非常に実験的なものであるため、壊れたり問題が発生したりする可能性がありますが、勇気（興味）がある場合は、最も興味のあるものを有効にしてください。<a href='https://github.com/avm99963/infinitegforums /Discussions/categories/フィードバック'>フィードバックをお寄せください</a>!",
@@ -94,70 +30,6 @@
   "inject_lockdialog_log_entry_success_lock": {
     "message": "正常にロックされました。",
     "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
-  },
-  "options_fixedtoolbar": {
-    "message": "ツールバーをコミュニティ コンソールのスレッド リストの上部に固定します。",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_redirect": {
-    "message": "TW で開かれたすべてのスレッドをコミュニティ コンソールにリダイレクトします。",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_experimental_label": {
-    "message": "(実験的)",
-    "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
-  },
-  "options_history": {
-    "message": "ユーザープロフィールに「前の投稿」リンクを表示します。",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_increasecontrast": {
-    "message": "コミュニティ コンソールの既読スレッドと未読スレッドのコントラストを高めます。",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccdarktheme": {
-    "message": "コミュニティ コンソールでダーク テーマを有効にし、制御します <span id='ccdarktheme_mode--container'></span>.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccdarktheme_mode_switch": {
-    "message": "CCのスイッチで",
-    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
-  },
-  "options_ccdarktheme_mode_system": {
-    "message": "OSのダークモード設定による",
-    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
-  },
-  "options_ccdragndropfix": {
-    "message": "テキストを保持したまま、コミュニティ コンソールのテキスト エディターにリンクをドラッグ アンド ドロップできるようにします。",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_enhancedannouncementsdot": {
-    "message": "コミュニティ コンソールでアナウンス通知ドットをより目立つように表示します。",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_repositionexpandthread": {
-    "message": "「スレッドを展開」ボタンをコミュニティ コンソールのスレッド リストの一番左に配置します。",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_threadlistavatars": {
-    "message": "コミュニティ コンソールのスレッド リストにアバターを表示します。",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_imagemaxheight": {
-    "message": "メッセージ内のインライン画像が現在のウィンドウよりも高くなるのを防ぎます。",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_profileindicator_moreinfo": {
-    "message": "+前の 2 つのオプションに関する情報",
-    "description": "Link to learn more about the profile indicator feature"
-  },
-  "options_profileindicatoralt": {
-    "message": "過去 <span id='profileindicatoralt_months--container'></span> か月間に OP によって書かれた質問と返信の数をユーザー名の横に表示します。",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_blockdrafts": {
-    "message": "コミュニティ コンソールで、Google サーバーへの返信の送信をブロックします。",
-    "description": "Feature checkbox in the options page"
   },
   "options_workflows": {
     "message": "ワークフロー機能を有効にします。",
@@ -169,22 +41,6 @@
   },
   "options_extrainfo": {
     "message": "スレッド、プロファイル、定型応答リストに追加情報を表示します。",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_perforumstats": {
-    "message": "プロフィールにフォーラムごとのアクティビティを表示します。",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_interopthreadpage_mode_previous": {
-    "message": "古いスレッドページのデザイン",
-    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
-  },
-  "options_interopthreadpage_mode_next": {
-    "message": "新しいスレッドページのデザイン",
-    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
-  },
-  "options_uispacing": {
-    "message": "コミュニティ コンソールと TW の空白を減らします。",
     "description": "Feature checkbox in the options page"
   },
   "options_save": {
@@ -338,10 +194,6 @@
   "inject_extrainfo_thread_autotrending": {
     "message": "自動的に注目としてマークされます",
     "description": "Label used in a thread to show it has been automatically marked as trending."
-  },
-  "options_killswitchenabled": {
-    "message": "以前のオプションは問題により強制的に無効になりました。",
-    "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
   },
   "inject_autorefresh_list_snackbar_action": {
     "message": "更新",
@@ -612,15 +464,5 @@
   "actionbadge_killswitch_enabled": {
     "message": "一部の機能は強制的に無効になっています。詳細については、クリックしてください。",
     "description": "Tooltip for the extension icon shown when a kill switch has been enabled."
-  },
-  "options_fixpekb269560789": {
-    "message": "CC の遅さとメモリ使用量の多さの暫定的な修正 (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>)。",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_bulkmove": {
-    "message": "コミュニティコンソールのスレッドリストから、複数のスレッドを移動できるオプションを追加してください。"
-  },
-  "options_bulkreportreplies": {
-    "message": "返信を一括で報告する機能を有効にする."
   }
 }

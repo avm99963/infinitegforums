@@ -19,130 +19,6 @@
     "message": "احصل/ي على التمرير اللانهائي والتحسينات الأخرى في منتديات Google و وحدة التّحكّم في المجتمع",
     "description": "The extension's description"
   },
-  "options_killswitchwarning": {
-    "message": "تم الإيقاف القسري لخيار واحد أو أكثر كونُها قد لا تعمل بالطّريقة الصّحيحة. يُرجى الانتقال إلى <a href='https://groups.google.com/g/twpowertools-discuss' rel='noreferrer noopener' target='_blank'>مجموعة Google الخاصة بـTWPT</a> لمعرفة المزيد حول سبب الإيقاف القسري لبعض الخيارات.",
-    "description": "Warning shown in the options page if a feature has been remotely force disabled via the kill switch mechanism. This happens when a feature doesn't work properly and might be doing dangerous things, and the maintainer or an authorized user remotely force disables the feature."
-  },
-  "options_killswitchenabled": {
-    "message": "تم الإيقاف القسري للخيار السابق بسبب مشكلة.",
-    "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
-  },
-  "options_optionalpermissionswarning_header": {
-    "message": "تحتاج بعض الميزات إلى أذونات إضافية للعمل. لقد تم تمييزها أدناه، انقر/ي فوق مربعات الاختيار الخاصة بها لمنح الأذونات المناسبة.",
-    "description": "Warning shown at the top of the options page if a feature cannot be used because one or more required permissions haven't been granted to the extension."
-  },
-  "options_optionalpermissionswarning_label": {
-    "message": "تحتاج الميزة السابقة أذونات إضافية للعمل.",
-    "description": "Warning shown in the options page below an option, when a feature needs more permissions to work."
-  },
-  "options_featuredoptions": {
-    "message": "خيارات مميَّزة",
-    "description": "Heading for several options that can be enabled in the options page."
-  },
-  "options_minorenhancements": {
-    "message": "تحسينات طفيفة",
-    "description": "Heading for several options that can be enabled in the options page."
-  },
-  "options_list": {
-    "message": "تفعيل التمرير اللانهائي في قوائم المواضيع.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_thread": {
-    "message": "تحميل مجموعات الرّدود تلقائيّا داخل سلاسل المحادثات عند التّمرير لأسفل.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_threadall": {
-    "message": "تحميل جميع الرُّدود تلقائيا مرة واحدة داخل سلاسل المحادثات عند التَّمرير لأسفل.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_fixedtoolbar": {
-    "message": "تثبيت شريط الأدوات في قوائم سلاسل المحادثات في وحدة التحكم في المجتمع.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_redirect": {
-    "message": "أعد توجيه جميع سلاسل المحادثات المفتوحة في TW إلى وحدة التحكم في المجتمع.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_loaddrafts": {
-    "message": "تمكين علامة <code class=\"help\" title=\"تتيح هذه العلامة لوحدة التحكم في المجتمع تحميل رد تم حفظه تلقائيًا مسبقًا عند تحميل موضوع والنقر فوق زر الرد.\">enableLoadingDraftMessages</code> إبلاغات وحدة التحكُّم.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_experimental_label": {
-    "message": "(تجريبي)",
-    "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
-  },
-  "options_history": {
-    "message": "إظهار ارتباط \"المشاركات السابقة\" في ملفات تعريف المستخدمين.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_stickysidebarheaders": {
-    "message": "اجعل الرؤوس في الشريط الجانبي لوحدة التحكم في المجتمع تلتصق بالأعلى. (مزيدا من التّفاصيل <code>pekb/thread/60784834</code>).",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_increasecontrast": {
-    "message": "زيادة التباين بين المواضيع المقروءة وغير المقروءة في وحدة التّحكّم في المجتمع (Community Console).",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccdarktheme": {
-    "message": "تفعيل المظهر الداكن في وحدة التّحكّم في المجتمع، يتم التحكم فيه <span id='ccdarktheme_mode--container'></span>.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccdarktheme_mode_switch": {
-    "message": "مع خيار التّحكّم، في وحدة التحكم في المجتمع",
-    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
-  },
-  "options_ccdarktheme_mode_system": {
-    "message": "من خلال إعداد الوضع المظلم لنظام التشغيل",
-    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
-  },
-  "options_ccforcehidedrawer": {
-    "message": "إخفاء القائمة (العمود الأيسر) -دائما- في وحدة التحكم في المجتمع.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_ccdragndropfix": {
-    "message": "اسمح بسحب وإسقاط الروابط إلى محرر نصوص وحدة التحكّم في المجتمع مع الحفاظ على النص.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_batchlock": {
-    "message": "أضف خيار قفل سلاسل محادثات متعددة من قائمة سلاسل محادثات وحدة التحكم في المجتمع.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_enhancedannouncementsdot": {
-    "message": "عرض نقطة إشعارات الإعلانات بشكل أكثر بروزًا في وحدة التحكم في المجتمع.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_repositionexpandthread": {
-    "message": "وضع زر \"توسيع الموضوع\" على طول الطريق إلى اليسار في قوائم سلسلة محادثات وحدة التحكم في المجتمع.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_threadlistavatars": {
-    "message": "عرض الصور الرمزية في قوائم المواضيع في وحدة التحكم في المجتمع.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_autorefreshlist": {
-    "message": "إظهار إشعار في وحدة التّحكّم في المجتمع عندما تحتوي قائمة سلاسل المحادثات على تحديثات جديدة.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_imagemaxheight": {
-    "message": "منع الصور المضمنة في الرسائل من أن تكون أطول من النافذة الحالية.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_profileindicator_moreinfo": {
-    "message": "مزيدا من المعلومات حول الخيارين السابقين",
-    "description": "Link to learn more about the profile indicator feature"
-  },
-  "options_profileindicator": {
-    "message": "Show <span class=\"help\" title=\"إذا شارك المستخدم (OP) في سلاسل محادثات أخرى، فستظهر نقطة حمراء بجوار اسم المستخدم الخاص به. إذا تمت قراءة أحدث منشورات المستخدم (OP)، فستظهر نقطة برتقالية بدلاً من ذلك. يمكنك تحريك الفأرة على النّقطة لإظهار معنى لونها.\">ما إذا كان المستخدم (OP) قد شارك في مواضيع أخرى</span>.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_profileindicatoralt": {
-    "message": "عرض عدد الأسئلة والرّدود الخاصة بالمستخدم (OP) خلال <span id='profileindicatoralt_months--container'></span> الأشهر الماضية بجانب اسم المستخدم الخاص بهم.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_blockdrafts": {
-    "message": "احظر/ي إرسال ردودك إلى خوادم Google أثناء الكتابة في وحدة تحكّم المجتمع Community Console.",
-    "description": "Feature checkbox in the options page"
-  },
   "options_workflows": {
     "message": "تفعيل ميزة سَير العمل.",
     "description": "Feature checkbox in the options page"
@@ -153,30 +29,6 @@
   },
   "options_extrainfo": {
     "message": "عرض معلومات إضافية في الملصقات، الملفات الشخصية وقائمة الردود الجاهزة.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_perforumstats": {
-    "message": "إظهار النشاط حسب كل منتدى في الملفات الشّخصية في وحدة التحكم في المجتمع.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_interopthreadpage": {
-    "message": "إظهار <span id='interopthreadpage_mode--container'></span> في وحدة التّحكّم.",
-    "description": "Feature checkbox in the options page. \"<span id='interopthreadpage_mode--container'></span>\" will be substituted with a selector which allows users to select whether they want the new thread page design or the old one."
-  },
-  "options_interopthreadpage_mode_previous": {
-    "message": "التّصميم القديم لصفحة الملصق",
-    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
-  },
-  "options_interopthreadpage_mode_next": {
-    "message": "التّصميم الجديد لصفحة الملصق",
-    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
-  },
-  "options_uispacing": {
-    "message": "تقليل المساحة البيضاء في وحدة التّحكّم و TW.",
-    "description": "Feature checkbox in the options page"
-  },
-  "options_flattenthreads": {
-    "message": "إظهار زرّ تبديل لتمكين/تعطيل طريقة عرض الرّدود المتداخلة في سلاسل المحادثات.",
     "description": "Feature checkbox in the options page"
   },
   "options_save": {
@@ -612,14 +464,5 @@
   "inject_extrainfo_message_state_generated_answer_adopted": {
     "message": "تمّ اعتماد الإجابة المُولَّدة",
     "description": "Thread/message state GENERATED_ANSWER_ADOPTED."
-  },
-  "options_bulkreportreplies": {
-    "message": "تفعيل القدرة على الإبلاغ عن الرُّدود بشكل مجمَّع."
-  },
-  "options_fixpekb269560789": {
-    "message": "حلّ محتمل لبُطء واستخدام الذَّاكرة العالي لوحدة التّحكُّم (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>)."
-  },
-  "options_bulkmove": {
-    "message": "إضافة خيار نقل منشورات متعددة من قائمة منشورات وحدة التحكم في المجتمع."
   }
 }
