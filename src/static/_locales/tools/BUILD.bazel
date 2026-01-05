@@ -1,0 +1,63 @@
+load("//src/static/_locales:defs.bzl", "get_non_overriden_locales")
+
+sh_library(
+    name = "extra_keys_utils",
+    srcs = ["extra_keys_utils.sh"],
+)
+
+SOURCE_LOCALE = "en"
+
+# We use the 'en' locale as the source of truth.
+SOURCE_LOCALE_TARGET = "//src/static/_locales:{}/messages.json".format(SOURCE_LOCALE)
+
+SOURCE_LOCALE_PATH = "src/static/_locales/{}/messages.json".format(SOURCE_LOCALE)
+
+# All other locales to check against 'en'.
+OTHER_LOCALES_TARGETS = [
+    "//src/static/_locales:{}/messages.json".format(locale)
+    for locale in get_non_overriden_locales()
+    if locale != SOURCE_LOCALE
+]
+
+OTHER_LOCALES_PATHS = [
+    "src/static/_locales/{}/messages.json".format(locale)
+    for locale in get_non_overriden_locales()
+    if locale != SOURCE_LOCALE
+]
+
+sh_test(
+    name = "check_extra_keys",
+    srcs = ["check_extra_keys.sh"],
+    args = [
+        "$(rlocationpath //tools:jq)",
+        "$(rlocationpath {})".format(SOURCE_LOCALE_TARGET),
+    ] + [
+        "$(rlocationpath {})".format(target)
+        for target in OTHER_LOCALES_TARGETS
+    ],
+    data = [
+        "//tools:jq",
+        SOURCE_LOCALE_TARGET,
+    ] + OTHER_LOCALES_TARGETS,
+    deps = [
+        ":extra_keys_utils",
+        "@bazel_tools//tools/bash/runfiles",
+    ],
+)
+
+sh_binary(
+    name = "remove_extra_keys",
+    srcs = ["remove_extra_keys.sh"],
+    args = [
+        "$(rlocationpath //tools:jq)",
+        SOURCE_LOCALE_PATH,
+    ] + OTHER_LOCALES_PATHS,
+    data = [
+        "//tools:jq",
+        SOURCE_LOCALE_TARGET,
+    ] + OTHER_LOCALES_TARGETS,
+    deps = [
+        ":extra_keys_utils",
+        "@bazel_tools//tools/bash/runfiles",
+    ],
+)

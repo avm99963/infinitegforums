@@ -1,6 +1,7 @@
 load("@bazelrc-preset.bzl", "bazelrc_preset")
 load("@rules_shell//shell:sh_library.bzl", "sh_library")
 load("@rules_shell//shell:sh_test.bzl", "sh_test")
+load("//tools:bazel/jq_binary.bzl", "jq_binary")
 
 bazelrc_preset(
     name = "preset",
@@ -23,4 +24,9 @@ sh_test(
         ":release_utils",
         "@rules_shell//shell/runfiles",
     ],
+)
+
+jq_binary(
+    name = "jq",
+    visibility = ["//:__subpackages__"],
 )

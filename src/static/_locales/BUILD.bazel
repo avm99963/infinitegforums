@@ -22,3 +22,14 @@ filegroup(
     ],
     visibility = ["//src/static:__pkg__"],
 )
+
+exports_files(
+    [
+        "{}/messages.json".format(locale)
+        for locale in get_non_overriden_locales()
+    ],
+    visibility = [
+        "//src/static/_locales/tools:__subpackages__",
+    ],
+)
+
