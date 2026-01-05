@@ -8,13 +8,14 @@ import ScriptSorterAdapter from '../../../../infrastructure/presentation/scripts
 import { SortedScriptsProviderAdapter } from '../../../../infrastructure/presentation/scripts/SortedScriptsProvider.adapter';
 import OptionsProviderAdapter from '../../../../infrastructure/services/options/OptionsProvider.adapter';
 import { OptionsConfigurationRepositoryAdapter } from '../../../../options/infrastructure/repositories/OptionsConfiguration.repository.adapter';
+import { getSyncStorageAreaRepository } from '@/storage/compositionRoot';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
 
 function createScriptRunner() {
   const optionsProvider = new OptionsProviderAdapter(
-    new OptionsConfigurationRepositoryAdapter(),
+    new OptionsConfigurationRepositoryAdapter(getSyncStorageAreaRepository()),
   );
 
   return new ScriptRunner(

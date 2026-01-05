@@ -1,3 +1,4 @@
+import { SyncStorageAreaRepositoryPort } from '@/storage/repositories/syncStorageAreaRepository.port';
 import {
   OptionCodename,
   OptionsValues,
@@ -5,12 +6,14 @@ import {
 import { OptionsModifierPort } from '../../../services/options/OptionsModifier.port';
 
 export class OptionsModifierAdapter implements OptionsModifierPort {
-  set<O extends OptionCodename>(
+  constructor(
+    private readonly syncStorageAreaRepository: SyncStorageAreaRepositoryPort,
+  ) {}
+
+  async set<O extends OptionCodename>(
     option: O,
     value: OptionsValues[O],
   ): Promise<void> {
-    return new Promise((resolve) => {
-      chrome.storage.sync.set({ [option]: value }, () => resolve());
-    });
+    await this.syncStorageAreaRepository.set({ [option]: value });
   }
 }

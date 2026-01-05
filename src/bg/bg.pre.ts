@@ -18,6 +18,7 @@ import {
   LATEST_SCHEMA_VERSION,
 } from '../storage/schemas/index.js';
 import UpdateNotifier from '../updateNotifier/presentation/bg/index.js';
+import { getSyncStorageAreaRepository } from '@/storage/compositionRoot/index.js';
 
 // #!if defined(MV3)
 // XMLHttpRequest is not present in service workers (MV3) and is required by the
@@ -48,8 +49,18 @@ function setHasAlreadyStarted() {
   });
 }
 
+const storageMigrator = new SyncStorageMigratorAdapter(
+  sortedMigrations,
+  LATEST_SCHEMA_VERSION,
+  getDefaultStorage,
+);
+
 const bgHandler = new BgHandler(
-  new OptionsProviderAdapter(new OptionsConfigurationRepositoryAdapter()),
+  new OptionsProviderAdapter(
+    new OptionsConfigurationRepositoryAdapter(
+      getSyncStorageAreaRepository(storageMigrator),
+    ),
+  ),
 );
 
 actionApi.onClicked.addListener(() => {
@@ -104,12 +115,6 @@ chrome.storage.onChanged.addListener((_, areaName) => {
 
   bgHandler.handlePossibleOptionsChange();
 });
-
-const storageMigrator = new SyncStorageMigratorAdapter(
-  sortedMigrations,
-  LATEST_SCHEMA_VERSION,
-  getDefaultStorage,
-);
 
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (sender.id !== chrome.runtime.id)

@@ -4,6 +4,7 @@ import { getFeatureCategories } from '../data/featureCategories';
 import '../../ui/components/App';
 import { isProdVersion } from '../../../common/extUtils';
 import { OptionsConfigurationRepositoryAdapter } from '../../infrastructure/repositories/OptionsConfiguration.repository.adapter';
+import { getSyncStorageAreaRepository } from '@/storage/compositionRoot';
 
 const SUPPORTED_LANGUAGES: string[] = ['en', 'es', 'ko', 'pt', 'ru'];
 
@@ -15,10 +16,11 @@ function main() {
 
   const container = document.getElementById('container');
   const app = document.createElement('options-app');
+  const syncStorageAreaRepository = getSyncStorageAreaRepository();
   app.optionsProvider = new OptionsProviderAdapter(
-    new OptionsConfigurationRepositoryAdapter(),
+    new OptionsConfigurationRepositoryAdapter(syncStorageAreaRepository),
   );
-  app.optionsModifier = new OptionsModifierAdapter();
+  app.optionsModifier = new OptionsModifierAdapter(syncStorageAreaRepository);
   app.getFeatureCategories = getFeatureCategories;
   app.isProdVersion = isProdVersion();
   container.append(app);

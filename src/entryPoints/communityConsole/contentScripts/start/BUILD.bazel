@@ -33,5 +33,6 @@ common_ts_project(
         "//src/options/infrastructure/repositories",
         "//src/presentation/standaloneScripts/mainWorldServers",
         "//src/presentation/standaloneScripts/startupDataStorage",
+        "//src/storage/compositionRoot",
     ],
 )

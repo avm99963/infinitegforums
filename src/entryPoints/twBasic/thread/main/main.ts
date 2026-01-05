@@ -9,6 +9,7 @@ import { SortedScriptsProviderAdapter } from '@/infrastructure/presentation/scri
 import ChromeI18nAdapter from '@/infrastructure/services/i18n/chrome/ChromeI18n.adapter';
 import OptionsProviderAdapter from '@/infrastructure/services/options/OptionsProvider.adapter';
 import { OptionsConfigurationRepositoryAdapter } from '@/options/infrastructure/repositories/OptionsConfiguration.repository.adapter';
+import { getSyncStorageAreaRepository } from '@/storage/compositionRoot';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -16,7 +17,7 @@ scriptRunner.run();
 function createScriptRunner() {
   const chromeI18n = new ChromeI18nAdapter();
   const optionsProvider = new OptionsProviderAdapter(
-    new OptionsConfigurationRepositoryAdapter(),
+    new OptionsConfigurationRepositoryAdapter(getSyncStorageAreaRepository()),
   );
 
   return new ScriptRunner(

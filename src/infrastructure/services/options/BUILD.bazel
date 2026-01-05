@@ -13,11 +13,11 @@ common_ts_project(
         "//src:entrypoint",
     ],
     deps = [
-        "//:node_modules/@types/chrome",
         "//src/common/options",
         "//src/models",
         "//src/options/repositories",
         "//src/services/options",
+        "//src/storage/repositories",
     ],
 )
 

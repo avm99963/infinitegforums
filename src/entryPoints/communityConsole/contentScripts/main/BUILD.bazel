@@ -85,5 +85,6 @@ common_ts_project(
         "//src/presentation/standaloneScripts/litComponents",
         "//src/presentation/standaloneScripts/startupDataStorage",
         "//src/presentation/standaloneScripts/xhrInterceptor",
+        "//src/storage/compositionRoot",
     ],
 )

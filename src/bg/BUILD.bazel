@@ -35,6 +35,7 @@ common_ts_project(
         "//src/killSwitch",
         "//src/options/bgHandler",
         "//src/options/infrastructure/repositories",
+        "//src/storage/compositionRoot",
         "//src/storage/infrastructure/services",
         "//src/storage/migrations",
         "//src/storage/schemas",

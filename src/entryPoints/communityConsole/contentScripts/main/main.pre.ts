@@ -92,6 +92,7 @@ import AutoRefresh from '@/features/autoRefresh/core/autoRefresh';
 import StartupDataStorageAdapter from '@/infrastructure/services/communityConsole/StartupDataStorage.adapter';
 import ThreadPageDesignWarning from '@/features/threadPageDesignWarning/core/threadPageDesignWarning';
 import WorkflowsImport from '@/features/workflows/core/communityConsole/import/import';
+import { getSyncStorageAreaRepository } from '@/storage/compositionRoot';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -101,9 +102,10 @@ function createScriptRunner() {
     new CCThreadListGenericActionButtonInjectorAdapter(
       new CCThreadListActionInjectorAdapter(),
     );
-  const optionsModifier = new OptionsModifierAdapter();
+  const syncStorageAreaRepository = getSyncStorageAreaRepository();
+  const optionsModifier = new OptionsModifierAdapter(syncStorageAreaRepository);
   const optionsProvider = new OptionsProviderAdapter(
-    new OptionsConfigurationRepositoryAdapter(),
+    new OptionsConfigurationRepositoryAdapter(syncStorageAreaRepository),
   );
 
   const dependenciesProvider = DependenciesProviderSingleton.getInstance();

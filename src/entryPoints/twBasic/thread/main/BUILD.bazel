@@ -17,5 +17,6 @@ common_ts_project(
         "//src/infrastructure/services/i18n/chrome",
         "//src/infrastructure/services/options",
         "//src/options/infrastructure/repositories",
+        "//src/storage/compositionRoot",
     ],
 )

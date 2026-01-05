@@ -17,5 +17,6 @@ common_ts_project(
         "//src/common/options",
         "//src/options/repositories",
         "//src/presentation/mainWorldContentScriptBridge/optionsConfigurationRepository",
+        "//src/storage/repositories",
     ],
 )

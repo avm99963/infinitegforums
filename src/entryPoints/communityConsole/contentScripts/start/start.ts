@@ -31,13 +31,14 @@ import StartupDataStorageAdapter from '@/infrastructure/services/communityConsol
 import ThreadPageDesignWarning from '@/features/threadPageDesignWarning/core/threadPageDesignWarning';
 import WorkflowsImport from '@/features/workflows/core/communityConsole/import/import';
 import FixStartupDataScript from '@/features/fixPEKB381989895/presentation/scripts/fixStartupData.script';
+import { getSyncStorageAreaRepository } from '@/storage/compositionRoot';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
 
 function createScriptRunner() {
   const optionsConfigurationRepository =
-    new OptionsConfigurationRepositoryAdapter();
+    new OptionsConfigurationRepositoryAdapter(getSyncStorageAreaRepository());
   const optionsProvider = new OptionsProviderAdapter(
     optionsConfigurationRepository,
   );
