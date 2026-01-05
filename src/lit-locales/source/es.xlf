@@ -752,7 +752,7 @@
       </trans-unit>
       <trans-unit id="s55cec32fb241f2f5" xml:space="preserve">
         <source>Old message composer</source>
-        <target state="translated">Editor de texto antiguo</target>
+        <target state="translated">Editor de mensajes antiguo</target>
         <note from="lit-localize">Name of the category of extension features related to the old message composer.</note>
       </trans-unit>
       <trans-unit id="s6163ba50e1af9788" xml:space="preserve">
@@ -793,18 +793,21 @@
         <target state="translated">Editor de mensajes</target>
         <note from="lit-localize">Name of the category of extension features related to the message composer.</note>
       </trans-unit>
-<trans-unit id="s45ee97a0bb6df8de">
-  <source>In batches</source>
-  <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
-</trans-unit>
-<trans-unit id="sd984a10a3a8f281e">
-  <source>All at once</source>
-  <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
-</trans-unit>
-<trans-unit id="s37cbecaec58e2192">
-  <source>Mode</source>
-  <note from="lit-localize">Suboption for the "Infinite scroll" (in threads) feature.</note>
-</trans-unit>
+      <trans-unit id="s45ee97a0bb6df8de" xml:space="preserve">
+        <source>In batches</source>
+        <target state="translated">Por lotes</target>
+        <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
+      </trans-unit>
+      <trans-unit id="sd984a10a3a8f281e" xml:space="preserve">
+        <source>All at once</source>
+        <target state="translated">Todo a la vez</target>
+        <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
+      </trans-unit>
+      <trans-unit id="s37cbecaec58e2192" xml:space="preserve">
+        <source>Mode</source>
+        <target state="translated">Modo</target>
+        <note from="lit-localize">Suboption for the "Infinite scroll" (in threads) feature.</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>

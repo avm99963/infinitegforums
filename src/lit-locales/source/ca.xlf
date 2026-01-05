@@ -336,314 +336,386 @@
         <source>Chinese (Traditional)</source>
         <target>Xinès tradicional</target>
       </trans-unit>
-<trans-unit id="s7d06ea4f1ccd5f6f">
-  <source>The old thread page design is partially broken, but this feature is kept since some PEs rely on it to access some features that are missing in the new design.</source>
-  <note from="lit-localize">Additional information shown in the options page about the "Change thread page design" feature.</note>
-</trans-unit>
-<trans-unit id="h9a0810c202cacc55">
-  <source>
+      <trans-unit id="s7d06ea4f1ccd5f6f" xml:space="preserve">
+        <source>The old thread page design is partially broken, but this feature is kept since some PEs rely on it to access some features that are missing in the new design.</source>
+        <target state="translated">El disseny antic de la pàgina que mostra els fils està parcialment espatllat, però mantenim aquesta funció perquè alguns EPs l'usen per accedir algunes funcions que manquen al nou disseny.</target>
+        <note from="lit-localize">Additional information shown in the options page about the "Change thread page design" feature.</note>
+      </trans-unit>
+      <trans-unit id="h9a0810c202cacc55" xml:space="preserve">
+        <source>
               One or more features have been disabled remotely for everyone.
               <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>
                 Learn why in our discussion group.
               <x id="1" equiv-text="&lt;/a&gt;&#10;            "/></source>
-  <note from="lit-localize">Content of the banner which lets users know that a feature was remotely disabled in the options page.</note>
-</trans-unit>
-<trans-unit id="sb6bc2f903f58c1e7">
-  <source>Shows avatars of participants next to each thread.</source>
-  <note from="lit-localize">Description of the "Avatars" feature.</note>
-</trans-unit>
-<trans-unit id="s94477c001fc4600a">
-  <source>Blocks saving drafts of your replies as you type to Google servers in the Community Console.</source>
-  <note from="lit-localize">Description of the "Block saving drafts" feature.</note>
-</trans-unit>
-<trans-unit id="sf11e849c4f7e174d">
-  <source>Adds a button to lock all selected threads at once.</source>
-  <note from="lit-localize">Description of the "Bulk lock" feature.</note>
-</trans-unit>
-<trans-unit id="sbccd6eedc254fbc7">
-  <source>Adds a button to move all selected threads at once.</source>
-  <note from="lit-localize">Description of the "Bulk move" feature.</note>
-</trans-unit>
-<trans-unit id="s9347ba024909ae4e">
-  <source>Forces showing the new or old thread page design.</source>
-  <note from="lit-localize">Description of the "Change thread page design" feature.</note>
-</trans-unit>
-<trans-unit id="s7242cc88574abf53">
-  <source>Reduce the whitespace in the UI.</source>
-  <note from="lit-localize">Description of the "Compact mode" feature.</note>
-</trans-unit>
-<trans-unit id="sc6c94bb8a8efddf1">
-  <source>Enables choosing between a custom-built dark theme and the vanilla light theme in the Community Console.</source>
-  <note from="lit-localize">Description of the "Dark theme" feature.</note>
-</trans-unit>
-<trans-unit id="s942248eeba34045f">
-  <source>Allows to drag and drop links to the text editor while preserving the link text.</source>
-  <note from="lit-localize">Description of the "Fix drag and dropping links" feature.</note>
-</trans-unit>
-<trans-unit id="sb43c89f7dbcda0eb">
-  <source>Shows a toggle which lets you disable nested view to display the replies flattened.</source>
-  <note from="lit-localize">Description of the "Flatten replies" feature.</note>
-</trans-unit>
-<trans-unit id="sc94b61f0d59d93fa">
-  <source>Hides the sidebar when opening the Community Console.</source>
-  <note from="lit-localize">Description of the "Hide sidebar by default" feature.</note>
-</trans-unit>
-<trans-unit id="se1b156e30d3f6827">
-  <source>Shows more prominently the dot that appears in the Community Console when Googlers publish a new announcement.</source>
-  <note from="lit-localize">Description of the "Highlight announcements notification dot" feature.</note>
-</trans-unit>
-<trans-unit id="s6ce91fd240036df3">
-  <source>Increases contrast between the background of read and unread threads.</source>
-  <note from="lit-localize">Description of the "Increase contrast" feature.</note>
-</trans-unit>
-<trans-unit id="sf79eb8af612719a2">
-  <source>Automatically loads more threads when scrolling down.</source>
-  <note from="lit-localize">Description of the "Infinite Scroll" feature in thread lists.</note>
-</trans-unit>
-<trans-unit id="sd328bf8e2e2f6119">
-  <source>Automatically loads more replies when scrolling down.</source>
-  <note from="lit-localize">Description of the "Infinite Scroll" feature in threads.</note>
-</trans-unit>
-<trans-unit id="sb7ef17ca1ed43552">
-  <source>Prevents inline images in messages from being taller than the current window.</source>
-  <note from="lit-localize">Description of the "Limit image size" feature.</note>
-</trans-unit>
-<trans-unit id="hd6ef3603ca3544c3">
-  <source>
+        <target state="translated">Una o més funcions s'han desactivat remotament per tothom. <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>Aprèn per què al nostre grup de discussió.<x id="1" equiv-text="&lt;/a&gt;&#10;            "/></target>
+        <note from="lit-localize">Content of the banner which lets users know that a feature was remotely disabled in the options page.</note>
+      </trans-unit>
+      <trans-unit id="sb6bc2f903f58c1e7" xml:space="preserve">
+        <source>Shows avatars of participants next to each thread.</source>
+        <target state="translated">Mostra fotos de perfil al costat de cada fil.</target>
+        <note from="lit-localize">Description of the "Avatars" feature.</note>
+      </trans-unit>
+      <trans-unit id="s94477c001fc4600a" xml:space="preserve">
+        <source>Blocks saving drafts of your replies as you type to Google servers in the Community Console.</source>
+        <target state="translated">Bloqueja l'enviament de les teves respostes mentre escrius als servidors de Google a la Consola de la Comunitat.</target>
+        <note from="lit-localize">Description of the "Block saving drafts" feature.</note>
+      </trans-unit>
+      <trans-unit id="sf11e849c4f7e174d" xml:space="preserve">
+        <source>Adds a button to lock all selected threads at once.</source>
+        <target state="translated">Afegeix un botó per bloquejar tots els fils seleccionats alhora.</target>
+        <note from="lit-localize">Description of the "Bulk lock" feature.</note>
+      </trans-unit>
+      <trans-unit id="sbccd6eedc254fbc7" xml:space="preserve">
+        <source>Adds a button to move all selected threads at once.</source>
+        <target state="translated">Afegeix un botó per moure tots els fils seleccionats alhora.</target>
+        <note from="lit-localize">Description of the "Bulk move" feature.</note>
+      </trans-unit>
+      <trans-unit id="s9347ba024909ae4e" xml:space="preserve">
+        <source>Forces showing the new or old thread page design.</source>
+        <target state="translated">Força que es mostri el disseny nou o antic de la pàgina que mostra un fil.</target>
+        <note from="lit-localize">Description of the "Change thread page design" feature.</note>
+      </trans-unit>
+      <trans-unit id="s7242cc88574abf53" xml:space="preserve">
+        <source>Reduce the whitespace in the UI.</source>
+        <target state="translated">Redueix el espai en blanc a la interfície d'usuari.</target>
+        <note from="lit-localize">Description of the "Compact mode" feature.</note>
+      </trans-unit>
+      <trans-unit id="sc6c94bb8a8efddf1" xml:space="preserve">
+        <source>Enables choosing between a custom-built dark theme and the vanilla light theme in the Community Console.</source>
+        <target state="translated">Activa que puguis escollir entre un tema fosc fet a mida i el tema clar de la Consola de la Comunitat.</target>
+        <note from="lit-localize">Description of the "Dark theme" feature.</note>
+      </trans-unit>
+      <trans-unit id="s942248eeba34045f" xml:space="preserve">
+        <source>Allows to drag and drop links to the text editor while preserving the link text.</source>
+        <target state="translated">Permet arrossegar i deixar anar enllaços a l'editor de text preservant el text de l'enllaç.</target>
+        <note from="lit-localize">Description of the "Fix drag and dropping links" feature.</note>
+      </trans-unit>
+      <trans-unit id="sb43c89f7dbcda0eb" xml:space="preserve">
+        <source>Shows a toggle which lets you disable nested view to display the replies flattened.</source>
+        <target state="translated">Mostra un selector que et permet desactivar la vista anidada per mostrar les respostes aplanades.</target>
+        <note from="lit-localize">Description of the "Flatten replies" feature.</note>
+      </trans-unit>
+      <trans-unit id="sc94b61f0d59d93fa" xml:space="preserve">
+        <source>Hides the sidebar when opening the Community Console.</source>
+        <target state="translated">Oculta la barra lateral quan s'obre la Consola de la Comunitat.</target>
+        <note from="lit-localize">Description of the "Hide sidebar by default" feature.</note>
+      </trans-unit>
+      <trans-unit id="se1b156e30d3f6827" xml:space="preserve">
+        <source>Shows more prominently the dot that appears in the Community Console when Googlers publish a new announcement.</source>
+        <target state="translated">Mostra de forma més destacada el punt que apareix a la Consola de la Comunitat quan els Googlers publiquen un nou anunci.</target>
+        <note from="lit-localize">Description of the "Highlight announcements notification dot" feature.</note>
+      </trans-unit>
+      <trans-unit id="s6ce91fd240036df3" xml:space="preserve">
+        <source>Increases contrast between the background of read and unread threads.</source>
+        <target state="translated">Incrementa el contrast entre el fons de fils llegits i no llegits.</target>
+        <note from="lit-localize">Description of the "Increase contrast" feature.</note>
+      </trans-unit>
+      <trans-unit id="sf79eb8af612719a2" xml:space="preserve">
+        <source>Automatically loads more threads when scrolling down.</source>
+        <target state="translated">Carrega automàticament més fils quan es baixa cap abaix.</target>
+        <note from="lit-localize">Description of the "Infinite Scroll" feature in thread lists.</note>
+      </trans-unit>
+      <trans-unit id="sd328bf8e2e2f6119" xml:space="preserve">
+        <source>Automatically loads more replies when scrolling down.</source>
+        <target state="translated">Carrega automàticament més respostes quan es baixa cap abaix.</target>
+        <note from="lit-localize">Description of the "Infinite Scroll" feature in threads.</note>
+      </trans-unit>
+      <trans-unit id="sb7ef17ca1ed43552" xml:space="preserve">
+        <source>Prevents inline images in messages from being taller than the current window.</source>
+        <target state="translated">Evita que les imatges als missatges es mostrin més altes que la finestra actual.</target>
+        <note from="lit-localize">Description of the "Limit image size" feature.</note>
+      </trans-unit>
+      <trans-unit id="hd6ef3603ca3544c3" xml:space="preserve">
+        <source>
       Enables the
       <x id="0" equiv-text="&lt;code&gt;"/>enableLoadingDraftMessages<x id="1" equiv-text="&lt;/code&gt;"/>
       Community Console flag, which enables recovering an existing draft saved
       in the Google servers when you start a new reply.
     </source>
-  <note from="lit-localize">Description of the "Load draft messages when replying" feature.</note>
-</trans-unit>
-<trans-unit id="s7d9104ef3d3b4273">
-  <source>Shows a non-intrusive notification when a thread list has new updates.</source>
-  <note from="lit-localize">Description of the "Notify updates" feature.</note>
-</trans-unit>
-<trans-unit id="s186c89b0df27cf80">
-  <source>Shows a badge next to the OP's username with the number of messages posted by them.</source>
-  <note from="lit-localize">Description of the "OP messages count" feature.</note>
-</trans-unit>
-<trans-unit id="s56f5d6f9019b5601">
-  <source>Shows a per-forum activity chart in profiles.</source>
-  <note from="lit-localize">Description of the "Per-forum activity" feature.</note>
-</trans-unit>
-<trans-unit id="s5c8548c650ea28ac">
-  <source>Places the "expand thread" button all the way to the left.</source>
-  <note from="lit-localize">Description of the "Place expand button in the left" feature.</note>
-</trans-unit>
-<trans-unit id="sec94d5c0e05e4c7a">
-  <source>Shows a "previous posts" link in user profiles.</source>
-  <note from="lit-localize">Description of the "Previous posts" feature.</note>
-</trans-unit>
-<trans-unit id="sa244dcf39d9d765a">
-  <source>Redirects all threads opened in Tailwind Basic to the Community Console.</source>
-  <note from="lit-localize">Description of the "Redirect to the Community Console" feature.</note>
-</trans-unit>
-<trans-unit id="s75e5d910d8a301be">
-  <source>Adds quick report buttons to all replies, so you can report each one with a single click.</source>
-  <note from="lit-localize">Description of the "Report replies quickly" feature.</note>
-</trans-unit>
-<trans-unit id="s3c671990138ef1d5">
-  <source>Makes the toolbar not disappear when scrolling down.</source>
-  <note from="lit-localize">Description of the "Sticky bulk actions toolbar" feature.</note>
-</trans-unit>
-<trans-unit id="s62398db1c3d787c0">
-  <source>Makes the headers of the collapsible sections in the sidebar sticky so they don't disappear when scrolling down.</source>
-  <note from="lit-localize">Description of the "Sticky sidebar headers" feature.</note>
-</trans-unit>
-<trans-unit id="sc3d18c5d40ce8aa0">
-  <source>Close menu with feature categories</source>
-  <note from="lit-localize">Label for the button that closes the list of feature categories in the options page.</note>
-</trans-unit>
-<trans-unit id="s1d76b4fc9e0c9f06">
-  <source>Open menu with feature categories</source>
-  <note from="lit-localize">Label for the button that opens the list of feature categories in the options page.</note>
-</trans-unit>
-<trans-unit id="sd8c7f380694a123e">
-  <source>Enable "<x id="0" equiv-text="${this.feature.name}"/>" feature</source>
-  <note from="lit-localize">Label for the checkbox that lets a user enable a specific feature in the options page (ex: 'Enable "Dark theme" feature')</note>
-</trans-unit>
-<trans-unit id="secf1350a6da28533">
-  <source>Experiments</source>
-  <note from="lit-localize">Label for the link to the experiments page.</note>
-</trans-unit>
-<trans-unit id="s0a9a5319eed5087a">
-  <source>Help translate the extension</source>
-  <note from="lit-localize">Label for the link to Weblate.</note>
-</trans-unit>
-<trans-unit id="sd13e01f2878f6e80">
-  <source>List of feature categories</source>
-  <note from="lit-localize">Label for the sidebar of the options page that lets the user select which category to be shown.</note>
-</trans-unit>
-<trans-unit id="saab875d8cfcfe712">
-  <source>Theme</source>
-  <note from="lit-localize">Name of a suboption of the "Dark theme" feature.</note>
-</trans-unit>
-<trans-unit id="s077f1115c8cb6492">
-  <source>Notify updates</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="sb8e4edaea6f1d935">
-  <source>Avatars</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="sc8cd255eb973bbe0">
-  <source>Bulk lock</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="s1f5af7657c1fb644">
-  <source>Block saving drafts</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="sf53f535371b485ce">
-  <source>Bulk move</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="s95c6b373633d4a2f">
-  <source>Report replies quickly</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="s3ac6d6bc5baddf30">
-  <source>Dark theme</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="s7d7a69fc2d6e11cd">
-  <source>Fix drag and dropping links</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="s3faaa7838e5c3fbf">
-  <source>Hide sidebar by default</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="s5620911a370a2355">
-  <source>Highlight announcements notification dot</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="s5b315a07b3168a91">
-  <source>Per-forum activity</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="s68ec92f1167241ee">
-  <source>Sticky bulk actions toolbar</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="s5f5f4dde977a84f1">
-  <source>Flatten replies</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="sfc204caf671903ba">
-  <source>Limit image size</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="s832d9d09497d5821">
-  <source>Increase contrast</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="sef7cb1d8a92135c6">
-  <source>Infinite scroll</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="s2e3ae8ef1d0d3d34">
-  <source>Change thread page design</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="s30d762b6c0d27066">
-  <source>Load draft messages when replying</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="sac84048ce43a8813">
-  <source>Previous posts</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="s07dcf88dcc1d021d">
-  <source>OP messages count</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="s1c6025c89f081afd">
-  <source>Redirect to the Community Console</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="scfffb3f9d0ff36f5">
-  <source>Place expand button in the left</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="s45c4dfb19d1893dc">
-  <source>Sticky sidebar headers</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="s56972a20e50faa59">
-  <source>Compact mode</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="s7632fc9aa12bf382">
-  <source>Months</source>
-  <note from="lit-localize">Name of the suboption which lets you choose the number of months to show in the OP messages count badge.</note>
-</trans-unit>
-<trans-unit id="s3dd06b20bd5b28c4">
-  <source>The Community Console already has this feature built-in without the need of the extension.</source>
-  <note from="lit-localize">Note for the "Infinite scroll" feature for thread lists.</note>
-</trans-unit>
-<trans-unit id="hc6a96bb38b498270">
-  <source>
+        <target state="translated">Activa la flag <x id="0" equiv-text="&lt;code&gt;"/>enableLoadingDraftMessages<x id="1" equiv-text="&lt;/code&gt;"/> de la Consola de la Comunitat, que permet recuperar un esborrany existent que s'hagi guardat als servidors de Google quan comences una nova resposta. </target>
+        <note from="lit-localize">Description of the "Load draft messages when replying" feature.</note>
+      </trans-unit>
+      <trans-unit id="s7d9104ef3d3b4273" xml:space="preserve">
+        <source>Shows a non-intrusive notification when a thread list has new updates.</source>
+        <target state="translated">Mostra una notificació no intrusiva quan una llista de fils té noves actualitzacions.</target>
+        <note from="lit-localize">Description of the "Notify updates" feature.</note>
+      </trans-unit>
+      <trans-unit id="s186c89b0df27cf80" xml:space="preserve">
+        <source>Shows a badge next to the OP's username with the number of messages posted by them.</source>
+        <target state="translated">Mostra un comptador amb la quantitat de missatges que ha publicat l'OP al costat del seu nom d'usuari.</target>
+        <note from="lit-localize">Description of the "OP messages count" feature.</note>
+      </trans-unit>
+      <trans-unit id="s56f5d6f9019b5601" xml:space="preserve">
+        <source>Shows a per-forum activity chart in profiles.</source>
+        <target state="translated">Mostra un gràfic de l'activitat a cada fòrum als perfils.</target>
+        <note from="lit-localize">Description of the "Per-forum activity" feature.</note>
+      </trans-unit>
+      <trans-unit id="s5c8548c650ea28ac" xml:space="preserve">
+        <source>Places the "expand thread" button all the way to the left.</source>
+        <target state="translated">Desplaça el botó "expandir fil" cap a l'esquerra del tot.</target>
+        <note from="lit-localize">Description of the "Place expand button in the left" feature.</note>
+      </trans-unit>
+      <trans-unit id="sec94d5c0e05e4c7a" xml:space="preserve">
+        <source>Shows a "previous posts" link in user profiles.</source>
+        <target state="translated">Mostra un enllaç "historial de publicacions" als perfils d'usuari.</target>
+        <note from="lit-localize">Description of the "Previous posts" feature.</note>
+      </trans-unit>
+      <trans-unit id="sa244dcf39d9d765a" xml:space="preserve">
+        <source>Redirects all threads opened in Tailwind Basic to the Community Console.</source>
+        <target state="translated">Redirigeix tots els fils oberts en Tailwind Basic a la Consola de la Comunitat.</target>
+        <note from="lit-localize">Description of the "Redirect to the Community Console" feature.</note>
+      </trans-unit>
+      <trans-unit id="s75e5d910d8a301be" xml:space="preserve">
+        <source>Adds quick report buttons to all replies, so you can report each one with a single click.</source>
+        <target state="translated">Afegeix botons d'informat ràpid a totes les respostes, perquè puguis informar cadascuna amb un únic clic.</target>
+        <note from="lit-localize">Description of the "Report replies quickly" feature.</note>
+      </trans-unit>
+      <trans-unit id="s3c671990138ef1d5" xml:space="preserve">
+        <source>Makes the toolbar not disappear when scrolling down.</source>
+        <target state="translated">Fa que la barra d'eines no desapareixi al baixar cap abaix.</target>
+        <note from="lit-localize">Description of the "Sticky bulk actions toolbar" feature.</note>
+      </trans-unit>
+      <trans-unit id="s62398db1c3d787c0" xml:space="preserve">
+        <source>Makes the headers of the collapsible sections in the sidebar sticky so they don't disappear when scrolling down.</source>
+        <target state="translated">Fa que les capçaleres de les seccions plegables a la barra lateral es mantinguin fixes adalt del tot abans de desaparèixer quan es baixa cap abaix.</target>
+        <note from="lit-localize">Description of the "Sticky sidebar headers" feature.</note>
+      </trans-unit>
+      <trans-unit id="sc3d18c5d40ce8aa0" xml:space="preserve">
+        <source>Close menu with feature categories</source>
+        <target state="translated">Tanca el menú amb les categories de les funcions</target>
+        <note from="lit-localize">Label for the button that closes the list of feature categories in the options page.</note>
+      </trans-unit>
+      <trans-unit id="s1d76b4fc9e0c9f06" xml:space="preserve">
+        <source>Open menu with feature categories</source>
+        <target state="translated">Obre el menú amb les categories de les funcions</target>
+        <note from="lit-localize">Label for the button that opens the list of feature categories in the options page.</note>
+      </trans-unit>
+      <trans-unit id="sd8c7f380694a123e" xml:space="preserve">
+        <source>Enable "<x id="0" equiv-text="${this.feature.name}"/>" feature</source>
+        <target state="translated">Activa la funció "<x id="0" equiv-text="${this.feature.name}"/>"</target>
+        <note from="lit-localize">Label for the checkbox that lets a user enable a specific feature in the options page (ex: 'Enable "Dark theme" feature')</note>
+      </trans-unit>
+      <trans-unit id="secf1350a6da28533" xml:space="preserve">
+        <source>Experiments</source>
+        <target state="translated">Experiments</target>
+        <note from="lit-localize">Label for the link to the experiments page.</note>
+      </trans-unit>
+      <trans-unit id="s0a9a5319eed5087a" xml:space="preserve">
+        <source>Help translate the extension</source>
+        <target state="translated">Ajuda a traduir l'extensió</target>
+        <note from="lit-localize">Label for the link to Weblate.</note>
+      </trans-unit>
+      <trans-unit id="sd13e01f2878f6e80" xml:space="preserve">
+        <source>List of feature categories</source>
+        <target state="translated">Llista de categories de funcions</target>
+        <note from="lit-localize">Label for the sidebar of the options page that lets the user select which category to be shown.</note>
+      </trans-unit>
+      <trans-unit id="saab875d8cfcfe712" xml:space="preserve">
+        <source>Theme</source>
+        <target state="translated">Tema</target>
+        <note from="lit-localize">Name of a suboption of the "Dark theme" feature.</note>
+      </trans-unit>
+      <trans-unit id="s077f1115c8cb6492" xml:space="preserve">
+        <source>Notify updates</source>
+        <target state="translated">Notifica actualitzacions</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="sb8e4edaea6f1d935" xml:space="preserve">
+        <source>Avatars</source>
+        <target state="translated">Fotos de perfil</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="sc8cd255eb973bbe0" xml:space="preserve">
+        <source>Bulk lock</source>
+        <target state="translated">Bloqueja massivament</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="s1f5af7657c1fb644" xml:space="preserve">
+        <source>Block saving drafts</source>
+        <target state="translated">Bloqueja el desat d'esborranys</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="sf53f535371b485ce" xml:space="preserve">
+        <source>Bulk move</source>
+        <target state="translated">Moure massivament</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="s95c6b373633d4a2f" xml:space="preserve">
+        <source>Report replies quickly</source>
+        <target state="translated">Informa respostes ràpidament</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="s3ac6d6bc5baddf30" xml:space="preserve">
+        <source>Dark theme</source>
+        <target state="translated">Tema fosc</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="s7d7a69fc2d6e11cd" xml:space="preserve">
+        <source>Fix drag and dropping links</source>
+        <target state="translated">Arregla l'arrossegar i deixar anar enllaços</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="s3faaa7838e5c3fbf" xml:space="preserve">
+        <source>Hide sidebar by default</source>
+        <target state="translated">Amaga la barra lateral per defecte</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="s5620911a370a2355" xml:space="preserve">
+        <source>Highlight announcements notification dot</source>
+        <target state="translated">Ressalta el punt de notificacions dels anuncis</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="s5b315a07b3168a91" xml:space="preserve">
+        <source>Per-forum activity</source>
+        <target state="translated">Activitat per fòrum</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="s68ec92f1167241ee" xml:space="preserve">
+        <source>Sticky bulk actions toolbar</source>
+        <target state="translated">Fixa la barra d'eines d'accions massives</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="s5f5f4dde977a84f1" xml:space="preserve">
+        <source>Flatten replies</source>
+        <target state="translated">Aplana les respostes</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="sfc204caf671903ba" xml:space="preserve">
+        <source>Limit image size</source>
+        <target state="translated">Limita la mida de les imatges</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="s832d9d09497d5821" xml:space="preserve">
+        <source>Increase contrast</source>
+        <target state="translated">Incrementa el contrast</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="sef7cb1d8a92135c6" xml:space="preserve">
+        <source>Infinite scroll</source>
+        <target state="translated">Scroll infinit</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="s2e3ae8ef1d0d3d34" xml:space="preserve">
+        <source>Change thread page design</source>
+        <target state="translated">Canvia el disseny de la pàgina dels fils</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="s30d762b6c0d27066" xml:space="preserve">
+        <source>Load draft messages when replying</source>
+        <target state="translated">Carrega els esborranys quan respongui</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="sac84048ce43a8813" xml:space="preserve">
+        <source>Previous posts</source>
+        <target state="translated">Historial de publicacions</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="s07dcf88dcc1d021d" xml:space="preserve">
+        <source>OP messages count</source>
+        <target state="translated">Comptador de missatges de l'OP</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="s1c6025c89f081afd" xml:space="preserve">
+        <source>Redirect to the Community Console</source>
+        <target state="translated">Redirigeix a la Consola de la Comunitat</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="scfffb3f9d0ff36f5" xml:space="preserve">
+        <source>Place expand button in the left</source>
+        <target state="translated">Posa el botó d'expandir a l'esquerra</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="s45c4dfb19d1893dc" xml:space="preserve">
+        <source>Sticky sidebar headers</source>
+        <target state="translated">Capçaleres de la barra lateral fixes</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="s56972a20e50faa59" xml:space="preserve">
+        <source>Compact mode</source>
+        <target state="translated">Mode compacte</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="s7632fc9aa12bf382" xml:space="preserve">
+        <source>Months</source>
+        <target state="translated">Mesos</target>
+        <note from="lit-localize">Name of the suboption which lets you choose the number of months to show in the OP messages count badge.</note>
+      </trans-unit>
+      <trans-unit id="s3dd06b20bd5b28c4" xml:space="preserve">
+        <source>The Community Console already has this feature built-in without the need of the extension.</source>
+        <target state="translated">La Consola de la Comunitat ja té aquesta funció incorporada sense la necessitat de l'extensió.</target>
+        <note from="lit-localize">Note for the "Infinite scroll" feature for thread lists.</note>
+      </trans-unit>
+      <trans-unit id="hc6a96bb38b498270" xml:space="preserve">
+        <source>
       <x id="0" equiv-text="&lt;i&gt;${automaticOptionLabel}"/>:<x id="1" equiv-text="&lt;/i&gt;"/>
       will use the theme defined in the system settings.
       <x id="2" equiv-text="&lt;br&gt;&#10;      &lt;i&gt;${manualOptionLabel}"/>:<x id="3" equiv-text="&lt;/i&gt;"/>
       will add a button to the Community Console that lets you switch the theme.
     </source>
-  <note from="lit-localize">Note for the "Theme" feature.</note>
-</trans-unit>
-<trans-unit id="s5534d887d865e194">
-  <source>Old design</source>
-  <note from="lit-localize">Selectable option for the "Design to show" suboption of the "Change thread page design" feature.</note>
-</trans-unit>
-<trans-unit id="sb7caaf7e7ac078b1">
-  <source>New design</source>
-  <note from="lit-localize">Selectable option for the "Design to show" suboption of the "Change thread page design" feature.</note>
-</trans-unit>
-<trans-unit id="sd200028b9f6015e4">
-  <source>Automatic</source>
-  <note from="lit-localize">Selectable option for the "Theme" suboption of the "Dark theme" feature.</note>
-</trans-unit>
-<trans-unit id="s956c5a9fb7ee0b23">
-  <source>Manual</source>
-  <note from="lit-localize">Selectable option for the "Theme" suboption of the "Dark theme" feature.</note>
-</trans-unit>
-<trans-unit id="se9b6b34d60e86c7d">
-  <source>Design to show</source>
-  <note from="lit-localize">Suboption for the "Change thread page design" feature.</note>
-</trans-unit>
-<trans-unit id="s164a95895c17e807">
-  <source>Tailwind Basic</source>
-  <note from="lit-localize">Tag shown in the options page for features that work in Tailwind Basic.</note>
-</trans-unit>
-<trans-unit id="s11978a20450b4dd3">
-  <source>Community Console</source>
-  <note from="lit-localize">Tag shown in the options page for features that work in the Community Console.</note>
-</trans-unit>
-<trans-unit id="h74e97b4e6e3628b4">
-  <source>
+        <target state="translated"><x id="0" equiv-text="&lt;i&gt;${automaticOptionLabel}"/>:<x id="1" equiv-text="&lt;/i&gt;"/> usarà el tema definit a la configuració del sistema. <x id="2" equiv-text="&lt;br&gt;&#10;      &lt;i&gt;${manualOptionLabel}"/>:<x id="3" equiv-text="&lt;/i&gt;"/> afegirà un botó a la Consola de la Comunitat que et permetrà canviar el tema. </target>
+        <note from="lit-localize">Note for the "Theme" feature.</note>
+      </trans-unit>
+      <trans-unit id="s5534d887d865e194" xml:space="preserve">
+        <source>Old design</source>
+        <target state="translated">Disseny antic</target>
+        <note from="lit-localize">Selectable option for the "Design to show" suboption of the "Change thread page design" feature.</note>
+      </trans-unit>
+      <trans-unit id="sb7caaf7e7ac078b1" xml:space="preserve">
+        <source>New design</source>
+        <target state="translated">Disseny nou</target>
+        <note from="lit-localize">Selectable option for the "Design to show" suboption of the "Change thread page design" feature.</note>
+      </trans-unit>
+      <trans-unit id="sd200028b9f6015e4" xml:space="preserve">
+        <source>Automatic</source>
+        <target state="translated">Automàtic</target>
+        <note from="lit-localize">Selectable option for the "Theme" suboption of the "Dark theme" feature.</note>
+      </trans-unit>
+      <trans-unit id="s956c5a9fb7ee0b23" xml:space="preserve">
+        <source>Manual</source>
+        <target state="translated">Manual</target>
+        <note from="lit-localize">Selectable option for the "Theme" suboption of the "Dark theme" feature.</note>
+      </trans-unit>
+      <trans-unit id="se9b6b34d60e86c7d" xml:space="preserve">
+        <source>Design to show</source>
+        <target state="translated">Disseny a mostrar</target>
+        <note from="lit-localize">Suboption for the "Change thread page design" feature.</note>
+      </trans-unit>
+      <trans-unit id="s164a95895c17e807" xml:space="preserve">
+        <source>Tailwind Basic</source>
+        <target state="translated">Tailwind Bàsic</target>
+        <note from="lit-localize">Tag shown in the options page for features that work in Tailwind Basic.</note>
+      </trans-unit>
+      <trans-unit id="s11978a20450b4dd3" xml:space="preserve">
+        <source>Community Console</source>
+        <target state="translated">Consola de la Comunitat</target>
+        <note from="lit-localize">Tag shown in the options page for features that work in the Community Console.</note>
+      </trans-unit>
+      <trans-unit id="h74e97b4e6e3628b4" xml:space="preserve">
+        <source>
             This feature has been disabled remotely for everyone.
             <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>
               Learn why.
             <x id="1" equiv-text="&lt;/a&gt;&#10;          "/></source>
-  <note from="lit-localize">Text that appears in a feature card in the options page when the feature has been disabled remotely (i.e., the feature kill switch is active).</note>
-</trans-unit>
-<trans-unit id="s4159a5f1849a41c3">
-  <source>Kill switch active</source>
-  <note from="lit-localize">Title of the banner which lets users know that a feature was remotely disabled in the options page.</note>
-</trans-unit>
-<trans-unit id="s457d59d649765619">
-  <source>Skip to main content</source>
-  <note from="lit-localize">Text for the button that lets users skip directly to the main content in a page.</note>
-</trans-unit>
-<trans-unit id="sd51b2f371fbec9c6">
-  <source>TW Power Tools</source>
-  <note from="lit-localize">The extension name.</note>
-</trans-unit>
-<trans-unit id="h484816adcf825576">
-  <source>
+        <target state="translated">Aquesta funció s'ha desactivat remotament per tothom. <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/> Aprèn per què. <x id="1" equiv-text="&lt;/a&gt;&#10;          "/></target>
+        <note from="lit-localize">Text that appears in a feature card in the options page when the feature has been disabled remotely (i.e., the feature kill switch is active).</note>
+      </trans-unit>
+      <trans-unit id="s4159a5f1849a41c3" xml:space="preserve">
+        <source>Kill switch active</source>
+        <target state="translated">Interruptor de parada d'emergència actiu</target>
+        <note from="lit-localize">Title of the banner which lets users know that a feature was remotely disabled in the options page.</note>
+      </trans-unit>
+      <trans-unit id="s457d59d649765619" xml:space="preserve">
+        <source>Skip to main content</source>
+        <target state="translated">Salta al contingut principal</target>
+        <note from="lit-localize">Text for the button that lets users skip directly to the main content in a page.</note>
+      </trans-unit>
+      <trans-unit id="sd51b2f371fbec9c6" xml:space="preserve">
+        <source>TW Power Tools</source>
+        <target state="translated">Eines avançades per TW</target>
+        <note from="lit-localize">The extension name.</note>
+      </trans-unit>
+      <trans-unit id="h484816adcf825576" xml:space="preserve">
+        <source>
         These features only affect the Community Console's old message composer,
         which is shown when creating a new thread or canned response, when
         pressing
@@ -651,66 +723,82 @@
         inside a thread, or when creating a new reply in the old thread view.
         The new message composer doesn't suffer from these issues.
       </source>
-  <note from="lit-localize">Explanatory note for the features that relate to the old reply editor in the Community Console.</note>
-</trans-unit>
-<trans-unit id="s9f87b689a748b55a">
-  <source>Bulk actions</source>
-  <note from="lit-localize">Name of a generic section of features that let users perform actions to many threads at once.</note>
-</trans-unit>
-<trans-unit id="s275ffb8ac7b2973f">
-  <source>Minor UI enhancements</source>
-  <note from="lit-localize">Name of a generic section of features, which includes features that minimally enhance the user interface of the forums platform.</note>
-</trans-unit>
-<trans-unit id="s30ae03472b93dc47">
-  <source>Profiles</source>
-  <note from="lit-localize">Name of the category of extension features related to profiles.</note>
-</trans-unit>
-<trans-unit id="s55cec32fb241f2f5">
-  <source>Old message composer</source>
-  <note from="lit-localize">Name of the category of extension features related to the old message composer.</note>
-</trans-unit>
-<trans-unit id="s6163ba50e1af9788">
-  <source>Thread lists</source>
-  <note from="lit-localize">Name of the category of extension features related to thread lists.</note>
-</trans-unit>
-<trans-unit id="s8b60bf2db1580306">
-  <source>Threads</source>
-  <note from="lit-localize">Name of the category of extension features related to threads.</note>
-</trans-unit>
-<trans-unit id="sc3ac225273c8316b">
-  <source>General</source>
-  <note from="lit-localize">Name of the category of extension features that apply to multiple areas of the forums platform.</note>
-</trans-unit>
-<trans-unit id="s79ad81a9d63904fc">
-  <source>You're testing the new options page.</source>
-</trans-unit>
-<trans-unit id="h75ff4c12afaffb0c">
-  <source>Please leave feedback and report bugs in our <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;"/>discussion group<x id="1" equiv-text="&lt;/a&gt;"/>. Thanks for testing!</source>
-</trans-unit>
-<trans-unit id="s4c92f48e04b9ef0e">
-  <source>Patches the bug that incorrectly opens the link dialog multiple times when adding or editing a link.</source>
-  <note from="lit-localize">Description of the "Fix link dialog" feature.</note>
-</trans-unit>
-<trans-unit id="sa5ebc8ee802beea8">
-  <source>Fix link dialog</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="scec7442ea759dba6">
-  <source>Message composer</source>
-  <note from="lit-localize">Name of the category of extension features related to the message composer.</note>
-</trans-unit>
-<trans-unit id="s45ee97a0bb6df8de">
-  <source>In batches</source>
-  <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
-</trans-unit>
-<trans-unit id="sd984a10a3a8f281e">
-  <source>All at once</source>
-  <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
-</trans-unit>
-<trans-unit id="s37cbecaec58e2192">
-  <source>Mode</source>
-  <note from="lit-localize">Suboption for the "Infinite scroll" (in threads) feature.</note>
-</trans-unit>
+        <target state="translated">Aquestes funcions només afecten l'editor antic de missatges, que es mostra quan es crea un nou fil o resposta estàndard, quan es prem <x id="0" equiv-text="&lt;kbd&gt;"/>r<x id="1" equiv-text="&lt;/kbd&gt;"/> a dins d'un fil, o quan es crea una nova resposta a la vista antiga de fils. El nou editor de missatges no pateix d'aquests problemes. </target>
+        <note from="lit-localize">Explanatory note for the features that relate to the old reply editor in the Community Console.</note>
+      </trans-unit>
+      <trans-unit id="s9f87b689a748b55a" xml:space="preserve">
+        <source>Bulk actions</source>
+        <target state="translated">Accions massives</target>
+        <note from="lit-localize">Name of a generic section of features that let users perform actions to many threads at once.</note>
+      </trans-unit>
+      <trans-unit id="s275ffb8ac7b2973f" xml:space="preserve">
+        <source>Minor UI enhancements</source>
+        <target state="translated">Millores menors de la interfície</target>
+        <note from="lit-localize">Name of a generic section of features, which includes features that minimally enhance the user interface of the forums platform.</note>
+      </trans-unit>
+      <trans-unit id="s30ae03472b93dc47" xml:space="preserve">
+        <source>Profiles</source>
+        <target state="translated">Perfils</target>
+        <note from="lit-localize">Name of the category of extension features related to profiles.</note>
+      </trans-unit>
+      <trans-unit id="s55cec32fb241f2f5" xml:space="preserve">
+        <source>Old message composer</source>
+        <target state="translated">Editor de missatges antic</target>
+        <note from="lit-localize">Name of the category of extension features related to the old message composer.</note>
+      </trans-unit>
+      <trans-unit id="s6163ba50e1af9788" xml:space="preserve">
+        <source>Thread lists</source>
+        <target state="translated">Llistes de fils</target>
+        <note from="lit-localize">Name of the category of extension features related to thread lists.</note>
+      </trans-unit>
+      <trans-unit id="s8b60bf2db1580306" xml:space="preserve">
+        <source>Threads</source>
+        <target state="translated">Fils</target>
+        <note from="lit-localize">Name of the category of extension features related to threads.</note>
+      </trans-unit>
+      <trans-unit id="sc3ac225273c8316b" xml:space="preserve">
+        <source>General</source>
+        <target state="translated">General</target>
+        <note from="lit-localize">Name of the category of extension features that apply to multiple areas of the forums platform.</note>
+      </trans-unit>
+      <trans-unit id="s79ad81a9d63904fc" xml:space="preserve">
+        <source>You're testing the new options page.</source>
+        <target state="translated">Estàs provant la nova pàgina de configuració.</target>
+      </trans-unit>
+      <trans-unit id="h75ff4c12afaffb0c" xml:space="preserve">
+        <source>Please leave feedback and report bugs in our <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;"/>discussion group<x id="1" equiv-text="&lt;/a&gt;"/>. Thanks for testing!</source>
+        <target state="translated">Si us plau deixeu comentaris i informeu d'errors al nostre <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;"/>grup de discussió<x id="1" equiv-text="&lt;/a&gt;"/>. Gràcies per participar a la prova!</target>
+      </trans-unit>
+      <trans-unit id="s4c92f48e04b9ef0e" xml:space="preserve">
+        <source>Patches the bug that incorrectly opens the link dialog multiple times when adding or editing a link.</source>
+        <target state="translated">Arregla l'error que obre incorrectament el quadre de diàleg diverses vegades quan s'afegeix o edita un enllaç.</target>
+        <note from="lit-localize">Description of the "Fix link dialog" feature.</note>
+      </trans-unit>
+      <trans-unit id="sa5ebc8ee802beea8" xml:space="preserve">
+        <source>Fix link dialog</source>
+        <target state="translated">Arregla el quadre de diàleg d'enllaços</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="scec7442ea759dba6" xml:space="preserve">
+        <source>Message composer</source>
+        <target state="translated">Editor de missatges</target>
+        <note from="lit-localize">Name of the category of extension features related to the message composer.</note>
+      </trans-unit>
+      <trans-unit id="s45ee97a0bb6df8de" xml:space="preserve">
+        <source>In batches</source>
+        <target state="translated">Per lots</target>
+        <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
+      </trans-unit>
+      <trans-unit id="sd984a10a3a8f281e" xml:space="preserve">
+        <source>All at once</source>
+        <target state="translated">Tot alhora</target>
+        <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
+      </trans-unit>
+      <trans-unit id="s37cbecaec58e2192" xml:space="preserve">
+        <source>Mode</source>
+        <target state="translated">Mode</target>
+        <note from="lit-localize">Suboption for the "Infinite scroll" (in threads) feature.</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>
