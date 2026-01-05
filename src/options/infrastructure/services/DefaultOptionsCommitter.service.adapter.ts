@@ -20,7 +20,8 @@ export class DefaultOptionsCommitterAdapter implements DefaultOptionsCommitterPo
       const status = optionsConfiguration.optionsStatus[codename];
       if (
         status.isDefaultValue &&
-        option.killSwitchType !== KillSwitchType.InternalKillSwitch
+        option.killSwitchType !== KillSwitchType.InternalKillSwitch &&
+        option.killSwitchType !== KillSwitchType.Deprecated
       ) {
         updates.push(this.optionsModifier.set(codename, status.value));
       }
