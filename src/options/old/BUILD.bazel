@@ -22,5 +22,6 @@ common_js_project(
     deps = [
         "//src/common",
         "//src/common/options",
+        "//src/storage/compositionRoot",
     ],
 )

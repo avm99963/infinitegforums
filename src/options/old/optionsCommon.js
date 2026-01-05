@@ -1,11 +1,15 @@
+import {getSyncStorageAreaRepository} from '@/storage/compositionRoot/index.js';
+
 import {getDocURL, isProdVersion} from '../../common/extUtils.js';
-import {cleanUpOptions, optionsPrototype, specialOptions} from '../../common/options/optionsUtils.js';
+import {optionsPrototype, specialOptions} from '../../common/options/optionsUtils.js';
 
 import optionsPage from './optionsPage.json5';
 
 var savedSuccessfullyTimeout = null;
 
 const exclusiveOptions = [['thread', 'threadall']];
+
+const syncStorageAreaRepository = getSyncStorageAreaRepository();
 
 // Get the value of the option set in the options/experiments page
 function getOptionValue(opt) {
@@ -35,7 +39,7 @@ function isOptionShown(opt) {
   return optionsPrototype[opt].context == window.CONTEXT;
 }
 
-function save(e) {
+async function save(e) {
   // Validation checks before saving
   if (isOptionShown('profileindicatoralt_months')) {
     var months = document.getElementById('profileindicatoralt_months');
@@ -47,29 +51,27 @@ function save(e) {
 
   e.preventDefault();
 
-  chrome.storage.sync.get(null, function(items) {
-    var options = cleanUpOptions(items, true);
+  const options = await syncStorageAreaRepository.get();
 
-    // Save
-    Object.keys(options).forEach(function(opt) {
-      if (!isOptionShown(opt)) return;
-      options[opt] = getOptionValue(opt);
-    });
-
-    chrome.storage.sync.set(options, function() {
-      window.close();
-
-      // In browsers like Firefox window.close is not supported:
-      if (savedSuccessfullyTimeout !== null)
-        window.clearTimeout(savedSuccessfullyTimeout);
-
-      document.getElementById('save-indicator').innerText =
-          '✓ ' + chrome.i18n.getMessage('options_saved');
-      savedSuccessfullyTimeout = window.setTimeout(_ => {
-        document.getElementById('save-indicator').innerText = '';
-      }, 3699);
-    });
+  // Save
+  Object.keys(options).forEach(function(opt) {
+    if (!isOptionShown(opt)) return;
+    options[opt] = getOptionValue(opt);
   });
+
+  await syncStorageAreaRepository.set(options);
+
+  window.close();
+
+  // In browsers like Firefox window.close is not supported:
+  if (savedSuccessfullyTimeout !== null)
+    window.clearTimeout(savedSuccessfullyTimeout);
+
+  document.getElementById('save-indicator').innerText =
+      '✓ ' + chrome.i18n.getMessage('options_saved');
+  savedSuccessfullyTimeout = window.setTimeout(_ => {
+    document.getElementById('save-indicator').innerText = '';
+  }, 3699);
 }
 
 function i18n() {
@@ -79,7 +81,7 @@ function i18n() {
               'options_' + el.getAttribute('data-i18n')));
 }
 
-window.addEventListener('load', function() {
+window.addEventListener('load', async function() {
   if (window.CONTEXT == 'options') {
     if (!isProdVersion()) {
       var experimentsLink = document.querySelector('.experiments-link');
@@ -163,104 +165,101 @@ window.addEventListener('load', function() {
       })
     });
 
-  chrome.storage.sync.get(null, function(items) {
-    items = cleanUpOptions(items, false);
+  const items = await syncStorageAreaRepository.get();
 
-    // If some features have been force disabled, communicate this to the user.
-    if (items?._forceDisabledFeatures &&
-        items._forceDisabledFeatures.length > 0) {
-      if (window.CONTEXT == 'options') {
-        document.getElementById('kill-switch-warning')
-            .removeAttribute('hidden');
+  // If some features have been force disabled, communicate this to the user.
+  if (items?._forceDisabledFeatures &&
+      items._forceDisabledFeatures.length > 0) {
+    if (window.CONTEXT == 'options') {
+      document.getElementById('kill-switch-warning').removeAttribute('hidden');
+    }
+  }
+
+  for (var entry of Object.entries(optionsPrototype)) {
+    var opt = entry[0];
+    var optMeta = entry[1];
+
+    if (!isOptionShown(opt)) continue;
+
+    if (specialOptions.includes(opt)) {
+      switch (opt) {
+        case 'profileindicatoralt_months':
+          var input = document.createElement('input');
+          input.type = 'number';
+          input.id = 'profileindicatoralt_months';
+          input.max = '12';
+          input.min = '1';
+          input.value = items[opt];
+          input.required = true;
+          document.getElementById('profileindicatoralt_months--container')
+              .appendChild(input);
+          break;
+
+        case 'ccdarktheme_mode':
+          var select = document.createElement('select');
+          select.id = 'ccdarktheme_mode';
+
+          const modes = ['switch', 'system'];
+          for (const mode of modes) {
+            var modeOption = document.createElement('option');
+            modeOption.value = mode;
+            modeOption.textContent =
+                chrome.i18n.getMessage('options_ccdarktheme_mode_' + mode);
+            if (items.ccdarktheme_mode == mode) modeOption.selected = true;
+            select.appendChild(modeOption);
+          }
+
+          document.getElementById('ccdarktheme_mode--container')
+              .appendChild(select);
+          break;
+
+        case 'interopthreadpage_mode':
+          var select = document.createElement('select');
+          select.id = 'interopthreadpage_mode';
+
+          const threadPageModes = ['previous', 'next'];
+          for (const mode of threadPageModes) {
+            let modeOption = document.createElement('option');
+            modeOption.value = mode;
+            modeOption.textContent = chrome.i18n.getMessage(
+                'options_interopthreadpage_mode_' + mode);
+            if (items.interopthreadpage_mode == mode)
+              modeOption.selected = true;
+            select.appendChild(modeOption);
+          }
+
+          document.getElementById('interopthreadpage_mode--container')
+              .appendChild(select);
+          break;
+
+        default:
+          console.warn('Unrecognized option: ' + opt);
+          break;
       }
+      continue;
     }
 
-    for (var entry of Object.entries(optionsPrototype)) {
-      var opt = entry[0];
-      var optMeta = entry[1];
+    if (items[opt] === true) document.getElementById(opt).checked = true;
+    if (window.CONTEXT == 'options' &&
+        items?._forceDisabledFeatures?.includes?.(opt))
+      document.querySelector('.kill-switch-label[data-feature="' + opt + '"]')
+          .removeAttribute('hidden');
+  }
 
-      if (!isOptionShown(opt)) continue;
+  exclusiveOptions.forEach(exclusive => {
+    if (!isOptionShown(exclusive[0]) || !isOptionShown(exclusive[1])) return;
 
-      if (specialOptions.includes(opt)) {
-        switch (opt) {
-          case 'profileindicatoralt_months':
-            var input = document.createElement('input');
-            input.type = 'number';
-            input.id = 'profileindicatoralt_months';
-            input.max = '12';
-            input.min = '1';
-            input.value = items[opt];
-            input.required = true;
-            document.getElementById('profileindicatoralt_months--container')
-                .appendChild(input);
-            break;
-
-          case 'ccdarktheme_mode':
-            var select = document.createElement('select');
-            select.id = 'ccdarktheme_mode';
-
-            const modes = ['switch', 'system'];
-            for (const mode of modes) {
-              var modeOption = document.createElement('option');
-              modeOption.value = mode;
-              modeOption.textContent =
-                  chrome.i18n.getMessage('options_ccdarktheme_mode_' + mode);
-              if (items.ccdarktheme_mode == mode) modeOption.selected = true;
-              select.appendChild(modeOption);
-            }
-
-            document.getElementById('ccdarktheme_mode--container')
-                .appendChild(select);
-            break;
-
-          case 'interopthreadpage_mode':
-            var select = document.createElement('select');
-            select.id = 'interopthreadpage_mode';
-
-            const threadPageModes = ['previous', 'next'];
-            for (const mode of threadPageModes) {
-              let modeOption = document.createElement('option');
-              modeOption.value = mode;
-              modeOption.textContent = chrome.i18n.getMessage(
-                  'options_interopthreadpage_mode_' + mode);
-              if (items.interopthreadpage_mode == mode)
-                modeOption.selected = true;
-              select.appendChild(modeOption);
-            }
-
-            document.getElementById('interopthreadpage_mode--container')
-                .appendChild(select);
-            break;
-
-          default:
-            console.warn('Unrecognized option: ' + opt);
-            break;
-        }
-        continue;
-      }
-
-      if (items[opt] === true) document.getElementById(opt).checked = true;
-      if (window.CONTEXT == 'options' &&
-          items?._forceDisabledFeatures?.includes?.(opt))
-        document.querySelector('.kill-switch-label[data-feature="' + opt + '"]')
-            .removeAttribute('hidden');
-    }
-
-    exclusiveOptions.forEach(exclusive => {
-      if (!isOptionShown(exclusive[0]) || !isOptionShown(exclusive[1])) return;
-
-      exclusive.forEach(
-          el => document.getElementById(el).addEventListener('change', e => {
-            if (document.getElementById(exclusive[0]).checked &&
-                document.getElementById(exclusive[1]).checked) {
-              document
-                  .getElementById(
-                      exclusive[(e.currentTarget.id == exclusive[0] ? 1 : 0)])
-                  .checked = false;
-            }
-          }));
-    });
-
-    document.querySelector('#save').addEventListener('click', save);
+    exclusive.forEach(
+        el => document.getElementById(el).addEventListener('change', e => {
+          if (document.getElementById(exclusive[0]).checked &&
+              document.getElementById(exclusive[1]).checked) {
+            document
+                .getElementById(
+                    exclusive[(e.currentTarget.id == exclusive[0] ? 1 : 0)])
+                .checked = false;
+          }
+        }));
   });
+
+  document.querySelector('#save').addEventListener('click', save);
 });

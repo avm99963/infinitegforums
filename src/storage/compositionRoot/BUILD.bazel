@@ -13,6 +13,7 @@ common_ts_project(
     visibility = [
         "//src:entrypoint",
         "//src/common/options:__subpackages__",
+        "//src/options/old:__subpackages__",
     ],
     deps = [
         "//src/storage/infrastructure/repositories",
