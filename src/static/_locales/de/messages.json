@@ -1,494 +1,491 @@
 {
-    "appName": {
-        "message": "TW Power Tools",
-        "description": "The extension's name"
-    },
-    "appNameGecko": {
-        "message": "TW Power Tools",
-        "description": "The extension's name (with a 50 character limit for Gecko)"
-    },
-    "appDescription": {
-        "message": "Erhalte unendliches Scrollen und andere Verbesserungen in den Google-Foren und der Community Console",
-        "description": "The extension's description"
-    },
-    "appNameBeta": {
-        "message": "TW Power Tools (beta)",
-        "description": "The extension's name for the beta version"
-    },
-    "appNameCanary": {
-        "message": "TW Power Tools (canary)",
-        "description": "The extension's name for the beta version"
-    },
-    "options_killswitchwarning": {
-        "message": "Eine oder mehrere Optionen wurden zwangsweise deaktiviert, da sie möglicherweise nicht ordnungsgemäß funktionieren. Bitte besuchen Sie die <a href='https://groups.google.com/g/twpowertools-discuss' rel='noreferrer noopener' target='_blank'>twpowertools-discuss Google-Gruppe</a>, um mehr darüber zu erfahren, warum einige Optionen zwangsweise deaktiviert wurden.",
-        "description": "Warning shown in the options page if a feature has been remotely force disabled via the kill switch mechanism. This happens when a feature doesn't work properly and might be doing dangerous things, and the maintainer or an authorized user remotely force disables the feature."
-    },
-    "options_optionalpermissionswarning_header": {
-        "message": "Für einige Funktionen sind zusätzliche Berechtigungen erforderlich. Sie wurden unten hervorgehoben. Klicken Sie auf ihre Kontrollkästchen, um die entsprechenden Berechtigungen zu erteilen.",
-        "description": "Warning shown at the top of the options page if a feature cannot be used because one or more required permissions haven't been granted to the extension."
-    },
-    "options_killswitchenabled": {
-        "message": "Die vorherige Option wurde aufgrund eines Problems zwangsweise deaktiviert.",
-        "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
-    },
-    "options_optionalpermissionswarning_label": {
-        "message": "Für die vorherige Funktion sind zusätzliche Berechtigungen erforderlich.",
-        "description": "Warning shown in the options page below an option, when a feature needs more permissions to work."
-    },
-    "options_featuredoptions": {
-        "message": "Empfohlene Optionen",
-        "description": "Heading for several options that can be enabled in the options page."
-    },
-    "options_minorenhancements": {
-        "message": "Kleinere Verbesserungen",
-        "description": "Heading for several options that can be enabled in the options page."
-    },
-    "options_list": {
-        "message": "Aktiviere unendliches Scrollen in Thread-Listen.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_thread": {
-        "message": "Laden Sie beim Herunterscrollen automatisch Nachrichtenstapel in Threads nach.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_threadall": {
-        "message": "Beim Herunterscrollen automatisch alle Nachrichten in Threads auf einmal laden.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_fixedtoolbar": {
-        "message": "Die Symbolleiste fest oberhalb der Thread-Listen in der Community Console anzeigen.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_redirect": {
-        "message": "Leite alle in TW geöffneten Threads zur Community Console um.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_increasecontrast": {
-        "message": "Erhöhen Sie den Kontrast zwischen gelesenen und ungelesenen Threads in der Community Console.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_history": {
-        "message": "Zeigen Sie in Benutzerprofilen einen Link zu „vorherigen Beiträgen“ an.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_profileindicator": {
-        "message": "Zeigen Sie an, <span class=\"help\" title=\"Wenn der OP an anderen Threads teilgenommen hat, wird neben seinem Benutzernamen ein roter Punkt angezeigt. Wenn die letzten Beiträge des OP gelesen wurden, wird stattdessen ein orangefarbener Punkt angezeigt. Sie können mit der Maus über den Punkt fahren, um die Bedeutung seiner Farbe anzuzeigen.\">ob der OP an anderen Threads teilgenommen hat</span>."
-    },
-    "inject_lockdialog_desc": {
-        "message": "Bitte bestätigen Sie die gewünschte Aktion, indem Sie unten auf die entsprechende Schaltfläche klicken. Beachten Sie, dass diese Aktion in allen von Ihnen ausgewählten Threads ausgeführt wird."
-    },
-    "inject_autorefresh_list_status_indicator_label_disabled": {
-        "message": "Aktualisierungen der Threadliste können nicht abgerufen werden. Bitte ändern Sie die Sortierung in „Sortieren nach: Letzte Aktualisierung“ und absteigende Reihenfolge."
-    },
-    "options_ccdarktheme": {
-        "message": "Aktivieren Sie das dunkle Design in der Community-Konsole, gesteuert über <span id='ccdarktheme_mode--container'></span>."
-    },
-    "options_ccdarktheme_mode_switch": {
-        "message": "mit einem Schalter im CC"
-    },
-    "options_ccdarktheme_mode_system": {
-        "message": "durch die Dunkelmodus-Einstellung des Betriebssystems"
-    },
-    "options_ccforcehidedrawer": {
-        "message": "Blenden Sie in der Community Console immer die linke Spalte aus."
-    },
-    "options_ccdragndropfix": {
-        "message": "Ermöglicht das Ziehen und Ablegen von Links zum Texteditor der Community Console unter Beibehaltung des Textes."
-    },
-    "options_batchlock": {
-        "message": "Fügen Sie die Option zum Sperren mehrerer Threads aus der Threadliste der Community-Konsole hinzu."
-    },
-    "options_stickysidebarheaders": {
-        "message": "Sorgen Sie dafür, dass die Überschriften in der Seitenleiste der Community Console oben bleiben (+info unter <code>pekb/thread/60784834</code>)."
-    },
-    "inject_extrainfo_profile_abusecategory_noviolation": {
-        "message": "Kein Verstoß"
-    },
-    "options_enhancedannouncementsdot": {
-        "message": "Zeigen Sie den Benachrichtigungspunkt für Ankündigungen in der Community-Konsole deutlicher an."
-    },
-    "options_repositionexpandthread": {
-        "message": "Platzieren Sie die Schaltfläche „Thread erweitern“ ganz links in den Threadlisten der Community-Konsole."
-    },
-    "options_threadlistavatars": {
-        "message": "Avatare in Thread-Listen in der Community-Konsole anzeigen."
-    },
-    "options_autorefreshlist": {
-        "message": "Zeigen Sie in der Community-Konsole eine Benachrichtigung an, wenn eine Thread-Liste neue Updates enthält."
-    },
-    "options_imagemaxheight": {
-        "message": "Verhindern Sie, dass Inline-Bilder in Nachrichten höher als das aktuelle Fenster sind."
-    },
-    "options_loaddrafts": {
-        "message": "Aktivieren Sie das Community-Konsolen-Flag <code class=\"help\" title=\"Dieses Flag ermöglicht der Community-Konsole, eine zuvor automatisch gespeicherte Antwort zu laden, wenn ein Thread geladen und auf die Schaltfläche &quot;Antworten&quot; geklickt wird.\">enableLoadingDraftMessages</code>."
-    },
-    "options_profileindicator_moreinfo": {
-        "message": "+Infos zu den beiden vorherigen Optionen"
-    },
-    "options_blockdrafts": {
-        "message": "Blockieren Sie das Senden Ihrer Antworten während der Eingabe an Google-Server in der Community Console."
-    },
-    "options_workflows": {
-        "message": "Aktivieren Sie die Workflow-Funktion."
-    },
-    "options_interopthreadpage": {
-        "message": "Zeigen Sie <span id='interopthreadpage_mode--container'></span> in der Community-Konsole an."
-    },
-    "options_interopthreadpage_mode_previous": {
-        "message": "das alte Thread-Seiten-Design"
-    },
-    "options_interopthreadpage_mode_next": {
-        "message": "das neue Thread-Seiten-Design"
-    },
-    "options_uispacing": {
-        "message": "Reduzieren Sie die Leerzeichen in der Community Console und im TW."
-    },
-    "options_flattenthreads": {
-        "message": "Zeigen Sie einen Schalter zum Aktivieren/Deaktivieren der verschachtelten Ansicht in Threads an."
-    },
-    "inject_previousposts": {
-        "message": "Vorherige Beiträge"
-    },
-    "inject_previousposts_forum": {
-        "message": "Vorherige Beiträge (in diesem Forum)"
-    },
-    "inject_previousposts_all": {
-        "message": "Vorherige Beiträge (in allen Foren)"
-    },
-    "inject_profileindicator_loading": {
-        "message": "lädt ..."
-    },
-    "inject_profileindicator_first_post": {
-        "message": "Dies ist der erste vom OP erstellte Thread in diesem Forum."
-    },
-    "inject_profileindicator_other_posts_read": {
-        "message": "Der OP hat an anderen Threads in diesem Forum teilgenommen, aber Sie haben die letzten fünf gelesen."
-    },
-    "inject_profileindicator_other_posts_unread": {
-        "message": "Der OP hat an anderen Threads in diesem Forum teilgenommen, von denen Sie einige nicht gelesen haben."
-    },
-    "inject_profileindicatoralt_numposts": {
-        "message": "Anzahl der Fragen und Antworten in den letzten $1 Monaten."
-    },
-    "inject_ccdarktheme_helper": {
-        "message": "Design wechseln"
-    },
-    "inject_extension_badge_helper": {
-        "message": "Hinzugefügt von $1"
-    },
-    "inject_lockbtn": {
-        "message": "Threads sperren/entsperren"
-    },
-    "inject_lockdialog_btn_lock": {
-        "message": "sperren"
-    },
-    "inject_lockdialog_btn_unlock": {
-        "message": "entsperren"
-    },
-    "inject_lockdialog_btn_cancel": {
-        "message": "abbrechen"
-    },
-    "inject_lockdialog_btn_close": {
-        "message": "schließen"
-    },
-    "inject_lockdialog_log_entry_beginning": {
-        "message": "Thread $1"
-    },
-    "inject_lockdialog_log_entry_success_lock": {
-        "message": "Erfolgreich gesperrt."
-    },
-    "inject_lockdialog_log_entry_error_lock": {
-        "message": "Beim Sperren von ($1) ist ein Fehler aufgetreten."
-    },
-    "inject_lockdialog_log_entry_success_unlock": {
-        "message": "Erfolgreich entsperrt."
-    },
-    "inject_lockdialog_log_entry_error_unlock": {
-        "message": "Beim Entsperren ist ein Fehler aufgetreten ($1)."
-    },
-    "inject_autorefresh_list_snackbar_message": {
-        "message": "Es gibt neue Threads."
-    },
-    "inject_autorefresh_list_snackbar_action": {
-        "message": "Aktualisieren"
-    },
-    "inject_autorefresh_list_status_indicator_label_active": {
-        "message": "Achten Sie auf Aktualisierungen der Threadliste ..."
-    },
-    "inject_threadlistavatars_private_thread_indicator_label": {
-        "message": "Aus technischen Gründen können wir die Avatare von Threads, die in privaten Foren veröffentlicht werden, nicht laden."
-    },
-    "inject_threadlistavatars_invisible_thread_indicator_label": {
-        "message": "Aus technischen Gründen können wir die Avatare von Threads nicht laden, die für anonyme Benutzer nicht sichtbar sind."
-    },
-    "inject_workflows_menubtn": {
-        "message": "Führen Sie einen Workflow aus ..."
-    },
-    "inject_perforumstats_heading": {
-        "message": "Aktivität pro Forum"
-    },
-    "inject_perforumstats_nummessages_plural": {
-        "message": "$NUM$ Nachrichten",
-        "placeholders": {
-            "num": {
-                "content": "$1",
-                "example": "963"
-            }
-        }
-    },
-    "inject_perforumstats_role_bronze": {
-        "message": "Bronze"
-    },
-    "inject_perforumstats_role_silver": {
-        "message": "Silber"
-    },
-    "inject_perforumstats_role_gold": {
-        "message": "Gold"
-    },
-    "inject_perforumstats_role_platinum": {
-        "message": "Platin"
-    },
-    "inject_perforumstats_role_diamond": {
-        "message": "Diamand"
-    },
-    "inject_perforumstats_role_community_manager": {
-        "message": "CM"
-    },
-    "inject_perforumstats_role_community_specialist": {
-        "message": "Spezialist"
-    },
-    "inject_perforumstats_role_google_employee": {
-        "message": "Googler"
-    },
-    "inject_perforumstats_role_alumnus": {
-        "message": "Alumni"
-    },
-    "inject_perforumstats_optgroup_notposted": {
-        "message": "Nicht innerhalb der letzten 12 Monate gepostet"
-    },
-    "inject_perforumstats_chart_label": {
-        "message": "Benutzeraktivitätsdiagramm"
-    },
-    "inject_perforumstats_chart_replies": {
-        "message": "Antworten (nicht empfohlen)"
-    },
-    "inject_perforumstats_chart_questions": {
-        "message": "Fragen"
-    },
-    "inject_perforumstats_chart_communityvideos": {
-        "message": "Community-Videos"
-    },
-    "inject_perforumstats_chart_communityguides": {
-        "message": "Community-Leitfäden"
-    },
-    "inject_extrainfo_profile_abusecategory": {
-        "message": "Missbrauchskategorie: 1 $"
-    },
-    "inject_extrainfo_profile_abusecategory_communitypolicy": {
-        "message": "Verstoß gegen die Community-Richtlinien"
-    },
-    "inject_extrainfo_profile_abusecategory_legal": {
-        "message": "Rechtsverstoß"
-    },
-    "inject_extrainfo_profile_abusecategory_csai": {
-        "message": "CSAI-Verstoß"
-    },
-    "inject_extrainfo_profile_abusecategory_other": {
-        "message": "Sonstiger Verstoß"
-    },
-    "inject_extrainfo_profile_abuse_account": {
-        "message": "Verstoß gegen die Kontorichtlinien: 1 $"
-    },
-    "inject_extrainfo_profile_abuse_displayname": {
-        "message": "Verstoß gegen die Anzeigenamenrichtlinie: 1 $"
-    },
-    "inject_extrainfo_profile_abuse_avatar": {
-        "message": "Verstoß gegen die Avatar-Richtlinien: 1 $"
-    },
-    "inject_extrainfo_profile_appealsnum": {
-        "message": "Anzahl der Einsprüche: $1"
-    },
-    "inject_extrainfo_crs_used_singular": {
-        "message": "1 mal verwendet"
-    },
-    "inject_extrainfo_crs_used_plural": {
-        "message": "$1 male genutzt"
-    },
-    "inject_extrainfo_crs_lastused": {
-        "message": "Zuletzt verwendet: $1"
-    },
-    "inject_extrainfo_message_pendingstate": {
-        "message": "Nur für Benutzer mit Ausweis sichtbar"
-    },
-    "options_experiments_description": {
-        "message": "Willkommen! Unten finden Sie eine Liste von Experimenten: Funktionen, die sich in der Entwicklung befinden und noch nicht ganz startbereit sind. Sie sind hochgradig experimentell und können daher nicht funktionieren und/oder Probleme verursachen. Wenn Sie jedoch mutig sind, aktivieren Sie die Funktionen, die Sie am meisten interessieren, und <a href='https://github.com/avm99963/infinitegforums/discussions/categories/feedback'>geben Sie Feedback</a>!"
-    },
-    "inject_links": {
-        "message": "Links"
-    },
-    "options_fixpekb269560789": {
-        "message": "Vorläufiger Fix für CC-Langsamkeit und hohen Speicherverbrauch (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>)."
-    },
-    "options_saved": {
-        "message": "gespeichert"
-    },
-    "options_experiments_title": {
-        "message": "Experimente"
-    },
-    "inject_perforumstats_nummessages_singular": {
-        "message": "1 Nachricht"
-    },
-    "options_experimental_label": {
-        "message": "(experimentell)"
-    },
-    "options_profileindicatoralt": {
-        "message": "Zeigt neben dem Benutzernamen die Anzahl der Fragen und Antworten an, die der OP in den letzten <span id='profileindicatoralt_months--container'></span> Monaten geschrieben hat."
-    },
-    "options_workflows_manage": {
-        "message": "Workflows verwalten"
-    },
-    "options_extrainfo": {
-        "message": "Zeigen Sie zusätzliche Informationen in Threads, Profilen und der Liste mit vorgefertigten Antworten an."
-    },
-    "options_perforumstats": {
-        "message": "Zeigen Sie die Aktivität pro Forum in Profilen an."
-    },
-    "options_save": {
-        "message": "Speichern"
-    },
-    "inject_perforumstats_chart_recommended": {
-        "message": "Empfohlen"
-    },
-    "inject_perforumstats_forumoption_2helpers": {
-        "message": "$FORUMNAME$ ($HELPER1$, $HELPER2$)",
-        "placeholders": {
-            "forumName": {
-                "content": "$1",
-                "example": "Google Chrome"
-            },
-            "helper1": {
-                "content": "$2",
-                "example": "963 messages"
-            },
-            "helper2": {
-                "content": "$3",
-                "example": "gold"
-            }
-        }
-    },
-    "inject_perforumstats_forumoption_1helper": {
-        "message": "$FORUMNAME$ ($HELPER1$)",
-        "placeholders": {
-            "forumName": {
-                "content": "$1",
-                "example": "Google Chrome"
-            },
-            "helper1": {
-                "content": "$2",
-                "example": "963 messages"
-            }
-        }
-    },
-    "inject_extrainfo_message_pendingstate_tooltip": {
-        "message": "Sichtbar nach $1"
-    },
-    "inject_extrainfo_message_state": {
-        "message": "Zustand: $1"
-    },
-    "inject_extrainfo_message_state_published": {
-        "message": "Veröffentlicht"
-    },
-    "inject_extrainfo_message_state_draft": {
-        "message": "Entwurf"
-    },
-    "inject_extrainfo_message_state_owner_deleted": {
-        "message": "Inhaber gelöscht"
-    },
-    "inject_extrainfo_message_state_automated_abuse_take_down_hide2": {
-        "message": "Unsichtbar (automatisch als Missbrauch markiert)"
-    },
-    "inject_extrainfo_message_state_automated_abuse_take_down_delete2": {
-        "message": "Gelöscht (automatisch als Missbrauch markiert)"
-    },
-    "inject_extrainfo_message_state_automated_off_topic_hide2": {
-        "message": "Unsichtbar (automatisch als ohne Bezug markiert)"
-    },
-    "inject_extrainfo_message_state_automated_flagged_pending_manual_review2": {
-        "message": "Automatisch gekennzeichnet (manuelle Überprüfung steht aus)"
-    },
-    "inject_extrainfo_message_state_user_flagged_pending_manual_review": {
-        "message": "Anwender gekennzeichnet (manuelle Überprüfung steht aus)"
-    },
-    "inject_extrainfo_message_state_expert_flagged_pending_manual_review": {
-        "message": "Experte gekennzeichnet (manuelle Überprüfung steht aus)"
-    },
-    "inject_extrainfo_message_state_awaiting_classification": {
-        "message": "Klassifizierung erwartet"
-    },
-    "inject_extrainfo_message_state_generated_answer_adopted": {
-        "message": "Generierte Antwort angenommen"
-    },
-    "inject_extrainfo_message_state_manual_take_down_hide2": {
-        "message": "Manuell ausgeblendet"
-    },
-    "inject_extrainfo_message_state_manual_take_down_delete2": {
-        "message": "Manuell gelöscht"
-    },
-    "inject_extrainfo_message_state_googler_off_topic_hide2": {
-        "message": "Von einem Googler als ohne Bezug ausgeblendet"
-    },
-    "inject_extrainfo_message_state_manual_profile_take_down_suspend2": {
-        "message": "Ausgeblendet (Profil suspendiert)"
-    },
-    "inject_extrainfo_message_state_reinstate_profile_takedown2": {
-        "message": "Wiederhergestellt (Profilsperre aufgehoben)"
-    },
-    "inject_extrainfo_message_state_reinstate_abuse_takedown2": {
-        "message": "Markierung als Missbrauch manuell aufgehoben"
-    },
-    "inject_extrainfo_message_state_automated_abuse_reinstate2": {
-        "message": "Markierung als Missbrauch automatisch aufgehoben"
-    },
-    "inject_extrainfo_message_state_clear_off_topic2": {
-        "message": "Erledigte ohne Bezug"
-    },
-    "inject_extrainfo_message_shadowblockactive": {
-        "message": "Hintergrundsperre aktiv"
-    },
-    "inject_extrainfo_message_shadowblocknotactive": {
-        "message": "Hintergrundsperre nicht länger aktiv"
-    },
-    "inject_extrainfo_message_livereviewverdict": {
-        "message": "Live Beurteilung: $1"
-    },
-    "inject_extrainfo_message_livereviewverdict_relevant": {
-        "message": "Relevant"
-    },
-    "inject_extrainfo_message_livereviewverdict_abuse": {
-        "message": "Missbrauch"
-    },
-    "inject_extrainfo_thread_autotrending": {
-        "message": "Automatisch als Trend markiert"
-    },
-    "inject_extrainfo_thread_trending": {
-        "message": "Im Trend"
-    },
-    "inject_threadpagedesign_warning": {
-        "message": "Dieser Thread funktioniert möglicherweise nicht richtig. Dies liegt daran, dass er die Funktion für verschachtelte Antworten verwendet und Sie in den TW Power Tools-Optionen das alte Thread-Design aktiviert haben, das keine verschachtelten Antworten unterstützt."
-    },
-    "btn_learnmore": {
-        "message": "Erfahre mehr"
-    },
-    "actionbadge_permissions_requested": {
-        "message": "Für einige Funktionen sind zusätzliche Berechtigungen erforderlich. Hier klicken um das zu beheben."
-    },
-    "actionbadge_killswitch_enabled": {
-        "message": "Einige Funktionen wurden zwangsweise deaktiviert. Hier klicken für weitere Informationen."
-    },
-    "inject_extrainfo_message_state_confirm_off_topic2": {
-        "message": "Bestätigte ohne Bezug"
-    },
-    "inject_extrainfo_message_livereviewverdict_offtopic": {
-        "message": "Ohne Bezug"
+  "appName": {
+    "message": "TW Power Tools",
+    "description": "The extension's name"
+  },
+  "appNameGecko": {
+    "message": "TW Power Tools",
+    "description": "The extension's name (with a 50 character limit for Gecko)"
+  },
+  "appDescription": {
+    "message": "Erhalte unendliches Scrollen und andere Verbesserungen in den Google-Foren und der Community Console",
+    "description": "The extension's description"
+  },
+  "appNameBeta": {
+    "message": "TW Power Tools (beta)",
+    "description": "The extension's name for the beta version"
+  },
+  "appNameCanary": {
+    "message": "TW Power Tools (canary)",
+    "description": "The extension's name for the beta version"
+  },
+  "options_killswitchwarning": {
+    "message": "Eine oder mehrere Optionen wurden zwangsweise deaktiviert, da sie möglicherweise nicht ordnungsgemäß funktionieren. Bitte besuchen Sie die <a href='https://groups.google.com/g/twpowertools-discuss' rel='noreferrer noopener' target='_blank'>twpowertools-discuss Google-Gruppe</a>, um mehr darüber zu erfahren, warum einige Optionen zwangsweise deaktiviert wurden.",
+    "description": "Warning shown in the options page if a feature has been remotely force disabled via the kill switch mechanism. This happens when a feature doesn't work properly and might be doing dangerous things, and the maintainer or an authorized user remotely force disables the feature."
+  },
+  "options_optionalpermissionswarning_header": {
+    "message": "Für einige Funktionen sind zusätzliche Berechtigungen erforderlich. Sie wurden unten hervorgehoben. Klicken Sie auf ihre Kontrollkästchen, um die entsprechenden Berechtigungen zu erteilen.",
+    "description": "Warning shown at the top of the options page if a feature cannot be used because one or more required permissions haven't been granted to the extension."
+  },
+  "options_killswitchenabled": {
+    "message": "Die vorherige Option wurde aufgrund eines Problems zwangsweise deaktiviert.",
+    "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
+  },
+  "options_optionalpermissionswarning_label": {
+    "message": "Für die vorherige Funktion sind zusätzliche Berechtigungen erforderlich.",
+    "description": "Warning shown in the options page below an option, when a feature needs more permissions to work."
+  },
+  "options_featuredoptions": {
+    "message": "Empfohlene Optionen",
+    "description": "Heading for several options that can be enabled in the options page."
+  },
+  "options_minorenhancements": {
+    "message": "Kleinere Verbesserungen",
+    "description": "Heading for several options that can be enabled in the options page."
+  },
+  "options_list": {
+    "message": "Aktiviere unendliches Scrollen in Thread-Listen.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_thread": {
+    "message": "Laden Sie beim Herunterscrollen automatisch Nachrichtenstapel in Threads nach.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_threadall": {
+    "message": "Beim Herunterscrollen automatisch alle Nachrichten in Threads auf einmal laden.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_fixedtoolbar": {
+    "message": "Die Symbolleiste fest oberhalb der Thread-Listen in der Community Console anzeigen.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_redirect": {
+    "message": "Leite alle in TW geöffneten Threads zur Community Console um.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_increasecontrast": {
+    "message": "Erhöhen Sie den Kontrast zwischen gelesenen und ungelesenen Threads in der Community Console.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_history": {
+    "message": "Zeigen Sie in Benutzerprofilen einen Link zu „vorherigen Beiträgen“ an.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_profileindicator": {
+    "message": "Zeigen Sie an, <span class=\"help\" title=\"Wenn der OP an anderen Threads teilgenommen hat, wird neben seinem Benutzernamen ein roter Punkt angezeigt. Wenn die letzten Beiträge des OP gelesen wurden, wird stattdessen ein orangefarbener Punkt angezeigt. Sie können mit der Maus über den Punkt fahren, um die Bedeutung seiner Farbe anzuzeigen.\">ob der OP an anderen Threads teilgenommen hat</span>."
+  },
+  "inject_lockdialog_desc": {
+    "message": "Bitte bestätigen Sie die gewünschte Aktion, indem Sie unten auf die entsprechende Schaltfläche klicken. Beachten Sie, dass diese Aktion in allen von Ihnen ausgewählten Threads ausgeführt wird."
+  },
+  "inject_autorefresh_list_status_indicator_label_disabled": {
+    "message": "Aktualisierungen der Threadliste können nicht abgerufen werden. Bitte ändern Sie die Sortierung in „Sortieren nach: Letzte Aktualisierung“ und absteigende Reihenfolge."
+  },
+  "options_ccdarktheme": {
+    "message": "Aktivieren Sie das dunkle Design in der Community-Konsole, gesteuert über <span id='ccdarktheme_mode--container'></span>."
+  },
+  "options_ccdarktheme_mode_switch": {
+    "message": "mit einem Schalter im CC"
+  },
+  "options_ccdarktheme_mode_system": {
+    "message": "durch die Dunkelmodus-Einstellung des Betriebssystems"
+  },
+  "options_ccforcehidedrawer": {
+    "message": "Blenden Sie in der Community Console immer die linke Spalte aus."
+  },
+  "options_ccdragndropfix": {
+    "message": "Ermöglicht das Ziehen und Ablegen von Links zum Texteditor der Community Console unter Beibehaltung des Textes."
+  },
+  "options_batchlock": {
+    "message": "Fügen Sie die Option zum Sperren mehrerer Threads aus der Threadliste der Community-Konsole hinzu."
+  },
+  "options_stickysidebarheaders": {
+    "message": "Sorgen Sie dafür, dass die Überschriften in der Seitenleiste der Community Console oben bleiben (+info unter <code>pekb/thread/60784834</code>)."
+  },
+  "inject_extrainfo_profile_abusecategory_noviolation": {
+    "message": "Kein Verstoß"
+  },
+  "options_enhancedannouncementsdot": {
+    "message": "Zeigen Sie den Benachrichtigungspunkt für Ankündigungen in der Community-Konsole deutlicher an."
+  },
+  "options_repositionexpandthread": {
+    "message": "Platzieren Sie die Schaltfläche „Thread erweitern“ ganz links in den Threadlisten der Community-Konsole."
+  },
+  "options_threadlistavatars": {
+    "message": "Avatare in Thread-Listen in der Community-Konsole anzeigen."
+  },
+  "options_autorefreshlist": {
+    "message": "Zeigen Sie in der Community-Konsole eine Benachrichtigung an, wenn eine Thread-Liste neue Updates enthält."
+  },
+  "options_imagemaxheight": {
+    "message": "Verhindern Sie, dass Inline-Bilder in Nachrichten höher als das aktuelle Fenster sind."
+  },
+  "options_loaddrafts": {
+    "message": "Aktivieren Sie das Community-Konsolen-Flag <code class=\"help\" title=\"Dieses Flag ermöglicht der Community-Konsole, eine zuvor automatisch gespeicherte Antwort zu laden, wenn ein Thread geladen und auf die Schaltfläche &quot;Antworten&quot; geklickt wird.\">enableLoadingDraftMessages</code>."
+  },
+  "options_profileindicator_moreinfo": {
+    "message": "+Infos zu den beiden vorherigen Optionen"
+  },
+  "options_blockdrafts": {
+    "message": "Blockieren Sie das Senden Ihrer Antworten während der Eingabe an Google-Server in der Community Console."
+  },
+  "options_workflows": {
+    "message": "Aktivieren Sie die Workflow-Funktion."
+  },
+  "options_interopthreadpage": {
+    "message": "Zeigen Sie <span id='interopthreadpage_mode--container'></span> in der Community-Konsole an."
+  },
+  "options_interopthreadpage_mode_previous": {
+    "message": "das alte Thread-Seiten-Design"
+  },
+  "options_interopthreadpage_mode_next": {
+    "message": "das neue Thread-Seiten-Design"
+  },
+  "options_uispacing": {
+    "message": "Reduzieren Sie die Leerzeichen in der Community Console und im TW."
+  },
+  "options_flattenthreads": {
+    "message": "Zeigen Sie einen Schalter zum Aktivieren/Deaktivieren der verschachtelten Ansicht in Threads an."
+  },
+  "inject_previousposts": {
+    "message": "Vorherige Beiträge"
+  },
+  "inject_previousposts_forum": {
+    "message": "Vorherige Beiträge (in diesem Forum)"
+  },
+  "inject_previousposts_all": {
+    "message": "Vorherige Beiträge (in allen Foren)"
+  },
+  "inject_profileindicator_loading": {
+    "message": "lädt ..."
+  },
+  "inject_profileindicator_first_post": {
+    "message": "Dies ist der erste vom OP erstellte Thread in diesem Forum."
+  },
+  "inject_profileindicator_other_posts_read": {
+    "message": "Der OP hat an anderen Threads in diesem Forum teilgenommen, aber Sie haben die letzten fünf gelesen."
+  },
+  "inject_profileindicator_other_posts_unread": {
+    "message": "Der OP hat an anderen Threads in diesem Forum teilgenommen, von denen Sie einige nicht gelesen haben."
+  },
+  "inject_ccdarktheme_helper": {
+    "message": "Design wechseln"
+  },
+  "inject_extension_badge_helper": {
+    "message": "Hinzugefügt von $1"
+  },
+  "inject_lockbtn": {
+    "message": "Threads sperren/entsperren"
+  },
+  "inject_lockdialog_btn_lock": {
+    "message": "sperren"
+  },
+  "inject_lockdialog_btn_unlock": {
+    "message": "entsperren"
+  },
+  "inject_lockdialog_btn_cancel": {
+    "message": "abbrechen"
+  },
+  "inject_lockdialog_btn_close": {
+    "message": "schließen"
+  },
+  "inject_lockdialog_log_entry_beginning": {
+    "message": "Thread $1"
+  },
+  "inject_lockdialog_log_entry_success_lock": {
+    "message": "Erfolgreich gesperrt."
+  },
+  "inject_lockdialog_log_entry_error_lock": {
+    "message": "Beim Sperren von ($1) ist ein Fehler aufgetreten."
+  },
+  "inject_lockdialog_log_entry_success_unlock": {
+    "message": "Erfolgreich entsperrt."
+  },
+  "inject_lockdialog_log_entry_error_unlock": {
+    "message": "Beim Entsperren ist ein Fehler aufgetreten ($1)."
+  },
+  "inject_autorefresh_list_snackbar_message": {
+    "message": "Es gibt neue Threads."
+  },
+  "inject_autorefresh_list_snackbar_action": {
+    "message": "Aktualisieren"
+  },
+  "inject_autorefresh_list_status_indicator_label_active": {
+    "message": "Achten Sie auf Aktualisierungen der Threadliste ..."
+  },
+  "inject_threadlistavatars_private_thread_indicator_label": {
+    "message": "Aus technischen Gründen können wir die Avatare von Threads, die in privaten Foren veröffentlicht werden, nicht laden."
+  },
+  "inject_threadlistavatars_invisible_thread_indicator_label": {
+    "message": "Aus technischen Gründen können wir die Avatare von Threads nicht laden, die für anonyme Benutzer nicht sichtbar sind."
+  },
+  "inject_workflows_menubtn": {
+    "message": "Führen Sie einen Workflow aus ..."
+  },
+  "inject_perforumstats_heading": {
+    "message": "Aktivität pro Forum"
+  },
+  "inject_perforumstats_nummessages_plural": {
+    "message": "$NUM$ Nachrichten",
+    "placeholders": {
+      "num": {
+        "content": "$1",
+        "example": "963"
+      }
     }
+  },
+  "inject_perforumstats_role_bronze": {
+    "message": "Bronze"
+  },
+  "inject_perforumstats_role_silver": {
+    "message": "Silber"
+  },
+  "inject_perforumstats_role_gold": {
+    "message": "Gold"
+  },
+  "inject_perforumstats_role_platinum": {
+    "message": "Platin"
+  },
+  "inject_perforumstats_role_diamond": {
+    "message": "Diamand"
+  },
+  "inject_perforumstats_role_community_manager": {
+    "message": "CM"
+  },
+  "inject_perforumstats_role_community_specialist": {
+    "message": "Spezialist"
+  },
+  "inject_perforumstats_role_google_employee": {
+    "message": "Googler"
+  },
+  "inject_perforumstats_role_alumnus": {
+    "message": "Alumni"
+  },
+  "inject_perforumstats_optgroup_notposted": {
+    "message": "Nicht innerhalb der letzten 12 Monate gepostet"
+  },
+  "inject_perforumstats_chart_label": {
+    "message": "Benutzeraktivitätsdiagramm"
+  },
+  "inject_perforumstats_chart_replies": {
+    "message": "Antworten (nicht empfohlen)"
+  },
+  "inject_perforumstats_chart_questions": {
+    "message": "Fragen"
+  },
+  "inject_perforumstats_chart_communityvideos": {
+    "message": "Community-Videos"
+  },
+  "inject_perforumstats_chart_communityguides": {
+    "message": "Community-Leitfäden"
+  },
+  "inject_extrainfo_profile_abusecategory": {
+    "message": "Missbrauchskategorie: 1 $"
+  },
+  "inject_extrainfo_profile_abusecategory_communitypolicy": {
+    "message": "Verstoß gegen die Community-Richtlinien"
+  },
+  "inject_extrainfo_profile_abusecategory_legal": {
+    "message": "Rechtsverstoß"
+  },
+  "inject_extrainfo_profile_abusecategory_csai": {
+    "message": "CSAI-Verstoß"
+  },
+  "inject_extrainfo_profile_abusecategory_other": {
+    "message": "Sonstiger Verstoß"
+  },
+  "inject_extrainfo_profile_abuse_account": {
+    "message": "Verstoß gegen die Kontorichtlinien: 1 $"
+  },
+  "inject_extrainfo_profile_abuse_displayname": {
+    "message": "Verstoß gegen die Anzeigenamenrichtlinie: 1 $"
+  },
+  "inject_extrainfo_profile_abuse_avatar": {
+    "message": "Verstoß gegen die Avatar-Richtlinien: 1 $"
+  },
+  "inject_extrainfo_profile_appealsnum": {
+    "message": "Anzahl der Einsprüche: $1"
+  },
+  "inject_extrainfo_crs_used_singular": {
+    "message": "1 mal verwendet"
+  },
+  "inject_extrainfo_crs_used_plural": {
+    "message": "$1 male genutzt"
+  },
+  "inject_extrainfo_crs_lastused": {
+    "message": "Zuletzt verwendet: $1"
+  },
+  "inject_extrainfo_message_pendingstate": {
+    "message": "Nur für Benutzer mit Ausweis sichtbar"
+  },
+  "options_experiments_description": {
+    "message": "Willkommen! Unten finden Sie eine Liste von Experimenten: Funktionen, die sich in der Entwicklung befinden und noch nicht ganz startbereit sind. Sie sind hochgradig experimentell und können daher nicht funktionieren und/oder Probleme verursachen. Wenn Sie jedoch mutig sind, aktivieren Sie die Funktionen, die Sie am meisten interessieren, und <a href='https://github.com/avm99963/infinitegforums/discussions/categories/feedback'>geben Sie Feedback</a>!"
+  },
+  "inject_links": {
+    "message": "Links"
+  },
+  "options_fixpekb269560789": {
+    "message": "Vorläufiger Fix für CC-Langsamkeit und hohen Speicherverbrauch (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>)."
+  },
+  "options_saved": {
+    "message": "gespeichert"
+  },
+  "options_experiments_title": {
+    "message": "Experimente"
+  },
+  "inject_perforumstats_nummessages_singular": {
+    "message": "1 Nachricht"
+  },
+  "options_experimental_label": {
+    "message": "(experimentell)"
+  },
+  "options_profileindicatoralt": {
+    "message": "Zeigt neben dem Benutzernamen die Anzahl der Fragen und Antworten an, die der OP in den letzten <span id='profileindicatoralt_months--container'></span> Monaten geschrieben hat."
+  },
+  "options_workflows_manage": {
+    "message": "Workflows verwalten"
+  },
+  "options_extrainfo": {
+    "message": "Zeigen Sie zusätzliche Informationen in Threads, Profilen und der Liste mit vorgefertigten Antworten an."
+  },
+  "options_perforumstats": {
+    "message": "Zeigen Sie die Aktivität pro Forum in Profilen an."
+  },
+  "options_save": {
+    "message": "Speichern"
+  },
+  "inject_perforumstats_chart_recommended": {
+    "message": "Empfohlen"
+  },
+  "inject_perforumstats_forumoption_2helpers": {
+    "message": "$FORUMNAME$ ($HELPER1$, $HELPER2$)",
+    "placeholders": {
+      "forumName": {
+        "content": "$1",
+        "example": "Google Chrome"
+      },
+      "helper1": {
+        "content": "$2",
+        "example": "963 messages"
+      },
+      "helper2": {
+        "content": "$3",
+        "example": "gold"
+      }
+    }
+  },
+  "inject_perforumstats_forumoption_1helper": {
+    "message": "$FORUMNAME$ ($HELPER1$)",
+    "placeholders": {
+      "forumName": {
+        "content": "$1",
+        "example": "Google Chrome"
+      },
+      "helper1": {
+        "content": "$2",
+        "example": "963 messages"
+      }
+    }
+  },
+  "inject_extrainfo_message_pendingstate_tooltip": {
+    "message": "Sichtbar nach $1"
+  },
+  "inject_extrainfo_message_state": {
+    "message": "Zustand: $1"
+  },
+  "inject_extrainfo_message_state_published": {
+    "message": "Veröffentlicht"
+  },
+  "inject_extrainfo_message_state_draft": {
+    "message": "Entwurf"
+  },
+  "inject_extrainfo_message_state_owner_deleted": {
+    "message": "Inhaber gelöscht"
+  },
+  "inject_extrainfo_message_state_automated_abuse_take_down_hide2": {
+    "message": "Unsichtbar (automatisch als Missbrauch markiert)"
+  },
+  "inject_extrainfo_message_state_automated_abuse_take_down_delete2": {
+    "message": "Gelöscht (automatisch als Missbrauch markiert)"
+  },
+  "inject_extrainfo_message_state_automated_off_topic_hide2": {
+    "message": "Unsichtbar (automatisch als ohne Bezug markiert)"
+  },
+  "inject_extrainfo_message_state_automated_flagged_pending_manual_review2": {
+    "message": "Automatisch gekennzeichnet (manuelle Überprüfung steht aus)"
+  },
+  "inject_extrainfo_message_state_user_flagged_pending_manual_review": {
+    "message": "Anwender gekennzeichnet (manuelle Überprüfung steht aus)"
+  },
+  "inject_extrainfo_message_state_expert_flagged_pending_manual_review": {
+    "message": "Experte gekennzeichnet (manuelle Überprüfung steht aus)"
+  },
+  "inject_extrainfo_message_state_awaiting_classification": {
+    "message": "Klassifizierung erwartet"
+  },
+  "inject_extrainfo_message_state_generated_answer_adopted": {
+    "message": "Generierte Antwort angenommen"
+  },
+  "inject_extrainfo_message_state_manual_take_down_hide2": {
+    "message": "Manuell ausgeblendet"
+  },
+  "inject_extrainfo_message_state_manual_take_down_delete2": {
+    "message": "Manuell gelöscht"
+  },
+  "inject_extrainfo_message_state_googler_off_topic_hide2": {
+    "message": "Von einem Googler als ohne Bezug ausgeblendet"
+  },
+  "inject_extrainfo_message_state_manual_profile_take_down_suspend2": {
+    "message": "Ausgeblendet (Profil suspendiert)"
+  },
+  "inject_extrainfo_message_state_reinstate_profile_takedown2": {
+    "message": "Wiederhergestellt (Profilsperre aufgehoben)"
+  },
+  "inject_extrainfo_message_state_reinstate_abuse_takedown2": {
+    "message": "Markierung als Missbrauch manuell aufgehoben"
+  },
+  "inject_extrainfo_message_state_automated_abuse_reinstate2": {
+    "message": "Markierung als Missbrauch automatisch aufgehoben"
+  },
+  "inject_extrainfo_message_state_clear_off_topic2": {
+    "message": "Erledigte ohne Bezug"
+  },
+  "inject_extrainfo_message_shadowblockactive": {
+    "message": "Hintergrundsperre aktiv"
+  },
+  "inject_extrainfo_message_shadowblocknotactive": {
+    "message": "Hintergrundsperre nicht länger aktiv"
+  },
+  "inject_extrainfo_message_livereviewverdict": {
+    "message": "Live Beurteilung: $1"
+  },
+  "inject_extrainfo_message_livereviewverdict_relevant": {
+    "message": "Relevant"
+  },
+  "inject_extrainfo_message_livereviewverdict_abuse": {
+    "message": "Missbrauch"
+  },
+  "inject_extrainfo_thread_autotrending": {
+    "message": "Automatisch als Trend markiert"
+  },
+  "inject_extrainfo_thread_trending": {
+    "message": "Im Trend"
+  },
+  "inject_threadpagedesign_warning": {
+    "message": "Dieser Thread funktioniert möglicherweise nicht richtig. Dies liegt daran, dass er die Funktion für verschachtelte Antworten verwendet und Sie in den TW Power Tools-Optionen das alte Thread-Design aktiviert haben, das keine verschachtelten Antworten unterstützt."
+  },
+  "btn_learnmore": {
+    "message": "Erfahre mehr"
+  },
+  "actionbadge_permissions_requested": {
+    "message": "Für einige Funktionen sind zusätzliche Berechtigungen erforderlich. Hier klicken um das zu beheben."
+  },
+  "actionbadge_killswitch_enabled": {
+    "message": "Einige Funktionen wurden zwangsweise deaktiviert. Hier klicken für weitere Informationen."
+  },
+  "inject_extrainfo_message_state_confirm_off_topic2": {
+    "message": "Bestätigte ohne Bezug"
+  },
+  "inject_extrainfo_message_livereviewverdict_offtopic": {
+    "message": "Ohne Bezug"
+  }
 }

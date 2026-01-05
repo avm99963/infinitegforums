@@ -1,634 +1,626 @@
 {
-    "appName": {
-        "message": "TW Power Tools",
-        "description": "The extension's name"
-    },
-    "appNameBeta": {
-        "message": "TW Power Tools (beta)",
-        "description": "The extension's name for the beta version"
-    },
-    "appNameCanary": {
-        "message": "TW Power Tools (canary)",
-        "description": "The extension's name for the beta version"
-    },
-    "appNameGecko": {
-        "message": "TW Power Tools",
-        "description": "The extension's name (with a 50 character limit for Gecko)"
-    },
-    "appDescription": {
-        "message": "Получите бесконечную прокрутку и другие улучшения на Форумах Google и в Консоли сообщества",
-        "description": "The extension's description"
-    },
-    "options_killswitchwarning": {
-        "message": "Один или несколько параметров были принудительно отключены, поскольку они могут работать неправильно. Пожалуйста, перейдите на <a href='https://groups.google.com/g/twpowertools-discuss' rel='noreferrer noopener' target='_blank'>twpowertools-discuss Google Group</a> чтобы узнать больше о том, почему некоторые параметры были отключены принудительно.",
-        "description": "Warning shown in the options page if a feature has been remotely force disabled via the kill switch mechanism. This happens when a feature doesn't work properly and might be doing dangerous things, and the maintainer or an authorized user remotely force disables the feature."
-    },
-    "options_killswitchenabled": {
-        "message": "Предыдущая функция была принудительно отключена в связи с возникшей проблемой.",
-        "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
-    },
-    "options_optionalpermissionswarning_header": {
-        "message": "Для работы некоторых функций необходимы дополнительные разрешения. Они выделены ниже, щёлкните их флажки, чтобы предоставить соответствующие разрешения.",
-        "description": "Warning shown at the top of the options page if a feature cannot be used because one or more required permissions haven't been granted to the extension."
-    },
-    "options_optionalpermissionswarning_label": {
-        "message": "Предыдущая функция требует дополнительных разрешений для работы.",
-        "description": "Warning shown in the options page below an option, when a feature needs more permissions to work."
-    },
-    "options_featuredoptions": {
-        "message": "Основные возможности",
-        "description": "Heading for several options that can be enabled in the options page."
-    },
-    "options_minorenhancements": {
-        "message": "Незначительные улучшения",
-        "description": "Heading for several options that can be enabled in the options page."
-    },
-    "options_list": {
-        "message": "Включить бесконечную прокрутку в списках тем.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_thread": {
-        "message": "Автоматическая частичная загрузка сообщений внутри тем при прокрутке вниз.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_threadall": {
-        "message": "Автоматически загружать все сообщения сразу в темах при прокрутке вниз.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_fixedtoolbar": {
-        "message": "Закрепить панель инструментов в верхней части списков тем в Консоли сообщества.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_redirect": {
-        "message": "Перенаправлять все темы, открытые в TW, в Консоль сообщества.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_loaddrafts": {
-        "message": "Активировать <code class=\"help\" title=\"Этот флаг позволяет Консоли Сообщества загружать ранее автосохранённый ответ при загрузке темы и нажатии кнопки ответа.\">enableLoadingDraftMessages</code> флаг Консоли сообщества.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_experimental_label": {
-        "message": "(экспериментально)",
-        "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
-    },
-    "options_history": {
-        "message": "Показывать ссылку на \"предыдущие записи\" в профилях пользователей.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_stickysidebarheaders": {
-        "message": "Заставить заголовки в боковой панели Консоли сообщества прилипать к верху (+инфо на <code>pekb/thread/60784834</code>).",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_increasecontrast": {
-        "message": "Увеличить контраст между прочитанными и непрочитанными темами в Консоли сообщества.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_ccdarktheme": {
-        "message": "Включить тёмную тему в Консоли сообщества, управляемую <span id='ccdarktheme_mode--container'></span>.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_ccdarktheme_mode_switch": {
-        "message": "с помощью переключателя в КС",
-        "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
-    },
-    "options_ccdarktheme_mode_system": {
-        "message": "настройкой темного режима ОС",
-        "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
-    },
-    "options_ccforcehidedrawer": {
-        "message": "Всегда скрывать ящик (левая колонка) в Консоли сообщества.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_ccdragndropfix": {
-        "message": "Позволяет перетаскивать ссылки в текстовый редактор Консоли сообщества с сохранением текста.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_batchlock": {
-        "message": "Добавить возможность блокировки нескольких тем из списка тем Консоли сообщества.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_enhancedannouncementsdot": {
-        "message": "Показывать уведомление об объявлениях более заметно в Консоли Сообщества.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_repositionexpandthread": {
-        "message": "Поместить кнопку \"развернуть тему\" до упора влево в списках тем Консоли сообщества.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_threadlistavatars": {
-        "message": "Показывать аватары в списках тем в Консоли сообщества.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_autorefreshlist": {
-        "message": "Показывать уведомление в Консоли сообщества, когда в списке тем появляются новые обновления.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_imagemaxheight": {
-        "message": "Предотвратить, чтобы встроенные изображения в сообщениях были выше, чем текущее окно.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_profileindicator_moreinfo": {
-        "message": "+инфо о 2 предыдущих возможностях",
-        "description": "Link to learn more about the profile indicator feature"
-    },
-    "options_profileindicator": {
-        "message": "Показать, <span class=\"help\" title=\"Если автор темы участвовал в других записях, рядом с его именем пользователя будет показана красная точка. Если последние сообщения автора темы были прочитаны, вместо неё будет показана оранжевая точка. Вы можете навести курсор мыши на точку, чтобы показать значение её цвета.\">участвовал ли автор темы в других темах</span>.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_profileindicatoralt": {
-        "message": "Показывать количество вопросов и ответов, написанных автором темы за последние <span id='profileindicatoralt_months--container'></span> месяцев, рядом с его именем пользователя.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_blockdrafts": {
-        "message": "Заблокировать отправку ваших ответов, которые вы пишите, на серверы Google в Консоли сообщества.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_workflows": {
-        "message": "Включить функцию рабочих сценариев.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_workflows_manage": {
-        "message": "Управлять рабочими сценариями",
-        "description": "Button in the options page which opens the workflow management page."
-    },
-    "options_extrainfo": {
-        "message": "Показывать дополнительную информацию в темах, профилях и списке шаблонных ответов.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_perforumstats": {
-        "message": "Показывать активность на форуме в профилях.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_interopthreadpage": {
-        "message": "Показать <span id='interopthreadpage_mode--container'></span> в Консоли сообщества.",
-        "description": "Feature checkbox in the options page. \"<span id='interopthreadpage_mode--container'></span>\" will be substituted with a selector which allows users to select whether they want the new thread page design or the old one."
-    },
-    "options_interopthreadpage_mode_previous": {
-        "message": "старый дизайн страниц тем",
-        "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
-    },
-    "options_interopthreadpage_mode_next": {
-        "message": "новый дизайн страниц тем",
-        "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
-    },
-    "options_nestedreplies": {
-        "message": "Включить функцию вложенных ответов в Консоли сообщества.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_uispacing": {
-        "message": "Уменьшить незаполненное пространство в Консоли сообщества и TW.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_flattenthreads": {
-        "message": "Показать переключатель для включения/выключения вложенного отображения в темах.",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_save": {
-        "message": "Сохранить",
-        "description": "Button in the options page to save the settings"
-    },
-    "options_saved": {
-        "message": "Сохранено",
-        "description": "Message which appears in the options page when the settings are saved"
-    },
-    "options_experiments_title": {
-        "message": "Эксперименты",
-        "description": "Title of the experiments page: a page where highly experimental options can be set."
-    },
-    "options_experiments_description": {
-        "message": "Добро пожаловать! Ниже вы найдете список экспериментов: функции, которые находятся в разработке и ещё не готовы к запуску. Они являются экспериментальными и поэтому могут сломаться и/или вызвать проблемы, но если вы смелый, пожалуйста, включите те, которые вам наиболее интересны, и <a href='https://groups.google.com/g/twpowertools-discuss'>оставьте отзыв</a>!",
-        "description": "Description shown in the beginning of the experiments page, below the title."
-    },
-    "inject_links": {
-        "message": "Ссылки",
-        "description": "Heading which we use before the 'previous post' link in a user profile in TW"
-    },
-    "inject_previousposts": {
-        "message": "Предыдущие записи",
-        "description": "Link shown in a user profile (in TW) which points to a search showing the user's posts and messages"
-    },
-    "inject_previousposts_forum": {
-        "message": "Предыдущие записи (на этом форуме)",
-        "description": "Link shown in a user profile (in the Community Console) which points to a search showing the user's posts and messages in the current forum"
-    },
-    "inject_previousposts_all": {
-        "message": "Предыдущие записи (на всех форумах)",
-        "description": "Link shown in a user profile (in the Community Console) which points to a search showing the user's posts and messages in all forums"
-    },
-    "inject_profileindicator_loading": {
-        "message": "Загрузка...",
-        "description": "Tooltip for the profile indicator dot."
-    },
-    "inject_profileindicator_first_post": {
-        "message": "Это первая запись, созданная автором темы на этом форуме.",
-        "description": "Tooltip for the profile indicator dot."
-    },
-    "inject_profileindicator_other_posts_read": {
-        "message": "Автор темы участвовал в других обсуждениях на этом форуме, но вы прочитали 5 самых последних.",
-        "description": "Tooltip for the profile indicator dot."
-    },
-    "inject_profileindicator_other_posts_unread": {
-        "message": "Автор темы участвовал в других обсуждениях на этом форуме, некоторые из которых вы не читали.",
-        "description": "Tooltip for the profile indicator dot."
-    },
-    "inject_profileindicatoralt_numposts": {
-        "message": "Количество вопросов и ответов за последние $1 месяцев.",
-        "description": "Tooltip for the profile indicator dot."
-    },
-    "inject_ccdarktheme_helper": {
-        "message": "Переключить тему",
-        "description": "Tooltip for the dark mode switch."
-    },
-    "inject_extension_badge_helper": {
-        "message": "Добавлено с помощью $1",
-        "description": "Tooltip for the extension badge, which appears next to components injected by the extension."
-    },
-    "inject_lockbtn": {
-        "message": "Заблокировать/разблокировать темы",
-        "description": "Tooltip of the 'lock/unlock threads' icon shown when selecting multiple threads in the Community Console. Also the title for the dialog shown after clicking this icon."
-    },
-    "inject_lockdialog_desc": {
-        "message": "Подтвердите действие, которое вы хотите предпринять, нажав соответствующую кнопку ниже. Имейте в виду, что это действие будет выполнено для всех выбранных вами тем.",
-        "description": "Text in the 'lock/unlock threads' dialog, which asks the user for confirmation."
-    },
-    "inject_lockdialog_btn_lock": {
-        "message": "Заблокировать",
-        "description": "Button in the 'lock/unlock threads' dialog."
-    },
-    "inject_lockdialog_btn_unlock": {
-        "message": "Разблокировать",
-        "description": "Button in the 'lock/unlock threads' dialog."
-    },
-    "inject_lockdialog_btn_cancel": {
-        "message": "Отмена",
-        "description": "Button in the 'lock/unlock threads' dialog."
-    },
-    "inject_lockdialog_btn_close": {
-        "message": "Закрыть",
-        "description": "Button in the 'lock/unlock threads' dialog."
-    },
-    "inject_lockdialog_log_entry_beginning": {
-        "message": "Тема $1",
-        "description": "First part of the entry in the log of the 'lock/unlock threads' dialog. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
-    },
-    "inject_lockdialog_log_entry_success_lock": {
-        "message": "Успешно заблокировано.",
-        "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
-    },
-    "inject_lockdialog_log_entry_error_lock": {
-        "message": "Произошла ошибка при блокировке ($1).",
-        "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *not* locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
-    },
-    "inject_lockdialog_log_entry_success_unlock": {
-        "message": "Успешно разблокировано.",
-        "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *un*locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
-    },
-    "inject_lockdialog_log_entry_error_unlock": {
-        "message": "Произошла ошибка при разблокировке ($1).",
-        "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *not* *un*locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
-    },
-    "inject_autorefresh_list_snackbar_action": {
-        "message": "Обновить",
-        "description": "Button shown in a snackbar asking users to refresh/reload the list to show the new threads."
-    },
-    "inject_perforumstats_nummessages_singular": {
-        "message": "1 сообщение",
-        "description": "Annotation shown in the forum selector which states how many messages have been published by a user in a forum (singular variant)."
-    },
-    "inject_perforumstats_role_bronze": {
-        "message": "бронзовый",
-        "description": "Role that a user can have in the forums."
-    },
-    "inject_perforumstats_role_silver": {
-        "message": "серебряный",
-        "description": "Role that a user can have in the forums."
-    },
-    "inject_perforumstats_role_gold": {
-        "message": "золотой",
-        "description": "Role that a user can have in the forums."
-    },
-    "inject_perforumstats_role_platinum": {
-        "message": "платиновый",
-        "description": "Role that a user can have in the forums."
-    },
-    "inject_perforumstats_role_diamond": {
-        "message": "бриллиантовый",
-        "description": "Role that a user can have in the forums."
-    },
-    "inject_perforumstats_role_community_manager": {
-        "message": "КМ",
-        "description": "Role that a user can have in the forums (short for community manager)."
-    },
-    "inject_perforumstats_role_community_specialist": {
-        "message": "специалист",
-        "description": "Role that a user can have in the forums (short for community specialist)."
-    },
-    "inject_perforumstats_role_google_employee": {
-        "message": "Гуглер",
-        "description": "Role that a user can have in the forums."
-    },
-    "inject_perforumstats_role_alumnus": {
-        "message": "почетный",
-        "description": "Role that a user can have in the forums."
-    },
-    "inject_extrainfo_message_livereviewverdict_abuse": {
-        "message": "Нарушение",
-        "description": "One of the actions of a live review."
-    },
-    "inject_extrainfo_thread_autotrending": {
-        "message": "Автоматически помечена как популярная",
-        "description": "Label used in a thread to show it has been automatically marked as trending."
-    },
-    "inject_extrainfo_thread_trending": {
-        "message": "Популярная",
-        "description": "Label used in a thread to show it has been manually marked as trending."
-    },
-    "inject_threadlistavatars_private_thread_indicator_label": {
-        "message": "По техническим причинам мы не можем загружать аватары из тем, опубликованных в закрытых обсуждениях.",
-        "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
-    },
-    "inject_autorefresh_list_status_indicator_label_disabled": {
-        "message": "Невозможно отслеживать обновления в списке тем. Пожалуйста, измените параметры сортировки на \"Упорядочить: Последнее обновление\" и сортировку по убыванию.",
-        "description": "Helper text which appears when hovering the status indicator of the 'autorefresh list' feature to indicate that the feature is disabled in the current thread list because the sort options are incompatible with the feature."
-    },
-    "inject_perforumstats_nummessages_plural": {
-        "message": "$NUM$ сообщений",
-        "description": "Annotation shown in the forum selector which states how many messages have been published by a user in a forum (plural variant).",
-        "placeholders": {
-            "num": {
-                "content": "$1",
-                "example": "963"
-            }
-        }
-    },
-    "inject_perforumstats_chart_communityguides": {
-        "message": "Руководства сообщества",
-        "description": "Label shown in the legend of the per-forum activity chart."
-    },
-    "inject_extrainfo_crs_used_singular": {
-        "message": "Использован 1 раз",
-        "description": "Shown alongside a canned response to state how many times it has been used."
-    },
-    "inject_extrainfo_profile_abuse_displayname": {
-        "message": "Нарушение политики отображения имен: $1",
-        "description": "Message shown in profiles when the display name is violating a policy."
-    },
-    "inject_extrainfo_profile_abuse_avatar": {
-        "message": "Нарушение правил использования аватаров: $1",
-        "description": "Message shown in profiles when the avatar is violating a policy."
-    },
-    "inject_extrainfo_profile_appealsnum": {
-        "message": "Количество апелляций: $1",
-        "description": "Message shown in profiles which states how many times the account has appealed the decision to ban their profile."
-    },
-    "inject_extrainfo_crs_used_plural": {
-        "message": "Использовано $1 раз",
-        "description": "Shown alongside a canned response to state how many times it has been used."
-    },
-    "inject_extrainfo_crs_lastused": {
-        "message": "Последний использованный: $1",
-        "description": "Tooltip which states when a canned response was last used."
-    },
-    "inject_extrainfo_message_pendingstate": {
-        "message": "Видно только пользователям со значком",
-        "description": "Label used in a thread or message when it is in the pending state (only visible to badged users)."
-    },
-    "inject_autorefresh_list_snackbar_message": {
-        "message": "Появились новые темы.",
-        "description": "Message shown in a snackbar when new threads are found in a thread list. Another button asks the user to refresh the list."
-    },
-    "inject_autorefresh_list_status_indicator_label_active": {
-        "message": "Следим за обновлением списка тем...",
-        "description": "Helper text which appears when hovering the status indicator of the 'autorefresh list' feature to indicate that the feature is active and watching for updates in the current thread list."
-    },
-    "inject_threadlistavatars_invisible_thread_indicator_label": {
-        "message": "По техническим причинам мы не можем загружать аватары из тем, которые не видны анонимным пользователям.",
-        "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
-    },
-    "inject_workflows_menubtn": {
-        "message": "Запустить рабочий сценарий...",
-        "description": "Tooltip of the icon shown above a thread or in thread lists when selecting multiple threads in the Community Console which lets the user show a menu with the worklofws they can run."
-    },
-    "inject_perforumstats_heading": {
-        "message": "Активность на форуме",
-        "description": "Heading of the section with the per-forum activity stacked bars graph showing the number of questions, replies and recommended answers each month."
-    },
-    "inject_perforumstats_forumoption_1helper": {
-        "message": "$FORUMNAME$ ($HELPER1$)",
-        "description": "In the selector where the user can select the forum shown in the graph, one such option. $HELPER1$ will usually be the number of messages posted by the user in that forum.",
-        "placeholders": {
-            "forumName": {
-                "content": "$1",
-                "example": "Google Chrome"
-            },
-            "helper1": {
-                "content": "$2",
-                "example": "963 messages"
-            }
-        }
-    },
-    "inject_perforumstats_forumoption_2helpers": {
-        "message": "$FORUMNAME$ ($HELPER1$, $HELPER2$)",
-        "description": "In the selector where the user can select the forum shown in the graph, one such option. $HELPER1$ will be the number of messages posted by the user in that forum, and $HELPER2$ will be the badge awarded to the user in that forum.",
-        "placeholders": {
-            "forumName": {
-                "content": "$1",
-                "example": "Google Chrome"
-            },
-            "helper1": {
-                "content": "$2",
-                "example": "963 messages"
-            },
-            "helper2": {
-                "content": "$3",
-                "example": "gold"
-            }
-        }
-    },
-    "inject_perforumstats_optgroup_notposted": {
-        "message": "Не отправлял в течение последних 12 месяцев",
-        "description": "Label showed above the forums for which the user hasn't posted in the last 12 months, in the forum selector list."
-    },
-    "inject_perforumstats_chart_label": {
-        "message": "График активности пользователя",
-        "description": "Label for the chart for accessibility purposes (e.g. users with screen-readers)."
-    },
-    "inject_perforumstats_chart_recommended": {
-        "message": "Рекомендованы",
-        "description": "Label shown in the legend of the per-forum activity chart."
-    },
-    "inject_perforumstats_chart_replies": {
-        "message": "Ответы (не рекомендованы)",
-        "description": "Label shown in the legend of the per-forum activity chart."
-    },
-    "inject_perforumstats_chart_questions": {
-        "message": "Вопросы",
-        "description": "Label shown in the legend of the per-forum activity chart."
-    },
-    "inject_perforumstats_chart_communityvideos": {
-        "message": "Видео сообщества",
-        "description": "Label shown in the legend of the per-forum activity chart."
-    },
-    "inject_extrainfo_profile_abusecategory": {
-        "message": "Категория нарушения: $1",
-        "description": "Message shown in profiles when there is a policy violation."
-    },
-    "inject_extrainfo_profile_abusecategory_noviolation": {
-        "message": "Нет нарушений",
-        "description": "Abuse category"
-    },
-    "inject_extrainfo_profile_abusecategory_communitypolicy": {
-        "message": "Нарушение правил сообщества",
-        "description": "Abuse category (when a community policy is violated)"
-    },
-    "inject_extrainfo_profile_abusecategory_legal": {
-        "message": "Юридическое нарушение",
-        "description": "Abuse category (when the violation is related to legal)"
-    },
-    "inject_extrainfo_profile_abusecategory_csai": {
-        "message": "Нарушение безопасности детей",
-        "description": "Abuse category (when the violation is related to CSAI)"
-    },
-    "inject_extrainfo_profile_abusecategory_other": {
-        "message": "Другое нарушение",
-        "description": "Abuse category"
-    },
-    "inject_extrainfo_profile_abuse_account": {
-        "message": "Нарушение политики учетной записи: $1",
-        "description": "Message shown in profiles when there is an account policy violation."
-    },
-    "actionbadge_killswitch_enabled": {
-        "message": "Некоторые функции были отключены принудительно. Нажмите, чтобы получить дополнительную информацию.",
-        "description": "Tooltip for the extension icon shown when a kill switch has been enabled."
-    },
-    "inject_threadpagedesign_warning": {
-        "message": "Эта тема может работать некорректно. Это связано с тем, что она использует функцию вложенных ответов, а вы включили старый дизайн тем в настройках TW Power Tools, который не поддерживает вложенные ответы.",
-        "description": "Message showed above threads which might not work properly because of the fact that the old thread design is not compatible with nested replies."
-    },
-    "inject_extrainfo_message_state_reinstate_abuse_takedown2": {
-        "message": "Пометка о нарушении снята вручную",
-        "description": "Thread/message state REINSTATE_ABUSE_TAKEDOWN (it is thought that messages in this state have been manually unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
-    },
-    "inject_extrainfo_message_pendingstate_tooltip": {
-        "message": "Видимо после $1",
-        "description": "Tooltip used for the label \"Only visible to badged users\" to state when the thread will become visible publicly."
-    },
-    "inject_extrainfo_message_state": {
-        "message": "Состояние: $1",
-        "description": "Label used in a thread or message to show its state."
-    },
-    "inject_extrainfo_message_state_published": {
-        "message": "Опубликовано",
-        "description": "Thread/message state PUBLISHED (the normal state of a message: it is published and visible to everyone)."
-    },
-    "inject_extrainfo_message_state_draft": {
-        "message": "Черновик",
-        "description": "Thread/message state DRAFT (when a message is saved as a draft and not yet published)."
-    },
-    "inject_extrainfo_message_state_owner_deleted": {
-        "message": "Удалено владельцем",
-        "description": "Thread/message state OWNER_DELETED (the owner deleted the message)."
-    },
-    "inject_extrainfo_message_state_automated_abuse_take_down_hide2": {
-        "message": "Скрыто (автоматически помечено как нарушение)",
-        "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_HIDE (the message is hidden because the AI classified it as \"abuse\")."
-    },
-    "inject_extrainfo_message_state_automated_abuse_take_down_delete2": {
-        "message": "Удалено (автоматически помечено как нарушение)",
-        "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_DELETE (the message is deleted because the AI classified it as \"abuse\")."
-    },
-    "inject_extrainfo_message_state_automated_off_topic_hide2": {
-        "message": "Скрыто (автоматически помечено как не по теме)",
-        "description": "Thread/message state AUTOMATED_OFF_TOPIC_HIDE (the message is hidden because the AI classified it as \"off topic\")."
-    },
-    "inject_extrainfo_message_state_automated_flagged_pending_manual_review2": {
-        "message": "Помечено автоматически (ожидает проверки вручную)",
-        "description": "Thread/message state AUTOMATED_FLAGGED_PENDING_MANUAL_REVIEW (the message has been flagged by the AI and needs manual review)."
-    },
-    "inject_extrainfo_message_state_user_flagged_pending_manual_review": {
-        "message": "Помечено пользователем (ожидает проверки вручную)",
-        "description": "Thread/message state USER_FLAGGED_PENDING_MANUAL_REVIEW (a user flagged the message and needs manual review)."
-    },
-    "inject_extrainfo_message_state_expert_flagged_pending_manual_review": {
-        "message": "Помечено экспертом (ожидает проверки вручную)",
-        "description": "Thread/message state EXPERT_FLAGGED_PENDING_MANUAL_REVIEW (a PE flagged the message and needs manual review)."
-    },
-    "inject_extrainfo_message_state_manual_take_down_hide2": {
-        "message": "Скрыто вручную",
-        "description": "Thread/message state MANUAL_TAKE_DOWN_HIDE (the message has been manually hidden by a Googler)."
-    },
-    "inject_extrainfo_message_state_manual_take_down_delete2": {
-        "message": "Удалено вручную",
-        "description": "Thread/message state MANUAL_TAKE_DOWN_DELETE (the message has been manually deleted by a Googler)."
-    },
-    "inject_extrainfo_message_state_googler_off_topic_hide2": {
-        "message": "Скрыто Гуглером как не по теме",
-        "description": "Thread/message state GOOGLER_OFF_TOPIC_HIDE (the message has been hidden by a Googler because it is off-topic)."
-    },
-    "inject_extrainfo_message_state_automated_abuse_reinstate2": {
-        "message": "Пометка о нарушении снята автоматически",
-        "description": "Thread/message state AUTOMATED_ABUSE_REINSTATE (it is thought that messages in this state have been automatically unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
-    },
-    "inject_extrainfo_message_state_manual_profile_take_down_suspend2": {
-        "message": "Скрыто (профиль заблокирован)",
-        "description": "Thread/message state MANUAL_PROFILE_TAKE_DOWN_SUSPEND (due to the fact that the profile has been manually suspended by a Googler, messages written by that account are in this state —and hidden from the public)."
-    },
-    "inject_extrainfo_message_state_reinstate_profile_takedown2": {
-        "message": "Восстановлено (блокировка профиля отменена)",
-        "description": "Thread/message state REINSTATE_PROFILE_TAKEDOWN (after a profile suspension has been reverted, messages which were previously in the \"MANUAL_PROFILE_TAKE_DOWN_SUSPEND\" state have this state (and are visible to the public again))."
-    },
-    "inject_extrainfo_message_state_clear_off_topic2": {
-        "message": "Очищено не по теме",
-        "description": "Thread/message state CLEAR_OFF_TOPIC (the message has been confirmed to NOT be off-topic)."
-    },
-    "actionbadge_permissions_requested": {
-        "message": "Для работы некоторых функций требуются дополнительные разрешения. Нажмите, чтобы исправить это.",
-        "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."
-    },
-    "btn_learnmore": {
-        "message": "Узнать больше",
-        "description": "Text shown besides a warning message which the user can click to learn more about the message itself."
-    },
-    "inject_extrainfo_message_state_confirm_off_topic2": {
-        "message": "Подтверждено не по теме",
-        "description": "Thread/message state CONFIRM_OFF_TOPIC (the message has been confirmed to be off-topic)."
-    },
-    "inject_extrainfo_message_shadowblockactive": {
-        "message": "Теневая блокировка активна",
-        "description": "Label used in a thread or message when it has been shadow blocked and is thus hidden from view."
-    },
-    "inject_extrainfo_message_shadowblocknotactive": {
-        "message": "Теневая блокировка более неактивна",
-        "description": "Label used in a thread or message when it had been shadow blocked but it isn't active anymore."
-    },
-    "inject_extrainfo_message_livereviewverdict": {
-        "message": "Решение по проверке: $1",
-        "description": "Label used in a thread or message to show what was the action taken when live reviewing it."
-    },
-    "inject_extrainfo_message_livereviewverdict_relevant": {
-        "message": "Актуально",
-        "description": "One of the actions of a live review."
-    },
-    "inject_extrainfo_message_livereviewverdict_offtopic": {
-        "message": "Не по теме",
-        "description": "One of the actions of a live review."
-    },
-    "inject_extrainfo_message_state_awaiting_classification": {
-        "message": "Ожидает классификации",
-        "description": "Thread/message state AWAITING_CLASSIFICATION."
-    },
-    "inject_extrainfo_message_state_generated_answer_adopted": {
-        "message": "Сгенерированный ответ принят",
-        "description": "Thread/message state GENERATED_ANSWER_ADOPTED."
-    },
-    "options_fixpekb269560789": {
-        "message": "Предварительное исправление медленной работы Консоли сообщества и высокого использования памяти (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>).",
-        "description": "Feature checkbox in the options page"
-    },
-    "options_bulkreportreplies": {
-        "message": "Включите возможность создания массовых жалоб на ответы."
-    },
-    "options_bulkmove": {
-        "message": "Добавить возможность перемещения нескольких тем из списка тем Консоли сообщества."
+  "appName": {
+    "message": "TW Power Tools",
+    "description": "The extension's name"
+  },
+  "appNameBeta": {
+    "message": "TW Power Tools (beta)",
+    "description": "The extension's name for the beta version"
+  },
+  "appNameCanary": {
+    "message": "TW Power Tools (canary)",
+    "description": "The extension's name for the beta version"
+  },
+  "appNameGecko": {
+    "message": "TW Power Tools",
+    "description": "The extension's name (with a 50 character limit for Gecko)"
+  },
+  "appDescription": {
+    "message": "Получите бесконечную прокрутку и другие улучшения на Форумах Google и в Консоли сообщества",
+    "description": "The extension's description"
+  },
+  "options_killswitchwarning": {
+    "message": "Один или несколько параметров были принудительно отключены, поскольку они могут работать неправильно. Пожалуйста, перейдите на <a href='https://groups.google.com/g/twpowertools-discuss' rel='noreferrer noopener' target='_blank'>twpowertools-discuss Google Group</a> чтобы узнать больше о том, почему некоторые параметры были отключены принудительно.",
+    "description": "Warning shown in the options page if a feature has been remotely force disabled via the kill switch mechanism. This happens when a feature doesn't work properly and might be doing dangerous things, and the maintainer or an authorized user remotely force disables the feature."
+  },
+  "options_killswitchenabled": {
+    "message": "Предыдущая функция была принудительно отключена в связи с возникшей проблемой.",
+    "description": "Warning shown in the options page below an option, when it has been remotely force disabled via the kill switch mechanism."
+  },
+  "options_optionalpermissionswarning_header": {
+    "message": "Для работы некоторых функций необходимы дополнительные разрешения. Они выделены ниже, щёлкните их флажки, чтобы предоставить соответствующие разрешения.",
+    "description": "Warning shown at the top of the options page if a feature cannot be used because one or more required permissions haven't been granted to the extension."
+  },
+  "options_optionalpermissionswarning_label": {
+    "message": "Предыдущая функция требует дополнительных разрешений для работы.",
+    "description": "Warning shown in the options page below an option, when a feature needs more permissions to work."
+  },
+  "options_featuredoptions": {
+    "message": "Основные возможности",
+    "description": "Heading for several options that can be enabled in the options page."
+  },
+  "options_minorenhancements": {
+    "message": "Незначительные улучшения",
+    "description": "Heading for several options that can be enabled in the options page."
+  },
+  "options_list": {
+    "message": "Включить бесконечную прокрутку в списках тем.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_thread": {
+    "message": "Автоматическая частичная загрузка сообщений внутри тем при прокрутке вниз.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_threadall": {
+    "message": "Автоматически загружать все сообщения сразу в темах при прокрутке вниз.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_fixedtoolbar": {
+    "message": "Закрепить панель инструментов в верхней части списков тем в Консоли сообщества.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_redirect": {
+    "message": "Перенаправлять все темы, открытые в TW, в Консоль сообщества.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_loaddrafts": {
+    "message": "Активировать <code class=\"help\" title=\"Этот флаг позволяет Консоли Сообщества загружать ранее автосохранённый ответ при загрузке темы и нажатии кнопки ответа.\">enableLoadingDraftMessages</code> флаг Консоли сообщества.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_experimental_label": {
+    "message": "(экспериментально)",
+    "description": "Label which is placed next to an option to indicate that it may not work well or may break at any time"
+  },
+  "options_history": {
+    "message": "Показывать ссылку на \"предыдущие записи\" в профилях пользователей.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_stickysidebarheaders": {
+    "message": "Заставить заголовки в боковой панели Консоли сообщества прилипать к верху (+инфо на <code>pekb/thread/60784834</code>).",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_increasecontrast": {
+    "message": "Увеличить контраст между прочитанными и непрочитанными темами в Консоли сообщества.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_ccdarktheme": {
+    "message": "Включить тёмную тему в Консоли сообщества, управляемую <span id='ccdarktheme_mode--container'></span>.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_ccdarktheme_mode_switch": {
+    "message": "с помощью переключателя в КС",
+    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
+  },
+  "options_ccdarktheme_mode_system": {
+    "message": "настройкой темного режима ОС",
+    "description": "Select option added in #ccdarktheme_mode--container, in the options_ccdarktheme string"
+  },
+  "options_ccforcehidedrawer": {
+    "message": "Всегда скрывать ящик (левая колонка) в Консоли сообщества.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_ccdragndropfix": {
+    "message": "Позволяет перетаскивать ссылки в текстовый редактор Консоли сообщества с сохранением текста.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_batchlock": {
+    "message": "Добавить возможность блокировки нескольких тем из списка тем Консоли сообщества.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_enhancedannouncementsdot": {
+    "message": "Показывать уведомление об объявлениях более заметно в Консоли Сообщества.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_repositionexpandthread": {
+    "message": "Поместить кнопку \"развернуть тему\" до упора влево в списках тем Консоли сообщества.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_threadlistavatars": {
+    "message": "Показывать аватары в списках тем в Консоли сообщества.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_autorefreshlist": {
+    "message": "Показывать уведомление в Консоли сообщества, когда в списке тем появляются новые обновления.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_imagemaxheight": {
+    "message": "Предотвратить, чтобы встроенные изображения в сообщениях были выше, чем текущее окно.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_profileindicator_moreinfo": {
+    "message": "+инфо о 2 предыдущих возможностях",
+    "description": "Link to learn more about the profile indicator feature"
+  },
+  "options_profileindicator": {
+    "message": "Показать, <span class=\"help\" title=\"Если автор темы участвовал в других записях, рядом с его именем пользователя будет показана красная точка. Если последние сообщения автора темы были прочитаны, вместо неё будет показана оранжевая точка. Вы можете навести курсор мыши на точку, чтобы показать значение её цвета.\">участвовал ли автор темы в других темах</span>.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_profileindicatoralt": {
+    "message": "Показывать количество вопросов и ответов, написанных автором темы за последние <span id='profileindicatoralt_months--container'></span> месяцев, рядом с его именем пользователя.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_blockdrafts": {
+    "message": "Заблокировать отправку ваших ответов, которые вы пишите, на серверы Google в Консоли сообщества.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_workflows": {
+    "message": "Включить функцию рабочих сценариев.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_workflows_manage": {
+    "message": "Управлять рабочими сценариями",
+    "description": "Button in the options page which opens the workflow management page."
+  },
+  "options_extrainfo": {
+    "message": "Показывать дополнительную информацию в темах, профилях и списке шаблонных ответов.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_perforumstats": {
+    "message": "Показывать активность на форуме в профилях.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_interopthreadpage": {
+    "message": "Показать <span id='interopthreadpage_mode--container'></span> в Консоли сообщества.",
+    "description": "Feature checkbox in the options page. \"<span id='interopthreadpage_mode--container'></span>\" will be substituted with a selector which allows users to select whether they want the new thread page design or the old one."
+  },
+  "options_interopthreadpage_mode_previous": {
+    "message": "старый дизайн страниц тем",
+    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
+  },
+  "options_interopthreadpage_mode_next": {
+    "message": "новый дизайн страниц тем",
+    "description": "Select option added in #interopthreadpage_mode--container, in the options_interopthreadpage string"
+  },
+  "options_uispacing": {
+    "message": "Уменьшить незаполненное пространство в Консоли сообщества и TW.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_flattenthreads": {
+    "message": "Показать переключатель для включения/выключения вложенного отображения в темах.",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_save": {
+    "message": "Сохранить",
+    "description": "Button in the options page to save the settings"
+  },
+  "options_saved": {
+    "message": "Сохранено",
+    "description": "Message which appears in the options page when the settings are saved"
+  },
+  "options_experiments_title": {
+    "message": "Эксперименты",
+    "description": "Title of the experiments page: a page where highly experimental options can be set."
+  },
+  "options_experiments_description": {
+    "message": "Добро пожаловать! Ниже вы найдете список экспериментов: функции, которые находятся в разработке и ещё не готовы к запуску. Они являются экспериментальными и поэтому могут сломаться и/или вызвать проблемы, но если вы смелый, пожалуйста, включите те, которые вам наиболее интересны, и <a href='https://groups.google.com/g/twpowertools-discuss'>оставьте отзыв</a>!",
+    "description": "Description shown in the beginning of the experiments page, below the title."
+  },
+  "inject_links": {
+    "message": "Ссылки",
+    "description": "Heading which we use before the 'previous post' link in a user profile in TW"
+  },
+  "inject_previousposts": {
+    "message": "Предыдущие записи",
+    "description": "Link shown in a user profile (in TW) which points to a search showing the user's posts and messages"
+  },
+  "inject_previousposts_forum": {
+    "message": "Предыдущие записи (на этом форуме)",
+    "description": "Link shown in a user profile (in the Community Console) which points to a search showing the user's posts and messages in the current forum"
+  },
+  "inject_previousposts_all": {
+    "message": "Предыдущие записи (на всех форумах)",
+    "description": "Link shown in a user profile (in the Community Console) which points to a search showing the user's posts and messages in all forums"
+  },
+  "inject_profileindicator_loading": {
+    "message": "Загрузка...",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_profileindicator_first_post": {
+    "message": "Это первая запись, созданная автором темы на этом форуме.",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_profileindicator_other_posts_read": {
+    "message": "Автор темы участвовал в других обсуждениях на этом форуме, но вы прочитали 5 самых последних.",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_profileindicator_other_posts_unread": {
+    "message": "Автор темы участвовал в других обсуждениях на этом форуме, некоторые из которых вы не читали.",
+    "description": "Tooltip for the profile indicator dot."
+  },
+  "inject_ccdarktheme_helper": {
+    "message": "Переключить тему",
+    "description": "Tooltip for the dark mode switch."
+  },
+  "inject_extension_badge_helper": {
+    "message": "Добавлено с помощью $1",
+    "description": "Tooltip for the extension badge, which appears next to components injected by the extension."
+  },
+  "inject_lockbtn": {
+    "message": "Заблокировать/разблокировать темы",
+    "description": "Tooltip of the 'lock/unlock threads' icon shown when selecting multiple threads in the Community Console. Also the title for the dialog shown after clicking this icon."
+  },
+  "inject_lockdialog_desc": {
+    "message": "Подтвердите действие, которое вы хотите предпринять, нажав соответствующую кнопку ниже. Имейте в виду, что это действие будет выполнено для всех выбранных вами тем.",
+    "description": "Text in the 'lock/unlock threads' dialog, which asks the user for confirmation."
+  },
+  "inject_lockdialog_btn_lock": {
+    "message": "Заблокировать",
+    "description": "Button in the 'lock/unlock threads' dialog."
+  },
+  "inject_lockdialog_btn_unlock": {
+    "message": "Разблокировать",
+    "description": "Button in the 'lock/unlock threads' dialog."
+  },
+  "inject_lockdialog_btn_cancel": {
+    "message": "Отмена",
+    "description": "Button in the 'lock/unlock threads' dialog."
+  },
+  "inject_lockdialog_btn_close": {
+    "message": "Закрыть",
+    "description": "Button in the 'lock/unlock threads' dialog."
+  },
+  "inject_lockdialog_log_entry_beginning": {
+    "message": "Тема $1",
+    "description": "First part of the entry in the log of the 'lock/unlock threads' dialog. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_lockdialog_log_entry_success_lock": {
+    "message": "Успешно заблокировано.",
+    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_lockdialog_log_entry_error_lock": {
+    "message": "Произошла ошибка при блокировке ($1).",
+    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *not* locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_lockdialog_log_entry_success_unlock": {
+    "message": "Успешно разблокировано.",
+    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *un*locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_lockdialog_log_entry_error_unlock": {
+    "message": "Произошла ошибка при разблокировке ($1).",
+    "description": "Second part of the entry in the log of the 'lock/unlock threads' dialog, when the log entry states that the thread was *not* *un*locked successfully. Log entries are of the form '{first_part}: {second_part}'. For example: 'Thread 164: Locked successfully'."
+  },
+  "inject_autorefresh_list_snackbar_action": {
+    "message": "Обновить",
+    "description": "Button shown in a snackbar asking users to refresh/reload the list to show the new threads."
+  },
+  "inject_perforumstats_nummessages_singular": {
+    "message": "1 сообщение",
+    "description": "Annotation shown in the forum selector which states how many messages have been published by a user in a forum (singular variant)."
+  },
+  "inject_perforumstats_role_bronze": {
+    "message": "бронзовый",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_silver": {
+    "message": "серебряный",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_gold": {
+    "message": "золотой",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_platinum": {
+    "message": "платиновый",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_diamond": {
+    "message": "бриллиантовый",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_community_manager": {
+    "message": "КМ",
+    "description": "Role that a user can have in the forums (short for community manager)."
+  },
+  "inject_perforumstats_role_community_specialist": {
+    "message": "специалист",
+    "description": "Role that a user can have in the forums (short for community specialist)."
+  },
+  "inject_perforumstats_role_google_employee": {
+    "message": "Гуглер",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_perforumstats_role_alumnus": {
+    "message": "почетный",
+    "description": "Role that a user can have in the forums."
+  },
+  "inject_extrainfo_message_livereviewverdict_abuse": {
+    "message": "Нарушение",
+    "description": "One of the actions of a live review."
+  },
+  "inject_extrainfo_thread_autotrending": {
+    "message": "Автоматически помечена как популярная",
+    "description": "Label used in a thread to show it has been automatically marked as trending."
+  },
+  "inject_extrainfo_thread_trending": {
+    "message": "Популярная",
+    "description": "Label used in a thread to show it has been manually marked as trending."
+  },
+  "inject_threadlistavatars_private_thread_indicator_label": {
+    "message": "По техническим причинам мы не можем загружать аватары из тем, опубликованных в закрытых обсуждениях.",
+    "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
+  },
+  "inject_autorefresh_list_status_indicator_label_disabled": {
+    "message": "Невозможно отслеживать обновления в списке тем. Пожалуйста, измените параметры сортировки на \"Упорядочить: Последнее обновление\" и сортировку по убыванию.",
+    "description": "Helper text which appears when hovering the status indicator of the 'autorefresh list' feature to indicate that the feature is disabled in the current thread list because the sort options are incompatible with the feature."
+  },
+  "inject_perforumstats_nummessages_plural": {
+    "message": "$NUM$ сообщений",
+    "description": "Annotation shown in the forum selector which states how many messages have been published by a user in a forum (plural variant).",
+    "placeholders": {
+      "num": {
+        "content": "$1",
+        "example": "963"
+      }
     }
+  },
+  "inject_perforumstats_chart_communityguides": {
+    "message": "Руководства сообщества",
+    "description": "Label shown in the legend of the per-forum activity chart."
+  },
+  "inject_extrainfo_crs_used_singular": {
+    "message": "Использован 1 раз",
+    "description": "Shown alongside a canned response to state how many times it has been used."
+  },
+  "inject_extrainfo_profile_abuse_displayname": {
+    "message": "Нарушение политики отображения имен: $1",
+    "description": "Message shown in profiles when the display name is violating a policy."
+  },
+  "inject_extrainfo_profile_abuse_avatar": {
+    "message": "Нарушение правил использования аватаров: $1",
+    "description": "Message shown in profiles when the avatar is violating a policy."
+  },
+  "inject_extrainfo_profile_appealsnum": {
+    "message": "Количество апелляций: $1",
+    "description": "Message shown in profiles which states how many times the account has appealed the decision to ban their profile."
+  },
+  "inject_extrainfo_crs_used_plural": {
+    "message": "Использовано $1 раз",
+    "description": "Shown alongside a canned response to state how many times it has been used."
+  },
+  "inject_extrainfo_crs_lastused": {
+    "message": "Последний использованный: $1",
+    "description": "Tooltip which states when a canned response was last used."
+  },
+  "inject_extrainfo_message_pendingstate": {
+    "message": "Видно только пользователям со значком",
+    "description": "Label used in a thread or message when it is in the pending state (only visible to badged users)."
+  },
+  "inject_autorefresh_list_snackbar_message": {
+    "message": "Появились новые темы.",
+    "description": "Message shown in a snackbar when new threads are found in a thread list. Another button asks the user to refresh the list."
+  },
+  "inject_autorefresh_list_status_indicator_label_active": {
+    "message": "Следим за обновлением списка тем...",
+    "description": "Helper text which appears when hovering the status indicator of the 'autorefresh list' feature to indicate that the feature is active and watching for updates in the current thread list."
+  },
+  "inject_threadlistavatars_invisible_thread_indicator_label": {
+    "message": "По техническим причинам мы не можем загружать аватары из тем, которые не видны анонимным пользователям.",
+    "description": "Helper text which appears when hovering an icon next to a thread, to explain its meaning."
+  },
+  "inject_workflows_menubtn": {
+    "message": "Запустить рабочий сценарий...",
+    "description": "Tooltip of the icon shown above a thread or in thread lists when selecting multiple threads in the Community Console which lets the user show a menu with the worklofws they can run."
+  },
+  "inject_perforumstats_heading": {
+    "message": "Активность на форуме",
+    "description": "Heading of the section with the per-forum activity stacked bars graph showing the number of questions, replies and recommended answers each month."
+  },
+  "inject_perforumstats_forumoption_1helper": {
+    "message": "$FORUMNAME$ ($HELPER1$)",
+    "description": "In the selector where the user can select the forum shown in the graph, one such option. $HELPER1$ will usually be the number of messages posted by the user in that forum.",
+    "placeholders": {
+      "forumName": {
+        "content": "$1",
+        "example": "Google Chrome"
+      },
+      "helper1": {
+        "content": "$2",
+        "example": "963 messages"
+      }
+    }
+  },
+  "inject_perforumstats_forumoption_2helpers": {
+    "message": "$FORUMNAME$ ($HELPER1$, $HELPER2$)",
+    "description": "In the selector where the user can select the forum shown in the graph, one such option. $HELPER1$ will be the number of messages posted by the user in that forum, and $HELPER2$ will be the badge awarded to the user in that forum.",
+    "placeholders": {
+      "forumName": {
+        "content": "$1",
+        "example": "Google Chrome"
+      },
+      "helper1": {
+        "content": "$2",
+        "example": "963 messages"
+      },
+      "helper2": {
+        "content": "$3",
+        "example": "gold"
+      }
+    }
+  },
+  "inject_perforumstats_optgroup_notposted": {
+    "message": "Не отправлял в течение последних 12 месяцев",
+    "description": "Label showed above the forums for which the user hasn't posted in the last 12 months, in the forum selector list."
+  },
+  "inject_perforumstats_chart_label": {
+    "message": "График активности пользователя",
+    "description": "Label for the chart for accessibility purposes (e.g. users with screen-readers)."
+  },
+  "inject_perforumstats_chart_recommended": {
+    "message": "Рекомендованы",
+    "description": "Label shown in the legend of the per-forum activity chart."
+  },
+  "inject_perforumstats_chart_replies": {
+    "message": "Ответы (не рекомендованы)",
+    "description": "Label shown in the legend of the per-forum activity chart."
+  },
+  "inject_perforumstats_chart_questions": {
+    "message": "Вопросы",
+    "description": "Label shown in the legend of the per-forum activity chart."
+  },
+  "inject_perforumstats_chart_communityvideos": {
+    "message": "Видео сообщества",
+    "description": "Label shown in the legend of the per-forum activity chart."
+  },
+  "inject_extrainfo_profile_abusecategory": {
+    "message": "Категория нарушения: $1",
+    "description": "Message shown in profiles when there is a policy violation."
+  },
+  "inject_extrainfo_profile_abusecategory_noviolation": {
+    "message": "Нет нарушений",
+    "description": "Abuse category"
+  },
+  "inject_extrainfo_profile_abusecategory_communitypolicy": {
+    "message": "Нарушение правил сообщества",
+    "description": "Abuse category (when a community policy is violated)"
+  },
+  "inject_extrainfo_profile_abusecategory_legal": {
+    "message": "Юридическое нарушение",
+    "description": "Abuse category (when the violation is related to legal)"
+  },
+  "inject_extrainfo_profile_abusecategory_csai": {
+    "message": "Нарушение безопасности детей",
+    "description": "Abuse category (when the violation is related to CSAI)"
+  },
+  "inject_extrainfo_profile_abusecategory_other": {
+    "message": "Другое нарушение",
+    "description": "Abuse category"
+  },
+  "inject_extrainfo_profile_abuse_account": {
+    "message": "Нарушение политики учетной записи: $1",
+    "description": "Message shown in profiles when there is an account policy violation."
+  },
+  "actionbadge_killswitch_enabled": {
+    "message": "Некоторые функции были отключены принудительно. Нажмите, чтобы получить дополнительную информацию.",
+    "description": "Tooltip for the extension icon shown when a kill switch has been enabled."
+  },
+  "inject_threadpagedesign_warning": {
+    "message": "Эта тема может работать некорректно. Это связано с тем, что она использует функцию вложенных ответов, а вы включили старый дизайн тем в настройках TW Power Tools, который не поддерживает вложенные ответы.",
+    "description": "Message showed above threads which might not work properly because of the fact that the old thread design is not compatible with nested replies."
+  },
+  "inject_extrainfo_message_state_reinstate_abuse_takedown2": {
+    "message": "Пометка о нарушении снята вручную",
+    "description": "Thread/message state REINSTATE_ABUSE_TAKEDOWN (it is thought that messages in this state have been manually unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
+  },
+  "inject_extrainfo_message_pendingstate_tooltip": {
+    "message": "Видимо после $1",
+    "description": "Tooltip used for the label \"Only visible to badged users\" to state when the thread will become visible publicly."
+  },
+  "inject_extrainfo_message_state": {
+    "message": "Состояние: $1",
+    "description": "Label used in a thread or message to show its state."
+  },
+  "inject_extrainfo_message_state_published": {
+    "message": "Опубликовано",
+    "description": "Thread/message state PUBLISHED (the normal state of a message: it is published and visible to everyone)."
+  },
+  "inject_extrainfo_message_state_draft": {
+    "message": "Черновик",
+    "description": "Thread/message state DRAFT (when a message is saved as a draft and not yet published)."
+  },
+  "inject_extrainfo_message_state_owner_deleted": {
+    "message": "Удалено владельцем",
+    "description": "Thread/message state OWNER_DELETED (the owner deleted the message)."
+  },
+  "inject_extrainfo_message_state_automated_abuse_take_down_hide2": {
+    "message": "Скрыто (автоматически помечено как нарушение)",
+    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_HIDE (the message is hidden because the AI classified it as \"abuse\")."
+  },
+  "inject_extrainfo_message_state_automated_abuse_take_down_delete2": {
+    "message": "Удалено (автоматически помечено как нарушение)",
+    "description": "Thread/message state AUTOMATED_ABUSE_TAKE_DOWN_DELETE (the message is deleted because the AI classified it as \"abuse\")."
+  },
+  "inject_extrainfo_message_state_automated_off_topic_hide2": {
+    "message": "Скрыто (автоматически помечено как не по теме)",
+    "description": "Thread/message state AUTOMATED_OFF_TOPIC_HIDE (the message is hidden because the AI classified it as \"off topic\")."
+  },
+  "inject_extrainfo_message_state_automated_flagged_pending_manual_review2": {
+    "message": "Помечено автоматически (ожидает проверки вручную)",
+    "description": "Thread/message state AUTOMATED_FLAGGED_PENDING_MANUAL_REVIEW (the message has been flagged by the AI and needs manual review)."
+  },
+  "inject_extrainfo_message_state_user_flagged_pending_manual_review": {
+    "message": "Помечено пользователем (ожидает проверки вручную)",
+    "description": "Thread/message state USER_FLAGGED_PENDING_MANUAL_REVIEW (a user flagged the message and needs manual review)."
+  },
+  "inject_extrainfo_message_state_expert_flagged_pending_manual_review": {
+    "message": "Помечено экспертом (ожидает проверки вручную)",
+    "description": "Thread/message state EXPERT_FLAGGED_PENDING_MANUAL_REVIEW (a PE flagged the message and needs manual review)."
+  },
+  "inject_extrainfo_message_state_manual_take_down_hide2": {
+    "message": "Скрыто вручную",
+    "description": "Thread/message state MANUAL_TAKE_DOWN_HIDE (the message has been manually hidden by a Googler)."
+  },
+  "inject_extrainfo_message_state_manual_take_down_delete2": {
+    "message": "Удалено вручную",
+    "description": "Thread/message state MANUAL_TAKE_DOWN_DELETE (the message has been manually deleted by a Googler)."
+  },
+  "inject_extrainfo_message_state_googler_off_topic_hide2": {
+    "message": "Скрыто Гуглером как не по теме",
+    "description": "Thread/message state GOOGLER_OFF_TOPIC_HIDE (the message has been hidden by a Googler because it is off-topic)."
+  },
+  "inject_extrainfo_message_state_automated_abuse_reinstate2": {
+    "message": "Пометка о нарушении снята автоматически",
+    "description": "Thread/message state AUTOMATED_ABUSE_REINSTATE (it is thought that messages in this state have been automatically unmarked as abuse, even if the abuse marking could not have resulted in the message being hidden)."
+  },
+  "inject_extrainfo_message_state_manual_profile_take_down_suspend2": {
+    "message": "Скрыто (профиль заблокирован)",
+    "description": "Thread/message state MANUAL_PROFILE_TAKE_DOWN_SUSPEND (due to the fact that the profile has been manually suspended by a Googler, messages written by that account are in this state —and hidden from the public)."
+  },
+  "inject_extrainfo_message_state_reinstate_profile_takedown2": {
+    "message": "Восстановлено (блокировка профиля отменена)",
+    "description": "Thread/message state REINSTATE_PROFILE_TAKEDOWN (after a profile suspension has been reverted, messages which were previously in the \"MANUAL_PROFILE_TAKE_DOWN_SUSPEND\" state have this state (and are visible to the public again))."
+  },
+  "inject_extrainfo_message_state_clear_off_topic2": {
+    "message": "Очищено не по теме",
+    "description": "Thread/message state CLEAR_OFF_TOPIC (the message has been confirmed to NOT be off-topic)."
+  },
+  "actionbadge_permissions_requested": {
+    "message": "Для работы некоторых функций требуются дополнительные разрешения. Нажмите, чтобы исправить это.",
+    "description": "Tooltip for the extension icon when a feature is enabled but it needs several permissions to be granted."
+  },
+  "btn_learnmore": {
+    "message": "Узнать больше",
+    "description": "Text shown besides a warning message which the user can click to learn more about the message itself."
+  },
+  "inject_extrainfo_message_state_confirm_off_topic2": {
+    "message": "Подтверждено не по теме",
+    "description": "Thread/message state CONFIRM_OFF_TOPIC (the message has been confirmed to be off-topic)."
+  },
+  "inject_extrainfo_message_shadowblockactive": {
+    "message": "Теневая блокировка активна",
+    "description": "Label used in a thread or message when it has been shadow blocked and is thus hidden from view."
+  },
+  "inject_extrainfo_message_shadowblocknotactive": {
+    "message": "Теневая блокировка более неактивна",
+    "description": "Label used in a thread or message when it had been shadow blocked but it isn't active anymore."
+  },
+  "inject_extrainfo_message_livereviewverdict": {
+    "message": "Решение по проверке: $1",
+    "description": "Label used in a thread or message to show what was the action taken when live reviewing it."
+  },
+  "inject_extrainfo_message_livereviewverdict_relevant": {
+    "message": "Актуально",
+    "description": "One of the actions of a live review."
+  },
+  "inject_extrainfo_message_livereviewverdict_offtopic": {
+    "message": "Не по теме",
+    "description": "One of the actions of a live review."
+  },
+  "inject_extrainfo_message_state_awaiting_classification": {
+    "message": "Ожидает классификации",
+    "description": "Thread/message state AWAITING_CLASSIFICATION."
+  },
+  "inject_extrainfo_message_state_generated_answer_adopted": {
+    "message": "Сгенерированный ответ принят",
+    "description": "Thread/message state GENERATED_ANSWER_ADOPTED."
+  },
+  "options_fixpekb269560789": {
+    "message": "Предварительное исправление медленной работы Консоли сообщества и высокого использования памяти (<a href='https://s.iavm.xyz/cc-running-slow-pekb'><code>pekb/269560789</code></a>).",
+    "description": "Feature checkbox in the options page"
+  },
+  "options_bulkreportreplies": {
+    "message": "Включите возможность создания массовых жалоб на ответы."
+  },
+  "options_bulkmove": {
+    "message": "Добавить возможность перемещения нескольких тем из списка тем Консоли сообщества."
+  }
 }
