@@ -1,3 +1,21 @@
+locales = [
+    "ar",
+    "ca",
+    "de",
+    "en",
+    "es",
+    "fr",
+    "in",
+    "it",
+    "ja",
+    "ko",
+    "nl",
+    "pt-rBR",
+    "ru",
+    "tr",
+    "vi",
+]
+
 # This is necessary because we continue to save locales with the Pontoon
 # naming convention, even if we're now using Weblate.
 #
@@ -14,8 +32,17 @@ locale_overrides = [
     },
 ]
 
-def get_overriden_locale_paths():
-    return ["{}/**".format(l["pontoon_locale"]) for l in locale_overrides]
+overriden_locales = [
+    override["pontoon_locale"]
+    for override in locale_overrides
+]
+
+def get_non_overriden_locales():
+    return [
+        locale
+        for locale in locales
+        if locale not in overriden_locales
+    ]
 
 def get_overriden_locale_path_mappings():
     return [{

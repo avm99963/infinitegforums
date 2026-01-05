@@ -1,5 +1,5 @@
 load("@bazel_lib//lib:copy_directory.bzl", "copy_directory")
-load("defs.bzl", "get_overriden_locale_path_mappings", "get_overriden_locale_paths")
+load("defs.bzl", "get_non_overriden_locales", "get_overriden_locale_path_mappings")
 
 [
     copy_directory(
@@ -13,11 +13,11 @@ load("defs.bzl", "get_overriden_locale_path_mappings", "get_overriden_locale_pat
 
 filegroup(
     name = "_locales",
-    srcs = glob(
-        ["*/**"],
-        exclude = get_overriden_locale_paths(),
-    ) + [
-        "//src/static/_locales:{}".format(mapping["rule_name"])
+    srcs = [
+        "{}/messages.json".format(locale)
+        for locale in get_non_overriden_locales()
+    ] + [
+        ":{}".format(mapping["rule_name"])
         for mapping in get_overriden_locale_path_mappings()
     ],
     visibility = ["//src/static:__pkg__"],
