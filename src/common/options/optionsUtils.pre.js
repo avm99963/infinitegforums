@@ -1,14 +1,7 @@
 import {optionsPrototype} from './optionsPrototype';
 import { getSyncStorageAreaRepository } from '@/storage/compositionRoot';
 
-const specialOptions = [
-  'profileindicatoralt_months',
-  'ccdarktheme_mode',
-  'ccdarktheme_switch_status',
-  'interopthreadpage_mode',
-];
-
-export {optionsPrototype, specialOptions};
+export {optionsPrototype};
 
 // NOTE: We are assuming that the functions inside this file are only called
 // from contexts with access to the chrome.storage API (i.e., no main world
