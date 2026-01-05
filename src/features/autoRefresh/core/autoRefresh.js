@@ -193,7 +193,8 @@ export default class AutoRefresh {
     }
 
     if (!this.lastTimestamp) {
-      console.warn('autorefresh_list: this.lastTimestamp is not set (this is normal if the current thread list doesn\'t have any threads).');
+      console.warn(
+          'autorefresh_list: this.lastTimestamp is not set (this is normal if the current thread list doesn\'t have any threads).');
       this.unregister();
       return;
     }
@@ -229,8 +230,12 @@ export default class AutoRefresh {
     // All those requests have |maxNum| set to 10, 20 and 1000 respectively,
     // while the request that we want to handle is the initial request to load
     // the thread list which currently requests 100 threads.
+    //
+    // Another edge case are requests set to 0. These are requests for the
+    // counters in the drawer that were modified by the fixPEKB381989895
+    // feature.
     var maxNum = e.detail.body?.['2']?.['1']?.['2'];
-    if (maxNum == 10 || maxNum == 20 || maxNum == 1000) return;
+    if (maxNum == 10 || maxNum == 20 || maxNum == 1000 || maxNum == 0) return;
 
     // Ignore requests to load more threads in the current thread list. All
     // those requests include a PaginationToken, and also have |maxNum| set

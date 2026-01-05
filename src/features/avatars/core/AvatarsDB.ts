@@ -94,8 +94,12 @@ export default class AvatarsDB {
         // while the requests that we want to handle are the ones to initially
         // load the thread list (which currently requests 100 threads) and the
         // ones to load more threads (which request 50 threads).
+        //
+        // Another edge case are requests set to 0. These are requests for the
+        // counters in the drawer that were modified by the fixPEKB381989895
+        // feature.
         const maxNum = e.detail.body?.['2']?.['1']?.['2'];
-        if (maxNum == 10 || maxNum == 20 || maxNum == 1000) {
+        if (maxNum == 10 || maxNum == 20 || maxNum == 1000 || maxNum == 0) {
           ignoredRequests.push(e.detail.id);
         }
       },
