@@ -185,7 +185,10 @@ function createScriptRunner() {
                 ),
               ),
             ],
-            ['ccDarkThemeEcApp', new CCDarkThemeEcAppHandler(optionsProvider)],
+            [
+              'ccDarkThemeEcApp',
+              new CCDarkThemeEcAppHandler(optionsProvider, optionsModifier),
+            ],
             [
               'ccDarkThemeReportDialog',
               new CCDarkThemeReportDialogHandler(

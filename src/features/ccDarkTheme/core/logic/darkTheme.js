@@ -9,17 +9,16 @@ export const kColorThemeMode = Object.freeze({
   Dark: Symbol('dark'),
 });
 
-export function injectDarkThemeButton(rightControl) {
+export function injectDarkThemeButton(
+    rightControl, optionsProvider, optionsModifier) {
   var darkThemeSwitch = document.createElement('material-button');
   darkThemeSwitch.classList.add('TWPT-dark-theme', 'TWPT-btn--with-badge');
   darkThemeSwitch.setAttribute('button', '');
 
-  darkThemeSwitch.addEventListener('click', () => {
-    chrome.storage.sync.get(null, (currentOptions) => {
-      currentOptions.ccdarktheme_switch_status =
-        !currentOptions.ccdarktheme_switch_status;
-      chrome.storage.sync.set(currentOptions);
-    });
+  darkThemeSwitch.addEventListener('click', async () => {
+    const isEnabled =
+        await optionsProvider.isEnabled('ccdarktheme_switch_status');
+    await optionsModifier.set('ccdarktheme_switch_status', !isEnabled);
   });
 
   var switchContent = document.createElement('div');

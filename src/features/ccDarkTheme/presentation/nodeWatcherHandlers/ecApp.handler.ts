@@ -1,3 +1,4 @@
+import { OptionsModifierPort } from '@/services/options/OptionsModifier.port';
 import CssSelectorNodeWatcherHandler from '../../../../infrastructure/presentation/nodeWatcher/handlers/CssSelectorHandler.adapter';
 import { NodeMutation } from '../../../../presentation/nodeWatcher/NodeWatcherHandler';
 import { OptionsProviderPort } from '../../../../services/options/OptionsProvider';
@@ -9,7 +10,10 @@ import { injectDarkThemeButton } from '../../core/logic/darkTheme';
 export default class CCDarkThemeEcAppHandler extends CssSelectorNodeWatcherHandler {
   cssSelector = 'ec-app';
 
-  constructor(private optionsProvider: OptionsProviderPort) {
+  constructor(
+    private readonly optionsProvider: OptionsProviderPort,
+    private readonly optionsModifier: OptionsModifierPort,
+  ) {
     super();
   }
 
@@ -23,7 +27,11 @@ export default class CCDarkThemeEcAppHandler extends CssSelectorNodeWatcherHandl
     if (isEnabled && mode === 'switch') {
       const rightControl = mutation.node.querySelector('header .right-control');
       if (rightControl === null) return;
-      injectDarkThemeButton(rightControl);
+      injectDarkThemeButton(
+        rightControl,
+        this.optionsProvider,
+        this.optionsModifier,
+      );
     }
   }
 }
