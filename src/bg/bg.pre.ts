@@ -55,11 +55,11 @@ const storageMigrator = new SyncStorageMigratorAdapter(
   getDefaultStorage,
 );
 
+const syncStorageAreaRepository = getSyncStorageAreaRepository(storageMigrator);
+
 const bgHandler = new BgHandler(
   new OptionsProviderAdapter(
-    new OptionsConfigurationRepositoryAdapter(
-      getSyncStorageAreaRepository(storageMigrator),
-    ),
+    new OptionsConfigurationRepositoryAdapter(syncStorageAreaRepository),
   ),
 );
 
@@ -68,7 +68,7 @@ actionApi.onClicked.addListener(() => {
 });
 
 // #!if defined(ENABLE_KILL_SWITCH_MECHANISM)
-const killSwitchMechanism = new KillSwitchMechanism();
+const killSwitchMechanism = new KillSwitchMechanism(syncStorageAreaRepository);
 killSwitchMechanism.updateBadge();
 
 chrome.alarms.get('updateKillSwitchStatus', (alarm) => {

@@ -15,17 +15,22 @@ const KILLSWITCH_BADGE_OPTIONS = {
 };
 
 export default class KillSwitchMechanism {
-  constructor() {
+  /**
+   * @param {import('@/storage/repositories/syncStorageAreaRepository.port.js').SyncStorageAreaRepositoryPort}
+   *     syncStorageAreaRepository
+   */
+  constructor(syncStorageAreaRepository) {
+    this.syncStorageAreaRepository = syncStorageAreaRepository;
     this.client =
         new KillSwitchServicePromiseClient(KILL_SWITCH_HOST, null, null);
   }
 
-  updateBadge() {
-    chrome.storage.sync.get(
-        '_forceDisabledFeatures', ({_forceDisabledFeatures}) => {
-          let anyKillSwitchEnabled = _forceDisabledFeatures.length > 0;
-          this.#setBadge(anyKillSwitchEnabled);
-        });
+  async updateBadge() {
+    const items =
+        await this.syncStorageAreaRepository.get('_forceDisabledFeatures');
+    const forceDisabledFeatures = items._forceDisabledFeatures ?? [];
+    let anyKillSwitchEnabled = forceDisabledFeatures.length > 0;
+    this.#setBadge(anyKillSwitchEnabled);
   }
 
   #setBadge(anyKillSwitchEnabled) {
@@ -55,7 +60,7 @@ export default class KillSwitchMechanism {
     request.setWithNonactiveKillSwitches(false);
 
     this.client.getKillSwitchOverview(request)
-        .then(res => {
+        .then(async res => {
           let killSwitches = res.getKillSwitchesList();
           let currentVersion = getSemVerExtVersion();
           if (currentVersion === '0' || currentVersion === null) {
@@ -95,11 +100,12 @@ export default class KillSwitchMechanism {
 
           let forceDisabledFeatures = Array.from(forceDisabledFeaturesSet);
 
-          chrome.storage.sync.set(
-              {_forceDisabledFeatures: forceDisabledFeatures}, () => {
-                let anyKillSwitchEnabled = forceDisabledFeatures.length > 0;
-                this.#setBadge(anyKillSwitchEnabled);
-              });
+
+          await this.syncStorageAreaRepository.set(
+              {_forceDisabledFeatures: forceDisabledFeatures});
+
+          let anyKillSwitchEnabled = forceDisabledFeatures.length > 0;
+          this.#setBadge(anyKillSwitchEnabled);
         })
         .catch(err => {
           console.error(
