@@ -14,6 +14,10 @@ common:ci --test_env=CI=true
 # logs.
 common:ci --curses=no
 
+# It's important to enable the kill switch mechanism in CI so that the test runs
+# can build this functionality (and nightly builds will already have this
+# feature flag enabled due to the |release| configuration).
+build:ci --//src/killSwitch:enable_kill_switch_mechanism
 build:release --stamp
 build:release --workspace_status_command=./tools/bazel_stamp_vars.sh
 build:release --compilation_mode=opt
