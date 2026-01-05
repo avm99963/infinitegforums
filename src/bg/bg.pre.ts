@@ -1,26 +1,29 @@
 import OptionsProviderAdapter from '@/infrastructure/services/options/OptionsProvider.adapter.js';
-import {BgHandler} from '@/options/bgHandler/bgHandler';
-import {OptionsConfigurationRepositoryAdapter} from '@/options/infrastructure/repositories/OptionsConfiguration.repository.adapter.js';
-import {PERFORM_MIGRATION_MESSAGE_NAME} from '@/storage/infrastructure/services/syncStorageMigratorProxyToBg.js';
+import { BgHandler } from '@/options/bgHandler/bgHandler';
+import { OptionsConfigurationRepositoryAdapter } from '@/options/infrastructure/repositories/OptionsConfiguration.repository.adapter.js';
+import { PERFORM_MIGRATION_MESSAGE_NAME } from '@/storage/infrastructure/services/syncStorageMigratorProxyToBg.js';
 // #!if defined(MV3)
 import XMLHttpRequest from '@avm99963/sw-xhr';
 // #!endif
 
 import actionApi from '../common/actionApi.js';
-import {cleanUpOptions} from '../common/options/optionsUtils.js';
+import { cleanUpOptions } from '../common/options/optionsUtils.js';
 // #!if defined(ENABLE_KILL_SWITCH_MECHANISM)
 import KillSwitchMechanism from '../killSwitch/index.js';
 // #!endif
-import {SyncStorageMigratorAdapter} from '../storage/infrastructure/services/syncStorageMigrator.adapter.js';
+import { SyncStorageMigratorAdapter } from '../storage/infrastructure/services/syncStorageMigrator.adapter.js';
 import sortedMigrations from '../storage/migrations/index.js';
-import {getDefaultStorage, LATEST_SCHEMA_VERSION} from '../storage/schemas/index.js';
+import {
+  getDefaultStorage,
+  LATEST_SCHEMA_VERSION,
+} from '../storage/schemas/index.js';
 import UpdateNotifier from '../updateNotifier/presentation/bg/index.js';
 
 // #!if defined(MV3)
 // XMLHttpRequest is not present in service workers (MV3) and is required by the
 // grpc-web package. Importing a shim to work around this.
 // https://github.com/grpc/grpc-web/issues/1134
-self.XMLHttpRequest = XMLHttpRequest;
+self.XMLHttpRequest = XMLHttpRequest as unknown as typeof self.XMLHttpRequest;
 // #!endif
 
 // Returns whether the script is being ran when the extension starts up. It does
@@ -30,8 +33,8 @@ function isExtensionStartup() {
   // don't know whether it's the extension startup.
   if (!chrome.storage.session) return Promise.resolve(true);
 
-  return new Promise(resolve => {
-    return chrome.storage.session.get('hasAlreadyStarted', v => {
+  return new Promise((resolve) => {
+    return chrome.storage.session.get('hasAlreadyStarted', (v) => {
       resolve(v.hasAlreadyStarted !== true);
     });
   });
@@ -46,7 +49,8 @@ function setHasAlreadyStarted() {
 }
 
 const bgHandler = new BgHandler(
-    new OptionsProviderAdapter(new OptionsConfigurationRepositoryAdapter()));
+  new OptionsProviderAdapter(new OptionsConfigurationRepositoryAdapter()),
+);
 
 actionApi.onClicked.addListener(() => {
   chrome.runtime.openOptionsPage();
@@ -56,14 +60,14 @@ actionApi.onClicked.addListener(() => {
 const killSwitchMechanism = new KillSwitchMechanism();
 killSwitchMechanism.updateBadge();
 
-chrome.alarms.get('updateKillSwitchStatus', alarm => {
+chrome.alarms.get('updateKillSwitchStatus', (alarm) => {
   if (!alarm)
     chrome.alarms.create('updateKillSwitchStatus', {
       periodInMinutes: PRODUCTION ? 30 : 1,
     });
 });
 
-chrome.alarms.onAlarm.addListener(alarm => {
+chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name === 'updateKillSwitchStatus')
     killSwitchMechanism.updateKillSwitchStatus();
 });
@@ -77,9 +81,9 @@ chrome.runtime.onStartup.addListener(() => {
 // When the extension is first installed or gets updated, set new options to
 // their default value, update the kill switch status and prompt the user to
 // refresh the Community Console page.
-chrome.runtime.onInstalled.addListener(details => {
+chrome.runtime.onInstalled.addListener((details) => {
   if (details.reason == 'install' || details.reason == 'update') {
-    chrome.storage.sync.get(null, options => {
+    chrome.storage.sync.get(null, (options) => {
       cleanUpOptions(options, false);
     });
 
@@ -102,14 +106,17 @@ chrome.storage.onChanged.addListener((_, areaName) => {
 });
 
 const storageMigrator = new SyncStorageMigratorAdapter(
-    sortedMigrations, LATEST_SCHEMA_VERSION, getDefaultStorage);
+  sortedMigrations,
+  LATEST_SCHEMA_VERSION,
+  getDefaultStorage,
+);
 
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (sender.id !== chrome.runtime.id)
     return console.warn(
-        'An unknown sender (' + sender.id +
-            ') sent a message to the extension: ',
-        msg);
+      'An unknown sender (' + sender.id + ') sent a message to the extension: ',
+      msg,
+    );
 
   console.assert(msg.message);
   switch (msg.message) {
@@ -120,15 +127,18 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
       break;
 
     case PERFORM_MIGRATION_MESSAGE_NAME:
-      storageMigrator.migrate()
-          .then(() => {
-            sendResponse({});
-          })
-          .catch(err => {
-            console.error(
-                'Error while migrating storage schema (via proxy):', err);
-            sendResponse({error: err.message || err.toString()});
-          });
+      storageMigrator
+        .migrate()
+        .then(() => {
+          sendResponse({});
+        })
+        .catch((err) => {
+          console.error(
+            'Error while migrating storage schema (via proxy):',
+            err,
+          );
+          sendResponse({ error: err.message || err.toString() });
+        });
       return true;
 
     default:
@@ -137,9 +147,16 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
 });
 
 // This should only run once when the extension starts up.
-isExtensionStartup().then(isStartup => {
+isExtensionStartup().then((isStartup) => {
   if (isStartup) {
     bgHandler.handlePossibleOptionsChange();
     setHasAlreadyStarted();
   }
 });
+
+/**
+ * Whether we're running a production version.
+ *
+ * This variable is provided by Webpack.
+ */
+declare const PRODUCTION: boolean;

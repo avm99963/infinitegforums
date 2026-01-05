@@ -1,11 +1,12 @@
 load("@aspect_rules_js//js:defs.bzl", "js_library")
-load("//tools:common_js_project.bzl", "common_js_project")
+load("//tools:bazel/swc.bzl", "swc_pkg")
+load("//tools:common_ts_project.bzl", "common_ts_project")
 load("//tools/preprocessor:bzl/preprocessor.bzl", "preprocessor")
 
 preprocessor(
     name = "preprocessed_bg",
-    src = "bg.pre.js",
-    out = "bg.js",
+    src = "bg.pre.ts",
+    out = "bg.ts",
     defined_dependencies = select({
         "//:mv3": ["MV3"],
         "//conditions:default": [],
@@ -15,21 +16,28 @@ preprocessor(
     }),
 )
 
-common_js_project(
+common_ts_project(
     name = "bg",
     srcs = [":preprocessed_bg"],
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = swc_pkg,
+    tsconfig = "//:tsconfig_pkg",
+    visibility = [
+        "//:__pkg__",
+    ],
     deps = [
         "//:node_modules/@avm99963/sw-xhr",
         "//src/common",
         "//src/common/options",
+        "//src/infrastructure/services/options",
         "//src/killSwitch",
         "//src/options/bgHandler",
+        "//src/options/infrastructure/repositories",
         "//src/storage/infrastructure/services",
         "//src/storage/migrations",
         "//src/storage/schemas",
         "//src/updateNotifier/presentation/bg",
-    ],
-    visibility = [
-        "//:__pkg__",
     ],
 )
