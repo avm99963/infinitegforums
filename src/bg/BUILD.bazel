@@ -16,9 +16,10 @@ preprocessor(
 )
 
 common_js_project(
-    name = "ts",
+    name = "bg",
     srcs = [":preprocessed_bg"],
     deps = [
+        "//:node_modules/@avm99963/sw-xhr",
         "//src/common",
         "//src/common/options",
         "//src/killSwitch",
@@ -27,16 +28,6 @@ common_js_project(
         "//src/storage/migrations",
         "//src/storage/schemas",
         "//src/updateNotifier/presentation/bg",
-    ],
-)
-
-# NOTE: We need to include sw-xhr here because the sw-xhr polyfill gives some
-# errors when compiling it with SWC.
-js_library(
-    name = "bg",
-    srcs = [
-        ":ts",
-        "//:node_modules/sw-xhr",
     ],
     visibility = [
         "//:__pkg__",

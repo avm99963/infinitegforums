@@ -10,6 +10,9 @@ importers:
 
   .:
     dependencies:
+      '@avm99963/sw-xhr':
+        specifier: ^0.0.6
+        version: 0.0.6
       '@lit-labs/motion':
         specifier: ^1.0.9
         version: 1.1.0(lit-html@3.3.2)
@@ -61,9 +64,6 @@ importers:
       semver:
         specifier: ^7.3.5
         version: 7.7.3
-      sw-xhr:
-        specifier: ^0.0.3
-        version: 0.0.3
     devDependencies:
       '@lit/localize-tools':
         specifier: 0.8.1
@@ -200,6 +200,9 @@ packages:
 
   '@asamuzakjp/nwsapi@2.3.9':
     resolution: {integrity: sha512-n8GuYSrI9bF7FFZ/SjhwevlHc8xaVlb/7HmHelnc/PZXBD2ZR49NnN9sMMuDdEGPeeRQ5d0hqlSlEpgCX3Wl0Q==}
+
+  '@avm99963/sw-xhr@0.0.6':
+    resolution: {integrity: sha512-mztzVDYAsk1XXUDpHWS0IPSEuovkMVUBBx00EyGdFz0xsbhDjmwASfxresRaF2UgvXH49vZMJydmLhTidLTsiA==}
 
   '@aws-crypto/crc32@5.2.0':
     resolution: {integrity: sha512-nLbCWqQNgUiwwtFsen1AdzAtvuLRsQS8rYgMuxCrdKf9kOssamGLuPwyTY9wyYblNr9+1XM8v6zoDTPPSIeANg==}
@@ -5242,10 +5245,6 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  sw-xhr@0.0.3:
-    resolution: {integrity: sha512-/RkLpM4g3jJo8fD/+uYeJUE063QFj/rbACN6ooEd5V7XSTnXsUkByLWJV79C07aIbWNFImiHyc3b2oER47lOtw==}
-    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
-
   symbol-tree@3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
 
@@ -5899,6 +5898,8 @@ snapshots:
       lru-cache: 11.2.4
 
   '@asamuzakjp/nwsapi@2.3.9': {}
+
+  '@avm99963/sw-xhr@0.0.6': {}
 
   '@aws-crypto/crc32@5.2.0':
     dependencies:
@@ -12406,8 +12407,6 @@ snapshots:
       has-flag: 4.0.0
 
   supports-preserve-symlinks-flag@1.0.0: {}
-
-  sw-xhr@0.0.3: {}
 
   symbol-tree@3.2.4: {}
 

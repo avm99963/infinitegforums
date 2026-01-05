@@ -3,7 +3,7 @@ import {BgHandler} from '@/options/bgHandler/bgHandler';
 import {OptionsConfigurationRepositoryAdapter} from '@/options/infrastructure/repositories/OptionsConfiguration.repository.adapter.js';
 import {PERFORM_MIGRATION_MESSAGE_NAME} from '@/storage/infrastructure/services/syncStorageMigratorProxyToBg.js';
 // #!if defined(MV3)
-import XMLHttpRequest from 'sw-xhr';
+import XMLHttpRequest from '@avm99963/sw-xhr';
 // #!endif
 
 import actionApi from '../common/actionApi.js';
