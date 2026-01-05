@@ -239,10 +239,6 @@
     "message": "The OP participated in other threads in this forum, some of which you haven't read.",
     "description": "Tooltip for the profile indicator dot."
   },
-  "inject_profileindicatoralt_numposts": {
-    "message": "Number of questions and replies in the last $1 months.",
-    "description": "Tooltip for the profile indicator dot."
-  },
   "inject_ccdarktheme_helper": {
     "message": "Switch theme",
     "description": "Tooltip for the dark mode switch."

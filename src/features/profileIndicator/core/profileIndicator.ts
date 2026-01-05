@@ -1,4 +1,5 @@
 /**
+ * @file
  * Code used in the main world of the Community Console and TW basic threads to
  * inject and load the data for the profile indicator.
  */
@@ -48,8 +49,7 @@ export type UI =
   | typeof UI_COMMUNITY_CONSOLE_INTEROP_V2;
 
 type Options = {
-  indicatorDot: boolean;
-  numPosts: boolean;
+  isEnabled: boolean;
   numPostMonths: number;
 };
 
@@ -131,7 +131,7 @@ function getProfile(
   );
 }
 
-// Inject the indicator dot/badge to the appropriate position.
+// Inject the indicator badge to the appropriate position.
 function injectIndicator(
   sourceNode: HTMLAnchorElement,
   indicatorEl: HTMLElement,
@@ -146,38 +146,6 @@ function injectIndicator(
     '.scTailwindThreadPost_headerUserinfoname',
   );
   username.append(indicatorEl);
-}
-
-// Create profile indicator dot with a loading state, or return the numPosts
-// badge if it is already created.
-function createIndicatorDot(
-  sourceNode: HTMLAnchorElement,
-  searchURL: string,
-  context: OurContext,
-) {
-  if (context.options.numPosts)
-    return document.querySelector('.num-posts-indicator');
-  const dotContainer = document.createElement('div');
-  dotContainer.classList.add('profile-indicator', 'profile-indicator--loading');
-
-  const dotLink = isCommunityConsole(context.ui)
-    ? createImmuneLink()
-    : document.createElement('a');
-  dotLink.classList.add(
-    'profile-indicator-link',
-    'profile-indicator-link--dot',
-  );
-  dotLink.href = searchURL;
-  dotLink.innerText = '●';
-
-  dotContainer.appendChild(dotLink);
-  injectIndicator(sourceNode, dotContainer, context.ui);
-
-  context.i18n
-    .getMessage({ messageName: 'inject_profileindicator_loading' })
-    .then((string) => createPlainTooltip(dotContainer, string));
-
-  return dotContainer;
 }
 
 // Create badge indicating the number of posts with a loading state
@@ -232,8 +200,7 @@ export async function getOptionsAndHandleIndicators(
   const optionsConfiguration =
     await context.optionsProvider.getOptionsConfiguration();
   const options = {
-    numPosts: optionsConfiguration.isEnabled('profileindicatoralt') ?? false,
-    indicatorDot: optionsConfiguration.isEnabled('profileindicator') ?? false,
+    isEnabled: optionsConfiguration.isEnabled('profileindicatoralt') ?? false,
     numPostMonths:
       optionsConfiguration.getOptionValue('profileindicatoralt_months') ?? 12,
   };
@@ -248,7 +215,7 @@ export async function getOptionsAndHandleIndicators(
   handleIndicators(sourceNode, ourContext);
 }
 
-// Handle the profile indicator dot
+// Handle the profile indicator
 function handleIndicators(sourceNode: HTMLAnchorElement, context: OurContext) {
   let nameEl;
   if (context.ui === UI_COMMUNITY_CONSOLE)
@@ -268,7 +235,7 @@ function handleIndicators(sourceNode: HTMLAnchorElement, context: OurContext) {
     const CCLink = document.getElementById('onebar-community-console');
     if (CCLink === null) {
       console.error(
-        '[opindicator] The user is not a PE so the dot indicator cannot be shown in TW.',
+        '[opindicator] The user is not a PE so the profile indicator cannot be shown in TW.',
       );
       return;
     }
@@ -308,14 +275,14 @@ function handleIndicators(sourceNode: HTMLAnchorElement, context: OurContext) {
     encodeURIComponent('query=' + encodedQuery) +
     authuserPart;
 
-  if (context.options.numPosts) {
+  if (context.options.isEnabled) {
     const profileURL = new URL(sourceNode.href);
     const userId = profileURL.pathname
       .split(isCommunityConsole(context.ui) ? 'user/' : 'profile/')[1]
       .split('?')[0]
       .split('/')[0];
 
-    const numPostsContainer = createNumPostsBadge(
+    const indicatorContainer = createNumPostsBadge(
       sourceNode,
       searchURL,
       context,
@@ -326,14 +293,6 @@ function handleIndicators(sourceNode: HTMLAnchorElement, context: OurContext) {
         if (!('1' in res) || !('2' in res[1])) {
           throw new Error('Unexpected profile response.');
         }
-
-        if (!context.options.indicatorDot)
-          context.i18n
-            .getMessage({
-              messageName: 'inject_profileindicatoralt_numposts',
-              substitutions: [context.options.numPostMonths.toString()],
-            })
-            .then((string) => createPlainTooltip(numPostsContainer, string));
 
         let numPosts = 0;
 
@@ -350,19 +309,15 @@ function handleIndicators(sourceNode: HTMLAnchorElement, context: OurContext) {
           }
         }
 
-        setNumPostsBadge(numPostsContainer, numPosts.toString());
+        setNumPostsBadge(indicatorContainer, numPosts.toString());
       })
       .catch((err) => {
         console.error(
           "[opindicator] Unexpected error. Couldn't load profile.",
           err,
         );
-        setNumPostsBadge(numPostsContainer, '?');
+        setNumPostsBadge(indicatorContainer, '?');
       });
-  }
-
-  if (context.options.indicatorDot) {
-    const dotContainer = createIndicatorDot(sourceNode, searchURL, context);
 
     // Query threads in order to see what state the indicator should be in
     getPosts(query, forumId, context)
@@ -407,20 +362,14 @@ function handleIndicators(sourceNode: HTMLAnchorElement, context: OurContext) {
           }
         }
 
-        const dotContainerPrefix = context.options.numPosts
-          ? 'num-posts-indicator'
-          : 'profile-indicator';
-
-        if (!context.options.numPosts)
-          dotContainer.classList.remove(dotContainerPrefix + '--loading');
-        dotContainer.classList.add(
-          dotContainerPrefix + '--' + OPClasses[OPStatus],
+        indicatorContainer.classList.add(
+          'num-posts-indicator--' + OPClasses[OPStatus],
         );
         context.i18n
           .getMessage({
             messageName: 'inject_profileindicator_' + OPi18n[OPStatus],
           })
-          .then((string) => createPlainTooltip(dotContainer, string));
+          .then((string) => createPlainTooltip(indicatorContainer, string));
       })
       .catch((err) =>
         console.error(

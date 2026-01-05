@@ -27,47 +27,8 @@ ec-user-link.name > *, .thread-message-header__name > *, .thread-message-header_
   outline: 2px solid #0b57d0!important;
 }
 
-.profile-indicator-link--dot {
-  margin-inline-start: 4px;
-}
-
 .profile-indicator-link--num-posts {
   margin-inline-start: 8px;
-}
-
-.profile-indicator {
-  display: inline-block;
-  font-size: 16px;
-}
-
-.profile-indicator a {
-  text-decoration: none!important;
-}
-
-.profile-indicator.profile-indicator--loading a {
-  color: #6f6f6f;
-
-  animation-duration: 0.75s;
-  animation-name: loading-indicator;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-.profile-indicator.profile-indicator--first-post a {
-  color: #4285f4;
-}
-
-.profile-indicator.profile-indicator--other-posts-read a {
-  color: #FF8F00;
-}
-
-.profile-indicator.profile-indicator--other-posts-unread a {
-  color: #C62828;
-}
-
-.profile-indicator a {
-  opacity: 1;
-  transition: opacity .5s, color .5s;
 }
 
 .num-posts-indicator {
