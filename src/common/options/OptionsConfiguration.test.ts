@@ -13,6 +13,7 @@ describe('OptionsConfiguration', () => {
       const optionsStatus = buildDummyOptionsStatus({
         ccdarktheme_switch_status: {
           value: true,
+          isDefaultValue: false,
           isKillSwitchEnabled: false,
         },
       });

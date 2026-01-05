@@ -24,9 +24,7 @@ const getOptionsConfigurationMock =
   vi.fn<OptionsConfigurationRepositoryPort['get']>();
 const addListenerMock =
   vi.fn<OptionsConfigurationRepositoryPort['addListener']>();
-class FakeOptionsConfigurationRepositoryAdapter
-  implements OptionsConfigurationRepositoryPort
-{
+class FakeOptionsConfigurationRepositoryAdapter implements OptionsConfigurationRepositoryPort {
   get() {
     return getOptionsConfigurationMock();
   }
@@ -89,7 +87,7 @@ describe('isEnabled', () => {
       getOptionsConfigurationMock.mockResolvedValue(
         new OptionsConfiguration({
           ...dummyOptionsStatus,
-          [testOption]: { value, isKillSwitchEnabled },
+          [testOption]: { value, isDefaultValue: false, isKillSwitchEnabled },
         }),
       );
 
@@ -124,6 +122,7 @@ describe('getOptionsValues', () => {
           const { value } = dummyOptionsStatus[option];
           const optionStatus: OptionStatus<OptionCodename> = {
             value: value === false ? true : value,
+            isDefaultValue: false,
             isKillSwitchEnabled: true,
           };
           return [option, optionStatus];

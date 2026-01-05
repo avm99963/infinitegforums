@@ -8,6 +8,7 @@ export function buildDummyOptionsStatus(
     options.map((option) => {
       const optionStatus: OptionStatus<OptionCodename> = {
         value: option.defaultValue,
+        isDefaultValue: false,
         isKillSwitchEnabled: false,
       };
       return [option.codename, optionStatus];

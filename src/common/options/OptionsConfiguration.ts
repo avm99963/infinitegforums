@@ -9,6 +9,11 @@ import {
 export interface OptionStatus<O extends OptionCodename> {
   value: OptionsValues[O];
   /**
+   * Whether the value is not user-controlled (it is falling back to the default
+   * value).
+   */
+  isDefaultValue: boolean;
+  /**
    * Whether the option has its kill switch enabled.
    */
   isKillSwitchEnabled: boolean;

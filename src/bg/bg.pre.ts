@@ -1,13 +1,15 @@
+import { OptionsModifierAdapter } from '@/infrastructure/services/options/OptionsModifier.adapter.js';
 import OptionsProviderAdapter from '@/infrastructure/services/options/OptionsProvider.adapter.js';
 import { BgHandler } from '@/options/bgHandler/bgHandler';
 import { OptionsConfigurationRepositoryAdapter } from '@/options/infrastructure/repositories/OptionsConfiguration.repository.adapter.js';
+import { DefaultOptionsCommitterAdapter } from '@/options/infrastructure/services/DefaultOptionsCommitter.service.adapter.js';
+import { getSyncStorageAreaRepository } from '@/storage/compositionRoot/index.js';
 import { PERFORM_MIGRATION_MESSAGE_NAME } from '@/storage/infrastructure/services/syncStorageMigratorProxyToBg.js';
 // #!if defined(MV3)
 import XMLHttpRequest from '@avm99963/sw-xhr';
 // #!endif
 
 import actionApi from '../common/actionApi.js';
-import { cleanUpOptions } from '../common/options/optionsUtils.js';
 // #!if defined(ENABLE_KILL_SWITCH_MECHANISM)
 import KillSwitchMechanism from '../killSwitch/index.js';
 // #!endif
@@ -18,7 +20,6 @@ import {
   LATEST_SCHEMA_VERSION,
 } from '../storage/schemas/index.js';
 import UpdateNotifier from '../updateNotifier/presentation/bg/index.js';
-import { getSyncStorageAreaRepository } from '@/storage/compositionRoot/index.js';
 
 // #!if defined(MV3)
 // XMLHttpRequest is not present in service workers (MV3) and is required by the
@@ -57,10 +58,18 @@ const storageMigrator = new SyncStorageMigratorAdapter(
 
 const syncStorageAreaRepository = getSyncStorageAreaRepository(storageMigrator);
 
-const bgHandler = new BgHandler(
-  new OptionsProviderAdapter(
-    new OptionsConfigurationRepositoryAdapter(syncStorageAreaRepository),
-  ),
+const optionsConfigurationRepository =
+  new OptionsConfigurationRepositoryAdapter(syncStorageAreaRepository);
+const optionsProvider = new OptionsProviderAdapter(
+  optionsConfigurationRepository,
+);
+const optionsModifier = new OptionsModifierAdapter(syncStorageAreaRepository);
+
+const bgHandler = new BgHandler(optionsProvider);
+
+const defaultOptionsCommitter = new DefaultOptionsCommitterAdapter(
+  optionsProvider,
+  optionsModifier,
 );
 
 actionApi.onClicked.addListener(() => {
@@ -89,14 +98,9 @@ chrome.runtime.onStartup.addListener(() => {
 });
 // #!endif
 
-// When the extension is first installed or gets updated, set new options to
-// their default value, update the kill switch status and prompt the user to
-// refresh the Community Console page.
 chrome.runtime.onInstalled.addListener((details) => {
   if (details.reason == 'install' || details.reason == 'update') {
-    chrome.storage.sync.get(null, (options) => {
-      cleanUpOptions(options, false);
-    });
+    defaultOptionsCommitter.commit();
 
     // #!if defined(ENABLE_KILL_SWITCH_MECHANISM)
     killSwitchMechanism.updateKillSwitchStatus();

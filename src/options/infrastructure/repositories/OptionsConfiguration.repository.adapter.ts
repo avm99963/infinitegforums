@@ -91,6 +91,9 @@ export class OptionsConfigurationRepositoryAdapter implements OptionsConfigurati
         option.codename,
         {
           value: items[option.codename] ?? option.defaultValue,
+          isDefaultValue:
+            items[option.codename] === undefined ||
+            items[option.codename] === null,
           isKillSwitchEnabled: false,
         },
       ] as const;

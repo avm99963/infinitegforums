@@ -10,35 +10,6 @@ const specialOptions = [
 
 export {optionsPrototype, specialOptions};
 
-// Adds missing options with their default value. If |dryRun| is set to false,
-// they are also saved to the sync storage area.
-export function cleanUpOptions(options, dryRun = false) {
-  console.debug('[cleanUpOptions] Previous options', JSON.stringify(options));
-
-  if (typeof options !== 'object' || options === null) options = {};
-
-  var ok = true;
-  for (const [opt, optMeta] of Object.entries(optionsPrototype)) {
-    if (!(opt in options) &&
-        optMeta['killSwitchType'] !== 'internalKillSwitch') {
-      ok = false;
-      options[opt] = optMeta['defaultValue'];
-    }
-  }
-
-  console.debug('[cleanUpOptions] New options', JSON.stringify(options));
-
-  if (!ok && !dryRun) {
-    chrome.storage.sync.set(options);
-  }
-
-  return options;
-}
-
-// #!if !defined(PRODUCTION)
-let timerId = 0;
-let randomId = btoa(Math.random().toString()).substr(10, 5);
-// #!endif
 // NOTE: We are assuming that the functions inside this file are only called
 // from contexts with access to the chrome.storage API (i.e., no main world
 // script calls functions in this file).
