@@ -5,12 +5,12 @@ import {
 
 const kInteropLoadMoreClasses = {
   // New (interop) UI without nested replies
-  'scTailwindThreadMorebuttonload-all': 'threadall',
-  'scTailwindThreadMorebuttonload-more': 'thread',
+  'scTailwindThreadMorebuttonload-all': 'all_at_once',
+  'scTailwindThreadMorebuttonload-more': 'in_batches',
 
   // New (interop) UI with nested replies
-  'scTailwindThreadMessagegapload-all': 'threadall',
-  'scTailwindThreadMessagegapload-more': 'thread',
+  'scTailwindThreadMessagegapload-all': 'all_at_once',
+  'scTailwindThreadMessagegapload-more': 'in_batches',
 };
 const kArtificialScrollingDelay = 3500;
 
@@ -53,11 +53,11 @@ export default class CCInfiniteScroll {
 
   observeLoadMoreBar(bar: Element) {
     console.debug('[infinitescroll] Found load more bar:', bar);
-    getOptions(['thread', 'threadall']).then((threadOptions) => {
-      if (threadOptions.thread) {
+    getOptions(['thread', 'thread_mode']).then((threadOptions) => {
+      if (threadOptions.thread && threadOptions.thread_mode == 'in_batches') {
         this.observeWithPotentialDelay(bar.querySelector('.load-more-button'));
       }
-      if (threadOptions.threadall) {
+      if (threadOptions.thread && threadOptions.thread_mode == 'all_at_once') {
         this.observeWithPotentialDelay(bar.querySelector('.load-all-button'));
       }
     });
@@ -68,16 +68,18 @@ export default class CCInfiniteScroll {
     const parentNode = btn.parentNode;
     if (!(parentNode instanceof Element)) return;
     const parentClasses = parentNode?.classList;
-    let feature: string = null;
-    for (const [c, f] of Object.entries(kInteropLoadMoreClasses)) {
-      if (parentClasses?.contains?.(c)) {
-        feature = f;
+    let currentMode: string = null;
+    for (const [className, mode] of Object.entries(kInteropLoadMoreClasses)) {
+      if (parentClasses?.contains?.(className)) {
+        currentMode = mode;
         break;
       }
     }
-    if (feature === null) return;
-    isOptionEnabled(feature).then((isEnabled) => {
-      if (isEnabled) this.observeWithPotentialDelay(btn);
+    if (currentMode === null) return;
+    getOptions(['thread', 'thread_mode']).then((options) => {
+      if (options.thread && options.thread_mode == currentMode) {
+        this.observeWithPotentialDelay(btn);
+      }
     });
   }
 

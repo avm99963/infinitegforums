@@ -4,7 +4,7 @@ import {redirectIfApplicable} from '../features/redirect/core/index.js';
 
 const kLoadMoreButtons = [
   {
-    feature: 'thread',
+    mode: 'in_batches',
     buttonSelectors: [
       '.thread-all-replies__load-more-button',
       '.scTailwindThreadMorebuttonload-more .scTailwindThreadMorebuttonbutton',
@@ -12,7 +12,7 @@ const kLoadMoreButtons = [
     ],
   },
   {
-    feature: 'threadall',
+    mode: 'all_at_once',
     buttonSelectors: [
       '.thread-all-replies__load-all-button',
       '.scTailwindThreadMorebuttonload-all .scTailwindThreadMorebuttonbutton',
@@ -50,7 +50,7 @@ var intersectionOptions = {
 
 function setUpInfiniteScroll(options) {
   for (const entry of kLoadMoreButtons) {
-    if (options[entry.feature]) {
+    if (options.thread && options.thread_mode == entry.mode) {
       for (const selector of entry.buttonSelectors) {
         let buttons = document.querySelectorAll(selector);
         buttons.forEach(button => {
