@@ -39,6 +39,7 @@ filegroup(
         "//src/features/loadDrafts/presentation/options",
         "//src/features/previousPosts/presentation/options",
         "//src/features/profileIndicator/presentation/options",
+        "//src/features/fixPEKB381989895/presentation/options",
         "//src/features/redirect/presentation/options",
         "//src/features/repositionExpandThread/presentation/options",
         "//src/features/stickySidebarHeaders/presentation/options",
