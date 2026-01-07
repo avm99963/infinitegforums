@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const json5 = require('json5');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -93,7 +92,7 @@ module.exports = (env, args) => {
       alias: {
         "@": path.resolve(__dirname, "src"),
       },
-      extensions: ['.tsx', '.ts', '.js', '.json', '.wasm'],
+      extensions: ['.tsx', '.ts', '.js', '.wasm'],
     },
     module: {
       rules: [
@@ -103,11 +102,6 @@ module.exports = (env, args) => {
           exclude: /node_modules/,
         },
         {
-          test: /\.json5$/i,
-          type: 'json',
-          parser: {
-            parse: json5.parse,
-          },
         },
         {
           test: /\.css$/i,
@@ -120,17 +114,6 @@ module.exports = (env, args) => {
             {
               resourceQuery: /string/,
               use: [
-                'css-loader',
-                {
-                  loader: 'sass-loader',
-                  options: sassLoaderOptions,
-                },
-              ],
-            },
-            {
-              resourceQuery: /asCSSFile/,
-              use: [
-                MiniCssExtractPlugin.loader,
                 'css-loader',
                 {
                   loader: 'sass-loader',

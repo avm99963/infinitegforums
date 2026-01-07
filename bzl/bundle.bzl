@@ -29,7 +29,6 @@ def extension_bundle(name, **kwargs):
         deps = [
             ":node_modules/css-loader",
             ":node_modules/html-webpack-plugin",
-            ":node_modules/json5",
             ":node_modules/mini-css-extract-plugin",
             ":node_modules/path",
             ":node_modules/raw-loader",
