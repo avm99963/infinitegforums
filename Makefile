@@ -1,20 +1,19 @@
-.PHONY: node_deps clean_dist deps clean_deps build_test_extension clean_releases test clean trigger_nightly_build
-
-WEBPACK := ./node_modules/webpack-cli/bin/cli.js
-VITEST := pnpm exec vitest
-RELEASE_SCRIPT := bash tools/release.bash
 BAZEL := bazel
 IBAZEL := ibazel
 
+.PHONY: node_deps
 node_deps:
 	pnpm install --frozen-lockfile
 
+.PHONY: clean_dist
 clean_dist:
 	rm -rf dist
 
+.PHONY: deps
 deps: node_deps
 	mkdir -p dist
 
+.PHONY: clean_deps
 clean_deps:
 	rm -rf node_modules
 
@@ -59,20 +58,19 @@ release_gecko:
 	mkdir -p out
 	cp bazel-bin/twpowertools.zip out/twpowertools-gecko-stable-$$(cat bazel-bin/VERSION_NAME).zip
 
-# Target to build the extension for webext lint in the Zuul Check Pipeline.
-build_test_extension: deps
-	$(WEBPACK) --mode production --env browser_target=gecko
-	$(RELEASE_SCRIPT) -c stable -b gecko
-
+.PHONY: clean_releases
 clean_releases:
 	rm -rf out
 
+.PHONY: test
 test:
-	$(VITEST)
+	$(BAZEL) test ...
 
+.PHONY: clean
 clean: clean_deps clean_dist clean_releases
 
 # Manually trigger the nightly build. It also makes sure the tracked master branch is up to update
+.PHONY: trigger_nightly_build
 trigger_nightly_build:
 	git fetch
 	zuul-client enqueue-ref --tenant gerrit --pipeline nightly-build --project infinitegforums --ref refs/heads/master --newrev $$(git rev-parse gerrit/master)
