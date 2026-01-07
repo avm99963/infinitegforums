@@ -32,6 +32,7 @@ import ThreadPageDesignWarning from '@/features/threadPageDesignWarning/core/thr
 import WorkflowsImport from '@/features/workflows/core/communityConsole/import/import';
 import FixStartupDataScript from '@/features/fixPEKB381989895/presentation/scripts/fixStartupData.script';
 import { getSyncStorageAreaRepository } from '@/storage/compositionRoot';
+import BatchLockSetUpContentScriptListenerScript from '@/features/batchLock/presentation/scripts/setUpContentScriptListener.script';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -70,6 +71,7 @@ function createScriptRunner() {
       [
         // Individual feature scripts
         new AutoRefreshSetUpScript(autoRefresh),
+        new BatchLockSetUpContentScriptListenerScript(),
         new CCDarkThemeInjectAutoDarkTheme(optionsProvider),
         new CCDarkThemeInjectForcedDarkTheme(optionsProvider),
         new CCExtraInfoSetUpScript(extraInfo),
