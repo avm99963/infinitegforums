@@ -15,7 +15,9 @@ common_ts_project(
     deps = [
         "//:node_modules/@lit/localize",
         "//:node_modules/lit",
+        "//src/features/ccDarkTheme/presentation/options/assets",
         "//src/options/presentation/models",
         "//src/options/presentation/utils",
+        "//src/types/image",
     ],
 )

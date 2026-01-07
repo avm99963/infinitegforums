@@ -1,0 +1,13 @@
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+
+js_library(
+    name = "assets",
+    srcs = [
+        "demo_thread.avif",
+        "demo_thread_list.avif",
+    ],
+    visibility = [
+        "//:__pkg__",
+        "//src/features/infiniteScroll/presentation/options:__subpackages__",
+    ],
+)

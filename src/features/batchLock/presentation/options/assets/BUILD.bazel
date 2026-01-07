@@ -1,0 +1,12 @@
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+
+js_library(
+    name = "assets",
+    srcs = [
+        "demo.avif",
+    ],
+    visibility = [
+        "//:__pkg__",
+        "//src/features/batchLock/presentation/options:__subpackages__",
+    ],
+)

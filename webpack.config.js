@@ -102,6 +102,8 @@ module.exports = (env, args) => {
           exclude: /node_modules/,
         },
         {
+          test: /\.(avif|jpg|png)$/i,
+          type: 'asset/resource',
         },
         {
           test: /\.css$/i,

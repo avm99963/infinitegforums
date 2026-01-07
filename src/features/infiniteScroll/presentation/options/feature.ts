@@ -5,6 +5,8 @@ import {
   TAILWIND_BASIC_TAG,
 } from '../../../../options/presentation/utils/featureUtils';
 import { SubOption } from '@/options/presentation/models/subOption';
+import threadListDemo from './assets/demo_thread_list.avif';
+import threadDemo from './assets/demo_thread.avif';
 
 const featureName = () =>
   msg('Infinite scroll', {
@@ -22,6 +24,9 @@ export const threadListsInfiniteScrollFeature = () =>
       'The Community Console already has this feature built-in without the need of the extension.',
       { desc: 'Note for the "Infinite scroll" feature for thread lists.' },
     ),
+    demoMedia: {
+      imgUrl: threadListDemo,
+    },
     tags: [TAILWIND_BASIC_TAG()],
   });
 
@@ -61,5 +66,8 @@ export const threadsInfiniteScrollFeature = () =>
         },
       }),
     ],
+    demoMedia: {
+      imgUrl: threadDemo,
+    },
     tags: [TAILWIND_BASIC_TAG(), COMMUNITY_CONSOLE_TAG()],
   });

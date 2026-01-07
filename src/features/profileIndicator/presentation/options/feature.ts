@@ -5,6 +5,7 @@ import {
   COMMUNITY_CONSOLE_TAG,
   TAILWIND_BASIC_TAG,
 } from '../../../../options/presentation/utils/featureUtils';
+import screenshot from './assets/screenshot.avif';
 
 export const profileIndicatorFeature = () =>
   new Feature({
@@ -25,5 +26,8 @@ export const profileIndicatorFeature = () =>
         type: { type: 'integer', min: 1, max: 12 },
       }),
     ],
+    demoMedia: {
+      imgUrl: screenshot,
+    },
     tags: [TAILWIND_BASIC_TAG(), COMMUNITY_CONSOLE_TAG()],
   });
