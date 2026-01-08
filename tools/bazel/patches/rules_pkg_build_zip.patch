@@ -1,0 +1,13 @@
+diff --git a/pkg/private/zip/build_zip.py b/pkg/private/zip/build_zip.py
+index 54e3f1a..88f7b5e 100644
+--- a/pkg/private/zip/build_zip.py
++++ b/pkg/private/zip/build_zip.py
+@@ -207,6 +207,8 @@ class ZipWriter(object):
+         dir_path = path
+         if not dir_path.endswith('/'):
+           dir_path += '/'
++        if dir_path == '/':
++            continue
+         entry_info = self.make_zipinfo(path=dir_path, mode="0o755")
+         entry_info.compress_type = zipfile.ZIP_STORED
+         # Set directory bits

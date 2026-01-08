@@ -18,6 +18,12 @@ bazel_dep(name = "rules_proto_grpc_doc", version = "5.8.0")
 bazel_dep(name = "rules_proto_grpc_js", version = "5.8.0")
 bazel_dep(name = "rules_shell", version = "0.6.1")
 
+single_version_override(
+    module_name = "rules_pkg",
+    patches = ["//tools:bazel/patches/rules_pkg_build_zip.patch"],
+    patch_strip = 1,
+)
+
 node = use_extension("@rules_nodejs//nodejs:extensions.bzl", "node", dev_dependency = True)
 node.toolchain(node_version = "24.11.1")
 
