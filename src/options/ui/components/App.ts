@@ -3,7 +3,6 @@ import { OptionsProviderPort } from '../../../services/options/OptionsProvider';
 import { OptionsModifierPort } from '../../../services/options/OptionsModifier.port';
 import { css, html, LitElement, nothing, PropertyValues } from 'lit';
 import './CategoriesSelector';
-import './DogfoodBanner';
 import './FeatureCategory';
 import './KillSwitchEnabledBanner';
 import './NavDrawer';
@@ -155,7 +154,6 @@ export default class OptionsApp extends LitElement {
           @change=${this.onTopAppBarChange}
         ></top-app-bar>
         <main id="main-content" slot="app-content" tabindex="-1">
-          <dogfood-banner></dogfood-banner>
           ${this.maybeRenderKillSwitchEnabledBanner()}
           ${this.renderFeatureCategory()}
         </main>
