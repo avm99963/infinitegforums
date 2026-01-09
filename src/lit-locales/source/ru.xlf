@@ -788,27 +788,32 @@
         <target state="translated">Редактор сообщений</target>
         <note from="lit-localize">Name of the category of extension features related to the message composer.</note>
       </trans-unit>
-<trans-unit id="s45ee97a0bb6df8de">
-  <source>In batches</source>
-  <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
-</trans-unit>
-<trans-unit id="sd984a10a3a8f281e">
-  <source>All at once</source>
-  <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
-</trans-unit>
-<trans-unit id="s37cbecaec58e2192">
-  <source>Mode</source>
-  <note from="lit-localize">Suboption for the "Infinite scroll" (in threads) feature.</note>
-</trans-unit>
-<trans-unit id="hcbf5bbcf50440d80">
-  <source>Best-effort workaround for the issues discussed at <x id="0" equiv-text="&lt;a href=&quot;https://support.google.com/s/community/forum/51488989/thread/381989895&quot; target=&quot;_blank&quot;&gt;"/>pekb/381989895<x id="1" equiv-text="&lt;/a&gt;"/>.
+      <trans-unit id="s45ee97a0bb6df8de" xml:space="preserve">
+        <source>In batches</source>
+        <target state="translated">Частями</target>
+        <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
+      </trans-unit>
+      <trans-unit id="sd984a10a3a8f281e" xml:space="preserve">
+        <source>All at once</source>
+        <target state="translated">Все сразу</target>
+        <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
+      </trans-unit>
+      <trans-unit id="s37cbecaec58e2192" xml:space="preserve">
+        <source>Mode</source>
+        <target state="translated">Режим</target>
+        <note from="lit-localize">Suboption for the "Infinite scroll" (in threads) feature.</note>
+      </trans-unit>
+      <trans-unit id="hcbf5bbcf50440d80" xml:space="preserve">
+        <source>Best-effort workaround for the issues discussed at <x id="0" equiv-text="&lt;a href=&quot;https://support.google.com/s/community/forum/51488989/thread/381989895&quot; target=&quot;_blank&quot;&gt;"/>pekb/381989895<x id="1" equiv-text="&lt;/a&gt;"/>.
       </source>
-  <note from="lit-localize">Description of the "Sticky bulk actions toolbar" feature.</note>
-</trans-unit>
-<trans-unit id="s81f8bee6e06364f6">
-  <source>Attempt to fix performance issues</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
+        <target state="translated">Наилучшее решение проблем, обсуждаемых в<x id="0" equiv-text="&lt;a href=&quot;https://support.google.com/s/community/forum/51488989/thread/381989895&quot; target=&quot;_blank&quot;&gt;"/>pekb/381989895<x id="1" equiv-text="&lt;/a&gt;"/>. </target>
+        <note from="lit-localize">Description of the "Sticky bulk actions toolbar" feature.</note>
+      </trans-unit>
+      <trans-unit id="s81f8bee6e06364f6" xml:space="preserve">
+        <source>Attempt to fix performance issues</source>
+        <target state="translated">Попытка устранить проблемы с производительностью</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>

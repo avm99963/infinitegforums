@@ -799,15 +799,17 @@
         <target state="translated">Mode</target>
         <note from="lit-localize">Suboption for the "Infinite scroll" (in threads) feature.</note>
       </trans-unit>
-<trans-unit id="hcbf5bbcf50440d80">
-  <source>Best-effort workaround for the issues discussed at <x id="0" equiv-text="&lt;a href=&quot;https://support.google.com/s/community/forum/51488989/thread/381989895&quot; target=&quot;_blank&quot;&gt;"/>pekb/381989895<x id="1" equiv-text="&lt;/a&gt;"/>.
+      <trans-unit id="hcbf5bbcf50440d80" xml:space="preserve">
+        <source>Best-effort workaround for the issues discussed at <x id="0" equiv-text="&lt;a href=&quot;https://support.google.com/s/community/forum/51488989/thread/381989895&quot; target=&quot;_blank&quot;&gt;"/>pekb/381989895<x id="1" equiv-text="&lt;/a&gt;"/>.
       </source>
-  <note from="lit-localize">Description of the "Sticky bulk actions toolbar" feature.</note>
-</trans-unit>
-<trans-unit id="s81f8bee6e06364f6">
-  <source>Attempt to fix performance issues</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
+        <target state="translated">Solució alternativa feta el millor possible pels problemes debatits a <x id="0" equiv-text="&lt;a href=&quot;https://support.google.com/s/community/forum/51488989/thread/381989895&quot; target=&quot;_blank&quot;&gt;"/>pekb/381989895<x id="1" equiv-text="&lt;/a&gt;"/>. </target>
+        <note from="lit-localize">Description of the "Sticky bulk actions toolbar" feature.</note>
+      </trans-unit>
+      <trans-unit id="s81f8bee6e06364f6" xml:space="preserve">
+        <source>Attempt to fix performance issues</source>
+        <target state="translated">Intenta arreglar els problemes de rendiment</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>
