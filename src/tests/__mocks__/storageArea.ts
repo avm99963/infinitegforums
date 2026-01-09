@@ -7,7 +7,7 @@ const createStorageMock = () => {
     get: vi.fn(
       (
         keys?: string | string[] | null | Record<string, unknown>,
-        callback?: (items: unknown) => void,
+        callback?: (items: Record<string, unknown>) => void,
       ) => {
         let result: Record<string, unknown> = {};
 
@@ -62,9 +62,14 @@ const createStorageMock = () => {
     /**
      * Clears the storage area.
      */
-    clear: vi.fn(() => {
+    clear: vi.fn((callback?: () => void) => {
       storage = {};
-      return Promise.resolve();
+      if (callback) {
+        callback();
+        return undefined;
+      } else {
+        return Promise.resolve();
+      }
     }),
   };
 };
@@ -73,6 +78,9 @@ const chromeMock = {
   storage: {
     sync: createStorageMock(),
     local: createStorageMock(),
+  },
+  runtime: {
+    lastError: undefined as undefined,
   },
 };
 

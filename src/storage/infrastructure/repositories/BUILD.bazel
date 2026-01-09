@@ -19,6 +19,7 @@ common_ts_project(
     tsconfig = "//:tsconfig_pkg",
     visibility = [
         "//src:entrypoint",
+        "//src/storage/infrastructure/services:__pkg__",
     ],
     deps = main_deps,
 )
@@ -27,6 +28,7 @@ vitest_test(
     name = "test",
     config = "//:vitest_config",
     data = [
+        "isomorphicChromeStorage.ts",
         "syncStorageAreaRepository.adapter.test.ts",
         "syncStorageAreaRepository.adapter.ts",
         "//src/tests/__mocks__",

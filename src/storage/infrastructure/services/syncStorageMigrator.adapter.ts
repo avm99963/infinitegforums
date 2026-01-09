@@ -2,6 +2,7 @@ import { Mutex, MutexInterface, withTimeout } from 'async-mutex';
 import { StorageAreaMigration } from '@/storage/domain/Migration';
 import { StorageMigratorPort } from '@/storage/services/storageMigrator.port';
 import { LatestSchema as RealLatestSchema } from '@/storage/schemas';
+import { isomorphicChromeStorage } from '../repositories/isomorphicChromeStorage';
 
 export class SyncStorageMigratorAdapter<
   LatestSchema = RealLatestSchema,
@@ -16,10 +17,10 @@ export class SyncStorageMigratorAdapter<
 
   async migrate(): Promise<void> {
     return this.mutex.runExclusive(async () => {
-      const items = await chrome.storage.sync.get(null);
+      const items = await isomorphicChromeStorage.sync.get(null);
 
       if (Object.keys(items).length === 0) {
-        await chrome.storage.sync.set(this.defaultStorageFactory());
+        await isomorphicChromeStorage.sync.set(this.defaultStorageFactory());
         return;
       }
 
@@ -47,8 +48,8 @@ export class SyncStorageMigratorAdapter<
     for (let i = firstMigrationIdx; i < this.sortedMigrations.length; i++) {
       items = await this.sortedMigrations[i].execute(items);
     }
-    await chrome.storage.sync.clear();
-    await chrome.storage.sync.set(items);
+    await isomorphicChromeStorage.sync.clear();
+    await isomorphicChromeStorage.sync.set(items);
   }
 
   private getFirstMigrationToRun(currentVersion: number): number {

@@ -6,6 +6,7 @@ main_deps = [
     "//:node_modules/@types/chrome",
     "//:node_modules/async-mutex",
     "//src/storage/domain",
+    "//src/storage/infrastructure/repositories",
     "//src/storage/schemas",
     "//src/storage/services",
 ]

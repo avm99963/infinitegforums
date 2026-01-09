@@ -2,6 +2,7 @@ import { LatestSchema as RealLatestSchema } from '@/storage/schemas';
 import { SyncStorageAreaRepositoryPort } from '@/storage/repositories/syncStorageAreaRepository.port';
 import { Mutex, MutexInterface, withTimeout } from 'async-mutex';
 import { StorageMigratorPort } from '@/storage/services/storageMigrator.port';
+import { isomorphicChromeStorage } from './isomorphicChromeStorage';
 
 export class SyncStorageAreaRepositoryAdapter<
   LatestSchema = RealLatestSchema,
@@ -25,7 +26,7 @@ export class SyncStorageAreaRepositoryAdapter<
   private unsafeGet<Items extends Partial<any>>(
     itemKeys?: NoInfer<undefined | (keyof Items)[]>,
   ): Promise<Items> {
-    return chrome.storage.sync.get(itemKeys);
+    return isomorphicChromeStorage.sync.get(itemKeys) as Promise<Items>;
   }
 
   async set(items: Partial<LatestSchema>): Promise<void> {
@@ -36,7 +37,7 @@ export class SyncStorageAreaRepositoryAdapter<
   }
 
   private async unsafeSet(items: Partial<LatestSchema>): Promise<void> {
-    await chrome.storage.sync.set(items);
+    await isomorphicChromeStorage.sync.set(items);
   }
 
   private async ensureSchemaIsUpdated(): Promise<void> {
@@ -59,7 +60,7 @@ export class SyncStorageAreaRepositoryAdapter<
   }
 
   private async getCurrentSchemaVersion(): Promise<number> {
-    const items = await chrome.storage.sync.get('$schemaVersion');
+    const items = await isomorphicChromeStorage.sync.get('$schemaVersion');
     if (typeof items?.$schemaVersion == 'number') {
       return items.$schemaVersion;
     } else {
