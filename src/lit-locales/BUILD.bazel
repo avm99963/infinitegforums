@@ -1,8 +1,10 @@
 load("@bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
 load("@bazel_lib//lib:write_source_files.bzl", "write_source_files")
 load("@npm//:@lit/localize-tools/package_json.bzl", lit_localize_bin = "bin")
+load("//src/lit-locales:target_locales.bzl", "get_interchange_files_list")
+load("//src/lit-locales/normalize_xliff_files:defs.bzl", "normalize_xliff_files")
 load("//tools:common_js_project.bzl", "common_js_project")
-load(":defs.bzl", "lit_localize")
+load(":defs.bzl", "lit_localize", "non_normalized_source_golden_dir", "source_golden_dir")
 load(":target_locales.bzl", "get_interchange_file_path", "target_locales")
 
 copy_to_bin(
@@ -70,8 +72,14 @@ common_js_project(
 )
 
 lit_localize(
-    name = "source_golden_files",
+    name = "non_normalized_source_golden_files",
     operation = "extract",
+)
+
+normalize_xliff_files(
+    name = "source_golden_files",
+    srcs = get_interchange_files_list(non_normalized_source_golden_dir),
+    outs = get_interchange_files_list(source_golden_dir),
 )
 
 write_source_files(

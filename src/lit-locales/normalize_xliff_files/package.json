@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@xmldom/xmldom": "0.9.8"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.4"
+  }
+}

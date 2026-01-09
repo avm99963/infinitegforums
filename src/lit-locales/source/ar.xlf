@@ -26,17 +26,17 @@
         <target>عَرض متداخِل</target>
         <note from="lit-localize">Label for the switch which lets users enable/disable the nested view in a thread.</note>
       </trans-unit>
-      <trans-unit id="s0f92c01a67197f53">
+      <trans-unit id="s0f92c01a67197f53" xml:space="preserve">
         <source>The TW Power Tools extension has been installed. Please reload this page so that it is activated.</source>
         <target state="translated">تم تثبيت إضافة TW Power Tools. يرجى إعادة تحميل هذه الصفحة حتى يتم تنشيطها.</target>
         <note from="lit-localize">Message shown as a banner when the extension has been installed, to let the user know that they should reload the page.</note>
       </trans-unit>
-      <trans-unit id="sb2c523c904424868">
+      <trans-unit id="sb2c523c904424868" xml:space="preserve">
         <source>The TW Power Tools extension has been updated. Please reload this page so that it continues to work properly.</source>
         <target state="translated">تم تحديث إضافة TW Power Tools. يرجى إعادة تحميل هذه الصفحة للاستمرار في العمل بشكل صحيح.</target>
         <note from="lit-localize">Message shown as a banner when the extension has been updated, to let the user know that they should reload the page.</note>
       </trans-unit>
-      <trans-unit id="sd5b6130b4937488c">
+      <trans-unit id="sd5b6130b4937488c" xml:space="preserve">
         <source>Reload</source>
         <target state="translated">إعادة التّحميل</target>
         <note from="lit-localize">Button which reloads the current page.</note>
@@ -106,17 +106,17 @@
         <target state="translated">لحظة</target>
         <note from="lit-localize">Status of a thread which is waiting to be moved.</note>
       </trans-unit>
-      <trans-unit id="bulkMove.dialog.cancel">
+      <trans-unit id="bulkMove.dialog.cancel" xml:space="preserve">
         <source>Cancel</source>
         <target>إلغاء</target>
         <note from="lit-localize">Text of the button in the bulk move threads dialog to close and reset the modal.</note>
       </trans-unit>
-      <trans-unit id="bulkMove.progressDialog.close">
+      <trans-unit id="bulkMove.progressDialog.close" xml:space="preserve">
         <source>Close</source>
         <target>إغلاق</target>
         <note from="lit-localize">Text of the button in the bulk move threads dialog which closes the dialog.</note>
       </trans-unit>
-      <trans-unit id="bulkMove.dialog.move">
+      <trans-unit id="bulkMove.dialog.move" xml:space="preserve">
         <source>Move</source>
         <target>نقل</target>
         <note from="lit-localize">Text of the button in the bulk move threads dialog which will perform the action.</note>
@@ -131,208 +131,208 @@
         <target state="translated">لم يتمّ التّحديد</target>
         <note from="lit-localize">Default option which lets the user not select any option in a thread detail select, inside the additional details picker.</note>
       </trans-unit>
-      <trans-unit id="components.forumPicker.communityForum">
+      <trans-unit id="components.forumPicker.communityForum" xml:space="preserve">
         <source>Community Forum</source>
         <target>المنتدى</target>
         <note from="lit-localize">Label for the forum select in the forum picker.</note>
       </trans-unit>
-      <trans-unit id="components.forumPicker.language">
+      <trans-unit id="components.forumPicker.language" xml:space="preserve">
         <source>Language</source>
         <target>اللغة</target>
         <note from="lit-localize">Label for the language select in the forum picker.</note>
       </trans-unit>
-      <trans-unit id="components.additionalDetailsPicker.category">
+      <trans-unit id="components.additionalDetailsPicker.category" xml:space="preserve">
         <source>Category</source>
         <target>الفئة</target>
         <note from="lit-localize">Label for the thread category select in the additional details picker.</note>
       </trans-unit>
-      <trans-unit id="components.forumDestinationPicker.destinationForum">
+      <trans-unit id="components.forumDestinationPicker.destinationForum" xml:space="preserve">
         <source>Destination forum</source>
         <target>منتدى الوجهة</target>
         <note from="lit-localize">Title of the section in the forum destination picker which contains the destination forum and language selects.</note>
       </trans-unit>
-      <trans-unit id="components.forumDestinationPicker.additionalDetails">
+      <trans-unit id="components.forumDestinationPicker.additionalDetails" xml:space="preserve">
         <source>Additional details</source>
         <target>تفاصيل إضافية</target>
         <note from="lit-localize">Title of the section in the forum destination picker with the category/details selects.</note>
       </trans-unit>
-      <trans-unit id="languages.ar">
+      <trans-unit id="languages.ar" xml:space="preserve">
         <source>Arabic</source>
         <target>العربية</target>
       </trans-unit>
-      <trans-unit id="languages.bg">
+      <trans-unit id="languages.bg" xml:space="preserve">
         <source>Bulgarian</source>
         <target>البلغارية</target>
       </trans-unit>
-      <trans-unit id="languages.ca">
+      <trans-unit id="languages.ca" xml:space="preserve">
         <source>Catalan</source>
         <target>القطالونية</target>
       </trans-unit>
-      <trans-unit id="languages.cs">
+      <trans-unit id="languages.cs" xml:space="preserve">
         <source>Czech</source>
         <target>التشيكية</target>
       </trans-unit>
-      <trans-unit id="languages.da">
+      <trans-unit id="languages.da" xml:space="preserve">
         <source>Danish</source>
         <target>الدنماركية</target>
       </trans-unit>
-      <trans-unit id="languages.de">
+      <trans-unit id="languages.de" xml:space="preserve">
         <source>German</source>
         <target>الألمانية</target>
       </trans-unit>
-      <trans-unit id="languages.el">
+      <trans-unit id="languages.el" xml:space="preserve">
         <source>Greek</source>
         <target>اليونانية</target>
       </trans-unit>
-      <trans-unit id="languages.en">
+      <trans-unit id="languages.en" xml:space="preserve">
         <source>English</source>
         <target>الإنجليزية</target>
       </trans-unit>
-      <trans-unit id="languages.en-AU">
+      <trans-unit id="languages.en-AU" xml:space="preserve">
         <source>English (Australia)</source>
         <target>الإنجليزية (أستراليا)</target>
       </trans-unit>
-      <trans-unit id="languages.en-GB">
+      <trans-unit id="languages.en-GB" xml:space="preserve">
         <source>English (UK)</source>
         <target>الإنجليزية (المملكة المتحدة)</target>
       </trans-unit>
-      <trans-unit id="languages.es">
+      <trans-unit id="languages.es" xml:space="preserve">
         <source>Spanish</source>
         <target>الإسبانية</target>
       </trans-unit>
-      <trans-unit id="languages.es-419">
+      <trans-unit id="languages.es-419" xml:space="preserve">
         <source>Spanish (Latin America)</source>
         <target>الإسبانية (أمريكا اللاتينية)</target>
       </trans-unit>
-      <trans-unit id="languages.et">
+      <trans-unit id="languages.et" xml:space="preserve">
         <source>Estonian</source>
         <target>الإستونية</target>
       </trans-unit>
-      <trans-unit id="languages.fi">
+      <trans-unit id="languages.fi" xml:space="preserve">
         <source>Finnish</source>
         <target>الفنلندية</target>
       </trans-unit>
-      <trans-unit id="languages.fil">
+      <trans-unit id="languages.fil" xml:space="preserve">
         <source>Filipino</source>
         <target>الفلبينية</target>
       </trans-unit>
-      <trans-unit id="languages.fr">
+      <trans-unit id="languages.fr" xml:space="preserve">
         <source>French</source>
         <target>الفرنسية</target>
       </trans-unit>
-      <trans-unit id="languages.hi">
+      <trans-unit id="languages.hi" xml:space="preserve">
         <source>Hindi</source>
         <target>الهندية</target>
       </trans-unit>
-      <trans-unit id="languages.hr">
+      <trans-unit id="languages.hr" xml:space="preserve">
         <source>Croatian</source>
         <target>الكرواتية</target>
       </trans-unit>
-      <trans-unit id="languages.hu">
+      <trans-unit id="languages.hu" xml:space="preserve">
         <source>Hungarian</source>
         <target>المجرية</target>
       </trans-unit>
-      <trans-unit id="languages.id">
+      <trans-unit id="languages.id" xml:space="preserve">
         <source>Indonesian</source>
         <target>الإندونيسية</target>
       </trans-unit>
-      <trans-unit id="languages.it">
+      <trans-unit id="languages.it" xml:space="preserve">
         <source>Italian</source>
         <target>الإيطالية</target>
       </trans-unit>
-      <trans-unit id="languages.iw">
+      <trans-unit id="languages.iw" xml:space="preserve">
         <source>Hebrew</source>
         <target>العبرية</target>
       </trans-unit>
-      <trans-unit id="languages.ja">
+      <trans-unit id="languages.ja" xml:space="preserve">
         <source>Japanese</source>
         <target>اليابانية</target>
       </trans-unit>
-      <trans-unit id="languages.ko">
+      <trans-unit id="languages.ko" xml:space="preserve">
         <source>Korean</source>
         <target>الكورية</target>
       </trans-unit>
-      <trans-unit id="languages.lt">
+      <trans-unit id="languages.lt" xml:space="preserve">
         <source>Lithuanian</source>
         <target>الليتوانية</target>
       </trans-unit>
-      <trans-unit id="languages.lv">
+      <trans-unit id="languages.lv" xml:space="preserve">
         <source>Latvian</source>
         <target>اللاتفية</target>
       </trans-unit>
-      <trans-unit id="languages.ms">
+      <trans-unit id="languages.ms" xml:space="preserve">
         <source>Malay</source>
         <target>الملاوية</target>
       </trans-unit>
-      <trans-unit id="languages.nl">
+      <trans-unit id="languages.nl" xml:space="preserve">
         <source>Dutch</source>
         <target>الهولندية</target>
       </trans-unit>
-      <trans-unit id="languages.no">
+      <trans-unit id="languages.no" xml:space="preserve">
         <source>Norwegian (Bokmal)</source>
         <target>النرويجية (بوكمال)</target>
       </trans-unit>
-      <trans-unit id="languages.pl">
+      <trans-unit id="languages.pl" xml:space="preserve">
         <source>Polish</source>
         <target>البولندية</target>
       </trans-unit>
-      <trans-unit id="languages.pt-BR">
+      <trans-unit id="languages.pt-BR" xml:space="preserve">
         <source>Portuguese (Brazil)</source>
         <target>البرتغالية (البرازيل)</target>
       </trans-unit>
-      <trans-unit id="languages.pt-PT">
+      <trans-unit id="languages.pt-PT" xml:space="preserve">
         <source>Portuguese (Portugal)</source>
         <target>البرتغالية (البرتغال)</target>
       </trans-unit>
-      <trans-unit id="languages.ro">
+      <trans-unit id="languages.ro" xml:space="preserve">
         <source>Romanian</source>
         <target>الرومانية</target>
       </trans-unit>
-      <trans-unit id="languages.ru">
+      <trans-unit id="languages.ru" xml:space="preserve">
         <source>Russian</source>
         <target>الروسية</target>
       </trans-unit>
-      <trans-unit id="languages.sk">
+      <trans-unit id="languages.sk" xml:space="preserve">
         <source>Slovak</source>
         <target>السلوفاكية</target>
       </trans-unit>
-      <trans-unit id="languages.sl">
+      <trans-unit id="languages.sl" xml:space="preserve">
         <source>Slovenian</source>
         <target>السلوفينية</target>
       </trans-unit>
-      <trans-unit id="languages.sr">
+      <trans-unit id="languages.sr" xml:space="preserve">
         <source>Serbian</source>
         <target>الصربية</target>
       </trans-unit>
-      <trans-unit id="languages.sv">
+      <trans-unit id="languages.sv" xml:space="preserve">
         <source>Swedish</source>
         <target>السويدية</target>
       </trans-unit>
-      <trans-unit id="languages.th">
+      <trans-unit id="languages.th" xml:space="preserve">
         <source>Thai</source>
         <target>التايلاندية</target>
       </trans-unit>
-      <trans-unit id="languages.tr">
+      <trans-unit id="languages.tr" xml:space="preserve">
         <source>Turkish</source>
         <target>التركية</target>
       </trans-unit>
-      <trans-unit id="languages.uk">
+      <trans-unit id="languages.uk" xml:space="preserve">
         <source>Ukrainian</source>
         <target>الأوكرانية</target>
       </trans-unit>
-      <trans-unit id="languages.vi">
+      <trans-unit id="languages.vi" xml:space="preserve">
         <source>Vietnamese</source>
         <target>الفيتنامية</target>
       </trans-unit>
-      <trans-unit id="languages.zh-CN">
+      <trans-unit id="languages.zh-CN" xml:space="preserve">
         <source>Chinese (Simplified)</source>
         <target>الصينية (المبسَّطة)</target>
       </trans-unit>
-      <trans-unit id="languages.zh-HK">
+      <trans-unit id="languages.zh-HK" xml:space="preserve">
         <source>Chinese (Hong Kong)</source>
         <target>الصينية (هونغ كونغ)</target>
       </trans-unit>
-      <trans-unit id="languages.zh-TW">
+      <trans-unit id="languages.zh-TW" xml:space="preserve">
         <source>Chinese (Traditional)</source>
         <target>الصينية (التقليدية)</target>
       </trans-unit>
@@ -341,7 +341,7 @@
         <target state="translated">إنَّ تصميمَ صفحة الموضوع القديم معطل جزئيّا، ولكن تم الاحتفاظ بهذه الميزة نظرًا لأن بعض خبراء المنتجات يعتمدون عليها للوصول إلى بعض الميزات المفقودة في التصميم الجديد.</target>
         <note from="lit-localize">Additional information shown in the options page about the "Change thread page design" feature.</note>
       </trans-unit>
-      <trans-unit id="h9a0810c202cacc55">
+      <trans-unit id="h9a0810c202cacc55" xml:space="preserve">
         <source>
               One or more features have been disabled remotely for everyone.
               <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>
@@ -369,7 +369,7 @@
         <target state="translated">إضافة زرّ لنقل كافة المناقشات المحدَّدة مرَّة واحدة.</target>
         <note from="lit-localize">Description of the "Bulk move" feature.</note>
       </trans-unit>
-      <trans-unit id="s9347ba024909ae4e">
+      <trans-unit id="s9347ba024909ae4e" xml:space="preserve">
         <source>Forces showing the new or old thread page design.</source>
         <note from="lit-localize">Description of the "Change thread page design" feature.</note>
       </trans-unit>
@@ -423,7 +423,7 @@
         <target state="translated">مَنع الصور المضمنة في الرسائل من أن تكون أطول من النافذة الحالية.</target>
         <note from="lit-localize">Description of the "Limit image size" feature.</note>
       </trans-unit>
-      <trans-unit id="hd6ef3603ca3544c3">
+      <trans-unit id="hd6ef3603ca3544c3" xml:space="preserve">
         <source>
       Enables the
       <x id="0" equiv-text="&lt;code&gt;"/>enableLoadingDraftMessages<x id="1" equiv-text="&lt;/code&gt;"/>
@@ -572,7 +572,7 @@
         <target state="translated">شريط أدوات الإجراءات الجماعية المثبَّت</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s5f5f4dde977a84f1">
+      <trans-unit id="s5f5f4dde977a84f1" xml:space="preserve">
         <source>Flatten replies</source>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
@@ -626,7 +626,7 @@
         <target state="translated">تثبيت عناوين الشّريط الجانبي</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-      <trans-unit id="s56972a20e50faa59">
+      <trans-unit id="s56972a20e50faa59" xml:space="preserve">
         <source>Compact mode</source>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
@@ -640,7 +640,7 @@
         <target state="translated">تتضمن وحدة التحكم بالمجتمع هذه الميزة المضمنة بالفعل دون الحاجة إلى الامتداد.</target>
         <note from="lit-localize">Note for the "Infinite scroll" feature for thread lists.</note>
       </trans-unit>
-      <trans-unit id="hc6a96bb38b498270">
+      <trans-unit id="hc6a96bb38b498270" xml:space="preserve">
         <source>
       <x id="0" equiv-text="&lt;i&gt;${automaticOptionLabel}"/>:<x id="1" equiv-text="&lt;/i&gt;"/>
       will use the theme defined in the system settings.
@@ -669,11 +669,11 @@
         <target state="translated">يدوي</target>
         <note from="lit-localize">Selectable option for the "Theme" suboption of the "Dark theme" feature.</note>
       </trans-unit>
-      <trans-unit id="se9b6b34d60e86c7d">
+      <trans-unit id="se9b6b34d60e86c7d" xml:space="preserve">
         <source>Design to show</source>
         <note from="lit-localize">Suboption for the "Change thread page design" feature.</note>
       </trans-unit>
-      <trans-unit id="s164a95895c17e807">
+      <trans-unit id="s164a95895c17e807" xml:space="preserve">
         <source>Tailwind Basic</source>
         <note from="lit-localize">Tag shown in the options page for features that work in Tailwind Basic.</note>
       </trans-unit>
@@ -682,7 +682,7 @@
         <target state="translated">وحدة التّحكُّم بالمجتمع</target>
         <note from="lit-localize">Tag shown in the options page for features that work in the Community Console.</note>
       </trans-unit>
-      <trans-unit id="h74e97b4e6e3628b4">
+      <trans-unit id="h74e97b4e6e3628b4" xml:space="preserve">
         <source>
             This feature has been disabled remotely for everyone.
             <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>
@@ -690,19 +690,19 @@
             <x id="1" equiv-text="&lt;/a&gt;&#10;          "/></source>
         <note from="lit-localize">Text that appears in a feature card in the options page when the feature has been disabled remotely (i.e., the feature kill switch is active).</note>
       </trans-unit>
-      <trans-unit id="s4159a5f1849a41c3">
+      <trans-unit id="s4159a5f1849a41c3" xml:space="preserve">
         <source>Kill switch active</source>
         <note from="lit-localize">Title of the banner which lets users know that a feature was remotely disabled in the options page.</note>
       </trans-unit>
-      <trans-unit id="s457d59d649765619">
+      <trans-unit id="s457d59d649765619" xml:space="preserve">
         <source>Skip to main content</source>
         <note from="lit-localize">Text for the button that lets users skip directly to the main content in a page.</note>
       </trans-unit>
-      <trans-unit id="sd51b2f371fbec9c6">
+      <trans-unit id="sd51b2f371fbec9c6" xml:space="preserve">
         <source>TW Power Tools</source>
         <note from="lit-localize">The extension name.</note>
       </trans-unit>
-      <trans-unit id="h484816adcf825576">
+      <trans-unit id="h484816adcf825576" xml:space="preserve">
         <source>
         These features only affect the Community Console's old message composer,
         which is shown when creating a new thread or canned response, when
@@ -713,70 +713,70 @@
       </source>
         <note from="lit-localize">Explanatory note for the features that relate to the old reply editor in the Community Console.</note>
       </trans-unit>
-      <trans-unit id="s9f87b689a748b55a">
+      <trans-unit id="s9f87b689a748b55a" xml:space="preserve">
         <source>Bulk actions</source>
         <note from="lit-localize">Name of a generic section of features that let users perform actions to many threads at once.</note>
       </trans-unit>
-      <trans-unit id="s275ffb8ac7b2973f">
+      <trans-unit id="s275ffb8ac7b2973f" xml:space="preserve">
         <source>Minor UI enhancements</source>
         <note from="lit-localize">Name of a generic section of features, which includes features that minimally enhance the user interface of the forums platform.</note>
       </trans-unit>
-      <trans-unit id="s30ae03472b93dc47">
+      <trans-unit id="s30ae03472b93dc47" xml:space="preserve">
         <source>Profiles</source>
         <note from="lit-localize">Name of the category of extension features related to profiles.</note>
       </trans-unit>
-      <trans-unit id="s55cec32fb241f2f5">
+      <trans-unit id="s55cec32fb241f2f5" xml:space="preserve">
         <source>Old message composer</source>
         <note from="lit-localize">Name of the category of extension features related to the old message composer.</note>
       </trans-unit>
-      <trans-unit id="s6163ba50e1af9788">
+      <trans-unit id="s6163ba50e1af9788" xml:space="preserve">
         <source>Thread lists</source>
         <note from="lit-localize">Name of the category of extension features related to thread lists.</note>
       </trans-unit>
-      <trans-unit id="s8b60bf2db1580306">
+      <trans-unit id="s8b60bf2db1580306" xml:space="preserve">
         <source>Threads</source>
         <note from="lit-localize">Name of the category of extension features related to threads.</note>
       </trans-unit>
-      <trans-unit id="sc3ac225273c8316b">
+      <trans-unit id="sc3ac225273c8316b" xml:space="preserve">
         <source>General</source>
         <note from="lit-localize">Name of the category of extension features that apply to multiple areas of the forums platform.</note>
       </trans-unit>
-      <trans-unit id="s79ad81a9d63904fc">
+      <trans-unit id="s79ad81a9d63904fc" xml:space="preserve">
         <source>You're testing the new options page.</source>
       </trans-unit>
-      <trans-unit id="h75ff4c12afaffb0c">
+      <trans-unit id="h75ff4c12afaffb0c" xml:space="preserve">
         <source>Please leave feedback and report bugs in our <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;"/>discussion group<x id="1" equiv-text="&lt;/a&gt;"/>. Thanks for testing!</source>
       </trans-unit>
-<trans-unit id="s4c92f48e04b9ef0e">
+<trans-unit id="s4c92f48e04b9ef0e" xml:space="preserve">
   <source>Patches the bug that incorrectly opens the link dialog multiple times when adding or editing a link.</source>
   <note from="lit-localize">Description of the "Fix link dialog" feature.</note>
 </trans-unit>
-<trans-unit id="sa5ebc8ee802beea8">
+<trans-unit id="sa5ebc8ee802beea8" xml:space="preserve">
   <source>Fix link dialog</source>
   <note from="lit-localize">Name of an extension feature.</note>
 </trans-unit>
-<trans-unit id="scec7442ea759dba6">
+<trans-unit id="scec7442ea759dba6" xml:space="preserve">
   <source>Message composer</source>
   <note from="lit-localize">Name of the category of extension features related to the message composer.</note>
 </trans-unit>
-<trans-unit id="s45ee97a0bb6df8de">
+<trans-unit id="s45ee97a0bb6df8de" xml:space="preserve">
   <source>In batches</source>
   <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
 </trans-unit>
-<trans-unit id="sd984a10a3a8f281e">
+<trans-unit id="sd984a10a3a8f281e" xml:space="preserve">
   <source>All at once</source>
   <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
 </trans-unit>
-<trans-unit id="s37cbecaec58e2192">
+<trans-unit id="s37cbecaec58e2192" xml:space="preserve">
   <source>Mode</source>
   <note from="lit-localize">Suboption for the "Infinite scroll" (in threads) feature.</note>
 </trans-unit>
-<trans-unit id="hcbf5bbcf50440d80">
+<trans-unit id="hcbf5bbcf50440d80" xml:space="preserve">
   <source>Best-effort workaround for the issues discussed at <x id="0" equiv-text="&lt;a href=&quot;https://support.google.com/s/community/forum/51488989/thread/381989895&quot; target=&quot;_blank&quot;&gt;"/>pekb/381989895<x id="1" equiv-text="&lt;/a&gt;"/>.
       </source>
   <note from="lit-localize">Description of the "Sticky bulk actions toolbar" feature.</note>
 </trans-unit>
-<trans-unit id="s81f8bee6e06364f6">
+<trans-unit id="s81f8bee6e06364f6" xml:space="preserve">
   <source>Attempt to fix performance issues</source>
   <note from="lit-localize">Name of an extension feature.</note>
 </trans-unit>

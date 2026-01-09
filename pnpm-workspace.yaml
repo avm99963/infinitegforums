@@ -1,3 +1,4 @@
 packages:
   - 'tools/printOptionsPrototypeJSON'
   - 'tools/syncTranslations'
+  - 'src/lit-locales/normalize_xliff_files'

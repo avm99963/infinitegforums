@@ -26,17 +26,17 @@
         <target>Вложенный вид</target>
         <note from="lit-localize">Label for the switch which lets users enable/disable the nested view in a thread.</note>
       </trans-unit>
-      <trans-unit id="s0f92c01a67197f53">
+      <trans-unit id="s0f92c01a67197f53" xml:space="preserve">
         <source>The TW Power Tools extension has been installed. Please reload this page so that it is activated.</source>
         <target state="translated">Расширение TW Power Tools установлено. Пожалуйста, перезагрузите эту страницу, чтобы оно активировалось.</target>
         <note from="lit-localize">Message shown as a banner when the extension has been installed, to let the user know that they should reload the page.</note>
       </trans-unit>
-      <trans-unit id="sb2c523c904424868">
+      <trans-unit id="sb2c523c904424868" xml:space="preserve">
         <source>The TW Power Tools extension has been updated. Please reload this page so that it continues to work properly.</source>
         <target state="translated">Расширение TW Power Tools обновлено. Пожалуйста, перезагрузите эту страницу, чтобы оно продолжало работать правильно.</target>
         <note from="lit-localize">Message shown as a banner when the extension has been updated, to let the user know that they should reload the page.</note>
       </trans-unit>
-      <trans-unit id="sd5b6130b4937488c">
+      <trans-unit id="sd5b6130b4937488c" xml:space="preserve">
         <source>Reload</source>
         <target state="translated">Перезагрузить</target>
         <note from="lit-localize">Button which reloads the current page.</note>
@@ -106,17 +106,17 @@
         <target state="translated">Ожидание</target>
         <note from="lit-localize">Status of a thread which is waiting to be moved.</note>
       </trans-unit>
-      <trans-unit id="bulkMove.dialog.cancel">
+      <trans-unit id="bulkMove.dialog.cancel" xml:space="preserve">
         <source>Cancel</source>
         <target>Отмена</target>
         <note from="lit-localize">Text of the button in the bulk move threads dialog to close and reset the modal.</note>
       </trans-unit>
-      <trans-unit id="bulkMove.progressDialog.close">
+      <trans-unit id="bulkMove.progressDialog.close" xml:space="preserve">
         <source>Close</source>
         <target>Закрыть</target>
         <note from="lit-localize">Text of the button in the bulk move threads dialog which closes the dialog.</note>
       </trans-unit>
-      <trans-unit id="bulkMove.dialog.move">
+      <trans-unit id="bulkMove.dialog.move" xml:space="preserve">
         <source>Move</source>
         <target>Переместить</target>
         <note from="lit-localize">Text of the button in the bulk move threads dialog which will perform the action.</note>
@@ -131,208 +131,208 @@
         <target state="translated">Не выбрано</target>
         <note from="lit-localize">Default option which lets the user not select any option in a thread detail select, inside the additional details picker.</note>
       </trans-unit>
-      <trans-unit id="components.forumPicker.communityForum">
+      <trans-unit id="components.forumPicker.communityForum" xml:space="preserve">
         <source>Community Forum</source>
         <target>Форум сообщества</target>
         <note from="lit-localize">Label for the forum select in the forum picker.</note>
       </trans-unit>
-      <trans-unit id="components.forumPicker.language">
+      <trans-unit id="components.forumPicker.language" xml:space="preserve">
         <source>Language</source>
         <target>Язык</target>
         <note from="lit-localize">Label for the language select in the forum picker.</note>
       </trans-unit>
-      <trans-unit id="components.additionalDetailsPicker.category">
+      <trans-unit id="components.additionalDetailsPicker.category" xml:space="preserve">
         <source>Category</source>
         <target>Категория</target>
         <note from="lit-localize">Label for the thread category select in the additional details picker.</note>
       </trans-unit>
-      <trans-unit id="components.forumDestinationPicker.destinationForum">
+      <trans-unit id="components.forumDestinationPicker.destinationForum" xml:space="preserve">
         <source>Destination forum</source>
         <target>Перенести в форум</target>
         <note from="lit-localize">Title of the section in the forum destination picker which contains the destination forum and language selects.</note>
       </trans-unit>
-      <trans-unit id="components.forumDestinationPicker.additionalDetails">
+      <trans-unit id="components.forumDestinationPicker.additionalDetails" xml:space="preserve">
         <source>Additional details</source>
         <target>Дополнительные сведения</target>
         <note from="lit-localize">Title of the section in the forum destination picker with the category/details selects.</note>
       </trans-unit>
-      <trans-unit id="languages.ar">
+      <trans-unit id="languages.ar" xml:space="preserve">
         <source>Arabic</source>
         <target>арабский</target>
       </trans-unit>
-      <trans-unit id="languages.bg">
+      <trans-unit id="languages.bg" xml:space="preserve">
         <source>Bulgarian</source>
         <target>болгарский</target>
       </trans-unit>
-      <trans-unit id="languages.ca">
+      <trans-unit id="languages.ca" xml:space="preserve">
         <source>Catalan</source>
         <target>каталанский</target>
       </trans-unit>
-      <trans-unit id="languages.cs">
+      <trans-unit id="languages.cs" xml:space="preserve">
         <source>Czech</source>
         <target>чешский</target>
       </trans-unit>
-      <trans-unit id="languages.da">
+      <trans-unit id="languages.da" xml:space="preserve">
         <source>Danish</source>
         <target>датский</target>
       </trans-unit>
-      <trans-unit id="languages.de">
+      <trans-unit id="languages.de" xml:space="preserve">
         <source>German</source>
         <target>немецкий</target>
       </trans-unit>
-      <trans-unit id="languages.el">
+      <trans-unit id="languages.el" xml:space="preserve">
         <source>Greek</source>
         <target>греческий</target>
       </trans-unit>
-      <trans-unit id="languages.en">
+      <trans-unit id="languages.en" xml:space="preserve">
         <source>English</source>
         <target>английский</target>
       </trans-unit>
-      <trans-unit id="languages.en-AU">
+      <trans-unit id="languages.en-AU" xml:space="preserve">
         <source>English (Australia)</source>
         <target>английский (Австралия)</target>
       </trans-unit>
-      <trans-unit id="languages.en-GB">
+      <trans-unit id="languages.en-GB" xml:space="preserve">
         <source>English (UK)</source>
         <target>английский (Великобритания)</target>
       </trans-unit>
-      <trans-unit id="languages.es">
+      <trans-unit id="languages.es" xml:space="preserve">
         <source>Spanish</source>
         <target>испанский</target>
       </trans-unit>
-      <trans-unit id="languages.es-419">
+      <trans-unit id="languages.es-419" xml:space="preserve">
         <source>Spanish (Latin America)</source>
         <target>испанский (Латинская Америка)</target>
       </trans-unit>
-      <trans-unit id="languages.et">
+      <trans-unit id="languages.et" xml:space="preserve">
         <source>Estonian</source>
         <target>эстонский</target>
       </trans-unit>
-      <trans-unit id="languages.fi">
+      <trans-unit id="languages.fi" xml:space="preserve">
         <source>Finnish</source>
         <target>финский</target>
       </trans-unit>
-      <trans-unit id="languages.fil">
+      <trans-unit id="languages.fil" xml:space="preserve">
         <source>Filipino</source>
         <target>филиппинский</target>
       </trans-unit>
-      <trans-unit id="languages.fr">
+      <trans-unit id="languages.fr" xml:space="preserve">
         <source>French</source>
         <target>французский</target>
       </trans-unit>
-      <trans-unit id="languages.hi">
+      <trans-unit id="languages.hi" xml:space="preserve">
         <source>Hindi</source>
         <target>хинди</target>
       </trans-unit>
-      <trans-unit id="languages.hr">
+      <trans-unit id="languages.hr" xml:space="preserve">
         <source>Croatian</source>
         <target>хорватский</target>
       </trans-unit>
-      <trans-unit id="languages.hu">
+      <trans-unit id="languages.hu" xml:space="preserve">
         <source>Hungarian</source>
         <target>венгерский</target>
       </trans-unit>
-      <trans-unit id="languages.id">
+      <trans-unit id="languages.id" xml:space="preserve">
         <source>Indonesian</source>
         <target>индонезийский</target>
       </trans-unit>
-      <trans-unit id="languages.it">
+      <trans-unit id="languages.it" xml:space="preserve">
         <source>Italian</source>
         <target>итальянский</target>
       </trans-unit>
-      <trans-unit id="languages.iw">
+      <trans-unit id="languages.iw" xml:space="preserve">
         <source>Hebrew</source>
         <target>иврит</target>
       </trans-unit>
-      <trans-unit id="languages.ja">
+      <trans-unit id="languages.ja" xml:space="preserve">
         <source>Japanese</source>
         <target>японский</target>
       </trans-unit>
-      <trans-unit id="languages.ko">
+      <trans-unit id="languages.ko" xml:space="preserve">
         <source>Korean</source>
         <target>корейский</target>
       </trans-unit>
-      <trans-unit id="languages.lt">
+      <trans-unit id="languages.lt" xml:space="preserve">
         <source>Lithuanian</source>
         <target>литовский</target>
       </trans-unit>
-      <trans-unit id="languages.lv">
+      <trans-unit id="languages.lv" xml:space="preserve">
         <source>Latvian</source>
         <target>латышский</target>
       </trans-unit>
-      <trans-unit id="languages.ms">
+      <trans-unit id="languages.ms" xml:space="preserve">
         <source>Malay</source>
         <target>малайский</target>
       </trans-unit>
-      <trans-unit id="languages.nl">
+      <trans-unit id="languages.nl" xml:space="preserve">
         <source>Dutch</source>
         <target>нидерландский</target>
       </trans-unit>
-      <trans-unit id="languages.no">
+      <trans-unit id="languages.no" xml:space="preserve">
         <source>Norwegian (Bokmal)</source>
         <target>норвежский (букмол)</target>
       </trans-unit>
-      <trans-unit id="languages.pl">
+      <trans-unit id="languages.pl" xml:space="preserve">
         <source>Polish</source>
         <target>польский</target>
       </trans-unit>
-      <trans-unit id="languages.pt-BR">
+      <trans-unit id="languages.pt-BR" xml:space="preserve">
         <source>Portuguese (Brazil)</source>
         <target>португальский (Бразилия)</target>
       </trans-unit>
-      <trans-unit id="languages.pt-PT">
+      <trans-unit id="languages.pt-PT" xml:space="preserve">
         <source>Portuguese (Portugal)</source>
         <target>португальский (Португалия)</target>
       </trans-unit>
-      <trans-unit id="languages.ro">
+      <trans-unit id="languages.ro" xml:space="preserve">
         <source>Romanian</source>
         <target>румынский</target>
       </trans-unit>
-      <trans-unit id="languages.ru">
+      <trans-unit id="languages.ru" xml:space="preserve">
         <source>Russian</source>
         <target>русский</target>
       </trans-unit>
-      <trans-unit id="languages.sk">
+      <trans-unit id="languages.sk" xml:space="preserve">
         <source>Slovak</source>
         <target>словацкий</target>
       </trans-unit>
-      <trans-unit id="languages.sl">
+      <trans-unit id="languages.sl" xml:space="preserve">
         <source>Slovenian</source>
         <target>словенский</target>
       </trans-unit>
-      <trans-unit id="languages.sr">
+      <trans-unit id="languages.sr" xml:space="preserve">
         <source>Serbian</source>
         <target>сербский</target>
       </trans-unit>
-      <trans-unit id="languages.sv">
+      <trans-unit id="languages.sv" xml:space="preserve">
         <source>Swedish</source>
         <target>шведский</target>
       </trans-unit>
-      <trans-unit id="languages.th">
+      <trans-unit id="languages.th" xml:space="preserve">
         <source>Thai</source>
         <target>тайский</target>
       </trans-unit>
-      <trans-unit id="languages.tr">
+      <trans-unit id="languages.tr" xml:space="preserve">
         <source>Turkish</source>
         <target>турецкий</target>
       </trans-unit>
-      <trans-unit id="languages.uk">
+      <trans-unit id="languages.uk" xml:space="preserve">
         <source>Ukrainian</source>
         <target>украинский</target>
       </trans-unit>
-      <trans-unit id="languages.vi">
+      <trans-unit id="languages.vi" xml:space="preserve">
         <source>Vietnamese</source>
         <target>вьетнамский</target>
       </trans-unit>
-      <trans-unit id="languages.zh-CN">
+      <trans-unit id="languages.zh-CN" xml:space="preserve">
         <source>Chinese (Simplified)</source>
         <target>китайский (упрощенный)</target>
       </trans-unit>
-      <trans-unit id="languages.zh-HK">
+      <trans-unit id="languages.zh-HK" xml:space="preserve">
         <source>Chinese (Hong Kong)</source>
         <target>китайский (Гонконг)</target>
       </trans-unit>
-      <trans-unit id="languages.zh-TW">
+      <trans-unit id="languages.zh-TW" xml:space="preserve">
         <source>Chinese (Traditional)</source>
         <target>китайский (традиционный)</target>
       </trans-unit>

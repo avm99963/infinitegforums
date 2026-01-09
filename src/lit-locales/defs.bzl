@@ -1,6 +1,7 @@
 load("@npm//:@lit/localize-tools/package_json.bzl", "bin")
 load(":target_locales.bzl", "get_generated_files_list", "get_interchange_files_list", "target_locales")
 
+non_normalized_source_golden_dir = "source_golden_non_normalized"
 source_golden_dir = "source_golden"
 source_dir = "source"
 generated_dir = "generated"
@@ -58,4 +59,4 @@ def _get_lit_localize_out_dir(operation):
     if operation == "build":
         return generated_dir
     elif operation == "extract":
-        return source_golden_dir
+        return non_normalized_source_golden_dir

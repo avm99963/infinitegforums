@@ -1,5 +1,5 @@
 load("@bazel_lib//lib:expand_template.bzl", "expand_template")
-load("//src/lit-locales:defs.bzl", "generated_dir", "source_golden_dir", "source_dir")
+load("//src/lit-locales:defs.bzl", "generated_dir", "non_normalized_source_golden_dir", "source_dir")
 load("//src/lit-locales:target_locales.bzl", "generated_locale_codes_file", "target_locales")
 
 def expand_lit_localize_config_templates():
@@ -23,7 +23,7 @@ def expand_lit_localize_config_templates():
         out = "lit-localize.extract.json",
         substitutions = {
             "{OUTPUT_DIR}": "./src/lit-locales/{}".format(generated_dir),
-            "{SOURCE_DIR}": "./src/lit-locales/{}".format(source_golden_dir),
+            "{SOURCE_DIR}": "./src/lit-locales/{}".format(non_normalized_source_golden_dir),
             "{LOCALE_CODES_FILE}": generated_locale_codes_file,
             "[\"{TARGET_LOCALES}\"]": target_locales,
         },
