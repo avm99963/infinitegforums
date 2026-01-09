@@ -19,12 +19,6 @@ target_locales = [
 
 generated_locale_codes_file = "locales.js"
 
-def get_stringified_target_locales():
-    return "[" + ", ".join([
-        "\"" + locale.replace("\"", "\\\"") + "\""
-        for locale in target_locales
-    ]) + "]"
-
 def get_interchange_files_list(directory = ""):
     return [
         get_interchange_file_path(locale, directory)

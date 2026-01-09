@@ -1,6 +1,10 @@
 load("@npm//:@lit/localize-tools/package_json.bzl", "bin")
 load(":target_locales.bzl", "get_generated_files_list", "get_interchange_files_list", "target_locales")
 
+source_golden_dir = "source_golden"
+source_dir = "source"
+generated_dir = "generated"
+
 def lit_localize(name, operation, visibility = ["//visibility:private"]):
     if operation != "build" and operation != "extract":
         fail("lit_localize_run_binary was called with operation \"{}\", but the only allowed values are \"build\" and \"extract\".".format(operation))
@@ -52,6 +56,6 @@ def _get_lit_localize_outs(operation):
 
 def _get_lit_localize_out_dir(operation):
     if operation == "build":
-        return "generated"
+        return generated_dir
     elif operation == "extract":
-        return "source_golden"
+        return source_golden_dir
