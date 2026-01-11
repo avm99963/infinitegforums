@@ -13,7 +13,7 @@ const rawOptionConfigs = {
     killSwitchType: KillSwitchType.Option,
   },
   thread_mode: {
-    defaultValue: 'batches',
+    defaultValue: 'in_batches',
     context: OptionContext.Options,
     killSwitchType: KillSwitchType.Ignore,
   },
