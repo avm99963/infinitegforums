@@ -150,7 +150,7 @@ export default class OptionsApp extends LitElement {
         <top-app-bar
           slot="top-app-bar"
           ?isDrawerOpen=${this.isDrawerOpen}
-          showExperimentsLink=${!this.isProdVersion}
+          ?showExperimentsLink=${!this.isProdVersion}
           @change=${this.onTopAppBarChange}
         ></top-app-bar>
         <main id="main-content" slot="app-content" tabindex="-1">
