@@ -39,6 +39,7 @@ export default class SubOptionInput extends LitElement {
   accessor value: unknown;
 
   private integerField: Ref<MdOutlinedTextField> = createRef();
+  private textField: Ref<MdOutlinedTextField> = createRef();
   private selectField: Ref<MdOutlinedSelect> = createRef();
 
   render() {
@@ -55,6 +56,9 @@ export default class SubOptionInput extends LitElement {
     switch (this.subOption.type.type) {
       case 'integer':
         return this.renderInteger();
+
+      case 'text':
+        return this.renderText();
 
       case 'dropdown':
         return this.renderDropdown();
@@ -85,6 +89,24 @@ export default class SubOptionInput extends LitElement {
         no-asterisk
         @change=${this.onIntegerChange}
         ${ref(this.integerField)}
+      ></md-outlined-text-field>
+    `;
+  }
+
+  private renderText() {
+    if (this.subOption.type.type !== 'text') {
+      return nothing;
+    }
+
+    return html`
+      <md-outlined-text-field
+        type="text"
+        label=${this.subOption.label}
+        value=${this.value}
+        ?required=${this.subOption.type.required}
+        no-asterisk
+        @change=${this.onTextChange}
+        ${ref(this.textField)}
       ></md-outlined-text-field>
     `;
   }
@@ -121,6 +143,18 @@ export default class SubOptionInput extends LitElement {
     const field = this.integerField.value;
     if (field === undefined) {
       console.error('Integer field cannot be found.');
+      return;
+    }
+
+    if (field.reportValidity()) {
+      this.onValueChange(field.value);
+    }
+  }
+
+  private onTextChange() {
+    const field = this.textField.value;
+    if (field === undefined) {
+      console.error('Text field cannot be found.');
       return;
     }
 

@@ -14,6 +14,10 @@ export type NestedOptionType =
   | {
       type: 'dropdown';
       options: DropdownOption[];
+    }
+  | {
+      type: 'text';
+      required: boolean;
     };
 
 export interface SubOptionConfig<
