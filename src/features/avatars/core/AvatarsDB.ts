@@ -61,7 +61,7 @@ export default class AvatarsDB {
 
   async invalidateCacheEntryIfExists(threadId: string) {
     const db = await this.dbPromise;
-    db.delete('avatarsCache', threadId);
+    await db.delete('avatarsCache', threadId);
   }
 
   async removeUnusedCacheEntries() {
@@ -182,7 +182,7 @@ export default class AvatarsDB {
 
   handleInvalidationByNewMessage(e: InterceptorEvent<any>) {
     const request = e?.detail?.body;
-    const threadId = request?.['2'];
+    const threadId: string | undefined = request?.['2']?.toString();
     if (threadId === undefined) {
       console.warn(
         "[threadListAvatars] Thread ID couldn't be parsed from the CreateMessage request.",
