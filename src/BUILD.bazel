@@ -43,6 +43,7 @@ package_group(
         "//src/features/profileIndicator/presentation/...",
         "//src/features/redirect/presentation/...",
         "//src/features/repositionExpandThread/presentation/...",
+        "//src/features/simulateRoles/presentation/...",
         "//src/features/stickySidebarHeaders/presentation/...",
         "//src/features/threadPageDesignWarning/presentation/...",
         "//src/features/threadToolbar/presentation/...",

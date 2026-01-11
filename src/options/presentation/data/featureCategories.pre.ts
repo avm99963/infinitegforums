@@ -32,6 +32,7 @@ import { previousPostsFeature } from '../../../features/previousPosts/presentati
 import { fixLinkDialogFeature } from '../../../features/linkDialogFix/presentation/options/feature';
 import { logStartupDataFeature } from '../../../features/logStartupData/presentation/options/feature';
 import { fixPEKB381989895Feature } from '@/features/fixPEKB381989895/presentation/options/feature';
+import { simulateRolesFeature } from '@/features/simulateRoles/presentation/options/feature';
 
 const minorUIEnhancementsSectionName = () =>
   msg('Minor UI enhancements', {
@@ -157,7 +158,7 @@ export const getFeatureCategories = () => [
     id: 'debug',
     name: 'Debug',
     note: 'This section contains features useful for extension development. These do not show up in release builds.',
-    features: [logStartupDataFeature()],
+    features: [logStartupDataFeature(), simulateRolesFeature()],
   }),
   // #!endif
 ];

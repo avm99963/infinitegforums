@@ -33,6 +33,7 @@ import WorkflowsImport from '@/features/workflows/core/communityConsole/import/i
 import FixStartupDataScript from '@/features/fixPEKB381989895/presentation/scripts/fixStartupData.script';
 import { getSyncStorageAreaRepository } from '@/storage/compositionRoot';
 import BatchLockSetUpContentScriptListenerScript from '@/features/batchLock/presentation/scripts/setUpContentScriptListener.script';
+import SimulateRolesScript from '@/features/simulateRoles/presentation/scripts/simulateRoles.script';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -80,6 +81,7 @@ function createScriptRunner() {
           new FlattenThreadsReplyActionHandler(optionsProvider),
         ),
         new InteropThreadPageSetupScript(optionsProvider, startupDataStorage),
+        new SimulateRolesScript(optionsProvider, startupDataStorage),
         new ThreadPageDesignWarningSetUpScript(threadPageDesignWarning),
         new LoadDraftsSetupScript(optionsProvider, startupDataStorage),
         new UiSpacingConsoleStylesScript(optionsProvider),

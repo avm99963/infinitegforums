@@ -23,6 +23,7 @@ common_ts_project(
         "//src/features/flattenThreads/presentation/scripts",
         "//src/features/interopThreadPage/presentation/scripts",
         "//src/features/loadDrafts/presentation/scripts",
+        "//src/features/simulateRoles/presentation/scripts",
         "//src/features/threadPageDesignWarning/core",
         "//src/features/threadPageDesignWarning/presentation/scripts",
         "//src/features/uiSpacing/presentation/scripts",

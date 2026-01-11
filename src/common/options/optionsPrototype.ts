@@ -162,6 +162,16 @@ const rawOptionConfigs = {
     context: OptionContext.Options,
     killSwitchType: KillSwitchType.Option,
   },
+  simulateroles: {
+    defaultValue: false,
+    context: OptionContext.Options,
+    killSwitchType: KillSwitchType.Option,
+  },
+  simulateroles_config: {
+    defaultValue: '',
+    context: OptionContext.Options,
+    killSwitchType: KillSwitchType.Ignore,
+  },
 
   // Experiments
   workflows: {
