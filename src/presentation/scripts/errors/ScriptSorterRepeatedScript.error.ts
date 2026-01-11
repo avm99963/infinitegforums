@@ -1,3 +1,3 @@
 export default class ScriptSorterRepeatedScriptError extends Error {
-  name: 'script-sorter-repeated-script-error';
+  name = 'script-sorter-repeated-script-error';
 }
