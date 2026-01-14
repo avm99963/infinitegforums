@@ -3,11 +3,7 @@
   "sourceLocale": "en",
   "targetLocales": ["{TARGET_LOCALES}"],
   "inputFiles": [
-    "src/**/components/**/*.(js|ts)",
-    "src/features/**/presentation/options/*.(js|ts)",
-    "src/presentation/i18n/lit/commonMessages.(js|ts)",
-    "src/options/presentation/data/featureCategories.(js|ts)",
-    "src/options/presentation/utils/featureUtils.(js|ts)"
+    "src/**/*.(js|ts)"
   ],
   "output": {
     "mode": "runtime",
