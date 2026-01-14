@@ -7,7 +7,7 @@ An extension which brings several enhancements to the Google Forums and the
 Community Console.
 
 For a list of features/enhancements, check out the
-[feature list doc](docs/features.md).
+[feature list doc](docs/features/features.en.md).
 
 ## Information for contributors
 This extension is being actively developed, and everyone is welcome to make
