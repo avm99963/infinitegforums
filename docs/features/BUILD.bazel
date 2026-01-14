@@ -1,0 +1,15 @@
+load("@bazel_skylib//lib:selects.bzl", "selects")
+load("//docs/features:bzl/generate_features_docs.bzl", "generate_features_docs")
+
+selects.config_setting_group(
+    name = "can_write_features_docs",
+    match_all = [
+        "//:chromium",
+        "//:stable",
+        "//:is_release",
+    ],
+)
+
+generate_features_docs(
+    name = "generate",
+)

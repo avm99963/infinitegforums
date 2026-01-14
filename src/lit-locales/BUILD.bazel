@@ -17,6 +17,7 @@ copy_to_bin(
 filegroup(
     name = "localized_code",
     srcs = [
+        "//docs/features/generate/l10n:source_code",
         "//src/features/autoRefresh/presentation/options",
         "//src/features/avatars/presentation/options",
         "//src/features/batchLock/presentation/options",
@@ -67,6 +68,7 @@ common_js_project(
         ":generated_files",
     ],
     visibility = [
+        "//docs/features/generate:__subpackages__",
         "//src:__subpackages__",
     ],
 )

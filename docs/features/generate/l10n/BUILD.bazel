@@ -1,0 +1,30 @@
+load("@aspect_rules_swc//swc:defs.bzl", "swc")
+load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
+load("@bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
+
+copy_to_bin(
+    name = "source_code",
+    srcs = glob(
+        ["**/*.ts"],
+        exclude = ["**/*.test.ts"],
+    ),
+    visibility = [
+        "//src/lit-locales:__subpackages__",
+    ],
+)
+
+ts_project(
+    name = "l10n",
+    srcs = [":source_code"],
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = swc,
+    tsconfig = "//docs/features/generate:tsconfig",
+    visibility = [
+        "//docs/features:__subpackages__",
+    ],
+    deps = [
+        "//docs/features/generate:node_modules/@lit/localize",
+    ],
+)

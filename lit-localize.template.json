@@ -3,6 +3,7 @@
   "sourceLocale": "en",
   "targetLocales": ["{TARGET_LOCALES}"],
   "inputFiles": [
+    "docs/**/*.(js|ts)",
     "src/**/*.(js|ts)"
   ],
   "output": {

@@ -24,6 +24,7 @@ common_ts_project(
     transpiler = swc_pkg,
     tsconfig = "//:tsconfig_pkg",
     visibility = [
+        "//docs/features/generate:__subpackages__",
         "//src/lit-locales:__subpackages__",
         "//src/options/presentation/scripts:__subpackages__",
     ],

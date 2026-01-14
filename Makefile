@@ -66,6 +66,10 @@ clean_releases:
 test:
 	$(BAZEL) test ...
 
+.PHONY: regenerate_features_docs
+regenerate_features_docs:
+	$(BAZEL) run --config=release --//:browser=CHROMIUM --//:channel=STABLE //docs/features:generate
+
 .PHONY: clean
 clean: clean_deps clean_dist clean_releases
 

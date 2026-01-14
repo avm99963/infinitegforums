@@ -1,4 +1,5 @@
 packages:
+  - 'docs/features/generate'
+  - 'src/lit-locales/normalize_xliff_files'
   - 'tools/printOptionsPrototypeJSON'
   - 'tools/syncTranslations'
-  - 'src/lit-locales/normalize_xliff_files'

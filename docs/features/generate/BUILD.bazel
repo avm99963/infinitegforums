@@ -1,0 +1,60 @@
+load("@aspect_rules_js//js:defs.bzl", "js_binary")
+load("@aspect_rules_swc//swc:defs.bzl", "swc")
+load("@aspect_rules_ts//ts:defs.bzl", "ts_config", "ts_project")
+load("@aspect_rules_webpack//webpack:defs.bzl", "webpack_bundle")
+load("@npm//:defs.bzl", "npm_link_all_packages")
+
+npm_link_all_packages(
+    name = "node_modules",
+)
+
+ts_config(
+    name = "tsconfig",
+    src = ":tsconfig.json",
+    visibility = ["//docs/features/generate:__subpackages__"],
+    deps = ["//:tsconfig_base"],
+)
+
+ts_project(
+    name = "project",
+    srcs = glob(
+        ["**/*.ts"],
+        exclude = ["**/*.test.ts"],
+    ),
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = swc,
+    tsconfig = ":tsconfig",
+    deps = [
+        ":node_modules/@lit/localize",
+        ":node_modules/@types/node",
+        ":node_modules/@types/turndown",
+        ":node_modules/lit",
+        ":node_modules/turndown",
+        "//docs/features/generate/l10n",
+        "//src/lit-locales",
+        "//src/options/presentation/data",
+        "//src/options/presentation/models",
+    ],
+)
+
+webpack_bundle(
+    name = "bundle",
+    srcs = [
+        "webpack/image_path_loader.js",
+        ":project",
+    ],
+    entry_points = {
+        "main.js": "main.bundle",
+    },
+    node_modules = ":node_modules",
+    webpack_config = "webpack/webpack.config.js",
+)
+
+js_binary(
+    name = "generate",
+    data = [":bundle"],
+    entry_point = "main.bundle.js",
+    visibility = ["//docs:__subpackages__"],
+)

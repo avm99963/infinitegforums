@@ -8,6 +8,7 @@ See more information at
 When the code in the `master` branch is considered to be stable, a release can
 be made. This is the procedure:
 
+1. Regenerate the features docs by running `make regenerate_features_docs`.
 1. Tag the last commit with a version number (in the format `vx`, where x is the
 extension's [version number](https://developer.chrome.com/extensions/manifest/version)
 for that release) by running `bash tagRelease.bash --version vx`. Note that the

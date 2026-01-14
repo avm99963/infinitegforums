@@ -719,6 +719,18 @@
   <source>Attempt to fix performance issues</source>
   <note from="lit-localize">Name of an extension feature.</note>
 </trans-unit>
+<trans-unit id="features_doc.intro" xml:space="preserve">
+  <source>The TW Power Tools extension offers the following features:</source>
+  <note from="lit-localize">Introduction for the features document.</note>
+</trans-unit>
+<trans-unit id="features_doc.demo" xml:space="preserve">
+  <source>demo</source>
+  <note from="lit-localize">Text of a link which points to a screencast or screenshot showing a feature.</note>
+</trans-unit>
+<trans-unit id="features_doc.title" xml:space="preserve">
+  <source>Features</source>
+  <note from="lit-localize">Title for the features document (a document that includes all the features).</note>
+</trans-unit>
     </body>
   </file>
 </xliff>
