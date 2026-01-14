@@ -160,12 +160,7 @@ async function writeNote(
   note: string | UncompiledTemplateResult,
 ): Promise<void> {
   await file.write('*** promo\n');
-  await file.write(
-    convertPossibleTemplateToString(note)
-      .split('\n')
-      .map((line) => `** ${line}`)
-      .join('\n') + '\n',
-  );
+  await file.write(convertPossibleTemplateToString(note) + '\n');
   await file.write('***\n\n');
 }
 
