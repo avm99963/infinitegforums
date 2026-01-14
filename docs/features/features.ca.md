@@ -11,7 +11,7 @@ The TW Power Tools extension offers the following features:
 Activa que puguis escollir entre un tema fosc fet a mida i el tema clar de la Consola de la Comunitat.
 
 *** promo
-_Automatic:_ usarà el tema definit a la configuració del sistema.  
+_Automàtic:_ usarà el tema definit a la configuració del sistema.  
 _Manual:_ afegirà un botó a la Consola de la Comunitat que et permetrà canviar el tema.
 ***
 

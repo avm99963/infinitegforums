@@ -11,8 +11,8 @@ The TW Power Tools extension offers the following features:
 يتيح لك الاختيار بين إصدار داكن مخصص ووإصدار كلاسيكيأساسي في وحدة التحكم بالمجتمع.
 
 *** promo
-_Automatic:_ will use the theme defined in the system settings.  
-_Manual:_ will add a button to the Community Console that lets you switch the theme.
+_آلي:_ will use the theme defined in the system settings.  
+_يدوي:_ will add a button to the Community Console that lets you switch the theme.
 ***
 
 _وحدة التّحكُّم بالمجتمع_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/ccDarkTheme/presentation/options/assets/screenshot.avif)

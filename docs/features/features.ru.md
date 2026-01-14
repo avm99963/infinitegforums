@@ -11,8 +11,8 @@ The TW Power Tools extension offers the following features:
 Позволяет выбирать между специально созданной темной темой и стандартной светлой темой в Консоли сообщества.
 
 *** promo
-_Automatic:_ будет использовать тему, определенную в настройках системы.  
-_Manual:_ добавит в Консоль сообщества кнопку, позволяющую переключать тему.
+_Автоматически:_ будет использовать тему, определенную в настройках системы.  
+_Вручную:_ добавит в Консоль сообщества кнопку, позволяющую переключать тему.
 ***
 
 _Консоль сообщества_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/ccDarkTheme/presentation/options/assets/screenshot.avif)

@@ -5,12 +5,14 @@ import { SubOption } from '../../../../options/presentation/models/subOption';
 import { COMMUNITY_CONSOLE_TAG } from '../../../../options/presentation/utils/featureUtils';
 import screenshot from './assets/screenshot.avif';
 
-const automaticOptionLabel = msg('Automatic', {
-  desc: 'Selectable option for the "Theme" suboption of the "Dark theme" feature.',
-});
-const manualOptionLabel = msg('Manual', {
-  desc: 'Selectable option for the "Theme" suboption of the "Dark theme" feature.',
-});
+const automaticOptionLabel = () =>
+  msg('Automatic', {
+    desc: 'Selectable option for the "Theme" suboption of the "Dark theme" feature.',
+  });
+const manualOptionLabel = () =>
+  msg('Manual', {
+    desc: 'Selectable option for the "Theme" suboption of the "Dark theme" feature.',
+  });
 
 export const ccDarkThemeFeature = () =>
   new Feature({
@@ -25,10 +27,10 @@ export const ccDarkThemeFeature = () =>
     // prettier-ignore
     note: msg(
       html`
-      <i>${automaticOptionLabel}:</i>
+      <i>${automaticOptionLabel()}:</i>
       will use the theme defined in the system settings.
       <br />
-      <i>${manualOptionLabel}:</i>
+      <i>${manualOptionLabel()}:</i>
       will add a button to the Community Console that lets you switch the theme.
     `,
       {
@@ -45,11 +47,11 @@ export const ccDarkThemeFeature = () =>
           type: 'dropdown',
           options: [
             {
-              label: automaticOptionLabel,
+              label: automaticOptionLabel(),
               value: 'system',
             },
             {
-              label: manualOptionLabel,
+              label: manualOptionLabel(),
               value: 'switch',
             },
           ],

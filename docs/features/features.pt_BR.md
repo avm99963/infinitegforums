@@ -11,7 +11,7 @@ The TW Power Tools extension offers the following features:
 Permite escolher entre um tema escuro personalizado e o tema claro vanilla no Console da Comunidade.
 
 *** promo
-_Automatic:_ usará o tema definido nas configurações do sistema.  
+_Automático:_ usará o tema definido nas configurações do sistema.  
 _Manual:_ adicionará um botão ao Console da Comunidade que permite alternar o tema.
 ***
 

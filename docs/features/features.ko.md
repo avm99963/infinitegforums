@@ -11,8 +11,8 @@ The TW Power Tools extension offers the following features:
 커뮤니티 콘솔에서 자체 제작 다크 모드와 기본 라이트 모드를 선택할 수 있습니다.
 
 *** promo
-_Automatic:_ 시스템 설정에서 정의된 화면 모드를 사용합니다.  
-_Manual:_ 화면 모드를 변경하는 버튼이 커뮤니티 콘솔에 추가됩니다.
+_자동:_ 시스템 설정에서 정의된 화면 모드를 사용합니다.  
+_수동:_ 화면 모드를 변경하는 버튼이 커뮤니티 콘솔에 추가됩니다.
 ***
 
 _커뮤니티 콘솔_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/ccDarkTheme/presentation/options/assets/screenshot.avif)
