@@ -9,6 +9,12 @@ module.exports = () => {
       },
       extensions: ['.js'],
     },
+    externals: {
+      '@lit/localize': '@lit/localize',
+      lit: 'lit',
+      turndown: 'turndown',
+    },
+    externalsType: 'commonjs',
     module: {
       rules: [
         {
