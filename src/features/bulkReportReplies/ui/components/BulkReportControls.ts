@@ -44,6 +44,10 @@ export default class BulkReportControls extends I18nLitElement {
         margin-left: auto;
       }
 
+      md-chip-set {
+        justify-content: end;
+      }
+
       md-assist-chip {
         --md-assist-chip-leading-icon-color: var(--md-sys-color-error);
         --md-assist-chip-focus-leading-icon-color: var(--md-sys-color-error);
