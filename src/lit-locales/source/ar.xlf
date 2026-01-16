@@ -371,6 +371,7 @@
       </trans-unit>
       <trans-unit id="s9347ba024909ae4e" xml:space="preserve">
         <source>Forces showing the new or old thread page design.</source>
+        <target state="translated">التأكيد على استخدام تصميم صفحة سلاسل المحادثات بالتصميم القديم أو الجديد.</target>
         <note from="lit-localize">Description of the "Change thread page design" feature.</note>
       </trans-unit>
       <trans-unit id="s7242cc88574abf53" xml:space="preserve">
@@ -574,6 +575,7 @@
       </trans-unit>
       <trans-unit id="s5f5f4dde977a84f1" xml:space="preserve">
         <source>Flatten replies</source>
+        <target state="translated">تسطيح الردود</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
       <trans-unit id="sfc204caf671903ba" xml:space="preserve">
@@ -628,6 +630,7 @@
       </trans-unit>
       <trans-unit id="s56972a20e50faa59" xml:space="preserve">
         <source>Compact mode</source>
+        <target state="translated">الوضع المُدمَج</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
       <trans-unit id="s7632fc9aa12bf382" xml:space="preserve">
@@ -671,6 +674,7 @@
       </trans-unit>
       <trans-unit id="se9b6b34d60e86c7d" xml:space="preserve">
         <source>Design to show</source>
+        <target state="translated">تصميم للعرض</target>
         <note from="lit-localize">Suboption for the "Change thread page design" feature.</note>
       </trans-unit>
       <trans-unit id="s164a95895c17e807" xml:space="preserve">
@@ -747,51 +751,51 @@
       <trans-unit id="h75ff4c12afaffb0c" xml:space="preserve">
         <source>Please leave feedback and report bugs in our <x id="0" equiv-text="&lt;a href=&quot;${DISCUSS_GROUP_URL}&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;"/>discussion group<x id="1" equiv-text="&lt;/a&gt;"/>. Thanks for testing!</source>
       </trans-unit>
-<trans-unit id="s4c92f48e04b9ef0e" xml:space="preserve">
-  <source>Patches the bug that incorrectly opens the link dialog multiple times when adding or editing a link.</source>
-  <note from="lit-localize">Description of the "Fix link dialog" feature.</note>
-</trans-unit>
-<trans-unit id="sa5ebc8ee802beea8" xml:space="preserve">
-  <source>Fix link dialog</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="scec7442ea759dba6" xml:space="preserve">
-  <source>Message composer</source>
-  <note from="lit-localize">Name of the category of extension features related to the message composer.</note>
-</trans-unit>
-<trans-unit id="s45ee97a0bb6df8de" xml:space="preserve">
-  <source>In batches</source>
-  <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
-</trans-unit>
-<trans-unit id="sd984a10a3a8f281e" xml:space="preserve">
-  <source>All at once</source>
-  <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
-</trans-unit>
-<trans-unit id="s37cbecaec58e2192" xml:space="preserve">
-  <source>Mode</source>
-  <note from="lit-localize">Suboption for the "Infinite scroll" (in threads) feature.</note>
-</trans-unit>
-<trans-unit id="hcbf5bbcf50440d80" xml:space="preserve">
-  <source>Best-effort workaround for the issues discussed at <x id="0" equiv-text="&lt;a href=&quot;https://support.google.com/s/community/forum/51488989/thread/381989895&quot; target=&quot;_blank&quot;&gt;"/>pekb/381989895<x id="1" equiv-text="&lt;/a&gt;"/>.
+      <trans-unit id="s4c92f48e04b9ef0e" xml:space="preserve">
+        <source>Patches the bug that incorrectly opens the link dialog multiple times when adding or editing a link.</source>
+        <note from="lit-localize">Description of the "Fix link dialog" feature.</note>
+      </trans-unit>
+      <trans-unit id="sa5ebc8ee802beea8" xml:space="preserve">
+        <source>Fix link dialog</source>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="scec7442ea759dba6" xml:space="preserve">
+        <source>Message composer</source>
+        <note from="lit-localize">Name of the category of extension features related to the message composer.</note>
+      </trans-unit>
+      <trans-unit id="s45ee97a0bb6df8de" xml:space="preserve">
+        <source>In batches</source>
+        <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
+      </trans-unit>
+      <trans-unit id="sd984a10a3a8f281e" xml:space="preserve">
+        <source>All at once</source>
+        <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
+      </trans-unit>
+      <trans-unit id="s37cbecaec58e2192" xml:space="preserve">
+        <source>Mode</source>
+        <note from="lit-localize">Suboption for the "Infinite scroll" (in threads) feature.</note>
+      </trans-unit>
+      <trans-unit id="hcbf5bbcf50440d80" xml:space="preserve">
+        <source>Best-effort workaround for the issues discussed at <x id="0" equiv-text="&lt;a href=&quot;https://support.google.com/s/community/forum/51488989/thread/381989895&quot; target=&quot;_blank&quot;&gt;"/>pekb/381989895<x id="1" equiv-text="&lt;/a&gt;"/>.
       </source>
-  <note from="lit-localize">Description of the "Sticky bulk actions toolbar" feature.</note>
-</trans-unit>
-<trans-unit id="s81f8bee6e06364f6" xml:space="preserve">
-  <source>Attempt to fix performance issues</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="features_doc.intro" xml:space="preserve">
-  <source>The TW Power Tools extension offers the following features:</source>
-  <note from="lit-localize">Introduction for the features document.</note>
-</trans-unit>
-<trans-unit id="features_doc.demo" xml:space="preserve">
-  <source>demo</source>
-  <note from="lit-localize">Text of a link which points to a screencast or screenshot showing a feature.</note>
-</trans-unit>
-<trans-unit id="features_doc.title" xml:space="preserve">
-  <source>Features</source>
-  <note from="lit-localize">Title for the features document (a document that includes all the features).</note>
-</trans-unit>
+        <note from="lit-localize">Description of the "Sticky bulk actions toolbar" feature.</note>
+      </trans-unit>
+      <trans-unit id="s81f8bee6e06364f6" xml:space="preserve">
+        <source>Attempt to fix performance issues</source>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="features_doc.intro" xml:space="preserve">
+        <source>The TW Power Tools extension offers the following features:</source>
+        <note from="lit-localize">Introduction for the features document.</note>
+      </trans-unit>
+      <trans-unit id="features_doc.demo" xml:space="preserve">
+        <source>demo</source>
+        <note from="lit-localize">Text of a link which points to a screencast or screenshot showing a feature.</note>
+      </trans-unit>
+      <trans-unit id="features_doc.title" xml:space="preserve">
+        <source>Features</source>
+        <note from="lit-localize">Title for the features document (a document that includes all the features).</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>
