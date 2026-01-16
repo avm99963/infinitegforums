@@ -9,13 +9,13 @@ import demo from './assets/demo.avif';
 export const bulkReportRepliesFeature = () =>
   new Feature({
     optionCodename: 'bulkreportreplies',
-    name: msg('Report replies quickly', {
+    name: msg('Report messages quickly', {
       desc: 'Name of an extension feature.',
     }),
     description: msg(
-      'Adds quick report buttons to all replies, so you can report each one with a single click.',
+      'Adds quick report buttons to all messages, so you can report each one with a single click.',
       {
-        desc: 'Description of the "Report replies quickly" feature.',
+        desc: 'Description of the "Report messages quickly" feature.',
       },
     ),
     demoMedia: {

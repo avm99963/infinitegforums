@@ -1,10 +1,10 @@
 import {
-  MessageInfo,
+  ItemToReport,
   MessageInfoRepositoryPort,
 } from '../../ui/injectors/bulkReportControls.injector.adapter';
 
 export class MessageInfoRepositoryAdapter implements MessageInfoRepositoryPort {
-  getInfo(elementInsideMessage: Element): MessageInfo {
+  getInfo(elementInsideMessage: Element): ItemToReport {
     return {
       forumId: this.getForumId(),
       threadId: this.getThreadId(),

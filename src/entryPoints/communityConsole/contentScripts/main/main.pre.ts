@@ -58,7 +58,7 @@ import { OptionsModifierAdapter } from '../../../../infrastructure/services/opti
 import ThreadToolbarInjectHandler from '../../../../features/threadToolbar/presentation/nodeWatcherHandlers/inject.handler';
 import ThreadToolbar from '../../../../features/threadToolbar/core/threadToolbar';
 import { BulkReportControlsInjectorAdapter } from '../../../../features/bulkReportReplies/infrastructure/ui/injectors/bulkReportControls.injector.adapter';
-import { MessageInfoRepositoryAdapter } from '../../../../features/bulkReportReplies/infrastructure/repositories/messageInfo/messageInfo.repository.adapter';
+import { MessageInfoRepositoryAdapter } from '../../../../features/bulkReportReplies/infrastructure/repositories/itemInfo/messageInfo.repository.adapter';
 import { ReportOffTopicRepositoryAdapter } from '../../../../features/bulkReportReplies/infrastructure/repositories/api/reportOffTopic/reportOffTopic.repository.adapter';
 import { ReportAbuseRepositoryAdapter } from '../../../../features/bulkReportReplies/infrastructure/repositories/api/reportAbuse/reportAbuse.repository.adapter';
 import BatchLockBulkActionsHandler from '../../../../features/batchLock/presentation/nodeWatcherHandlers/bulkActions.handler';
@@ -93,6 +93,8 @@ import StartupDataStorageAdapter from '@/infrastructure/services/communityConsol
 import ThreadPageDesignWarning from '@/features/threadPageDesignWarning/core/threadPageDesignWarning';
 import WorkflowsImport from '@/features/workflows/core/communityConsole/import/import';
 import { getSyncStorageAreaRepository } from '@/storage/compositionRoot';
+import BulkReportRepliesQuestionCardHandler from '@/features/bulkReportReplies/presentation/nodeWatcherHandlers/questionCard.handler';
+import { ThreadInfoRepositoryAdapter } from '@/features/bulkReportReplies/infrastructure/repositories/itemInfo/threadInfo.repository.adapter';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -107,6 +109,7 @@ function createScriptRunner() {
   const optionsProvider = new OptionsProviderAdapter(
     new OptionsConfigurationRepositoryAdapter(syncStorageAreaRepository),
   );
+  const urlThreadDataParser = new UrlThreadDataParserServiceAdapter();
 
   const dependenciesProvider = DependenciesProviderSingleton.getInstance();
   const autoRefresh = dependenciesProvider.getDependency(
@@ -166,9 +169,7 @@ function createScriptRunner() {
                 new BulkMoveButtonInjectorAdapter(
                   ccThreadListGenericActionButtonInjector,
                   startupDataStorage,
-                  new GetSelectedThreadsServiceAdapter(
-                    new UrlThreadDataParserServiceAdapter(),
-                  ),
+                  new GetSelectedThreadsServiceAdapter(urlThreadDataParser),
                   new ViewSoftRefresherServiceAdapter(),
                   new BulkMoveThreadsRepositoryAdapter(),
                 ),
@@ -180,6 +181,17 @@ function createScriptRunner() {
                 optionsProvider,
                 new BulkReportControlsInjectorAdapter(
                   new MessageInfoRepositoryAdapter(),
+                  new ReportOffTopicRepositoryAdapter(),
+                  new ReportAbuseRepositoryAdapter(),
+                ),
+              ),
+            ],
+            [
+              'bulkReportRepliesQuestionCard',
+              new BulkReportRepliesQuestionCardHandler(
+                optionsProvider,
+                new BulkReportControlsInjectorAdapter(
+                  new ThreadInfoRepositoryAdapter(urlThreadDataParser),
                   new ReportOffTopicRepositoryAdapter(),
                   new ReportAbuseRepositoryAdapter(),
                 ),

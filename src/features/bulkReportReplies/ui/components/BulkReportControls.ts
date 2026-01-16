@@ -8,7 +8,7 @@ import { SHARED_MD3_STYLES } from '../../../../common/styles/md3';
 import { map } from 'lit/directives/map.js';
 import { ReportStatus, ReportStatusValues } from '../../domain/reportStatus';
 import { ReportType, ReportTypeValues } from '../../domain/reportType';
-import { kEventReportReply } from '../events/events';
+import { kEventReport } from '../events/events';
 import { msg } from '@lit/localize';
 
 interface ReportButton {
@@ -26,8 +26,12 @@ export default class BulkReportControls extends I18nLitElement {
   @property({ type: String })
   accessor threadId: string;
 
+  /**
+   * If messageId is undefined, the controls are for the original question in
+   * the thread.
+   */
   @property({ type: String })
-  accessor messageId: string;
+  accessor messageId: string | undefined;
 
   @property({ type: String })
   accessor offTopicStatus: ReportStatus = ReportStatusValues.Idle;
@@ -143,8 +147,8 @@ export default class BulkReportControls extends I18nLitElement {
   }
 
   private sendReport(type: ReportType) {
-    const e: WindowEventMap[typeof kEventReportReply] = new CustomEvent(
-      kEventReportReply,
+    const e: WindowEventMap[typeof kEventReport] = new CustomEvent(
+      kEventReport,
       {
         bubbles: false,
         composed: false,

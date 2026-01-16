@@ -186,20 +186,30 @@
  * experience the breakage.
  **/
 body:is(.TWPT-flattenthreads-enabled, .TWPT-bulkreportreplies-enabled) {
-  ec-thread sc-tailwind-thread-message-message-list sc-tailwind-thread-message-message-actions {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.75rem;
-    margin-top: 1rem;
+  ec-thread {
+    sc-tailwind-thread-message-message-list sc-tailwind-thread-message-message-actions {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 1rem;
 
-    @media (max-width: 599px) {
-      flex-wrap: wrap;
+      @media (max-width: 599px) {
+        flex-wrap: wrap;
+      }
+
+      > :not(bulk-report-controls) {
+        margin: 0!important;
+        padding: 0!important;
+      }
     }
 
-    > :not(bulk-report-controls) {
-      margin: 0!important;
-      padding: 0!important;
+    sc-tailwind-thread-question-question-actions {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
     }
   }
 }

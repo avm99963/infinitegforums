@@ -1,11 +1,11 @@
 import { CCApi } from '../../../../../../common/api';
 import {
-  MessageInfo,
+  ItemToReport,
   ReportAbuseReposioryPort,
 } from '../../../ui/injectors/bulkReportControls.injector.adapter';
 
 export class ReportAbuseRepositoryAdapter implements ReportAbuseReposioryPort {
-  async report(messageInfo: MessageInfo): Promise<void> {
+  async report(messageInfo: ItemToReport): Promise<void> {
     return await CCApi(
       'UserFlag',
       {

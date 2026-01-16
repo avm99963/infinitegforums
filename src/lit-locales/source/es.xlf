@@ -41,11 +41,6 @@
         <target state="translated">Recargar</target>
         <note from="lit-localize">Button which reloads the current page.</note>
       </trans-unit>
-      <trans-unit id="s9a0167b14ce5b9b1" xml:space="preserve">
-        <source>Bulk report replies</source>
-        <target state="translated">Informa de varias respuestas a la vez</target>
-        <note from="lit-localize">Option shown in the settings menu of the thread toolbar which enables the "bulk report replies" feature.</note>
-      </trans-unit>
       <trans-unit id="s9c0adc97ce1e614c" xml:space="preserve">
         <source>(Alt + R)</source>
         <target state="translated">(Alt + R)</target>
@@ -472,11 +467,6 @@
         <target state="translated">Redirige todos los hilos abiertos en Tailwind Basic a la Consola de la Comunidad.</target>
         <note from="lit-localize">Description of the "Redirect to the Community Console" feature.</note>
       </trans-unit>
-      <trans-unit id="s75e5d910d8a301be" xml:space="preserve">
-        <source>Adds quick report buttons to all replies, so you can report each one with a single click.</source>
-        <target state="translated">Añade botones de informado rápido a todas las respuestas, para que puedas informar cada una con un solo clic.</target>
-        <note from="lit-localize">Description of the "Report replies quickly" feature.</note>
-      </trans-unit>
       <trans-unit id="s3c671990138ef1d5" xml:space="preserve">
         <source>Makes the toolbar not disappear when scrolling down.</source>
         <target state="translated">Hace que la barra de herramientas no desaparezca al bajar hacia abajo.</target>
@@ -545,11 +535,6 @@
       <trans-unit id="sf53f535371b485ce" xml:space="preserve">
         <source>Bulk move</source>
         <target state="translated">Mover masivamente</target>
-        <note from="lit-localize">Name of an extension feature.</note>
-      </trans-unit>
-      <trans-unit id="s95c6b373633d4a2f" xml:space="preserve">
-        <source>Report replies quickly</source>
-        <target state="translated">Informar respuestas rápidamente</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
       <trans-unit id="s3ac6d6bc5baddf30" xml:space="preserve">
@@ -834,6 +819,18 @@
         <target state="translated">Funciones</target>
         <note from="lit-localize">Title for the features document (a document that includes all the features).</note>
       </trans-unit>
+<trans-unit id="see5ed10adf6a3a68" xml:space="preserve">
+  <source>Adds quick report buttons to all messages, so you can report each one with a single click.</source>
+  <note from="lit-localize">Description of the "Report messages quickly" feature.</note>
+</trans-unit>
+<trans-unit id="s07a3572d3e9adbd5" xml:space="preserve">
+  <source>Report messages quickly</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="sa6bce8caee31e1c9" xml:space="preserve">
+  <source>Bulk report</source>
+  <note from="lit-localize">Option shown in the settings menu of the thread toolbar which enables the "bulk report messages" feature.</note>
+</trans-unit>
     </body>
   </file>
 </xliff>

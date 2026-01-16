@@ -7,3 +7,7 @@ body:not(.TWPT-bulkreportreplies-enabled) {
     display: none;
   }
 }
+
+/**
+ * NOTE: There are some styles defined in src/static/css/common/console.css.
+ */

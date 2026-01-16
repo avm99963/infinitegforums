@@ -3,7 +3,7 @@ load("//tools:bazel/swc.bzl", "swc_pkg")
 load("//tools:common_ts_project.bzl", "common_ts_project")
 
 common_ts_project(
-    name = "messageInfo",
+    name = "itemInfo",
     allow_js = True,
     declaration = True,
     source_map = True,
@@ -14,6 +14,7 @@ common_ts_project(
     ],
     deps = [
         "//src/features/bulkReportReplies/infrastructure/ui/injectors",
+        "//src/ui/services",
     ],
 )
 

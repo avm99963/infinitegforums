@@ -1,13 +1,13 @@
 import { ReportType } from '../../domain/reportType';
 
-export const kEventReportReply = 'twpt-bulk-report-replies-report-reply';
+export const kEventReport = 'twpt-bulk-report-replies-report';
 
 declare global {
   interface WindowEventMap {
-    [kEventReportReply]: CustomEvent<{
+    [kEventReport]: CustomEvent<{
       forumId: string;
       threadId: string;
-      messageId: string;
+      messageId?: string;
       type: ReportType;
     }>;
   }

@@ -22,9 +22,9 @@ const isMac = () => appleProductRegex.test(navigator.userAgentData?.platform) ||
 
 const getOverflowMenuItems = (options) =>
     [{
-      label: msg('Bulk report replies', {
+      label: msg('Bulk report', {
         desc:
-            'Option shown in the settings menu of the thread toolbar which enables the "bulk report replies" feature.',
+            'Option shown in the settings menu of the thread toolbar which enables the "bulk report messages" feature.',
       }),
       supportingText: isMac() ?
           msg('(⌥ + R)', {

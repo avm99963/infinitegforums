@@ -41,10 +41,6 @@
         <target state="translated">Neu laden</target>
         <note from="lit-localize">Button which reloads the current page.</note>
       </trans-unit>
-<trans-unit id="s9a0167b14ce5b9b1" xml:space="preserve">
-  <source>Bulk report replies</source>
-  <note from="lit-localize">Option shown in the settings menu of the thread toolbar which enables the "bulk report replies" feature.</note>
-</trans-unit>
 <trans-unit id="s9c0adc97ce1e614c" xml:space="preserve">
   <source>(Alt + R)</source>
   <note from="lit-localize">Text shown below the "bulk report replies" toggle, to let the user know that they can use this keyboard shortcut to toggle it.</note>
@@ -373,10 +369,6 @@
   <source>Redirects all threads opened in Tailwind Basic to the Community Console.</source>
   <note from="lit-localize">Description of the "Redirect to the Community Console" feature.</note>
 </trans-unit>
-<trans-unit id="s75e5d910d8a301be" xml:space="preserve">
-  <source>Adds quick report buttons to all replies, so you can report each one with a single click.</source>
-  <note from="lit-localize">Description of the "Report replies quickly" feature.</note>
-</trans-unit>
 <trans-unit id="s3c671990138ef1d5" xml:space="preserve">
   <source>Makes the toolbar not disappear when scrolling down.</source>
   <note from="lit-localize">Description of the "Sticky bulk actions toolbar" feature.</note>
@@ -431,10 +423,6 @@
 </trans-unit>
 <trans-unit id="sf53f535371b485ce" xml:space="preserve">
   <source>Bulk move</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="s95c6b373633d4a2f" xml:space="preserve">
-  <source>Report replies quickly</source>
   <note from="lit-localize">Name of an extension feature.</note>
 </trans-unit>
 <trans-unit id="s3ac6d6bc5baddf30" xml:space="preserve">
@@ -663,6 +651,18 @@
 <trans-unit id="features_doc.title" xml:space="preserve">
   <source>Features</source>
   <note from="lit-localize">Title for the features document (a document that includes all the features).</note>
+</trans-unit>
+<trans-unit id="see5ed10adf6a3a68" xml:space="preserve">
+  <source>Adds quick report buttons to all messages, so you can report each one with a single click.</source>
+  <note from="lit-localize">Description of the "Report messages quickly" feature.</note>
+</trans-unit>
+<trans-unit id="s07a3572d3e9adbd5" xml:space="preserve">
+  <source>Report messages quickly</source>
+  <note from="lit-localize">Name of an extension feature.</note>
+</trans-unit>
+<trans-unit id="sa6bce8caee31e1c9" xml:space="preserve">
+  <source>Bulk report</source>
+  <note from="lit-localize">Option shown in the settings menu of the thread toolbar which enables the "bulk report messages" feature.</note>
 </trans-unit>
     </body>
   </file>

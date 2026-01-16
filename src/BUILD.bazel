@@ -86,6 +86,7 @@ package_group(
 package_group(
     name = "infrastructure_repositories",
     packages = [
+        "//src/features/bulkReportReplies/infrastructure/repositories/...",
         "//src/options/infrastructure/repositories/...",
         "//src/storage/infrastructure/repositories/...",
     ],

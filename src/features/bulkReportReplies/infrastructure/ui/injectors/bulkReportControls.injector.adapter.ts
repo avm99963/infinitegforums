@@ -1,52 +1,51 @@
 import { ReportTypeValues } from '../../../domain/reportType';
 import BulkReportControls from '../../../ui/components/BulkReportControls';
-import { kEventReportReply } from '../../../ui/events/events';
+import { kEventReport } from '../../../ui/events/events';
 import { BulkReportControlsInjectorPort } from '../../../ui/injectors/bulkReportControls.injector.port';
 
-export interface MessageInfo {
+export interface ItemToReport {
   forumId: string;
   threadId: string;
-  messageId: string;
+  messageId?: string;
 }
 
 export interface MessageInfoRepositoryPort {
-  getInfo(elementInsideMessage: Element): MessageInfo;
+  getInfo(elementInsideMessage: Element): ItemToReport;
 }
 
 export interface ReportOffTopicRepositoryPort {
-  report(messageInfo: MessageInfo): Promise<void>;
+  report(messageInfo: ItemToReport): Promise<void>;
 }
 
 export interface ReportAbuseReposioryPort {
-  report(messageInfo: MessageInfo): Promise<void>;
+  report(messageInfo: ItemToReport): Promise<void>;
 }
 
-export class BulkReportControlsInjectorAdapter
-  implements BulkReportControlsInjectorPort
-{
+export class BulkReportControlsInjectorAdapter implements BulkReportControlsInjectorPort {
   constructor(
     private messageInfoRepository: MessageInfoRepositoryPort,
     private reportOffTopicRepository: ReportOffTopicRepositoryPort,
     private reportAbuseRepository: ReportAbuseReposioryPort,
   ) {}
 
-  inject(messageActions: Element) {
-    const { forumId, threadId, messageId } =
-      this.messageInfoRepository.getInfo(messageActions);
+  inject(actionsContainer: Element) {
+    const messageInfo = this.messageInfoRepository.getInfo(actionsContainer);
 
     const controls = document.createElement('bulk-report-controls');
-    controls.setAttribute('forumId', forumId);
-    controls.setAttribute('threadId', threadId);
-    controls.setAttribute('messageId', messageId);
-    messageActions.append(controls);
+    controls.setAttribute('forumId', messageInfo.forumId);
+    controls.setAttribute('threadId', messageInfo.threadId);
+    if (messageInfo.messageId !== undefined) {
+      controls.setAttribute('messageId', messageInfo.messageId);
+    }
+    actionsContainer.append(controls);
 
     this.addEventHandlers(controls);
   }
 
   private addEventHandlers(controls: BulkReportControls) {
     controls.addEventListener(
-      kEventReportReply,
-      async (e: WindowEventMap[typeof kEventReportReply]) => {
+      kEventReport,
+      async (e: WindowEventMap[typeof kEventReport]) => {
         const { detail } = e;
 
         let statusProperty: string | undefined;

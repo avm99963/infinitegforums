@@ -1,11 +1,11 @@
 import { CCApi } from '../../../../../../common/api';
 import {
-  MessageInfo,
+  ItemToReport,
   ReportOffTopicRepositoryPort,
 } from '../../../ui/injectors/bulkReportControls.injector.adapter';
 
 export class ReportOffTopicRepositoryAdapter implements ReportOffTopicRepositoryPort {
-  async report(messageInfo: MessageInfo): Promise<void> {
+  async report(messageInfo: ItemToReport): Promise<void> {
     return await CCApi(
       'SetOffTopic',
       {

@@ -38,7 +38,7 @@ common_ts_project(
         "//src/features/bulkMove/presentation/nodeWatchHandlers",
         "//src/features/bulkReportReplies/infrastructure/repositories/api/reportAbuse",
         "//src/features/bulkReportReplies/infrastructure/repositories/api/reportOffTopic",
-        "//src/features/bulkReportReplies/infrastructure/repositories/messageInfo",
+        "//src/features/bulkReportReplies/infrastructure/repositories/itemInfo",
         "//src/features/bulkReportReplies/infrastructure/ui/injectors",
         "//src/features/bulkReportReplies/presentation/nodeWatcherHandlers",
         "//src/features/bulkReportReplies/presentation/scripts",

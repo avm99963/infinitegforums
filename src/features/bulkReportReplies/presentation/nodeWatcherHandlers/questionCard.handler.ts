@@ -4,11 +4,11 @@ import { OptionsProviderPort } from '../../../../services/options/OptionsProvide
 import { BulkReportControlsInjectorPort } from '../../ui/injectors/bulkReportControls.injector.port';
 
 /**
- * Injects the bulk report reply controls in message cards.
+ * Injects the bulk report reply controls in question cards.
  */
-export default class BulkReportRepliesMessageCardHandler extends CssSelectorNodeWatcherHandler {
+export default class BulkReportRepliesQuestionCardHandler extends CssSelectorNodeWatcherHandler {
   cssSelector =
-    ':is(.scTailwindThreadMessageMessagecardcontent:not(.scTailwindThreadMessageMessagecardpromoted), .scTailwindThreadMessageCommentcardcomment) sc-tailwind-thread-message-message-actions';
+    '.scTailwindThreadQuestionQuestioncardcontent sc-tailwind-thread-question-question-actions';
 
   constructor(
     private optionsProvider: OptionsProviderPort,

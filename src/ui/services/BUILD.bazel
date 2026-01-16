@@ -9,6 +9,7 @@ common_ts_project(
     transpiler = swc_pkg,
     tsconfig = "//:tsconfig_pkg",
     visibility = [
+        "//src:infrastructure_repositories",
         "//src:infrastructure_services",
         "//src:ui",
     ],
