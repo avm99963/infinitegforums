@@ -280,7 +280,7 @@
   "moduleExtensions": {
     "@@aspect_rules_js+//npm:extensions.bzl%pnpm": {
       "general": {
-        "bzlTransitiveDigest": "BkWn2GyFoqJUbGVO5TlgSQfMKwYMpLVAMhU7nWm0GDk=",
+        "bzlTransitiveDigest": "fft5+XrXiQkvv195//mNAWHD3G0ZnOSCzXDxOfTLglo=",
         "usagesDigest": "LY9Tt+QctZFEYJkLgAFG5SK0SxZVbMNo+7exEL01Eo0=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
@@ -1255,7 +1255,7 @@
     },
     "@@rules_rust+//crate_universe/private:internal_extensions.bzl%cu_nr": {
       "general": {
-        "bzlTransitiveDigest": "GvMyS1J0BMHrFc6w9C1Sk2TBaYq9hDbz6Qy9FcYMOys=",
+        "bzlTransitiveDigest": "dl2T5Y2kHn/VWJuKxI681k3ZsQLGfjvHRfrlnDSfw5Y=",
         "usagesDigest": "h9wqdPgSnpDxdRNP6kO+DMoTuAWtxtek2SnJOOL321c=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
