@@ -45,7 +45,7 @@
     "jsdom": "27.4.0",
     "mini-css-extract-plugin": "2.9.4",
     "path": "0.12.7",
-    "prettier": "3.7.4",
+    "prettier": "3.8.0",
     "raw-loader": "4.0.2",
     "renovate": "42.81.7",
     "sass": "1.97.2",
