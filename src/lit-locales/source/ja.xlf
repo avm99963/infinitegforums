@@ -661,9 +661,7 @@
       will add a button to the Community Console that lets you switch the theme.
     </source>
         <target state="translated">
-      ：<x id="0" equiv-text="&lt;i&gt;${automaticOptionLabel()}"/>システム設定で定義されたテーマが使用されます。<x id="1" equiv-text="&lt;/i&gt;"/>
-      &lt;br&gt;
-      ：<x id="2" equiv-text="&lt;br&gt;&#10;      &lt;i&gt;${manualOptionLabel()}"/>コミュニティコンソールにテーマを切り替えるためのボタンが追加されます。<x id="3" equiv-text="&lt;/i&gt;"/>
+      <x id="0" equiv-text="&lt;i&gt;${automaticOptionLabel()}"/>:<x id="1" equiv-text="&lt;/i&gt;"/> は、システム設定で定義されたテーマを使用します。 <x id="2" equiv-text="&lt;br&gt;&#10;      &lt;i&gt;${manualOptionLabel()}"/>:<x id="3" equiv-text="&lt;/i&gt;"/> は、コミュニティ コンソールにテーマを切り替えられるボタンを追加します。
     </target>
         <note from="lit-localize">Note for the "Theme" feature.</note>
       </trans-unit>
@@ -833,18 +831,21 @@
         <target state="translated">パフォーマンス問題の修正を試みます</target>
         <note from="lit-localize">Name of an extension feature.</note>
       </trans-unit>
-<trans-unit id="features_doc.intro" xml:space="preserve">
-  <source>The TW Power Tools extension offers the following features:</source>
-  <note from="lit-localize">Introduction for the features document.</note>
-</trans-unit>
-<trans-unit id="features_doc.demo" xml:space="preserve">
-  <source>demo</source>
-  <note from="lit-localize">Text of a link which points to a screencast or screenshot showing a feature.</note>
-</trans-unit>
-<trans-unit id="features_doc.title" xml:space="preserve">
-  <source>Features</source>
-  <note from="lit-localize">Title for the features document (a document that includes all the features).</note>
-</trans-unit>
+      <trans-unit id="features_doc.intro" xml:space="preserve">
+        <source>The TW Power Tools extension offers the following features:</source>
+        <target state="translated">TW Power Tools 拡張機能は、以下の機能を提供します。</target>
+        <note from="lit-localize">Introduction for the features document.</note>
+      </trans-unit>
+      <trans-unit id="features_doc.demo" xml:space="preserve">
+        <source>demo</source>
+        <target state="translated">demo</target>
+        <note from="lit-localize">Text of a link which points to a screencast or screenshot showing a feature.</note>
+      </trans-unit>
+      <trans-unit id="features_doc.title" xml:space="preserve">
+        <source>Features</source>
+        <target state="translated">機能</target>
+        <note from="lit-localize">Title for the features document (a document that includes all the features).</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>
