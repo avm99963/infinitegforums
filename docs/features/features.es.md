@@ -1,6 +1,6 @@
-# Features
+# Funciones
 
-The TW Power Tools extension offers the following features:
+La extensión Herramientas avanzadas para TW ofrece las siguientes funciones:
 
 [TOC]
 

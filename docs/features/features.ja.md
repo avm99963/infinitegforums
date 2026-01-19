@@ -1,207 +1,207 @@
-# Features
+# 機能
 
-The TW Power Tools extension offers the following features:
+TW Power Tools 拡張機能は、以下の機能を提供します。
 
 [TOC]
 
-## General
+## 一般
 
-### Dark theme
+### ダークテーマ
 
-Enables choosing between a custom-built dark theme and the vanilla light theme in the Community Console.
+コミュニティコンソールで、独自に作成されたダークテーマと標準のライトテーマのいずれかを選択できるようにします
 
 *** promo
-_Automatic:_ will use the theme defined in the system settings.  
-_Manual:_ will add a button to the Community Console that lets you switch the theme.
+_自動:_ は、システム設定で定義されたテーマを使用します。  
+_手動:_ は、コミュニティ コンソールにテーマを切り替えられるボタンを追加します。
 ***
 
-_Community Console_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/ccDarkTheme/presentation/options/assets/screenshot.avif)
+_コミュニティコンソール_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/ccDarkTheme/presentation/options/assets/screenshot.avif)
 
-### Redirect to the Community Console
+### コミュニティコンソールにリダイレクトします
 
-Redirects all threads opened in Tailwind Basic to the Community Console.
+Tailwind Basic で開かれたすべてのスレッドを、コミュニティコンソールにリダイレクトします
 
 _Tailwind Basic_
 
-### Compact mode
+### コンパクトモード
 
-Reduce the whitespace in the UI.
+ユーザーインターフェース内の余白を減らします
 
-_Tailwind Basic, Community Console_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/uiSpacing/presentation/options/assets/screenshot.avif)
+_Tailwind Basic, コミュニティコンソール_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/uiSpacing/presentation/options/assets/screenshot.avif)
 
-### Attempt to fix performance issues
+### パフォーマンス問題の修正を試みます
 
-Best-effort workaround for the issues discussed at [pekb/381989895](https://support.google.com/s/community/forum/51488989/thread/381989895).
+[pekb/381989895](https://support.google.com/s/community/forum/51488989/thread/381989895) で議論されている問題に対する、可能な範囲での対応策です。
 
-_Community Console_
+_コミュニティコンソール_
 
-### Minor UI enhancements
+### 軽微なUI改善
 
-#### Sticky sidebar headers
+#### サイドバーのヘッダーを固定表示します
 
-Makes the headers of the collapsible sections in the sidebar sticky so they don't disappear when scrolling down.
+サイドバー内の折りたたみ可能なセクションのヘッダーを固定し、スクロールしても非表示にならないようにします
 
-_Community Console_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/stickySidebarHeaders/presentation/options/assets/demo.avif)
+_コミュニティコンソール_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/stickySidebarHeaders/presentation/options/assets/demo.avif)
 
-#### Hide sidebar by default
+#### デフォルトでサイドバーを非表示にします
 
-Hides the sidebar when opening the Community Console.
+コミュニティコンソールを開いたときにサイドバーを非表示にします
 
-_Community Console_
+_コミュニティコンソール_
 
-#### Highlight announcements notification dot
+#### お知らせ通知のドットを強調表示します
 
-Shows more prominently the dot that appears in the Community Console when Googlers publish a new announcement.
+Googlerが新しいお知らせを公開した際に、コミュニティコンソールに表示されるドットをより目立つ形で表示します
 
-_Community Console_
+_コミュニティコンソール_
 
-## Thread lists
+## スレッド リスト
 
-### Avatars
+### アバター
 
-Shows avatars of participants next to each thread.
+各スレッドの横に参加者のアバターを表示
 
-_Community Console_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/avatars/presentation/options/assets/screenshot.avif)
+_コミュニティコンソール_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/avatars/presentation/options/assets/screenshot.avif)
 
-### Notify updates
+### 更新を通知
 
-Shows a non-intrusive notification when a thread list has new updates.
+スレッド一覧に新しい更新があった際に、控えめな通知を表示します
 
-_Community Console_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/autoRefresh/presentation/options/assets/screenshot.avif)
+_コミュニティコンソール_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/autoRefresh/presentation/options/assets/screenshot.avif)
 
-### Infinite scroll
+### 無限スクロール
 
-Automatically loads more threads when scrolling down.
+下にスクロールすると、スレッドが自動的にさらに読み込まれます
 
 *** promo
-The Community Console already has this feature built-in without the need of the extension.
+この機能はすでにコミュニティコンソールに標準搭載されており、拡張機能は必要ありません
 ***
 
 _Tailwind Basic_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/infiniteScroll/presentation/options/assets/demo_thread_list.avif)
 
-### Bulk actions
+### 一括操作
 
-#### Bulk lock
+#### 一括ロック
 
-Adds a button to lock all selected threads at once.
+選択したすべてのスレッドを一括でロックするためのボタンを追加します
 
-_Community Console_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/batchLock/presentation/options/assets/demo.avif)
+_コミュニティコンソール_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/batchLock/presentation/options/assets/demo.avif)
 
-#### Bulk move
+#### 一括移動
 
-Adds a button to move all selected threads at once.
+選択したすべてのスレッドを一括で移動するためのボタンを追加します
 
-_Community Console_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/bulkMove/presentation/options/assets/demo.avif)
+_コミュニティコンソール_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/bulkMove/presentation/options/assets/demo.avif)
 
-### Minor UI enhancements
+### 軽微なUI改善
 
-#### Sticky bulk actions toolbar
+#### 一括操作ツールバーを固定表示します
 
-Makes the toolbar not disappear when scrolling down.
+下にスクロールしてもツールバーが消えないようにします
 
-_Community Console_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/fixedToolbar/presentation/options/assets/demo.avif)
+_コミュニティコンソール_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/fixedToolbar/presentation/options/assets/demo.avif)
 
-#### Place expand button in the left
+#### 展開ボタンを左側に配置します
 
-Places the "expand thread" button all the way to the left.
+「スレッドを展開」ボタンを一番左端に配置します
 
-_Community Console_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/repositionExpandThread/presentation/options/assets/screenshot.avif)
+_コミュニティコンソール_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/repositionExpandThread/presentation/options/assets/screenshot.avif)
 
-#### Increase contrast
+#### コントラストを強化します
 
-Increases contrast between the background of read and unread threads.
+既読スレッドと未読スレッドの背景のコントラストを強めます
 
-_Community Console_
+_コミュニティコンソール_
 
-## Threads
+## スレッド
 
-### Flatten replies
+### 返信をフラット表示にします
 
-Shows a toggle which lets you disable nested view to display the replies flattened.
+返信をフラット表示にするために、ネスト表示を無効にできる切り替えスイッチを表示します
 
-_Community Console_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/flattenThreads/presentation/options/assets/demo.avif)
+_コミュニティコンソール_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/flattenThreads/presentation/options/assets/demo.avif)
 
-### OP messages count
+### スレッド作成者(OP)のメッセージ数
 
-Shows a badge next to the OP's username with the number of messages posted by them.
+スレッド作成者（OP）のユーザー名の横に、そのユーザーが投稿したメッセージ数を示すバッジを表示します
 
-_Tailwind Basic, Community Console_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/profileIndicator/presentation/options/assets/screenshot.avif)
+_Tailwind Basic, コミュニティコンソール_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/profileIndicator/presentation/options/assets/screenshot.avif)
 
-### Infinite scroll
+### 無限スクロール
 
-Automatically loads more replies when scrolling down.
+下にスクロールすると、返信が自動的にさらに読み込まれます
 
-_Tailwind Basic, Community Console_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/infiniteScroll/presentation/options/assets/demo_thread.avif)
+_Tailwind Basic, コミュニティコンソール_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/infiniteScroll/presentation/options/assets/demo_thread.avif)
 
-### Change thread page design
+### スレッドページのデザインを変更します
 
-Forces showing the new or old thread page design.
-
-*** promo
-The old thread page design is partially broken, but this feature is kept since some PEs rely on it to access some features that are missing in the new design.
-***
-
-_Community Console_
-
-### Bulk actions
-
-#### Report replies quickly
-
-Adds quick report buttons to all replies, so you can report each one with a single click.
-
-_Tailwind Basic, Community Console_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/bulkReportReplies/presentation/options/assets/demo.avif)
-
-### Minor UI enhancements
-
-#### Limit image size
-
-Prevents inline images in messages from being taller than the current window.
-
-_Tailwind Basic, Community Console_
-
-## Message composer
-
-### Fix link dialog
-
-Patches the bug that incorrectly opens the link dialog multiple times when adding or editing a link.
-
-_Community Console_
-
-## Old message composer
+新しいスレッドページデザインまたは古いスレッドページデザインのいずれかを強制的に表示させます
 
 *** promo
-These features only affect the Community Console's old message composer, which is shown when creating a new thread or canned response, when pressing `r` inside a thread, or when creating a new reply in the old thread view. The new message composer doesn't suffer from these issues.
+「スレッドページのデザインを変更」機能に関する追加情報が、オプションページに表示されます
 ***
 
-### Fix drag and dropping links
+_コミュニティコンソール_
 
-Allows to drag and drop links to the text editor while preserving the link text.
+### 一括操作
 
-_Community Console_
+#### 返信を素早く報告する
 
-### Block saving drafts
+すべての返信にクイック報告ボタンを追加し、各返信をワンクリックで報告できるようにします
 
-Blocks saving drafts of your replies as you type to Google servers in the Community Console.
+_Tailwind Basic, コミュニティコンソール_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/bulkReportReplies/presentation/options/assets/demo.avif)
 
-_Community Console_
+### 軽微なUI改善
 
-### Load draft messages when replying
+#### 画像サイズを制限します
 
-Enables the `enableLoadingDraftMessages` Community Console flag, which enables recovering an existing draft saved in the Google servers when you start a new reply.
+メッセージ内のインライン画像が現在のウィンドウの高さを超えて表示されないようにします
 
-_Community Console_
+_Tailwind Basic, コミュニティコンソール_
 
-## Profiles
+## メッセージ作成画面
 
-### Per-forum activity
+### リンクダイアログを修正
 
-Shows a per-forum activity chart in profiles.
+リンクを追加または編集する際に、リンクダイアログが誤って複数回開いてしまうバグを修正します
 
-_Tailwind Basic, Community Console_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/extraInfo/presentation/options/assets/per_forum_stats.avif)
+_コミュニティコンソール_
 
-### Previous posts
+## 旧メッセージ作成画面
 
-Shows a "previous posts" link in user profiles.
+*** promo
+これらの機能は、コミュニティコンソールの旧メッセージ作成画面にのみ影響します。 旧メッセージ作成画面は、新しいスレッドや定型返信を作成する際、スレッド内で `r` キーを押したとき、または旧スレッドビューで新しい返信を作成する際に表示されます。 新しいメッセージ作成画面では、これらの問題は発生しません。
+***
 
-_Tailwind Basic, Community Console_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/previousPosts/presentation/options/assets/screenshot.avif)
+### リンクのドラッグ＆ドロップ機能を修正します
+
+リンクテキストを保持したまま、リンクをテキストエディタにドラッグ＆ドロップできるようにします
+
+_コミュニティコンソール_
+
+### 下書きの保存をブロックする
+
+コミュニティコンソールにおいて、入力中の返信の下書きをGoogleのサーバーに保存する処理をブロックします
+
+_コミュニティコンソール_
+
+### 返信時に下書きメッセージを読み込みます
+
+コミュニティコンソールの `enableLoadingDraftMessages` フラグを有効にします。これにより、新しい返信を開始する際に、Google のサーバーに保存されている既存の下書きを復元できるようになります。
+
+_コミュニティコンソール_
+
+## プロファイル
+
+### フォーラム別のアクティビティ
+
+プロフィール内に、フォーラムごとの活動チャートを表示します
+
+_Tailwind Basic, コミュニティコンソール_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/extraInfo/presentation/options/assets/per_forum_stats.avif)
+
+### 過去の投稿
+
+ユーザープロフィールに「過去の投稿」リンクを表示します
+
+_Tailwind Basic, コミュニティコンソール_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/previousPosts/presentation/options/assets/screenshot.avif)
 

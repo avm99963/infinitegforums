@@ -1,6 +1,6 @@
-# Features
+# 기능 목록
 
-The TW Power Tools extension offers the following features:
+TW Power Tools 확장 프로그램은 다음 기능을 제공합니다:
 
 [TOC]
 
@@ -15,7 +15,7 @@ _자동:_ 시스템 설정에서 정의된 화면 모드를 사용합니다.
 _수동:_ 화면 모드를 변경하는 버튼이 커뮤니티 콘솔에 추가됩니다.
 ***
 
-_커뮤니티 콘솔_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/ccDarkTheme/presentation/options/assets/screenshot.avif)
+_커뮤니티 콘솔_ | [\[데모\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/ccDarkTheme/presentation/options/assets/screenshot.avif)
 
 ### 커뮤니티 콘솔로 리디렉션
 
@@ -27,7 +27,7 @@ _기본 Tailwind_
 
 UI의 여백을 줄입니다.
 
-_기본 Tailwind, 커뮤니티 콘솔_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/uiSpacing/presentation/options/assets/screenshot.avif)
+_기본 Tailwind, 커뮤니티 콘솔_ | [\[데모\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/uiSpacing/presentation/options/assets/screenshot.avif)
 
 ### 성능 이슈 해결 시도
 
@@ -41,7 +41,7 @@ _커뮤니티 콘솔_
 
 사이드바에 있는 접이식 섹션의 헤더가 스크롤을 내려도 사라지지 않도록 상단에 고정됩니다.
 
-_커뮤니티 콘솔_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/stickySidebarHeaders/presentation/options/assets/demo.avif)
+_커뮤니티 콘솔_ | [\[데모\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/stickySidebarHeaders/presentation/options/assets/demo.avif)
 
 #### 기본적으로 사이드바 숨기기
 
@@ -61,13 +61,13 @@ _커뮤니티 콘솔_
 
 각 게시글 옆에 참여자들의 아바타를 표시합니다.
 
-_커뮤니티 콘솔_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/avatars/presentation/options/assets/screenshot.avif)
+_커뮤니티 콘솔_ | [\[데모\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/avatars/presentation/options/assets/screenshot.avif)
 
 ### 업데이트 알림
 
 게시글 목록에 새 업데이트가 있을 때, 사용자를 방해하지 않는 알림을 표시합니다.
 
-_커뮤니티 콘솔_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/autoRefresh/presentation/options/assets/screenshot.avif)
+_커뮤니티 콘솔_ | [\[데모\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/autoRefresh/presentation/options/assets/screenshot.avif)
 
 ### 무한 스크롤
 
@@ -77,7 +77,7 @@ _커뮤니티 콘솔_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/in
 확장 프로그램이 없어도 커뮤니티 콘솔에서 이 기능을 사용할 수 있습니다.
 ***
 
-_기본 Tailwind_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/infiniteScroll/presentation/options/assets/demo_thread_list.avif)
+_기본 Tailwind_ | [\[데모\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/infiniteScroll/presentation/options/assets/demo_thread_list.avif)
 
 ### 일괄 작업
 
@@ -85,13 +85,13 @@ _기본 Tailwind_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infini
 
 선택한 모든 게시글을 한 번에 잠그는 버튼을 추가합니다.
 
-_커뮤니티 콘솔_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/batchLock/presentation/options/assets/demo.avif)
+_커뮤니티 콘솔_ | [\[데모\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/batchLock/presentation/options/assets/demo.avif)
 
 #### 일괄 이동
 
 선택한 모든 게시글을 한 번에 이동시키는 버튼을 추가합니다.
 
-_커뮤니티 콘솔_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/bulkMove/presentation/options/assets/demo.avif)
+_커뮤니티 콘솔_ | [\[데모\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/bulkMove/presentation/options/assets/demo.avif)
 
 ### 사소한 UI 개선
 
@@ -99,13 +99,13 @@ _커뮤니티 콘솔_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/in
 
 스크롤을 내려도 툴바가 사라지지 않도록 합니다.
 
-_커뮤니티 콘솔_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/fixedToolbar/presentation/options/assets/demo.avif)
+_커뮤니티 콘솔_ | [\[데모\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/fixedToolbar/presentation/options/assets/demo.avif)
 
 #### 확장 버튼을 왼쪽으로 이동
 
 "게시글 확장" 버튼을 왼쪽에 위치시킵니다.
 
-_커뮤니티 콘솔_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/repositionExpandThread/presentation/options/assets/screenshot.avif)
+_커뮤니티 콘솔_ | [\[데모\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/repositionExpandThread/presentation/options/assets/screenshot.avif)
 
 #### 대비 강화
 
@@ -119,19 +119,19 @@ _커뮤니티 콘솔_
 
 대화형식으로 보기를 비활성화하여 댓글을 목록 형태로 볼 수 있는 토글 버튼을 표시합니다.
 
-_커뮤니티 콘솔_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/flattenThreads/presentation/options/assets/demo.avif)
+_커뮤니티 콘솔_ | [\[데모\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/flattenThreads/presentation/options/assets/demo.avif)
 
 ### OP가 작성한 메시지 수
 
 OP의 사용자 이름 옆에 지금까지 작성한 메시지 수를 나타내는 배지를 표시합니다.
 
-_기본 Tailwind, 커뮤니티 콘솔_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/profileIndicator/presentation/options/assets/screenshot.avif)
+_기본 Tailwind, 커뮤니티 콘솔_ | [\[데모\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/profileIndicator/presentation/options/assets/screenshot.avif)
 
 ### 무한 스크롤
 
 아래로 스크롤할 때 더 많은 댓글을 자동으로 불러옵니다.
 
-_기본 Tailwind, 커뮤니티 콘솔_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/infiniteScroll/presentation/options/assets/demo_thread.avif)
+_기본 Tailwind, 커뮤니티 콘솔_ | [\[데모\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/infiniteScroll/presentation/options/assets/demo_thread.avif)
 
 ### 게시글 페이지 디자인 변경
 
@@ -149,7 +149,7 @@ _커뮤니티 콘솔_
 
 모든 댓글에 빠른 신고 버튼을 추가하여, 한 번의 클릭만으로 신고할 수 있도록 합니다.
 
-_기본 Tailwind, 커뮤니티 콘솔_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/bulkReportReplies/presentation/options/assets/demo.avif)
+_기본 Tailwind, 커뮤니티 콘솔_ | [\[데모\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/bulkReportReplies/presentation/options/assets/demo.avif)
 
 ### 사소한 UI 개선
 
@@ -197,11 +197,11 @@ _커뮤니티 콘솔_
 
 프로필에서 포럼별 활동을 표시합니다.
 
-_기본 Tailwind, 커뮤니티 콘솔_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/extraInfo/presentation/options/assets/per_forum_stats.avif)
+_기본 Tailwind, 커뮤니티 콘솔_ | [\[데모\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/extraInfo/presentation/options/assets/per_forum_stats.avif)
 
 ### 이전 활동
 
 "이전 활동" 링크를 사용자 프로필에 표시합니다.
 
-_기본 Tailwind, 커뮤니티 콘솔_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/previousPosts/presentation/options/assets/screenshot.avif)
+_기본 Tailwind, 커뮤니티 콘솔_ | [\[데모\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/previousPosts/presentation/options/assets/screenshot.avif)
 
