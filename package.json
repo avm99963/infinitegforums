@@ -33,7 +33,7 @@
   "devDependencies": {
     "@lit/localize-tools": "0.8.1",
     "@testing-library/dom": "10.4.1",
-    "@types/chrome": "0.1.33",
+    "@types/chrome": "0.1.35",
     "@types/google-protobuf": "3.15.12",
     "@types/node": "24.10.9",
     "@vitest/coverage-istanbul": "4.0.17",
