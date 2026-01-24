@@ -819,18 +819,21 @@
         <target state="translated">Funciones</target>
         <note from="lit-localize">Title for the features document (a document that includes all the features).</note>
       </trans-unit>
-<trans-unit id="see5ed10adf6a3a68" xml:space="preserve">
-  <source>Adds quick report buttons to all messages, so you can report each one with a single click.</source>
-  <note from="lit-localize">Description of the "Report messages quickly" feature.</note>
-</trans-unit>
-<trans-unit id="s07a3572d3e9adbd5" xml:space="preserve">
-  <source>Report messages quickly</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="sa6bce8caee31e1c9" xml:space="preserve">
-  <source>Bulk report</source>
-  <note from="lit-localize">Option shown in the settings menu of the thread toolbar which enables the "bulk report messages" feature.</note>
-</trans-unit>
+      <trans-unit id="see5ed10adf6a3a68" xml:space="preserve">
+        <source>Adds quick report buttons to all messages, so you can report each one with a single click.</source>
+        <target state="translated">Añade botones de informado rápido a todos los mensajes, para que puedas informar cada uno con un solo clic.</target>
+        <note from="lit-localize">Description of the "Report messages quickly" feature.</note>
+      </trans-unit>
+      <trans-unit id="s07a3572d3e9adbd5" xml:space="preserve">
+        <source>Report messages quickly</source>
+        <target state="translated">Informa de varios mensajes rápidamente</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="sa6bce8caee31e1c9" xml:space="preserve">
+        <source>Bulk report</source>
+        <target state="translated">Informa masivamente</target>
+        <note from="lit-localize">Option shown in the settings menu of the thread toolbar which enables the "bulk report messages" feature.</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>

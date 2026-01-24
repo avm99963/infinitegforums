@@ -427,7 +427,9 @@
       Community Console flag, which enables recovering an existing draft saved
       in the Google servers when you start a new reply.
     </source>
-        <target state="translated">Activa la flag <x id="0" equiv-text="&lt;code&gt;"/>enableLoadingDraftMessages<x id="1" equiv-text="&lt;/code&gt;"/> de la Consola de la Comunitat, que permet recuperar un esborrany existent que s'hagi guardat als servidors de Google quan comences una nova resposta. </target>
+        <target state="translated">
+      Activa la flag <x id="0" equiv-text="&lt;code&gt;"/>enableLoadingDraftMessages<x id="1" equiv-text="&lt;/code&gt;"/> de la Consola de la Comunitat, que permet recuperar un esborrany existent que s'hagi guardat als servidors de Google quan comences una nova resposta.
+    </target>
         <note from="lit-localize">Description of the "Load draft messages when replying" feature.</note>
       </trans-unit>
       <trans-unit id="s7d9104ef3d3b4273" xml:space="preserve">
@@ -810,18 +812,21 @@
         <target state="translated">Funcions</target>
         <note from="lit-localize">Title for the features document (a document that includes all the features).</note>
       </trans-unit>
-<trans-unit id="see5ed10adf6a3a68" xml:space="preserve">
-  <source>Adds quick report buttons to all messages, so you can report each one with a single click.</source>
-  <note from="lit-localize">Description of the "Report messages quickly" feature.</note>
-</trans-unit>
-<trans-unit id="s07a3572d3e9adbd5" xml:space="preserve">
-  <source>Report messages quickly</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="sa6bce8caee31e1c9" xml:space="preserve">
-  <source>Bulk report</source>
-  <note from="lit-localize">Option shown in the settings menu of the thread toolbar which enables the "bulk report messages" feature.</note>
-</trans-unit>
+      <trans-unit id="see5ed10adf6a3a68" xml:space="preserve">
+        <source>Adds quick report buttons to all messages, so you can report each one with a single click.</source>
+        <target state="translated">Afegeix botons d'informat ràpid a tots els missatges, perquè puguis informar cadascun amb un únic clic.</target>
+        <note from="lit-localize">Description of the "Report messages quickly" feature.</note>
+      </trans-unit>
+      <trans-unit id="s07a3572d3e9adbd5" xml:space="preserve">
+        <source>Report messages quickly</source>
+        <target state="translated">Informa respostes ràpidament</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="sa6bce8caee31e1c9" xml:space="preserve">
+        <source>Bulk report</source>
+        <target state="translated">Informa massivament</target>
+        <note from="lit-localize">Option shown in the settings menu of the thread toolbar which enables the "bulk report messages" feature.</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>
