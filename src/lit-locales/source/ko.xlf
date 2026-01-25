@@ -835,18 +835,21 @@
         <target state="translated">기능 목록</target>
         <note from="lit-localize">Title for the features document (a document that includes all the features).</note>
       </trans-unit>
-<trans-unit id="see5ed10adf6a3a68" xml:space="preserve">
-  <source>Adds quick report buttons to all messages, so you can report each one with a single click.</source>
-  <note from="lit-localize">Description of the "Report messages quickly" feature.</note>
-</trans-unit>
-<trans-unit id="s07a3572d3e9adbd5" xml:space="preserve">
-  <source>Report messages quickly</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="sa6bce8caee31e1c9" xml:space="preserve">
-  <source>Bulk report</source>
-  <note from="lit-localize">Option shown in the settings menu of the thread toolbar which enables the "bulk report messages" feature.</note>
-</trans-unit>
+      <trans-unit id="see5ed10adf6a3a68" xml:space="preserve">
+        <source>Adds quick report buttons to all messages, so you can report each one with a single click.</source>
+        <target state="translated">한 번의 클릭만으로 신고할 수 있는 간편 신고 버튼을 모든 메시지에 추가합니다.</target>
+        <note from="lit-localize">Description of the "Report messages quickly" feature.</note>
+      </trans-unit>
+      <trans-unit id="s07a3572d3e9adbd5" xml:space="preserve">
+        <source>Report messages quickly</source>
+        <target state="translated">메시지 간편 신고</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="sa6bce8caee31e1c9" xml:space="preserve">
+        <source>Bulk report</source>
+        <target state="translated">일괄 신고</target>
+        <note from="lit-localize">Option shown in the settings menu of the thread toolbar which enables the "bulk report messages" feature.</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>
