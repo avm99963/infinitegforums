@@ -769,51 +769,63 @@
         <target state="translated">Editor de mensagens</target>
         <note from="lit-localize">Name of the category of extension features related to the message composer.</note>
       </trans-unit>
-<trans-unit id="s45ee97a0bb6df8de" xml:space="preserve">
-  <source>In batches</source>
-  <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
-</trans-unit>
-<trans-unit id="sd984a10a3a8f281e" xml:space="preserve">
-  <source>All at once</source>
-  <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
-</trans-unit>
-<trans-unit id="s37cbecaec58e2192" xml:space="preserve">
-  <source>Mode</source>
-  <note from="lit-localize">Suboption for the "Infinite scroll" (in threads) feature.</note>
-</trans-unit>
-<trans-unit id="hcbf5bbcf50440d80" xml:space="preserve">
-  <source>Best-effort workaround for the issues discussed at <x id="0" equiv-text="&lt;a href=&quot;https://support.google.com/s/community/forum/51488989/thread/381989895&quot; target=&quot;_blank&quot;&gt;"/>pekb/381989895<x id="1" equiv-text="&lt;/a&gt;"/>.
+      <trans-unit id="s45ee97a0bb6df8de" xml:space="preserve">
+        <source>In batches</source>
+        <target state="translated">Opção selecionável para a subopção "Modo" do recurso "Rolagem infinita" (em tópicos)</target>
+        <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
+      </trans-unit>
+      <trans-unit id="sd984a10a3a8f281e" xml:space="preserve">
+        <source>All at once</source>
+        <target state="translated">De uma vez</target>
+        <note from="lit-localize">Selectable option for the "Mode" suboption of the "Infinite scroll" (in threads) feature.</note>
+      </trans-unit>
+      <trans-unit id="s37cbecaec58e2192" xml:space="preserve">
+        <source>Mode</source>
+        <target state="translated">Modo</target>
+        <note from="lit-localize">Suboption for the "Infinite scroll" (in threads) feature.</note>
+      </trans-unit>
+      <trans-unit id="hcbf5bbcf50440d80" xml:space="preserve">
+        <source>Best-effort workaround for the issues discussed at <x id="0" equiv-text="&lt;a href=&quot;https://support.google.com/s/community/forum/51488989/thread/381989895&quot; target=&quot;_blank&quot;&gt;"/>pekb/381989895<x id="1" equiv-text="&lt;/a&gt;"/>.
       </source>
-  <note from="lit-localize">Description of the "Sticky bulk actions toolbar" feature.</note>
-</trans-unit>
-<trans-unit id="s81f8bee6e06364f6" xml:space="preserve">
-  <source>Attempt to fix performance issues</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="features_doc.intro" xml:space="preserve">
-  <source>The TW Power Tools extension offers the following features:</source>
-  <note from="lit-localize">Introduction for the features document.</note>
-</trans-unit>
-<trans-unit id="features_doc.demo" xml:space="preserve">
-  <source>demo</source>
-  <note from="lit-localize">Text of a link which points to a screencast or screenshot showing a feature.</note>
-</trans-unit>
-<trans-unit id="features_doc.title" xml:space="preserve">
-  <source>Features</source>
-  <note from="lit-localize">Title for the features document (a document that includes all the features).</note>
-</trans-unit>
-<trans-unit id="see5ed10adf6a3a68" xml:space="preserve">
-  <source>Adds quick report buttons to all messages, so you can report each one with a single click.</source>
-  <note from="lit-localize">Description of the "Report messages quickly" feature.</note>
-</trans-unit>
-<trans-unit id="s07a3572d3e9adbd5" xml:space="preserve">
-  <source>Report messages quickly</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="sa6bce8caee31e1c9" xml:space="preserve">
-  <source>Bulk report</source>
-  <note from="lit-localize">Option shown in the settings menu of the thread toolbar which enables the "bulk report messages" feature.</note>
-</trans-unit>
+        <target state="translated">Solução alternativa, dentro do possível, para os problemas discutidos em <x id="0" equiv-text="&lt;a href=&quot;https://support.google.com/s/community/forum/51488989/thread/381989895&quot; target=&quot;_blank&quot;&gt;"/>pekb/381989895<x id="1" equiv-text="&lt;/a&gt;"/>.
+      </target>
+        <note from="lit-localize">Description of the "Sticky bulk actions toolbar" feature.</note>
+      </trans-unit>
+      <trans-unit id="s81f8bee6e06364f6" xml:space="preserve">
+        <source>Attempt to fix performance issues</source>
+        <target state="translated">Tentativa de corrigir problemas de desempenho</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="features_doc.intro" xml:space="preserve">
+        <source>The TW Power Tools extension offers the following features:</source>
+        <target state="translated">A extensão TW Power Tools oferece os seguintes recursos:</target>
+        <note from="lit-localize">Introduction for the features document.</note>
+      </trans-unit>
+      <trans-unit id="features_doc.demo" xml:space="preserve">
+        <source>demo</source>
+        <target state="translated">demonstração</target>
+        <note from="lit-localize">Text of a link which points to a screencast or screenshot showing a feature.</note>
+      </trans-unit>
+      <trans-unit id="features_doc.title" xml:space="preserve">
+        <source>Features</source>
+        <target state="translated">Características</target>
+        <note from="lit-localize">Title for the features document (a document that includes all the features).</note>
+      </trans-unit>
+      <trans-unit id="see5ed10adf6a3a68" xml:space="preserve">
+        <source>Adds quick report buttons to all messages, so you can report each one with a single click.</source>
+        <target state="translated">Adiciona botões de relatório rápido a todas as mensagens, para que você possa relatar cada uma com um único clique.</target>
+        <note from="lit-localize">Description of the "Report messages quickly" feature.</note>
+      </trans-unit>
+      <trans-unit id="s07a3572d3e9adbd5" xml:space="preserve">
+        <source>Report messages quickly</source>
+        <target state="translated">Denuncie mensagens rapidamente</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="sa6bce8caee31e1c9" xml:space="preserve">
+        <source>Bulk report</source>
+        <target state="translated">Relatório em massa</target>
+        <note from="lit-localize">Option shown in the settings menu of the thread toolbar which enables the "bulk report messages" feature.</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>
