@@ -95,6 +95,7 @@ import WorkflowsImport from '@/features/workflows/core/communityConsole/import/i
 import { getSyncStorageAreaRepository } from '@/storage/compositionRoot';
 import BulkReportRepliesQuestionCardHandler from '@/features/bulkReportReplies/presentation/nodeWatcherHandlers/questionCard.handler';
 import { ThreadInfoRepositoryAdapter } from '@/features/bulkReportReplies/infrastructure/repositories/itemInfo/threadInfo.repository.adapter';
+import FixCrPopupStylesScript from '@/features/fixCrPopup/presentation/scripts/styles.script';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -317,6 +318,7 @@ function createScriptRunner() {
         new CCExtraInfoStylesScript(),
         new CCForceHideDrawerScript(optionsProvider),
         new EnhancedAnnouncementsDotStylesScript(optionsProvider),
+        new FixCrPopupStylesScript(optionsProvider),
         new FixedToolbarStylesScript(optionsProvider),
         new ImageMaxHeightStylesScript(optionsProvider),
         new IncreaseContrastStylesScript(optionsProvider),

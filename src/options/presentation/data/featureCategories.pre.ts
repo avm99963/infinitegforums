@@ -33,6 +33,7 @@ import { fixLinkDialogFeature } from '../../../features/linkDialogFix/presentati
 import { logStartupDataFeature } from '../../../features/logStartupData/presentation/options/feature';
 import { fixPEKB381989895Feature } from '@/features/fixPEKB381989895/presentation/options/feature';
 import { simulateRolesFeature } from '@/features/simulateRoles/presentation/options/feature';
+import { fixCrPopupFeature } from '@/features/fixCrPopup/presentation/options/feature';
 
 const minorUIEnhancementsSectionName = () =>
   msg('Minor UI enhancements', {
@@ -119,6 +120,12 @@ export const getFeatureCategories = () => [
       desc: 'Name of the category of extension features related to the message composer.',
     }),
     features: [fixLinkDialogFeature()],
+    sections: [
+      new FeatureSection({
+        name: minorUIEnhancementsSectionName(),
+        features: [fixCrPopupFeature()],
+      }),
+    ],
   }),
   new FeatureCategory({
     id: 'oldMessageComposer',

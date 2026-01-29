@@ -42,6 +42,7 @@ common_ts_project(
         "//src/features/ccForceHideDrawer/presentation/options",
         "//src/features/enhancedAnnouncementsDot/presentation/options",
         "//src/features/extraInfo/presentation/options",
+        "//src/features/fixCrPopup/presentation/options",
         "//src/features/fixPEKB381989895/presentation/options",
         "//src/features/fixedToolbar/presentation/options",
         "//src/features/flattenThreads/presentation/options",

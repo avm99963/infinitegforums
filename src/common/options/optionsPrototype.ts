@@ -172,6 +172,11 @@ const rawOptionConfigs = {
     context: OptionContext.Options,
     killSwitchType: KillSwitchType.Ignore,
   },
+  fixcrpopup: {
+    defaultValue: false,
+    context: OptionContext.Options,
+    killSwitchType: KillSwitchType.Ignore,
+  },
 
   // Experiments
   workflows: {

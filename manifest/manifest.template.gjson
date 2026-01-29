@@ -123,6 +123,7 @@
         "css/increase_contrast.css",
         "css/sticky_sidebar_headers.css",
         "css/bulk_report_replies.css",
+        "css/fix_cr_popup.css",
         "cc_dark_theme_styles/main.bundle.css",
         "cc_dark_theme_styles/main.bundle.css.map",
 

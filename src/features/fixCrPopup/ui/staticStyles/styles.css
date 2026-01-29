@@ -1,0 +1,8 @@
+.scSharedSearchablemenuroot {
+  max-width: min(700px, 100dvw);
+}
+
+.scSharedSearchablemenuitem {
+  display: block;
+  text-align: left;
+}

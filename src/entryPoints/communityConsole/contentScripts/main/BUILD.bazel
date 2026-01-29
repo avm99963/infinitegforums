@@ -53,6 +53,7 @@ common_ts_project(
         "//src/features/extraInfo/presentation/nodeWatcherHandlers/thread",
         "//src/features/extraInfo/presentation/nodeWatcherHandlers/threadList",
         "//src/features/extraInfo/presentation/scripts",
+        "//src/features/fixCrPopup/presentation/scripts",
         "//src/features/fixedToolbar/presentation/scripts",
         "//src/features/flattenThreads/core",
         "//src/features/flattenThreads/presentation/nodeWatcherHandlers",
