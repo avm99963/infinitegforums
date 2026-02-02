@@ -401,7 +401,7 @@
       </trans-unit>
       <trans-unit id="se1b156e30d3f6827" xml:space="preserve">
         <source>Shows more prominently the dot that appears in the Community Console when Googlers publish a new announcement.</source>
-        <target state="translated">커뮤니티 콘솔에서 구글 직원이 새 공지를 게시할 때 나타나는 점을 더 눈에 띄게 표시합니다.</target>
+        <target state="translated">커뮤니티 콘솔에서 Google 직원이 새 공지를 게시할 때 나타나는 점을 더 눈에 띄게 표시합니다.</target>
         <note from="lit-localize">Description of the "Highlight announcements notification dot" feature.</note>
       </trans-unit>
       <trans-unit id="s6ce91fd240036df3" xml:space="preserve">
@@ -812,7 +812,8 @@
       <trans-unit id="hcbf5bbcf50440d80" xml:space="preserve">
         <source>Best-effort workaround for the issues discussed at <x id="0" equiv-text="&lt;a href=&quot;https://support.google.com/s/community/forum/51488989/thread/381989895&quot; target=&quot;_blank&quot;&gt;"/>pekb/381989895<x id="1" equiv-text="&lt;/a&gt;"/>.
       </source>
-        <target state="translated"><x id="0" equiv-text="&lt;a href=&quot;https://support.google.com/s/community/forum/51488989/thread/381989895&quot; target=&quot;_blank&quot;&gt;"/>pekb/381989895<x id="1" equiv-text="&lt;/a&gt;"/>에서 논의된 이슈에 대한 최선의 임시 해결책을 적용합니다. </target>
+        <target state="translated"><x id="0" equiv-text="&lt;a href=&quot;https://support.google.com/s/community/forum/51488989/thread/381989895&quot; target=&quot;_blank&quot;&gt;"/>pekb/381989895<x id="1" equiv-text="&lt;/a&gt;"/>에서 논의된 이슈에 대한 최선의 임시 해결책을 적용합니다.
+      </target>
         <note from="lit-localize">Description of the "Sticky bulk actions toolbar" feature.</note>
       </trans-unit>
       <trans-unit id="s81f8bee6e06364f6" xml:space="preserve">
