@@ -8,7 +8,6 @@ common --no//src/killSwitch:enable_kill_switch_mechanism
 build --flag_alias=browser=//:browser
 build --flag_alias=channel=//:channel
 build --flag_alias=release=//:release
-build --flag_alias=norelease=no//:release
 
 common:ci --test_env=CI=true
 # This simplifies our log in CI. curses is not useful since we can't view live
