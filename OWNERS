@@ -3,5 +3,5 @@ me@avm99963.com
 per-file .bazelversion=file:/PACKAGE_MANAGER_OWNERS
 per-file MODULE.bazel=file:/PACKAGE_MANAGER_OWNERS
 per-file MODULE.bazel.lock=file:/PACKAGE_MANAGER_OWNERS
-per-file package.json=file:/PACKAGE_MANAGER_OWNERS
+per-file {**/,}package.json=file:/PACKAGE_MANAGER_OWNERS
 per-file pnpm-lock.yaml=file:/PACKAGE_MANAGER_OWNERS
