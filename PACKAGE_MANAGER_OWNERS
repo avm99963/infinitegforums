@@ -1,0 +1,4 @@
+# Owners of files related to package managers.
+
+# Renovate needs to self-approve changes to package manager files.
+renovate-bot@avm99963.com
