@@ -6,7 +6,7 @@ bazel_dep(name = "aspect_rules_webpack", version = "0.17.1")
 bazel_dep(name = "bazel_lib", version = "3.2.1")
 bazel_dep(name = "bazel_skylib", version = "1.9.0")
 bazel_dep(name = "bazelrc-preset.bzl", version = "1.9.2")
-bazel_dep(name = "fremtind_rules_vitest", version = "0.2.1")
+bazel_dep(name = "fremtind_rules_vitest", version = "0.2.2")
 bazel_dep(name = "gazelle", version = "0.47.0")
 bazel_dep(name = "gzgz_rules_sass", version = "1.0.4")
 bazel_dep(name = "jq.bzl", version = "0.6.1")
@@ -31,7 +31,15 @@ single_version_override(
     patches = ["//tools:bazel/patches/gzgz_rules_sass_bazel9.patch"],
 )
 
+archive_override(
+    module_name = "fremtind_rules_vitest",
+    sha256 = "eb02835c46b2fd52041ce05e7c91db2f0caaaccab0b39ff71fdc9970085467f8",
+    strip_prefix = "rules_vitest-0.2.2",
+    url = "https://github.com/fremtind/rules_vitest/releases/download/v0.2.2/rules_vitest-v0.2.2.tar.gz",
+)
+
 node = use_extension("@rules_nodejs//nodejs:extensions.bzl", "node", dev_dependency = True)
+
 # The version should be updated to the latest one available every time that
 # rules_nodejs is updated.
 node.toolchain(node_version = "24.13.0")
