@@ -30,6 +30,7 @@ OTHER_LOCALES_PATHS = [
 
 sh_test(
     name = "check_extra_keys",
+    size = "small",
     srcs = ["check_extra_keys.sh"],
     args = [
         "$(rlocationpath //tools:jq)",
