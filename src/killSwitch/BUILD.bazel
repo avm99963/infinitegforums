@@ -1,5 +1,6 @@
 load("@aspect_rules_js//js:defs.bzl", "js_library")
 load("@bazel_lib//lib:write_source_files.bzl", "write_source_file")
+load("@protobuf//bazel:proto_library.bzl", "proto_library")
 load("@rules_proto_grpc_doc//:defs.bzl", "doc_markdown_compile")
 load("@rules_proto_grpc_js//:defs.bzl", "js_grpc_web_library")
 load("//tools:common_js_project.bzl", "common_js_project")
