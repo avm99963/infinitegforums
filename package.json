@@ -56,7 +56,7 @@
     "typescript-eslint": "8.54.0",
     "vitest": "4.0.18",
     "web-ext": "9.3.0",
-    "webpack": "5.105.0",
+    "webpack": "5.105.2",
     "webpack-cli": "6.0.1"
   },
   "private": true,
