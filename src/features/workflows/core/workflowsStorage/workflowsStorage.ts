@@ -2,8 +2,39 @@ import * as pb from '../proto/main_pb.js';
 
 export const kWorkflowsDataKey = 'workflowsData';
 
+/** Base64 representation of a workflow protobuf message. */
+export type Base64Workflow = string;
+
+export interface StoredWorkflow {
+  /**
+   * Unique identifier for the workflow.
+   *
+   * If a workflow is exported, it will preserve this UUID to help prevent deduplication.
+   */
+  uuid: string;
+
+  /**
+   * Workflow serialized into bytes, saved as a base64 string.
+   */
+  data: Base64Workflow;
+}
+
+export interface IdentifiableWorkflow {
+  /**
+   * Unique identifier for the workflow.
+   *
+   * If a workflow is exported, it will preserve this UUID to help prevent deduplication.
+   */
+  uuid: string;
+
+  /**
+   * Protobuf message representation.
+   */
+  proto: pb.workflows.Workflow;
+}
+
 export default class WorkflowsStorage {
-  static watch(callback) {
+  static watch(callback: (workflows: StoredWorkflow[]) => void): void {
     // Function which will be called when the watcher is initialized and every
     // time the workflows storage changes.
     const callOnChanged = async () => {
@@ -17,18 +48,20 @@ export default class WorkflowsStorage {
     callOnChanged();
   }
 
-  static convertRawListToProtobuf(workflows) {
+  static convertRawListToProtobuf(
+    workflows: StoredWorkflow[],
+  ): IdentifiableWorkflow[] {
     return workflows.map((w) => {
       return {
         uuid: w.uuid,
         proto: pb.workflows.Workflow.deserializeBinary(
-            Uint8Array.fromBase64(w?.data),
-            ),
+          Uint8Array.fromBase64(w?.data),
+        ),
       };
     });
   }
 
-  static getAll() {
+  static getAll(): Promise<StoredWorkflow[]> {
     return new Promise((res) => {
       chrome.storage.local.get(kWorkflowsDataKey, (items) => {
         const workflows = items[kWorkflowsDataKey];
@@ -38,7 +71,7 @@ export default class WorkflowsStorage {
     });
   }
 
-  static async get(uuid) {
+  static async get(uuid: string): Promise<StoredWorkflow | null> {
     const workflows = await this.getAll();
     for (const w of workflows) {
       if (w.uuid == uuid) return w;
@@ -46,13 +79,13 @@ export default class WorkflowsStorage {
     return null;
   }
 
-  static async exists(uuid) {
+  static async exists(uuid: string): Promise<boolean> {
     const workflow = await this.get(uuid);
     return workflow !== null;
   }
 
-  static async addRaw(base64Workflow) {
-    const w = {
+  static async addRaw(base64Workflow: Base64Workflow): Promise<void> {
+    const w: StoredWorkflow = {
       uuid: self.crypto.randomUUID(),
       data: base64Workflow,
     };
@@ -62,12 +95,15 @@ export default class WorkflowsStorage {
     this._saveWorkflows(workflows);
   }
 
-  static add(workflow) {
+  static add(workflow: pb.workflows.Workflow): Promise<void> {
     const data = this._proto2Base64(workflow);
     return this.addRaw(data);
   }
 
-  static async updateRaw(uuid, base64Workflow) {
+  static async updateRaw(
+    uuid: string,
+    base64Workflow: Base64Workflow,
+  ): Promise<void> {
     const workflows = await this.getAll();
     workflows.forEach((w) => {
       if (w.uuid === uuid) {
@@ -77,22 +113,22 @@ export default class WorkflowsStorage {
     this._saveWorkflows(workflows);
   }
 
-  static update(uuid, workflow) {
+  static update(uuid: string, workflow: pb.workflows.Workflow): Promise<void> {
     const data = this._proto2Base64(workflow);
     return this.updateRaw(uuid, data);
   }
 
-  static async remove(uuid) {
+  static async remove(uuid: string): Promise<void> {
     const oldWorkflows = await this.getAll();
     const workflows = oldWorkflows.filter((w) => w.uuid != uuid);
     this._saveWorkflows(workflows);
   }
 
-  static async moveUp(uuid) {
+  static async moveUp(uuid: string): Promise<void> {
     await this.moveToRelativePosition(uuid, -1);
   }
 
-  static async moveDown(uuid) {
+  static async moveDown(uuid: string): Promise<void> {
     await this.moveToRelativePosition(uuid, 1);
   }
 
@@ -101,29 +137,34 @@ export default class WorkflowsStorage {
    * the workflow's position. Example: position = 1 swaps the workflow with the
    * next workflow, so it appears afterwards.
    */
-  static async moveToRelativePosition(uuid, relativePosition) {
+  static async moveToRelativePosition(
+    uuid: string,
+    relativePosition: number,
+  ): Promise<void> {
     const workflows = await this.getAll();
     const index = workflows.findIndex((workflow) => workflow.uuid === uuid);
     if (index === -1) {
       throw new Error(
-          'Couldn\'t move the workflow because it couldn\'t be found.',
+        "Couldn't move the workflow because it couldn't be found.",
       );
     }
     if (workflows[index + relativePosition] === undefined) {
       throw new Error(
-          'Couldn\'t move the workflow because the specified relative position is out of bounds.',
+        "Couldn't move the workflow because the specified relative position is out of bounds.",
       );
     }
-    [workflows[index], workflows[index + relativePosition]] =
-        [workflows[index + relativePosition], workflows[index]];
+    [workflows[index], workflows[index + relativePosition]] = [
+      workflows[index + relativePosition],
+      workflows[index],
+    ];
     this._saveWorkflows(workflows);
   }
 
-  static _saveWorkflows(workflows) {
+  static _saveWorkflows(workflows: StoredWorkflow[]) {
     return chrome.storage.local.set({ [kWorkflowsDataKey]: workflows });
   }
 
-  static _proto2Base64(workflow) {
+  static _proto2Base64(workflow: pb.workflows.Workflow): Base64Workflow {
     const binaryWorkflow = workflow.serializeBinary();
     return binaryWorkflow.toBase64();
   }

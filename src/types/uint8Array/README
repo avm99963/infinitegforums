@@ -1,0 +1,6 @@
+Copy of
+https://github.com/dontwanttothink/TypeScript/blob/b24705d5e6da7e23c451aecf4dde7ae275136b28/src/lib/esnext.typedarrays.d.ts.
+
+We need this since Typescript releases are frozen and we need this type.
+
+TODO(avm99963): delete this once a new Typescript release is available.
