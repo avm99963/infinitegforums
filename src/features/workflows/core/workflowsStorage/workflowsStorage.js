@@ -1,4 +1,3 @@
-import {arrayBufferToBase64} from './common.js';
 import * as pb from '../proto/main_pb.js';
 
 export const kWorkflowsDataKey = 'workflowsData';
@@ -65,9 +64,8 @@ export default class WorkflowsStorage {
   }
 
   static add(workflow) {
-    return this._proto2Base64(workflow).then(data => {
-      return this.addRaw(data);
-    });
+    const data = this._proto2Base64(workflow);
+    return this.addRaw(data);
   }
 
   static updateRaw(uuid, base64Workflow) {
@@ -84,9 +82,8 @@ export default class WorkflowsStorage {
   }
 
   static update(uuid, workflow) {
-    return this._proto2Base64(workflow).then(data => {
-      return this.updateRaw(uuid, data);
-    });
+    const data = this._proto2Base64(workflow);
+    return this.updateRaw(uuid, data);
   }
 
   static remove(uuid) {
@@ -131,6 +128,6 @@ export default class WorkflowsStorage {
 
   static _proto2Base64(workflow) {
     const binaryWorkflow = workflow.serializeBinary();
-    return arrayBufferToBase64(binaryWorkflow);
+    return binaryWorkflow.toBase64();
   }
 }
