@@ -32,6 +32,19 @@
       "autoApprove": true
     },
     {
+      "description": "Group rules_proto_grpc Bazel modules",
+      "matchDatasources": [
+        "bazel"
+      ],
+      "matchPackageNames": [
+        "/^rules_proto_grpc/"
+      ],
+      "groupName": "rules_proto_grpc",
+      "group": {
+        "commitMessageTopic": "{{{groupName}}} group"
+      }
+    },
+    {
       "description": "Prompt to update the Node.JS version when updating rules_nodejs",
       "matchPackageNames": ["rules_nodejs"],
       "matchDatasources": ["bazel"],
