@@ -71,10 +71,10 @@ export default class WorkflowsStorage {
 
   static async updateRaw(uuid, base64Workflow) {
     const workflows = await this.getAll();
-    workflows.map(w => {
-      if (w.uuid !== uuid) return w;
-      w.data = base64Workflow;
-      return w;
+    workflows.forEach((w) => {
+      if (w.uuid === uuid) {
+        w.data = base64Workflow;
+      }
     });
     const items = {};
     items[kWorkflowsDataKey] = workflows;
