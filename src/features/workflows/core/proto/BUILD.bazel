@@ -1,7 +1,7 @@
 load("@aspect_rules_js//js:defs.bzl", "js_library")
 load("@bazel_lib//lib:write_source_files.bzl", "write_source_file")
 load("@rules_proto_grpc_doc//:defs.bzl", "doc_markdown_compile")
-load("@rules_proto_grpc_js//:defs.bzl", "js_proto_library")
+load("//tools:bazel/js_proto.bzl", "js_proto_compile")
 
 proto_library(
     name = "lib",
@@ -11,7 +11,7 @@ proto_library(
     strip_import_prefix = "/src/features/workflows/core/proto",
 )
 
-js_proto_library(
+js_proto_compile(
     name = "proto_generated",
     options = {
         "@rules_proto_grpc_js//:proto_plugin": [
@@ -24,13 +24,19 @@ js_proto_library(
 
 js_library(
     name = "proto",
+    srcs = [
+        ":proto_generated",
+    ],
+    types = [
+        "main_pb.d.ts",
+    ],
     visibility = [
         "//src/features/workflows/core:__subpackages__",
         "//src/features/workflows/ui:__subpackages__",
     ],
     deps = [
-        ":proto_generated",
         "//:node_modules/@types/google-protobuf",
+        "//:node_modules/google-protobuf",
     ],
 )
 
