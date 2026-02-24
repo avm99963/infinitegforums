@@ -3,11 +3,11 @@ import * as pb from '../proto/main_pb.js';
 export const kWorkflowsDataKey = 'workflowsData';
 
 export default class WorkflowsStorage {
-  static watch(callback, asProtobuf = false) {
+  static watch(callback) {
     // Function which will be called when the watcher is initialized and every
     // time the workflows storage changes.
-    const callOnChanged = () => {
-      this.getAll(asProtobuf).then(workflows => callback(workflows));
+    const callOnChanged = async () => {
+      callback(await this.getAll());
     };
 
     chrome.storage.onChanged.addListener((changes, areaName) => {
@@ -28,27 +28,22 @@ export default class WorkflowsStorage {
     });
   }
 
-  static getAll(asProtobuf = false) {
-    return new Promise(res => {
-      chrome.storage.local.get(kWorkflowsDataKey, items => {
+  static getAll() {
+    return new Promise((res) => {
+      chrome.storage.local.get(kWorkflowsDataKey, (items) => {
         const workflows = items[kWorkflowsDataKey];
         if (!Array.isArray(workflows)) return res([]);
-        if (asProtobuf) {
-          return res(this.convertRawListToProtobuf(workflows))
-        } else {
-          return res(workflows);
-        }
+        return res(workflows);
       });
     });
   }
 
-  static get(uuid, asProtobuf = false) {
-    return this.getAll(asProtobuf).then(workflows => {
-      for (const w of workflows) {
-        if (w.uuid == uuid) return w;
-      }
-      return null;
-    });
+  static async get(uuid) {
+    const workflows = await this.getAll();
+    for (const w of workflows) {
+      if (w.uuid == uuid) return w;
+    }
+    return null;
   }
 
   static exists(uuid) {
