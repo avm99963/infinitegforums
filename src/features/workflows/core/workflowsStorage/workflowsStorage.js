@@ -59,9 +59,7 @@ export default class WorkflowsStorage {
 
     const workflows = await this.getAll();
     workflows.push(w);
-    const items = {};
-    items[kWorkflowsDataKey] = workflows;
-    chrome.storage.local.set(items);
+    this._saveWorkflows(workflows);
   }
 
   static add(workflow) {
@@ -76,9 +74,7 @@ export default class WorkflowsStorage {
         w.data = base64Workflow;
       }
     });
-    const items = {};
-    items[kWorkflowsDataKey] = workflows;
-    chrome.storage.local.set(items);
+    this._saveWorkflows(workflows);
   }
 
   static update(uuid, workflow) {
@@ -89,9 +85,7 @@ export default class WorkflowsStorage {
   static async remove(uuid) {
     const oldWorkflows = await this.getAll();
     const workflows = oldWorkflows.filter((w) => w.uuid != uuid);
-    const items = {};
-    items[kWorkflowsDataKey] = workflows;
-    chrome.storage.local.set(items);
+    this._saveWorkflows(workflows);
   }
 
   static async moveUp(uuid) {
@@ -122,8 +116,11 @@ export default class WorkflowsStorage {
     }
     [workflows[index], workflows[index + relativePosition]] =
         [workflows[index + relativePosition], workflows[index]];
-    const items = {[kWorkflowsDataKey]: workflows};
-    await chrome.storage.local.set(items);
+    this._saveWorkflows(workflows);
+  }
+
+  static _saveWorkflows(workflows) {
+    return chrome.storage.local.set({ [kWorkflowsDataKey]: workflows });
   }
 
   static _proto2Base64(workflow) {
