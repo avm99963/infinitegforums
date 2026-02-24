@@ -22,9 +22,8 @@ export default class TwptWorkflowsInject extends LitElement {
     this._workflows = null;
     this._selectedWorkflowUuid = null;
     this.addEventListener('twpt-workflows-update', e => {
-      const workflows = e.detail?.workflows ?? [];
-      WorkflowsStorage.convertRawListToProtobuf(workflows);
-      this._workflows = workflows;
+      const rawWorkflows = e.detail?.workflows ?? [];
+      this._workflows = WorkflowsStorage.convertRawListToProtobuf(rawWorkflows);
     });
   }
 
