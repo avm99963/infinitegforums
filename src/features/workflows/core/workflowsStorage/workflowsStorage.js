@@ -46,21 +46,22 @@ export default class WorkflowsStorage {
     return null;
   }
 
-  static exists(uuid) {
-    return this.get(uuid).then(w => w !== null);
+  static async exists(uuid) {
+    const workflow = await this.get(uuid);
+    return workflow !== null;
   }
 
-  static addRaw(base64Workflow) {
+  static async addRaw(base64Workflow) {
     const w = {
       uuid: self.crypto.randomUUID(),
       data: base64Workflow,
     };
-    return this.getAll().then(workflows => {
-      workflows.push(w);
-      const items = {};
-      items[kWorkflowsDataKey] = workflows;
-      chrome.storage.local.set(items);
-    });
+
+    const workflows = await this.getAll();
+    workflows.push(w);
+    const items = {};
+    items[kWorkflowsDataKey] = workflows;
+    chrome.storage.local.set(items);
   }
 
   static add(workflow) {
@@ -68,17 +69,16 @@ export default class WorkflowsStorage {
     return this.addRaw(data);
   }
 
-  static updateRaw(uuid, base64Workflow) {
-    return this.getAll().then(workflows => {
-      workflows.map(w => {
-        if (w.uuid !== uuid) return w;
-        w.data = base64Workflow;
-        return w;
-      });
-      const items = {};
-      items[kWorkflowsDataKey] = workflows;
-      chrome.storage.local.set(items);
+  static async updateRaw(uuid, base64Workflow) {
+    const workflows = await this.getAll();
+    workflows.map(w => {
+      if (w.uuid !== uuid) return w;
+      w.data = base64Workflow;
+      return w;
     });
+    const items = {};
+    items[kWorkflowsDataKey] = workflows;
+    chrome.storage.local.set(items);
   }
 
   static update(uuid, workflow) {
@@ -86,12 +86,12 @@ export default class WorkflowsStorage {
     return this.updateRaw(uuid, data);
   }
 
-  static remove(uuid) {
-    return this.getAll().then(workflows => {
-      const items = {};
-      items[kWorkflowsDataKey] = workflows.filter(w => w.uuid != uuid);
-      chrome.storage.local.set(items);
-    });
+  static async remove(uuid) {
+    const oldWorkflows = await this.getAll();
+    const workflows = oldWorkflows.filter((w) => w.uuid != uuid);
+    const items = {};
+    items[kWorkflowsDataKey] = workflows;
+    chrome.storage.local.set(items);
   }
 
   static async moveUp(uuid) {
