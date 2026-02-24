@@ -160,8 +160,20 @@ export default class WorkflowsStorage {
     this._saveWorkflows(workflows);
   }
 
-  static _saveWorkflows(workflows: StoredWorkflow[]) {
-    return chrome.storage.local.set({ [kWorkflowsDataKey]: workflows });
+  static _saveWorkflows(workflows: StoredWorkflow[]): Promise<void> {
+    return new Promise((res, rej) => {
+      chrome.storage.local.set({ [kWorkflowsDataKey]: workflows }, () => {
+        if (chrome.runtime.lastError === undefined) {
+          res();
+        } else {
+          rej(
+            new Error(
+              `Error saving workflows: ${chrome.runtime.lastError.message}`,
+            ),
+          );
+        }
+      });
+    });
   }
 
   static _proto2Base64(workflow: pb.workflows.Workflow): Base64Workflow {
