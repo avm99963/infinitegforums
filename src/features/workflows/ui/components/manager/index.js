@@ -3,6 +3,7 @@ import '@material/web/icon/icon.js';
 import './List.js';
 import './AddDialog.js';
 import './WorkflowDialog.js';
+import './Menu';
 
 import {css, html, LitElement} from 'lit';
 import {createRef, ref} from 'lit/directives/ref.js';
@@ -23,6 +24,12 @@ export default class WFApp extends LitElement {
         max-width: 1024px;
         margin: auto;
         position: relative;
+      }
+
+      wf-menu {
+        position: absolute;
+        top: 0.33em;
+        right: 0.5em;
       }
 
       md-fab {
@@ -48,6 +55,7 @@ export default class WFApp extends LitElement {
   render() {
     return html`
       <h1>Workflows</h1>
+      <wf-menu></wf-menu>
       <p>Workflows allow you to run a customized list of actions on a thread easily.</p>
       <wf-list .workflows=${this._workflows}></wf-list>
       <md-fab ${ref(this.addFabRef)}

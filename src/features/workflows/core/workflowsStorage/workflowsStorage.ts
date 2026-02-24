@@ -160,6 +160,37 @@ export default class WorkflowsStorage {
     this._saveWorkflows(workflows);
   }
 
+  /**
+   * Adds these workflows on top of the existing ones, so that:
+   *
+   * - New workflows are added to the list of workflows.
+   * - Existing workflows are updated with the imported data.
+   */
+  static async importWorkflows(
+    workflowsToImport: StoredWorkflow[],
+  ): Promise<void> {
+    const storedWorkflows = await this.getAll();
+
+    // Create a map for O(1) lookups.
+    const storedWorkflowsMap = new Map<string, StoredWorkflow>(
+      storedWorkflows.map((wf) => [wf.uuid, wf]),
+    );
+
+    for (const workflowToImport of workflowsToImport) {
+      const existingWorkflow = storedWorkflowsMap.get(workflowToImport.uuid);
+      if (existingWorkflow) {
+        storedWorkflowsMap.set(workflowToImport.uuid, {
+          ...existingWorkflow,
+          data: workflowToImport.data,
+        });
+      } else {
+        storedWorkflowsMap.set(workflowToImport.uuid, workflowToImport);
+      }
+    }
+
+    await this._saveWorkflows([...storedWorkflowsMap.values()]);
+  }
+
   static _saveWorkflows(workflows: StoredWorkflow[]): Promise<void> {
     return new Promise((res, rej) => {
       chrome.storage.local.set({ [kWorkflowsDataKey]: workflows }, () => {

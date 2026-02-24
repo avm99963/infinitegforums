@@ -64,6 +64,7 @@
     "@avm99963/sw-xhr": "^0.0.6",
     "@lit-labs/motion": "^1.0.9",
     "@lit/localize": "^0.12.0",
+    "@m3e/web": "^2.0.0",
     "@material/banner": "^14.0.0",
     "@material/mwc-circular-progress": "^0.27.0",
     "@material/mwc-dialog": "^0.27.0",
@@ -83,6 +84,11 @@
   "pnpm": {
     "onlyBuiltDependencies": [],
     "packageExtensions": {
+      "@m3e/web": {
+        "peerDependencies": {
+          "lit-html": "*"
+        }
+      },
       "@material/web": {
         "peerDependencies": {
           "lit-html": "*"

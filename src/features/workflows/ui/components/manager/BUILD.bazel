@@ -1,11 +1,10 @@
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+load("//tools:bazel/swc.bzl", "swc_pkg")
 load("//tools:common_js_project.bzl", "common_js_project")
+load("//tools:common_ts_project.bzl", "common_ts_project")
 
 common_js_project(
-    name = "manager",
-    visibility = [
-        "//:__pkg__",
-        "//src/features/workflows:__subpackages__",
-    ],
+    name = "js",
     deps = [
         "//:node_modules/@material/mwc-dialog",
         "//:node_modules/@material/web",
@@ -13,5 +12,32 @@ common_js_project(
         "//src/features/workflows/core/proto",
         "//src/features/workflows/core/workflowsStorage",
         "//src/features/workflows/ui/components/actionEditor",
+    ],
+)
+
+common_ts_project(
+    name = "ts",
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = swc_pkg,
+    tsconfig = "//:tsconfig_pkg",
+    deps = [
+        "//:node_modules/@m3e/web",
+        "//:node_modules/@material/web",
+        "//:node_modules/lit",
+        "//src/features/workflows/core/workflowsStorage",
+    ],
+)
+
+js_library(
+    name = "manager",
+    srcs = [
+        ":js",
+        ":ts",
+    ],
+    visibility = [
+        "//:__pkg__",
+        "//src/features/workflows:__subpackages__",
     ],
 )
