@@ -19,7 +19,8 @@ export default class WorkflowsStorage {
 
   static convertRawListToProtobuf(workflows) {
     workflows.forEach(w => {
-      w.proto = pb.workflows.Workflow.deserializeBinary(w?.data);
+      w.proto = pb.workflows.Workflow.deserializeBinary(
+          Uint8Array.fromBase64(w?.data));
       delete w.data;
     });
   }
