@@ -39,10 +39,10 @@ export default class WFApp extends LitElement {
   constructor() {
     super();
     this._workflows = undefined;
-    WorkflowsStorage.watch(workflows => {
-      this._workflows = workflows;
+    WorkflowsStorage.watch(rawWorkflows => {
+      this._workflows = WorkflowsStorage.convertRawListToProtobuf(rawWorkflows);
       this.requestUpdate();
-    }, /* asProtobuf = */ true);
+    });
   }
 
   render() {

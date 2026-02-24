@@ -18,7 +18,7 @@ export default class Workflows {
     WorkflowsStorage.watch(workflows => {
       this.workflows = workflows;
       this._emitWorkflowsUpdateEvent();
-    }, /* asProtobuf = */ false);
+    });
 
     // Open the workflow manager when instructed to do so.
     document.addEventListener('twpt-open-workflow-manager', () => {
