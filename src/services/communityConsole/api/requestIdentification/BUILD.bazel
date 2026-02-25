@@ -1,0 +1,21 @@
+load("//tools:bazel/swc.bzl", "swc_pkg_strict")
+load("//tools:common_ts_project.bzl", "common_ts_project")
+
+common_ts_project(
+    name = "requestIdentification",
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = swc_pkg_strict,
+    tsconfig = "//:tsconfig_pkg_strict",
+    visibility = [
+        "//src/xhrInterceptor:__subpackages__",
+        "//src/infrastructure/services/communityConsole/api:__subpackages__",
+        # TODO(https://iavm.xyz/b/twpowertools/274): Remove once CCApi no
+        # longer exists.
+        "//src/common:__pkg__",
+    ],
+    deps = [
+        "//src/common/protojs",
+    ],
+)

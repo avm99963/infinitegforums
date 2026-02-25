@@ -56,6 +56,7 @@ common_ts_project(
         "//:node_modules/@stdlib/utils-escape-regexp-string",
         "//:node_modules/@types/chrome",
         "//src/common/contentScriptFetch",
+        "//src/services/communityConsole/api/requestIdentification",
     ],
 )
 

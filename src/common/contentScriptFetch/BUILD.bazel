@@ -25,6 +25,9 @@ common_ts_project(
     transpiler = swc_pkg_strict,
     tsconfig = "//:tsconfig_pkg_strict",
     visibility = [
+        "//src:infrastructure_services",
+        # TODO(https://iavm.xyz/b/twpowertools/274): Remove once CCApi no
+        # longer exists.
         "//src/common:__pkg__",
     ],
 )

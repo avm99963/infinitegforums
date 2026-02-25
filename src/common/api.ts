@@ -1,4 +1,9 @@
 import { fetch } from '@/common/contentScriptFetch/fetch';
+import {
+  XClientHeader,
+  XClientValue,
+} from '@/services/communityConsole/api/requestIdentification/consts';
+
 const CC_API_BASE_URL = 'https://support.google.com/s/community/api/';
 
 const apiErrors = {
@@ -21,11 +26,12 @@ const apiErrors = {
   16: 'UNAUTHENTICATED',
 };
 
-export const XClientHeader = 'X-Client';
-export const XClientValue = 'twpt';
-
-// Function to wrap calls to the Community Console API with intelligent error
-// handling.
+/**
+ * Function that wraps calls to the Community Console API with intelligent error
+ * handling.
+ *
+ * @deprecated Use {@link CommunityConsoleApiClientPort} instead.
+ */
 export function CCApi(
   method: string,
   data: unknown,

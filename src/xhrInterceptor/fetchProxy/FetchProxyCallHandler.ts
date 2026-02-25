@@ -1,4 +1,7 @@
-import { XClientHeader, XClientValue } from '../../common/api';
+import {
+  XClientHeader,
+  XClientValue,
+} from '@/services/communityConsole/api/requestIdentification/consts';
 import {
   correctArrayKeys,
   inverseCorrectArrayKeys,

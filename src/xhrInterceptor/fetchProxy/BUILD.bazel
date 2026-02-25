@@ -14,7 +14,7 @@ common_ts_project(
     ],
     deps = [
         "//:node_modules/@types/node",
-        "//src/common",
+        "//src/services/communityConsole/api/requestIdentification",
         "//src/xhrInterceptor/interceptors",
         "//src/xhrInterceptor/messageIdTracker",
         "//src/xhrInterceptor/requestModifier",

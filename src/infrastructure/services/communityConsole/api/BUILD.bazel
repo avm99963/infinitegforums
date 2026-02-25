@@ -1,0 +1,32 @@
+load("@fremtind_rules_vitest//vitest:defs.bzl", "vitest_test")
+load("//tools:bazel/swc.bzl", "swc_pkg_strict")
+load("//tools:common_ts_project.bzl", "common_ts_project")
+
+main_deps = [
+    "//src/services/communityConsole/api",
+    "//src/services/communityConsole/api/requestIdentification",
+    "//src/common/contentScriptFetch",
+]
+
+common_ts_project(
+    name = "api",
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = swc_pkg_strict,
+    tsconfig = "//:tsconfig_pkg_strict",
+    visibility = [
+        "//src:entrypoint",
+    ],
+    deps = main_deps,
+)
+
+vitest_test(
+    name = "test",
+    config = "//:vitest_config",
+    data = [
+        "CommunityConsoleApiClient.adapter.test.ts",
+        "CommunityConsoleApiClient.adapter.ts",
+    ] + main_deps,
+    node_modules = "//:node_modules",
+)

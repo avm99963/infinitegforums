@@ -1,0 +1,19 @@
+load("//tools:bazel/swc.bzl", "swc_pkg_strict")
+load("//tools:common_ts_project.bzl", "common_ts_project")
+
+common_ts_project(
+    name = "api",
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = swc_pkg_strict,
+    tsconfig = "//:tsconfig_pkg_strict",
+    visibility = [
+        "//src:infrastructure_services",
+        "//src:presentation",
+        "//src:ui",
+    ],
+    deps = [
+        "//src/common/protojs",
+    ],
+)
