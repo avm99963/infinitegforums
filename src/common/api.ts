@@ -1,3 +1,4 @@
+import { fetch } from '@/common/contentScriptFetch/fetch';
 const CC_API_BASE_URL = 'https://support.google.com/s/community/api/';
 
 const apiErrors = {
@@ -23,16 +24,6 @@ const apiErrors = {
 export const XClientHeader = 'X-Client';
 export const XClientValue = 'twpt';
 
-// #!if defined(GECKO)
-declare global {
-  interface Window {
-    content: {
-      fetch: typeof window.fetch;
-    };
-  }
-}
-// #!endif
-
 // Function to wrap calls to the Community Console API with intelligent error
 // handling.
 export function CCApi(
@@ -45,29 +36,18 @@ export function CCApi(
   const authuserPart =
     authuser == '0' ? '' : '?authuser=' + encodeURIComponent(authuser);
 
-  let context: { fetch: typeof window.fetch };
-  // #!if defined(GECKO)
-  // See
-  // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#xhr_and_fetch
-  // and https://developer.mozilla.org/en-US/docs/Web/API/Window/content.
-  context = window.content || window;
-  // #!else
-  context = window;
-  // #!endif
-
-  return context
-    .fetch(CC_API_BASE_URL + method + authuserPart, {
-      headers: {
-        'content-type': 'text/plain; charset=utf-8',
-        // Used to exclude our requests from being handled by FetchProxy.
-        // FetchProxy will remove this header.
-        [XClientHeader]: XClientValue,
-      },
-      body: JSON.stringify(data),
-      method: 'POST',
-      mode: 'cors',
-      credentials: authenticated ? 'include' : 'omit',
-    })
+  return fetch(CC_API_BASE_URL + method + authuserPart, {
+    headers: {
+      'content-type': 'text/plain; charset=utf-8',
+      // Used to exclude our requests from being handled by FetchProxy.
+      // FetchProxy will remove this header.
+      [XClientHeader]: XClientValue,
+    },
+    body: JSON.stringify(data),
+    method: 'POST',
+    mode: 'cors',
+    credentials: authenticated ? 'include' : 'omit',
+  })
     .then((res) => {
       if (res.status == 200 || res.status == 400) {
         return res.json().then((data) => ({

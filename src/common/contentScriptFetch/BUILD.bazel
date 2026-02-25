@@ -1,0 +1,30 @@
+load("//tools:bazel/swc.bzl", "swc_pkg_strict")
+load("//tools:common_ts_project.bzl", "common_ts_project")
+load("//tools/preprocessor:bzl/preprocessor.bzl", "preprocessor")
+
+preprocessor(
+    name = "preprocessed_fetch",
+    src = "fetch.pre.ts",
+    out = "fetch.ts",
+    defined_dependencies = select({
+        # Gecko browsers
+        "//:gecko": ["GECKO"],
+        # Other browsers
+        "//conditions:default": [],
+    }),
+)
+
+common_ts_project(
+    name = "contentScriptFetch",
+    srcs = [
+        ":preprocessed_fetch",
+    ],
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = swc_pkg_strict,
+    tsconfig = "//:tsconfig_pkg_strict",
+    visibility = [
+        "//src/common:__pkg__",
+    ],
+)

@@ -18,16 +18,6 @@ preprocessor(
 )
 
 preprocessor(
-    name = "preprocessed_api",
-    src = "api.pre.ts",
-    out = "api.ts",
-    defined_dependencies = select({
-        "//:gecko": ["GECKO"],
-        "//conditions:default": [],
-    }),
-)
-
-preprocessor(
     name = "preprocessed_ext_utils",
     src = "extUtils.pre.js",
     out = "extUtils.js",
@@ -56,15 +46,6 @@ common_js_project(
 
 common_ts_project(
     name = "ts",
-    srcs = glob(
-        ["**/*.ts"],
-        exclude = [
-            "**/*.test.ts",
-            "**/*.pre.ts",
-        ],
-    ) + [
-        ":preprocessed_api",
-    ],
     allow_js = True,
     declaration = True,
     source_map = True,
@@ -74,6 +55,7 @@ common_ts_project(
         "//:node_modules/@material/tooltip",
         "//:node_modules/@stdlib/utils-escape-regexp-string",
         "//:node_modules/@types/chrome",
+        "//src/common/contentScriptFetch",
     ],
 )
 
