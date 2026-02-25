@@ -18,7 +18,7 @@ common_ts_project(
         "//src/features/bulkMove/ui/injectors",
         "//src/features/bulkMove/ui/ports",
         "//src/models",
-        "//src/services/communityConsole",
+        "//src/services/communityConsole/startupDataStorage",
         "//src/ui/components",
         "//src/ui/injectors",
         "//src/ui/services",

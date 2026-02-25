@@ -1,5 +1,5 @@
 import Script from '../../../../common/architecture/scripts/Script';
-import { StartupDataStoragePort } from '../../../../services/communityConsole/StartupDataStorage.port';
+import { StartupDataStoragePort } from '../../../../services/communityConsole/startupDataStorage/StartupDataStorage.port';
 import { OptionsProviderPort } from '../../../../services/options/OptionsProvider';
 
 export default class LoadDraftsSetupScript extends Script {

@@ -23,6 +23,6 @@ common_ts_project(
         "//src/features/extraInfo/core",
         "//src/features/threadPageDesignWarning/core",
         "//src/features/workflows/core/communityConsole/import",
-        "//src/infrastructure/services/communityConsole",
+        "//src/infrastructure/services/communityConsole/startupDataStorage",
     ],
 )

@@ -1,9 +1,9 @@
-import { Queue } from '../../../common/dataStructures/queue';
-import StartupDataModel from '../../../models/StartupData';
+import { Queue } from '../../../../common/dataStructures/queue';
+import StartupDataModel from '../../../../models/StartupData';
 import {
   StartupDataModification,
   StartupDataStoragePort,
-} from '../../../services/communityConsole/StartupDataStorage.port';
+} from '../../../../services/communityConsole/startupDataStorage/StartupDataStorage.port';
 
 export default class StartupDataStorageAdapter
   implements StartupDataStoragePort

@@ -77,7 +77,7 @@ common_ts_project(
         "//src/features/workflows/presentation/scripts",
         "//src/infrastructure/presentation/nodeWatcher",
         "//src/infrastructure/presentation/scripts",
-        "//src/infrastructure/services/communityConsole",
+        "//src/infrastructure/services/communityConsole/startupDataStorage",
         "//src/infrastructure/services/options",
         "//src/infrastructure/ui/injectors/communityConsole",
         "//src/infrastructure/ui/services/communityConsole",

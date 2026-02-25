@@ -2,7 +2,7 @@ import Script, {
   ScriptEnvironment,
   ScriptPage,
 } from '../../../common/architecture/scripts/Script';
-import { StartupDataStoragePort } from '../../../services/communityConsole/StartupDataStorage.port';
+import { StartupDataStoragePort } from '../../../services/communityConsole/startupDataStorage/StartupDataStorage.port';
 
 /**
  * Base class which applies pending startup data modifications which have been

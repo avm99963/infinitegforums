@@ -27,7 +27,7 @@ import { OptionsConfigurationRepositoryAdapter } from '../../../../options/infra
 import MWOptionsConfigurationRepositoryServerScript from '../../../../presentation/standaloneScripts/mainWorldServers/MWOptionsConfigurationRepositoryServerScript.script';
 import ExtraInfo from '@/features/extraInfo/core';
 import AutoRefresh from '@/features/autoRefresh/core/autoRefresh';
-import StartupDataStorageAdapter from '@/infrastructure/services/communityConsole/StartupDataStorage.adapter';
+import StartupDataStorageAdapter from '@/infrastructure/services/communityConsole/startupDataStorage/StartupDataStorage.adapter';
 import ThreadPageDesignWarning from '@/features/threadPageDesignWarning/core/threadPageDesignWarning';
 import WorkflowsImport from '@/features/workflows/core/communityConsole/import/import';
 import FixStartupDataScript from '@/features/fixPEKB381989895/presentation/scripts/fixStartupData.script';

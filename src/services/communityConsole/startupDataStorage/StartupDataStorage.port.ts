@@ -1,4 +1,4 @@
-import StartupDataModel from "../../models/StartupData";
+import StartupDataModel from "../../../models/StartupData";
 
 export interface StartupDataStoragePort {
   /**

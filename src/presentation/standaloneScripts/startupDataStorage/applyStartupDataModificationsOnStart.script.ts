@@ -1,5 +1,5 @@
 import { ScriptRunPhase } from '../../../common/architecture/scripts/Script';
-import { StartupDataStoragePort } from '../../../services/communityConsole/StartupDataStorage.port';
+import { StartupDataStoragePort } from '../../../services/communityConsole/startupDataStorage/StartupDataStorage.port';
 import BaseApplyStartupDataModificationsScript from './baseApplyStartupDataModifications.script';
 
 /**

@@ -1,7 +1,7 @@
 import ExtraInfo from '../../../features/extraInfo/core';
 import AutoRefresh from '../../../features/autoRefresh/core/autoRefresh';
 import WorkflowsImport from '../../../features/workflows/core/communityConsole/import/import';
-import StartupDataStorageAdapter from '../../../infrastructure/services/communityConsole/StartupDataStorage.adapter';
+import StartupDataStorageAdapter from '../../../infrastructure/services/communityConsole/startupDataStorage/StartupDataStorage.adapter';
 import ReportDialogColorThemeFix from '../../../features/ccDarkTheme/core/logic/reportDialog';
 import ThreadPageDesignWarning from '../../../features/threadPageDesignWarning/core/threadPageDesignWarning';
 

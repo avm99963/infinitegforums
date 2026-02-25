@@ -2,7 +2,7 @@ import Script, {
   ConcreteScript,
 } from '../../../../common/architecture/scripts/Script';
 import ApplyStartupDataModificationsOnMainScript from '../../../../presentation/standaloneScripts/startupDataStorage/applyStartupDataModificationsOnMain.script';
-import { StartupDataStoragePort } from '../../../../services/communityConsole/StartupDataStorage.port';
+import { StartupDataStoragePort } from '../../../../services/communityConsole/startupDataStorage/StartupDataStorage.port';
 import { OptionsProviderPort } from '../../../../services/options/OptionsProvider';
 
 declare global {

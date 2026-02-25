@@ -1,4 +1,4 @@
-import { StartupDataStoragePort } from '../../../../../services/communityConsole/StartupDataStorage.port';
+import { StartupDataStoragePort } from '../../../../../services/communityConsole/startupDataStorage/StartupDataStorage.port';
 import { ThreadListGenericActionButtonInjectorPort } from '../../../../../ui/injectors/threadListGenericActionButton.injector.port';
 import { Forum } from '../../../../../domain/forum';
 import BulkMoveModal from '../../../ui/components/BulkMoveModal';

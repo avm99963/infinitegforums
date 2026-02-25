@@ -14,7 +14,7 @@ common_ts_project(
     deps = [
         "//src/common/architecture/scripts",
         "//src/presentation/standaloneScripts/startupDataStorage",
-        "//src/services/communityConsole",
+        "//src/services/communityConsole/startupDataStorage",
         "//src/services/options",
     ],
 )
