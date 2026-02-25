@@ -104,6 +104,9 @@ importers:
       jsdom:
         specifier: 28.1.0
         version: 28.1.0
+      json5:
+        specifier: ^2.2.3
+        version: 2.2.3
       mini-css-extract-plugin:
         specifier: 2.10.0
         version: 2.10.0(webpack@5.105.2)

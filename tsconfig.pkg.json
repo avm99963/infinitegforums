@@ -1,3 +1,5 @@
+// If possible, don't use tsconfig.pkg.json.
+// Instead, use tsconfig.pkg_strict.json.
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {

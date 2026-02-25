@@ -7,6 +7,7 @@ load("@jq.bzl//jq:jq.bzl", "jq_test")
 load("@npm//:defs.bzl", "npm_link_all_packages")
 load("@npm//:renovate/package_json.bzl", renovate_bin = "bin")
 load("@npm//:web-ext/package_json.bzl", web_ext_bin = "bin")
+load("@npm//:json5/package_json.bzl", json5_bin = "bin")
 load("@rules_pkg//pkg:pkg.bzl", "pkg_zip")
 load("//tools:bazel/swc.bzl", "swc_pkg")
 load(":bzl/bundle.bzl", "extension_bundle")
@@ -18,6 +19,7 @@ npm_link_all_packages()
 
 exports_files([
     ".swcrc_pkg",
+    ".swcrc_pkg_strict",
 ])
 
 extension_bundle(
@@ -205,9 +207,21 @@ run_binary(
     tool = "//tools/stampVersionName",
 )
 
+# NOTE: When changing a tsconfig file, make sure to change the corresponding
+# swcrc file!
+
+# This doesn't provide strong typing guarantees which can lead to bugs.
+# Please consider using //:tsconfig_pkg_strict instead.
 ts_config(
     name = "tsconfig_pkg",
     src = "tsconfig.pkg.json",
+    visibility = ["//:__subpackages__"],
+    deps = [":tsconfig_base"],
+)
+
+ts_config(
+    name = "tsconfig_pkg_strict",
+    src = "tsconfig.pkg_strict.json",
     visibility = ["//:__subpackages__"],
     deps = [":tsconfig_base"],
 )
@@ -220,10 +234,33 @@ ts_config(
 )
 
 # See https://github.com/aspect-build/rules_swc/blob/f35b63d621f6ff7cd7ca194a1061f7cdd59af07e/docs/tsconfig.md#maintain-two-files
+
+json5_bin.json5(
+    name = "tsconfig_pkg_json_without_comments",
+    srcs = ["tsconfig.pkg.json"],
+    outs = ["tsconfig.pkg.json_without_comments"],
+    args = ["tsconfig.pkg.json -o tsconfig.pkg.json_without_comments"],
+)
+
 jq_test(
     name = "ensure_swcrc_pkg_is_synced_test",
-    file1 = "tsconfig.pkg.json",
+    file1 = ":tsconfig_pkg_json_without_comments",
     file2 = ".swcrc_pkg",
+    filter1 = ".compilerOptions.paths",
+    filter2 = ".jsc.paths",
+)
+
+json5_bin.json5(
+    name = "tsconfig_pkg_strict_json_without_comments",
+    srcs = ["tsconfig.pkg_strict.json"],
+    outs = ["tsconfig.pkg_strict.json_without_comments"],
+    args = ["tsconfig.pkg_strict.json -o tsconfig.pkg_strict.json_without_comments"],
+)
+
+jq_test(
+    name = "ensure_swcrc_pkg_strict_is_synced_test",
+    file1 = ":tsconfig_pkg_strict_json_without_comments",
+    file2 = ".swcrc_pkg_strict",
     filter1 = ".compilerOptions.paths",
     filter2 = ".jsc.paths",
 )
