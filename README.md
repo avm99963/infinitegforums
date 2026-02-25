@@ -6,8 +6,9 @@
 An extension which brings several enhancements to the Google Forums and the
 Community Console.
 
-For a list of features/enhancements, check out the
-[feature list doc](docs/features/features.en.md).
+For a list of features/enhancements, check out the [feature list
+doc](docs/features/features.en.md) (or, for a better experience, install the
+extension and go to the options page).
 
 ## Information for contributors
 This extension is being actively developed, and everyone is welcome to make
@@ -19,21 +20,18 @@ Issue Tracker:
 - [Submit a new issue](https://bugs.avm99963.com/p/twpowertools/issues/entry)
 - [List of open issues](https://bugs.avm99963.com/p/twpowertools/issues/list)
 
-To see a more exhaustive guide on how to contribute, and information on how to
-contribute code changes, please read the following doc: <!--It also includes
-links to resources which explain learn how the extension is built, how you can
-extend it, and how it can be built:-->
+To learn more about how you can contribute (not only code, but also
+translations, testing, etc.), please read the following doc:
 
 - [Contributing to TW Power Tools](docs/contributing.md)
 
-## Beta channel
-Before releasing updates to the stable channel, the newest versions are uploaded
-to the beta channel so they can be tested by everyone who's interested. This is
-another way to contribute to the project, because beta testing can make us
-notice bugs before they reach the stable channel.
+## Join our discussion group
 
-The beta channel for Chrome is available
-[here](https://chrome.google.com/webstore/detail/infinite-scroll-in-tw-bet/memmklnkkhifmflmidnflfcdepamljef).
+We also have a vibrant community where we share ideas, bug reports, and
+announcements. Join the [twpowertools-discuss Google
+Group][twpowertools-discuss]. When you send a request to join, please share a
+link to your forum profile.
 
 [chrome-download]: https://chrome.google.com/webstore/detail/infinite-scroll-in-tw/hpgakoecmgibigdbnljgecablpipbajb
 [firefox-download]: https://addons.mozilla.org/addon/tw-power-tools/
+[twpowertools-discuss]: https://groups.google.com/g/twpowertools-discuss

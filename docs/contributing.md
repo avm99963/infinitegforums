@@ -3,6 +3,8 @@ If you're here, thanks for your interest in contributing! There are many ways
 you can contribute, and you don't need any technical background for most of
 them, so don't feel shy! Any help, even if small, is very much appreciated.
 
+[TOC]
+
 ## Make feature requests and report issues
 If you have some fresh ideas or insight into how to make the extension better,
 or you've found a bug (sorry!), you can create a new issue at the Monorail Issue
@@ -10,13 +12,8 @@ Tracker:
 
 - https://bugs.avm99963.com/p/twpowertools/issues
 
-Old issues are still hosted in GitHub, while new ones are hosted in Monorail.
-You can view the old ones here:
-
-- https://www.github.com/avm99963/infinitegforums/issues
-
 If you're reporting a bug, please consider specifying your browser and version,
-and maybe the Javascript console logs (open the Javascript console by pressing
+and maybe the JavaScript console logs (open the JavaScript console by pressing
 `[ Ctrl ][ Shift ][ J ]`) for the page where the issue occurred.
 
 ## Contribute translations
@@ -29,14 +26,30 @@ Learn more in the [Translator guide](./localization/translator_guide.md).
 
 ## Beta test the extension
 Releasing an update to the stable channel isn't always an easy task, because
-bugs might make its way. As new release candidates are tested in the beta
-channel before being promoted to the stable channel, this gives us a last chance
-to catch any bugs before the release. This is why it's essential that some
-people volunteer to beta test the extension.
+bugs might make its way there.
 
-While using the beta version comes with the risk of coming across bugs, those
-are usually minor, and you have the opportunity of using newer features before
-everyone else!
+That's why, before releasing new versions to the stable channel in the Chrome
+Web Store, we test pre-release versions in 2 additional channels:
+
+- [**Beta channel**][beta-cws]: some days before releasing a new release to the
+  stable channel, we first publish it to the beta channel. This gives us a last
+  chance to catch any bugs.
+- [**Canary channel**][canary-cws]: if you're brave and want to try the latest
+  of the latest, every night a new version is automatically uploaded to the
+  Chrome Web Store with the latest changes. This allows you to use and test new
+  features/fixes before they are released, and it will help us discover bugs
+  before the new changes even reach the beta channel.
+
+  This channel is special because it is the only one where experiments
+  (features which are currently under development and not yet ready to launch)
+  are available. To see a list of experiments and enable them, go to the
+  options page and click the flask icon button.
+
+While using these channels (and specially the canary channel) comes with the
+risk of coming across bugs, those are usually minor, and you have the
+opportunity of using newer features before everyone else! Also, volunteering to
+test the extension and report bugs is essential to keeping the extension
+bug-free.
 
 *** note
 **Note:** It isn't recommended to install two versions of the extension at the
@@ -44,26 +57,11 @@ same time, as you might end up with duplicate injected components or weird
 results.
 ***
 
-You can install the beta channel here:
-
-- https://chrome.google.com/webstore/detail/infinite-scroll-in-tw-bet/memmklnkkhifmflmidnflfcdepamljef
-
-### Canary channel
-If you're brave and want to try the latest of the latest, each night a new
-version is automatically uploaded to the Chrome Web Store with the latest
-changes which have been uploaded to the codebase. Be warned that it might not
-work correctly!
-
-- https://chromewebstore.google.com/detail/tw-power-tools-canary/phefpbdhiknkamngjffpnebaemanmihf
-
-To be able to install the Canary channel, you have to
-[join the Google Group](https://groups.google.com/g/twpowertools-discuss)
-first (feel free to send a request to join!).
-
-This channel is special because it is the only one where experiments (features
-which are currently under development and not yet ready to launch) are
-available. To see a list of experiments and enable them, go to the options page
-and click the flask icon button.
+*** promo
+To be able to install the Canary channel, you have to [join the Google
+Group](https://groups.google.com/g/twpowertools-discuss) first (feel free to
+send a request to join with a link to your forum profile!).
+***
 
 ## Contribute code changes
 If you're a developer and you'd like to contribute code changes, please feel
@@ -99,3 +97,6 @@ For your information, the following doc contains a description of the release
 cycle for this extension, and how it is performed by its maintainers:
 
 - [Release cycle](developers/release_cycle.md)
+
+[beta-cws]: https://chrome.google.com/webstore/detail/infinite-scroll-in-tw-bet/memmklnkkhifmflmidnflfcdepamljef
+[canary-cws]: https://chromewebstore.google.com/detail/tw-power-tools-canary/phefpbdhiknkamngjffpnebaemanmihf
