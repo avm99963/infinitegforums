@@ -36,7 +36,7 @@ export default class WFWorkflowEditor extends LitElement {
       <md-filled-text-field ${ref(this.nameRef)}
           class="name"
           placeholder="Untitled workflow"
-          value=${this.workflow.getName()}
+          .value=${this.workflow.getName()}
           required
           @input=${this._nameChanged}>
       </md-filled-text-field>
