@@ -10,6 +10,7 @@ package_group(
         "//src/injections",
         "//src/options/presentation/scripts",
         "//src/storage/compositionRoot/...",
+        "//src/features/bulkMove/ui/compositionRoot/...",
     ],
 )
 
@@ -87,6 +88,7 @@ package_group(
 package_group(
     name = "infrastructure_repositories",
     packages = [
+        "//src/features/bulkMove/infrastructure/repositories/...",
         "//src/features/bulkReportReplies/infrastructure/repositories/...",
         "//src/options/infrastructure/repositories/...",
         "//src/storage/infrastructure/repositories/...",

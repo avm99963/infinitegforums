@@ -96,6 +96,7 @@ import { getSyncStorageAreaRepository } from '@/storage/compositionRoot';
 import BulkReportRepliesQuestionCardHandler from '@/features/bulkReportReplies/presentation/nodeWatcherHandlers/questionCard.handler';
 import { ThreadInfoRepositoryAdapter } from '@/features/bulkReportReplies/infrastructure/repositories/itemInfo/threadInfo.repository.adapter';
 import FixCrPopupStylesScript from '@/features/fixCrPopup/presentation/scripts/styles.script';
+import { CommunityConsoleApiClientAdapter } from '@/infrastructure/services/communityConsole/api/CommunityConsoleApiClient.adapter';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -138,6 +139,8 @@ function createScriptRunner() {
   const ccInfiniteScroll = new CCInfiniteScroll();
   const flattenThreads = new FlattenThreads();
 
+  const authuser = startupDataStorage.get().getAuthUser();
+
   return new ScriptRunner(
     new SortedScriptsProviderAdapter(
       [
@@ -172,7 +175,9 @@ function createScriptRunner() {
                   startupDataStorage,
                   new GetSelectedThreadsServiceAdapter(urlThreadDataParser),
                   new ViewSoftRefresherServiceAdapter(),
-                  new BulkMoveThreadsRepositoryAdapter(),
+                  new BulkMoveThreadsRepositoryAdapter(
+                    new CommunityConsoleApiClientAdapter(authuser),
+                  ),
                 ),
               ),
             ],

@@ -10,14 +10,11 @@ common_ts_project(
     tsconfig = "//:tsconfig_pkg",
     visibility = [
         "//src:entrypoint",
-        # TODO: this dependency shouldn't exist. The repos should be moved
-        # outside the bulkMove feature folder.
-        "//src/ui/components/forumDestinationPicker:__subpackages__",
     ],
     deps = [
-        "//src/common",
         "//src/domain",
         "//src/features/bulkMove/infrastructure/factories",
         "//src/features/bulkMove/ui/ports",
+        "//src/services/communityConsole/api",
     ],
 )

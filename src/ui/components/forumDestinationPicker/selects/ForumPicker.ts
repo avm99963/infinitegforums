@@ -10,11 +10,14 @@ import '@material/web/select/select-option.js';
 import { keyed } from 'lit/directives/keyed.js';
 import { FORM_STYLES } from './styles';
 import { EVENT_LOADED_FULL_FORUM_INFO } from '../events';
-import { GetForumRepositoryAdapter } from '../../../../features/bulkMove/infrastructure/repositories/api/getForum.repository.adapter';
-import { GetForumRepositoryPort } from '../../../../features/bulkMove/ui/ports/getForum.repository.port';
+import {
+  getForumRepositoryContext,
+  GetForumRepositoryPort,
+} from '../../../../features/bulkMove/ui/ports/getForum.repository.port';
 import { createRef, Ref, ref } from 'lit/directives/ref.js';
 import { MdOutlinedSelect } from '@material/web/select/outlined-select.js';
 import { msg } from '@lit/localize';
+import { consume } from '@lit/context';
 
 interface SingleLanguageConfiguration {
   language: string;
@@ -34,12 +37,6 @@ export default class ForumPicker extends I18nLitElement {
   accessor forums: Forum[] | undefined;
 
   /**
-   * Authenticated user ID, used for API calls.
-   */
-  @property({ type: String })
-  accessor authuser: string | undefined;
-
-  /**
    * Display language code set by the user in the Community Console.
    */
   @property({ type: String })
@@ -47,8 +44,9 @@ export default class ForumPicker extends I18nLitElement {
 
   static styles = [SHARED_MD3_STYLES, FORM_STYLES];
 
-  private readonly getForumRepository: GetForumRepositoryPort =
-    new GetForumRepositoryAdapter();
+  @consume({ context: getForumRepositoryContext })
+  @property({ attribute: false })
+  private accessor getForumRepository!: GetForumRepositoryPort;
 
   communityForumSelectRef: Ref<MdOutlinedSelect> = createRef();
 
@@ -294,11 +292,7 @@ export default class ForumPicker extends I18nLitElement {
   }
 
   private async loadFullSelectedForumInfo(): Promise<Forum> {
-    return this.getForumRepository.getForum(
-      this.forumId,
-      this.displayLanguage,
-      this.authuser,
-    );
+    return this.getForumRepository.getForum(this.forumId, this.displayLanguage);
   }
 }
 

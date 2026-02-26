@@ -21,9 +21,7 @@ import {
 
 const BULK_MOVE_ACTION_KEY = 'bulk-move';
 
-export class BulkMoveButtonInjectorAdapter
-  implements BulkMoveButtonInjectorPort
-{
+export class BulkMoveButtonInjectorAdapter implements BulkMoveButtonInjectorPort {
   private modal: BulkMoveModal | undefined;
   private progressModal: BulkMoveProgressModal | undefined;
   private progress: ThreadProgress[] | undefined;
@@ -59,6 +57,10 @@ export class BulkMoveButtonInjectorAdapter
       const overlay = this.getOverlay();
 
       const startupData = this.startupDataStorage.get();
+
+      const contextProvider = document.createElement('twpt-bulk-move-context-provider');
+      contextProvider.authuser = startupData.getAuthUser();
+
       this.modal = document.createElement('twpt-bulk-move-modal');
       this.modal.setAttribute(
         'preloadedForums',
@@ -72,7 +74,9 @@ export class BulkMoveButtonInjectorAdapter
       this.modal.addEventListener(EVENT_START_BULK_MOVE, (e) =>
         this.startMove(e),
       );
-      overlay.append(this.modal);
+
+      contextProvider.append(this.modal);
+      overlay.append(contextProvider);
     } catch (e) {
       throw Error(`Couldn't inject modal: ${e}`);
     }
@@ -118,24 +122,19 @@ export class BulkMoveButtonInjectorAdapter
     selectedThreads: SelectedThread[],
     e: GlobalEventHandlersEventMap[typeof EVENT_START_BULK_MOVE],
   ) {
-    const startupData = this.startupDataStorage.get();
-    const authuser = startupData.getAuthUser();
     for (const thread of selectedThreads) {
       this.updateThreadProgressStatus(thread.id, 'loading');
       this.moveThreadRepository
-        .move(
-          {
-            threadId: thread.id,
-            oldForumId: thread.forumId,
-            destination: {
-              forumId: e.detail.destinationForumId,
-              language: e.detail.language,
-              categoryId: e.detail.categoryId,
-              properties: e.detail.properties,
-            },
+        .move({
+          threadId: thread.id,
+          oldForumId: thread.forumId,
+          destination: {
+            forumId: e.detail.destinationForumId,
+            language: e.detail.language,
+            categoryId: e.detail.categoryId,
+            properties: e.detail.properties,
           },
-          authuser,
-        )
+        })
         .then(() => {
           this.updateThreadProgressStatus(thread.id, 'success');
         })

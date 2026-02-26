@@ -31,12 +31,6 @@ export default class BulkMoveModal extends I18nLitElement {
   accessor preloadedForums: Forum[] | undefined;
 
   /**
-   * Authenticated user ID, used for API calls.
-   */
-  @property({ type: String })
-  accessor authuser: string | undefined;
-
-  /**
    * Display language code set by the user in the Community Console.
    */
   @property({ type: String })
@@ -83,7 +77,6 @@ export default class BulkMoveModal extends I18nLitElement {
         <div class="content" slot="content">
           <twpt-forum-destination-picker
             .preloadedForums=${this.preloadedForums}
-            authuser=${this.authuser}
             displayLanguage=${this.displayLanguage}
             forumId=${this.forumId}
             language=${this.language}

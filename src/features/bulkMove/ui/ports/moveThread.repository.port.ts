@@ -1,4 +1,4 @@
-import { ThreadProperty } from '../../../../domain/threadProperty';
+import { ThreadProperty } from '@/domain/threadProperty';
 
 export interface MoveThreadRequest {
   oldForumId: string;
@@ -12,5 +12,5 @@ export interface MoveThreadRequest {
 }
 
 export interface MoveThreadRepositoryPort {
-  move(request: MoveThreadRequest, authuser: string): Promise<void>;
+  move(request: MoveThreadRequest): Promise<void>;
 }

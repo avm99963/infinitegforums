@@ -16,6 +16,9 @@ importers:
       '@lit-labs/motion':
         specifier: ^1.0.9
         version: 1.1.0(lit-html@3.3.2)
+      '@lit/context':
+        specifier: ^1.1.6
+        version: 1.1.6
       '@lit/localize':
         specifier: ^0.12.0
         version: 0.12.2
@@ -911,6 +914,9 @@ packages:
 
   '@lit-labs/ssr-dom-shim@1.5.0':
     resolution: {integrity: sha512-HLomZXMmrCFHSRKESF5vklAKsDY7/fsT/ZhqCu3V0UoW/Qbv8wxmO4W9bx4KnCCF2Zak4yuk+AGraK/bPmI4kA==}
+
+  '@lit/context@1.1.6':
+    resolution: {integrity: sha512-M26qDE6UkQbZA2mQ3RjJ3Gzd8TxP+/0obMgE5HfkfLhEEyYE3Bui4A5XHiGPjy0MUGAyxB3QgVuw2ciS0kHn6A==}
 
   '@lit/localize-tools@0.8.1':
     resolution: {integrity: sha512-bWjKXdcTDW0v3w/errna+bzJ2eDfpuz+V10sswF5oXd6C0mHw20sRU+wrXOoj1avVcI7g8cWVQHUJHkQs9UxAQ==}
@@ -7245,6 +7251,10 @@ snapshots:
       wobble: 1.5.1
 
   '@lit-labs/ssr-dom-shim@1.5.0': {}
+
+  '@lit/context@1.1.6':
+    dependencies:
+      '@lit/reactive-element': 2.1.2
 
   '@lit/localize-tools@0.8.1':
     dependencies:

@@ -1,17 +1,17 @@
-import { CCApi } from '../../../../../common/api';
+import { CommunityConsoleApiClientPort } from '@/services/communityConsole/api/CommunityConsoleApiClient.port';
 import {
   MoveThreadRepositoryPort,
   MoveThreadRequest,
 } from '../../../ui/ports/moveThread.repository.port';
 import { ThreadPropertiesFactory } from '../../factories/threadProperties.factory';
 
-export class BulkMoveThreadsRepositoryAdapter
-  implements MoveThreadRepositoryPort
-{
+export class BulkMoveThreadsRepositoryAdapter implements MoveThreadRepositoryPort {
   private readonly threadPropertiesFactory = new ThreadPropertiesFactory();
 
-  async move(request: MoveThreadRequest, authuser: string): Promise<void> {
-    await CCApi(
+  constructor(private apiClient: CommunityConsoleApiClientPort) {}
+
+  async move(request: MoveThreadRequest): Promise<void> {
+    await this.apiClient.send(
       'MoveThread',
       {
         '1': request.oldForumId,
@@ -23,8 +23,7 @@ export class BulkMoveThreadsRepositoryAdapter
           request.destination.properties ?? [],
         ),
       },
-      /* authenticated = */ true,
-      authuser as any, // TODO: Fix type
+      { authenticated: true },
     );
   }
 }

@@ -15,6 +15,7 @@ common_ts_project(
         "//src/domain",
         "//src/features/bulkMove/infrastructure/factories",
         "//src/features/bulkMove/ui/components",
+        "//src/features/bulkMove/ui/compositionRoot",
         "//src/features/bulkMove/ui/injectors",
         "//src/features/bulkMove/ui/ports",
         "//src/models",

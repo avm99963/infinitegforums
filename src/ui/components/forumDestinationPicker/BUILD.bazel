@@ -28,12 +28,15 @@ common_ts_project(
         "//src/ui/components:__subpackages__",
     ],
     deps = [
+        "//:node_modules/@lit/context",
         "//:node_modules/@lit/localize",
         "//:node_modules/@material/web",
         "//:node_modules/lit",
         "//src/common/styles",
         "//src/domain",
-        "//src/features/bulkMove/infrastructure/repositories/api",
+        # TODO: this dependency shouldn't exist. The getForum repo should be
+        # moved outside the bulkMove feature folder.
+        "//src/features/bulkMove/ui/ports",
         "//src/ui/i18n",
     ],
 )

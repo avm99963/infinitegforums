@@ -9,10 +9,13 @@ common_ts_project(
     transpiler = swc_pkg,
     tsconfig = "//:tsconfig_pkg",
     visibility = [
-        "//src/features/bulkMove/presentation:__subpackages__",
+        "//src:entrypoint",
+        "//src:ui",
         "//src/features/bulkMove/infrastructure:__subpackages__",
+        "//src/features/bulkMove/presentation:__subpackages__",
     ],
     deps = [
+        "//:node_modules/@lit/context",
         "//src/domain",
     ],
 )

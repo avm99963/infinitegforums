@@ -1,5 +1,10 @@
-import { Forum } from "../../../../domain/forum";
+import { Forum } from '@/domain/forum';
+import { createContext } from '@lit/context';
 
 export interface GetForumRepositoryPort {
-  getForum(forumId: string, displayLanguage: string, authuser: string): Promise<Forum>;
+  getForum(forumId: string, displayLanguage: string): Promise<Forum>;
 }
+
+export const getForumRepositoryContext = createContext<GetForumRepositoryPort>(
+  'bulk-move-get-forum-repository',
+);

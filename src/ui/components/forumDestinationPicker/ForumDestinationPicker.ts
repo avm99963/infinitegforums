@@ -25,12 +25,6 @@ export default class ForumDestinationPicker extends I18nLitElement {
   accessor preloadedForums: Forum[] | undefined;
 
   /**
-   * Authenticated user ID, used for API calls.
-   */
-  @property({ type: String })
-  accessor authuser: string | undefined;
-
-  /**
    * Display language code set by the user in the Community Console.
    */
   @property({ type: String })
@@ -80,7 +74,6 @@ export default class ForumDestinationPicker extends I18nLitElement {
         forumId=${this.forumId}
         language=${this.language}
         .forums=${this.forums}
-        authuser=${this.authuser}
         displayLanguage=${this.displayLanguage}
         autofocus
         @change=${this.onForumChanged}
