@@ -1,9 +1,9 @@
-import ExtraInfo from '../../../features/extraInfo/core';
-import AutoRefresh from '../../../features/autoRefresh/core/autoRefresh';
-import WorkflowsImport from '../../../features/workflows/core/communityConsole/import/import';
-import StartupDataStorageAdapter from '../../../infrastructure/services/communityConsole/startupDataStorage/StartupDataStorage.adapter';
-import ReportDialogColorThemeFix from '../../../features/ccDarkTheme/core/logic/reportDialog';
-import ThreadPageDesignWarning from '../../../features/threadPageDesignWarning/core/threadPageDesignWarning';
+import type ExtraInfo from '../../../features/extraInfo/core';
+import type AutoRefresh from '../../../features/autoRefresh/core/autoRefresh';
+import type WorkflowsImport from '../../../features/workflows/core/communityConsole/import/import';
+import type StartupDataStorageAdapter from '../../../infrastructure/services/communityConsole/startupDataStorage/StartupDataStorage.adapter';
+import type ReportDialogColorThemeFix from '../../../features/ccDarkTheme/core/logic/reportDialog';
+import type ThreadPageDesignWarning from '../../../features/threadPageDesignWarning/core/threadPageDesignWarning';
 
 export const AutoRefreshDependency = 'autoRefresh';
 export const ExtraInfoDependency = 'extraInfo';
@@ -12,13 +12,13 @@ export const ReportDialogColorThemeFixDependency =
 export const StartupDataStorageDependency = 'startupDataStorage';
 export const ThreadPageDesignWarningDependency = 'threadPageDesignWarning';
 export const WorkflowsImportDependency = 'workflowsImport';
-export const DependenciesToClass = {
-  [AutoRefreshDependency]: AutoRefresh,
-  [ExtraInfoDependency]: ExtraInfo,
-  [ReportDialogColorThemeFixDependency]: ReportDialogColorThemeFix,
-  [StartupDataStorageDependency]: StartupDataStorageAdapter,
-  [ThreadPageDesignWarningDependency]: ThreadPageDesignWarning,
-  [WorkflowsImportDependency]: WorkflowsImport,
+type DependenciesToClass = {
+  [AutoRefreshDependency]: typeof AutoRefresh;
+  [ExtraInfoDependency]: typeof ExtraInfo;
+  [ReportDialogColorThemeFixDependency]: typeof ReportDialogColorThemeFix;
+  [StartupDataStorageDependency]: typeof StartupDataStorageAdapter;
+  [ThreadPageDesignWarningDependency]: typeof ThreadPageDesignWarning;
+  [WorkflowsImportDependency]: typeof WorkflowsImport;
 };
 
 interface OurWindow extends Window {
@@ -26,14 +26,14 @@ interface OurWindow extends Window {
 }
 
 export type ClassFromDependency<T extends Dependency> = InstanceType<
-  (typeof DependenciesToClass)[T]
+  DependenciesToClass[T]
 >;
 
 type Dependencies = {
   [K in Dependency]?: ClassFromDependency<K>;
 };
 
-export type Dependency = keyof typeof DependenciesToClass;
+export type Dependency = keyof DependenciesToClass;
 
 /**
  * Class that lets the composition root save and retrieve shared dependencies
