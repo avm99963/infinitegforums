@@ -136,10 +136,11 @@ function createScriptRunner() {
   );
 
   const avatarsHandler = new AvatarsHandler(optionsProvider);
+  const ccApiClient = new CommunityConsoleApiClientAdapter(
+    startupDataStorage.get().getAuthUser(),
+  );
   const ccInfiniteScroll = new CCInfiniteScroll();
   const flattenThreads = new FlattenThreads();
-
-  const authuser = startupDataStorage.get().getAuthUser();
 
   return new ScriptRunner(
     new SortedScriptsProviderAdapter(
@@ -175,9 +176,7 @@ function createScriptRunner() {
                   startupDataStorage,
                   new GetSelectedThreadsServiceAdapter(urlThreadDataParser),
                   new ViewSoftRefresherServiceAdapter(),
-                  new BulkMoveThreadsRepositoryAdapter(
-                    new CommunityConsoleApiClientAdapter(authuser),
-                  ),
+                  new BulkMoveThreadsRepositoryAdapter(ccApiClient),
                 ),
               ),
             ],
@@ -187,8 +186,8 @@ function createScriptRunner() {
                 optionsProvider,
                 new BulkReportControlsInjectorAdapter(
                   new MessageInfoRepositoryAdapter(),
-                  new ReportOffTopicRepositoryAdapter(),
-                  new ReportAbuseRepositoryAdapter(),
+                  new ReportOffTopicRepositoryAdapter(ccApiClient),
+                  new ReportAbuseRepositoryAdapter(ccApiClient),
                 ),
               ),
             ],
@@ -198,8 +197,8 @@ function createScriptRunner() {
                 optionsProvider,
                 new BulkReportControlsInjectorAdapter(
                   new ThreadInfoRepositoryAdapter(urlThreadDataParser),
-                  new ReportOffTopicRepositoryAdapter(),
-                  new ReportAbuseRepositoryAdapter(),
+                  new ReportOffTopicRepositoryAdapter(ccApiClient),
+                  new ReportAbuseRepositoryAdapter(ccApiClient),
                 ),
               ),
             ],

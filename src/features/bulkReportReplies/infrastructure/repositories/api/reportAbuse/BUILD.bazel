@@ -12,7 +12,7 @@ common_ts_project(
         "//src:entrypoint",
     ],
     deps = [
-        "//src/common",
         "//src/features/bulkReportReplies/infrastructure/ui/injectors",
+        "//src/services/communityConsole/api",
     ],
 )
