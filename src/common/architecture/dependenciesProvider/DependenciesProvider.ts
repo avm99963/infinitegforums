@@ -22,7 +22,7 @@ type DependenciesToClass = {
 };
 
 interface OurWindow extends Window {
-  TWPTDependencies?: Dependencies;
+  TWPTDependencies?: Partial<Dependencies>;
 }
 
 export type ClassFromDependency<T extends Dependency> = InstanceType<
@@ -30,7 +30,7 @@ export type ClassFromDependency<T extends Dependency> = InstanceType<
 >;
 
 type Dependencies = {
-  [K in Dependency]?: ClassFromDependency<K>;
+  [K in Dependency]: ClassFromDependency<K>;
 };
 
 export type Dependency = keyof DependenciesToClass;
@@ -41,7 +41,7 @@ export type Dependency = keyof DependenciesToClass;
  * (sandbox or main world).
  */
 class DependenciesProvider {
-  private dependencies: Dependencies;
+  private dependencies: Partial<Dependencies>;
 
   constructor() {
     const ourWindow = window as OurWindow;
