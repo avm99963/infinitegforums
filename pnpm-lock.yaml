@@ -108,7 +108,7 @@ importers:
         specifier: 28.1.0
         version: 28.1.0
       json5:
-        specifier: ^2.2.3
+        specifier: 2.2.3
         version: 2.2.3
       mini-css-extract-plugin:
         specifier: 2.10.0
