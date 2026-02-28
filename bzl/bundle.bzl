@@ -26,6 +26,10 @@ def extension_bundle(name, **kwargs):
         node_modules = ":node_modules",
         output_dir = True,
         webpack_config = ":webpack.config.js",
+        env = select({
+            "//:production": {"PRODUCTION": "true"},
+            "//conditions:default": {"PRODUCTION": "false"},
+        }),
         deps = [
             ":node_modules/css-loader",
             ":node_modules/html-webpack-plugin",

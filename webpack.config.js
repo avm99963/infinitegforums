@@ -1,10 +1,11 @@
-const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
-module.exports = (env, args) => {
+module.exports = () => {
+
+  const isProduction = process.env.PRODUCTION === 'true';
   // NOTE: When adding an entry, add the corresponding source map file to
   // web_accessible_resources in //manifest/manifest.template.gjson.
   const entry = {
@@ -84,7 +85,7 @@ module.exports = (env, args) => {
         chunks: ['optionsScript'],
       }),
     ],
-    devtool: (args.mode == 'production' ? 'source-map' : 'inline-source-map'),
+    devtool: (isProduction ? 'source-map' : 'inline-source-map'),
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "src"),
