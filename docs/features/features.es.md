@@ -145,9 +145,9 @@ _Consola de la Comunidad_
 
 ### Acciones masivas
 
-#### Informar respuestas rápidamente
+#### Informa de varios mensajes rápidamente
 
-Añade botones de informado rápido a todas las respuestas, para que puedas informar cada una con un solo clic.
+Añade botones de informado rápido a todos los mensajes, para que puedas informar cada uno con un solo clic.
 
 _Tailwind Básico, Consola de la Comunidad_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/bulkReportReplies/presentation/options/assets/demo.avif)
 
@@ -166,6 +166,14 @@ _Tailwind Básico, Consola de la Comunidad_
 Corrige el error que abre incorrectamente el cuadro de diálogo varias veces al añadir o editar un enlace.
 
 _Consola de la Comunidad_
+
+### Mejoras menores de la interfaz
+
+#### Fix canned responses popup
+
+Fixes the selection popup that appears when inserting a CR, so it is shown correctly when some CR has a very long title.
+
+_Tailwind Básico, Consola de la Comunidad_
 
 ## Editor de mensajes antiguo
 

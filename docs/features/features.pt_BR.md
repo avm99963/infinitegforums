@@ -1,6 +1,6 @@
-# Features
+# Características
 
-The TW Power Tools extension offers the following features:
+A extensão TW Power Tools oferece os seguintes recursos:
 
 [TOC]
 
@@ -15,7 +15,7 @@ _Automático:_ usará o tema definido nas configurações do sistema.
 _Manual:_ adicionará um botão ao Console da Comunidade que permite alternar o tema.
 ***
 
-_Console da comunidade_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/ccDarkTheme/presentation/options/assets/screenshot.avif)
+_Console da comunidade_ | [\[demonstração\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/ccDarkTheme/presentation/options/assets/screenshot.avif)
 
 ### Redirecionar para o Console da Comunidade
 
@@ -27,11 +27,11 @@ _Vento favorável básico_
 
 Reduza os espaços em branco na interface do usuário.
 
-_Vento favorável básico, Console da comunidade_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/uiSpacing/presentation/options/assets/screenshot.avif)
+_Vento favorável básico, Console da comunidade_ | [\[demonstração\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/uiSpacing/presentation/options/assets/screenshot.avif)
 
-### Attempt to fix performance issues
+### Tentativa de corrigir problemas de desempenho
 
-Best-effort workaround for the issues discussed at [pekb/381989895](https://support.google.com/s/community/forum/51488989/thread/381989895).
+Solução alternativa, dentro do possível, para os problemas discutidos em [pekb/381989895](https://support.google.com/s/community/forum/51488989/thread/381989895).
 
 _Console da comunidade_
 
@@ -41,7 +41,7 @@ _Console da comunidade_
 
 Torna os cabeçalhos das seções recolhíveis na barra lateral fixos para que não desapareçam ao rolar para baixo.
 
-_Console da comunidade_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/stickySidebarHeaders/presentation/options/assets/demo.avif)
+_Console da comunidade_ | [\[demonstração\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/stickySidebarHeaders/presentation/options/assets/demo.avif)
 
 #### Ocultar barra lateral por padrão
 
@@ -61,13 +61,13 @@ _Console da comunidade_
 
 Mostra avatares dos participantes ao lado de cada tópico.
 
-_Console da comunidade_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/avatars/presentation/options/assets/screenshot.avif)
+_Console da comunidade_ | [\[demonstração\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/avatars/presentation/options/assets/screenshot.avif)
 
 ### Notificar atualizações
 
 Exibe uma notificação não intrusiva quando uma lista de tópicos tem novas atualizações.
 
-_Console da comunidade_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/autoRefresh/presentation/options/assets/screenshot.avif)
+_Console da comunidade_ | [\[demonstração\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/autoRefresh/presentation/options/assets/screenshot.avif)
 
 ### Rolagem infinita
 
@@ -77,7 +77,7 @@ Carrega mais tópicos automaticamente ao rolar para baixo.
 O Community Console já tem esse recurso integrado, sem a necessidade da extensão.
 ***
 
-_Vento favorável básico_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/infiniteScroll/presentation/options/assets/demo_thread_list.avif)
+_Vento favorável básico_ | [\[demonstração\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/infiniteScroll/presentation/options/assets/demo_thread_list.avif)
 
 ### Ações massivas
 
@@ -85,13 +85,13 @@ _Vento favorável básico_ | [\[demo\]](https://raw.githubusercontent.com/avm999
 
 Adiciona um botão para bloquear todos os tópicos selecionados de uma só vez.
 
-_Console da comunidade_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/batchLock/presentation/options/assets/demo.avif)
+_Console da comunidade_ | [\[demonstração\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/batchLock/presentation/options/assets/demo.avif)
 
 #### Movimento em massa
 
 Adiciona um botão para mover todos os tópicos selecionados de uma só vez.
 
-_Console da comunidade_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/bulkMove/presentation/options/assets/demo.avif)
+_Console da comunidade_ | [\[demonstração\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/bulkMove/presentation/options/assets/demo.avif)
 
 ### Pequenas melhorias na interface do usuário
 
@@ -99,13 +99,13 @@ _Console da comunidade_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/
 
 Makes the toolbar not disappear when scrolling down.
 
-_Console da comunidade_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/fixedToolbar/presentation/options/assets/demo.avif)
+_Console da comunidade_ | [\[demonstração\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/fixedToolbar/presentation/options/assets/demo.avif)
 
 #### Coloque o botão de expansão à esquerda
 
 Coloca o botão "expandir tópico" totalmente à esquerda.
 
-_Console da comunidade_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/repositionExpandThread/presentation/options/assets/screenshot.avif)
+_Console da comunidade_ | [\[demonstração\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/repositionExpandThread/presentation/options/assets/screenshot.avif)
 
 #### Aumentar o contraste
 
@@ -119,19 +119,19 @@ _Console da comunidade_
 
 Mostra uma alternância que permite desabilitar a visualização aninhada para exibir as respostas simplificadas.
 
-_Console da comunidade_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/flattenThreads/presentation/options/assets/demo.avif)
+_Console da comunidade_ | [\[demonstração\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/flattenThreads/presentation/options/assets/demo.avif)
 
 ### Contagem de mensagens OP
 
 Exibe um emblema ao lado do nome de usuário do OP com o número de mensagens postadas por ele.
 
-_Vento favorável básico, Console da comunidade_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/profileIndicator/presentation/options/assets/screenshot.avif)
+_Vento favorável básico, Console da comunidade_ | [\[demonstração\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/profileIndicator/presentation/options/assets/screenshot.avif)
 
 ### Rolagem infinita
 
 Carrega automaticamente mais respostas ao rolar para baixo.
 
-_Vento favorável básico, Console da comunidade_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/infiniteScroll/presentation/options/assets/demo_thread.avif)
+_Vento favorável básico, Console da comunidade_ | [\[demonstração\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/infiniteScroll/presentation/options/assets/demo_thread.avif)
 
 ### Alterar o design da página do tópico
 
@@ -145,11 +145,11 @@ _Console da comunidade_
 
 ### Ações massivas
 
-#### Relate respostas rapidamente
+#### Denuncie mensagens rapidamente
 
-Adiciona botões de relatório rápido a todas as respostas, para que você possa denunciar cada uma com um único clique.
+Adiciona botões de relatório rápido a todas as mensagens, para que você possa relatar cada uma com um único clique.
 
-_Vento favorável básico, Console da comunidade_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/bulkReportReplies/presentation/options/assets/demo.avif)
+_Vento favorável básico, Console da comunidade_ | [\[demonstração\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/bulkReportReplies/presentation/options/assets/demo.avif)
 
 ### Pequenas melhorias na interface do usuário
 
@@ -166,6 +166,14 @@ _Vento favorável básico, Console da comunidade_
 Corrige o erro que faz com que a janela de diálogo de links seja aberta incorretamente várias vezes ao adicionar ou editar um link.
 
 _Console da comunidade_
+
+### Pequenas melhorias na interface do usuário
+
+#### Fix canned responses popup
+
+Fixes the selection popup that appears when inserting a CR, so it is shown correctly when some CR has a very long title.
+
+_Vento favorável básico, Console da comunidade_
 
 ## Editor de texto antigo
 
@@ -197,11 +205,11 @@ _Console da comunidade_
 
 Exibe um gráfico de atividades por fórum nos perfis.
 
-_Vento favorável básico, Console da comunidade_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/extraInfo/presentation/options/assets/per_forum_stats.avif)
+_Vento favorável básico, Console da comunidade_ | [\[demonstração\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/extraInfo/presentation/options/assets/per_forum_stats.avif)
 
 ### Postagens anteriores
 
 Exibe um link "postagens anteriores" nos perfis dos usuários.
 
-_Vento favorável básico, Console da comunidade_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/previousPosts/presentation/options/assets/screenshot.avif)
+_Vento favorável básico, Console da comunidade_ | [\[demonstração\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/previousPosts/presentation/options/assets/screenshot.avif)
 

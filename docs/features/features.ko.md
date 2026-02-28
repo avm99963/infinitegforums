@@ -51,7 +51,7 @@ _커뮤니티 콘솔_
 
 #### 공지사항 알림 강조
 
-커뮤니티 콘솔에서 구글 직원이 새 공지를 게시할 때 나타나는 점을 더 눈에 띄게 표시합니다.
+커뮤니티 콘솔에서 Google 직원이 새 공지를 게시할 때 나타나는 점을 더 눈에 띄게 표시합니다.
 
 _커뮤니티 콘솔_
 
@@ -145,9 +145,9 @@ _커뮤니티 콘솔_
 
 ### 일괄 작업
 
-#### 빠른 댓글 신고
+#### 메시지 간편 신고
 
-모든 댓글에 빠른 신고 버튼을 추가하여, 한 번의 클릭만으로 신고할 수 있도록 합니다.
+한 번의 클릭만으로 신고할 수 있는 간편 신고 버튼을 모든 메시지에 추가합니다.
 
 _기본 Tailwind, 커뮤니티 콘솔_ | [\[데모\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/bulkReportReplies/presentation/options/assets/demo.avif)
 
@@ -166,6 +166,14 @@ _기본 Tailwind, 커뮤니티 콘솔_
 링크를 추가하거나 수정할 때 링크 대화상자가 비정상적으로 여러 번 열리는 버그를 수정합니다.
 
 _커뮤니티 콘솔_
+
+### 사소한 UI 개선
+
+#### Fix canned responses popup
+
+Fixes the selection popup that appears when inserting a CR, so it is shown correctly when some CR has a very long title.
+
+_기본 Tailwind, 커뮤니티 콘솔_
 
 ## 구 버전 메시지 작성기
 

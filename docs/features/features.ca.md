@@ -147,7 +147,7 @@ _Consola de la Comunitat_
 
 #### Informa respostes ràpidament
 
-Afegeix botons d'informat ràpid a totes les respostes, perquè puguis informar cadascuna amb un únic clic.
+Afegeix botons d'informat ràpid a tots els missatges, perquè puguis informar cadascun amb un únic clic.
 
 _Tailwind Bàsic, Consola de la Comunitat_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/bulkReportReplies/presentation/options/assets/demo.avif)
 
@@ -166,6 +166,14 @@ _Tailwind Bàsic, Consola de la Comunitat_
 Arregla l'error que obre incorrectament el quadre de diàleg diverses vegades quan s'afegeix o edita un enllaç.
 
 _Consola de la Comunitat_
+
+### Millores menors de la interfície
+
+#### Fix canned responses popup
+
+Fixes the selection popup that appears when inserting a CR, so it is shown correctly when some CR has a very long title.
+
+_Tailwind Bàsic, Consola de la Comunitat_
 
 ## Editor de missatges antic
 

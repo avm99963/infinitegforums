@@ -145,9 +145,9 @@ _وحدة التّحكُّم بالمجتمع_
 
 ### Bulk actions
 
-#### الإبلاغ السَّريع عن الرّدود
+#### Report messages quickly
 
-إضافة أزرار إبلاغ سريع إلى جميع الرُّدود، حتى تتمكَّن من الإبلاغ عن كلّ ردّ بنقرة واحدة.
+Adds quick report buttons to all messages, so you can report each one with a single click.
 
 _Tailwind Basic, وحدة التّحكُّم بالمجتمع_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/bulkReportReplies/presentation/options/assets/demo.avif)
 
@@ -166,6 +166,14 @@ _Tailwind Basic, وحدة التّحكُّم بالمجتمع_
 Patches the bug that incorrectly opens the link dialog multiple times when adding or editing a link.
 
 _وحدة التّحكُّم بالمجتمع_
+
+### Minor UI enhancements
+
+#### Fix canned responses popup
+
+Fixes the selection popup that appears when inserting a CR, so it is shown correctly when some CR has a very long title.
+
+_Tailwind Basic, وحدة التّحكُّم بالمجتمع_
 
 ## Old message composer
 

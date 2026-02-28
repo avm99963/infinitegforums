@@ -145,9 +145,9 @@ _Community Console_
 
 ### Bulk actions
 
-#### Report replies quickly
+#### Report messages quickly
 
-Adds quick report buttons to all replies, so you can report each one with a single click.
+Adds quick report buttons to all messages, so you can report each one with a single click.
 
 _Tailwind Basic, Community Console_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/bulkReportReplies/presentation/options/assets/demo.avif)
 
@@ -166,6 +166,14 @@ _Tailwind Basic, Community Console_
 Patches the bug that incorrectly opens the link dialog multiple times when adding or editing a link.
 
 _Community Console_
+
+### Minor UI enhancements
+
+#### Fix canned responses popup
+
+Fixes the selection popup that appears when inserting a CR, so it is shown correctly when some CR has a very long title.
+
+_Tailwind Basic, Community Console_
 
 ## Old message composer
 

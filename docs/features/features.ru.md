@@ -145,9 +145,9 @@ _Консоль сообщества_
 
 ### Массовые действия
 
-#### Быстро пожаловаться на ответы
+#### Report messages quickly
 
-Добавляет кнопки быстрой отправки жалобы ко всем ответам, чтобы вы могли пожаловаться на каждый из них одним нажатием.
+Adds quick report buttons to all messages, so you can report each one with a single click.
 
 _Базовый Tailwind, Консоль сообщества_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/bulkReportReplies/presentation/options/assets/demo.avif)
 
@@ -166,6 +166,14 @@ _Базовый Tailwind, Консоль сообщества_
 Предотвращает ошибку, при которой при добавлении или редактировании ссылки диалоговое окно открывается несколько раз.
 
 _Консоль сообщества_
+
+### Незначительные улучшения интерфейса
+
+#### Fix canned responses popup
+
+Fixes the selection popup that appears when inserting a CR, so it is shown correctly when some CR has a very long title.
+
+_Базовый Tailwind, Консоль сообщества_
 
 ## Старый редактор сообщений
 

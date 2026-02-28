@@ -145,9 +145,9 @@ _コミュニティコンソール_
 
 ### 一括操作
 
-#### 返信を素早く報告する
+#### Report messages quickly
 
-すべての返信にクイック報告ボタンを追加し、各返信をワンクリックで報告できるようにします
+Adds quick report buttons to all messages, so you can report each one with a single click.
 
 _Tailwind Basic, コミュニティコンソール_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/bulkReportReplies/presentation/options/assets/demo.avif)
 
@@ -166,6 +166,14 @@ _Tailwind Basic, コミュニティコンソール_
 リンクを追加または編集する際に、リンクダイアログが誤って複数回開いてしまうバグを修正します
 
 _コミュニティコンソール_
+
+### 軽微なUI改善
+
+#### Fix canned responses popup
+
+Fixes the selection popup that appears when inserting a CR, so it is shown correctly when some CR has a very long title.
+
+_Tailwind Basic, コミュニティコンソール_
 
 ## 旧メッセージ作成画面
 
