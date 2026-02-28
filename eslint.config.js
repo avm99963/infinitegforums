@@ -21,7 +21,6 @@ module.exports = [
       ecmaVersion: 'latest',
       sourceType: 'module',
       globals: {
-        PRODUCTION: 'readonly',
         ...globals.browser,
         ...globals.webextensions,
       },

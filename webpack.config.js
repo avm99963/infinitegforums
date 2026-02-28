@@ -83,9 +83,6 @@ module.exports = (env, args) => {
         template: 'src/options/presentation/templates/options.html.ejs',
         chunks: ['optionsScript'],
       }),
-      new webpack.DefinePlugin({
-        'PRODUCTION': args.mode == 'production',
-      }),
     ],
     devtool: (args.mode == 'production' ? 'source-map' : 'inline-source-map'),
     resolve: {

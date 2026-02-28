@@ -13,6 +13,9 @@ preprocessor(
     }) + select({
         "//src/killSwitch:should_enable_kill_switch_mechanism": ["ENABLE_KILL_SWITCH_MECHANISM"],
         "//conditions:default": [],
+    }) + select({
+        "//:production": ["PRODUCTION"],
+        "//conditions:default": [],
     }),
 )
 

@@ -80,10 +80,17 @@ actionApi.onClicked.addListener(() => {
 const killSwitchMechanism = new KillSwitchMechanism(syncStorageAreaRepository);
 killSwitchMechanism.updateBadge();
 
+let KILL_SWITCH_UPDATE_PERIOD_IN_MINUTES: number;
+// #!if defined(PRODUCTION)
+KILL_SWITCH_UPDATE_PERIOD_IN_MINUTES = 30;
+// #!else
+KILL_SWITCH_UPDATE_PERIOD_IN_MINUTES = 1;
+// #!endif
+
 chrome.alarms.get('updateKillSwitchStatus', (alarm) => {
   if (!alarm)
     chrome.alarms.create('updateKillSwitchStatus', {
-      periodInMinutes: PRODUCTION ? 30 : 1,
+      periodInMinutes: KILL_SWITCH_UPDATE_PERIOD_IN_MINUTES,
     });
 });
 
@@ -165,10 +172,3 @@ isExtensionStartup().then((isStartup) => {
     setHasAlreadyStarted();
   }
 });
-
-/**
- * Whether we're running a production version.
- *
- * This variable is provided by Webpack.
- */
-declare const PRODUCTION: boolean;
