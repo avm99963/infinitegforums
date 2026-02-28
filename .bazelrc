@@ -2,6 +2,7 @@
 import %workspace%/tools/preset.bazelrc
 
 common --repo_env=DO_NOT_TRACK=true
+# In non-release builds we don't want to enable the kill switch mechanism.
 common --no//src/killSwitch:enable_kill_switch_mechanism
 
 build --flag_alias=browser=//:browser
@@ -23,6 +24,7 @@ build:release --workspace_status_command=./tools/bazel_stamp_vars.sh
 build:release --compilation_mode=opt
 build:release --//:release
 build:release --//src/killSwitch:enable_kill_switch_mechanism
+build:release --//src/killSwitch:host=https://twpt-grpc-web.avm99963.com/
 
 # To allow importing a user-defined .bazelrc
 try-import %workspace%/user.bazelrc
