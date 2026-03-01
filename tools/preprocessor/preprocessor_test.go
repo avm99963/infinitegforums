@@ -1,11 +1,13 @@
 package main
 
 import (
+	"bufio"
 	"bytes"
 	"crypto/sha256"
 	"encoding/hex"
 	"io"
 	"os"
+	"strings"
 	"testing"
 )
 
@@ -60,8 +62,6 @@ func TestPreprocessor(t *testing.T) {
 		},
 	}
 
-	definedDependencies := []string{"foo_is_awesome"}
-
 	for _, test := range testSuites {
 		t.Run(test.name, func(t *testing.T) {
 			source, err := os.Open("test_data/" + test.testDataFolder + "/source.txt")
@@ -75,6 +75,8 @@ func TestPreprocessor(t *testing.T) {
 				t.Fatalf("Can't open expected file for test: %v", err)
 			}
 			defer expected.Close()
+
+			definedDependencies := readDefinedDependencies(t, "test_data/"+test.testDataFolder+"/defined_dependencies.txt")
 
 			destination := bytes.NewBufferString("")
 
@@ -98,4 +100,24 @@ func TestPreprocessor(t *testing.T) {
 			}
 		})
 	}
+}
+
+func readDefinedDependencies(t *testing.T, filePath string) []string {
+	reader, err := os.Open(filePath)
+	if err != nil {
+		t.Fatalf("Can't open defined_dependencies file for test: %v", err)
+	}
+	defer reader.Close()
+
+	definedDependencies := []string{}
+
+	scanner := bufio.NewScanner(reader)
+	for scanner.Scan() {
+		dependency := strings.Trim(scanner.Text(), " ")
+		if dependency != "" {
+			definedDependencies = append(definedDependencies, dependency)
+		}
+	}
+
+	return definedDependencies
 }
