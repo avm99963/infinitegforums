@@ -17,6 +17,12 @@ type LevelStatus struct {
 	Satisfied bool
 	// true if currently processing the if branch. false if processing the else branch.
 	ProcessingIfBranch bool
+	// true if some parent level indicates that this line should not be printed.
+	ParentsBlockPrint bool
+}
+
+func (levelStatus *LevelStatus) shouldPrint() bool {
+	return !levelStatus.ParentsBlockPrint && ((levelStatus.ProcessingIfBranch && levelStatus.Satisfied) || (!levelStatus.ProcessingIfBranch && !levelStatus.Satisfied))
 }
 
 type preprocessor struct {
@@ -75,6 +81,7 @@ func (p *preprocessor) processIfStatement(rawQuery string) (bool, error) {
 	p.stack = append(p.stack, &LevelStatus{
 		Satisfied:          query.Satisfies(p.definedDependencies),
 		ProcessingIfBranch: true,
+		ParentsBlockPrint:  len(p.stack) > 0 && !p.stack[len(p.stack)-1].shouldPrint(),
 	})
 	return false, nil
 }
@@ -104,6 +111,6 @@ func (p *preprocessor) processRegularLine() (bool, error) {
 		return true, nil
 	}
 	lastLevelStatus := p.stack[len(p.stack)-1]
-	shouldPrintLine := (lastLevelStatus.ProcessingIfBranch && lastLevelStatus.Satisfied) || (!lastLevelStatus.ProcessingIfBranch && !lastLevelStatus.Satisfied)
+	shouldPrintLine := lastLevelStatus.shouldPrint()
 	return shouldPrintLine, nil
 }

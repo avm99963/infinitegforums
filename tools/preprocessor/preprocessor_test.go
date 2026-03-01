@@ -60,6 +60,10 @@ func TestPreprocessor(t *testing.T) {
 			name:           "Complex",
 			testDataFolder: "complex",
 		},
+		{
+			name:           "NestedIfElse",
+			testDataFolder: "nested_if_else",
+		},
 	}
 
 	for _, test := range testSuites {

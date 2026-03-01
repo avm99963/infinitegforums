@@ -1,0 +1,6 @@
+// This test should not output anything since ENABLE_KILL_SWITCH_MECHANISM is
+// not a defined dependency.
+//
+// Due to a regression, previous versions output the else branch of the
+// defined(PRODUCTION) if-else statement.
+//

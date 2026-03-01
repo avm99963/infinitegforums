@@ -1,0 +1,34 @@
+// This test should not output anything since ENABLE_KILL_SWITCH_MECHANISM is
+// not a defined dependency.
+//
+// Due to a regression, previous versions output the else branch of the
+// defined(PRODUCTION) if-else statement.
+//
+// #!if defined(ENABLE_KILL_SWITCH_MECHANISM)
+const killSwitchMechanism = new KillSwitchMechanism(syncStorageAreaRepository);
+killSwitchMechanism.updateBadge();
+
+let KILL_SWITCH_UPDATE_PERIOD_IN_MINUTES: number;
+// #!if defined(PRODUCTION)
+KILL_SWITCH_UPDATE_PERIOD_IN_MINUTES = 30;
+// #!else
+KILL_SWITCH_UPDATE_PERIOD_IN_MINUTES = 1;
+// #!endif
+
+chrome.alarms.get('updateKillSwitchStatus', (alarm) => {
+  if (!alarm)
+    chrome.alarms.create('updateKillSwitchStatus', {
+      periodInMinutes: KILL_SWITCH_UPDATE_PERIOD_IN_MINUTES,
+    });
+});
+
+chrome.alarms.onAlarm.addListener((alarm) => {
+  if (alarm.name === 'updateKillSwitchStatus')
+    killSwitchMechanism.updateKillSwitchStatus();
+});
+
+// When the profile is first started, update the kill switch status.
+chrome.runtime.onStartup.addListener(() => {
+  killSwitchMechanism.updateKillSwitchStatus();
+});
+// #!endif
