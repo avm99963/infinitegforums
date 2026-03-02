@@ -213,6 +213,11 @@ const rawOptionConfigs = {
     context: OptionContext.Internal,
     killSwitchType: KillSwitchType.InternalKillSwitch,
   },
+  killswitch_aprilfools: {
+    defaultValue: undefined as unknown,
+    context: OptionContext.Internal,
+    killSwitchType: KillSwitchType.InternalKillSwitch,
+  },
 
   // Deprecated options
   escalatethreads: {

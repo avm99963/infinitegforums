@@ -97,14 +97,17 @@ import BulkReportRepliesQuestionCardHandler from '@/features/bulkReportReplies/p
 import { ThreadInfoRepositoryAdapter } from '@/features/bulkReportReplies/infrastructure/repositories/itemInfo/threadInfo.repository.adapter';
 import FixCrPopupStylesScript from '@/features/fixCrPopup/presentation/scripts/styles.script';
 import { CommunityConsoleApiClientAdapter } from '@/infrastructure/services/communityConsole/api/CommunityConsoleApiClient.adapter';
+import BulkNukeActionHandler from '@/features/nukeThreadAprilFools/presentation/nodeWatcherHandlers/bulkNuke.handler';
+import { BulkNukeButtonInjectorAdapter } from '@/features/nukeThreadAprilFools/infrastructure/ui/injectors/bulkNukeButton.injector.adapter';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
 
 function createScriptRunner() {
+  const ccThreadListActionInjector = new CCThreadListActionInjectorAdapter();
   const ccThreadListGenericActionButtonInjector =
     new CCThreadListGenericActionButtonInjectorAdapter(
-      new CCThreadListActionInjectorAdapter(),
+      ccThreadListActionInjector,
     );
   const syncStorageAreaRepository = getSyncStorageAreaRepository();
   const optionsModifier = new OptionsModifierAdapter(syncStorageAreaRepository);
@@ -178,6 +181,13 @@ function createScriptRunner() {
                   new ViewSoftRefresherServiceAdapter(),
                   new BulkMoveThreadsRepositoryAdapter(ccApiClient),
                 ),
+              ),
+            ],
+            [
+              'bulkNukeButton',
+              new BulkNukeActionHandler(
+                optionsProvider,
+                new BulkNukeButtonInjectorAdapter(ccThreadListActionInjector),
               ),
             ],
             [

@@ -9,6 +9,7 @@ import '../updateNotifier/ui/components/UpdateBanner';
 import '../features/bulkReportReplies/ui/components/index';
 import '../features/bulkMove/ui/components/index';
 import '../features/bulkMove/ui/compositionRoot/index';
+import '../features/nukeThreadAprilFools/ui/components';
 import '../ui/components';
 
 import {injectStylesheet} from '../common/contentScriptsUtils';

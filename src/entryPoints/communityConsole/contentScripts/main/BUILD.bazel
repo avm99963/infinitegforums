@@ -62,6 +62,8 @@ common_ts_project(
         "//src/features/infiniteScroll/core",
         "//src/features/infiniteScroll/presentation/nodeWatcherHandlers",
         "//src/features/logStartupData/presentation/scripts",
+        "//src/features/nukeThreadAprilFools/infrastructure/ui/injectors",
+        "//src/features/nukeThreadAprilFools/presentation/nodeWatcherHandlers",
         "//src/features/previousPosts/presentation/handlers",
         "//src/features/profileIndicator/presentation/scripts",
         "//src/features/repositionExpandThread/presentation/scripts",

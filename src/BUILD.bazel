@@ -7,10 +7,10 @@ package_group(
         "//src/bg/...",
         "//src/contentScripts",
         "//src/entryPoints/...",
+        "//src/features/bulkMove/ui/compositionRoot/...",
         "//src/injections",
         "//src/options/presentation/scripts",
         "//src/storage/compositionRoot/...",
-        "//src/features/bulkMove/ui/compositionRoot/...",
     ],
 )
 
@@ -41,6 +41,7 @@ package_group(
         "//src/features/linkDialogFix/presentation/...",
         "//src/features/loadDrafts/presentation/...",
         "//src/features/logStartupData/presentation/...",
+        "//src/features/nukeThreadAprilFools/presentation/...",
         "//src/features/previousPosts/presentation/...",
         "//src/features/profileIndicator/presentation/...",
         "//src/features/redirect/presentation/...",
@@ -68,6 +69,8 @@ package_group(
         "//src/features/bulkReportReplies/ui/...",
         "//src/features/ccDarkTheme/ui/...",
         "//src/features/flattenThreads/ui/...",
+        "//src/features/nukeThreadAprilFools/infrastructure/ui/...",
+        "//src/features/nukeThreadAprilFools/ui/...",
         "//src/features/threadToolbar/ui/...",
         "//src/features/workflows/ui/...",
         "//src/infrastructure/ui/...",

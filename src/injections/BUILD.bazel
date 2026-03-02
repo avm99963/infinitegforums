@@ -11,6 +11,7 @@ common_js_project(
         "//src/features/bulkMove/ui/components",
         "//src/features/bulkReportReplies/ui/components",
         "//src/features/flattenThreads/ui/components",
+        "//src/features/nukeThreadAprilFools/ui/components",
         "//src/features/threadToolbar/ui/components",
         "//src/features/workflows/ui/components/communityConsole",
         "//src/ui/components",
