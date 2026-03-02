@@ -21,6 +21,7 @@ common_ts_project(
         "//src/models",
         "//src/services/communityConsole/startupDataStorage",
         "//src/ui/components",
+        "//src/ui/errors",
         "//src/ui/injectors",
         "//src/ui/services",
     ],

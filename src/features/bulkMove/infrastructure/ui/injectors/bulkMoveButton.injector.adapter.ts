@@ -1,12 +1,12 @@
 import { StartupDataStoragePort } from '../../../../../services/communityConsole/startupDataStorage/StartupDataStorage.port';
 import { ThreadListGenericActionButtonInjectorPort } from '../../../../../ui/injectors/threadListGenericActionButton.injector.port';
 import { Forum } from '../../../../../domain/forum';
-import BulkMoveModal from '../../../ui/components/BulkMoveModal';
+import type BulkMoveModal from '../../../ui/components/BulkMoveModal';
 import { BulkMoveButtonInjectorPort } from '../../../ui/injectors/bulkMoveButton.injector.port';
 import { ForumsFactory } from '../../factories/forums.factory';
 import StartupDataModel from '../../../../../models/StartupData';
 import { EVENT_START_BULK_MOVE } from '../../../ui/components/events';
-import BulkMoveProgressModal from '../../../ui/components/BulkMoveProgressModal';
+import type BulkMoveProgressModal from '../../../ui/components/BulkMoveProgressModal';
 import { MoveThreadRepositoryPort } from '../../../ui/ports/moveThread.repository.port';
 import {
   GetSelectedThreadsServicePort,
@@ -18,6 +18,7 @@ import {
   Status,
   ThreadProgress,
 } from '../../../ui/components/dataStructures';
+import { UnexpectedUIError } from '@/ui/errors/unexpectedUI.error';
 
 const BULK_MOVE_ACTION_KEY = 'bulk-move';
 
@@ -58,7 +59,9 @@ export class BulkMoveButtonInjectorAdapter implements BulkMoveButtonInjectorPort
 
       const startupData = this.startupDataStorage.get();
 
-      const contextProvider = document.createElement('twpt-bulk-move-context-provider');
+      const contextProvider = document.createElement(
+        'twpt-bulk-move-context-provider',
+      );
       contextProvider.authuser = startupData.getAuthUser();
 
       this.modal = document.createElement('twpt-bulk-move-modal');
@@ -66,7 +69,6 @@ export class BulkMoveButtonInjectorAdapter implements BulkMoveButtonInjectorPort
         'preloadedForums',
         JSON.stringify(this.getForums(startupData)),
       );
-      this.modal.setAttribute('authuser', startupData.getAuthUser());
       this.modal.setAttribute(
         'displayLanguage',
         startupData.getDisplayLanguage(),
@@ -162,7 +164,9 @@ export class BulkMoveButtonInjectorAdapter implements BulkMoveButtonInjectorPort
       (p) => p.originalThread.id === threadId,
     );
     if (threadProgress === undefined) {
-      throw new Error(`Could not find thread progress for thread ${threadId}.`);
+      throw new UnexpectedUIError(
+        `Could not find thread progress for thread ${threadId}.`,
+      );
     }
     threadProgress.status = status;
     threadProgress.errorMessage = errorMessage ?? undefined;
@@ -201,7 +205,7 @@ export class BulkMoveButtonInjectorAdapter implements BulkMoveButtonInjectorPort
   private getOverlay() {
     const overlay = document.getElementById('default-acx-overlay-container');
     if (overlay === null) {
-      throw new Error("The overlay doesn't exist.");
+      throw new UnexpectedUIError("The overlay doesn't exist.");
     }
     return overlay;
   }
