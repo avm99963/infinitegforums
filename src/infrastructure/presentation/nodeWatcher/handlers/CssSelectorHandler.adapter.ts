@@ -4,9 +4,7 @@ import {
   NodeWatcherHandler,
 } from '../../../../presentation/nodeWatcher/NodeWatcherHandler';
 
-export default abstract class CssSelectorNodeWatcherHandler
-  implements NodeWatcherHandler
-{
+export default abstract class CssSelectorNodeWatcherHandler implements NodeWatcherHandler {
   readonly mutationTypesProcessed: NodeMutationType[] = [
     NodeMutationType.InitialDiscovery,
     NodeMutationType.NewNode,
@@ -28,5 +26,5 @@ export default abstract class CssSelectorNodeWatcherHandler
     return this.cssSelector;
   }
 
-  abstract onMutatedNode(nodeMutation: NodeMutation<HTMLElement>): void;
+  abstract onMutatedNode(nodeMutation: NodeMutation<Node>): void;
 }
