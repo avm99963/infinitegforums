@@ -201,8 +201,12 @@ export default class OptionsApp extends LitElement {
   }
 
   private isSomeKillSwitchEnabled() {
-    return optionCodenames.some((codename) =>
-      this.optionsConfiguration?.isKillSwitchEnabled(codename),
+    // NOTE: If we end up disabling April Fool's features via the kill switch,
+    // we don't want to show that to the user.
+    return optionCodenames.some(
+      (codename) =>
+        codename !== 'killswitch_aprilfools' &&
+        this.optionsConfiguration?.isKillSwitchEnabled(codename),
     );
   }
 

@@ -29,7 +29,7 @@ export default class KillSwitchMechanism {
     const items =
         await this.syncStorageAreaRepository.get('_forceDisabledFeatures');
     const forceDisabledFeatures = items._forceDisabledFeatures ?? [];
-    let anyKillSwitchEnabled = forceDisabledFeatures.length > 0;
+    let anyKillSwitchEnabled = this.#shouldShowBadge(forceDisabledFeatures);
     this.#setBadge(anyKillSwitchEnabled);
   }
 
@@ -104,12 +104,19 @@ export default class KillSwitchMechanism {
           await this.syncStorageAreaRepository.set(
               {_forceDisabledFeatures: forceDisabledFeatures});
 
-          let anyKillSwitchEnabled = forceDisabledFeatures.length > 0;
+          let anyKillSwitchEnabled = this.#shouldShowBadge(forceDisabledFeatures);
           this.#setBadge(anyKillSwitchEnabled);
         })
         .catch(err => {
           console.error(
               '[killSwitch] Can\'t retrieve kill switch status: ', err);
         });
+  }
+
+  #shouldShowBadge(forceDisabledFeatures) {
+    // We only want to show the badge when at least a kill switch is active
+    // (except if it's just the April Fool's kill switch, for which we don't
+    // want to warn users about).
+    return forceDisabledFeatures.some(feature => feature != 'killswitch_aprilfools');
   }
 }
