@@ -75,7 +75,7 @@ export default class ThreadModel {
   getPromotedMessagesList(): MessageModel[] {
     const promotedMessages: MessageModel[] = [];
     for (const key of kPromotedMessagesKeys) {
-      const messagesList = this.data[17][key] ?? [];
+      const messagesList = this.data[17]?.[key] ?? [];
       for (const rawMessage of messagesList) {
         const message = new MessageModel(rawMessage);
         if (message.getId() === null) continue;
