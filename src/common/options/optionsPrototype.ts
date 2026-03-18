@@ -208,6 +208,14 @@ const rawOptionConfigs = {
   },
 
   // Internal kill switches
+  //
+  // NOTE: These options are "dummy" in the sense that we only track their kill
+  // switch status, but their value is not used (and thus is marked with type
+  // `unknown`).
+  //
+  // This provides a straightforward way to implement "internal kill switches":
+  // kill switches that are not directly tied to a specific user-facing option
+  // or feature.
   killswitch_xhrproxy: {
     defaultValue: undefined as unknown,
     context: OptionContext.Internal,
