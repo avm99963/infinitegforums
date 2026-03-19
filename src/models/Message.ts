@@ -1,3 +1,4 @@
+import { REPLY_POSTED_BY_WORKFLOW_CANONICAL_URL } from '@/domain/workflows/consts.js';
 import {
   ProtobufNumber,
   ProtobufObject,
@@ -62,7 +63,7 @@ export default class MessageModel {
   }
 
   getPayload() {
-    return this.data[1]?.[4] as string ?? null;
+    return (this.data[1]?.[4] as string) ?? null;
   }
 
   setPayload(value: string | null) {
@@ -71,7 +72,7 @@ export default class MessageModel {
   }
 
   getId() {
-    return this.data[1]?.[1]?.[1] as ProtobufNumber ?? null;
+    return (this.data[1]?.[1]?.[1] as ProtobufNumber) ?? null;
   }
 
   getAuthor(): ProtobufObject | null {
@@ -79,7 +80,7 @@ export default class MessageModel {
   }
 
   getParentMessageId() {
-    return this.data[1]?.[37] as ProtobufNumber ?? null;
+    return (this.data[1]?.[37] as ProtobufNumber) ?? null;
   }
 
   clearParentMessageId() {
@@ -88,15 +89,15 @@ export default class MessageModel {
   }
 
   isDeleted() {
-    return this.data[5]?.[3] as boolean ?? null;
+    return (this.data[5]?.[3] as boolean) ?? null;
   }
 
   getState() {
-    return this.data[5]?.[1] as number ?? null;
+    return (this.data[5]?.[1] as number) ?? null;
   }
 
   getEndPendingStateTimestampMicros() {
-    return this.data[1]?.[17] as ProtobufNumber ?? null;
+    return (this.data[1]?.[17] as ProtobufNumber) ?? null;
   }
 
   isTakenDown() {
@@ -150,5 +151,17 @@ export default class MessageModel {
       return false;
     }
     return true;
+  }
+
+  /**
+   * Whether a reply was posted with the workflows feature.
+   */
+  isPostedWithWorkflow(): boolean {
+    const sourceMessage = this.data[1]?.[42];
+    const attributionList = sourceMessage?.[6] ?? [];
+    return attributionList.some((attribution: ProtobufObject) => {
+      const url = attribution?.[2];
+      return url === REPLY_POSTED_BY_WORKFLOW_CANONICAL_URL;
+    });
   }
 }

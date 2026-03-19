@@ -21,6 +21,7 @@ common_ts_project(
     deps = [
         ":js",
         "//src/common/protojs",
+        "//src/domain/workflows",
         "//src/models/enums",
     ],
 )

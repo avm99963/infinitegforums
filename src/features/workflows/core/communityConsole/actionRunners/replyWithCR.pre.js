@@ -1,3 +1,4 @@
+import { REPLY_POSTED_BY_WORKFLOW_CANONICAL_URL } from '@/domain/workflows/consts.js';
 import {CCApi} from '../../../../../common/api.js';
 import {getAuthUser} from '../../../../../common/communityConsoleUtils.js';
 
@@ -43,7 +44,7 @@ export default class CRRunner {
         // title
         1: 'TW Power Tools (workflows feature)',
         // url
-        2: 'https://s.iavm.xyz/twpt-bulk-crs-in-workflows',
+        2: REPLY_POSTED_BY_WORKFLOW_CANONICAL_URL,
       }],
     };
     return await CCApi(

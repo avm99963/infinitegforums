@@ -441,6 +441,14 @@
     "message": "Abuse",
     "description": "One of the actions of a live review."
   },
+  "inject_extrainfo_message_posted_with_workflow": {
+    "message": "Automated workflow reply",
+    "description": "Label used in a message to show it has been automatically created by a TWPT workflow."
+  },
+  "inject_extrainfo_message_posted_with_workflow_tooltip": {
+    "message": "Posted automatically via a TW Power Tools workflow.",
+    "description": "Tooltip for the message chip that shows it has been automatically created by a TWPT workflow."
+  },
   "inject_extrainfo_thread_autotrending": {
     "message": "Automatically marked as trending",
     "description": "Label used in a thread to show it has been automatically marked as trending."

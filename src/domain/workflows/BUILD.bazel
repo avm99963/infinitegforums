@@ -1,0 +1,14 @@
+load("//tools:bazel/swc.bzl", "swc_pkg_strict")
+load("//tools:common_ts_project.bzl", "common_ts_project")
+
+common_ts_project(
+    name = "workflows",
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = swc_pkg_strict,
+    tsconfig = "//:tsconfig_pkg_strict",
+    visibility = [
+        "//src:__subpackages__",
+    ],
+)

@@ -9,5 +9,6 @@ common_js_project(
     deps = [
         "//src/common",
         "//src/features/extraInfo/core:consts",
+        "//src/models",
     ],
 )

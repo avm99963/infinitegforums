@@ -25,5 +25,6 @@ common_js_project(
     ],
     deps = [
         "//src/common",
+        "//src/domain/workflows",
     ],
 )

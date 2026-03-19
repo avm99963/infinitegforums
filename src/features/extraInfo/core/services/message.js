@@ -1,4 +1,6 @@
+import MessageModel from '@/models/Message.js';
 import StatesExtraInfoService from './states.js';
+import { createPlainTooltip } from '@/common/tooltip.js';
 
 export default class MessageExtraInfoService {
   static getMessageIdFromNode(messageNode) {
@@ -21,6 +23,9 @@ export default class MessageExtraInfoService {
     throw new Error(`Couldn't find message ${messageId} in the message list.`);
   }
 
+  /**
+   * @param {MessageModel} messageModel
+   */
   static getMessageChips(messageModel) {
     const chips = [];
     const tooltips = [];
@@ -42,6 +47,37 @@ export default class MessageExtraInfoService {
     if (liveReviewChip) chips.push(liveReviewChip);
     if (liveReviewTooltip) tooltips.push(liveReviewTooltip);
 
+    const postedWithWorkflowChip = this.#getPostedWithWorkflowChip(messageModel);
+    if (postedWithWorkflowChip) {
+      chips.push(postedWithWorkflowChip.chip);
+      tooltips.push(postedWithWorkflowChip.tooltip);
+    }
+
     return [chips, tooltips];
+  }
+
+  /**
+   * @param {MessageModel} messageModel
+   */
+  static #getPostedWithWorkflowChip(messageModel) {
+    if (!messageModel.isPostedWithWorkflow()) {
+      return null;
+    }
+
+    const span = document.createElement('span');
+    span.textContent =
+        chrome.i18n.getMessage(
+            'inject_extrainfo_message_posted_with_workflow');
+
+    const tooltip = createPlainTooltip(
+        span,
+        chrome.i18n.getMessage(
+            'inject_extrainfo_message_posted_with_workflow_tooltip'),
+        false);
+
+    return {
+      chip: span,
+      tooltip,
+    };
   }
 }
