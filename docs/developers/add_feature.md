@@ -23,8 +23,13 @@ feature will be enabled or not.
    folder, and define the option you created in step 2 (see how it is done for
    the other features). This will be used for the option to be shown in the
    options page.
-5. Go to `//src/options/presentation/data/featureCategories.ts`, and add the
-   new feature to the appropriate category where you want to show it.
+    - Specifically, notice that since this package will include strings that
+      will have to be translated via lit-localize, the code in the options
+      package should be included in the filegroup
+      `//src/lit-locales:localized_code`. Read more about this in
+      [ui_components.md](./ui_components.md#localization).
+5. Go to `//src/options/presentation/data/featureCategories.pre.ts`, and add
+   the new feature to the appropriate category where you want to show it.
 
 ### How to add additional options for the feature
 Apart from the feature switch option, additional options can be defined in
