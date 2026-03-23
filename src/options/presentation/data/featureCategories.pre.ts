@@ -34,6 +34,7 @@ import { logStartupDataFeature } from '../../../features/logStartupData/presenta
 import { fixPEKB381989895Feature } from '@/features/fixPEKB381989895/presentation/options/feature';
 import { simulateRolesFeature } from '@/features/simulateRoles/presentation/options/feature';
 import { fixCrPopupFeature } from '@/features/fixCrPopup/presentation/options/feature';
+import { replySoftLockFeature } from '@/features/replySoftLock/presentation/options/feature';
 
 const minorUIEnhancementsSectionName = () =>
   msg('Minor UI enhancements', {
@@ -119,7 +120,7 @@ export const getFeatureCategories = () => [
     name: msg('Message composer', {
       desc: 'Name of the category of extension features related to the message composer.',
     }),
-    features: [fixLinkDialogFeature()],
+    features: [fixLinkDialogFeature(), replySoftLockFeature()],
     sections: [
       new FeatureSection({
         name: minorUIEnhancementsSectionName(),

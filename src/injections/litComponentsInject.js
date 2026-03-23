@@ -10,6 +10,8 @@ import '../features/bulkReportReplies/ui/components/index';
 import '../features/bulkMove/ui/components/index';
 import '../features/bulkMove/ui/compositionRoot/index';
 import '../features/nukeThreadAprilFools/ui/components';
+import '../features/replySoftLock/ui/components';
+import '../features/replySoftLock/ui/compositionRoot';
 import '../ui/components';
 
 import {injectStylesheet} from '../common/contentScriptsUtils';

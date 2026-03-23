@@ -1,0 +1,16 @@
+sc-tailwind-thread-reply-editor {
+  .scTailwindThreadReplyeditorsubscribe {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 0.5rem;
+    /* Originally this container had margin-top: .35rem, which seemed to be placed as a hack to fix the alignment. */
+    margin-block: 0;
+
+    & > sc-shared-material-checkbox {
+      /* This fixes the alignment with the "Subscribe to updates" checkbox. */
+      display: flex;
+    }
+  }
+}

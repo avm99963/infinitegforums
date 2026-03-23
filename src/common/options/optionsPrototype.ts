@@ -177,6 +177,11 @@ const rawOptionConfigs = {
     context: OptionContext.Options,
     killSwitchType: KillSwitchType.Ignore,
   },
+  replysoftlock: {
+    defaultValue: false,
+    context: OptionContext.Options,
+    killSwitchType: KillSwitchType.Ignore,
+  },
 
   // Experiments
   workflows: {

@@ -11,6 +11,7 @@ common_ts_project(
     tsconfig = "//:tsconfig_pkg",
     visibility = [
         "//src:infrastructure_services",
+        "//src:presentation",
         "//src:ui",
     ],
 )

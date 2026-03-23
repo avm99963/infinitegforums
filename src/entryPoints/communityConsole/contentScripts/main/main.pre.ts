@@ -99,6 +99,9 @@ import FixCrPopupStylesScript from '@/features/fixCrPopup/presentation/scripts/s
 import { CommunityConsoleApiClientAdapter } from '@/infrastructure/services/communityConsole/api/CommunityConsoleApiClient.adapter';
 import BulkNukeActionHandler from '@/features/nukeThreadAprilFools/presentation/nodeWatcherHandlers/bulkNuke.handler';
 import { BulkNukeButtonInjectorAdapter } from '@/features/nukeThreadAprilFools/infrastructure/ui/injectors/bulkNukeButton.injector.adapter';
+import ReplySoftLockAddToReplyEditorTopHandler from '@/features/replySoftLock/presentation/nodeWatcherHandlers/addToReplyEditorTop.handler';
+import { SoftLockCheckboxInjectorAdapter } from '@/features/replySoftLock/infrastructure/ui/injectors/softLockCheckbox.injector.adapter';
+import ReplySoftLockStaticStylesScript from '@/features/replySoftLock/presentation/scripts/staticStyles.script';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -294,6 +297,13 @@ function createScriptRunner() {
               new PreviousPostsInjectHandler(optionsProvider),
             ],
             [
+              'replySoftLockAddToReplyEditorTopHandler',
+              new ReplySoftLockAddToReplyEditorTopHandler(
+                optionsProvider,
+                new SoftLockCheckboxInjectorAdapter(),
+              ),
+            ],
+            [
               'threadPageDesignWarningInject',
               new ThreadPageDesignWarningInjectHandler(threadPageDesignWarning),
             ],
@@ -338,6 +348,7 @@ function createScriptRunner() {
         new IncreaseContrastStylesScript(optionsProvider),
         new LogStartupDataScript(optionsProvider, startupDataStorage),
         new ProfileIndicatorStylesScript(),
+        new ReplySoftLockStaticStylesScript(optionsProvider),
         new RepositionExpandThreadStylesScript(optionsProvider),
         new StickySidebarHeadersStylesScript(optionsProvider),
         new ThreadToolbarStylesScript(optionsProvider),

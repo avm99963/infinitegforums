@@ -6,6 +6,7 @@ load("//src/features/fixCrPopup/ui/staticStyles:defs.bzl", fix_cr_popup_static_s
 load("//src/features/fixedToolbar/ui/staticStyles:defs.bzl", fixed_toolbar_static_style = "static_style")
 load("//src/features/imageMaxHeight/ui/staticStyles:defs.bzl", image_max_height_static_style = "static_style")
 load("//src/features/increaseContrast/ui/staticStyles:defs.bzl", increase_contrast_static_style = "static_style")
+load("//src/features/replySoftLock/ui/staticStyles:defs.bzl", reply_soft_lock_static_style = "static_style")
 load("//src/features/repositionExpandThread/ui/staticStyles:defs.bzl", reposition_expand_thread_static_style = "static_style")
 load("//src/features/stickySidebarHeaders/ui/staticStyles:defs.bzl", sticky_sidebar_headers_static_style = "static_style")
 load("//src/features/threadToolbar/ui/staticStyles:defs.bzl", thread_toolbar_static_style = "static_style")
@@ -19,6 +20,7 @@ _static_styles = [
     fixed_toolbar_static_style,
     image_max_height_static_style,
     increase_contrast_static_style,
+    reply_soft_lock_static_style,
     reposition_expand_thread_static_style,
     sticky_sidebar_headers_static_style,
     thread_toolbar_static_style,
