@@ -827,17 +827,20 @@
         <target state="translated">Informa massivament</target>
         <note from="lit-localize">Option shown in the settings menu of the thread toolbar which enables the "bulk report messages" feature.</note>
       </trans-unit>
-<trans-unit id="sa893197628185244" xml:space="preserve">
-  <source>Soft lock when replying</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="replySoftLock.checkbox.label" xml:space="preserve">
-  <source>Soft lock</source>
-</trans-unit>
-<trans-unit id="s66af6456be5577e8" xml:space="preserve">
-  <source>Adds the option to soft lock the current thread in the reply editor.</source>
-  <note from="lit-localize">Description of the "Soft lock when replying" feature.</note>
-</trans-unit>
+      <trans-unit id="sa893197628185244" xml:space="preserve">
+        <source>Soft lock when replying</source>
+        <target state="translated">Bloqueja parcialment en respondre</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="replySoftLock.checkbox.label" xml:space="preserve">
+        <source>Soft lock</source>
+        <target state="translated">Bloqueja parcialment</target>
+      </trans-unit>
+      <trans-unit id="s66af6456be5577e8" xml:space="preserve">
+        <source>Adds the option to soft lock the current thread in the reply editor.</source>
+        <target state="translated">Afegeix l'opció de bloquejar parcialment el fil actual a l'editor de respostes.</target>
+        <note from="lit-localize">Description of the "Soft lock when replying" feature.</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>

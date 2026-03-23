@@ -464,5 +464,11 @@
     "inject_extrainfo_message_state_generated_answer_adopted": {
         "message": "Adoptada la resposta generada",
         "description": "Thread/message state GENERATED_ANSWER_ADOPTED."
+    },
+    "inject_extrainfo_message_posted_with_workflow": {
+        "message": "Resposta automàtica d'un flux de treball"
+    },
+    "inject_extrainfo_message_posted_with_workflow_tooltip": {
+        "message": "Publicat automàticament per un flux de treball d'Eines Avançades per TW."
     }
 }
