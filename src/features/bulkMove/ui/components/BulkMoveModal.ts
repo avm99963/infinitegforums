@@ -105,11 +105,7 @@ export default class BulkMoveModal extends I18nLitElement {
   }
 
   private get isFormComplete(): boolean {
-    return (
-      this.forumId !== undefined &&
-      this.language !== undefined &&
-      this.categoryId !== undefined
-    );
+    return this.forumDestinationPicker.value?.isSelectionComplete() ?? false;
   }
 
   private cancel() {

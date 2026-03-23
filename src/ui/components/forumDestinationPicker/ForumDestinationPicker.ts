@@ -99,6 +99,25 @@ export default class ForumDestinationPicker extends I18nLitElement {
   }
 
   /**
+   * Whether the user has chosen all the compulsory fields.
+   */
+  isSelectionComplete() {
+    return (
+      this.forumId !== undefined &&
+      this.language !== undefined &&
+      (this.categoryId !== undefined || this.categoriesListIsEmpty())
+    );
+  }
+
+  private categoriesListIsEmpty() {
+    const languageConfiguration = this.getLanguageConfiguration();
+    return (
+      languageConfiguration !== undefined &&
+      languageConfiguration.categories.length === 0
+    );
+  }
+
+  /**
    * Retrieves a forums array with the maximum amount of information
    * possible.
    *

@@ -182,7 +182,7 @@ export class BulkMoveButtonInjectorAdapter implements BulkMoveButtonInjectorPort
         originalThread: {
           forumId: thread.forumId,
           id: thread.id,
-          title: thread.title,
+          title: thread.title ?? '',
         },
         destinationForumId,
         status: 'waiting',

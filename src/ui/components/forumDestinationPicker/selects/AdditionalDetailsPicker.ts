@@ -53,8 +53,9 @@ export default class AdditionalDetailsPicker extends I18nLitElement {
             id: 'components.additionalDetailsPicker.category',
             desc: 'Label for the thread category select in the additional details picker.',
           })}
-          required
-          ?disabled=${languageConfiguration === undefined}
+          ?required=${categories.length > 0}
+          ?disabled=${languageConfiguration === undefined ||
+          categories.length === 0}
           clampMenuWidth
           @change=${this.onCategoryChanged}
         >

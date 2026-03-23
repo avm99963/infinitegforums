@@ -57,7 +57,7 @@ export class ForumsFactory {
   private getLanguageConfiguration(
     languageConfigurations: LanguageConfiguration[],
     language: string,
-  ): LanguageConfiguration {
+  ): LanguageConfiguration | undefined {
     return languageConfigurations.find((configuration) =>
       configuration.supportedLanguages.includes(language),
     );
@@ -74,9 +74,10 @@ export class ForumsFactory {
           configuration?.[3].map((lang: string) => lang?.toLowerCase?.()) ?? [],
         ),
       ],
-      categories: configuration?.[12]?.map?.((category: ProtobufObject) =>
-        this.convertCategory(category),
-      ),
+      categories:
+        configuration?.[12]?.map?.((category: ProtobufObject) =>
+          this.convertCategory(category),
+        ) ?? [],
       details:
         configuration?.[13]?.map?.((detail: ProtobufObject) =>
           this.convertDetail(detail),
