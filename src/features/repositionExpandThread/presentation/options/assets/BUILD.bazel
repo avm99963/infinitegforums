@@ -6,7 +6,6 @@ js_library(
         "screenshot.avif",
     ],
     visibility = [
-        "//:__pkg__",
         "//src/features/repositionExpandThread/presentation/options:__subpackages__",
     ],
 )

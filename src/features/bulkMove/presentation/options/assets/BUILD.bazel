@@ -6,7 +6,6 @@ js_library(
         "demo.avif",
     ],
     visibility = [
-        "//:__pkg__",
         "//src/features/bulkMove/presentation/options:__subpackages__",
     ],
 )

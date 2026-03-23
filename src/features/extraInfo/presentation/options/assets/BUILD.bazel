@@ -6,7 +6,6 @@ js_library(
         "per_forum_stats.avif",
     ],
     visibility = [
-        "//:__pkg__",
         "//src/features/extraInfo/presentation/options:__subpackages__",
     ],
 )

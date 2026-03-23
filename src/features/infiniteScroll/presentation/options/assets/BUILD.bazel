@@ -7,7 +7,6 @@ js_library(
         "demo_thread_list.avif",
     ],
     visibility = [
-        "//:__pkg__",
         "//src/features/infiniteScroll/presentation/options:__subpackages__",
     ],
 )
