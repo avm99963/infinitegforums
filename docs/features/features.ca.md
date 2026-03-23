@@ -167,6 +167,12 @@ Arregla l'error que obre incorrectament el quadre de diàleg diverses vegades qu
 
 _Consola de la Comunitat_
 
+### Soft lock when replying
+
+Adds the option to soft lock the current thread in the reply editor.
+
+_Consola de la Comunitat_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/replySoftLock/presentation/options/assets/demo.avif)
+
 ### Millores menors de la interfície
 
 #### Fix canned responses popup

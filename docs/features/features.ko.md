@@ -167,6 +167,12 @@ _기본 Tailwind, 커뮤니티 콘솔_
 
 _커뮤니티 콘솔_
 
+### Soft lock when replying
+
+Adds the option to soft lock the current thread in the reply editor.
+
+_커뮤니티 콘솔_ | [\[데모\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/replySoftLock/presentation/options/assets/demo.avif)
+
 ### 사소한 UI 개선
 
 #### Fix canned responses popup
@@ -178,7 +184,7 @@ _기본 Tailwind, 커뮤니티 콘솔_
 ## 구 버전 메시지 작성기
 
 *** promo
-이 기능들은 새 게시글이나 CR를 만들 때, 스레드 내에서 `r` 키를 누를 때, 또는 이전 게시글 보기에서 새 답장을 작성할 때 표시되는 커뮤니티 콘솔의 구 버전 메시지 작성기에만 영향을 미칩니다. 신 버전 메시지 작성기에서는 이러한 문제가 발생하지 않습니다.
+이 기능들은 새 게시글이나 미리 준비된 답변(CR)를 만들 때, 스레드 내에서 `r` 키를 누를 때, 또는 이전 게시글 보기에서 새 답장을 작성할 때 표시되는 커뮤니티 콘솔의 구 버전 메시지 작성기에만 영향을 미칩니다. 신 버전 메시지 작성기에서는 이러한 문제가 발생하지 않습니다.
 ***
 
 ### 링크 드래그 앤 드롭 오류 수정

@@ -167,6 +167,12 @@ Patches the bug that incorrectly opens the link dialog multiple times when addin
 
 _وحدة التّحكُّم بالمجتمع_
 
+### Soft lock when replying
+
+Adds the option to soft lock the current thread in the reply editor.
+
+_وحدة التّحكُّم بالمجتمع_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/replySoftLock/presentation/options/assets/demo.avif)
+
 ### Minor UI enhancements
 
 #### Fix canned responses popup

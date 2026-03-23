@@ -167,6 +167,12 @@ Corrige o erro que faz com que a janela de diálogo de links seja aberta incorre
 
 _Console da comunidade_
 
+### Soft lock when replying
+
+Adds the option to soft lock the current thread in the reply editor.
+
+_Console da comunidade_ | [\[demonstração\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/replySoftLock/presentation/options/assets/demo.avif)
+
 ### Pequenas melhorias na interface do usuário
 
 #### Fix canned responses popup

@@ -167,6 +167,12 @@ Corrige el error que abre incorrectamente el cuadro de diálogo varias veces al 
 
 _Consola de la Comunidad_
 
+### Soft lock when replying
+
+Adds the option to soft lock the current thread in the reply editor.
+
+_Consola de la Comunidad_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/replySoftLock/presentation/options/assets/demo.avif)
+
 ### Mejoras menores de la interfaz
 
 #### Fix canned responses popup

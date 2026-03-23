@@ -167,6 +167,12 @@ _Базовый Tailwind, Консоль сообщества_
 
 _Консоль сообщества_
 
+### Soft lock when replying
+
+Adds the option to soft lock the current thread in the reply editor.
+
+_Консоль сообщества_ | [\[demo\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/replySoftLock/presentation/options/assets/demo.avif)
+
 ### Незначительные улучшения интерфейса
 
 #### Fix canned responses popup
