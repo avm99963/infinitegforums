@@ -15,6 +15,7 @@ common_ts_project(
         "//src/injections:__subpackages__",
     ],
     deps = [
+        "//src/ui/components/badge",
         "//src/ui/components/forumDestinationPicker",
     ],
 )

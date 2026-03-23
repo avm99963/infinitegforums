@@ -30,6 +30,7 @@ common_js_project(
         "//src/common/components",
         "//src/common/styles",
         "//src/features/threadToolbar/core",
+        "//src/ui/components",
         "//src/ui/i18n",
     ],
 )

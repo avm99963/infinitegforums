@@ -16,5 +16,7 @@ common_js_project(
         "//src/features/workflows/core/communityConsole/runner",
         "//src/features/workflows/core/workflowsStorage",
         "//src/features/workflows/ui/components/actionEditor",
+        "//src/static:common_console_styles",
+        "//src/ui/components",
     ],
 )

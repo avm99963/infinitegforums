@@ -3,12 +3,12 @@ import '@material/web/iconbutton/icon-button.js';
 import '@material/web/menu/menu.js';
 import '@material/web/menu/menu-item.js';
 import '@material/web/switch/switch.js';
+import '@/ui/components/badge/Badge.js';
 import '../../../../common/components/FormField.js';
 
-import consoleCommonStyles from '!!raw-loader!../../../../static/css/common/console.css';
 import {msg} from '@lit/localize';
 import {Corner} from '@material/web/menu/menu.js';
-import {css, html, nothing, unsafeCSS} from 'lit';
+import {css, html, nothing} from 'lit';
 import {map} from 'lit/directives/map.js';
 import {createRef, ref} from 'lit/directives/ref.js';
 
@@ -47,7 +47,6 @@ export default class TwptThreadToolbarInject extends I18nLitElement {
 
   static styles = [
     SHARED_MD3_STYLES,
-    css`${unsafeCSS(consoleCommonStyles)}`,
     css`
       :host {
         display: block;
@@ -76,7 +75,7 @@ export default class TwptThreadToolbarInject extends I18nLitElement {
         margin-inline-end: 0.5rem;
       }
 
-      .TWPT-badge {
+      twpt-badge {
         --icon-size: 17px;
       }
     `,
@@ -93,9 +92,7 @@ export default class TwptThreadToolbarInject extends I18nLitElement {
   renderBadge() {
     return html`
       <div class="badge-container">
-        <div class="TWPT-badge">
-          <md-icon>repeat</md-icon>
-        </div>
+        <twpt-badge></twpt-badge>
       </div>
     `;
   }

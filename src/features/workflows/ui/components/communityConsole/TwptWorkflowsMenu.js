@@ -3,6 +3,7 @@ import '@material/web/icon/icon.js';
 import '@material/web/iconbutton/icon-button.js';
 import '@material/web/menu/menu.js';
 import '@material/web/menu/menu-item.js';
+import '@/ui/components/badge/Badge.js';
 
 import consoleCommonStyles from '!!raw-loader!../../../../../static/css/common/console.css';
 
@@ -36,9 +37,9 @@ export default class TwptWorkflowsMenu extends LitElement {
         padding-bottom: 0;
       }
 
-      .TWPT-btn--with-badge .TWPT-badge {
+      .TWPT-btn--with-badge :is(.TWPT-badge, twpt-badge) {
         bottom: 4px;
-        right: 2px;
+        right: 4px;
       }
     `,
   ];
@@ -82,15 +83,6 @@ export default class TwptWorkflowsMenu extends LitElement {
     ];
   }
 
-  // Based on createExtBadge() in ../../utils/common.js.
-  renderBadge() {
-    return html`
-      <div class="TWPT-badge">
-        <md-icon>repeat</md-icon>
-      </div>
-    `;
-  }
-
   render() {
     return html`
       <span style="position: relative;">
@@ -101,7 +93,7 @@ export default class TwptWorkflowsMenu extends LitElement {
           <md-icon-button>
             <md-icon>more_vert</md-icon>
           </md-icon-button>
-          ${this.renderBadge()}
+          <twpt-badge></twpt-badge>
         </div>
         <md-menu ${ref(this.menuRef)}
             class="workflows-menu"

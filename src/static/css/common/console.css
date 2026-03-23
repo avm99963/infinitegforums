@@ -47,7 +47,7 @@
   padding: 8px;
 }
 
-.TWPT-btn--with-badge .TWPT-badge {
+.TWPT-btn--with-badge :is(.TWPT-badge, twpt-badge) {
   --icon-size: 13px;
   position: absolute;
   bottom: 6px;
