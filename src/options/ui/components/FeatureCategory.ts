@@ -9,6 +9,7 @@ import { OptionsConfiguration } from '../../../common/options/OptionsConfigurati
 import { FeatureCategory } from '../../presentation/models/category';
 import { FeatureSection } from '../../presentation/models/section';
 import { map } from 'lit/directives/map.js';
+import { keyed } from 'lit/directives/keyed.js';
 
 @customElement('feature-category-content')
 export default class FeatureCategoryContent extends LitElement {
@@ -105,12 +106,15 @@ export default class FeatureCategoryContent extends LitElement {
   }
 
   private renderFeatureCard(feature: Feature) {
-    return html`
-      <feature-card
-        .feature=${feature}
-        .optionsConfiguration=${this.optionsConfiguration}
-      ></feature-card>
-    `;
+    return keyed(
+      feature.optionCodename,
+      html`
+        <feature-card
+          .feature=${feature}
+          .optionsConfiguration=${this.optionsConfiguration}
+        ></feature-card>
+      `,
+    );
   }
 }
 
