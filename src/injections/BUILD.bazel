@@ -9,6 +9,7 @@ common_js_project(
         "//src/common",
         "//src/features/batchLock/infrastructure/ui/injectors",
         "//src/features/bulkMove/ui/components",
+        "//src/features/bulkMove/ui/compositionRoot",
         "//src/features/bulkReportReplies/ui/components",
         "//src/features/flattenThreads/ui/components",
         "//src/features/nukeThreadAprilFools/ui/components",
