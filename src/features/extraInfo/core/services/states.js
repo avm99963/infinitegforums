@@ -1,6 +1,8 @@
 import {createPlainTooltip} from '../../../../common/tooltip.js';
 import {kItemMetadataState, kItemMetadataStateI18n} from '../consts.js';
 
+const REVIEW_QUEUE_LIVE = 1;
+
 export default class StatesExtraInfoService {
   static getPendingStateChip(endPendingStateTimestampMicros) {
     const endPendingStateTimestamp =
@@ -22,19 +24,19 @@ export default class StatesExtraInfoService {
     return [span, pendingTooltip];
   }
 
-  static getLiveReviewStatusChip(liveReviewStatus) {
-    const verdict = liveReviewStatus?.['1'];
-    if (!verdict) return [null, null];
+  static getLiveReviewStatusChip(liveReviewStatus, reviewStatus) {
+    const liveReviewInfo = this.getLegacyLiveReviewInfo(liveReviewStatus) ?? this.getLiveReviewInfo(reviewStatus);
+    if (!liveReviewInfo) {
+      return [null, null];
+    }
 
-    const [label, labelClass] = this.getLiveReviewStatusLabel(verdict);
+    const [label, labelClass] = this.getLiveReviewStatusLabel(liveReviewInfo.verdict);
     if (!label || !labelClass) return [null, null];
 
-    const reviewedBy = liveReviewStatus?.['2'];
-    const timestamp = liveReviewStatus?.['3'];
-    const date = (new Date(Math.floor(timestamp / 1e3))).toLocaleString();
+    const date = (new Date(Math.floor(liveReviewInfo.timestamp / 1e3))).toLocaleString();
 
     let a = document.createElement('a');
-    a.href = 'https://support.google.com/s/community/user/' + reviewedBy;
+    a.href = 'https://support.google.com/s/community/user/' + liveReviewInfo.reviewedBy;
     a.classList.add(labelClass);
     a.textContent = chrome.i18n.getMessage(
         'inject_extrainfo_message_livereviewverdict',
@@ -42,6 +44,40 @@ export default class StatesExtraInfoService {
             'inject_extrainfo_message_livereviewverdict_' + label)]);
     let liveReviewTooltip = createPlainTooltip(a, date, false);
     return [a, liveReviewTooltip];
+  }
+
+  /**
+   * Gets the live review info (if available) from the old
+   * ForumMessage.live_review_status field.
+   */
+  static getLegacyLiveReviewInfo(liveReviewStatus) {
+    const verdict = liveReviewStatus?.['1'];
+    if (!verdict) {
+      return undefined;
+    }
+
+    return {
+      verdict,
+      reviewedBy: liveReviewStatus?.['2'],
+      timestamp: liveReviewStatus?.['3'],
+    };
+  }
+
+  /**
+   * Gets the live review label (if available) from the
+   * ForumMessage.review_status field.
+   */
+  static getLiveReviewInfo(reviewStatus) {
+    const reviewQueue = reviewStatus?.['1'];
+    if (reviewQueue !== REVIEW_QUEUE_LIVE) {
+      return undefined;
+    }
+
+    return {
+      verdict: reviewStatus?.['6'],
+      reviewedBy: reviewStatus?.['2'],
+      timestamp: reviewStatus?.['3'],
+    };
   }
 
   static getLiveReviewStatusLabel(verdict) {

@@ -23,8 +23,9 @@ export default class ThreadExtraInfoService {
     chips.push(...StatesExtraInfoService.getMetadataChips(itemMetadata));
 
     const liveReviewStatus = thread?.['2']?.['38'];
+    const reviewStatus = thread?.['2']?.['55'];
     const [liveReviewInfo, liveReviewTooltip] =
-        StatesExtraInfoService.getLiveReviewStatusChip(liveReviewStatus);
+        StatesExtraInfoService.getLiveReviewStatusChip(liveReviewStatus, reviewStatus);
     if (liveReviewInfo) chips.push(liveReviewInfo);
     if (liveReviewTooltip) tooltips.push(liveReviewTooltip);
 

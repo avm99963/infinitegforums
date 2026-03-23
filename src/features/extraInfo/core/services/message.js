@@ -42,8 +42,9 @@ export default class MessageExtraInfoService {
     chips.push(...StatesExtraInfoService.getMetadataChips(itemMetadata));
 
     const liveReviewStatus = messageModel.data?.[1]?.[36];
+    const reviewStatus = messageModel.data?.[1]?.[43];
     const [liveReviewChip, liveReviewTooltip] =
-        StatesExtraInfoService.getLiveReviewStatusChip(liveReviewStatus);
+        StatesExtraInfoService.getLiveReviewStatusChip(liveReviewStatus, reviewStatus);
     if (liveReviewChip) chips.push(liveReviewChip);
     if (liveReviewTooltip) tooltips.push(liveReviewTooltip);
 
