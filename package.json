@@ -54,7 +54,7 @@
     "style-loader": "4.0.0",
     "terser-webpack-plugin": "5.4.0",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.56.0",
+    "typescript-eslint": "8.57.2",
     "vitest": "4.0.18",
     "web-ext": "9.3.0",
     "webpack": "5.105.4",
