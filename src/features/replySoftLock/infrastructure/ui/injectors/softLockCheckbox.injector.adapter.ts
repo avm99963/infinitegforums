@@ -2,10 +2,10 @@ import { SoftLockCheckboxInjectorPort } from '@/features/replySoftLock/ui/inject
 
 export class SoftLockCheckboxInjectorAdapter implements SoftLockCheckboxInjectorPort {
   execute({
-    container,
+    element,
     position,
   }: {
-    container: Element;
+    element: Element;
     position: 'start' | 'end';
   }): void {
     const contextProvider = document.createElement(
@@ -15,9 +15,9 @@ export class SoftLockCheckboxInjectorAdapter implements SoftLockCheckboxInjector
     contextProvider.append(checkbox);
 
     if (position === 'start') {
-      container.prepend(contextProvider);
+      element.prepend(contextProvider);
     } else {
-      container.append(contextProvider);
+      element.append(contextProvider);
     }
   }
 }

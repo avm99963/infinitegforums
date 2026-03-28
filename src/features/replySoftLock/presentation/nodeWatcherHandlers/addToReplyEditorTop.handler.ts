@@ -42,7 +42,7 @@ export default class ReplySoftLockAddToReplyEditorTopHandler extends CssSelector
       // in the second one, so the checkbox is shown aligned to the right, just
       // before the "subscribe" checkbox.
       this.checkboxInjector.execute({
-        container: subscribeCheckboxContainer,
+        element: subscribeCheckboxContainer,
         position: 'start',
       });
     } else {
@@ -50,7 +50,7 @@ export default class ReplySoftLockAddToReplyEditorTopHandler extends CssSelector
       // create our own checkbox, which will be automatically shown aligned to
       // the right.
       this.checkboxInjector.execute({
-        container: replyEditorTopRow,
+        element: replyEditorTopRow,
         position: 'end',
       });
     }

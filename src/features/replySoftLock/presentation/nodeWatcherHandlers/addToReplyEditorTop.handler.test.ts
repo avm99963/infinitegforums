@@ -61,7 +61,7 @@ describe('when the feature is enabled', () => {
   });
 
   describe('regarding the place to inject', () => {
-    describe('when the reply editor has the "Subscribe to updates" button', () => {
+    describe('when the reply editor has the "Subscribe to updates" checkbox', () => {
       beforeEach(() => {
         document.body.innerHTML = getStringifiedThreadReplyEditor({
           includeSubscribeCheckbox: true,
@@ -71,22 +71,22 @@ describe('when the feature is enabled', () => {
       const SUBSCRIBE_CHECKBOX_CONTAINER_CLASS =
         'scTailwindThreadReplyeditorsubscribe';
 
-      it(`should prepend the button before the .${SUBSCRIBE_CHECKBOX_CONTAINER_CLASS} element`, async () => {
+      it(`should prepend the checkbox before the .${SUBSCRIBE_CHECKBOX_CONTAINER_CLASS} element`, async () => {
         await simulateReplyEditorTopRowAdded();
 
         expect(executeInjectorMock).toHaveBeenCalledOnce();
         expect(executeInjectorMock).toHaveBeenCalledWith({
-          container: expect.toSatisfy(
-            (container: Element) =>
-              container.classList.contains(SUBSCRIBE_CHECKBOX_CONTAINER_CLASS),
-            `The injector should be called with the .${SUBSCRIBE_CHECKBOX_CONTAINER_CLASS} element as the injection container.`,
+          element: expect.toSatisfy(
+            (element: Element) =>
+              element.classList.contains(SUBSCRIBE_CHECKBOX_CONTAINER_CLASS),
+            `The injector should be called with the .${SUBSCRIBE_CHECKBOX_CONTAINER_CLASS} element as the injection element.`,
           ),
           position: 'start',
         });
       });
     });
 
-    describe('when the reply editor doesn\'t show the "Subscribe to updates" button', async () => {
+    describe('when the reply editor doesn\'t show the "Subscribe to updates" checkbox', async () => {
       beforeEach(() => {
         document.body.innerHTML = getStringifiedThreadReplyEditor({
           includeSubscribeCheckbox: false,
@@ -95,16 +95,16 @@ describe('when the feature is enabled', () => {
 
       const REPLY_EDITOR_TOP_ROW_CLASS = 'scTailwindThreadReplyeditortop-row';
 
-      it(`should append the button in the .${REPLY_EDITOR_TOP_ROW_CLASS} element`, async () => {
+      it(`should append the checkbox in the .${REPLY_EDITOR_TOP_ROW_CLASS} element`, async () => {
         await simulateReplyEditorTopRowAdded();
 
         expect(executeInjectorMock).toHaveBeenCalledOnce();
         expect(executeInjectorMock).toHaveBeenCalledWith({
-          container: expect.toSatisfy(
-            (container: Element) =>
-              container.classList.contains(REPLY_EDITOR_TOP_ROW_CLASS),
+          element: expect.toSatisfy(
+            (element: Element) =>
+              element.classList.contains(REPLY_EDITOR_TOP_ROW_CLASS),
 
-            `The injector should be called with the .${REPLY_EDITOR_TOP_ROW_CLASS} element as the injection container.`,
+            `The injector should be called with the .${REPLY_EDITOR_TOP_ROW_CLASS} element as the injection element.`,
           ),
           position: 'end',
         });
@@ -122,7 +122,9 @@ function simulateReplyEditorTopRowAdded() {
 }
 
 function getReplyEditorTopRow() {
-  const replyEditorTopRow = document.querySelector('.scTailwindThreadReplyeditortop-row');
+  const replyEditorTopRow = document.querySelector(
+    '.scTailwindThreadReplyeditortop-row',
+  );
   if (replyEditorTopRow === null) {
     throw new Error(
       "Can't find in the fake test DOM the reply editor top row.",
