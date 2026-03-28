@@ -6,7 +6,7 @@ export class SoftLockCheckboxInjectorAdapter implements SoftLockCheckboxInjector
     position,
   }: {
     element: Element;
-    position: 'start' | 'end';
+    position: 'start' | 'end' | 'before';
   }): void {
     const contextProvider = document.createElement(
       'twpt-reply-soft-lock-checkbox-context-provider',
@@ -16,8 +16,10 @@ export class SoftLockCheckboxInjectorAdapter implements SoftLockCheckboxInjector
 
     if (position === 'start') {
       element.prepend(contextProvider);
-    } else {
+    } else if (position === 'end') {
       element.append(contextProvider);
+    } else if (position === 'before') {
+      element.before(contextProvider);
     }
   }
 }

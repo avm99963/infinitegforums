@@ -26,6 +26,8 @@ vitest_test(
     name = "test",
     config = "//:vitest_config",
     data = [
+        "addToOldReplyEditor.handler.test.ts",
+        "addToOldReplyEditor.handler.ts",
         "addToReplyEditorTop.handler.test.ts",
         "addToReplyEditorTop.handler.ts",
         "//src/features/replySoftLock/__fixtures__",

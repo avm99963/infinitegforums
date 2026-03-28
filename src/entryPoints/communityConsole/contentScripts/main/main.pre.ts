@@ -102,6 +102,7 @@ import { BulkNukeButtonInjectorAdapter } from '@/features/nukeThreadAprilFools/i
 import ReplySoftLockAddToReplyEditorTopHandler from '@/features/replySoftLock/presentation/nodeWatcherHandlers/addToReplyEditorTop.handler';
 import { SoftLockCheckboxInjectorAdapter } from '@/features/replySoftLock/infrastructure/ui/injectors/softLockCheckbox.injector.adapter';
 import ReplySoftLockStaticStylesScript from '@/features/replySoftLock/presentation/scripts/staticStyles.script';
+import ReplySoftLockAddToOldReplyEditorHandler from '@/features/replySoftLock/presentation/nodeWatcherHandlers/addToOldReplyEditor.handler';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -147,6 +148,7 @@ function createScriptRunner() {
   );
   const ccInfiniteScroll = new CCInfiniteScroll();
   const flattenThreads = new FlattenThreads();
+  const softLockCheckboxInjector = new SoftLockCheckboxInjectorAdapter();
 
   return new ScriptRunner(
     new SortedScriptsProviderAdapter(
@@ -297,10 +299,17 @@ function createScriptRunner() {
               new PreviousPostsInjectHandler(optionsProvider),
             ],
             [
+              'replySoftLockAddToOldReplyEditorHandler',
+              new ReplySoftLockAddToOldReplyEditorHandler(
+                optionsProvider,
+                softLockCheckboxInjector,
+              ),
+            ],
+            [
               'replySoftLockAddToReplyEditorTopHandler',
               new ReplySoftLockAddToReplyEditorTopHandler(
                 optionsProvider,
-                new SoftLockCheckboxInjectorAdapter(),
+                softLockCheckboxInjector,
               ),
             ],
             [

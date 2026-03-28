@@ -5,7 +5,8 @@ import { SoftLockCheckboxInjectorPort } from '../../ui/injectors/softLockCheckbo
 import { UnexpectedUIError } from '@/ui/errors/unexpectedUI.error';
 
 /**
- * Injects the "Soft lock" checkbox if the feature is enabled.
+ * Injects the "Soft lock" checkbox into the reply editor's top row if the
+ * feature is enabled.
  */
 export default class ReplySoftLockAddToReplyEditorTopHandler extends CssSelectorNodeWatcherHandler {
   cssSelector =

@@ -6,7 +6,8 @@ export interface SoftLockCheckboxInjectorPort {
      * Whether the checkbox should be:
      * - start: prepended to the element.
      * - end: appended to the element.
+     * - before: placed just before the element.
      **/
-    position: 'start' | 'end';
+    position: 'start' | 'end' | 'before';
   }): void;
 }

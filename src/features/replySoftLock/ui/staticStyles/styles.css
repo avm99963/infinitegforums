@@ -1,3 +1,4 @@
+/* For the new reply editor. */
 sc-tailwind-thread-reply-editor {
   .scTailwindThreadReplyeditorsubscribe {
     display: flex;
@@ -12,5 +13,12 @@ sc-tailwind-thread-reply-editor {
       /* This fixes the alignment with the "Subscribe to updates" checkbox. */
       display: flex;
     }
+  }
+}
+
+/* For the old reply editor. */
+ec-movable-dialog .main .user {
+  twpt-reply-soft-lock-checkbox-context-provider {
+    margin-right: 1rem;
   }
 }
