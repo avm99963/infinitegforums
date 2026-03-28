@@ -32,6 +32,15 @@
       "autoApprove": true
     },
     {
+      "description": "Automerge non-major updates to most Bazel modules and .bazelversion",
+      "matchManagers": ["bazel", "bazel-module", "bazelisk"],
+      "matchPackageNames": ["!rules_nodejs"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true,
+      "automergeType": "pr",
+      "autoApprove": true
+    },
+    {
       "description": "Group rules_proto_grpc Bazel modules",
       "matchDatasources": [
         "bazel"
