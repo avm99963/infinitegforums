@@ -38,7 +38,7 @@ export class TopAppBar extends I18nLitElement {
    * Whether we should show the link to the experiments page.
    */
   @property({ type: Boolean })
-  accessor showExperimentsLink: boolean;
+  accessor showExperimentsLink: boolean | undefined;
 
   render() {
     const openCategoriesMenuLabel = msg('Open menu with feature categories', {

@@ -122,15 +122,19 @@ export default class FeatureCard extends I18nLitElement {
   private accessor isExpanded = false;
 
   render() {
-    if (this.feature === undefined) {
+    const feature = this.feature;
+    if (feature === undefined) {
       return nothing;
     }
 
-    const idPrefix = `${this.feature.optionCodename}-feature`;
+    const featureName = feature.name;
+
+    const idPrefix = `${feature.optionCodename}-feature`;
     const checkboxId = `${idPrefix}-checkbox`;
     const checkboxClasses = {
       'feature-checkbox': true,
-      'feature-checkbox--kill-switch-enabled': this.isKillSwitchEnabled(),
+      'feature-checkbox--kill-switch-enabled':
+        this.isKillSwitchEnabled(feature),
     };
     const titleId = `${idPrefix}-title`;
     return html`
@@ -139,75 +143,74 @@ export default class FeatureCard extends I18nLitElement {
           <md-checkbox
             id=${checkboxId}
             class=${classMap(checkboxClasses)}
-            ?checked=${this.isEnabled()}
-            aria-label=${msg(str`Enable "${this.feature.name}" feature`, {
+            ?checked=${this.isEnabled(feature)}
+            aria-label=${msg(str`Enable "${featureName}" feature`, {
               desc: 'Label for the checkbox that lets a user enable a specific feature in the options page (ex: \'Enable "Dark theme" feature\')',
             })}
             @change=${this.onCheckboxChange}
           ></md-checkbox>
-          ${this.renderExpandCollapseButton()}
+          ${this.renderExpandCollapseButton(feature)}
           <div class="content">
             <label
               id=${titleId}
               for=${checkboxId}
               class="title md-typescale-title-medium"
             >
-              ${this.feature.name}
+              ${feature.name}
             </label>
-            ${this.renderDescription()} ${this.renderNote()}
-            ${this.renderKillSwitch()} ${this.renderSubOptions()}
-            ${this.isExpanded ? this.renderSupportingMedia() : nothing}
-            ${this.renderTags()}
+            ${this.renderDescription(feature)} ${this.renderNote(feature)}
+            ${this.renderKillSwitch(feature)} ${this.renderSubOptions(feature)}
+            ${this.isExpanded ? this.renderSupportingMedia(feature) : nothing}
+            ${this.renderTags(feature)}
           </div>
         </div>
       </md-filled-card>
     `;
   }
 
-  private isEnabled() {
+  private isEnabled(feature: Feature) {
     return (
       this.optionsConfiguration?.getUserConfiguredOptionValue(
-        this.feature.optionCodename,
+        feature.optionCodename,
       ) === true
     );
   }
 
-  private isKillSwitchEnabled() {
+  private isKillSwitchEnabled(feature: Feature) {
     return (
-      this.feature?.optionCodename !== undefined &&
-      this.optionsConfiguration?.isKillSwitchEnabled(
-        this.feature.optionCodename,
-      )
+      feature.optionCodename !== undefined &&
+      (this.optionsConfiguration?.isKillSwitchEnabled(feature.optionCodename) ??
+        false)
     );
   }
 
-  private renderDescription() {
-    if (this.feature.description === undefined) {
+  private renderDescription(feature: Feature) {
+    if (feature.description === undefined) {
       return nothing;
     }
 
     return html`
       <div class="description md-typescale-body-medium">
-        ${this.feature.description}
+        ${feature.description}
       </div>
     `;
   }
 
-  private renderNote() {
-    if (this.feature.note === undefined) {
+  private renderNote(feature: Feature) {
+    if (feature.note === undefined) {
       return nothing;
     }
 
     return html`
       <hint-text type="note" size="small">
         <md-icon slot="icon">info</md-icon>
-        ${this.feature.note}
+        ${feature.note}
       </hint-text>
     `;
   }
 
-  private renderKillSwitch() {
-    if (!this.isKillSwitchEnabled()) {
+  private renderKillSwitch(feature: Feature) {
+    if (!this.isKillSwitchEnabled(feature)) {
       return nothing;
     }
 
@@ -233,14 +236,14 @@ export default class FeatureCard extends I18nLitElement {
     `;
   }
 
-  private renderSubOptions() {
-    if (this.feature.subOptions === undefined) {
+  private renderSubOptions(feature: Feature) {
+    if (feature.subOptions === undefined) {
       return nothing;
     }
 
     return html`
       ${map(
-        this.feature.subOptions,
+        feature.subOptions,
         (subOption) => html`
           <sub-option-input
             .subOption=${subOption}
@@ -256,26 +259,22 @@ export default class FeatureCard extends I18nLitElement {
   ): OptionsValues[T] | undefined {
     return (
       this.optionsConfiguration?.getOptionValue(codename) ??
-      (optionsMap.get(codename).defaultValue as OptionsValues[T])
+      (optionsMap.get(codename)?.defaultValue as OptionsValues[T] | undefined)
     );
   }
 
-  private renderSupportingMedia() {
+  private renderSupportingMedia(feature: Feature) {
     return html`
-      ${this.feature.demoMedia?.imgUrl !== undefined
+      ${feature.demoMedia?.imgUrl !== undefined
         ? html`
-            <img
-              class="demo-image"
-              src=${this.feature.demoMedia.imgUrl}
-              alt=""
-            />
+            <img class="demo-image" src=${feature.demoMedia.imgUrl} alt="" />
           `
         : nothing}
-      ${this.feature.demoMedia?.videoUrl !== undefined
+      ${feature.demoMedia?.videoUrl !== undefined
         ? html`
             <video
               class="demo-video"
-              src=${this.feature.demoMedia.videoUrl}
+              src=${feature.demoMedia.videoUrl}
               muted
               autoplay
               loop
@@ -286,15 +285,15 @@ export default class FeatureCard extends I18nLitElement {
     `;
   }
 
-  private renderTags() {
-    if (this.feature.tags === undefined) {
+  private renderTags(feature: Feature) {
+    if (feature.tags === undefined) {
       return nothing;
     }
 
     return html`
       <div class="tags">
         ${map(
-          this.feature.tags,
+          feature.tags,
           (tag) => html`
             <feature-tag>${tag}</feature-tag>
           `,
@@ -303,10 +302,10 @@ export default class FeatureCard extends I18nLitElement {
     `;
   }
 
-  private renderExpandCollapseButton() {
+  private renderExpandCollapseButton(feature: Feature) {
     if (
-      this.feature.demoMedia?.imgUrl === undefined &&
-      this.feature.demoMedia?.videoUrl === undefined
+      feature.demoMedia?.imgUrl === undefined &&
+      feature.demoMedia?.videoUrl === undefined
     ) {
       return nothing;
     }
@@ -329,10 +328,16 @@ export default class FeatureCard extends I18nLitElement {
   }
 
   private onCheckboxChange(e: Event) {
+    if (this.feature === undefined) {
+      // This shouldn't happen since we're only rendering the card when
+      // this.feature is not undefined.
+      return;
+    }
+
     const enabled = (e.target as HTMLInputElement).checked ?? false;
     const changeEvent: OptionChangedEvent = new CustomEvent('change', {
       detail: {
-        option: this.feature?.optionCodename,
+        option: this.feature.optionCodename,
         value: enabled,
       },
       bubbles: true,

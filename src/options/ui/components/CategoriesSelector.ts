@@ -58,7 +58,7 @@ export class CategoriesSelector extends I18nLitElement {
 
   focus() {
     (
-      this.shadowRoot.querySelector(
+      this.shadowRoot?.querySelector(
         'md-list.nav md-list-item[tabindex="0"]',
       ) as HTMLElement
     )?.focus();

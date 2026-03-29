@@ -43,47 +43,48 @@ export default class SubOptionInput extends LitElement {
   private selectField: Ref<MdOutlinedSelect> = createRef();
 
   render() {
-    if (this.subOption === undefined) {
+    const subOption = this.subOption;
+    if (subOption === undefined) {
       return nothing;
     }
 
     return html`
-      <div class="sub-option">${this.renderField()}</div>
+      <div class="sub-option">${this.renderField(subOption)}</div>
     `;
   }
 
-  private renderField() {
-    switch (this.subOption.type.type) {
+  private renderField(subOption: SubOption) {
+    switch (subOption.type.type) {
       case 'integer':
-        return this.renderInteger();
+        return this.renderInteger(subOption);
 
       case 'text':
-        return this.renderText();
+        return this.renderText(subOption);
 
       case 'dropdown':
-        return this.renderDropdown();
+        return this.renderDropdown(subOption);
 
       default:
         console.warn(
           'SubOptionComponent: unexpected subOption type:',
-          this.subOption.type,
+          subOption.type,
         );
         return nothing;
     }
   }
 
-  private renderInteger() {
-    if (this.subOption.type.type !== 'integer') {
+  private renderInteger(subOption: SubOption) {
+    if (subOption.type.type !== 'integer') {
       return nothing;
     }
 
     return html`
       <md-outlined-text-field
         type="number"
-        label=${this.subOption.label}
+        label=${subOption.label}
         value=${this.value}
-        min=${this.subOption.type.min}
-        max=${this.subOption.type.max}
+        min=${subOption.type.min}
+        max=${subOption.type.max}
         step="1"
         required
         no-asterisk
@@ -93,17 +94,17 @@ export default class SubOptionInput extends LitElement {
     `;
   }
 
-  private renderText() {
-    if (this.subOption.type.type !== 'text') {
+  private renderText(subOption: SubOption) {
+    if (subOption.type.type !== 'text') {
       return nothing;
     }
 
     return html`
       <md-outlined-text-field
         type="text"
-        label=${this.subOption.label}
+        label=${subOption.label}
         value=${this.value}
-        ?required=${this.subOption.type.required}
+        ?required=${subOption.type.required}
         no-asterisk
         @change=${this.onTextChange}
         ${ref(this.textField)}
@@ -111,21 +112,21 @@ export default class SubOptionInput extends LitElement {
     `;
   }
 
-  private renderDropdown() {
-    if (this.subOption.type.type !== 'dropdown') {
+  private renderDropdown(subOption: SubOption) {
+    if (subOption.type.type !== 'dropdown') {
       return nothing;
     }
 
     return html`
       <md-outlined-select
-        label=${this.subOption.label}
+        label=${subOption.label}
         required
         no-asterisk
         @change=${this.onSelectChange}
         ${ref(this.selectField)}
       >
         ${map(
-          this.subOption.type.options,
+          subOption.type.options,
           (option) => html`
             <md-select-option
               value=${option.value}
@@ -176,9 +177,15 @@ export default class SubOptionInput extends LitElement {
   }
 
   private onValueChange(value: unknown) {
+    if (this.subOption === undefined) {
+      // This shouldn't happen since we're only rendering the component when
+      // this.subOption is not undefined.
+      return;
+    }
+
     const changeEvent: OptionChangedEvent = new CustomEvent('change', {
       detail: {
-        option: this.subOption?.optionCodename,
+        option: this.subOption.optionCodename,
         value,
       },
       bubbles: true,

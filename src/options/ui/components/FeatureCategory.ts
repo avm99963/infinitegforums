@@ -57,27 +57,32 @@ export default class FeatureCategoryContent extends LitElement {
   ];
 
   render() {
-    const hasNote = this.category.note !== undefined;
+    const category = this.category;
+    if (category === undefined) {
+      return nothing;
+    }
+
+    const hasNote = category.note !== undefined;
     return html`
       <h2
         class="md-typescale-display-small feature-title ${hasNote
           ? 'feature-title--with-hint'
           : ''}"
       >
-        ${this.category.name}
+        ${category.name}
       </h2>
       ${hasNote
         ? html`
             <hint-text type="note" size="medium" class="category-hint">
               <md-icon slot="icon">info</md-icon>
-              ${this.category.note}
+              ${category.note}
             </hint-text>
           `
         : nothing}
       <div class="features">
-        ${this.category?.features?.map((f) => this.renderFeatureCard(f))}
+        ${category.features?.map((f) => this.renderFeatureCard(f))}
       </div>
-      ${map(this.category?.sections ?? [], (s) => this.renderSection(s))}
+      ${map(category.sections ?? [], (s) => this.renderSection(s))}
     `;
   }
 

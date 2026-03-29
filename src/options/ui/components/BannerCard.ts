@@ -4,10 +4,13 @@ import { styles as typescaleStyles } from '@material/web/typography/md-typescale
 
 import '@material/web/labs/card/filled-card.js';
 
+const BANNER_TYPES = ['regular', 'error', 'tertiary'] as const;
+type BannerType = (typeof BANNER_TYPES)[number];
+
 @customElement('banner-card')
 export default class BannerCard extends LitElement {
   @property({ type: String })
-  accessor type: 'regular' | 'error' | 'tertiary';
+  accessor type: BannerType | undefined;
 
   render() {
     const className = this.getType();
@@ -27,10 +30,12 @@ export default class BannerCard extends LitElement {
     `;
   }
 
-  private getType() {
-    return ['normal', 'error', 'tertiary'].includes(this.type)
-      ? this.type
-      : 'regular';
+  private getType(): BannerType {
+    if (typeof this.type === 'string' && BANNER_TYPES.includes(this.type)) {
+      return this.type;
+    } else {
+      return 'regular';
+    }
   }
 
   static styles = [

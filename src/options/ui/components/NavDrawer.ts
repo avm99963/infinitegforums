@@ -112,7 +112,7 @@ export class NavDrawer extends LitElement {
    */
   scrollAppContentToTop() {
     this.shadowRoot
-      .querySelector('.content-pane .scroll-wrapper')
+      ?.querySelector('.content-pane .scroll-wrapper')
       ?.scrollTo({ top: 0, left: 0 });
   }
 

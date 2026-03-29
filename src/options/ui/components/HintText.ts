@@ -12,6 +12,12 @@ import '@material/web/iconbutton/icon-button.js';
 import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles';
 import { classMap } from 'lit/directives/class-map.js';
 
+const HINT_TEXT_TYPES = ['note', 'error'] as const;
+type HintTextType = (typeof HINT_TEXT_TYPES)[number];
+
+const HINT_TEXT_SIZES = ['small', 'medium', 'large'] as const;
+type HintTextSize = (typeof HINT_TEXT_SIZES)[number];
+
 @customElement('hint-text')
 export default class HintText extends LitElement {
   static styles = [
@@ -76,10 +82,10 @@ export default class HintText extends LitElement {
   ];
 
   @property({ type: String })
-  accessor type: 'note' | 'error';
+  accessor type: HintTextType | undefined;
 
   @property({ type: String })
-  accessor size: 'small' | 'medium' | 'large';
+  accessor size: HintTextSize | undefined;
 
   render() {
     const classes = {
@@ -97,9 +103,12 @@ export default class HintText extends LitElement {
     `;
   }
 
-  private getSize() {
-    const validSizes = ['small', 'medium', 'large'];
-    return validSizes.includes(this.size) ? this.size : 'medium';
+  private getSize(): HintTextSize {
+    if (this.size !== undefined && HINT_TEXT_SIZES.includes(this.size)) {
+      return this.size;
+    } else {
+      return 'medium';
+    }
   }
 }
 

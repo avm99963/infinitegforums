@@ -29,11 +29,11 @@ export default class OptionsApp extends LitElement {
   accessor optionsModifier: OptionsModifierPort | undefined;
 
   @property({ type: Array })
-  accessor getFeatureCategories: () => FeatureCategory[] | undefined;
+  accessor getFeatureCategories: (() => FeatureCategory[]) | undefined;
 
   /** Whether we're running a production release of the extension. */
   @property({ type: Boolean })
-  accessor isProdVersion: boolean;
+  accessor isProdVersion: boolean | undefined;
 
   @state()
   accessor optionsConfiguration: OptionsConfiguration | undefined;
@@ -81,9 +81,9 @@ export default class OptionsApp extends LitElement {
   }
 
   focusMainContent() {
-    this.shadowRoot.getElementById('main-content')?.focus();
+    this.shadowRoot?.getElementById('main-content')?.focus();
     (
-      this.shadowRoot.querySelector('nav-drawer') as NavDrawer
+      this.shadowRoot?.querySelector('nav-drawer') as NavDrawer
     )?.scrollAppContentToTop();
   }
 
@@ -92,20 +92,20 @@ export default class OptionsApp extends LitElement {
       changedProperties.has('optionsProvider') &&
       this.optionsProvider !== undefined
     ) {
-      this.setUpOptionsProvider();
+      this.setUpOptionsProvider(this.optionsProvider);
     }
 
-    this.featureCategories = this.getFeatureCategories();
+    this.featureCategories = this.getFeatureCategories?.();
   }
 
-  private setUpOptionsProvider() {
+  private setUpOptionsProvider(optionsProvider: OptionsProviderPort) {
     // TODO: If we keep changing the optionsProvider, we should remove the
     // previous listener in the previous provider. We don't currently handle
     // this case since we don't change the optionsProvider.
-    this.optionsProvider.addListener((_, newConfiguration) =>
+    optionsProvider.addListener((_, newConfiguration) =>
       this.onProviderChangedOptions(newConfiguration),
     );
-    this.loadConfiguration();
+    this.loadConfiguration(optionsProvider);
   }
 
   private onProviderChangedOptions(newConfiguration: OptionsConfiguration) {
@@ -113,12 +113,12 @@ export default class OptionsApp extends LitElement {
     this.optionsConfiguration = newConfiguration;
   }
 
-  private async loadConfiguration() {
+  private async loadConfiguration(optionsProvider: OptionsProviderPort) {
     this.abortConfigurationRequest();
     this.configurationReqAbortController = new AbortController();
     const signal = this.configurationReqAbortController.signal;
     const abortableGetOptionsConfiguration = makeAbortable(
-      this.optionsProvider.getOptionsConfiguration.bind(this.optionsProvider),
+      optionsProvider.getOptionsConfiguration.bind(optionsProvider),
     );
     try {
       // If the call is aborted, it will throw PromiseAbortError and the

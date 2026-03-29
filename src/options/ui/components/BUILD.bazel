@@ -1,5 +1,5 @@
 load("@bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
-load("//tools:bazel/swc.bzl", "swc_pkg")
+load("//tools:bazel/swc.bzl", "swc_pkg_strict")
 load("//tools:common_ts_project.bzl", "common_ts_project")
 
 copy_to_bin(
@@ -20,8 +20,8 @@ common_ts_project(
     allow_js = True,
     declaration = True,
     source_map = True,
-    transpiler = swc_pkg,
-    tsconfig = "//:tsconfig_pkg",
+    transpiler = swc_pkg_strict,
+    tsconfig = "//:tsconfig_pkg_strict",
     visibility = [
         "//src/options/presentation:__subpackages__",
     ],

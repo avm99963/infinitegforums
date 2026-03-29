@@ -483,7 +483,7 @@
         <note from="lit-localize">Label for the button that opens the list of feature categories in the options page.</note>
       </trans-unit>
       <trans-unit id="sd8c7f380694a123e" xml:space="preserve">
-        <source>Enable "<x id="0" equiv-text="${this.feature.name}"/>" feature</source>
+        <source>Enable "<x id="0" equiv-text="${featureName}"/>" feature</source>
         <target state="translated">Activa la funció "<x id="0" equiv-text="${this.feature.name}"/>"</target>
         <note from="lit-localize">Label for the checkbox that lets a user enable a specific feature in the options page (ex: 'Enable "Dark theme" feature')</note>
       </trans-unit>
