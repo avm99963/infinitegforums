@@ -56,6 +56,9 @@ export default class OptionsApp extends LitElement {
         display: block;
         color: var(--md-sys-color-on-surface);
         background-color: var(--md-sys-color-surface-container);
+
+        --md-ref-typeface-brand: 'Roboto', sans-serif;
+        --md-ref-typeface-plain: 'Roboto', sans-serif;
       }
 
       main {
