@@ -58,7 +58,7 @@
     "vitest": "4.1.2",
     "web-ext": "10.0.0",
     "webpack": "5.105.4",
-    "webpack-cli": "6.0.1"
+    "webpack-cli": "7.0.2"
   },
   "private": true,
   "dependencies": {
