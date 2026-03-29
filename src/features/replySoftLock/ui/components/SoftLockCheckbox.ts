@@ -21,6 +21,8 @@ export default class TWPTSoftLockCheckbox extends I18nLitElement {
 
   private checkboxRef: Ref<MdCheckbox> = createRef();
 
+  private softLockStatusUpdatedHandler: (() => void) | undefined;
+
   static styles = [
     css`
       label {
@@ -55,12 +57,6 @@ export default class TWPTSoftLockCheckbox extends I18nLitElement {
     `,
   ];
 
-  firstUpdated() {
-    // When the checkbox first appears, we want to save the default value in the
-    // global state.
-    this.updateGlobalSoftLockState();
-  }
-
   render() {
     return html`
       <label>
@@ -75,6 +71,55 @@ export default class TWPTSoftLockCheckbox extends I18nLitElement {
         <span>${msg('Soft lock', { id: 'replySoftLock.checkbox.label' })}</span>
       </label>
     `;
+  }
+
+  firstUpdated() {
+    // When the checkbox first appears, we want to save the default value in the
+    // global state.
+    this.updateGlobalSoftLockState();
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+
+    // When the global status changes, update this checkbox.
+    this.softLockStatusUpdatedHandler = this.importSoftLockState.bind(this);
+    document.body.addEventListener(
+      SOFT_LOCK_STATUS_UPDATED_EVENT,
+      this.softLockStatusUpdatedHandler,
+    );
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+
+    if (this.softLockStatusUpdatedHandler !== undefined) {
+      document.body.removeEventListener(
+        SOFT_LOCK_STATUS_UPDATED_EVENT,
+        this.softLockStatusUpdatedHandler,
+      );
+    }
+  }
+
+  /**
+   * Imports the global state of the soft lock checkboxes.
+   *
+   * This is used if another soft lock checkbox has been modified, so we can
+   * change our status with the new global status.
+   *
+   * An example where this can happen is if the new and old reply editors are
+   * open at the same time.
+   */
+  private async importSoftLockState() {
+    const checkbox = this.checkboxRef.value;
+    const shouldSoftLock = await this.repository.shouldSoftLock();
+    if (
+      checkbox !== undefined &&
+      shouldSoftLock !== undefined &&
+      checkbox.checked !== shouldSoftLock
+    ) {
+      checkbox.checked = shouldSoftLock;
+    }
   }
 
   /**
@@ -103,11 +148,22 @@ export default class TWPTSoftLockCheckbox extends I18nLitElement {
     }
 
     this.repository.setShouldSoftLock(isChecked);
+
+    // Let other soft lock checkboxes know the status has been changed.
+    document.body.dispatchEvent(
+      new CustomEvent(SOFT_LOCK_STATUS_UPDATED_EVENT),
+    );
   }
 }
+
+const SOFT_LOCK_STATUS_UPDATED_EVENT = 'twpt-soft-lock-status-updated';
 
 declare global {
   interface HTMLElementTagNameMap {
     'twpt-soft-lock-checkbox': TWPTSoftLockCheckbox;
+  }
+
+  interface GlobalEventHandlersEventMap {
+    [SOFT_LOCK_STATUS_UPDATED_EVENT]: CustomEvent<undefined>;
   }
 }
