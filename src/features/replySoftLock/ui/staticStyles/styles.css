@@ -1,24 +1,41 @@
 /* For the new reply editor. */
 sc-tailwind-thread-reply-editor {
-  .scTailwindThreadReplyeditorsubscribe {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    column-gap: 0.5rem;
-    /* Originally this container had margin-top: .35rem, which seemed to be placed as a hack to fix the alignment. */
-    margin-block: 0;
+  .scTailwindThreadReplyeditortop-row {
+    sc-tailwind-shared-display_name_editor-display-name-editor {
+      /* So the elements after this get pushed to the end. */
+      flex-grow: 1;
+    }
 
-    & > sc-shared-material-checkbox {
-      /* This fixes the alignment with the "Subscribe to updates" checkbox. */
+    .scTailwindThreadReplyeditorsubscribe {
       display: flex;
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: wrap;
+      column-gap: 0.5rem;
+      /* Originally this container had margin-top: .35rem, which seemed to be placed as a hack to fix the alignment. */
+      margin-block: 0;
+
+      & > sc-shared-material-checkbox {
+        /* This fixes the alignment with the "Subscribe to updates" checkbox. */
+        display: flex;
+      }
+    }
+
+    /* If it's added directly, we need to add some margin between the "soft lock" checkbox and the settings button. */
+    & > twpt-reply-soft-lock-settings-context-provider {
+      margin-inline-start: 0.5rem;
     }
   }
 }
 
 /* For the old reply editor. */
 ec-movable-dialog .main .user {
-  twpt-reply-soft-lock-checkbox-context-provider {
-    margin-right: 1rem;
+  &
+    > :is(
+      twpt-reply-soft-lock-checkbox-context-provider,
+      material-checkbox,
+      twpt-reply-soft-lock-settings-context-provider
+    ) {
+    margin-inline-start: 1rem;
   }
 }

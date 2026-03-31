@@ -3,6 +3,7 @@ import { NodeMutation } from '@/presentation/nodeWatcher/NodeWatcherHandler';
 import { OptionsProviderPort } from '@/services/options/OptionsProvider';
 import { SoftLockCheckboxInjectorPort } from '../../ui/injectors/softLockCheckbox.injector';
 import { UnexpectedUIError } from '@/ui/errors/unexpectedUI.error';
+import { SoftLockSettingsInjectorPort } from '../../ui/injectors/softLockSettings.injector';
 
 /**
  * Injects the "Soft lock" checkbox into the old reply editor if the feature is
@@ -14,6 +15,7 @@ export default class ReplySoftLockAddToOldReplyEditorHandler extends CssSelector
   constructor(
     private readonly optionsProvider: OptionsProviderPort,
     private readonly checkboxInjector: SoftLockCheckboxInjectorPort,
+    private readonly settingsInjector: SoftLockSettingsInjectorPort,
   ) {
     super();
   }
@@ -72,5 +74,10 @@ export default class ReplySoftLockAddToOldReplyEditorHandler extends CssSelector
         position: 'end',
       });
     }
+
+    this.settingsInjector.execute({
+      element: replyEditorUserRow,
+      position: 'end',
+    });
   }
 }

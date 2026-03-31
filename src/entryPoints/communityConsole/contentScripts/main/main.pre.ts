@@ -103,6 +103,7 @@ import ReplySoftLockAddToReplyEditorTopHandler from '@/features/replySoftLock/pr
 import { SoftLockCheckboxInjectorAdapter } from '@/features/replySoftLock/infrastructure/ui/injectors/softLockCheckbox.injector.adapter';
 import ReplySoftLockStaticStylesScript from '@/features/replySoftLock/presentation/scripts/staticStyles.script';
 import ReplySoftLockAddToOldReplyEditorHandler from '@/features/replySoftLock/presentation/nodeWatcherHandlers/addToOldReplyEditor.handler';
+import { SoftLockSettingsInjectorAdapter } from '@/features/replySoftLock/infrastructure/ui/injectors/softLockSettings.injector.adapter';
 
 const scriptRunner = createScriptRunner();
 scriptRunner.run();
@@ -149,6 +150,7 @@ function createScriptRunner() {
   const ccInfiniteScroll = new CCInfiniteScroll();
   const flattenThreads = new FlattenThreads();
   const softLockCheckboxInjector = new SoftLockCheckboxInjectorAdapter();
+  const softLockSettingsInjector = new SoftLockSettingsInjectorAdapter();
 
   return new ScriptRunner(
     new SortedScriptsProviderAdapter(
@@ -303,6 +305,7 @@ function createScriptRunner() {
               new ReplySoftLockAddToOldReplyEditorHandler(
                 optionsProvider,
                 softLockCheckboxInjector,
+                softLockSettingsInjector,
               ),
             ],
             [
@@ -310,6 +313,7 @@ function createScriptRunner() {
               new ReplySoftLockAddToReplyEditorTopHandler(
                 optionsProvider,
                 softLockCheckboxInjector,
+                softLockSettingsInjector,
               ),
             ],
             [

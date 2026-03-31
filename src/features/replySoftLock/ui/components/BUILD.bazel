@@ -31,6 +31,7 @@ common_ts_project(
         "//:node_modules/@lit/localize",
         "//:node_modules/@material/web",
         "//:node_modules/lit",
+        "//src/common/styles",
         "//src/features/replySoftLock/repositories",
         "//src/features/replySoftLock/ui/contexts",
         "//src/ui/components/badge",

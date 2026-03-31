@@ -4,6 +4,11 @@ import ReplySoftLockAddToReplyEditorTopHandler from './addToReplyEditorTop.handl
 import { OptionsProviderPort } from '@/services/options/OptionsProvider';
 import { SoftLockCheckboxInjectorPort } from '../../ui/injectors/softLockCheckbox.injector';
 import { NodeMutationType } from '@/presentation/nodeWatcher/NodeWatcherHandler';
+import { SoftLockSettingsInjectorPort } from '../../ui/injectors/softLockSettings.injector';
+
+const SUBSCRIBE_CHECKBOX_CONTAINER_CLASS =
+  'scTailwindThreadReplyeditorsubscribe';
+const REPLY_EDITOR_TOP_ROW_CLASS = 'scTailwindThreadReplyeditortop-row';
 
 const isEnabledMock = vitest.fn<OptionsProviderPort['isEnabled']>();
 const optionsProvider: OptionsProviderPort = {
@@ -22,15 +27,22 @@ const optionsProvider: OptionsProviderPort = {
   isEnabled: isEnabledMock,
 };
 
-const executeInjectorMock =
+const executeCheckboxInjectorMock =
   vitest.fn<SoftLockCheckboxInjectorPort['execute']>();
 const checkboxInjector: SoftLockCheckboxInjectorPort = {
-  execute: executeInjectorMock,
+  execute: executeCheckboxInjectorMock,
+};
+
+const executeSettingsInjectorMock =
+  vitest.fn<SoftLockSettingsInjectorPort['execute']>();
+const settingsInjector: SoftLockSettingsInjectorPort = {
+  execute: executeSettingsInjectorMock,
 };
 
 const sut = new ReplySoftLockAddToReplyEditorTopHandler(
   optionsProvider,
   checkboxInjector,
+  settingsInjector,
 );
 
 beforeEach(() => {
@@ -49,7 +61,13 @@ describe('when the feature is disabled', () => {
   it('should not call the checkbox injector', async () => {
     await simulateReplyEditorTopRowAdded();
 
-    expect(executeInjectorMock).not.toHaveBeenCalled();
+    expect(executeCheckboxInjectorMock).not.toHaveBeenCalled();
+  });
+
+  it('should not call the settings injector', async () => {
+    await simulateReplyEditorTopRowAdded();
+
+    expect(executeSettingsInjectorMock).not.toHaveBeenCalled();
   });
 });
 
@@ -68,20 +86,31 @@ describe('when the feature is enabled', () => {
         });
       });
 
-      const SUBSCRIBE_CHECKBOX_CONTAINER_CLASS =
-        'scTailwindThreadReplyeditorsubscribe';
-
       it(`should prepend the checkbox before the .${SUBSCRIBE_CHECKBOX_CONTAINER_CLASS} element`, async () => {
         await simulateReplyEditorTopRowAdded();
 
-        expect(executeInjectorMock).toHaveBeenCalledOnce();
-        expect(executeInjectorMock).toHaveBeenCalledWith({
+        expect(executeCheckboxInjectorMock).toHaveBeenCalledOnce();
+        expect(executeCheckboxInjectorMock).toHaveBeenCalledWith({
           element: expect.toSatisfy(
             (element: Element) =>
               element.classList.contains(SUBSCRIBE_CHECKBOX_CONTAINER_CLASS),
             `The injector should be called with the .${SUBSCRIBE_CHECKBOX_CONTAINER_CLASS} element as the injection element.`,
           ),
           position: 'start',
+        });
+      });
+
+      it(`should append the settings component in the .${SUBSCRIBE_CHECKBOX_CONTAINER_CLASS} element`, async () => {
+        await simulateReplyEditorTopRowAdded();
+
+        expect(executeSettingsInjectorMock).toHaveBeenCalledOnce();
+        expect(executeSettingsInjectorMock).toHaveBeenCalledWith({
+          element: expect.toSatisfy(
+            (element: Element) =>
+              element.classList.contains(SUBSCRIBE_CHECKBOX_CONTAINER_CLASS),
+            `The injector should be called with the .${SUBSCRIBE_CHECKBOX_CONTAINER_CLASS} element as the injection element.`,
+          ),
+          position: 'end',
         });
       });
     });
@@ -93,17 +122,29 @@ describe('when the feature is enabled', () => {
         });
       });
 
-      const REPLY_EDITOR_TOP_ROW_CLASS = 'scTailwindThreadReplyeditortop-row';
-
       it(`should append the checkbox in the .${REPLY_EDITOR_TOP_ROW_CLASS} element`, async () => {
         await simulateReplyEditorTopRowAdded();
 
-        expect(executeInjectorMock).toHaveBeenCalledOnce();
-        expect(executeInjectorMock).toHaveBeenCalledWith({
+        expect(executeCheckboxInjectorMock).toHaveBeenCalledOnce();
+        expect(executeCheckboxInjectorMock).toHaveBeenCalledWith({
           element: expect.toSatisfy(
             (element: Element) =>
               element.classList.contains(REPLY_EDITOR_TOP_ROW_CLASS),
 
+            `The injector should be called with the .${REPLY_EDITOR_TOP_ROW_CLASS} element as the injection element.`,
+          ),
+          position: 'end',
+        });
+      });
+
+      it(`should append the settings component in the .${REPLY_EDITOR_TOP_ROW_CLASS} element`, async () => {
+        await simulateReplyEditorTopRowAdded();
+
+        expect(executeSettingsInjectorMock).toHaveBeenCalledOnce();
+        expect(executeSettingsInjectorMock).toHaveBeenCalledWith({
+          element: expect.toSatisfy(
+            (element: Element) =>
+              element.classList.contains(REPLY_EDITOR_TOP_ROW_CLASS),
             `The injector should be called with the .${REPLY_EDITOR_TOP_ROW_CLASS} element as the injection element.`,
           ),
           position: 'end',

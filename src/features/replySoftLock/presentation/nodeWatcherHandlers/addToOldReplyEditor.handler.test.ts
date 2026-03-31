@@ -4,6 +4,9 @@ import { OptionsProviderPort } from '@/services/options/OptionsProvider';
 import { SoftLockCheckboxInjectorPort } from '../../ui/injectors/softLockCheckbox.injector';
 import { NodeMutationType } from '@/presentation/nodeWatcher/NodeWatcherHandler';
 import ReplySoftLockAddToOldReplyEditorHandler from './addToOldReplyEditor.handler';
+import { SoftLockSettingsInjectorPort } from '../../ui/injectors/softLockSettings.injector';
+
+const REPLY_EDITOR_USER_ROW_CLASS = 'user';
 
 const isEnabledMock = vitest.fn<OptionsProviderPort['isEnabled']>();
 const optionsProvider: OptionsProviderPort = {
@@ -28,9 +31,16 @@ const checkboxInjector: SoftLockCheckboxInjectorPort = {
   execute: executeInjectorMock,
 };
 
+const executeSettingsInjectorMock =
+  vitest.fn<SoftLockSettingsInjectorPort['execute']>();
+const settingsInjector: SoftLockSettingsInjectorPort = {
+  execute: executeSettingsInjectorMock,
+};
+
 const sut = new ReplySoftLockAddToOldReplyEditorHandler(
   optionsProvider,
   checkboxInjector,
+  settingsInjector,
 );
 
 beforeEach(() => {
@@ -50,6 +60,12 @@ describe('when the feature is disabled', () => {
     await simulateMovableDialogAdded();
 
     expect(executeInjectorMock).not.toHaveBeenCalled();
+  });
+
+  it('should not call the settings injector', async () => {
+    await simulateMovableDialogAdded();
+
+    expect(executeSettingsInjectorMock).not.toHaveBeenCalled();
   });
 });
 
@@ -93,6 +109,12 @@ describe('when the feature is enabled', () => {
           position: 'before',
         });
       });
+
+      it(`should append the settings component in the .${REPLY_EDITOR_USER_ROW_CLASS} element`, async () => {
+        await simulateMovableDialogAdded();
+
+        checkSettingsComponentIsAppendedToUserRow();
+      });
     });
 
     describe('when the reply editor doesn\'t show the "Subscribe to updates" checkbox', async () => {
@@ -101,8 +123,6 @@ describe('when the feature is enabled', () => {
           includeSubscribeCheckbox: false,
         });
       });
-
-      const REPLY_EDITOR_USER_ROW_CLASS = 'user';
 
       it(`should append the checkbox in the .${REPLY_EDITOR_USER_ROW_CLASS} element`, async () => {
         await simulateMovableDialogAdded();
@@ -117,6 +137,12 @@ describe('when the feature is enabled', () => {
           ),
           position: 'end',
         });
+      });
+
+      it(`should append the settings component in the .${REPLY_EDITOR_USER_ROW_CLASS} element`, async () => {
+        await simulateMovableDialogAdded();
+
+        checkSettingsComponentIsAppendedToUserRow();
       });
     });
   });
@@ -136,4 +162,16 @@ function getMovableDialog() {
     throw new Error("Can't find in the fake test DOM the movable dialog.");
   }
   return movableDialog;
+}
+
+function checkSettingsComponentIsAppendedToUserRow() {
+  expect(executeSettingsInjectorMock).toHaveBeenCalledOnce();
+  expect(executeSettingsInjectorMock).toHaveBeenCalledWith({
+    element: expect.toSatisfy(
+      (element: Element) =>
+        element.classList.contains(REPLY_EDITOR_USER_ROW_CLASS),
+      `The injector should be called with the .${REPLY_EDITOR_USER_ROW_CLASS} element as the injection element.`,
+    ),
+    position: 'end',
+  });
 }

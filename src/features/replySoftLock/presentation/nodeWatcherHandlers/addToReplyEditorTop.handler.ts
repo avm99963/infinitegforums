@@ -3,6 +3,7 @@ import { NodeMutation } from '@/presentation/nodeWatcher/NodeWatcherHandler';
 import { OptionsProviderPort } from '@/services/options/OptionsProvider';
 import { SoftLockCheckboxInjectorPort } from '../../ui/injectors/softLockCheckbox.injector';
 import { UnexpectedUIError } from '@/ui/errors/unexpectedUI.error';
+import { SoftLockSettingsInjectorPort } from '../../ui/injectors/softLockSettings.injector';
 
 /**
  * Injects the "Soft lock" checkbox into the reply editor's top row if the
@@ -15,6 +16,7 @@ export default class ReplySoftLockAddToReplyEditorTopHandler extends CssSelector
   constructor(
     private readonly optionsProvider: OptionsProviderPort,
     private readonly checkboxInjector: SoftLockCheckboxInjectorPort,
+    private readonly settingsInjector: SoftLockSettingsInjectorPort,
   ) {
     super();
   }
@@ -46,11 +48,19 @@ export default class ReplySoftLockAddToReplyEditorTopHandler extends CssSelector
         element: subscribeCheckboxContainer,
         position: 'start',
       });
+      this.settingsInjector.execute({
+        element: subscribeCheckboxContainer,
+        position: 'end',
+      });
     } else {
       // In this case, since the subscribe checkbox does not exist, we have to
       // create our own checkbox, which will be automatically shown aligned to
       // the right.
       this.checkboxInjector.execute({
+        element: replyEditorTopRow,
+        position: 'end',
+      });
+      this.settingsInjector.execute({
         element: replyEditorTopRow,
         position: 'end',
       });
