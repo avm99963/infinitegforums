@@ -1,5 +1,5 @@
 import { LitElement, html } from 'lit';
-import { customElement, state } from 'lit/decorators.js';
+import { customElement } from 'lit/decorators.js';
 import { provide } from '@lit/context';
 import {
   ReplySoftLockUserSelectionRepositoryPort,
@@ -16,16 +16,10 @@ import { UrlThreadDataParserServiceAdapter } from '@/infrastructure/ui/services/
 @customElement('twpt-reply-soft-lock-checkbox-context-provider')
 export class TwptBulkMoveContextProvider extends LitElement {
   @provide({ context: userSelectionRepositoryContext })
-  @state()
-  accessor userSelectionRepository: ReplySoftLockUserSelectionRepositoryPort;
-
-  constructor() {
-    super();
-    this.userSelectionRepository =
-      new ReplySoftLockUserSelectionRepositoryAdapter(
-        new UrlThreadDataParserServiceAdapter(),
-      );
-  }
+  accessor userSelectionRepository: ReplySoftLockUserSelectionRepositoryPort =
+    new ReplySoftLockUserSelectionRepositoryAdapter(
+      new UrlThreadDataParserServiceAdapter(),
+    );
 
   render() {
     return html`
