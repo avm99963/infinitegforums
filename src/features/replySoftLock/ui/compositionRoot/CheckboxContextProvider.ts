@@ -12,7 +12,7 @@ import { userSelectionRepositoryContext } from '../contexts/checkboxContexts';
  * It is a context provider.
  */
 @customElement('twpt-reply-soft-lock-checkbox-context-provider')
-export class TwptBulkMoveContextProvider extends LitElement {
+export class TwptReplySoftLockCheckboxContextProvider extends LitElement {
   @provide({ context: userSelectionRepositoryContext })
   accessor userSelectionRepository: ReplySoftLockUserSelectionRepositoryPort =
     new ReplySoftLockUserSelectionRepositoryAdapter(
@@ -28,6 +28,6 @@ export class TwptBulkMoveContextProvider extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'twpt-reply-soft-lock-checkbox-context-provider': TwptBulkMoveContextProvider;
+    'twpt-reply-soft-lock-checkbox-context-provider': TwptReplySoftLockCheckboxContextProvider;
   }
 }
