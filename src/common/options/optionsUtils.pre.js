@@ -1,7 +1,4 @@
-import {optionsPrototype} from './optionsPrototype';
 import { getSyncStorageAreaRepository } from '@/storage/compositionRoot';
-
-export {optionsPrototype};
 
 // NOTE: We are assuming that the functions inside this file are only called
 // from contexts with access to the chrome.storage API (i.e., no main world
