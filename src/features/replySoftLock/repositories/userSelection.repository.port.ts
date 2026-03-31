@@ -1,5 +1,3 @@
-import { createContext } from '@lit/context';
-
 export interface ReplySoftLockUserSelectionRepositoryPort {
   /**
    * Updates whether the user enabled the option to soft lock the current
@@ -12,8 +10,3 @@ export interface ReplySoftLockUserSelectionRepositoryPort {
    */
   shouldSoftLock(): Promise<boolean>;
 }
-
-export const userSelectionRepositoryContext =
-  createContext<ReplySoftLockUserSelectionRepositoryPort>(
-    'reply-soft-lock-get-user-selection-repository',
-  );

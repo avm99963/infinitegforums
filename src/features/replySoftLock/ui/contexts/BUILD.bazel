@@ -2,22 +2,17 @@ load("//tools:bazel/swc.bzl", "swc_pkg_strict")
 load("//tools:common_ts_project.bzl", "common_ts_project")
 
 common_ts_project(
-    name = "compositionRoot",
+    name = "contexts",
     allow_js = True,
     declaration = True,
     source_map = True,
     transpiler = swc_pkg_strict,
     tsconfig = "//:tsconfig_pkg_strict",
     visibility = [
-        "//src/features/replySoftLock/infrastructure/ui/injectors:__subpackages__",
-        "//src/injections:__subpackages__",
+        "//src/features/replySoftLock/ui:__subpackages__",
     ],
     deps = [
         "//:node_modules/@lit/context",
-        "//:node_modules/lit",
-        "//src/features/replySoftLock/infrastructure/repositories",
         "//src/features/replySoftLock/repositories",
-        "//src/features/replySoftLock/ui/contexts",
-        "//src/infrastructure/ui/services/communityConsole",
     ],
 )

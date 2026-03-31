@@ -4,11 +4,9 @@ import { msg } from '@lit/localize';
 import { I18nLitElement } from '@/ui/i18n/i18nLitElement';
 import { MdCheckbox } from '@material/web/checkbox/checkbox.js';
 import { createRef, Ref, ref } from 'lit/directives/ref.js';
-import {
-  ReplySoftLockUserSelectionRepositoryPort,
-  userSelectionRepositoryContext,
-} from '../../repositories/userSelection.repository.port';
+import { ReplySoftLockUserSelectionRepositoryPort } from '../../repositories/userSelection.repository.port';
 import { consume } from '@lit/context';
+import { userSelectionRepositoryContext } from '../contexts/checkboxContexts';
 
 import '@material/web/checkbox/checkbox.js';
 import '@/ui/components/badge/Badge';
