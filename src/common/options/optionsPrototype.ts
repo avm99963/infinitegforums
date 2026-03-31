@@ -175,12 +175,12 @@ const rawOptionConfigs = {
   fixcrpopup: {
     defaultValue: false,
     context: OptionContext.Options,
-    killSwitchType: KillSwitchType.Ignore,
+    killSwitchType: KillSwitchType.Option,
   },
   replysoftlock: {
     defaultValue: false,
     context: OptionContext.Options,
-    killSwitchType: KillSwitchType.Ignore,
+    killSwitchType: KillSwitchType.Option,
   },
 
   // Experiments
