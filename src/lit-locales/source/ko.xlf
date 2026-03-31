@@ -851,17 +851,20 @@
         <target state="translated">일괄 신고</target>
         <note from="lit-localize">Option shown in the settings menu of the thread toolbar which enables the "bulk report messages" feature.</note>
       </trans-unit>
-<trans-unit id="sa893197628185244" xml:space="preserve">
-  <source>Soft lock when replying</source>
-  <note from="lit-localize">Name of an extension feature.</note>
-</trans-unit>
-<trans-unit id="replySoftLock.checkbox.label" xml:space="preserve">
-  <source>Soft lock</source>
-</trans-unit>
-<trans-unit id="s66af6456be5577e8" xml:space="preserve">
-  <source>Adds the option to soft lock the current thread in the reply editor.</source>
-  <note from="lit-localize">Description of the "Soft lock when replying" feature.</note>
-</trans-unit>
+      <trans-unit id="sa893197628185244" xml:space="preserve">
+        <source>Soft lock when replying</source>
+        <target state="translated">답장 시 부분 잠금</target>
+        <note from="lit-localize">Name of an extension feature.</note>
+      </trans-unit>
+      <trans-unit id="replySoftLock.checkbox.label" xml:space="preserve">
+        <source>Soft lock</source>
+        <target state="translated">부분 잠금</target>
+      </trans-unit>
+      <trans-unit id="s66af6456be5577e8" xml:space="preserve">
+        <source>Adds the option to soft lock the current thread in the reply editor.</source>
+        <target state="translated">댓글 편집기에 현재 게시글을 부분 잠금하는 옵션을 추가합니다.</target>
+        <note from="lit-localize">Description of the "Soft lock when replying" feature.</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>
