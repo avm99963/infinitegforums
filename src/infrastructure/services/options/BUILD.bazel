@@ -27,7 +27,7 @@ vitest_test(
     data = [
         "OptionsProvider.adapter.ts",
         "OptionsProvider.test.ts",
-        "//src/common/options",
+        "//src/common/options:test_utils",
         "//src/options/repositories",
         "//src/services/options",
     ],

@@ -1,5 +1,5 @@
 load("@aspect_rules_js//js:defs.bzl", "js_library")
-load("//tools:bazel/swc.bzl", "swc_pkg")
+load("//tools:bazel/swc.bzl", "swc_pkg", "swc_pkg_strict")
 load("//tools:common_js_project.bzl", "common_js_project")
 load("//tools:common_ts_project.bzl", "common_ts_project")
 load("//tools/preprocessor:bzl/preprocessor.bzl", "preprocessor")
@@ -16,6 +16,14 @@ preprocessor(
 
 common_ts_project(
     name = "ts",
+    srcs = glob(
+        ["**/*.ts"],
+        exclude = [
+            "**/*.test.ts",
+            "**/*.pre.ts",
+            "testUtils.ts",
+        ],
+    ),
     allow_js = True,
     declaration = True,
     source_map = True,
@@ -42,4 +50,18 @@ js_library(
         ":js",
         ":ts",
     ],
+)
+
+common_ts_project(
+    name = "test_utils",
+    srcs = ["testUtils.ts"],
+    allow_js = True,
+    declaration = True,
+    source_map = True,
+    transpiler = swc_pkg_strict,
+    tsconfig = "//:tsconfig_pkg_strict",
+    visibility = [
+        "//src/infrastructure/services/options:__subpackages__",
+    ],
+    deps = [":options"],
 )
