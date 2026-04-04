@@ -1,5 +1,11 @@
 {
   "compilerOptions": {
+    // Since Typescript 6, strict mode is enabled by default, but our codebase
+    // unfortunately only compiles under non-strict mode. We're doing a best
+    // effort to migrate packages to a strict mode, so the base tsconfig will
+    // disable it until all the codebase supports it. See
+    // https://www.typescriptlang.org/docs/handbook/release-notes/typescript-6-0.html#simple-default-changes.
+    "strict": false,
     "sourceMap": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
@@ -11,7 +17,13 @@
     "allowJs": true,
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    // This is the default in Typescript < 6. In Typescript 6, it is suggested
+    // to set only the types used to improve performance. But, since each
+    // package only sets dependencies on the types, we can set this to "*"
+    // without worrying about performance. See
+    // https://www.typescriptlang.org/docs/handbook/release-notes/typescript-6-0.html#types-now-defaults-to-.
+    "types": ["*"]
   },
   "exclude": [
     "node_modules",

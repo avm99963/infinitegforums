@@ -442,11 +442,11 @@
     "@@aspect_rules_ts+//ts:extensions.bzl%ext": {
       "general": {
         "bzlTransitiveDigest": "CWZ/22Tg68/oJoCxW/joGNcGBQkyrSo0L9J+/elsrn0=",
-        "usagesDigest": "Mem2kyOaMiJHdeSJx1G35ScvuPmIKWwRasdgyP76w4g=",
+        "usagesDigest": "mHFNhfzlsOKAoixwhCgkJ+YXhGN1oBVpgNddkkVjCqE=",
         "recordedInputs": [
           "REPO_MAPPING:aspect_rules_ts+,aspect_rules_ts aspect_rules_ts+",
           "REPO_MAPPING:aspect_rules_ts+,bazel_tools bazel_tools",
-          "FILE:@@//package.json 9961e3c655de7a34fa1b63c3656030a907266300ebcfb96dbd64a988a75c7b66"
+          "FILE:@@//package.json ab47b46f8b521c98abdbfac4ffa4a9c25bcfbbd6b7a321fd9998f2e8ac002905"
         ],
         "generatedRepoSpecs": {
           "npm_typescript": {
@@ -454,7 +454,7 @@
             "attributes": {
               "version": "",
               "version_from": "@@//:package.json",
-              "integrity": "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==",
+              "integrity": "sha512-bGdAIrZ0wiGDo5l8c++HWtbaNCWTS4UTv7RaTH/ThVIgjkveJt83m74bBHMJkuCbslY8ixgLBVZJIOiQlQTjfQ==",
               "urls": [
                 "https://registry.npmjs.org/typescript/-/typescript-{}.tgz"
               ]
