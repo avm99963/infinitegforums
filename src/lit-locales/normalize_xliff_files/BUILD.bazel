@@ -1,6 +1,7 @@
 load("@aspect_rules_js//js:defs.bzl", "js_binary")
 load("@aspect_rules_swc//swc:defs.bzl", "swc")
 load("@aspect_rules_ts//ts:defs.bzl", "ts_config", "ts_project")
+load("@aspect_rules_webpack//webpack:defs.bzl", "webpack_bundle")
 load("@npm//:defs.bzl", "npm_link_all_packages")
 
 npm_link_all_packages(
@@ -26,9 +27,19 @@ ts_project(
     ],
 )
 
+webpack_bundle(
+    name = "bundle",
+    srcs = [":project"],
+    entry_points = {
+        "normalize.js": "normalize.bundle",
+    },
+    node_modules = ":node_modules",
+    webpack_config = "webpack/webpack.config.js",
+)
+
 js_binary(
     name = "normalize_xliff_files",
-    data = [":project"],
-    entry_point = "normalize.js",
+    data = [":bundle"],
+    entry_point = "normalize.bundle.js",
     visibility = ["//src/lit-locales:__subpackages__"],
 )

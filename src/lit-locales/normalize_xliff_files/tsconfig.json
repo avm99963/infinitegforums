@@ -3,8 +3,7 @@
     "allowJs": false,
     "esModuleInterop": true,
     "moduleResolution": "bundler",
-    "module": "commonjs",
-    "moduleResolution": "node10",
+    "module": "es2022",
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "strict": true
