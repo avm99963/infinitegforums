@@ -32,6 +32,7 @@ common_ts_project(
         "//:node_modules/@material/web",
         "//:node_modules/lit",
         "//src/features/replySoftLock/repositories",
+        "//src/ui/components/badge",
         "//src/ui/i18n",
     ],
 )
