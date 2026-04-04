@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@xmldom/xmldom": "0.9.8",
+    "@xmldom/xmldom": "0.9.9",
     "webpack": "5.105.4",
     "webpack-cli": "7.0.2"
   },

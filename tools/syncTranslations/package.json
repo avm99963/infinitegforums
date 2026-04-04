@@ -3,7 +3,7 @@
     "@babel/parser": "7.29.2",
     "@babel/traverse": "7.29.0",
     "@babel/types": "7.29.0",
-    "@xmldom/xmldom": "0.9.8",
+    "@xmldom/xmldom": "0.9.9",
     "webpack": "5.105.4",
     "webpack-cli": "7.0.2"
   },
