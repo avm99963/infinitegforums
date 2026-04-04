@@ -217,6 +217,12 @@ importers:
       '@xmldom/xmldom':
         specifier: 0.9.8
         version: 0.9.8
+      webpack:
+        specifier: 5.105.4
+        version: 5.105.4(webpack-cli@7.0.2)
+      webpack-cli:
+        specifier: 7.0.2
+        version: 7.0.2(webpack@5.105.4)
     devDependencies:
       '@types/babel__traverse':
         specifier: 7.28.0
