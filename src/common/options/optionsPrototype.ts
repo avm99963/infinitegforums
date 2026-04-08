@@ -1,5 +1,7 @@
 import { Option, OptionContext, KillSwitchType, OptionConfig } from './Option';
 
+const identity: <T extends any>(it: T) => T = (it) => it;
+
 const rawOptionConfigs = {
   // Available options
   list: {
@@ -181,6 +183,12 @@ const rawOptionConfigs = {
     defaultValue: false,
     context: OptionContext.Options,
     killSwitchType: KillSwitchType.Option,
+  },
+  /** Forums where the soft lock checkbox is enabled by default. */
+  replysoftlock_autosoftlockforums: {
+    defaultValue: identity<string[]>([]),
+    context: OptionContext.Options,
+    killSwitchType: KillSwitchType.Ignore,
   },
 
   // Experiments

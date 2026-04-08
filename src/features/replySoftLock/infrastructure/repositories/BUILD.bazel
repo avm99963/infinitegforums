@@ -13,6 +13,7 @@ common_ts_project(
     ],
     deps = [
         "//src/features/replySoftLock/repositories",
+        "//src/services/options",
         "//src/ui/services",
     ],
 )
