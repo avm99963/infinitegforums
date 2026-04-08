@@ -16,6 +16,7 @@ common_ts_project(
         "//:node_modules/async-mutex",
         "//src/common/options",
         "//src/options/repositories",
+        "//src/presentation/mainWorldContentScriptBridge/base",
         "//src/presentation/mainWorldContentScriptBridge/optionsConfigurationRepository",
         "//src/storage/repositories",
     ],
