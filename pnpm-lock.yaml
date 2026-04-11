@@ -123,8 +123,8 @@ importers:
         specifier: 4.0.2
         version: 4.0.2(webpack@5.105.4)
       renovate:
-        specifier: 43.110.3
-        version: 43.110.3(typanion@3.14.0)
+        specifier: 43.110.4
+        version: 43.110.4(typanion@3.14.0)
       sass:
         specifier: 1.99.0
         version: 1.99.0
@@ -4437,8 +4437,8 @@ packages:
     resolution: {integrity: sha512-tkAQEw8ysMzmkhgw8k+1U/iPhWNhykKnSk4Rd5zLoPJCuJaGRPo6YposrZgaxHKzDHdDWWZvE/Sk7hsL2X/CpQ==}
     engines: {node: '>=18'}
 
-  p-queue@9.1.0:
-    resolution: {integrity: sha512-O/ZPaXuQV29uSLbxWBGGZO1mCQXV2BLIwUr59JUU9SoH76mnYvtms7aafH/isNSNGwuEfP6W/4xD0/TJXxrizw==}
+  p-queue@9.1.1:
+    resolution: {integrity: sha512-yQS1vV2V7Q14MQrgD8jMNY5owPuGgVHVdSK8NqmKpOVajnjbaeMa6uLOzTALPtvJ7Vo4bw0BGsw7qfUT8z24Ig==}
     engines: {node: '>=20'}
 
   p-throttle@8.1.0:
@@ -4755,8 +4755,8 @@ packages:
   renderkid@3.0.0:
     resolution: {integrity: sha512-q/7VIQA8lmM1hF+jn+sFSPWGlMkSAeNYcPLmDQx2zzuiDfaLrOmumR8iaUKlenFgh0XRPIUeSPlH3A+AW3Z5pg==}
 
-  renovate@43.110.3:
-    resolution: {integrity: sha512-b9TSPyM4n1iRoD2grrII5bmuxU6VrY/XVDDCHowGP4i3aFBiwoEj64WT7YVI077Wx9SwJFBYHVcimgI232IfEA==}
+  renovate@43.110.4:
+    resolution: {integrity: sha512-T8Opu2Gye0bFqH3xOOFEVoQzloUwL1fKwov3r2qwbtWHNSRgYK3BVwrgS0jFzDh6JiO8af8gAHKQ4OoI3InBJg==}
     engines: {node: ^24.11.0, pnpm: ^10.0.0}
     hasBin: true
 
@@ -11062,7 +11062,7 @@ snapshots:
 
   p-map@7.0.4: {}
 
-  p-queue@9.1.0:
+  p-queue@9.1.1:
     dependencies:
       eventemitter3: 5.0.4
       p-timeout: 7.0.1
@@ -11451,7 +11451,7 @@ snapshots:
       lodash: 4.17.23
       strip-ansi: 6.0.1
 
-  renovate@43.110.3(typanion@3.14.0):
+  renovate@43.110.4(typanion@3.14.0):
     dependencies:
       '@aws-sdk/client-codecommit': 3.1021.0
       '@aws-sdk/client-ec2': 3.1021.0
@@ -11542,7 +11542,7 @@ snapshots:
       node-html-parser: 7.1.0
       p-all: 5.0.1
       p-map: 7.0.4
-      p-queue: 9.1.0
+      p-queue: 9.1.1
       p-throttle: 8.1.0
       parse-link-header: 2.0.0
       prettier: 3.8.1
