@@ -123,8 +123,8 @@ importers:
         specifier: 4.0.2
         version: 4.0.2(webpack@5.105.4)
       renovate:
-        specifier: 43.110.4
-        version: 43.110.4(typanion@3.14.0)
+        specifier: 43.110.7
+        version: 43.110.7(typanion@3.14.0)
       sass:
         specifier: 1.99.0
         version: 1.99.0
@@ -4718,8 +4718,8 @@ packages:
   renderkid@3.0.0:
     resolution: {integrity: sha512-q/7VIQA8lmM1hF+jn+sFSPWGlMkSAeNYcPLmDQx2zzuiDfaLrOmumR8iaUKlenFgh0XRPIUeSPlH3A+AW3Z5pg==}
 
-  renovate@43.110.4:
-    resolution: {integrity: sha512-T8Opu2Gye0bFqH3xOOFEVoQzloUwL1fKwov3r2qwbtWHNSRgYK3BVwrgS0jFzDh6JiO8af8gAHKQ4OoI3InBJg==}
+  renovate@43.110.7:
+    resolution: {integrity: sha512-0Nups2Szvg+a5c8Y0zAnK2UIeJy2oM625xV9s5sK1pgcCH6rT2vNHeEugKhEAwfNKUm0eE4kZwJOfyHn+9mPmg==}
     engines: {node: ^24.11.0, pnpm: ^10.0.0}
     hasBin: true
 
@@ -4927,8 +4927,8 @@ packages:
   simple-git@3.33.0:
     resolution: {integrity: sha512-D4V/tGC2sjsoNhoMybKyGoE+v8A60hRawKQ1iFRA1zwuDgGZCBJ4ByOzZ5J8joBbi4Oam0qiPH+GhzmSBwbJng==}
 
-  slugify@1.6.8:
-    resolution: {integrity: sha512-HVk9X1E0gz3mSpoi60h/saazLKXKaZThMLU3u/aNwoYn8/xQyX2MGxL0ui2eaokkD7tF+Zo+cKTHUbe1mmmGzA==}
+  slugify@1.6.9:
+    resolution: {integrity: sha512-vZ7rfeehZui7wQs438JXBckYLkIIdfHOXsaVEUMyS5fHo1483l1bMdo0EDSWYclY0yZKFOipDy4KHuKs6ssvdg==}
     engines: {node: '>=8.0.0'}
 
   smart-buffer@4.2.0:
@@ -11363,7 +11363,7 @@ snapshots:
       lodash: 4.17.23
       strip-ansi: 6.0.1
 
-  renovate@43.110.4(typanion@3.14.0):
+  renovate@43.110.7(typanion@3.14.0):
     dependencies:
       '@aws-sdk/client-codecommit': 3.1021.0
       '@aws-sdk/client-ec2': 3.1021.0
@@ -11470,7 +11470,7 @@ snapshots:
       semver-utils: 1.1.4
       shlex: 3.0.0
       simple-git: 3.33.0
-      slugify: 1.6.8
+      slugify: 1.6.9
       source-map-support: 0.5.21
       strip-json-comments: 5.0.3
       toml-eslint-parser: 1.0.3
@@ -11710,7 +11710,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  slugify@1.6.8: {}
+  slugify@1.6.9: {}
 
   smart-buffer@4.2.0:
     optional: true
