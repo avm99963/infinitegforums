@@ -17,7 +17,7 @@ bazel_dep(name = "rules_pkg", version = "1.2.0")
 bazel_dep(name = "rules_proto_grpc", version = "5.8.0")
 bazel_dep(name = "rules_proto_grpc_doc", version = "5.8.0")
 bazel_dep(name = "rules_proto_grpc_js", version = "5.8.0")
-bazel_dep(name = "rules_shell", version = "0.7.1")
+bazel_dep(name = "rules_shell", version = "0.8.0")
 
 single_version_override(
     module_name = "rules_pkg",
