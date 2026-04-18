@@ -117,8 +117,8 @@ importers:
         specifier: 0.12.7
         version: 0.12.7
       prettier:
-        specifier: 3.8.2
-        version: 3.8.2
+        specifier: 3.8.3
+        version: 3.8.3
       raw-loader:
         specifier: 4.0.2
         version: 4.0.2(webpack@5.105.4)
@@ -4628,8 +4628,8 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
-  prettier@3.8.2:
-    resolution: {integrity: sha512-8c3mgTe0ASwWAJK+78dpviD+A8EqhndQPUBpNUIPt6+xWlIigCwfN01lWr9MAede4uqXGTEKeQWTvzb3vjia0Q==}
+  prettier@3.8.3:
+    resolution: {integrity: sha512-7igPTM53cGHMW8xWuVTydi2KO233VFiTNyF5hLJqpilHfmn8C8gPf+PS7dUT64YcXFbiMGZxS9pCSxL/Dxm/Jw==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -11277,7 +11277,7 @@ snapshots:
 
   prettier@3.8.1: {}
 
-  prettier@3.8.2: {}
+  prettier@3.8.3: {}
 
   pretty-error@4.0.0:
     dependencies:
