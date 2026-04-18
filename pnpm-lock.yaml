@@ -123,8 +123,8 @@ importers:
         specifier: 4.0.2
         version: 4.0.2(webpack@5.105.4)
       renovate:
-        specifier: 43.121.0
-        version: 43.121.0(typanion@3.14.0)
+        specifier: 43.122.0
+        version: 43.122.0(typanion@3.14.0)
       sass:
         specifier: 1.99.0
         version: 1.99.0
@@ -2238,6 +2238,7 @@ packages:
   '@xmldom/xmldom@0.9.9':
     resolution: {integrity: sha512-qycIHAucxy/LXAYIjmLmtQ8q9GPnMbnjG1KXhWm9o5sCr6pOYDATkMPiTNa6/v8eELyqOQ2FsEqeoFYmgv/gJg==}
     engines: {node: '>=14.6'}
+    deprecated: this version has critical issues, please update to the latest version
 
   '@xtuc/ieee754@1.2.0':
     resolution: {integrity: sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA==}
@@ -4770,8 +4771,8 @@ packages:
   renderkid@3.0.0:
     resolution: {integrity: sha512-q/7VIQA8lmM1hF+jn+sFSPWGlMkSAeNYcPLmDQx2zzuiDfaLrOmumR8iaUKlenFgh0XRPIUeSPlH3A+AW3Z5pg==}
 
-  renovate@43.121.0:
-    resolution: {integrity: sha512-gySMsLFlYUMrgnMgqQyqX+bEIzW33NdGkbgKoDsq680yknIrK60tz3Tz394XROSh92408zItfD1WS6k57A/nSg==}
+  renovate@43.122.0:
+    resolution: {integrity: sha512-WTBumKTH4AF5/GTzae8i/7YuhkUUMFpihWbQi45Az1OJKJExVftez9kVAQPvdPNww1RAHVdg7wNhmMuSmHS+zQ==}
     engines: {node: ^24.11.0, pnpm: ^10.0.0}
     hasBin: true
 
@@ -11476,7 +11477,7 @@ snapshots:
       lodash: 4.17.23
       strip-ansi: 6.0.1
 
-  renovate@43.121.0(typanion@3.14.0):
+  renovate@43.122.0(typanion@3.14.0):
     dependencies:
       '@aws-sdk/client-codecommit': 3.1021.0
       '@aws-sdk/client-ec2': 3.1021.0
