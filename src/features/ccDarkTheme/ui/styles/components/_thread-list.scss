@@ -72,7 +72,7 @@ ec-thread-list material-fab.trigger {
 }
 
 // The following section changes the styles of the checkboxes in thread lists,
-// based in the styles defined in the "Checkbox input" section.
+// based in the styles defined in components/inputs/_checkbox.scss.
 ec-thread-summary material-expansionpanel .action material-button:not(.starred),
     ec-thread-list material-checkbox material-icon,
     ec-thread-summary material-expansionpanel .star-button:not(.starred),
