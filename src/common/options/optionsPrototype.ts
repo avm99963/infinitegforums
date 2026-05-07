@@ -179,11 +179,6 @@ const rawOptionConfigs = {
     context: OptionContext.Options,
     killSwitchType: KillSwitchType.Option,
   },
-  replysoftlock: {
-    defaultValue: false,
-    context: OptionContext.Options,
-    killSwitchType: KillSwitchType.Option,
-  },
   /** Forums where the soft lock checkbox is enabled by default. */
   replysoftlock_autosoftlockforums: {
     defaultValue: identity<string[]>([]),
@@ -198,6 +193,11 @@ const rawOptionConfigs = {
     killSwitchType: KillSwitchType.Experiment,
   },
   extrainfo: {
+    defaultValue: false,
+    context: OptionContext.Experiments,
+    killSwitchType: KillSwitchType.Experiment,
+  },
+  replysoftlock: {
     defaultValue: false,
     context: OptionContext.Experiments,
     killSwitchType: KillSwitchType.Experiment,

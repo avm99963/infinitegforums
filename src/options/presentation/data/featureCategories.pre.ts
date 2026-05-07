@@ -34,7 +34,6 @@ import { logStartupDataFeature } from '../../../features/logStartupData/presenta
 import { fixPEKB381989895Feature } from '@/features/fixPEKB381989895/presentation/options/feature';
 import { simulateRolesFeature } from '@/features/simulateRoles/presentation/options/feature';
 import { fixCrPopupFeature } from '@/features/fixCrPopup/presentation/options/feature';
-import { replySoftLockFeature } from '@/features/replySoftLock/presentation/options/feature';
 
 const minorUIEnhancementsSectionName = () =>
   msg('Minor UI enhancements', {
@@ -120,7 +119,9 @@ export const getFeatureCategories = () => [
     name: msg('Message composer', {
       desc: 'Name of the category of extension features related to the message composer.',
     }),
-    features: [fixLinkDialogFeature(), replySoftLockFeature()],
+    // TODO(https://iavm.xyz/b/twpowertools/286): add `replySoftLockFeature()`
+    // after we promote this experiment to a released feature.
+    features: [fixLinkDialogFeature()],
     sections: [
       new FeatureSection({
         name: minorUIEnhancementsSectionName(),
