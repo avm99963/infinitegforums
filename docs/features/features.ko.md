@@ -167,12 +167,6 @@ _기본 Tailwind, 커뮤니티 콘솔_
 
 _커뮤니티 콘솔_
 
-### Soft lock when replying
-
-Adds the option to soft lock the current thread in the reply editor.
-
-_커뮤니티 콘솔_ | [\[데모\]](https://raw.githubusercontent.com/avm99963/infinitegforums/HEAD/src/features/replySoftLock/presentation/options/assets/demo.avif)
-
 ### 사소한 UI 개선
 
 #### Fix canned responses popup
