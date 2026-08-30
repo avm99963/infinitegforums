@@ -35,3 +35,8 @@ link to your forum profile.
 [chrome-download]: https://chrome.google.com/webstore/detail/infinite-scroll-in-tw/hpgakoecmgibigdbnljgecablpipbajb
 [firefox-download]: https://addons.mozilla.org/addon/tw-power-tools/
 [twpowertools-discuss]: https://groups.google.com/g/twpowertools-discuss
+
+## Disclaimer
+
+This is a personal project. The views, code, and opinions expressed here are my
+own and do not represent those of my current or past employers.
