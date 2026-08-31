@@ -78,6 +78,11 @@ export default class AutoRefresh {
   unregister() {
     console.debug('autorefresh_list: unregistering');
 
+    if (this.statusIndicator) {
+      this.statusIndicator.remove();
+      this.statusIndicator = null;
+    }
+
     if (!this.isLookingForUpdates) return;
 
     window.clearInterval(this.interval);
@@ -280,14 +285,14 @@ export default class AutoRefresh {
     isOptionEnabled('autorefreshlist').then(isEnabled => {
       if (!isEnabled) return;
 
+      this.unregister();
+
       if (!this.isOrderedByTimestampDescending()) {
         this.injectStatusIndicator(false);
         console.debug(
             'autorefresh_list: refused to start up because the order is not by timestamp descending.');
         return;
       }
-
-      this.unregister();
 
       console.debug('autorefresh_list: starting set up...');
 
