@@ -2,7 +2,7 @@ load(":config.bzl", "enable_bulk_crs")
 
 enable_bulk_crs(
     name = "enable_bulk_crs",
-    build_setting_default = False,
+    build_setting_default = True,
 )
 
 config_setting(
