@@ -7,7 +7,7 @@ There are 2 ways to build the extension depending on your use case.
 
 ## Build the extension continuously (for developers)
 
-Run `make serve_chromium` (for Chromium) or `make serve_gecko` (for Firefox).
+Run `make serve_chromium` (for Chromium) or `make serve_gecko` (for Firefox). (iBazel required. *You installed it, right? Right?..*)
 
 This is useful if you're developing the extension and want a fast way to
 quickly test the changes you made to the source code to verify they work

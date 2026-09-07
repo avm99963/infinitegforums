@@ -4,6 +4,8 @@ Before starting to develop, you must set up your device. Thanks to our move to
 
 1. [Install Bazelisk][bazelisk-readme]. On Mac, you can install it with
    [Homebrew][homebrew].
+1. [Install iBazel (bazel-watcher)](https://github.com/bazelbuild/bazel-watcher#installation). On Mac, you can install it with
+   [Homebrew][homebrew].
 1. Clone the git repository to your device to retrieve the extension source
    code. To do that, [go here][clone-page] and execute the "clone with
    commit-msg hook" command listed there (if you sign in you'll see several
